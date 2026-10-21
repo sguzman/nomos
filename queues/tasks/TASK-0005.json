@@ -2,7 +2,7 @@
   "id": "TASK-0005",
   "title": "Validate rule metadata and conditional edition conflicts",
   "kind": "reasoning_implementation",
-  "status": "verifying",
+  "status": "completed",
   "created_on": "2026-10-21",
   "source": "Authorized processing of SPEC-0004 through SPEC-0012",
   "targets": [
@@ -17,10 +17,11 @@
   },
   "scope": "Extend schema, validator, JS composition analyzer and automated tests to handle fixed versus dynamic Cargo edition values and normative permission strength.",
   "processing_record": "processing/tasks/TASK-0005.json",
-  "remarks": "Task execution is separately recorded and awaits checks; queue record preserved as audit trail.",
+  "remarks": "Queue item completed; authorized work, verification and outputs are independently evidenced in processing/tasks/.",
   "processing": {
     "record": "processing/tasks/TASK-0005.json",
     "started_on": "2026-10-21",
-    "state": "verifying"
-  }
+    "state": "done"
+  },
+  "completed_on": "2026-10-21"
 }

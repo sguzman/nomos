@@ -1,7 +1,7 @@
 {
   "id": "TASK-0002",
   "title": "Review private generation-context rule candidate",
-  "status": "verifying",
+  "status": "completed",
   "kind": "catalog_review",
   "created_on": "2026-10-20",
   "requested_by": "user",
@@ -22,10 +22,11 @@
     "Confirm candidate metadata and relevant relations",
     "Do not mutate rules/ or publish without a separate authorized catalog decision"
   ],
-  "remarks": "Task execution is separately recorded and awaits checks; queue record preserved as audit trail.",
+  "remarks": "Queue item completed; authorized work, verification and outputs are independently evidenced in processing/tasks/.",
   "processing": {
     "record": "processing/tasks/TASK-0002.json",
     "started_on": "2026-10-21",
-    "state": "verifying"
-  }
+    "state": "done"
+  },
+  "completed_on": "2026-10-21"
 }

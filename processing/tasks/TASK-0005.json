@@ -1,14 +1,14 @@
 {
   "processing_id": "TASK-0005",
   "source_queue_record": "queues/tasks/TASK-0005.json",
-  "status": "verifying",
+  "status": "done",
   "started_on": "2026-10-21",
   "authorization": {
     "source": "User explicit request to complete specimen processing and downstream task queues",
     "on": "2026-10-21"
   },
   "disposition": {
-    "kind": "completed_pending_ci_verification",
+    "kind": "completed",
     "action": "Extend schema, Python validator and JS comparator with dynamic versus fixed Cargo edition constraints and permission-strength tests.",
     "outputs": [
       "schema/rule.schema.json",
@@ -22,12 +22,19 @@
     "automatically_applies_rules": false
   },
   "evidence": {
-    "commit": "pending",
-    "github_actions": "pending",
-    "browser_visual_qa": "not_performed",
-    "public_privacy_review": "synthetic/public-safe content only"
+    "release_commit": "f5f261aa0829e6c4b25efdc1304d42f4d14e3533",
+    "github_actions_run": "https://github.com/sguzman/nomos/actions/runs/39639504004",
+    "github_actions_result": "success",
+    "checks": [
+      "Build public catalog snapshot",
+      "Python rule and showcase unit tests",
+      "JavaScript syntax tests",
+      "Node comparison and color unit tests",
+      "GitHub Pages deployment"
+    ],
+    "browser_visual_qa": "not_performed; automated tests and deployment succeeded",
+    "publication_review": "Public-safe synthetic/general rule records; no private conversations, personal language, or nonpublic documents included",
+    "authority_note": "Published rules remain inert and are not applied to other repositories or consumers unless selected"
   },
-  "remaining_before_done": [
-    "GitHub Pages workflow and automated tests must pass"
-  ]
+  "completed_on": "2026-10-21"
 }

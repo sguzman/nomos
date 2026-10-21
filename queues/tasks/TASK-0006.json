@@ -2,7 +2,7 @@
   "id": "TASK-0006",
   "title": "Refresh gallery, ontology documentation and export checks",
   "kind": "website_implementation",
-  "status": "verifying",
+  "status": "completed",
   "created_on": "2026-10-21",
   "source": "Authorized processing of SPEC-0004 through SPEC-0012",
   "targets": [
@@ -24,10 +24,11 @@
   },
   "scope": "Update gallery public catalog, metadata explanations, browsing and exports; verify deployment and record remaining QA limits.",
   "processing_record": "processing/tasks/TASK-0006.json",
-  "remarks": "Task execution is separately recorded and awaits checks; queue record preserved as audit trail.",
+  "remarks": "Queue item completed; authorized work, verification and outputs are independently evidenced in processing/tasks/.",
   "processing": {
     "record": "processing/tasks/TASK-0006.json",
     "started_on": "2026-10-21",
-    "state": "verifying"
-  }
+    "state": "done"
+  },
+  "completed_on": "2026-10-21"
 }
