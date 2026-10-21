@@ -1,0 +1,56 @@
+{
+  "kind": "proposed_first_class_virtual_rule_group",
+  "status": "proposed",
+  "received_on": "2026-10-21",
+  "origin": "public_safe_development_hygiene_inventory",
+  "processing_authorized": false,
+  "publication_authorized": false,
+  "id": "GROUP-0001",
+  "title": "Development Hygiene & Quality of Life",
+  "summary": "Opt-in collection of independent development quality practices across Git, code quality, CI, documentation, safety, release management and QA.",
+  "metadata_labels": [
+    "development_hygiene",
+    "development_hygiene"
+  ],
+  "parent_group_ids": [],
+  "child_group_ids": [
+    "GROUP-0002",
+    "GROUP-0003",
+    "GROUP-0004",
+    "GROUP-0005",
+    "GROUP-0006",
+    "GROUP-0007",
+    "GROUP-0008"
+  ],
+  "member_specimen_ids": [],
+  "membership": {
+    "relation": "references_only",
+    "member_kind": "independent_atomic_specimen",
+    "can_overlap_with_other_groups": true,
+    "resolve_approved_rules_from_provenance_only_after_review": true
+  },
+  "one_click_selection": {
+    "proposed": true,
+    "requires_explicit_user_action": true,
+    "include_descendants": true,
+    "deduplicate_by_canonical_rule_id": true,
+    "never_auto_apply_to_consumer": true,
+    "do_not_activate_unapproved_specimens": true
+  },
+  "visual_identity": {
+    "color_space": "OKLCH",
+    "algorithm": "docs/rule-colors.js NomosColor.hueForId",
+    "string_key": "GROUP-0001",
+    "hue_degrees": 158.508,
+    "readable_label_required": true,
+    "claim_global_color_uniqueness": false
+  },
+  "display": {
+    "proposed_group_card": true,
+    "filterable_by_metadata": true,
+    "show_group_size": true,
+    "show_membership_and_status": true
+  },
+  "next_state": "awaiting_explicit_group_specimen_processing_selection",
+  "remarks": "Independent group proposal in the specimen intake store. This record does not add a published ontology kind, apply rules, or authorize downstream work."
+}

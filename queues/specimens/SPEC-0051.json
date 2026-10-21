@@ -1,0 +1,30 @@
+{
+  "id": "SPEC-0051",
+  "title": "Non-destructive operational defaults",
+  "status": "proposed",
+  "abstract": "Prefer inspection, bounded changes and explicit authorization before destructive operations.",
+  "source": {
+    "kind": "public_safe_inventory_abstraction",
+    "reference": "Development quality-of-life practice inventory; original conversation not reproduced",
+    "material_retained": false
+  },
+  "received_on": "2026-10-21",
+  "intake": {
+    "visibility": "public_safe_abstract_only",
+    "operation": "specimen_queue_entry",
+    "processing_authorized": false
+  },
+  "scope_hints": {
+    "topic": "development_hygiene",
+    "trigger": "When modifying data, files or external systems",
+    "frequency_hypothesis": "routine",
+    "normative_effect": "candidate_guidance_to_be_normalized",
+    "independent_atomic_rule": true
+  },
+  "proposed_virtual_group_refs": [
+    "GROUP-0006"
+  ],
+  "proposed_umbrella_group": "GROUP-0001",
+  "next_state": "awaiting_explicit_specimen_processing_selection",
+  "remarks": "Single independently selectable candidate rule. Group membership is display/composition metadata, not authority, activation, authorization to execute, or proof that this rule applies to any project."
+}

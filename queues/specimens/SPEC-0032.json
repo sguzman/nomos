@@ -1,0 +1,30 @@
+{
+  "id": "SPEC-0032",
+  "title": "Feature and target combinations",
+  "status": "proposed",
+  "abstract": "Test relevant feature flags, supported compilation targets and build configurations without inventing platform support.",
+  "source": {
+    "kind": "public_safe_inventory_abstraction",
+    "reference": "Development quality-of-life practice inventory; original conversation not reproduced",
+    "material_retained": false
+  },
+  "received_on": "2026-10-21",
+  "intake": {
+    "visibility": "public_safe_abstract_only",
+    "operation": "specimen_queue_entry",
+    "processing_authorized": false
+  },
+  "scope_hints": {
+    "topic": "development_hygiene",
+    "trigger": "When a project supports multiple build variants",
+    "frequency_hypothesis": "contextual",
+    "normative_effect": "candidate_guidance_to_be_normalized",
+    "independent_atomic_rule": true
+  },
+  "proposed_virtual_group_refs": [
+    "GROUP-0003"
+  ],
+  "proposed_umbrella_group": "GROUP-0001",
+  "next_state": "awaiting_explicit_specimen_processing_selection",
+  "remarks": "Single independently selectable candidate rule. Group membership is display/composition metadata, not authority, activation, authorization to execute, or proof that this rule applies to any project."
+}
