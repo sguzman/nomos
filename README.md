@@ -35,11 +35,11 @@ The checker uses Python's standard library and validates core structure, vocabul
 
 ## Relationship to Tarium
 
-Nomos is an independent repository. It may be considered for Tarium membership in the future, but **has not been enrolled**; no association is implied without explicit authorization.
+Nomos is an independent repository, separately authorized as a public [Tarium](https://github.com/sguzman/tarium) member. Its rules, ontology and website remain entirely within this repository; public listing does not automatically apply or select any rules.
 
 ## Completed specimen corpus
 
-All twelve specimens (SPEC-0001 through SPEC-0012) have processing dispositions. The later batch normalized SPEC-0004 through SPEC-0012 to NOM-0005 through NOM-0013, while earlier candidates NOM-0003/0004 were reviewed and cataloged. All proposals remain traceable to archived processing records. Catalog publication never applies a rule automatically, and Nomos is not enrolled in Tarium.
+All twelve specimens (SPEC-0001 through SPEC-0012) have processing dispositions. The later batch normalized SPEC-0004 through SPEC-0012 to NOM-0005 through NOM-0013, while earlier candidates NOM-0003/0004 were reviewed and cataloged. All proposals remain traceable to archived processing records. Catalog publication never applies a rule automatically, and Tarium membership does not select or apply any rule.
 
 ## Development hygiene catalog
 
