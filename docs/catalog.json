@@ -5974,7 +5974,6 @@
       "title": "Development Hygiene & Quality of Life",
       "summary": "Opt-in collection of independent development quality practices across Git, code quality, CI, documentation, safety, release management and QA.",
       "metadata_labels": [
-        "development_hygiene",
         "development_hygiene"
       ],
       "parent_group_ids": [],
