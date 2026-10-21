@@ -73,3 +73,50 @@ class RustEditionTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+class QuantifierBoundsTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        _, rules = load_catalog()
+        cls.rule = copy.deepcopy(next(r for r in rules if r["id"] == "NOM-0072"))
+
+    def test_complete_bounds_required(self):
+        from validate import validate_bounds
+        assert validate_bounds(self.rule) == []
+        del self.rule["norm"]["bounds"]
+        assert validate_bounds(self.rule)
+
+    def test_never_requires_zero_maximum(self):
+        from validate import validate_bounds
+        self.rule["norm"]["bounds"].update({
+            "quantifier": "unspecified", "interpretation": "unspecified",
+            "frequency": "never", "minimum": 0, "maximum": 2,
+            "unit": "occurrences", "window": None,
+            "cue": "never", "basis": "explicit_text"
+        })
+        assert any("never requires" in e for e in validate_bounds(self.rule))
+
+    def test_any_remains_ambiguous_until_review(self):
+        from validate import validate_bounds
+        b = self.rule["norm"]["bounds"]
+        b.update({"quantifier":"any", "interpretation":"unspecified", "frequency":"unspecified",
+                  "minimum":None, "maximum":None, "unit":"unspecified",
+                  "window":None, "cue":"any", "basis":"unresolved"})
+        assert validate_bounds(self.rule) == []
+        b["interpretation"] = "universal"
+        assert any("ambiguous any" in e for e in validate_bounds(self.rule))
+
+    def test_exactly_once_and_zero_are_numeric_conflicts_only_when_comparable(self):
+        from validate import bounds_incompatible
+        a = copy.deepcopy(self.rule)
+        b = copy.deepcopy(self.rule)
+        a["norm"]["bounds"].update({"minimum":1,"maximum":1,"unit":"occurrences",
+                                    "window":"per report","basis":"explicit_text"})
+        b["norm"]["bounds"].update({"minimum":0,"maximum":0,"unit":"occurrences",
+                                    "window":"per report","basis":"explicit_text"})
+        assert bounds_incompatible(a,b)
+        b["norm"]["bounds"]["window"] = "per week"
+        assert not bounds_incompatible(a,b)
+        b["norm"]["bounds"]["window"] = "per report"
+        b["norm"]["bounds"]["basis"] = "unresolved"
+        assert not bounds_incompatible(a,b)

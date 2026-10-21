@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/sguzman/nomos/blob/main/schema/rule.schema.json",
-  "title": "Nomos rule record 1.0",
+  "title": "Nomos rule record 1.1 — explicit quantification and bounds",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -66,7 +66,8 @@
         "predicate",
         "permission_strength",
         "conditions",
-        "exceptions"
+        "exceptions",
+        "bounds"
       ],
       "properties": {
         "kind": {
@@ -173,6 +174,100 @@
               }
             }
           ]
+        },
+        "bounds": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Independent lexical quantifier, interpreted meaning, frequency and numeric limits. Unreviewed historical rules retain unresolved values rather than guessed quantification.",
+          "required": [
+            "quantifier",
+            "interpretation",
+            "frequency",
+            "minimum",
+            "maximum",
+            "unit",
+            "window",
+            "cue",
+            "basis"
+          ],
+          "properties": {
+            "quantifier": {
+              "enum": [
+                "all",
+                "any",
+                "some",
+                "none",
+                "unspecified"
+              ],
+              "description": "Recorded quantity wording: any is ambiguous without interpretation."
+            },
+            "interpretation": {
+              "enum": [
+                "universal",
+                "existential",
+                "free_choice",
+                "zero",
+                "unspecified"
+              ],
+              "description": "Reviewed logical reading, independent of lexical wording and deontic kind."
+            },
+            "frequency": {
+              "enum": [
+                "always",
+                "never",
+                "sometimes",
+                "unspecified"
+              ],
+              "description": "Occurrence/frequency modality within the applicable scope."
+            },
+            "minimum": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 0,
+              "description": "Minimum permissible or required count if explicitly bounded; null is unknown."
+            },
+            "maximum": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 0,
+              "description": "Maximum permissible or required count if explicitly bounded; null is unbounded or unknown, not infinity."
+            },
+            "unit": {
+              "enum": [
+                "occurrences",
+                "entities",
+                "unspecified"
+              ]
+            },
+            "window": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "minLength": 1,
+              "description": "Time/event window in public-safe text, null if unspecified."
+            },
+            "cue": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "minLength": 1,
+              "description": "Source cue or short literal anchor supporting the interpretation; never a private excerpt."
+            },
+            "basis": {
+              "enum": [
+                "explicit_text",
+                "reviewed_inference",
+                "unresolved"
+              ],
+              "description": "Whether bounds were explicitly stated, carefully interpreted, or not yet normalized."
+            }
+          }
         }
       }
     },

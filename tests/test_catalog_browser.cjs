@@ -101,3 +101,13 @@ test('new group umbrella and its four children resolve nine independent rules', 
   const summary = search({ ...args, type:'rules',groupFilter:'GROUP-0011' });
   assert.deepEqual(summary.map(x=>x.value.id),['NOM-0071','NOM-0072']);
 });
+
+test('quantified bounds are searchable without fabricating unresolved values',()=>{
+  const never = search({ ...args, type:'rules', query:'never' });
+  assert.ok(never.some(x=>x.value.id==='NOM-0001'));
+  assert.ok(never.some(x=>x.value.id==='NOM-0072'));
+  const once = search({ ...args, type:'rules', query:'once' });
+  assert.ok(once.some(x=>x.value.id==='NOM-0071'));
+  const any = search({ ...args, type:'rules', query:'free_choice' });
+  assert.equal(any.filter(x=>x.value.norm.bounds.basis!=='unresolved').length,0);
+});

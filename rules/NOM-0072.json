@@ -1,6 +1,6 @@
 {
   "id": "NOM-0072",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Suppress completed items from subsequent routine progress reports",
   "summary": "After the 100 percent completion of a project, phase, milestone, task or feature has been reported once, omit it from later routine progress reports while preserving the underlying roadmap and completion history.",
   "statement": "After the 100 percent completion of a project, phase, milestone, task or feature has been reported once, omit it from later routine progress reports while preserving the underlying roadmap and completion history.",
@@ -20,7 +20,18 @@
     ],
     "exceptions": [
       "This does not erase archived completion data; explicitly reopened work may be reported as incomplete."
-    ]
+    ],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "never",
+      "minimum": 0,
+      "maximum": 0,
+      "unit": "occurrences",
+      "window": "later routine progress reports",
+      "cue": "omit it from later routine progress reports",
+      "basis": "reviewed_inference"
+    }
   },
   "categories": {
     "domains": [

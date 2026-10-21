@@ -1,6 +1,6 @@
 {
   "id": "NOM-0012",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Choose the latest stable supported Rust edition",
   "summary": "When selecting a Cargo package edition, use the newest stable Rust edition supported by the project's toolchain and compatibility requirements.",
   "statement": "When selecting a Cargo package edition, use the newest stable Rust edition supported by the project's toolchain and compatibility requirements.",
@@ -22,6 +22,17 @@
     "value_constraint": {
       "field": "package.edition",
       "operator": "latest_stable_supported"
+    },
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
     }
   },
   "categories": {

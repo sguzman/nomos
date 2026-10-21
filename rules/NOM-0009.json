@@ -1,6 +1,6 @@
 {
   "id": "NOM-0009",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Derive stable, distinguishable visual identities from strings",
   "summary": "Assign stable, deterministic identity colors from string IDs using a perceptually aware color method that prioritizes human distinction and preserves readable non-color identifiers.",
   "statement": "Assign stable, deterministic identity colors from string IDs using a perceptually aware color method that prioritizes human distinction and preserves readable non-color identifiers.",
@@ -18,7 +18,18 @@
     "conditions": [
       "Finite color spaces cannot guarantee globally unique colors."
     ],
-    "exceptions": []
+    "exceptions": [],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
   },
   "categories": {
     "domains": [

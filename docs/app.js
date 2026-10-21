@@ -58,6 +58,13 @@ function showDetails(rule) {
   addField(grid, 'Normative effect', human(rule.norm.kind));
   if (rule.norm.value_constraint) addField(grid, 'Exclusive value', rule.norm.value_constraint.field + ' · ' + rule.norm.value_constraint.operator + (rule.norm.value_constraint.value ? ' = ' + rule.norm.value_constraint.value : ' (resolved when applied)'));
   addField(grid, 'Predicate', Object.entries(rule.norm.predicate).map(([k, v]) => k + '=' + v).join(' · '));
+  if (rule.norm.bounds) {
+    const b = rule.norm.bounds;
+    addField(grid, 'Quantity', b.quantifier + ' (' + b.interpretation.replace(/_/g,' ') + ')');
+    addField(grid, 'Frequency', b.frequency);
+    addField(grid, 'Numeric bounds', (b.minimum ?? '?') + '–' + (b.maximum ?? '?') + ' ' + b.unit + (b.window ? ' / ' + b.window : ''));
+    addField(grid, 'Bounds evidence', b.basis.replace(/_/g,' ') + (b.cue ? ' · ' + b.cue : ''));
+  }
   addField(grid, 'Domains', words(rule.categories.domains));
   addField(grid, 'Topics', words(rule.categories.topics));
   addField(grid, 'Audience', words(rule.categories.audiences));
@@ -93,6 +100,13 @@ function createCard(rule) {
   const tags = element('div', 'tag-row');
   tags.append(element('span', 'tag norm-tag' + (rule.norm.kind === 'permission' ? ' permission' : ''), human(rule.norm.kind)));
   for (const domain of rule.categories.domains.slice(0, 3)) tags.append(element('span', 'tag', human(domain)));
+  const bounds = rule.norm.bounds;
+  if (bounds && bounds.basis !== 'unresolved') {
+    const label = bounds.frequency !== 'unspecified' ? bounds.frequency :
+      bounds.quantifier !== 'unspecified' ? bounds.quantifier :
+      bounds.minimum === 1 && bounds.maximum === 1 ? 'exactly once' : 'bounded';
+    tags.append(element('span', 'tag', 'Bounds: ' + label));
+  }
   for (const name of ruleGroupTags(rule)) tags.append(element('span','tag group-tag',name));
   card.append(tags);
   const bottom = element('div', 'card-bottom');
@@ -231,6 +245,10 @@ function ruleExportBlock(rule) {
     '- Applies when: ' + scopeSummary(rule),
     '- Rule: ' + rule.statement
   ];
+  if (rule.norm.bounds && rule.norm.bounds.basis !== 'unresolved') {
+    const b = rule.norm.bounds;
+    out.push('- Quantification: ' + b.quantifier + ' (' + b.interpretation + '); frequency ' + b.frequency + '; count ' + (b.minimum ?? '?') + '..' + (b.maximum ?? '?') + ' ' + b.unit + (b.window ? ' per ' + b.window : '') + '; ' + b.basis);
+  }
   if (rule.norm.value_constraint) out.push('- Value constraint: ' + rule.norm.value_constraint.field + ' ' + rule.norm.value_constraint.operator + (rule.norm.value_constraint.value ? ' ' + rule.norm.value_constraint.value : ' (resolve when applied)'));
   if (rule.norm.conditions.length) out.push('- Conditions: ' + rule.norm.conditions.join('; '));
   if (rule.norm.exceptions.length) out.push('- Exceptions: ' + rule.norm.exceptions.join('; '));

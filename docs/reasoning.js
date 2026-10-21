@@ -21,6 +21,13 @@ const NomosReasoning = (() => {
     if(x.operator!=='equals'||y.operator!=='equals') return 'dynamic_equal';
     return 'equal';
   }
+  function boundsIncompatible(a,b) {
+    const x=a.norm.bounds,y=b.norm.bounds;
+    if (!x||!y||x.basis==='unresolved'||y.basis==='unresolved') return false;
+    if (!['occurrences','entities'].includes(x.unit)||x.unit!==y.unit||x.window!==y.window) return false;
+    return (x.maximum!=null&&y.minimum!=null&&x.maximum<y.minimum) ||
+           (y.maximum!=null&&x.minimum!=null&&y.maximum<x.minimum);
+  }
   function assess(a,b,context={}) {
     if(!overlaps(a,b)) return 'disjoint';
     if(!samePredicate(a,b)) return 'unrelated';
@@ -32,6 +39,7 @@ const NomosReasoning = (() => {
       return p.norm.permission_strength==='strong'?'conflict':'overlap';
     }
     if(kinds.size===1&&kinds.has('obligation')) {
+      if(boundsIncompatible(a,b))return 'conflict';
       if(relation==='different')return 'conflict';
       if(relation==='dynamic_unknown'||relation==='dynamic_equal')return 'conditional';
     }
@@ -57,6 +65,6 @@ const NomosReasoning = (() => {
     }
     return {conflicts,conditional,overlaps:overlapsFound};
   }
-  return Object.freeze({overlaps,samePredicate,values,assess,analyze});
+  return Object.freeze({overlaps,samePredicate,values,boundsIncompatible,assess,analyze});
 })();
 if(typeof module!=='undefined'&&module.exports)module.exports=NomosReasoning;

@@ -43,6 +43,12 @@ class SiteCatalogTests(unittest.TestCase):
                 for rid in group["member_rule_ids"]:
                     self.assertEqual(rules[rid]["status"], "published")
 
+    def test_every_current_rule_exposes_bounds_metadata(self):
+        for rule in self.data["rules"]:
+            bounds = rule["norm"]["bounds"]
+            self.assertEqual(set(bounds), {"quantifier","interpretation","frequency","minimum",
+                                           "maximum","unit","window","cue","basis"})
+
     def test_every_entry_has_composition_metadata(self):
         for rule in self.data["rules"]:
             with self.subTest(rule=rule["id"]):

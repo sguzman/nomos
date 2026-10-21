@@ -1,6 +1,6 @@
 {
   "id": "NOM-0003",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Do not disclose nonpublic information without authorization",
   "summary": "Do not include confidential or otherwise nonpublic information in public outputs without specific authorization to disclose that information.",
   "statement": "Do not include confidential or otherwise nonpublic information in public outputs without specific authorization to disclose that information.",
@@ -18,7 +18,18 @@
     "conditions": [
       "Specific authorization to disclose the information has not been given"
     ],
-    "exceptions": []
+    "exceptions": [],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
   },
   "categories": {
     "domains": [

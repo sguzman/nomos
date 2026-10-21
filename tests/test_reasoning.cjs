@@ -31,3 +31,17 @@ test('disjoint visibility scopes prevent false conflicts',()=>{
  a.scope.axes.visibility=['public'];b.scope.axes.visibility=['private'];
  assert.equal(cmp.assess(a,b),'disjoint');
 });
+
+test('disjoint reviewed count ranges conflict only for the same normalized predicate and window',()=>{
+ const a=rule('NUM-A','obligation','equals','2024');
+ const b=rule('NUM-B','obligation','equals','2024');
+ a.norm.bounds={quantifier:'unspecified',interpretation:'unspecified',frequency:'unspecified',
+   minimum:1,maximum:1,unit:'occurrences',window:'each report',cue:'once',basis:'explicit_text'};
+ b.norm.bounds={...a.norm.bounds,minimum:0,maximum:0,cue:'zero'};
+ assert.equal(cmp.assess(a,b),'conflict');
+ b.norm.bounds.window='each week';
+ assert.notEqual(cmp.assess(a,b),'conflict');
+ b.norm.bounds.window='each report';
+ b.norm.bounds.basis='unresolved';
+ assert.notEqual(cmp.assess(a,b),'conflict');
+});

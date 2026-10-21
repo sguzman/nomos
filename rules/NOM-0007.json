@@ -1,6 +1,6 @@
 {
   "id": "NOM-0007",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Maintain a per-project ontology and public specimen showcase",
   "summary": "Each explicitly enrolled Tarium project must maintain its own independently usable ontology and public website showcasing representative ontology specimens.",
   "statement": "Each explicitly enrolled Tarium project must maintain its own independently usable ontology and public website showcasing representative ontology specimens.",
@@ -18,7 +18,18 @@
     "conditions": [
       "Tarium membership must be explicitly approved."
     ],
-    "exceptions": []
+    "exceptions": [],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
   },
   "categories": {
     "domains": [

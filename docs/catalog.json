@@ -1,10 +1,10 @@
 {
-  "schema_version": "2.1",
+  "schema_version": "2.2",
   "source": "Nomos public catalog and independent published virtual groups",
   "rules": [
     {
       "id": "NOM-0001",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Do not publish private material to public repositories",
       "summary": "Prevent private material from entering public repository surfaces.",
       "statement": "Do not include private material in public Git repository artifacts or their associated publication surfaces.",
@@ -20,7 +20,18 @@
         },
         "permission_strength": "not_applicable",
         "conditions": [],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "never",
+          "minimum": 0,
+          "maximum": 0,
+          "unit": "occurrences",
+          "window": null,
+          "cue": "Do not include private material",
+          "basis": "reviewed_inference"
+        }
       },
       "categories": {
         "domains": [
@@ -75,7 +86,7 @@
       },
       "governance": {
         "created_on": "2026-10-20",
-        "updated_on": "2026-10-20",
+        "updated_on": "2026-10-21",
         "review_status": "approved"
       },
       "export_targets": [
@@ -87,7 +98,7 @@
     },
     {
       "id": "NOM-0002",
-      "version": "0.1.0",
+      "version": "1.1.0",
       "title": "Permit private expression in private diaries",
       "summary": "Allow personal material within an explicitly private diary.",
       "statement": "An explicitly private diary may contain private material when it remains private.",
@@ -103,7 +114,18 @@
         },
         "permission_strength": "strong",
         "conditions": [],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -157,7 +179,7 @@
       },
       "governance": {
         "created_on": "2026-10-20",
-        "updated_on": "2026-10-20",
+        "updated_on": "2026-10-21",
         "review_status": "unreviewed"
       },
       "export_targets": [
@@ -169,7 +191,7 @@
     },
     {
       "id": "NOM-0003",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Do not disclose nonpublic information without authorization",
       "summary": "Do not include confidential or otherwise nonpublic information in public outputs without specific authorization to disclose that information.",
       "statement": "Do not include confidential or otherwise nonpublic information in public outputs without specific authorization to disclose that information.",
@@ -187,7 +209,18 @@
         "conditions": [
           "Specific authorization to disclose the information has not been given"
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -254,7 +287,7 @@
     },
     {
       "id": "NOM-0004",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Do not expose private generation context in public outputs",
       "summary": "Do not reproduce or reveal private conversations, private drafting language, or nonpublic internal instructions in public outputs merely because they informed the work; public release of the result does not by itself authorize release of its private inputs.",
       "statement": "Do not reproduce or reveal private conversations, private drafting language, or nonpublic internal instructions in public outputs merely because they informed the work; public release of the result does not by itself authorize release of its private inputs.",
@@ -272,7 +305,18 @@
         "conditions": [
           "Separate authorization to disclose the private generation context has not been given"
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -341,7 +385,7 @@
     },
     {
       "id": "NOM-0005",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Require system-aware appearance themes in graphical interfaces",
       "summary": "Graphical and web applications must support light, dark, and system appearance modes; start with system mode and provide an immediately effective on-screen dropdown for changing modes.",
       "statement": "Graphical and web applications must support light, dark, and system appearance modes; start with system mode and provide an immediately effective on-screen dropdown for changing modes.",
@@ -357,7 +401,18 @@
         },
         "permission_strength": "not_applicable",
         "conditions": [],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -426,7 +481,7 @@
     },
     {
       "id": "NOM-0006",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Represent Tarium ontology for humans and machines",
       "summary": "Each explicitly enrolled Tarium project must publish mutually consistent machine-readable ontology records and human-readable ontology documentation.",
       "statement": "Each explicitly enrolled Tarium project must publish mutually consistent machine-readable ontology records and human-readable ontology documentation.",
@@ -444,7 +499,18 @@
         "conditions": [
           "Only applies to explicitly enrolled Tarium projects."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -510,7 +576,7 @@
     },
     {
       "id": "NOM-0007",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Maintain a per-project ontology and public specimen showcase",
       "summary": "Each explicitly enrolled Tarium project must maintain its own independently usable ontology and public website showcasing representative ontology specimens.",
       "statement": "Each explicitly enrolled Tarium project must maintain its own independently usable ontology and public website showcasing representative ontology specimens.",
@@ -528,7 +594,18 @@
         "conditions": [
           "Tarium membership must be explicitly approved."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -595,7 +672,7 @@
     },
     {
       "id": "NOM-0008",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Prefer Rust for application code and justify narrow exceptions",
       "summary": "Write application implementation code in Rust; permit non-Rust website code only with a recorded justification; use Lua when scripting is required, and prefer TOML, JSON, and Markdown for their respective configuration and documentation roles.",
       "statement": "Write application implementation code in Rust; permit non-Rust website code only with a recorded justification; use Lua when scripting is required, and prefer TOML, JSON, and Markdown for their respective configuration and documentation roles.",
@@ -613,7 +690,18 @@
         "conditions": [
           "Scripting uses Lua; declarative configuration and documentation use their appropriate formats."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -678,7 +766,7 @@
     },
     {
       "id": "NOM-0009",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Derive stable, distinguishable visual identities from strings",
       "summary": "Assign stable, deterministic identity colors from string IDs using a perceptually aware color method that prioritizes human distinction and preserves readable non-color identifiers.",
       "statement": "Assign stable, deterministic identity colors from string IDs using a perceptually aware color method that prioritizes human distinction and preserves readable non-color identifiers.",
@@ -696,7 +784,18 @@
         "conditions": [
           "Finite color spaces cannot guarantee globally unique colors."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -761,7 +860,7 @@
     },
     {
       "id": "NOM-0010",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Create structured roadmaps with stable emoji identities",
       "summary": "New projects must begin with a clear roadmap of phases, milestones, subtasks, and features; give each roadmap item its own stable identifying emoji separate from status.",
       "statement": "New projects must begin with a clear roadmap of phases, milestones, subtasks, and features; give each roadmap item its own stable identifying emoji separate from status.",
@@ -779,7 +878,18 @@
         "conditions": [
           "Applies when creating a project from scratch."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "all",
+          "interpretation": "universal",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "entities",
+          "window": null,
+          "cue": "each roadmap item",
+          "basis": "explicit_text"
+        }
       },
       "categories": {
         "domains": [
@@ -845,7 +955,7 @@
     },
     {
       "id": "NOM-0011",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Keep specimen intake, processing, derived task queue and execution distinct",
       "summary": "Keep specimen intake, authorized specimen analysis, any resulting downstream task queue, and execution of those tasks as independent, explicitly authorized workflows with distinct states and traceable transitions.",
       "statement": "Keep specimen intake, authorized specimen analysis, any resulting downstream task queue, and execution of those tasks as independent, explicitly authorized workflows with distinct states and traceable transitions.",
@@ -863,7 +973,18 @@
         "conditions": [
           "Derived tasks do not exist automatically merely because analysis finishes."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -929,7 +1050,7 @@
     },
     {
       "id": "NOM-0012",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Choose the latest stable supported Rust edition",
       "summary": "When selecting a Cargo package edition, use the newest stable Rust edition supported by the project's toolchain and compatibility requirements.",
       "statement": "When selecting a Cargo package edition, use the newest stable Rust edition supported by the project's toolchain and compatibility requirements.",
@@ -951,6 +1072,17 @@
         "value_constraint": {
           "field": "package.edition",
           "operator": "latest_stable_supported"
+        },
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
         }
       },
       "categories": {
@@ -1017,7 +1149,7 @@
     },
     {
       "id": "NOM-0013",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Choose Rust edition 2024 for Cargo packages",
       "summary": "When selecting a Cargo package edition, set the [package].edition value to 2024.",
       "statement": "When selecting a Cargo package edition, set the [package].edition value to 2024.",
@@ -1040,6 +1172,17 @@
           "field": "package.edition",
           "operator": "equals",
           "value": "2024"
+        },
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
         }
       },
       "categories": {
@@ -1106,7 +1249,7 @@
     },
     {
       "id": "NOM-0014",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Repository inspection",
       "summary": "Inspect the existing source tree, configuration, branch, and established conventions before modifying a repository.",
       "statement": "Inspect the existing source tree, configuration, branch, and established conventions before modifying a repository.",
@@ -1126,7 +1269,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -1196,7 +1350,7 @@
     },
     {
       "id": "NOM-0015",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Main branch default",
       "summary": "Use the existing main branch by default; deviate only when specifically instructed for the repository or task.",
       "statement": "Use the existing main branch by default; deviate only when specifically instructed for the repository or task.",
@@ -1216,7 +1370,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -1286,7 +1451,7 @@
     },
     {
       "id": "NOM-0016",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Change scope containment",
       "summary": "Keep changes within the authorized task and repository; avoid unrelated edits or surprise features.",
       "statement": "Keep changes within the authorized task and repository; avoid unrelated edits or surprise features.",
@@ -1306,7 +1471,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -1376,7 +1552,7 @@
     },
     {
       "id": "NOM-0017",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Coherent descriptive commits",
       "summary": "Record authorized changes in logical commits with concise, informative commit messages.",
       "statement": "Record authorized changes in logical commits with concise, informative commit messages.",
@@ -1396,7 +1572,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -1466,7 +1653,7 @@
     },
     {
       "id": "NOM-0018",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Maintain ignore rules",
       "summary": "Exclude generated outputs, temporary artifacts, machine-specific files and secrets through appropriate ignore rules.",
       "statement": "Exclude generated outputs, temporary artifacts, machine-specific files and secrets through appropriate ignore rules.",
@@ -1486,7 +1673,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -1556,7 +1754,7 @@
     },
     {
       "id": "NOM-0019",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Respect project licensing",
       "summary": "Preserve existing licenses; add a suitable license at an explicitly authorized bootstrap when needed.",
       "statement": "Preserve existing licenses; add a suitable license at an explicitly authorized bootstrap when needed.",
@@ -1576,7 +1774,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -1646,7 +1855,7 @@
     },
     {
       "id": "NOM-0020",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Dependency lockfile consistency",
       "summary": "Keep tracked dependency lockfiles synchronized with manifest changes, using the conventions for that application or library.",
       "statement": "Keep tracked dependency lockfiles synchronized with manifest changes, using the conventions for that application or library.",
@@ -1666,7 +1875,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -1736,7 +1956,7 @@
     },
     {
       "id": "NOM-0021",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Remove obsolete scaffolding safely",
       "summary": "Remove obsolete templates, dead files and stale configuration only after checking for active dependencies and preserving unrelated work.",
       "statement": "Remove obsolete templates, dead files and stale configuration only after checking for active dependencies and preserving unrelated work.",
@@ -1756,7 +1976,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -1826,7 +2057,7 @@
     },
     {
       "id": "NOM-0022",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Verify Git branch and history",
       "summary": "Verify branch identity, expected ancestry and the exact changes before updating repository references.",
       "statement": "Verify branch identity, expected ancestry and the exact changes before updating repository references.",
@@ -1846,7 +2077,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -1916,7 +2158,7 @@
     },
     {
       "id": "NOM-0023",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Verify committed state",
       "summary": "Confirm successful commits and the intended branch HEAD before reporting work as committed.",
       "statement": "Confirm successful commits and the intended branch HEAD before reporting work as committed.",
@@ -1936,7 +2178,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -2006,7 +2259,7 @@
     },
     {
       "id": "NOM-0024",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Rust formatting",
       "summary": "Check Rust source formatting with cargo fmt or equivalent toolchain-supported formatting.",
       "statement": "Check Rust source formatting with cargo fmt or equivalent toolchain-supported formatting.",
@@ -2026,7 +2279,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -2096,7 +2360,7 @@
     },
     {
       "id": "NOM-0025",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Rust Clippy linting",
       "summary": "Run Clippy on relevant targets and address actionable diagnostics; select warning strictness deliberately.",
       "statement": "Run Clippy on relevant targets and address actionable diagnostics; select warning strictness deliberately.",
@@ -2116,7 +2380,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -2186,7 +2461,7 @@
     },
     {
       "id": "NOM-0026",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Rust compilation checks",
       "summary": "Use cargo check or an appropriate build to verify compilation under the project's intended toolchain.",
       "statement": "Use cargo check or an appropriate build to verify compilation under the project's intended toolchain.",
@@ -2206,7 +2481,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -2276,7 +2562,7 @@
     },
     {
       "id": "NOM-0027",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Unit tests",
       "summary": "Write and maintain focused automated tests for important functions, modules and invariants.",
       "statement": "Write and maintain focused automated tests for important functions, modules and invariants.",
@@ -2296,7 +2582,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -2366,7 +2663,7 @@
     },
     {
       "id": "NOM-0028",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Integration tests",
       "summary": "Test interactions across components and public interfaces where integration boundaries warrant it.",
       "statement": "Test interactions across components and public interfaces where integration boundaries warrant it.",
@@ -2386,7 +2683,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -2456,7 +2764,7 @@
     },
     {
       "id": "NOM-0029",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Regression tests",
       "summary": "Reproduce reported defects with automated tests and retain them to detect recurrence.",
       "statement": "Reproduce reported defects with automated tests and retain them to detect recurrence.",
@@ -2476,7 +2784,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -2546,7 +2865,7 @@
     },
     {
       "id": "NOM-0030",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Edge-case coverage",
       "summary": "Cover invalid states, malformed inputs, missing resources and failure paths relevant to the feature.",
       "statement": "Cover invalid states, malformed inputs, missing resources and failure paths relevant to the feature.",
@@ -2566,7 +2885,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -2636,7 +2966,7 @@
     },
     {
       "id": "NOM-0031",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Synthetic fixtures",
       "summary": "Prefer minimal synthetic, correctly licensed fixtures over personal, secret or commercial inputs.",
       "statement": "Prefer minimal synthetic, correctly licensed fixtures over personal, secret or commercial inputs.",
@@ -2656,7 +2986,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -2726,7 +3067,7 @@
     },
     {
       "id": "NOM-0032",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Deterministic testing",
       "summary": "Make automated tests reproducible and independent of unnecessary network or timing variability.",
       "statement": "Make automated tests reproducible and independent of unnecessary network or timing variability.",
@@ -2746,7 +3087,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -2816,7 +3168,7 @@
     },
     {
       "id": "NOM-0033",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Feature and target combinations",
       "summary": "Test relevant feature flags, supported compilation targets and build configurations without inventing platform support.",
       "statement": "Test relevant feature flags, supported compilation targets and build configurations without inventing platform support.",
@@ -2836,7 +3188,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -2906,7 +3269,7 @@
     },
     {
       "id": "NOM-0034",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Continuous validation workflows",
       "summary": "Configure an appropriate GitHub Actions or comparable validation workflow for a repository.",
       "statement": "Configure an appropriate GitHub Actions or comparable validation workflow for a repository.",
@@ -2926,7 +3289,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -2996,7 +3370,7 @@
     },
     {
       "id": "NOM-0035",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "CI event triggers",
       "summary": "Run configured checks for appropriate events, such as pushes, while respecting repository workflow policies.",
       "statement": "Run configured checks for appropriate events, such as pushes, while respecting repository workflow policies.",
@@ -3016,7 +3390,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -3086,7 +3471,7 @@
     },
     {
       "id": "NOM-0036",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "CI quality gates",
       "summary": "Combine applicable formatting, compilation, linting and test checks into automated validation stages.",
       "statement": "Combine applicable formatting, compilation, linting and test checks into automated validation stages.",
@@ -3106,7 +3491,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -3176,7 +3572,7 @@
     },
     {
       "id": "NOM-0037",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Cross-platform CI checks",
       "summary": "Exercise supported operating systems in CI without claiming unsupported platform compatibility.",
       "statement": "Exercise supported operating systems in CI without claiming unsupported platform compatibility.",
@@ -3196,7 +3592,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -3266,7 +3673,7 @@
     },
     {
       "id": "NOM-0038",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Deployment workflows",
       "summary": "Automate approved website or artifact deployment through GitHub Pages or an appropriate existing target.",
       "statement": "Automate approved website or artifact deployment through GitHub Pages or an appropriate existing target.",
@@ -3286,7 +3693,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -3356,7 +3774,7 @@
     },
     {
       "id": "NOM-0039",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Repair failing CI",
       "summary": "Investigate failed workflow steps, fix underlying causes where authorized and recheck status.",
       "statement": "Investigate failed workflow steps, fix underlying causes where authorized and recheck status.",
@@ -3376,7 +3794,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -3446,7 +3875,7 @@
     },
     {
       "id": "NOM-0040",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Workflow configuration maintenance",
       "summary": "Maintain workflow permissions, triggers, versions and paths to match actual repository needs.",
       "statement": "Maintain workflow permissions, triggers, versions and paths to match actual repository needs.",
@@ -3466,7 +3895,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -3536,7 +3976,7 @@
     },
     {
       "id": "NOM-0041",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Verify CI outcomes",
       "summary": "Report whether each relevant check was successful, failed, skipped or pending rather than presuming success.",
       "statement": "Report whether each relevant check was successful, failed, skipped or pending rather than presuming success.",
@@ -3556,7 +3996,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -3626,7 +4077,7 @@
     },
     {
       "id": "NOM-0042",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "README upkeep",
       "summary": "Keep the project README aligned with its purpose, setup, usage and development procedures.",
       "statement": "Keep the project README aligned with its purpose, setup, usage and development procedures.",
@@ -3646,7 +4097,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -3716,7 +4178,7 @@
     },
     {
       "id": "NOM-0043",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Roadmap status accuracy",
       "summary": "Maintain milestones and task completion states according to evidence; never equate a future idea with an authorized task.",
       "statement": "Maintain milestones and task completion states according to evidence; never equate a future idea with an authorized task.",
@@ -3736,7 +4198,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -3806,7 +4279,7 @@
     },
     {
       "id": "NOM-0044",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Architecture documentation",
       "summary": "Document consequential design decisions, interfaces and data models in project-appropriate files.",
       "statement": "Document consequential design decisions, interfaces and data models in project-appropriate files.",
@@ -3826,7 +4299,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -3896,7 +4380,7 @@
     },
     {
       "id": "NOM-0045",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Configuration reference",
       "summary": "Document configuration keys, defaults, examples and environment requirements.",
       "statement": "Document configuration keys, defaults, examples and environment requirements.",
@@ -3916,7 +4400,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -3986,7 +4481,7 @@
     },
     {
       "id": "NOM-0046",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "CLI help accuracy",
       "summary": "Synchronize command help, flags and examples with implemented command-line behavior.",
       "statement": "Synchronize command help, flags and examples with implemented command-line behavior.",
@@ -4006,7 +4501,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -4076,7 +4582,7 @@
     },
     {
       "id": "NOM-0047",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Changelog upkeep",
       "summary": "Record notable user-facing changes in the repository's established changelog or release notes.",
       "statement": "Record notable user-facing changes in the repository's established changelog or release notes.",
@@ -4096,7 +4602,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -4166,7 +4683,7 @@
     },
     {
       "id": "NOM-0048",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Documentation consistency audit",
       "summary": "Identify and correct stale instructions, inaccurate claims and broken internal links.",
       "statement": "Identify and correct stale instructions, inaccurate claims and broken internal links.",
@@ -4186,7 +4703,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -4256,7 +4784,7 @@
     },
     {
       "id": "NOM-0049",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Source provenance and attribution",
       "summary": "Preserve publication-safe references, licenses and hashes needed to explain imported data or resources.",
       "statement": "Preserve publication-safe references, licenses and hashes needed to explain imported data or resources.",
@@ -4276,7 +4804,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -4346,7 +4885,7 @@
     },
     {
       "id": "NOM-0050",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Public repository privacy review",
       "summary": "Review public-facing files, fixtures, metadata and commits for unauthorized nonpublic material.",
       "statement": "Review public-facing files, fixtures, metadata and commits for unauthorized nonpublic material.",
@@ -4366,7 +4905,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -4436,7 +4986,7 @@
     },
     {
       "id": "NOM-0051",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Keep secrets out of version control",
       "summary": "Avoid committing credentials, access tokens, private keys and nonpublic configuration.",
       "statement": "Avoid committing credentials, access tokens, private keys and nonpublic configuration.",
@@ -4456,7 +5006,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -4526,7 +5087,7 @@
     },
     {
       "id": "NOM-0052",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Non-destructive operational defaults",
       "summary": "Prefer inspection, bounded changes and explicit authorization before destructive operations.",
       "statement": "Prefer inspection, bounded changes and explicit authorization before destructive operations.",
@@ -4546,7 +5107,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -4616,7 +5188,7 @@
     },
     {
       "id": "NOM-0053",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Data round-trip integrity",
       "summary": "Verify preservation of data through import, export, migration, hashing or serialization where applicable.",
       "statement": "Verify preservation of data through import, export, migration, hashing or serialization where applicable.",
@@ -4636,7 +5208,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -4706,7 +5289,7 @@
     },
     {
       "id": "NOM-0054",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Backwards compatibility checks",
       "summary": "Guard established public APIs, file formats and command behavior against unintended breaking changes.",
       "statement": "Guard established public APIs, file formats and command behavior against unintended breaking changes.",
@@ -4726,7 +5309,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -4796,7 +5390,7 @@
     },
     {
       "id": "NOM-0055",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Semantic version policy",
       "summary": "Use coherent major, minor and patch version semantics for projects adopting semantic versioning.",
       "statement": "Use coherent major, minor and patch version semantics for projects adopting semantic versioning.",
@@ -4816,7 +5410,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -4886,7 +5491,7 @@
     },
     {
       "id": "NOM-0056",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Synchronize version references",
       "summary": "Keep declared package versions, relevant manifests, release notes and tags mutually consistent.",
       "statement": "Keep declared package versions, relevant manifests, release notes and tags mutually consistent.",
@@ -4906,7 +5511,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -4976,7 +5592,7 @@
     },
     {
       "id": "NOM-0057",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Release readiness checks",
       "summary": "Confirm builds, tests, package contents and release notes before an authorized release.",
       "statement": "Confirm builds, tests, package contents and release notes before an authorized release.",
@@ -4996,7 +5612,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -5066,7 +5693,7 @@
     },
     {
       "id": "NOM-0058",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Versioned release tags",
       "summary": "Create and verify version tags only when publishing a release is explicitly authorized.",
       "statement": "Create and verify version tags only when publishing a release is explicitly authorized.",
@@ -5086,7 +5713,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -5156,7 +5794,7 @@
     },
     {
       "id": "NOM-0059",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Release artifact packaging",
       "summary": "Build and assemble platform-appropriate distributable binaries, libraries or archives for authorized releases.",
       "statement": "Build and assemble platform-appropriate distributable binaries, libraries or archives for authorized releases.",
@@ -5176,7 +5814,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -5246,7 +5895,7 @@
     },
     {
       "id": "NOM-0060",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Artifact integrity hashes",
       "summary": "Produce integrity checksums for distributable artifacts when useful and preserve their correspondence to outputs.",
       "statement": "Produce integrity checksums for distributable artifacts when useful and preserve their correspondence to outputs.",
@@ -5266,7 +5915,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -5336,7 +5996,7 @@
     },
     {
       "id": "NOM-0061",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Release workflow automation",
       "summary": "Use relevant release tooling or workflows when automation adds value and publishing scope is authorized.",
       "statement": "Use relevant release tooling or workflows when automation adds value and publishing scope is authorized.",
@@ -5356,7 +6016,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -5426,7 +6097,7 @@
     },
     {
       "id": "NOM-0062",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Automated smoke checks",
       "summary": "Verify startup and essential functionality with repeatable smoke tests where the environment supports it.",
       "statement": "Verify startup and essential functionality with repeatable smoke tests where the environment supports it.",
@@ -5446,7 +6117,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -5516,7 +6198,7 @@
     },
     {
       "id": "NOM-0063",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "GUI and browser QA",
       "summary": "Check relevant UI interactions and layout in a real GUI or browser when available, and disclose untested paths.",
       "statement": "Check relevant UI interactions and layout in a real GUI or browser when available, and disclose untested paths.",
@@ -5536,7 +6218,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -5606,7 +6299,7 @@
     },
     {
       "id": "NOM-0064",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Acceptance criteria review",
       "summary": "Compare delivered functionality with the original authorized requirements and record deviations.",
       "statement": "Compare delivered functionality with the original authorized requirements and record deviations.",
@@ -5626,7 +6319,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -5696,7 +6400,7 @@
     },
     {
       "id": "NOM-0065",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Evidence-based state labels",
       "summary": "Distinguish written, staged, committed, compiled, tested, deployed and visually verified states.",
       "statement": "Distinguish written, staged, committed, compiled, tested, deployed and visually verified states.",
@@ -5716,7 +6420,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -5786,7 +6501,7 @@
     },
     {
       "id": "NOM-0066",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Verifiable completion reports",
       "summary": "Report concrete commit IDs, test results, deployment evidence and unresolved work.",
       "statement": "Report concrete commit IDs, test results, deployment evidence and unresolved work.",
@@ -5806,7 +6521,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -5876,7 +6602,7 @@
     },
     {
       "id": "NOM-0067",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Preserve unfinished work state",
       "summary": "Keep blockers and unfinished acceptance criteria visible rather than marking incomplete work as complete.",
       "statement": "Keep blockers and unfinished acceptance criteria visible rather than marking incomplete work as complete.",
@@ -5896,7 +6622,18 @@
           "Applies only when expressly selected for a matching project or authorized development workflow.",
           "This rule does not itself authorize changes to other repositories, publication or destructive work."
         ],
-        "exceptions": []
+        "exceptions": [],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -5966,7 +6703,7 @@
     },
     {
       "id": "NOM-0068",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Report progress for touched roadmap items",
       "summary": "Each development progress report should show progress for every phase, milestone, task and feature worked on during its reporting interval.",
       "statement": "Each development progress report should show progress for every phase, milestone, task and feature worked on during its reporting interval.",
@@ -5986,7 +6723,18 @@
         ],
         "exceptions": [
           "Items whose completed state was already announced and not reopened."
-        ]
+        ],
+        "bounds": {
+          "quantifier": "all",
+          "interpretation": "universal",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "entities",
+          "window": null,
+          "cue": "every phase, milestone, task, and feature",
+          "basis": "explicit_text"
+        }
       },
       "categories": {
         "domains": [
@@ -6055,7 +6803,7 @@
     },
     {
       "id": "NOM-0069",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Pair progress percentages with visual progress bars",
       "summary": "For each reported work item, show a numeric completion percentage together with a visual progress bar conveying the same value.",
       "statement": "For each reported work item, show a numeric completion percentage together with a visual progress bar conveying the same value.",
@@ -6075,7 +6823,18 @@
         ],
         "exceptions": [
           "Do not invent numerical precision when progress cannot be estimated."
-        ]
+        ],
+        "bounds": {
+          "quantifier": "all",
+          "interpretation": "universal",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "entities",
+          "window": null,
+          "cue": "For each reported work item",
+          "basis": "explicit_text"
+        }
       },
       "categories": {
         "domains": [
@@ -6145,7 +6904,7 @@
     },
     {
       "id": "NOM-0070",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Report overall project progress alongside individual items",
       "summary": "Include an overall project progress summary alongside the progress of relevant phases, milestones, tasks and features.",
       "statement": "Include an overall project progress summary alongside the progress of relevant phases, milestones, tasks and features.",
@@ -6165,7 +6924,18 @@
         ],
         "exceptions": [
           "Do not double-count nested milestones or infer unverified aggregate percentages."
-        ]
+        ],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -6234,7 +7004,7 @@
     },
     {
       "id": "NOM-0071",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Announce first attainment of 100 percent exactly once",
       "summary": "When a project, phase, milestone, task or feature first reaches 100 percent, show its completion and percentage once in the reporting conversation.",
       "statement": "When a project, phase, milestone, task or feature first reaches 100 percent, show its completion and percentage once in the reporting conversation.",
@@ -6254,7 +7024,18 @@
         ],
         "exceptions": [
           "Historical completion events should not be reannounced as new completions."
-        ]
+        ],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": 1,
+          "maximum": 1,
+          "unit": "occurrences",
+          "window": "first report after item completion",
+          "cue": "once",
+          "basis": "explicit_text"
+        }
       },
       "categories": {
         "domains": [
@@ -6323,7 +7104,7 @@
     },
     {
       "id": "NOM-0072",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Suppress completed items from subsequent routine progress reports",
       "summary": "After the 100 percent completion of a project, phase, milestone, task or feature has been reported once, omit it from later routine progress reports while preserving the underlying roadmap and completion history.",
       "statement": "After the 100 percent completion of a project, phase, milestone, task or feature has been reported once, omit it from later routine progress reports while preserving the underlying roadmap and completion history.",
@@ -6343,7 +7124,18 @@
         ],
         "exceptions": [
           "This does not erase archived completion data; explicitly reopened work may be reported as incomplete."
-        ]
+        ],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "never",
+          "minimum": 0,
+          "maximum": 0,
+          "unit": "occurrences",
+          "window": "later routine progress reports",
+          "cue": "omit it from later routine progress reports",
+          "basis": "reviewed_inference"
+        }
       },
       "categories": {
         "domains": [
@@ -6414,7 +7206,7 @@
     },
     {
       "id": "NOM-0073",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Display project identity colors in README documentation",
       "summary": "Embed a project's assigned stable, perceptually distinguishable identity color in its README using a portable rendering such as SVG or CSS when suitable.",
       "statement": "Embed a project's assigned stable, perceptually distinguishable identity color in its README using a portable rendering such as SVG or CSS when suitable.",
@@ -6434,7 +7226,18 @@
         ],
         "exceptions": [
           "Do not expose private project artifacts; preserve README rendering compatibility."
-        ]
+        ],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -6508,7 +7311,7 @@
     },
     {
       "id": "NOM-0074",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Maintain behavioral fidelity during strict software ports",
       "summary": "During a strict software port, prioritize the agreed upstream application's observable behavior over redesign and unrelated enhancements.",
       "statement": "During a strict software port, prioritize the agreed upstream application's observable behavior over redesign and unrelated enhancements.",
@@ -6528,7 +7331,18 @@
         ],
         "exceptions": [
           "Explicitly authorized deviations from the upstream baseline."
-        ]
+        ],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -6598,7 +7412,7 @@
     },
     {
       "id": "NOM-0075",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Define porting MVP through verified replacement capability",
       "summary": "For a strict software port, judge MVP against the agreed capability to replace the upstream application's baseline functionality rather than successful compilation alone.",
       "statement": "For a strict software port, judge MVP against the agreed capability to replace the upstream application's baseline functionality rather than successful compilation alone.",
@@ -6618,7 +7432,18 @@
         ],
         "exceptions": [
           "Compilation alone is not proof of replacement capability."
-        ]
+        ],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [
@@ -6690,7 +7515,7 @@
     },
     {
       "id": "NOM-0076",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Defer nonessential enhancements until strict-port MVP",
       "summary": "Keep redesigns and optional post-MVP features outside the strict porting phase until the agreed MVP is reached, unless a separately authorized exception changes scope.",
       "statement": "Keep redesigns and optional post-MVP features outside the strict porting phase until the agreed MVP is reached, unless a separately authorized exception changes scope.",
@@ -6710,7 +7535,18 @@
         ],
         "exceptions": [
           "Independently authorized pre-MVP additions are outside this default deferral."
-        ]
+        ],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
       },
       "categories": {
         "domains": [

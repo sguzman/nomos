@@ -55,6 +55,8 @@ const NomosCatalog = (() => {
       const memberships=groups.filter(g=>g.member_rule_ids.includes(r.id));
       const text=[r.id,r.title,r.summary,r.statement,...r.categories.domains,
         ...r.categories.topics,...r.categories.audiences,
+        r.norm.kind, r.norm.bounds?.quantifier || '', r.norm.bounds?.interpretation || '',
+        r.norm.bounds?.frequency || '', r.norm.bounds?.cue || '',
         ...memberships.flatMap(g=>[g.id,g.title,...g.metadata_labels])].join(' ').toLocaleLowerCase();
       if (text.includes(term)) hits.push({kind:'rule',value:r});
     }

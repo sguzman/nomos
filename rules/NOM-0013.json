@@ -1,6 +1,6 @@
 {
   "id": "NOM-0013",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Choose Rust edition 2024 for Cargo packages",
   "summary": "When selecting a Cargo package edition, set the [package].edition value to 2024.",
   "statement": "When selecting a Cargo package edition, set the [package].edition value to 2024.",
@@ -23,6 +23,17 @@
       "field": "package.edition",
       "operator": "equals",
       "value": "2024"
+    },
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
     }
   },
   "categories": {

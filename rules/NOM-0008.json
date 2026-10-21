@@ -1,6 +1,6 @@
 {
   "id": "NOM-0008",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Prefer Rust for application code and justify narrow exceptions",
   "summary": "Write application implementation code in Rust; permit non-Rust website code only with a recorded justification; use Lua when scripting is required, and prefer TOML, JSON, and Markdown for their respective configuration and documentation roles.",
   "statement": "Write application implementation code in Rust; permit non-Rust website code only with a recorded justification; use Lua when scripting is required, and prefer TOML, JSON, and Markdown for their respective configuration and documentation roles.",
@@ -18,7 +18,18 @@
     "conditions": [
       "Scripting uses Lua; declarative configuration and documentation use their appropriate formats."
     ],
-    "exceptions": []
+    "exceptions": [],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
   },
   "categories": {
     "domains": [

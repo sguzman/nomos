@@ -1,6 +1,6 @@
 {
   "id": "NOM-0066",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Verifiable completion reports",
   "summary": "Report concrete commit IDs, test results, deployment evidence and unresolved work.",
   "statement": "Report concrete commit IDs, test results, deployment evidence and unresolved work.",
@@ -20,7 +20,18 @@
       "Applies only when expressly selected for a matching project or authorized development workflow.",
       "This rule does not itself authorize changes to other repositories, publication or destructive work."
     ],
-    "exceptions": []
+    "exceptions": [],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
   },
   "categories": {
     "domains": [

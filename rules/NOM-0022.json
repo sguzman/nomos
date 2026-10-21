@@ -1,6 +1,6 @@
 {
   "id": "NOM-0022",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Verify Git branch and history",
   "summary": "Verify branch identity, expected ancestry and the exact changes before updating repository references.",
   "statement": "Verify branch identity, expected ancestry and the exact changes before updating repository references.",
@@ -20,7 +20,18 @@
       "Applies only when expressly selected for a matching project or authorized development workflow.",
       "This rule does not itself authorize changes to other repositories, publication or destructive work."
     ],
-    "exceptions": []
+    "exceptions": [],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
   },
   "categories": {
     "domains": [

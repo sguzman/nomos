@@ -91,3 +91,9 @@ Changing Sort rerenders the unified catalog, announces the current order beside 
 Five more groups are published: **Project Management & Development** (GROUP-0009), **Progress Reporting** (0010), **Completion Reporting** (0011), **Project Identity** (0012) and **Porting & Compatibility** (0013). The umbrella contains nine distinct new rules through its four child groups. They appear in the existing combined catalog and work with the same search, type, sort, filter, Browse members and Add all actions as other groups. Completion-reporting rules are independent so that first-time 100% announcements are kept separate from their later suppression.
 
 Identity colors preserve all earlier NOM-0001–NOM-0067 and GROUP-0001–GROUP-0008 assignments. The five new groups are allocated perceptually separated unused palette positions, with other distinct slots assigned to NOM-0068–NOM-0076. The remaining palette is finite, so unseen future IDs may require a documented extension.
+
+## Normative quantification and bounds
+
+Rule details now show structured quantity, logical interpretation, frequency, numeric limits, source cue and evidence status from `norm.bounds`. This is separate from the prohibition/permission/obligation kind and action predicate. Historical entries with no reviewed quantifier are marked `unresolved` instead of having “never”, “always”, “any”, or “all” guessed from vague language. Exported instructions include resolved quantification when meaningful. Tests cover internal consistency and conservatively detectable numeric interval conflicts. See [ONTOLOGY.md](../ONTOLOGY.md).
+
+Reviewed quantifiers also appear as small **Bounds:** tags on rule cards and are indexed by catalog search. Unreviewed entries are not misleadingly given categorical badges; their detail metadata explicitly identifies unresolved semantics.

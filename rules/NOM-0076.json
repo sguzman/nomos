@@ -1,6 +1,6 @@
 {
   "id": "NOM-0076",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Defer nonessential enhancements until strict-port MVP",
   "summary": "Keep redesigns and optional post-MVP features outside the strict porting phase until the agreed MVP is reached, unless a separately authorized exception changes scope.",
   "statement": "Keep redesigns and optional post-MVP features outside the strict porting phase until the agreed MVP is reached, unless a separately authorized exception changes scope.",
@@ -20,7 +20,18 @@
     ],
     "exceptions": [
       "Independently authorized pre-MVP additions are outside this default deferral."
-    ]
+    ],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
   },
   "categories": {
     "domains": [

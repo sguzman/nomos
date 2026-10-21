@@ -1,6 +1,6 @@
 {
   "id": "NOM-0054",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Backwards compatibility checks",
   "summary": "Guard established public APIs, file formats and command behavior against unintended breaking changes.",
   "statement": "Guard established public APIs, file formats and command behavior against unintended breaking changes.",
@@ -20,7 +20,18 @@
       "Applies only when expressly selected for a matching project or authorized development workflow.",
       "This rule does not itself authorize changes to other repositories, publication or destructive work."
     ],
-    "exceptions": []
+    "exceptions": [],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
   },
   "categories": {
     "domains": [

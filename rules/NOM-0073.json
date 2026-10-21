@@ -1,6 +1,6 @@
 {
   "id": "NOM-0073",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Display project identity colors in README documentation",
   "summary": "Embed a project's assigned stable, perceptually distinguishable identity color in its README using a portable rendering such as SVG or CSS when suitable.",
   "statement": "Embed a project's assigned stable, perceptually distinguishable identity color in its README using a portable rendering such as SVG or CSS when suitable.",
@@ -20,7 +20,18 @@
     ],
     "exceptions": [
       "Do not expose private project artifacts; preserve README rendering compatibility."
-    ]
+    ],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
   },
   "categories": {
     "domains": [

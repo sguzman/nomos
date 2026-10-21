@@ -1,6 +1,6 @@
 {
   "id": "NOM-0043",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Roadmap status accuracy",
   "summary": "Maintain milestones and task completion states according to evidence; never equate a future idea with an authorized task.",
   "statement": "Maintain milestones and task completion states according to evidence; never equate a future idea with an authorized task.",
@@ -20,7 +20,18 @@
       "Applies only when expressly selected for a matching project or authorized development workflow.",
       "This rule does not itself authorize changes to other repositories, publication or destructive work."
     ],
-    "exceptions": []
+    "exceptions": [],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
   },
   "categories": {
     "domains": [

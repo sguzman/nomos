@@ -1,6 +1,6 @@
 {
   "id": "NOM-0005",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Require system-aware appearance themes in graphical interfaces",
   "summary": "Graphical and web applications must support light, dark, and system appearance modes; start with system mode and provide an immediately effective on-screen dropdown for changing modes.",
   "statement": "Graphical and web applications must support light, dark, and system appearance modes; start with system mode and provide an immediately effective on-screen dropdown for changing modes.",
@@ -16,7 +16,18 @@
     },
     "permission_strength": "not_applicable",
     "conditions": [],
-    "exceptions": []
+    "exceptions": [],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
   },
   "categories": {
     "domains": [

@@ -1,6 +1,6 @@
 {
   "id": "NOM-0011",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Keep specimen intake, processing, derived task queue and execution distinct",
   "summary": "Keep specimen intake, authorized specimen analysis, any resulting downstream task queue, and execution of those tasks as independent, explicitly authorized workflows with distinct states and traceable transitions.",
   "statement": "Keep specimen intake, authorized specimen analysis, any resulting downstream task queue, and execution of those tasks as independent, explicitly authorized workflows with distinct states and traceable transitions.",
@@ -18,7 +18,18 @@
     "conditions": [
       "Derived tasks do not exist automatically merely because analysis finishes."
     ],
-    "exceptions": []
+    "exceptions": [],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
   },
   "categories": {
     "domains": [

@@ -1,6 +1,6 @@
 {
   "id": "NOM-0069",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Pair progress percentages with visual progress bars",
   "summary": "For each reported work item, show a numeric completion percentage together with a visual progress bar conveying the same value.",
   "statement": "For each reported work item, show a numeric completion percentage together with a visual progress bar conveying the same value.",
@@ -20,7 +20,18 @@
     ],
     "exceptions": [
       "Do not invent numerical precision when progress cannot be estimated."
-    ]
+    ],
+    "bounds": {
+      "quantifier": "all",
+      "interpretation": "universal",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "entities",
+      "window": null,
+      "cue": "For each reported work item",
+      "basis": "explicit_text"
+    }
   },
   "categories": {
     "domains": [

@@ -1,6 +1,6 @@
 {
   "id": "NOM-0068",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Report progress for touched roadmap items",
   "summary": "Each development progress report should show progress for every phase, milestone, task and feature worked on during its reporting interval.",
   "statement": "Each development progress report should show progress for every phase, milestone, task and feature worked on during its reporting interval.",
@@ -20,7 +20,18 @@
     ],
     "exceptions": [
       "Items whose completed state was already announced and not reopened."
-    ]
+    ],
+    "bounds": {
+      "quantifier": "all",
+      "interpretation": "universal",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "entities",
+      "window": null,
+      "cue": "every phase, milestone, task, and feature",
+      "basis": "explicit_text"
+    }
   },
   "categories": {
     "domains": [
