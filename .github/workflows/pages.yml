@@ -36,6 +36,8 @@ jobs:
           python3 tools/validate.py
           python3 -m unittest discover -s tests -v
           node --check docs/app.js
+          node --check docs/rule-colors.js
+          node --test tests/test_rule_colors.cjs
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload showcase

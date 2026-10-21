@@ -37,3 +37,21 @@ Alternatively choose branch-based publishing from `main` and `/docs` after regen
 - Generated instructions preserve scope but do not override higher-priority rules.
 - Website selections are ephemeral user actions, not new ontology entities.
 - No trackers, third-party services, private specimen content, or browser storage are used.
+
+## Stable rule colors
+
+Each rule's swatch is derived solely from its identifier by `rule-colors.js`.
+Consecutive numbered rules take golden-angle steps through perceptually uniform
+OKLCH hues with a namespace-specific starting offset. The same ID always
+gets the same hue, independent of filtering, selection, or catalog order.
+Day and night adjust lightness for the respective background. This is a
+human-distinction heuristic, not a guarantee of unique colors for every
+possible string; each swatch is always accompanied by its readable rule ID.
+
+## Appearance
+
+The top-right Theme dropdown offers System (default), Day, and Night. It changes
+the entire interface immediately. System mode follows OS preference changes.
+Choice is intentionally not persisted, so reload starts in System mode.
+Vanilla JavaScript is retained solely for this browser-native presentation and
+interaction layer; there is no separate non-Rust application backend.

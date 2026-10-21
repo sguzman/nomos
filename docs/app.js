@@ -15,6 +15,14 @@ function human(value) { return String(value).replace(/_/g, ' '); }
 function words(values) { return (values || []).map(human).join(', ') || 'None'; }
 function statusOf(rule) { return rule.registry === 'candidate' ? 'candidate' : rule.status; }
 function byId(id) { return state.rules.find(r => r.id === id); }
+function identityLabel(rule) {
+  const identity = element('span', 'rule-identity');
+  identity.style.setProperty('--rule-hue', NomosColor.hueForId(rule.id) + 'deg');
+  const swatch = element('span', 'rule-swatch');
+  swatch.setAttribute('aria-hidden', 'true');
+  identity.append(swatch, element('span', 'rule-id', rule.id));
+  return identity;
+}
 function selectedRules() { return state.selected.map(byId).filter(Boolean); }
 function scopeSummary(rule) {
   const parts = scopeAxes.map(axis => human(axis) + ': ' + words(rule.scope.axes[axis]));
@@ -69,7 +77,9 @@ function addListSection(parent, title, items) {
 function showDetails(rule) {
   const root = $('rule-detail');
   root.replaceChildren();
-  root.append(element('span', 'rule-id', rule.id + ' · ' + statusOf(rule).toUpperCase()));
+  const identity = identityLabel(rule);
+  identity.append(element('span', 'identity-status', ' · ' + statusOf(rule).toUpperCase()));
+  root.append(identity);
   const title = element('h2', 'dialog-title', rule.title);
   title.id = 'dialog-title';
   root.append(title);
@@ -105,7 +115,7 @@ function createCard(rule) {
   const selected = state.selected.includes(rule.id);
   const card = element('article', 'rule-card' + (selected ? ' is-selected' : ''));
   const top = element('div', 'card-top');
-  top.append(element('span', 'rule-id', rule.id));
+  top.append(identityLabel(rule));
   top.append(element('span', 'status-pill ' + statusOf(rule), statusOf(rule).toUpperCase()));
   card.append(top);
   card.append(element('h3', '', rule.title));
@@ -151,7 +161,9 @@ function renderSelection() {
   const nodes = selected.map(rule => {
     const row = element('div', 'selection-item');
     const info = element('div', 'selection-item-info');
-    info.append(element('span', 'selected-id', rule.id + ' · ' + statusOf(rule)));
+    const identity = identityLabel(rule);
+    identity.append(element('span', 'selected-status', ' · ' + statusOf(rule)));
+    info.append(identity);
     info.append(element('strong', '', rule.title));
     const remove = element('button', '', '×');
     remove.type = 'button';
@@ -301,6 +313,12 @@ async function init() {
     announce('Error loading catalog: ' + error.message);
   }
 }
+// System mode is the default on every load; CSS also follows OS changes live.
+$('theme-select').addEventListener('change', () => {
+  const chosen = $('theme-select').value;
+  if (!['system', 'light', 'dark'].includes(chosen)) return;
+  document.documentElement.dataset.theme = chosen;
+});
 $('filter-form').addEventListener('submit', event => event.preventDefault());
 for (const id of ['search', 'filter-status', 'filter-domain']) {
   $(id).addEventListener(id === 'search' ? 'input' : 'change', renderRules);

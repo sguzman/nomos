@@ -4,9 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Explore independent rules, compare their scopes, and compose portable agent instructions with Nomos.">
-  <meta name="theme-color" content="#0d1220">
+  <meta name="color-scheme" content="light dark">
   <title>Nomos · Rule registry and composer</title>
   <link rel="stylesheet" href="./styles.css">
+  <script src="./rule-colors.js" defer></script>
   <script src="./app.js" defer></script>
 </head>
 <body>
@@ -14,7 +15,17 @@
   <header class="masthead">
     <div class="shell masthead-inner">
       <a class="brand" href="./" aria-label="Nomos home"><span class="brand-glyph" aria-hidden="true">N</span><span>nomos<span class="brand-period">.</span></span></a>
-      <div class="masthead-right"><span class="edition">PUBLIC SHOWCASE · 01</span><a href="https://github.com/sguzman/nomos" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></div>
+      <div class="masthead-right">
+        <span class="edition">PUBLIC SHOWCASE · 01</span>
+        <label class="theme-control" for="theme-select"><span>Theme</span>
+          <select id="theme-select" aria-label="Color theme">
+            <option value="system" selected>System</option>
+            <option value="light">Day</option>
+            <option value="dark">Night</option>
+          </select>
+        </label>
+        <a href="https://github.com/sguzman/nomos" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      </div>
     </div>
   </header>
 
