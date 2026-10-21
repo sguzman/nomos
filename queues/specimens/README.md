@@ -15,3 +15,7 @@ See [WORKFLOW.md](../../WORKFLOW.md) for authorization boundaries.
 ## New queued naming prohibition
 
 `SPEC-0077` proposes one independently addressable negative rule: avoid suggesting new names ending with the case-insensitive suffix `arium`. The intake records the proposed scope and suffix-match semantics for later conflict analysis. This is **queued only**, not a published rule or an authorization to implement new constraint-checking logic.
+
+## Queued local-repository YAML job practices (2026-10-21)
+
+`SPEC-0078`–`SPEC-0084` contain seven independent proposed rules: ask for the real local path, reject invented paths, prohibit substitute or temporary repositories, avoid large embedded Python in YAML, maintain scripts under `scripts/`, invoke those scripts from YAML, and pull current Git changes before local project work. These are public-safe abstractions and remain **queued only**. No local job, clone, new project, task execution or catalog publication is authorized by intake.

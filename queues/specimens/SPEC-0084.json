@@ -1,0 +1,61 @@
+{
+  "id": "SPEC-0084",
+  "title": "Pull latest changes before local repository YAML job work",
+  "status": "proposed",
+  "abstract": "Before performing work on an existing local Git repository through a YAML-specified execution job, run git pull in that verified repository to retrieve the latest remote changes rather than operating on an assumed-current checkout.",
+  "source": {
+    "kind": "public_safe_user_requested_workflow_rule",
+    "reference": "Generalized local repository YAML execution practice; original private conversation and language not reproduced",
+    "material_retained": false
+  },
+  "received_on": "2026-10-21",
+  "intake": {
+    "visibility": "public_safe_abstract_only",
+    "operation": "specimen_queue_entry",
+    "processing_authorized": false
+  },
+  "scope_hints": {
+    "domains": [
+      "agent_instructions",
+      "software_development",
+      "workflow_governance"
+    ],
+    "topic": "local_repository_yaml_job_safety",
+    "candidate_normative_kind": "obligation",
+    "predicate_hypothesis": {
+      "action": "run",
+      "object": "git_pull",
+      "target": "local_repository_preflight"
+    },
+    "bounds_hypothesis": {
+      "quantifier": "all",
+      "interpretation": "universal",
+      "frequency": "always",
+      "minimum": null,
+      "maximum": null,
+      "unit": "occurrences",
+      "window": "per_applicable_local_repo_job",
+      "cue": "before/when applicable",
+      "basis": "reviewed_inference"
+    },
+    "trigger": "per_applicable_local_repo_job",
+    "independent_atomic_rule": true,
+    "scope_boundary": "YAML execution jobs for the user's existing local repository; not blanket authorization to touch other repositories"
+  },
+  "possible_existing_coverage": [
+    "NOM-0014",
+    "NOM-0015"
+  ],
+  "conflict_tracking": {
+    "relation_type": "conflicts_with",
+    "candidate_conflicts": [],
+    "automatic_resolution": false
+  },
+  "unresolved": [
+    "Review the applicable job specification and trigger before normalization.",
+    "Distinguish mandatory git pull from the separate need to handle pull failures or non-fast-forward updates safely.",
+    "Confirm there is no implicit authorization to fabricate, create, clone, or modify an unrelated repository."
+  ],
+  "next_state": "awaiting_explicit_specimen_processing_selection",
+  "remarks": "Queued atomic proposal only. No specimen processing, catalog publication, local job execution, repository creation, or downstream task authorization is implied."
+}
