@@ -10,6 +10,7 @@
   <script src="./rule-colors.js" defer></script>
   <script src="./reasoning.js" defer></script>
   <script src="./groups.js" defer></script>
+  <script src="./catalog-browser.js" defer></script>
   <script src="./app.js" defer></script>
 </head>
 <body>
@@ -51,7 +52,7 @@
     </section>
 
     <section class="stats" aria-label="Current registry size">
-      <div><span class="stat-number" id="count-all">—</span><span class="stat-label">VISIBLE RULES</span></div>
+      <div><span class="stat-number" id="count-all">—</span><span class="stat-label">CATALOG ITEMS</span></div>
       <div><span class="stat-number" id="count-published">—</span><span class="stat-label">PUBLISHED</span></div>
       <div><span class="stat-number" id="count-draft">—</span><span class="stat-label">DRAFTS / CANDIDATES</span></div>
       <div><span class="stat-number" id="count-selected">0</span><span class="stat-label">SELECTED</span></div>
@@ -59,24 +60,18 @@
 
     <section class="workspace" id="registry" aria-label="Rule browser and composer">
       <div class="explorer">
-        <section class="group-gallery" aria-labelledby="groups-title">
-          <div class="section-heading"><div><p class="eyebrow">01 / COLLECTIONS</p><h2 id="groups-title">Virtual groups</h2></div><span class="heading-explainer">Group metadata never changes individual rules.</span></div>
-          <label class="search-wrap group-search-label"><span aria-hidden="true">⌕</span><span class="sr-only">Search virtual groups</span><input id="group-search" type="search" placeholder="Search group titles and labels…" autocomplete="off"></label>
-          <div class="results-line" id="group-results" aria-live="polite">Loading groups…</div>
-          <div class="group-list" id="group-list"></div>
-          <div class="empty hidden" id="group-empty">No matching virtual groups.</div>
-        </section>
-        <div class="section-heading"><div><p class="eyebrow">02 / ATOMIC RULES</p><h2>Rule registry</h2></div><span class="heading-explainer">Each rule remains independent.</span></div>
+        <div class="section-heading"><div><p class="eyebrow">01 / DISCOVER</p><h2>Catalog</h2></div><span class="heading-explainer">Groups and independent rules, together.</span></div>
         <button type="button" class="active-group-filter hidden" id="active-group-filter"></button>
-        <form class="filters" id="filter-form" role="search" autocomplete="off">
-          <label class="search-wrap"><span aria-hidden="true">⌕</span><span class="sr-only">Search rules</span><input id="search" type="search" placeholder="Search rules, domains, IDs…" autocomplete="off"></label>
+        <form class="filters catalog-filters" id="filter-form" role="search" autocomplete="off">
+          <label class="search-wrap"><span aria-hidden="true">⌕</span><span class="sr-only">Search catalog</span><input id="search" type="search" placeholder="Search rules, groups, domains, IDs…" autocomplete="off"></label>
+          <label><span class="sr-only">Filter by item type</span><select id="filter-type" aria-label="Item type"><option value="all">All items</option><option value="groups">Groups only</option><option value="rules">Rules only</option></select></label>
           <label><span class="sr-only">Filter by status</span><select id="filter-status"><option value="all">All statuses</option><option value="published">Published</option><option value="draft">Catalog drafts</option><option value="candidate">Candidates</option></select></label>
-          <label><span class="sr-only">Filter by domain</span><select id="filter-domain"><option value="all">All domains</option></select></label>
+          <label><span class="sr-only">Filter by domain or label</span><select id="filter-domain"><option value="all">All domains / labels</option></select></label>
           <button type="button" id="clear-filters" class="clear-filters">Reset</button>
         </form>
-        <div class="results-line"><span id="result-count" aria-live="polite">Loading registry…</span><span class="dot-separator">•</span><span>Entries are independent, even when they overlap</span></div>
-        <div class="rules" id="rule-list" aria-live="polite"></div>
-        <div class="empty hidden" id="empty-results"><strong>No matching rules.</strong><p>Try a broader search or clear the filters.</p></div>
+        <div class="results-line"><span id="result-count" aria-live="polite">Loading catalog…</span><span class="dot-separator">•</span><span>Collections are optional; every rule stands alone</span></div>
+        <div class="rules catalog-list" id="catalog-list" aria-live="polite"></div>
+        <div class="empty hidden" id="empty-results"><strong>No matching items.</strong><p>Try a broader search or reset the filters.</p></div>
       </div>
 
       <aside class="composer" id="composer" aria-labelledby="composer-title">

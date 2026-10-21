@@ -110,66 +110,68 @@ function ruleGroupTags(rule) {
   return state.groups.filter(group=>group.member_rule_ids.includes(rule.id)).map(group=>group.title);
 }
 
-function renderGroups() {
-  const query = $('group-search').value.trim().toLowerCase();
-  const matches = state.groups.filter(g=>[g.id,g.title,g.summary,...g.metadata_labels].join(' ').toLowerCase().includes(query));
-  $('group-results').textContent = matches.length+' of '+state.groups.length+' groups';
-  const nodes = matches.map(g => {
-    const ids = NomosGroups.expand(g.id,state.groups,state.rules);
-    const card=element('article','group-card');
-    card.style.setProperty('--rule-hue',NomosColor.hueForId(g.id)+'deg');
-    const heading=element('div','group-card-heading');
-    const label=element('span','rule-identity');
-    const swatch=element('span','rule-swatch');
-    swatch.setAttribute('aria-hidden','true');
-    label.append(swatch,element('span','rule-id',g.id));
-    heading.append(label,element('span','group-size',ids.length+' rules'));
-    card.append(heading,element('h3','',g.title),element('p','',g.summary));
-    const actions=element('div','group-actions');
-    const browse=element('button','details-btn',state.groupFilter===g.id?'Showing members ✓':'Browse members');
-    browse.type='button';
-    browse.setAttribute('aria-label','Browse rules in '+g.title);
-    browse.addEventListener('click',()=>{
-      state.groupFilter=state.groupFilter===g.id?null:g.id;
-      renderRules();renderGroups();
-      $('rule-list').scrollIntoView({behavior:'smooth',block:'start'});
-    });
-    const add=element('button','add-btn','+ Add all ('+ids.length+')');
-    add.type='button';
-    add.disabled=ids.length===0 || ids.every(id=>state.selected.includes(id));
-    if(add.disabled)add.textContent='✓ All added';
-    add.setAttribute('aria-label','Add all published rules from '+g.title);
-    add.addEventListener('click',()=>{
-      state.selected=[...new Set([...state.selected,...ids])];
-      renderRules();renderSelection();renderGroups();
-      announce('Added '+ids.length+' eligible rules from '+g.title+'.');
-    });
-    actions.append(browse,add);
-    card.append(actions);
-    return card;
+function createGroupCard(group) {
+  const ids = NomosGroups.expand(group.id, state.groups, state.rules);
+  const card = element('article', 'group-card');
+  card.style.setProperty('--rule-hue', NomosColor.hueForId(group.id) + 'deg');
+  const heading = element('div', 'group-card-heading');
+  // Apply the computed ID hue on the identity element itself. The previous
+  // CSS --rule-hue fallback there shadowed inheritance from the group card.
+  heading.append(identityLabel(group), element('span', 'group-size', ids.length + ' rules'));
+  card.append(heading, element('h3', '', group.title), element('p', '', group.summary));
+  const tags = element('div', 'tag-row group-labels');
+  tags.append(element('span', 'tag', 'Virtual group'));
+  for (const label of group.metadata_labels) {
+    if (label !== 'development_hygiene') tags.append(element('span', 'tag', human(label)));
+  }
+  card.append(tags);
+  const actions = element('div', 'group-actions');
+  const browse = element('button', 'details-btn', 'Browse members');
+  browse.type = 'button';
+  browse.setAttribute('aria-label', 'Browse rules in ' + group.title);
+  browse.addEventListener('click', () => {
+    state.groupFilter = group.id;
+    $('filter-type').value = 'rules';
+    $('filter-status').value = 'all';
+    $('filter-domain').value = 'all';
+    $('search').value = '';
+    renderCatalog();
+    $('catalog-list').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
-  $('group-list').replaceChildren(...nodes);
-  $('group-empty').classList.toggle('hidden',nodes.length!==0);
+  const add = element('button', 'add-btn', '+ Add all (' + ids.length + ')');
+  add.type = 'button';
+  add.disabled = ids.length === 0 || ids.every(id => state.selected.includes(id));
+  if (add.disabled) add.textContent = '✓ All added';
+  add.setAttribute('aria-label', 'Add all published rules from ' + group.title);
+  add.addEventListener('click', () => {
+    state.selected = [...new Set([...state.selected, ...ids])];
+    renderSelection();
+    renderCatalog();
+    announce('Added eligible rules from ' + group.title + '.');
+  });
+  actions.append(browse, add);
+  card.append(actions);
+  return card;
+}
+function renderCatalog() {
+  const entries = NomosCatalog.search({
+    rules: state.rules, groups: state.groups,
+    query: $('search').value, type: $('filter-type').value,
+    status: $('filter-status').value, domain: $('filter-domain').value,
+    groupFilter: state.groupFilter
+  });
+  $('catalog-list').replaceChildren(...entries.map(entry =>
+    entry.kind === 'group' ? createGroupCard(entry.value) : createCard(entry.value)
+  ));
+  $('result-count').textContent = entries.length + ' of ' +
+    (state.rules.length + state.groups.length) + ' items';
+  $('active-group-filter').classList.toggle('hidden', !state.groupFilter);
+  $('active-group-filter').textContent = state.groupFilter ?
+    'Browsing ' + (state.groups.find(g => g.id === state.groupFilter)?.title || state.groupFilter) +
+    ' · Clear group filter ×' : '';
+  $('empty-results').classList.toggle('hidden', entries.length !== 0);
 }
 
-function renderRules() {
-  const query = $('search').value.trim().toLowerCase();
-  const status = $('filter-status').value, domain = $('filter-domain').value;
-  const groupMemberIds = state.groupFilter ? new Set(NomosGroups.expand(state.groupFilter,state.groups,state.rules)) : null;
-  const filtered = state.rules.filter(r => {
-    if (groupMemberIds && !groupMemberIds.has(r.id)) return false;
-    if (status !== 'all' && statusOf(r) !== status) return false;
-    if (domain !== 'all' && !r.categories.domains.includes(domain)) return false;
-    const searchable = [r.id, r.title, r.summary, r.statement,
-      ...r.categories.domains, ...r.categories.topics, ...r.categories.audiences].join(' ').toLowerCase();
-    return searchable.includes(query);
-  });
-  $('rule-list').replaceChildren(...filtered.map(createCard));
-  $('result-count').textContent = filtered.length + ' of ' + state.rules.length + ' rules';
-  $('active-group-filter').classList.toggle('hidden', !state.groupFilter);
-  $('active-group-filter').textContent = state.groupFilter ? 'Browsing '+(state.groups.find(g=>g.id===state.groupFilter)?.title||state.groupFilter)+' · Clear group filter ×' : '';
-  $('empty-results').classList.toggle('hidden', filtered.length !== 0);
-}
 function renderSelection() {
   const selected = selectedRules();
   $('count-selected').textContent = String(selected.length);
@@ -191,7 +193,6 @@ function renderSelection() {
     return row;
   });
   $('selection-list').replaceChildren(...nodes);
-  if (state.groups.length) renderGroups();
   const analysis = analyze(selected);
   const panel = $('analysis-panel');
   panel.classList.toggle('conflict', analysis.conflicts.length > 0);
@@ -271,7 +272,7 @@ function updatePreview(analysis) {
 }
 function toggleRule(id) {
   state.selected = state.selected.includes(id) ? state.selected.filter(x => x !== id) : [...state.selected, id];
-  renderRules(); renderSelection();
+  renderCatalog(); renderSelection();
 }
 function announce(message) { $('notice').textContent = message; }
 function setFormat(value) {
@@ -322,15 +323,15 @@ async function init() {
     }
     state.rules = catalog.rules;
     state.groups = Array.isArray(catalog.groups) ? catalog.groups : [];
-    $('count-all').textContent = String(state.rules.length);
+    $('count-all').textContent = String(state.rules.length + state.groups.length);
     $('count-published').textContent = String(state.rules.filter(r => statusOf(r) === 'published').length);
     $('count-draft').textContent = String(state.rules.filter(r => statusOf(r) !== 'published').length);
-    const domains = [...new Set(state.rules.flatMap(r => r.categories.domains))].sort();
+    const domains = [...new Set([...state.rules.flatMap(r => r.categories.domains), ...state.groups.flatMap(g => g.metadata_labels)])].sort();
     for (const domain of domains) {
       const option = element('option', '', human(domain));
       option.value = domain; $('filter-domain').append(option);
     }
-    renderGroups(); renderRules(); renderSelection();
+    renderCatalog(); renderSelection();
   } catch (error) {
     $('result-count').textContent = 'Registry could not load.';
     $('empty-results').classList.remove('hidden');
@@ -344,19 +345,28 @@ $('theme-select').addEventListener('change', () => {
   if (!['system', 'light', 'dark'].includes(chosen)) return;
   document.documentElement.dataset.theme = chosen;
 });
-$('group-search').addEventListener('input',renderGroups);
-$('active-group-filter').addEventListener('click',()=>{
-  state.groupFilter=null;renderRules();renderGroups();
+$('active-group-filter').addEventListener('click', () => {
+  state.groupFilter = null;
+  renderCatalog();
 });
 $('filter-form').addEventListener('submit', event => event.preventDefault());
-for (const id of ['search', 'filter-status', 'filter-domain']) {
-  $(id).addEventListener(id === 'search' ? 'input' : 'change', renderRules);
+for (const id of ['search', 'filter-type', 'filter-status', 'filter-domain']) {
+  $(id).addEventListener(id === 'search' ? 'input' : 'change', () => {
+    if (id === 'filter-type' && $('filter-type').value !== 'rules') state.groupFilter = null;
+    renderCatalog();
+  });
 }
 $('clear-filters').addEventListener('click', () => {
-  $('search').value = ''; $('filter-status').value = 'all'; $('filter-domain').value = 'all'; state.groupFilter=null; renderGroups();
-  renderRules(); $('search').focus();
+  $('search').value = '';
+  $('filter-type').value = 'all';
+  $('filter-status').value = 'all';
+  $('filter-domain').value = 'all';
+  state.groupFilter = null;
+  renderCatalog();
+  $('search').focus();
 });
-$('clear-selection').addEventListener('click', () => { state.selected = []; renderRules(); renderSelection(); });
+
+$('clear-selection').addEventListener('click', () => { state.selected = []; renderCatalog(); renderSelection(); });
 for (const button of document.querySelectorAll('[data-format]')) button.addEventListener('click', () => setFormat(button.dataset.format));
 $('download').addEventListener('click', download);
 $('copy').addEventListener('click', copy);

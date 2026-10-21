@@ -67,3 +67,9 @@ The public snapshot contains 13 catalog rules: 12 published and one original ill
 The public site displays eight first-class groups from `groups/GROUP-*.json`: seven atomic practice areas and an umbrella collection. Each has its own card, description, stable ID-derived OKLCH color, exact distinct published member count, search, **Browse members** and **Add all** controls. Group references are not copies of rule records; atomic rules remain separately searchable and selectable.
 
 One-click **Add all** recursively follows child groups and deduplicates canonical rule IDs. Existing selection is preserved, unapproved/draft members are not added, and no user selection is persisted or exported until the user acts. The UI's `groups.js` expansion is tested separately from the Python catalog's cycle, relationship and membership validation. The meaning of a rule is never changed by group membership.
+
+## Unified catalog search and group identity
+
+Groups and atomic rules appear together in a single, title-sorted result list. One search field and **All items / Groups only / Rules only** filter serve both entity types. Status and domain/label filters are shared. **Browse members** narrows this same list; **Add all** retains each independent rule ID.
+
+Group color applies its stable ID-derived OKLCH hue on the actual swatch parent and on its card accent. The previous hardcoded green CSS fallback could no longer override that identity. The separate group search and gallery have been removed.
