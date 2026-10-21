@@ -11,13 +11,13 @@ def read(path):
 
 
 class ProcessingTraceTests(unittest.TestCase):
-    def test_all_specimens_closed_without_auto_activation(self):
+    def test_processed_and_pending_specimens_keep_separate_states(self):
         specimens = sorted((ROOT / "queues/specimens").glob("SPEC-*.json"))
-        self.assertEqual(len(specimens), 77)
+        self.assertEqual(len(specimens), 84)
         for path in specimens:
             original = json.loads(path.read_text(encoding="utf-8"))
             with self.subTest(specimen=original["id"]):
-                if original["id"] == "SPEC-0077":
+                if 77 <= int(original["id"].split("-")[1]) <= 84:
                     self.assertEqual(original["status"], "proposed")
                     self.assertFalse(original["intake"]["processing_authorized"])
                     self.assertNotIn("processing", original)
