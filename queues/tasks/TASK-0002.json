@@ -1,0 +1,24 @@
+{
+  "id": "TASK-0002",
+  "title": "Review private generation-context rule candidate",
+  "status": "proposed",
+  "kind": "catalog_review",
+  "created_on": "2026-10-20",
+  "requested_by": "user",
+  "authorization": {
+    "queue": true,
+    "execute": false,
+    "publish": false
+  },
+  "source_candidate": {
+    "id": "NOM-0004",
+    "path": "processing/specimens/candidates/NOM-0004.json"
+  },
+  "scope": "Review candidate identity, independent applicability, normative effects, metadata vocabulary, possible duplication with NOM-0001, and interactions with private-diary permission. Decide whether to publish, revise, consolidate, or reject the candidate.",
+  "acceptance": [
+    "Record explicit review disposition and rationale",
+    "Confirm candidate metadata and relevant relations",
+    "Do not mutate rules/ or publish without a separate authorized catalog decision"
+  ],
+  "remarks": "Queued for later review only. Not an active task, not a catalog rule, and not a specimen-processing record."
+}
