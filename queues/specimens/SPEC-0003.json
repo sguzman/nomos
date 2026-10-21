@@ -1,0 +1,46 @@
+{
+  "status": "proposed",
+  "source": {
+    "kind": "user_submitted_rule_idea",
+    "reference": "Direct submission; source conversation not copied into this public registry",
+    "material_retained": false
+  },
+  "received_on": "2026-10-20",
+  "intake": {
+    "visibility": "public_safe_abstract_only",
+    "operation": "specimen_queue_entry",
+    "processing_authorized": false
+  },
+  "next_state": "awaiting_explicit_specimen_processing_selection",
+  "id": "SPEC-0003",
+  "title": "Keep private generation context out of published outputs",
+  "abstract": "Do not reproduce private source conversations, drafting language, or internal instructions in public-facing outputs merely because they informed the creation of those outputs. Authorization to create or publish a result does not itself authorize disclosure of its private drafting context.",
+  "scope_hints": {
+    "normative_effect": "prohibition",
+    "subject": "private_generation_context",
+    "action": "reproduce_or_reveal",
+    "destinations": [
+      "public_artifact",
+      "public_communication"
+    ],
+    "conditions": [
+      "source_context_not_separately_authorized_for_publication"
+    ],
+    "boundary": "generation_input_to_published_output"
+  },
+  "possible_existing_coverage": [
+    "NOM-0001"
+  ],
+  "possible_overlap_with": [
+    "SPEC-0001",
+    "SPEC-0002"
+  ],
+  "provisional_duplication": {
+    "candidates": [
+      "SPEC-0001"
+    ],
+    "assessment": "possible_substantial_duplicate",
+    "reviewed": false
+  },
+  "remarks": "Intake-only abstraction. Exposure of source phrasing or instructions is the proposed boundary, including cases where no independently confidential fact is disclosed. No rule normalization or processing has occurred."
+}

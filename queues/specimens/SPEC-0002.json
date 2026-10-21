@@ -1,0 +1,46 @@
+{
+  "status": "proposed",
+  "source": {
+    "kind": "user_submitted_rule_idea",
+    "reference": "Direct submission; source conversation not copied into this public registry",
+    "material_retained": false
+  },
+  "received_on": "2026-10-20",
+  "intake": {
+    "visibility": "public_safe_abstract_only",
+    "operation": "specimen_queue_entry",
+    "processing_authorized": false
+  },
+  "next_state": "awaiting_explicit_specimen_processing_selection",
+  "id": "SPEC-0002",
+  "title": "Protect nonpublic information from unauthorized disclosure",
+  "abstract": "Do not disclose nonpublic or confidential information through public artifacts or communications without authorization. This governs the information disclosed, irrespective of the wording used or how it was obtained.",
+  "scope_hints": {
+    "normative_effect": "prohibition",
+    "subject": "nonpublic_information",
+    "action": "disclose",
+    "destinations": [
+      "public_artifact",
+      "public_communication"
+    ],
+    "conditions": [
+      "disclosure_not_authorized"
+    ],
+    "boundary": "confidentiality_of_information"
+  },
+  "possible_existing_coverage": [
+    "NOM-0001"
+  ],
+  "possible_overlap_with": [
+    "SPEC-0001",
+    "SPEC-0003"
+  ],
+  "provisional_duplication": {
+    "candidates": [
+      "NOM-0001"
+    ],
+    "assessment": "possible_partial_duplicate",
+    "reviewed": false
+  },
+  "remarks": "Intake-only abstraction. Information confidentiality is the proposed boundary, distinct from preserving the wording and provenance of private drafting inputs. No rule normalization or processing has occurred."
+}
