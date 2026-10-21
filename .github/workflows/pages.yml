@@ -7,6 +7,7 @@ on:
       - "docs/**"
       - "rules/**"
       - "groups/**"
+      - "profiles/**"
       - "schema/**"
       - "taxonomy/**"
       - "processing/specimens/candidates/**"
@@ -46,6 +47,10 @@ jobs:
           node --check docs/catalog-browser.js
           node --test tests/test_groups_browser.cjs tests/test_catalog_browser.cjs tests/test_app_sort_wiring.cjs
           node --test tests/test_rule_colors.cjs tests/test_reasoning.cjs
+          node --check tools/profiles.js
+          node --check tools/validate_profiles.cjs
+          node tools/validate_profiles.cjs
+          node --test tests/test_profiles.cjs
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload showcase

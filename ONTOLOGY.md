@@ -1,12 +1,13 @@
 # Minimal ontology and rich rule metadata
 
-Nomos has three independently identified ontological kinds:
+Nomos has four independently identified ontological kinds:
 
 1. **Rule:** an independently versioned normative proposition.
 2. **Category:** a controlled label or applicability facet used to classify and compare rules.
-3. **Virtual rule group:** a first-class, versioned, non-normative collection of references to atomic rules and optional child groups.
+3. **Virtual rule group:** a first-class, versioned, non-normative predefined collection of atomic rules and optional child groups.
+4. **Rule profile:** a first-class, versioned, *optional* and user-reviewed preset of selected atomic rule IDs for a particular kind of work or instruction export.
 
-Relationships between rules are metadata references, not additional standalone ontological kinds. Compositions, use cases, tasks, and specimens are operational concepts, not catalog rule or group entities.
+Relationships between rules are metadata references, not additional standalone ontological kinds. Temporary compositions, use-case discussion, proposed selections, tasks, and specimens remain operational concepts; they are not automatically catalog objects.
 
 ## Rule record
 
@@ -49,7 +50,7 @@ A public-repository prohibition and a private-diary allowance can coexist when t
 
 ## Ontology boundaries
 
-Do not force persistence of a website user's temporary mix-and-match selection. Do not treat an exported `AGENTS.md` or Custom Instructions file as a canonical rule. Rendering is a projection of selected rules, not the ontology itself.
+Do not force persistence of a website user's temporary mix-and-match selection or conversational use-case discussion. Do not treat an exported `AGENTS.md` or Custom Instructions file as a canonical rule. Rendering is a projection of selected rules, not the ontology itself. An explicitly instantiated, finalized rule profile is a reusable *optional selection preset*, not a rule, group, authority source, mandatory workflow, or automatically applied export.
 
 ## Cargo edition value constraints
 
@@ -87,3 +88,17 @@ Every active catalog rule has an independent `norm.bounds` object in addition to
 Earlier rule records receive `basis: unresolved` and unspecified bounds by default, **not invented linguistic readings**. Explicitly reviewed instances may receive narrower constraints. Do not infer an `always` frequency merely from the existence of an obligation or a `never` frequency merely from a prohibition. A normal prohibition still forbids its action within scope regardless of whether optional frequency metadata is resolved. Rules in historical specimen-candidate snapshots retain their original schema to preserve provenance.
 
 Conflict evaluation remains conservative: the original predicate+scope+norm-kind comparison is maintained; additionally, **disjoint numerical intervals on two obligations** are a conflict candidate only if both have reviewed bounds, matching units and the same explicit/unspecified window. Opposing ranges with different windows, ambiguous “any”, lexical synonyms and natural-language exceptions are not automatically proven to conflict.
+
+## Optional rule profiles (fourth ontology kind)
+
+A profile in `profiles/PROFILE-*.json` is a **purpose-specific reusable preset**, not a virtual group, new normative rule or command to use it. Its machine contract is [schema/profile.schema.json](schema/profile.schema.json), and its user-controlled workflow is [PROFILE_WORKFLOW.md](PROFILE_WORKFLOW.md). The identity, version, title, state (`draft`, `finalized`, `deprecated`), selected canonical rule IDs, supported instruction export formats, two separate review confirmations, and governance dates form its deliberately **small** record. It does not store a mandatory original conversation, elaborate intent analysis, or AI-generated rationale for every rule.
+
+- **Virtual group:** a curated, named rule collection that can be expanded when explicitly selected; may have hierarchical membership.
+- **Profile:** a user-reviewed, use-case-oriented **preset**, with no group nesting, no rule inheritance, and no use requirement. Individual rules remain fully independent. Two profiles may reuse the same rule without duplication.
+- **Discussion/proposal:** transient collaboration to identify a use case and propose candidate rule IDs; it is not an instantiated profile, stored instruction, or job.
+- **Draft:** created only when the user explicitly approves instantiating the reviewed selection; the user may add or remove published rules before finalization, including temporarily leaving a draft empty.
+- **Finalized:** becomes reusable only after **separate explicit finalization approval** and at least one selected published rule. A finalized preset still does **nothing** until the user explicitly selects or exports it.
+
+Profiles can name output targets `agents_md` (agent instructions), `chatgpt_custom_instructions`, or `plain_text`; format support does not grant permission to install or apply instructions anywhere. Missing new rule ideas must follow ordinary specimen processing and publication rather than being hallucinated into a profile. Machine checks reject duplicate rule IDs, unpublished references, invalid export targets and unsupported state transitions; existing conservative rule-conflict analysis is reused to flag potential incompatibilities before finalization. Catalog revisions do not silently change the selected IDs or add rules.
+
+**No default profile is required. No rule profile has been instantiated merely by adding this ontology kind.**

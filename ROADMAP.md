@@ -29,3 +29,12 @@ This document describes possible project development, **not** the task queue and
 - [ ] Add reviewable workflow transitions for the four independent stores
 
 A roadmap candidate becomes a queued task only through an explicit separate decision.
+
+## Optional profile ontology
+
+- [x] Define separate, opt-in rule-profile presets with a compact JSON Schema and identity lifecycle
+- [x] Define consent-gated creation, editing, finalization and selection operations (JavaScript)
+- [ ] Author first real profile only after explicit review and user approval of its rule selection
+- [ ] Add profile browsing and interactive profile editing to the website if explicitly requested
+
+These entries are descriptive; the unchecked items are not queued tasks or automatic authorizations.

@@ -1,0 +1,142 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/sguzman/nomos/blob/main/schema/profile.schema.json",
+  "title": "Nomos optional rule-profile preset",
+  "description": "A reusable, opt-in selection of independently published atomic rules. Nothing here applies rules by default.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "kind",
+    "version",
+    "title",
+    "status",
+    "selected_rule_ids",
+    "export_targets",
+    "review",
+    "governance"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^PROFILE-[0-9]{4,}$"
+    },
+    "kind": {
+      "const": "rule_profile"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "finalized",
+        "deprecated"
+      ]
+    },
+    "selected_rule_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^NOM-[0-9]{4,}$"
+      }
+    },
+    "export_targets": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "agents_md",
+          "chatgpt_custom_instructions",
+          "plain_text"
+        ]
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "selection_confirmed",
+        "finalization_confirmed"
+      ],
+      "properties": {
+        "selection_confirmed": {
+          "const": true
+        },
+        "finalization_confirmed": {
+          "type": "boolean"
+        }
+      }
+    },
+    "governance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "created_on",
+        "updated_on"
+      ],
+      "properties": {
+        "created_on": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "updated_on": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "draft"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "review": {
+            "properties": {
+              "finalization_confirmed": {
+                "const": false
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "finalized"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "selected_rule_ids": {
+            "minItems": 1
+          },
+          "review": {
+            "properties": {
+              "finalization_confirmed": {
+                "const": true
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,12 +1,12 @@
 # Nomos
 
-**Nomos** is a public, independent registry of atomic normative rules, their controlled categories, and first-class opt-in virtual groups. It includes a public website for browsing rules, assembling compatible selections, identifying possible conflicts, and exporting instructions for different consumers (including `AGENTS.md` and ChatGPT Custom Instructions).
+**Nomos** is a public, independent registry of atomic normative rules, controlled categories, opt-in virtual groups, and optional user-approved **rule-profile presets**. Its existing public website browses rules and groups, checks potential conflicts, and exports instructions for `AGENTS.md` and ChatGPT Custom Instructions. Profiles are separate reusable selections; they are never required or auto-applied.
 
-A rule is a first-class object even if nobody selects or applies it. A ruleset or use case can be saved later, or created temporarily in a website session without becoming an ontology object.
+A rule remains independent even when selected for a group or profile. Discussing a use case, suggesting rules, or making a temporary website selection does not create a profile. A reusable profile exists only after the user explicitly asks to instantiate one from reviewed rule selections; finalization and use are separate opt-in decisions.
 
 ## Project scope
 
-- A deliberately narrow ontology: **rule**, **category**, **virtual rule group**, and typed metadata.
+- A deliberately narrow ontology: **rule**, **category**, **virtual rule group**, **optional rule profile**, and typed metadata.
 - Rich, typed metadata for comparing applicability, normative effects, authority, provenance, and potential conflicts.
 - A deliberately small, public-safe example catalog; this is not a collection of private conversations or personal writing.
 - A sharp distinction between **specimen intake**, **specimen processing**, **task intake**, and **task execution**.
@@ -19,6 +19,9 @@ A rule is a first-class object even if nobody selects or applies it. A ruleset o
 - [ONTOLOGY.md](ONTOLOGY.md) — data model and conflict semantics.
 - [WORKFLOW.md](WORKFLOW.md) — independent specimen/task lifecycles.
 - [schema/rule.schema.json](schema/rule.schema.json) — machine-readable rule record contract.
+- [schema/profile.schema.json](schema/profile.schema.json) — optional reusable rule-profile preset contract.
+- [PROFILE_WORKFLOW.md](PROFILE_WORKFLOW.md) — discuss, review, instantiate, edit and finalize a profile, all opt-in.
+- [profiles/](profiles/) — reserved for explicitly instantiated presets (currently none).
 - [taxonomy/categories.json](taxonomy/categories.json) — controlled categorization vocabulary.
 - [rules/](rules/) — independent catalog entries; inert until selected.
 - [ROADMAP.md](ROADMAP.md) — future work; not a task-processing record.
@@ -48,3 +51,7 @@ The 54 practices are now standalone opt-in rules, with independently addressable
 ## Project management and strict-port practices
 
 Nine additional independent opt-in rules `NOM-0068` through `NOM-0076` cover progress reporting, single-announcement completion, README identity colors and strict-port replacement criteria. Five new groups `GROUP-0009` through `GROUP-0013` form a separately selectable project-management umbrella with four independent subgroups. New groups remain optional and do not activate any rules or authorize releases, publishing or unrelated work. The historical source records remain in separate intake, processing, and downstream-task stores.
+
+## Optional rule-profile presets
+
+Rule profiles are **voluntary presets**, not another category of mandatory instructions. You may discuss an intended use, ask for AI-suggested existing rules, review the proposed list, then authorize creating an editable draft. After adding or removing rules, you may separately finalize it and later choose to use or export it as an agent instruction file or ChatGPT Custom Instructions. Profiles are not automatically applied, and discussing an idea never creates one. The `profiles/` registry is intentionally empty until the first user-approved profile is requested. Schema and selection operations use JavaScript; no new Python tooling was introduced for this feature.

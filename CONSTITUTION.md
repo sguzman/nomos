@@ -3,15 +3,15 @@
 ## I. Purpose and autonomy
 
 1. Nomos registers rules independently of any agent, project, prompt, compiled ruleset, or export target.
-2. Its core ontology is intentionally narrow: **independent normative rules**, **controlled categories**, and explicitly approved **virtual rule groups**. Group objects have stable identity and metadata but no normative effect; new kinds still require evidence and review.
-3. The project may grow a website for searching, selecting, comparing, and exporting rules. A temporary selection need not be recorded as a first-class use case. Reusable use cases may be introduced deliberately later.
+2. Its core ontology has **independent normative rules**, **controlled categories**, explicitly approved **virtual rule groups**, and separately approved **optional rule-profile presets**. Groups and profiles have identities but no normative effect; a profile is a user-chosen reusable selection, not a requirement.
+3. The project may offer searching, selecting, comparing, and exporting rules. Temporary selections and AI-suggested selections are not automatically profiles; only an explicitly approved selection may be instantiated as an optional profile draft, and finalization requires a separate explicit decision.
 4. Nomos is a standalone public repository. Membership in Tarium or any other registry requires explicit authorization and is never inferred from naming, links, or future intent.
 
 ## II. Rule independence and application
 
-1. A cataloged rule is **not** an applied instruction merely because it appears in this repository. A published virtual group does not itself apply any member rule.
+1. A cataloged rule is **not** an applied instruction merely because it appears in this repository. Neither a published virtual group nor a finalized rule-profile preset applies, exports, or selects any member rule automatically.
 2. Distinguish rule text, normalized normative effect, applicability, authority, provenance, relations, and lifecycle status.
-3. Rules can be selected individually or through an explicitly activated group expansion. A compiler or exporter must not silently add unrelated rules, duplicate members or auto-select groups.
+3. Rules can be selected individually or through a user-requested group expansion or optional rule profile. A compiler or exporter must not silently add unrelated rules, duplicate members, auto-select groups or profiles, or modify a reviewed selection.
 4. Rule precedence and exceptions require explicit, scoped reasoning. A priority number alone must never silently erase a conflict.
 
 ## III. Categories and conflict analysis

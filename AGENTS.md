@@ -9,9 +9,9 @@ Build a small, extensible rule registry with rich metadata supporting scoped com
 ## Operational constraints
 
 - **Public-content boundary:** Never insert private conversations, personal venting, secrets, private linguistic examples, unpublished user material, or close paraphrases into files, issues, commits, fixtures, or website output. Use synthetic, neutral examples only.
-- **Scope:** Implement what was assigned. Do not treat a queue entry, roadmap line, specimen, or speculative use case as permission to execute it.
+- **Scope:** Implement what was assigned. Do not treat a queue entry, roadmap line, specimen, proposed rule selection, or speculative use case as permission to execute it or instantiate a profile.
 - **Branches:** Work directly on the existing `main` branch unless explicitly instructed otherwise for this task. Preserve unrelated files.
-- **Model:** Keep ontology limited to rules and categories while enriching rule metadata. Avoid speculative large taxonomies or premature persistence for ephemeral selections.
+- **Model:** Preserve four distinct kinds: independent rules, categories, predefined virtual groups, and **optional user-approved rule-profile presets**. Do not persist transient use-case discussion or AI rule suggestions as a profile without explicit authorization.
 - **Conflicts:** Analyze shared normalized action/object/target and overlapping applicability facets; report candidates and uncertainty. Do not silently resolve by numeric authority.
 - **Independence:** Do not add this repository to Tarium or other registries without explicit authorization.
 - **Evidence:** Report which files changed, commit ID if available, validation/tests performed, and remaining work. Never claim work or QA not actually performed.
@@ -35,3 +35,7 @@ python3 -m unittest discover -s tests -v
 ```
 
 The validator is intentionally limited. Inspect the changed Markdown/JSON and scrub public output for privacy risks before committing. Do not infer that a passing test proves semantic correctness.
+
+## Profile presets are inert
+
+Profiles are optional selections, not mandatory instructions. First discuss the use case and suggest existing catalog rule IDs *without persisting a profile*. Await explicit authorization before instantiating a draft. Allow add/remove in the draft and require separate approval to finalize; another explicit choice is required to select or export the finalized preset. Never create a default profile or activate one on a user's behalf. See [PROFILE_WORKFLOW.md](PROFILE_WORKFLOW.md).

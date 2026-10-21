@@ -48,3 +48,7 @@ Downstream authorized work is separately recorded as `TASK-0007` (individual cat
 ## Batch: project-management and strict-port groups (2026-10-21)
 
 SPEC-0068 through SPEC-0076 were separately processed as independent rule proposals, and proposed GROUP-0009 through GROUP-0013 received distinct group-processing records. The authorized downstream tasks are TASK-0010 (atomic rule publication), TASK-0011 (group publication and color identity), and TASK-0012 (public catalog, validation and deployment). The original queued inputs and draft candidates remain as provenance. Explicit authorization covered this batch only; its completion never applies the resulting rule selections to unrelated repositories.
+
+## Optional profile preset lifecycle
+
+Profile authoring is a separate **opt-in composition workflow**, not a fifth specimen or task processing queue. See [PROFILE_WORKFLOW.md](PROFILE_WORKFLOW.md): discuss use case → suggest catalog rules (transient) → review formal proposed selection (transient) → explicit authorization to instantiate draft → user may add or remove atomic rules → separate authorization to finalize → optional future explicit selection or export. No step obliges the user to use profiles, and a finalized profile never applies itself. New rule ideas still require separately authorized specimen/catalog work.
