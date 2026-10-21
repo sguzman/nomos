@@ -1,0 +1,62 @@
+{
+  "id": "SPEC-0087",
+  "title": "Define the MVP's essential purpose",
+  "status": "proposed",
+  "abstract": "Define the project's essential real-user purpose and minimal useful externally observable outcome before deciding whether an MVP is ready.",
+  "source": {
+    "kind": "public_safe_user_requested_rule_extraction",
+    "reference": "General versioning or MVP graduation expectation, normalized without private conversation content",
+    "material_retained": false
+  },
+  "received_on": "2026-10-21",
+  "intake": {
+    "visibility": "public_safe_abstract_only",
+    "operation": "specimen_queue_entry",
+    "processing_authorized": false
+  },
+  "scope_hints": {
+    "domains": [
+      "project_management",
+      "software_development",
+      "release_management"
+    ],
+    "topic": "mvp_inauguration",
+    "phase": "when",
+    "trigger": "mvp_readiness_review",
+    "candidate_normative_kind": "obligation",
+    "predicate_hypothesis": {
+      "action": "verify_or_record",
+      "object": "define_the_mvp_s_essential_purpose",
+      "target": "project_mvp_lifecycle"
+    },
+    "bounds_hypothesis": {
+      "quantifier": "all",
+      "interpretation": "universal",
+      "frequency": "always",
+      "minimum": null,
+      "maximum": null,
+      "unit": "occurrences",
+      "window": "mvp_readiness_review",
+      "basis": "candidate_pending_review"
+    },
+    "scope_boundary": "Only an explicitly scoped MVP consideration or authorized inauguration; conditional on the project's actual kind and accepted requirements",
+    "independent_atomic_rule": true
+  },
+  "proposed_virtual_group_refs": [
+    "GROUP-0014"
+  ],
+  "possible_existing_coverage": [
+    "NOM-0064"
+  ],
+  "conflict_tracking": {
+    "candidate_relation_type": "conflicts_with",
+    "potential_conflicts": [],
+    "automatically_resolved": false
+  },
+  "unresolved": [
+    "Compare with existing catalog rules and refine/reuse existing predicates rather than publish duplicates.",
+    "Preserve per-project applicability and do not infer an authorization to alter or release other repositories."
+  ],
+  "next_state": "awaiting_explicit_specimen_processing_selection",
+  "remarks": "Queue-only atomic proposal, not processed or published; no release, repository modification or downstream task execution is authorized by this intake."
+}

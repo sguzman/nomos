@@ -19,3 +19,7 @@ See [WORKFLOW.md](../../WORKFLOW.md) for authorization boundaries.
 ## Queued local-repository YAML job practices (2026-10-21)
 
 `SPEC-0078`–`SPEC-0084` contain seven independent proposed rules: ask for the real local path, reject invented paths, prohibit substitute or temporary repositories, avoid large embedded Python in YAML, maintain scripts under `scripts/`, invoke those scripts from YAML, and pull current Git changes before local project work. These are public-safe abstractions and remain **queued only**. No local job, clone, new project, task execution or catalog publication is authorized by intake.
+
+## Browser versioning and MVP inauguration proposals (2026-10-21)
+
+`SPEC-0085`–`SPEC-0086` separately propose mandatory version increments for delivered Tampermonkey userscripts (`@version`) and WebExtensions (`manifest.json` `version`). `SPEC-0087`–`SPEC-0113` contain 27 independent, generalizable MVP graduation rules covering when, why and how to establish, verify, inaugurate and maintain a minimal viable baseline. Existing catalog release and QA atoms are recorded as overlap references; future processing must avoid unnecessary duplication. All remain unprocessed, with no authorization to release or change another repository.

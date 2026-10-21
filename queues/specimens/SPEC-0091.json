@@ -1,0 +1,66 @@
+{
+  "id": "SPEC-0091",
+  "title": "Pass applicable automated tests and CI gates",
+  "status": "proposed",
+  "abstract": "Run and pass the relevant unit, integration, regression, formatting, lint, compilation, and configured CI checks before inauguration; disclose untested targets.",
+  "source": {
+    "kind": "public_safe_user_requested_rule_extraction",
+    "reference": "General versioning or MVP graduation expectation, normalized without private conversation content",
+    "material_retained": false
+  },
+  "received_on": "2026-10-21",
+  "intake": {
+    "visibility": "public_safe_abstract_only",
+    "operation": "specimen_queue_entry",
+    "processing_authorized": false
+  },
+  "scope_hints": {
+    "domains": [
+      "project_management",
+      "software_development",
+      "release_management"
+    ],
+    "topic": "mvp_inauguration",
+    "phase": "when",
+    "trigger": "mvp_readiness_review",
+    "candidate_normative_kind": "obligation",
+    "predicate_hypothesis": {
+      "action": "verify_or_record",
+      "object": "pass_applicable_automated_tests_and_ci_gates",
+      "target": "project_mvp_lifecycle"
+    },
+    "bounds_hypothesis": {
+      "quantifier": "all",
+      "interpretation": "universal",
+      "frequency": "always",
+      "minimum": null,
+      "maximum": null,
+      "unit": "occurrences",
+      "window": "mvp_readiness_review",
+      "basis": "candidate_pending_review"
+    },
+    "scope_boundary": "Only an explicitly scoped MVP consideration or authorized inauguration; conditional on the project's actual kind and accepted requirements",
+    "independent_atomic_rule": true
+  },
+  "proposed_virtual_group_refs": [
+    "GROUP-0014"
+  ],
+  "possible_existing_coverage": [
+    "NOM-0027",
+    "NOM-0028",
+    "NOM-0029",
+    "NOM-0036",
+    "NOM-0041"
+  ],
+  "conflict_tracking": {
+    "candidate_relation_type": "conflicts_with",
+    "potential_conflicts": [],
+    "automatically_resolved": false
+  },
+  "unresolved": [
+    "Compare with existing catalog rules and refine/reuse existing predicates rather than publish duplicates.",
+    "Preserve per-project applicability and do not infer an authorization to alter or release other repositories."
+  ],
+  "next_state": "awaiting_explicit_specimen_processing_selection",
+  "remarks": "Queue-only atomic proposal, not processed or published; no release, repository modification or downstream task execution is authorized by this intake."
+}
