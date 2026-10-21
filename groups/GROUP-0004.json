@@ -1,7 +1,7 @@
 {
   "id": "GROUP-0004",
   "kind": "virtual_rule_group",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "status": "published",
   "title": "CI/CD",
   "summary": "Automated validation, GitHub Actions, cross-platform checks, deployment and accurate workflow status.",
@@ -26,8 +26,8 @@
   "color": {
     "space": "OKLCH",
     "identity_string": "GROUP-0004",
-    "hue_degrees": 211.031,
-    "scheme": "golden_angle_id_hue",
+    "hue_degrees": 274.932,
+    "scheme": "oklab_maximin_v2",
     "require_text_label": true
   },
   "composition": {

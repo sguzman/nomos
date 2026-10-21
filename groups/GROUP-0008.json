@@ -1,7 +1,7 @@
 {
   "id": "GROUP-0008",
   "kind": "virtual_rule_group",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "status": "published",
   "title": "QA & Verification",
   "summary": "Smoke tests, interface QA, acceptance reviews and evidence-grounded completion.",
@@ -24,8 +24,8 @@
   "color": {
     "space": "OKLCH",
     "identity_string": "GROUP-0008",
-    "hue_degrees": 41.062,
-    "scheme": "golden_angle_id_hue",
+    "hue_degrees": 290.424,
+    "scheme": "oklab_maximin_v2",
     "require_text_label": true
   },
   "composition": {

@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Deterministically build the public client catalog; candidate records stay candidates."""
 import json
+import hashlib
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -47,12 +49,32 @@ def build(root=ROOT):
             "rules": records, "groups": groups}
 
 
+def fingerprint_assets(root=ROOT):
+    """Use content-addressed URLs to avoid mixing cached old JS with new HTML."""
+    docs = root / "docs"
+    index = docs / "index.html"
+    html = index.read_text(encoding="utf-8")
+    asset_names = (
+        "styles.css", "rule-colors.js", "reasoning.js", "groups.js",
+        "catalog-browser.js", "app.js", "catalog.json"
+    )
+    for asset in asset_names:
+        digest = hashlib.sha256((docs / asset).read_bytes()).hexdigest()[:12]
+        target = "./" + asset + "?v=" + digest
+        pattern = re.escape("./" + asset) + r"(?:\?v=[0-9a-f]+)?"
+        html, count = re.subn(pattern, target, html)
+        if count != 1:
+            raise ValueError(f"Expected one HTML asset reference for {asset}; saw {count}")
+    index.write_text(html, encoding="utf-8")
+
+
 def main():
     data = build()
     CATALOG.parent.mkdir(parents=True, exist_ok=True)
     CATALOG.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n",
                        encoding="utf-8")
-    print(f"Built {CATALOG.relative_to(ROOT)} with {len(data['rules'])} entries")
+    fingerprint_assets()
+    print(f"Built {CATALOG.relative_to(ROOT)} with {len(data['rules'])} entries and versioned assets")
 
 
 if __name__ == "__main__":

@@ -17,7 +17,10 @@ function statusOf(rule) { return rule.registry === 'candidate' ? 'candidate' : r
 function byId(id) { return state.rules.find(r => r.id === id); }
 function identityLabel(rule) {
   const identity = element('span', 'rule-identity');
-  identity.style.setProperty('--rule-hue', NomosColor.hueForId(rule.id) + 'deg');
+  const color = NomosColor.colorForId(rule.id);
+  identity.style.setProperty('--rule-hue', color.hue + 'deg');
+  identity.style.setProperty('--rule-day', color.day);
+  identity.style.setProperty('--rule-night', color.night);
   const swatch = element('span', 'rule-swatch');
   swatch.setAttribute('aria-hidden', 'true');
   identity.append(swatch, element('span', 'rule-id', rule.id));
@@ -113,7 +116,10 @@ function ruleGroupTags(rule) {
 function createGroupCard(group) {
   const ids = NomosGroups.expand(group.id, state.groups, state.rules);
   const card = element('article', 'group-card');
-  card.style.setProperty('--rule-hue', NomosColor.hueForId(group.id) + 'deg');
+  const color = NomosColor.colorForId(group.id);
+  card.style.setProperty('--rule-hue', color.hue + 'deg');
+  card.style.setProperty('--rule-day', color.day);
+  card.style.setProperty('--rule-night', color.night);
   const heading = element('div', 'group-card-heading');
   // Apply the computed ID hue on the identity element itself. The previous
   // CSS --rule-hue fallback there shadowed inheritance from the group card.
@@ -164,8 +170,10 @@ function renderCatalog() {
   $('catalog-list').replaceChildren(...entries.map(entry =>
     entry.kind === 'group' ? createGroupCard(entry.value) : createCard(entry.value)
   ));
+  const currentSort = $('sort-order');
+  const sortName = currentSort.options[currentSort.selectedIndex]?.textContent || 'Groups first · ID';
   $('result-count').textContent = entries.length + ' of ' +
-    (state.rules.length + state.groups.length) + ' items';
+    (state.rules.length + state.groups.length) + ' items · ' + sortName;
   $('active-group-filter').classList.toggle('hidden', !state.groupFilter);
   $('active-group-filter').textContent = state.groupFilter ?
     'Browsing ' + (state.groups.find(g => g.id === state.groupFilter)?.title || state.groupFilter) +
@@ -313,7 +321,8 @@ async function copy() {
 }
 async function init() {
   try {
-    const response = await fetch('./catalog.json');
+    const catalogUrl = document.querySelector('meta[name="nomos-catalog"]')?.content || './catalog.json';
+    const response = await fetch(catalogUrl);
     if (!response.ok) throw new Error('HTTP ' + response.status);
     const catalog = await response.json();
     if (!catalog || !Array.isArray(catalog.rules)) throw new Error('Invalid catalog');
@@ -355,6 +364,7 @@ for (const id of ['search', 'filter-type', 'filter-status', 'filter-domain', 'so
   $(id).addEventListener(id === 'search' ? 'input' : 'change', () => {
     if (id === 'filter-type' && $('filter-type').value !== 'rules') state.groupFilter = null;
     renderCatalog();
+    if (id === 'sort-order') $('filter-form').scrollIntoView({ block: 'start', behavior: 'instant' });
   });
 }
 $('clear-filters').addEventListener('click', () => {

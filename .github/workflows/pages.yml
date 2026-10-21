@@ -44,7 +44,7 @@ jobs:
           node --check docs/reasoning.js
           node --check docs/groups.js
           node --check docs/catalog-browser.js
-          node --test tests/test_groups_browser.cjs tests/test_catalog_browser.cjs
+          node --test tests/test_groups_browser.cjs tests/test_catalog_browser.cjs tests/test_app_sort_wiring.cjs
           node --test tests/test_rule_colors.cjs tests/test_reasoning.cjs
       - name: Configure Pages
         uses: actions/configure-pages@v5

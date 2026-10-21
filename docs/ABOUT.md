@@ -77,3 +77,11 @@ Group color applies its stable ID-derived OKLCH hue on the actual swatch parent 
 ## Sorting catalog results
 
 The shared catalog provides a Sort dropdown independent of search and type filters. **Groups first · ID** is the default, followed by **Rules first · ID**, alphabetical name in both directions, canonical ID in both directions, and group member count (largest or smallest first). Group-size sorts place groups ahead of atomic rules, then sort rules by ID. Equal group sizes use stable IDs as tie-breakers; member counts include deduplicated eligible published rules, including nested subgroups. Reset restores the group-first default. Group membership and selected instructions are never changed by sorting.
+
+## Perceptually separated identity palette (v2)
+
+Golden-angle hue-only assignment was insufficient: IDs separated by Fibonacci-sized gaps acquired almost identical purple swatches. Each ID now selects a frozen palette slot selected by a gamut-aware, two-appearance **OKLab maximum-minimum-distance** process. NOM numeric identifiers use slots 1–128, GROUP numeric identifiers 1–8 use separately reserved slots 128–135. The rule/group ID remains the sole lookup key; catalog ordering does not change its colors. Each slot stores gamut-mapped day/night colors and its OKLCH hue. The finite palette cannot ensure unlimited uniqueness; new ID ranges need a palette version extension. Readable IDs remain mandatory.
+
+## Sorting interaction and caching
+
+Changing Sort rerenders the unified catalog, announces the current order beside the result count, and brings the filter bar into view instead of leaving a stale scrolled card anchoring the viewport. An integration regression test exercises the actual sort dropdown change event. The Pages build fingerprints CSS and JavaScript in their HTML URLs so a browser cannot silently pair new HTML with an old cached sorting script.

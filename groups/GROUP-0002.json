@@ -1,7 +1,7 @@
 {
   "id": "GROUP-0002",
   "kind": "virtual_rule_group",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "status": "published",
   "title": "Git & Repository Hygiene",
   "summary": "Repository inspection, scoped edits, main-branch default, commit discipline, clean tracking and verified Git state.",
@@ -28,8 +28,8 @@
   "color": {
     "space": "OKLCH",
     "identity_string": "GROUP-0002",
-    "hue_degrees": 296.016,
-    "scheme": "golden_angle_id_hue",
+    "hue_degrees": 313.449,
+    "scheme": "oklab_maximin_v2",
     "require_text_label": true
   },
   "composition": {

@@ -68,7 +68,7 @@ def validate_groups(groups, rules):
             if not parent or gid not in parent.get("child_group_ids", []):
                 errors.append(f"{gid}: missing or non-reciprocal parent {parent_id}")
         color = group["color"]
-        if color.get("space") != "OKLCH" or color.get("identity_string") != gid:
+        if color.get("space") != "OKLCH" or color.get("identity_string") != gid or color.get("scheme") != "oklab_maximin_v2":
             errors.append(f"{gid}: invalid stable color identity")
         if not isinstance(color.get("hue_degrees"), (int, float)) or not 0 <= color["hue_degrees"] < 360:
             errors.append(f"{gid}: hue outside 0..360")
