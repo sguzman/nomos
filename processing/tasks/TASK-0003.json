@@ -1,6 +1,6 @@
 {
   "id": "TASK-0003",
-  "status": "verifying",
+  "status": "done",
   "type": "development",
   "title": "Public rule browser and instruction composer",
   "authorization": {
@@ -20,10 +20,17 @@
     ".github/workflows/pages.yml"
   ],
   "evidence": {
-    "repository_commit": "pending",
-    "static_checks": "pending",
+    "repository_commit": "bca6f62a0dec2bbe1ffd5eee3e1aafcb8fd34542",
+    "rule_count": 4,
+    "tests": "GitHub Actions workflow run 39539374873: build catalog, Run checks and Deploy Pages steps succeeded",
+    "logic_smoke_checks": "Eight behavior-level checks passed in isolated JavaScript",
     "browser_qa": "not_performed",
-    "pages_deployment": "not_verified"
+    "pages_deployment": "GitHub Pages deployment action succeeded; direct HTTP check of site URL unavailable from this environment"
   },
-  "notes": "Independent authorized development task. Does not process catalog-review tasks or publish draft rule candidates."
+  "notes": "Independent authorized development task. Does not process catalog-review tasks or publish draft rule candidates.",
+  "completed_on": "2026-10-20",
+  "remaining": [
+    "Verify rendered website through a real browser before claiming browser QA",
+    "Review queued catalog tasks TASK-0001/TASK-0002 separately"
+  ]
 }
