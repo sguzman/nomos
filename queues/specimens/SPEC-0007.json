@@ -1,0 +1,54 @@
+{
+  "status": "proposed",
+  "source": {
+    "kind": "user_submitted_rule_idea",
+    "reference": "Direct rule proposal; original conversation and private phrasing not retained",
+    "material_retained": false
+  },
+  "received_on": "2026-10-21",
+  "intake": {
+    "visibility": "public_safe_abstract_only",
+    "operation": "specimen_queue_entry",
+    "processing_authorized": false
+  },
+  "next_state": "awaiting_explicit_specimen_processing_selection",
+  "remarks": "Queued only. Scope hints and relationships are provisional; no rule was normalized, enacted, published, or applied, and no task was created.",
+  "id": "SPEC-0007",
+  "title": "Use Rust for application code with narrow language exceptions",
+  "abstract": "Use Rust for application implementation. Non-Rust website implementation requires an explicit justification. For standalone scripting, use Lua. Prefer TOML, JSON, and Markdown for configuration or documentation where appropriate; these are formats rather than exceptions authorizing another application language.",
+  "scope_hints": {
+    "domains": [
+      "software_development",
+      "implementation_languages",
+      "websites",
+      "scripts",
+      "project_conventions"
+    ],
+    "normative_effect": "obligation_with_scoped_exceptions",
+    "actors": [
+      "code_author"
+    ],
+    "trigger": "writing_or_selecting_implementation_languages",
+    "required_behaviors": [
+      "rust_application_code",
+      "justify_non_rust_website_code",
+      "lua_scripting",
+      "prefer_toml_json_markdown_for_config_and_docs"
+    ],
+    "exceptions": [
+      "justified_non_rust_website_code",
+      "lua_for_scripting",
+      "declarative_config_and_documentation_formats"
+    ],
+    "boundary": "language_choice_by_artifact_kind"
+  },
+  "possible_overlap_with": [
+    "SPEC-0004",
+    "SPEC-0006"
+  ],
+  "possible_existing_coverage": [],
+  "unresolved": [
+    "Define 'website code' versus 'scripting' precisely during processing.",
+    "Do not retroactively apply a queued specimen to existing code."
+  ]
+}

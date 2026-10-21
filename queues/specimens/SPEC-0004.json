@@ -1,0 +1,45 @@
+{
+  "status": "proposed",
+  "source": {
+    "kind": "user_submitted_rule_idea",
+    "reference": "Direct rule proposal; original conversation and private phrasing not retained",
+    "material_retained": false
+  },
+  "received_on": "2026-10-21",
+  "intake": {
+    "visibility": "public_safe_abstract_only",
+    "operation": "specimen_queue_entry",
+    "processing_authorized": false
+  },
+  "next_state": "awaiting_explicit_specimen_processing_selection",
+  "remarks": "Queued only. Scope hints and relationships are provisional; no rule was normalized, enacted, published, or applied, and no task was created.",
+  "id": "SPEC-0004",
+  "title": "Provide live system-aware light and dark themes for GUIs",
+  "abstract": "Every newly built graphical or web interface should support light, dark, and system-following appearance modes. System-following is the initial default. An accessible dropdown must let users change the mode during use, with the interface updating immediately.",
+  "scope_hints": {
+    "domains": [
+      "user_interfaces",
+      "desktop_gui",
+      "web_applications"
+    ],
+    "normative_effect": "obligation",
+    "actors": [
+      "software_creator"
+    ],
+    "trigger": "building_a_gui_or_web_app",
+    "required_behaviors": [
+      "light_theme",
+      "dark_theme",
+      "system_default",
+      "dropdown_theme_selector",
+      "live_theme_switching"
+    ],
+    "exceptions": [],
+    "boundary": "user_interface_theme_controls"
+  },
+  "possible_overlap_with": [],
+  "possible_existing_coverage": [],
+  "unresolved": [
+    "Do not infer persistence or specific platform implementation from the specimen."
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "status": "proposed",
+  "source": {
+    "kind": "user_submitted_rule_idea",
+    "reference": "Direct rule proposal; original conversation and private phrasing not retained",
+    "material_retained": false
+  },
+  "received_on": "2026-10-21",
+  "intake": {
+    "visibility": "public_safe_abstract_only",
+    "operation": "specimen_queue_entry",
+    "processing_authorized": false
+  },
+  "next_state": "awaiting_explicit_specimen_processing_selection",
+  "remarks": "Queued only. Scope hints and relationships are provisional; no rule was normalized, enacted, published, or applied, and no task was created.",
+  "id": "SPEC-0005",
+  "title": "Provide parallel machine- and human-readable ontology representations",
+  "abstract": "A Tarium member project's ontology must have both machine-readable and human-readable representations of the same underlying information; structured JSON and explanatory Markdown are examples, not an imposed exclusive file format.",
+  "scope_hints": {
+    "domains": [
+      "tarium_member_projects",
+      "ontology",
+      "documentation",
+      "data_interoperability"
+    ],
+    "normative_effect": "obligation",
+    "actors": [
+      "project_maintainer"
+    ],
+    "trigger": "maintaining_ontology_in_a_tarium_member",
+    "required_behaviors": [
+      "machine_readable_ontology",
+      "human_readable_ontology",
+      "semantic_alignment"
+    ],
+    "preferred_representations": {
+      "machine": "JSON",
+      "human": "Markdown"
+    },
+    "boundary": "ontology_dual_representation"
+  },
+  "possible_overlap_with": [
+    "SPEC-0006"
+  ],
+  "possible_existing_coverage": [],
+  "unresolved": [
+    "The formal synchronization or derivation rule is left for specimen processing."
+  ]
+}

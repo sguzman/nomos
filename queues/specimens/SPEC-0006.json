@@ -1,0 +1,48 @@
+{
+  "status": "proposed",
+  "source": {
+    "kind": "user_submitted_rule_idea",
+    "reference": "Direct rule proposal; original conversation and private phrasing not retained",
+    "material_retained": false
+  },
+  "received_on": "2026-10-21",
+  "intake": {
+    "visibility": "public_safe_abstract_only",
+    "operation": "specimen_queue_entry",
+    "processing_authorized": false
+  },
+  "next_state": "awaiting_explicit_specimen_processing_selection",
+  "remarks": "Queued only. Scope hints and relationships are provisional; no rule was normalized, enacted, published, or applied, and no task was created.",
+  "id": "SPEC-0006",
+  "title": "Give each Tarium member an independent ontology and specimen showcase",
+  "abstract": "Every project explicitly admitted to Tarium must maintain its own ontology and public-facing website demonstrating representative ontology specimens. A central registry does not replace these per-project resources.",
+  "scope_hints": {
+    "domains": [
+      "tarium_member_projects",
+      "ontology",
+      "web_showcase",
+      "project_autonomy"
+    ],
+    "normative_effect": "obligation",
+    "actors": [
+      "project_maintainer"
+    ],
+    "trigger": "membership_in_tarium",
+    "required_behaviors": [
+      "independent_project_ontology",
+      "own_public_showcase_website",
+      "ontology_specimen_gallery"
+    ],
+    "conditions": [
+      "explicit_tarium_membership"
+    ],
+    "boundary": "per_member_self_sufficiency"
+  },
+  "possible_overlap_with": [
+    "SPEC-0005"
+  ],
+  "possible_existing_coverage": [],
+  "unresolved": [
+    "This specimen does not itself authorize enrollment of any repository in Tarium."
+  ]
+}

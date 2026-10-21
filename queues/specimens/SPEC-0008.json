@@ -1,0 +1,51 @@
+{
+  "status": "proposed",
+  "source": {
+    "kind": "user_submitted_rule_idea",
+    "reference": "Direct rule proposal; original conversation and private phrasing not retained",
+    "material_retained": false
+  },
+  "received_on": "2026-10-21",
+  "intake": {
+    "visibility": "public_safe_abstract_only",
+    "operation": "specimen_queue_entry",
+    "processing_authorized": false
+  },
+  "next_state": "awaiting_explicit_specimen_processing_selection",
+  "remarks": "Queued only. Scope hints and relationships are provisional; no rule was normalized, enacted, published, or applied, and no task was created.",
+  "id": "SPEC-0008",
+  "title": "Derive stable, perceptually distinguishable colors from strings",
+  "abstract": "Establish a deterministic string-to-color mapping suitable for assigning stable color identities to objects. Prioritize human perceptual separation and accessible contrast. Examine relevant methods used by Chromalect and the ChatGPT Signal project before standardizing an algorithm.",
+  "scope_hints": {
+    "domains": [
+      "visual_identity",
+      "color_generation",
+      "design_systems",
+      "deterministic_mapping"
+    ],
+    "normative_effect": "design_requirement",
+    "actors": [
+      "system_designer"
+    ],
+    "trigger": "assigning_object_colors_from_string_identifiers",
+    "required_behaviors": [
+      "deterministic_string_mapping",
+      "stable_output",
+      "prioritize_perceptual_distinction",
+      "consider_contextual_contrast"
+    ],
+    "reference_names": [
+      "Chromalect",
+      "ChatGPT Signal"
+    ],
+    "boundary": "stable_identity_color_mapping"
+  },
+  "possible_overlap_with": [
+    "SPEC-0009"
+  ],
+  "possible_existing_coverage": [],
+  "unresolved": [
+    "Reference implementations have not been inspected; algorithm selection is deferred.",
+    "Absolute uniqueness for unbounded strings in a finite color space is impossible; later processing must define collision and contrast policy."
+  ]
+}

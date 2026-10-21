@@ -1,0 +1,48 @@
+{
+  "status": "proposed",
+  "source": {
+    "kind": "user_submitted_rule_idea",
+    "reference": "Direct rule proposal; original conversation and private phrasing not retained",
+    "material_retained": false
+  },
+  "received_on": "2026-10-21",
+  "intake": {
+    "visibility": "public_safe_abstract_only",
+    "operation": "specimen_queue_entry",
+    "processing_authorized": false
+  },
+  "next_state": "awaiting_explicit_specimen_processing_selection",
+  "remarks": "Queued only. Scope hints and relationships are provisional; no rule was normalized, enacted, published, or applied, and no task was created.",
+  "id": "SPEC-0009",
+  "title": "Bootstrap new projects with structured and identity-marked roadmaps",
+  "abstract": "Every new project should begin with a clean roadmap organized into phases, milestones, subtasks, and features. Assign each individual roadmap object a dedicated stable emoji serving as its identity marker, distinct from completion-state indicators.",
+  "scope_hints": {
+    "domains": [
+      "project_bootstrap",
+      "roadmapping",
+      "planning",
+      "visual_identity"
+    ],
+    "normative_effect": "obligation",
+    "actors": [
+      "project_creator"
+    ],
+    "trigger": "creating_a_new_project_from_scratch",
+    "required_behaviors": [
+      "phases",
+      "milestones",
+      "subtasks",
+      "features",
+      "dedicated_stable_emoji_for_each_object"
+    ],
+    "boundary": "greenfield_project_roadmap"
+  },
+  "possible_overlap_with": [
+    "SPEC-0008"
+  ],
+  "possible_existing_coverage": [],
+  "unresolved": [
+    "Emoji allocation, identity stability, and collisions will need formal treatment.",
+    "Roadmap items are not automatically queued or authorized development tasks."
+  ]
+}
