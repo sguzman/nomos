@@ -1,0 +1,82 @@
+{
+  "id": "NOM-0001",
+  "version": "1.0.0",
+  "title": "Do not publish private material to public repositories",
+  "summary": "Prevent private material from entering public repository surfaces.",
+  "statement": "Do not include private material in public Git repository artifacts or their associated publication surfaces.",
+  "rationale": "Public repositories and their histories are inappropriate destinations for private material.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "prohibition",
+    "predicate": {
+      "action": "include",
+      "object": "private_material",
+      "target": "artifact"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [],
+    "exceptions": []
+  },
+  "categories": {
+    "domains": [
+      "privacy",
+      "publication"
+    ],
+    "topics": [
+      "information_disclosure",
+      "content_handling"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "git_repository"
+      ],
+      "visibility": [
+        "public"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [],
+    "exclusions": []
+  },
+  "authority": {
+    "source": "Nomos publication constitution",
+    "tier": "repository_policy",
+    "priority": 100,
+    "override_policy": "non_overridable_within_scope"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "CONSTITUTION.md, Article IV",
+    "license": "MIT",
+    "notes": "Abstract category only; does not reproduce private content."
+  },
+  "governance": {
+    "created_on": "2026-10-20",
+    "updated_on": "2026-10-20",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0.0",
+  "description": "Controlled vocabulary for categories and applicable scope axes. Expand only when needed by public-safe specimens.",
+  "category_axes": {
+    "domains": [
+      "privacy",
+      "publication",
+      "personal_writing",
+      "software_development",
+      "agent_instructions",
+      "governance"
+    ],
+    "topics": [
+      "information_disclosure",
+      "content_handling",
+      "personal_expression",
+      "rule_composition"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations",
+      "general"
+    ]
+  },
+  "scope_axes": {
+    "channel": [
+      "any",
+      "git_repository",
+      "local_workspace",
+      "chat",
+      "website"
+    ],
+    "visibility": [
+      "any",
+      "public",
+      "private",
+      "internal"
+    ],
+    "artifact_kind": [
+      "any",
+      "repository_content",
+      "diary",
+      "instructions",
+      "document"
+    ],
+    "actor": [
+      "any",
+      "ai_agent",
+      "human",
+      "automation"
+    ]
+  },
+  "norm_kinds": [
+    "prohibition",
+    "obligation",
+    "permission"
+  ],
+  "status_values": [
+    "draft",
+    "reviewed",
+    "published",
+    "deprecated"
+  ],
+  "authority_tiers": [
+    "repository_policy",
+    "use_case_policy",
+    "general_guidance",
+    "example"
+  ],
+  "override_policies": [
+    "explicit_resolution",
+    "non_overridable_within_scope"
+  ],
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

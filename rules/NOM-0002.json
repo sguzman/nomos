@@ -1,0 +1,81 @@
+{
+  "id": "NOM-0002",
+  "version": "0.1.0",
+  "title": "Permit private expression in private diaries",
+  "summary": "Allow personal material within an explicitly private diary.",
+  "statement": "An explicitly private diary may contain private material when it remains private.",
+  "rationale": "Privacy constraints differ between private working material and public publication.",
+  "language": "en",
+  "status": "draft",
+  "norm": {
+    "kind": "permission",
+    "predicate": {
+      "action": "include",
+      "object": "private_material",
+      "target": "artifact"
+    },
+    "permission_strength": "strong",
+    "conditions": [],
+    "exceptions": []
+  },
+  "categories": {
+    "domains": [
+      "privacy",
+      "personal_writing"
+    ],
+    "topics": [
+      "content_handling",
+      "personal_expression"
+    ],
+    "audiences": [
+      "human_authors",
+      "ai_agents"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "private"
+      ],
+      "artifact_kind": [
+        "diary"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [],
+    "exclusions": []
+  },
+  "authority": {
+    "source": "synthetic catalog illustration",
+    "tier": "example",
+    "priority": 10,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "synthetic_example",
+    "reference": "",
+    "license": "MIT",
+    "notes": "Illustrative, inert draft; not a grant to publish private content publicly."
+  },
+  "governance": {
+    "created_on": "2026-10-20",
+    "updated_on": "2026-10-20",
+    "review_status": "unreviewed"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}
