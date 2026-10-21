@@ -1,0 +1,68 @@
+{
+  "status": "proposed",
+  "source": {
+    "kind": "user_submitted_rule_idea",
+    "reference": "Direct rule proposal; no private conversational material retained",
+    "material_retained": false
+  },
+  "received_on": "2026-10-21",
+  "intake": {
+    "visibility": "public_safe_abstract_only",
+    "operation": "specimen_queue_entry",
+    "processing_authorized": false
+  },
+  "next_state": "awaiting_explicit_specimen_processing_selection",
+  "remarks": "Intake only. Modality and authority are not normalized yet; neither record is an applied instruction, and no specimen processing or downstream task is authorized.",
+  "id": "SPEC-0012",
+  "title": "Select the Rust 2024 edition in Cargo manifests",
+  "abstract": "When selecting an edition for a Rust package, use the fixed Cargo.toml [package].edition value \"2024\". The normative force is deliberately left open for analysis: it might mandate that value or merely permit it.",
+  "scope_hints": {
+    "domains": [
+      "rust_development",
+      "cargo_manifests",
+      "edition_policy",
+      "fixed_configuration_values"
+    ],
+    "affected_setting": "Cargo.toml [package].edition",
+    "value_expression": {
+      "kind": "literal",
+      "value": "2024"
+    },
+    "candidate_normative_effect": "obligation_or_permission_to_be_determined",
+    "candidate_modalities": [
+      "obligation",
+      "strong_permission",
+      "weak_permission",
+      "recommendation"
+    ],
+    "actors": [
+      "project_creator",
+      "maintainer",
+      "automated_code_author"
+    ],
+    "trigger": "creating_or_updating_a_Rust_package_manifest",
+    "boundary": "fixed_edition_selection"
+  },
+  "possible_overlap_with": [
+    "SPEC-0011",
+    "SPEC-0007"
+  ],
+  "possible_existing_coverage": [],
+  "provisional_conflict_analysis": {
+    "with": "SPEC-0011",
+    "status": "conditional_candidate_only",
+    "reason": "Presently 2024 is the latest documented stable Rust edition. If a newer edition becomes applicable, mandatory fixed-2024 and mandatory latest-edition obligations can be incompatible, but a weaker permissive or advisory formulation need not be.",
+    "reviewed": false
+  },
+  "unresolved": [
+    "Determine whether this is an obligation, strong/weak permission, or recommendation.",
+    "Determine whether a later edition and this fixed value may coexist as alternatives, or the setting must equal exactly one value.",
+    "Evaluate possible conflict only under overlapping project scope and temporal conditions."
+  ],
+  "public_reference_context": {
+    "checked_on": "2026-10-21",
+    "public_reference": "https://doc.rust-lang.org/cargo/reference/manifest.html#the-edition-field",
+    "observed_fact": "Rust 2024 is currently documented as the latest stable Cargo edition, so these proposals are not presently value-incompatible solely on the edition year.",
+    "note": "Observation is temporal background, not frozen normative content; latest stable may change in the future."
+  }
+}

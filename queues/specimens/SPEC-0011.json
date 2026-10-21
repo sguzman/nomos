@@ -1,0 +1,70 @@
+{
+  "status": "proposed",
+  "source": {
+    "kind": "user_submitted_rule_idea",
+    "reference": "Direct rule proposal; no private conversational material retained",
+    "material_retained": false
+  },
+  "received_on": "2026-10-21",
+  "intake": {
+    "visibility": "public_safe_abstract_only",
+    "operation": "specimen_queue_entry",
+    "processing_authorized": false
+  },
+  "next_state": "awaiting_explicit_specimen_processing_selection",
+  "remarks": "Intake only. Modality and authority are not normalized yet; neither record is an applied instruction, and no specimen processing or downstream task is authorized.",
+  "id": "SPEC-0011",
+  "title": "Prefer the latest stable Rust edition in Cargo manifests",
+  "abstract": "When choosing a Rust package edition, set the Cargo.toml [package].edition field to the newest stable Rust edition supported by the project's toolchain and compatibility requirements. 'Latest' is resolved at the time the setting is chosen, not treated as a fixed calendar year.",
+  "scope_hints": {
+    "domains": [
+      "rust_development",
+      "cargo_manifests",
+      "edition_policy",
+      "version_selection"
+    ],
+    "affected_setting": "Cargo.toml [package].edition",
+    "value_expression": {
+      "kind": "dynamic",
+      "selector": "latest_stable_supported_edition",
+      "evaluation_time": "edition_selection",
+      "compatibility_qualification": true
+    },
+    "candidate_normative_effect": "obligation_or_preference_to_be_determined",
+    "candidate_modalities": [
+      "obligation",
+      "strong_permission",
+      "weak_permission",
+      "recommendation"
+    ],
+    "actors": [
+      "project_creator",
+      "maintainer",
+      "automated_code_author"
+    ],
+    "trigger": "creating_or_updating_a_Rust_package_manifest",
+    "boundary": "dynamic_edition_selection"
+  },
+  "possible_overlap_with": [
+    "SPEC-0012",
+    "SPEC-0007"
+  ],
+  "possible_existing_coverage": [],
+  "provisional_conflict_analysis": {
+    "with": "SPEC-0012",
+    "status": "conditional_candidate_only",
+    "reason": "Values coincide while the latest stable supported edition is 2024; they can diverge when a newer edition becomes available and compatible. Modal strength and applicability control whether divergence amounts to a genuine conflict.",
+    "reviewed": false
+  },
+  "unresolved": [
+    "Clarify whether newest means the newest stable edition overall or the newest stable edition compatible with the declared MSRV.",
+    "Specify whether this is an obligation, preference, strong permission, or weak permission; do not silently assume.",
+    "Define whether this governs new manifests only or migrations of existing crates."
+  ],
+  "public_reference_context": {
+    "checked_on": "2026-10-21",
+    "public_reference": "https://doc.rust-lang.org/cargo/reference/manifest.html#the-edition-field",
+    "observed_fact": "Rust 2024 is currently documented as the latest stable Cargo edition, so these proposals are not presently value-incompatible solely on the edition year.",
+    "note": "Observation is temporal background, not frozen normative content; latest stable may change in the future."
+  }
+}
