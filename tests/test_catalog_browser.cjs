@@ -7,18 +7,18 @@ const { hueForId } = require('../docs/rule-colors.js');
 const catalog = require('../docs/catalog.json');
 const args = { rules: catalog.rules, groups: catalog.groups };
 
-test('unified catalog shows all 67 rules and all eight groups', () => {
+test('unified catalog shows all 76 rules and all thirteen groups', () => {
   const results = search(args);
-  assert.equal(results.length, 75);
-  assert.equal(results.filter(x => x.kind === 'rule').length, 67);
-  assert.equal(results.filter(x => x.kind === 'group').length, 8);
-  assert.deepEqual(results.slice(0, 8).map(x => x.value.id),
-    Array.from({ length: 8 }, (_, i) => 'GROUP-' + String(i + 1).padStart(4, '0')));
-  assert.equal(results[8].value.id, 'NOM-0001');
+  assert.equal(results.length, 89);
+  assert.equal(results.filter(x => x.kind === 'rule').length, 76);
+  assert.equal(results.filter(x => x.kind === 'group').length, 13);
+  assert.deepEqual(results.slice(0, 13).map(x => x.value.id),
+    Array.from({ length: 13 }, (_, i) => 'GROUP-' + String(i + 1).padStart(4, '0')));
+  assert.equal(results[13].value.id, 'NOM-0001');
 });
 test('entity type selector filters one shared catalog', () => {
-  assert.equal(search({ ...args, type: 'groups' }).length, 8);
-  assert.equal(search({ ...args, type: 'rules' }).length, 67);
+  assert.equal(search({ ...args, type: 'groups' }).length, 13);
+  assert.equal(search({ ...args, type: 'rules' }).length, 76);
 });
 test('one search field finds a group and its atomic member rules', () => {
   const found = search({ ...args, query: 'Rust Quality' });
@@ -41,7 +41,7 @@ test('Browse members uses shared filtered catalog and excludes groups', () => {
 });
 test('all group IDs generate distinct stable OKLCH hues', () => {
   const hues = catalog.groups.map(g => hueForId(g.id));
-  assert.equal(new Set(hues).size, 8);
+  assert.equal(new Set(hues).size, 13);
   for (let i=0;i<hues.length;i++) {
     assert.equal(hueForId(catalog.groups[i].id), hues[i]);
     assert.equal(hues[i], catalog.groups[i].color.hue_degrees);
@@ -51,9 +51,9 @@ test('all group IDs generate distinct stable OKLCH hues', () => {
 test('rules-first reverses type precedence with stable IDs inside each type', () => {
   const results = search({ ...args, sort: 'rules-first' });
   assert.equal(results[0].value.id, 'NOM-0001');
-  assert.equal(results[66].value.id, 'NOM-0067');
-  assert.equal(results[67].value.id, 'GROUP-0001');
-  assert.equal(results.at(-1).value.id, 'GROUP-0008');
+  assert.equal(results[75].value.id, 'NOM-0076');
+  assert.equal(results[76].value.id, 'GROUP-0001');
+  assert.equal(results.at(-1).value.id, 'GROUP-0013');
 });
 test('name and ID sort directions work on the combined results', () => {
   const asc = search({ ...args, sort: 'name-asc' });
@@ -72,7 +72,7 @@ test('group size sorts by expanded published member count, not proposal order', 
   const small = search({ ...args, sort: 'members-asc' }).filter(x=>x.kind==='group');
   const size = x=>NomosGroups.expand(x.value.id, catalog.groups, catalog.rules).length;
   assert.equal(large[0].value.id, 'GROUP-0001');
-  assert.equal(small[0].value.id, 'GROUP-0006');
+  assert.equal(small[0].value.id, 'GROUP-0012');
   for (let i=1;i<large.length;i++) assert.ok(size(large[i-1])>=size(large[i]));
   for (let i=1;i<small.length;i++) assert.ok(size(small[i-1])<=size(small[i]));
   assert.equal(search({ ...args, sort:'members-desc' }).at(-1).kind, 'rule');
@@ -90,4 +90,14 @@ test('sorting preserves filtering and group member browsing', () => {
 test('unknown sort mode falls back deterministically to the default', () => {
   assert.deepEqual(search({ ...args, sort:'invalid' }).map(x=>x.value.id),
     search(args).map(x=>x.value.id));
+});
+
+test('new group umbrella and its four children resolve nine independent rules', () => {
+  const groups = search({ ...args, type:'groups', query:'progress reporting' });
+  assert.ok(groups.some(x => x.value.id === 'GROUP-0010'));
+  const members = NomosGroups.expand('GROUP-0009',catalog.groups,catalog.rules);
+  assert.equal(members.length,9);
+  assert.deepEqual(new Set(members),new Set(Array.from({length:9},(_,i)=>'NOM-'+String(i+68).padStart(4,'0'))));
+  const summary = search({ ...args, type:'rules',groupFilter:'GROUP-0011' });
+  assert.deepEqual(summary.map(x=>x.value.id),['NOM-0071','NOM-0072']);
 });

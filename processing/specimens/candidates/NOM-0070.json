@@ -1,0 +1,88 @@
+{
+  "id": "NOM-0070",
+  "version": "0.1.0",
+  "title": "Report overall project progress alongside individual items",
+  "summary": "Include an overall project progress summary alongside the progress of relevant phases, milestones, tasks and features.",
+  "statement": "Include an overall project progress summary alongside the progress of relevant phases, milestones, tasks and features.",
+  "rationale": "Public-safe, scoped project-development requirement normalized from an independently authorized specimen.",
+  "language": "en",
+  "status": "draft",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "report",
+      "object": "overall_and_individual_progress",
+      "target": "project_progress_report"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "Reporting on progress for an authorized project."
+    ],
+    "exceptions": [
+      "Do not double-count nested milestones or infer unverified aggregate percentages."
+    ]
+  },
+  "categories": {
+    "domains": [
+      "project_management"
+    ],
+    "topics": [
+      "progress_reporting"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "Reporting on progress for an authorized project."
+    ],
+    "exclusions": [
+      "Do not double-count nested milestones or infer unverified aggregate percentages."
+    ]
+  },
+  "authority": {
+    "source": "Normalized proposal awaiting authorized downstream catalog review",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0070; processing/specimens/PROC-SPEC-0070.json",
+    "license": "MIT",
+    "notes": "Standalone atomic rule; any virtual-group membership is non-normative and does not apply it automatically."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "unreviewed"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

@@ -80,8 +80,14 @@ The shared catalog provides a Sort dropdown independent of search and type filte
 
 ## Perceptually separated identity palette (v2)
 
-Golden-angle hue-only assignment was insufficient: IDs separated by Fibonacci-sized gaps acquired almost identical purple swatches. Each ID now selects a frozen palette slot selected by a gamut-aware, two-appearance **OKLab maximum-minimum-distance** process. GROUP numeric identifiers 1–8 occupy the eight most widely separated opening slots. NOM numeric identifiers 1–128 occupy the following 128 disjoint slots. The rule/group ID remains the sole lookup key; catalog ordering does not change its colors. Each slot stores gamut-mapped day/night colors and its OKLCH hue. The finite palette cannot ensure unlimited uniqueness; new ID ranges need a palette version extension. Readable IDs remain mandatory.
+Golden-angle hue-only assignment was insufficient: IDs separated by Fibonacci-sized gaps acquired almost identical purple swatches. Each ID now selects a frozen palette slot selected by a gamut-aware, two-appearance **OKLab maximum-minimum-distance** process. Existing GROUP-0001–GROUP-0008 occupy the eight most separated opening slots. NOM-0001–NOM-0067 retain their established assignments; newer groups and rules occupy distinct, reserved unused slots. The rule/group ID remains the sole lookup key; catalog ordering does not change its colors. Each slot stores gamut-mapped day/night colors and its OKLCH hue. The finite palette cannot ensure unlimited uniqueness; new ID ranges need a palette version extension. Readable IDs remain mandatory.
 
 ## Sorting interaction and caching
 
 Changing Sort rerenders the unified catalog, announces the current order beside the result count, and brings the filter bar into view instead of leaving a stale scrolled card anchoring the viewport. An integration regression test exercises the actual sort dropdown change event. The Pages build fingerprints CSS and JavaScript in their HTML URLs so a browser cannot silently pair new HTML with an old cached sorting script.
+
+## Project management and porting groups
+
+Five more groups are published: **Project Management & Development** (GROUP-0009), **Progress Reporting** (0010), **Completion Reporting** (0011), **Project Identity** (0012) and **Porting & Compatibility** (0013). The umbrella contains nine distinct new rules through its four child groups. They appear in the existing combined catalog and work with the same search, type, sort, filter, Browse members and Add all actions as other groups. Completion-reporting rules are independent so that first-time 100% announcements are kept separate from their later suppression.
+
+Identity colors preserve all earlier NOM-0001–NOM-0067 and GROUP-0001–GROUP-0008 assignments. The five new groups are allocated perceptually separated unused palette positions, with other distinct slots assigned to NOM-0068–NOM-0076. The remaining palette is finite, so unseen future IDs may require a documented extension.

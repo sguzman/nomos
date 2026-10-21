@@ -1,0 +1,89 @@
+{
+  "id": "NOM-0069",
+  "version": "1.0.0",
+  "title": "Pair progress percentages with visual progress bars",
+  "summary": "For each reported work item, show a numeric completion percentage together with a visual progress bar conveying the same value.",
+  "statement": "For each reported work item, show a numeric completion percentage together with a visual progress bar conveying the same value.",
+  "rationale": "Public-safe, scoped project-development requirement normalized from an independently authorized specimen.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "show",
+      "object": "numeric_and_visual_progress",
+      "target": "work_item_progress_report"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "A work item's completion is quantifiable from available evidence."
+    ],
+    "exceptions": [
+      "Do not invent numerical precision when progress cannot be estimated."
+    ]
+  },
+  "categories": {
+    "domains": [
+      "project_management",
+      "user_interfaces"
+    ],
+    "topics": [
+      "progress_reporting"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "A work item's completion is quantifiable from available evidence."
+    ],
+    "exclusions": [
+      "Do not invent numerical precision when progress cannot be estimated."
+    ]
+  },
+  "authority": {
+    "source": "Reviewed Nomos catalog guidance; opt-in and subject to task-level authorization",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0069; processing/specimens/PROC-SPEC-0069.json",
+    "license": "MIT",
+    "notes": "Standalone atomic rule; any virtual-group membership is non-normative and does not apply it automatically."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

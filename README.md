@@ -44,3 +44,7 @@ All twelve specimens (SPEC-0001 through SPEC-0012) have processing dispositions.
 ## Development hygiene catalog
 
 The 54 practices are now standalone opt-in rules, with independently addressable IDs NOM-0014 through NOM-0067. Eight first-class groups provide named, colored metadata collections, including a seven-subgroup umbrella. The website supports individual rule selection or one-click addition of the eligible unique rules of a group. Any group is inert until the user explicitly selects it in the composer.
+
+## Project management and strict-port practices
+
+Nine additional independent opt-in rules `NOM-0068` through `NOM-0076` cover progress reporting, single-announcement completion, README identity colors and strict-port replacement criteria. Five new groups `GROUP-0009` through `GROUP-0013` form a separately selectable project-management umbrella with four independent subgroups. New groups remain optional and do not activate any rules or authorize releases, publishing or unrelated work. The historical source records remain in separate intake, processing, and downstream-task stores.

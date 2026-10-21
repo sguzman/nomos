@@ -1,0 +1,91 @@
+{
+  "id": "NOM-0075",
+  "version": "0.1.0",
+  "title": "Define porting MVP through verified replacement capability",
+  "summary": "For a strict software port, judge MVP against the agreed capability to replace the upstream application's baseline functionality rather than successful compilation alone.",
+  "statement": "For a strict software port, judge MVP against the agreed capability to replace the upstream application's baseline functionality rather than successful compilation alone.",
+  "rationale": "Public-safe, scoped project-development requirement normalized from an independently authorized specimen.",
+  "language": "en",
+  "status": "draft",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "verify",
+      "object": "replacement_capability",
+      "target": "strict_port_mvp"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "Strict port MVP criteria and an upstream baseline have been agreed."
+    ],
+    "exceptions": [
+      "Compilation alone is not proof of replacement capability."
+    ]
+  },
+  "categories": {
+    "domains": [
+      "software_development",
+      "software_porting"
+    ],
+    "topics": [
+      "port_mvp"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "Strict port MVP criteria and an upstream baseline have been agreed."
+    ],
+    "exclusions": [
+      "Compilation alone is not proof of replacement capability."
+    ]
+  },
+  "authority": {
+    "source": "Normalized proposal awaiting authorized downstream catalog review",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": [
+      "NOM-0074"
+    ]
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0075; processing/specimens/PROC-SPEC-0075.json",
+    "license": "MIT",
+    "notes": "Standalone atomic rule; any virtual-group membership is non-normative and does not apply it automatically."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "unreviewed"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

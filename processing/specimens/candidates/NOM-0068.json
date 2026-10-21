@@ -1,0 +1,88 @@
+{
+  "id": "NOM-0068",
+  "version": "0.1.0",
+  "title": "Report progress for touched roadmap items",
+  "summary": "Each development progress report should show progress for every phase, milestone, task and feature worked on during its reporting interval.",
+  "statement": "Each development progress report should show progress for every phase, milestone, task and feature worked on during its reporting interval.",
+  "rationale": "Public-safe, scoped project-development requirement normalized from an independently authorized specimen.",
+  "language": "en",
+  "status": "draft",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "report",
+      "object": "touched_work_item_progress",
+      "target": "development_progress_report"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "A project progress report covers work performed during the reporting interval."
+    ],
+    "exceptions": [
+      "Items whose completed state was already announced and not reopened."
+    ]
+  },
+  "categories": {
+    "domains": [
+      "project_management"
+    ],
+    "topics": [
+      "progress_reporting"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "A project progress report covers work performed during the reporting interval."
+    ],
+    "exclusions": [
+      "Items whose completed state was already announced and not reopened."
+    ]
+  },
+  "authority": {
+    "source": "Normalized proposal awaiting authorized downstream catalog review",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0068; processing/specimens/PROC-SPEC-0068.json",
+    "license": "MIT",
+    "notes": "Standalone atomic rule; any virtual-group membership is non-normative and does not apply it automatically."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "unreviewed"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

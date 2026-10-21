@@ -65,5 +65,9 @@ test('palette slots for current rule and group namespaces are independent',()=>{
   assert.equal(paletteIndex('NOM-0067'),74);
   assert.equal(paletteIndex('GROUP-0001'),0);
   assert.equal(paletteIndex('GROUP-0008'),7);
-  assert.equal(new Set([...catalog.rules,...catalog.groups].map(x=>paletteIndex(x.id))).size,75);
+  assert.equal(paletteIndex('GROUP-0009'),79);
+  assert.equal(paletteIndex('GROUP-0013'),104);
+  assert.equal(paletteIndex('NOM-0068'),75);
+  assert.equal(paletteIndex('NOM-0076'),84);
+  assert.equal(new Set([...catalog.rules,...catalog.groups].map(x=>paletteIndex(x.id))).size,89);
 });

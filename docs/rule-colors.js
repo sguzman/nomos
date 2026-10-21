@@ -9,7 +9,9 @@
  * This avoids the golden-angle/Fibonacci near-collision seen among scattered
  * rule IDs. Palette slots do not depend on catalog order or selected items.
  * GROUP-0001..GROUP-0008 occupy the first eight most separated slots;
- * NOM-0001..NOM-0128 occupy the next 128 disjoint palette slots. Other IDs use a stable hash fallback.
+ * NOM-0001..NOM-0067 retain slots 8..74, while new groups occupy five
+ * perceptually spread slots from the unused tail. New rules occupy the other
+ * tail slots without changing established identity colors.
  * Colors cannot be mathematically unique for unlimited identifiers.
  */
 const NomosColor = (() => {
@@ -24,17 +26,22 @@ const NomosColor = (() => {
     }
     return hash;
   }
+  const EXTRA_GROUP_SLOTS = [79,91,105,126,104];
+  const EXTRA_RULE_SLOTS = Array.from({length:61},(_,i)=>i+75)
+    .filter(i=>!EXTRA_GROUP_SLOTS.includes(i));
   function paletteIndex(value) {
     const id = String(value);
     const rule = /^NOM-(\d+)$/.exec(id);
     const group = /^GROUP-(\d+)$/.exec(id);
     if (rule) {
       const n = Number(rule[1]);
-      if (Number.isSafeInteger(n) && n >= 1 && n <= 128) return n+7;
+      if (Number.isSafeInteger(n) && n >= 1 && n <= 67) return n+7;
+      if (Number.isSafeInteger(n) && n >= 68 && n <= 123) return EXTRA_RULE_SLOTS[n-68];
     }
     if (group) {
       const n = Number(group[1]);
       if (Number.isSafeInteger(n) && n >= 1 && n <= 8) return n-1;
+      if (Number.isSafeInteger(n) && n >= 9 && n <= 13) return EXTRA_GROUP_SLOTS[n-9];
     }
     return hashId(id) % DAY.length;
   }

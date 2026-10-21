@@ -81,7 +81,7 @@ test('real Sort change event rerenders DOM in the selected order',()=>{
   assert.match(app.get('result-count').textContent,/rules-first/);
   app.get('sort-order').value='id-desc';
   app.get('sort-order').listeners.change();
-  assert.deepEqual(app.firstIds(2),['NOM-0067','NOM-0066']);
+  assert.deepEqual(app.firstIds(2),['NOM-0076','NOM-0075']);
   app.get('sort-order').value='groups-first';
   app.get('sort-order').listeners.change();
   assert.deepEqual(app.firstIds(2),['GROUP-0001','GROUP-0002']);
@@ -92,7 +92,7 @@ test('typing and changing entity filters respects selected sorting mode',()=>{
   app.get('sort-order').listeners.change();
   app.get('filter-type').value='groups';
   app.get('filter-type').listeners.change();
-  assert.deepEqual(app.firstIds(2),['GROUP-0008','GROUP-0007']);
+  assert.deepEqual(app.firstIds(2),['GROUP-0013','GROUP-0012']);
   app.get('search').value='Rust';
   app.get('search').listeners.input();
   assert.deepEqual(app.firstIds(1),['GROUP-0003']);

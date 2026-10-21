@@ -66,3 +66,9 @@ Group membership does **not** modify a member rule's authority, normative kind, 
 Selecting "Add all" on a group is an **explicit, ephemeral UI action** that recursively adds eligible published members. Unpublished members are omitted; identical IDs are deduplicated across direct and nested membership. Cycles, broken references and mismatched parent/child links fail validation. A group card cannot silently activate member rules outside the current composition; exports include the **selected independent rules**, not opaque group instructions.
 
 The normalized development-hygiene rules are conditional on their documented project triggers and task authorizations, especially release, deployment, or potentially destructive activities. Catalog approval never grants execution authority.
+
+## Project management and porting group expansion
+
+`GROUP-0009` is a second independent umbrella with four children: `GROUP-0010` (Progress Reporting, three atomic rules), `GROUP-0011` (Completion Reporting, two), `GROUP-0012` (Project Identity, one) and `GROUP-0013` (Porting & Compatibility, three). Selecting the umbrella explicitly adds nine distinct catalog rules, not an indivisible combined instruction. Each atomic rule remains selectable without the group.
+
+Progress reporting distinguishes first-time completion announcement (`NOM-0071`) from suppression of previously announced 100% items in later **routine** reports (`NOM-0072`). Suppression does not remove roadmap records; reopened items can be reported again when incomplete. `NOM-0073` is a standalone README color-presentation refinement of `NOM-0009`, not a rewrite of the underlying deterministic color rule. Strict port rules apply only to an authorized project with an agreed source baseline and MVP acceptance criteria; they do not apply to every Rust project automatically.

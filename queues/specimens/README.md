@@ -8,6 +8,6 @@ Group definitions are **queued model inputs only**. They have stable proposed id
 
 See [WORKFLOW.md](../../WORKFLOW.md) for authorization boundaries.
 
-## New intake: project-management and porting practices
+## Processed project-management and porting intake
 
-`SPEC-0068` through `SPEC-0076` are nine independently queued project-reporting, completion-reporting, project-identity and strict-porting specimens. They reference proposed `GROUP-0009` through `GROUP-0013` in [groups/](groups/). Existing catalog overlaps are provisional review links, not automatic duplication or publication. No downstream tasks are created by this intake.
+`SPEC-0068` through `SPEC-0076` are nine independently processed project-reporting, completion-reporting, project-identity and strict-porting specimens. They reference reviewed `GROUP-0009` through `GROUP-0013` in [groups/](groups/). Existing catalog overlaps are provisional review links, not automatic duplication or publication. Downstream work is recorded separately under TASK-0010 through TASK-0012. The original intake records are retained and do not themselves authorize additional work.

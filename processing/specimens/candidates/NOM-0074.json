@@ -1,0 +1,89 @@
+{
+  "id": "NOM-0074",
+  "version": "0.1.0",
+  "title": "Maintain behavioral fidelity during strict software ports",
+  "summary": "During a strict software port, prioritize the agreed upstream application's observable behavior over redesign and unrelated enhancements.",
+  "statement": "During a strict software port, prioritize the agreed upstream application's observable behavior over redesign and unrelated enhancements.",
+  "rationale": "Public-safe, scoped project-development requirement normalized from an independently authorized specimen.",
+  "language": "en",
+  "status": "draft",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "preserve",
+      "object": "upstream_observable_behavior",
+      "target": "strict_software_port"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "A strict implementation port has been authorized with a defined upstream baseline."
+    ],
+    "exceptions": [
+      "Explicitly authorized deviations from the upstream baseline."
+    ]
+  },
+  "categories": {
+    "domains": [
+      "software_development",
+      "software_porting"
+    ],
+    "topics": [
+      "port_fidelity"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "A strict implementation port has been authorized with a defined upstream baseline."
+    ],
+    "exclusions": [
+      "Explicitly authorized deviations from the upstream baseline."
+    ]
+  },
+  "authority": {
+    "source": "Normalized proposal awaiting authorized downstream catalog review",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0074; processing/specimens/PROC-SPEC-0074.json",
+    "license": "MIT",
+    "notes": "Standalone atomic rule; any virtual-group membership is non-normative and does not apply it automatically."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "unreviewed"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "2.1",
   "source": "Nomos public catalog and independent published virtual groups",
   "rules": [
     {
@@ -5963,6 +5963,822 @@
         "plain_text"
       ],
       "registry": "catalog"
+    },
+    {
+      "id": "NOM-0068",
+      "version": "1.0.0",
+      "title": "Report progress for touched roadmap items",
+      "summary": "Each development progress report should show progress for every phase, milestone, task and feature worked on during its reporting interval.",
+      "statement": "Each development progress report should show progress for every phase, milestone, task and feature worked on during its reporting interval.",
+      "rationale": "Public-safe, scoped project-development requirement normalized from an independently authorized specimen.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "report",
+          "object": "touched_work_item_progress",
+          "target": "development_progress_report"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "A project progress report covers work performed during the reporting interval."
+        ],
+        "exceptions": [
+          "Items whose completed state was already announced and not reopened."
+        ]
+      },
+      "categories": {
+        "domains": [
+          "project_management"
+        ],
+        "topics": [
+          "progress_reporting"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "A project progress report covers work performed during the reporting interval."
+        ],
+        "exclusions": [
+          "Items whose completed state was already announced and not reopened."
+        ]
+      },
+      "authority": {
+        "source": "Reviewed Nomos catalog guidance; opt-in and subject to task-level authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0068; processing/specimens/PROC-SPEC-0068.json",
+        "license": "MIT",
+        "notes": "Standalone atomic rule; any virtual-group membership is non-normative and does not apply it automatically."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0069",
+      "version": "1.0.0",
+      "title": "Pair progress percentages with visual progress bars",
+      "summary": "For each reported work item, show a numeric completion percentage together with a visual progress bar conveying the same value.",
+      "statement": "For each reported work item, show a numeric completion percentage together with a visual progress bar conveying the same value.",
+      "rationale": "Public-safe, scoped project-development requirement normalized from an independently authorized specimen.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "show",
+          "object": "numeric_and_visual_progress",
+          "target": "work_item_progress_report"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "A work item's completion is quantifiable from available evidence."
+        ],
+        "exceptions": [
+          "Do not invent numerical precision when progress cannot be estimated."
+        ]
+      },
+      "categories": {
+        "domains": [
+          "project_management",
+          "user_interfaces"
+        ],
+        "topics": [
+          "progress_reporting"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "A work item's completion is quantifiable from available evidence."
+        ],
+        "exclusions": [
+          "Do not invent numerical precision when progress cannot be estimated."
+        ]
+      },
+      "authority": {
+        "source": "Reviewed Nomos catalog guidance; opt-in and subject to task-level authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0069; processing/specimens/PROC-SPEC-0069.json",
+        "license": "MIT",
+        "notes": "Standalone atomic rule; any virtual-group membership is non-normative and does not apply it automatically."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0070",
+      "version": "1.0.0",
+      "title": "Report overall project progress alongside individual items",
+      "summary": "Include an overall project progress summary alongside the progress of relevant phases, milestones, tasks and features.",
+      "statement": "Include an overall project progress summary alongside the progress of relevant phases, milestones, tasks and features.",
+      "rationale": "Public-safe, scoped project-development requirement normalized from an independently authorized specimen.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "report",
+          "object": "overall_and_individual_progress",
+          "target": "project_progress_report"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "Reporting on progress for an authorized project."
+        ],
+        "exceptions": [
+          "Do not double-count nested milestones or infer unverified aggregate percentages."
+        ]
+      },
+      "categories": {
+        "domains": [
+          "project_management"
+        ],
+        "topics": [
+          "progress_reporting"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "Reporting on progress for an authorized project."
+        ],
+        "exclusions": [
+          "Do not double-count nested milestones or infer unverified aggregate percentages."
+        ]
+      },
+      "authority": {
+        "source": "Reviewed Nomos catalog guidance; opt-in and subject to task-level authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0070; processing/specimens/PROC-SPEC-0070.json",
+        "license": "MIT",
+        "notes": "Standalone atomic rule; any virtual-group membership is non-normative and does not apply it automatically."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0071",
+      "version": "1.0.0",
+      "title": "Announce first attainment of 100 percent exactly once",
+      "summary": "When a project, phase, milestone, task or feature first reaches 100 percent, show its completion and percentage once in the reporting conversation.",
+      "statement": "When a project, phase, milestone, task or feature first reaches 100 percent, show its completion and percentage once in the reporting conversation.",
+      "rationale": "Public-safe, scoped project-development requirement normalized from an independently authorized specimen.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "announce",
+          "object": "first_completion_at_100_percent",
+          "target": "work_item_progress_report"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "The project or roadmap item reaches and is first reported at 100 percent."
+        ],
+        "exceptions": [
+          "Historical completion events should not be reannounced as new completions."
+        ]
+      },
+      "categories": {
+        "domains": [
+          "project_management"
+        ],
+        "topics": [
+          "completion_reporting"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "The project or roadmap item reaches and is first reported at 100 percent."
+        ],
+        "exclusions": [
+          "Historical completion events should not be reannounced as new completions."
+        ]
+      },
+      "authority": {
+        "source": "Reviewed Nomos catalog guidance; opt-in and subject to task-level authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0071; processing/specimens/PROC-SPEC-0071.json",
+        "license": "MIT",
+        "notes": "Standalone atomic rule; any virtual-group membership is non-normative and does not apply it automatically."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0072",
+      "version": "1.0.0",
+      "title": "Suppress completed items from subsequent routine progress reports",
+      "summary": "After the 100 percent completion of a project, phase, milestone, task or feature has been reported once, omit it from later routine progress reports while preserving the underlying roadmap and completion history.",
+      "statement": "After the 100 percent completion of a project, phase, milestone, task or feature has been reported once, omit it from later routine progress reports while preserving the underlying roadmap and completion history.",
+      "rationale": "Public-safe, scoped project-development requirement normalized from an independently authorized specimen.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "prohibition",
+        "predicate": {
+          "action": "repeat",
+          "object": "already_announced_complete_item",
+          "target": "later_routine_progress_report"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "An item's 100 percent completion was already announced in an earlier report."
+        ],
+        "exceptions": [
+          "This does not erase archived completion data; explicitly reopened work may be reported as incomplete."
+        ]
+      },
+      "categories": {
+        "domains": [
+          "project_management"
+        ],
+        "topics": [
+          "completion_reporting"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "An item's 100 percent completion was already announced in an earlier report."
+        ],
+        "exclusions": [
+          "This does not erase archived completion data; explicitly reopened work may be reported as incomplete."
+        ]
+      },
+      "authority": {
+        "source": "Reviewed Nomos catalog guidance; opt-in and subject to task-level authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": [
+          "NOM-0071"
+        ]
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0072; processing/specimens/PROC-SPEC-0072.json",
+        "license": "MIT",
+        "notes": "Standalone atomic rule; any virtual-group membership is non-normative and does not apply it automatically."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0073",
+      "version": "1.0.0",
+      "title": "Display project identity colors in README documentation",
+      "summary": "Embed a project's assigned stable, perceptually distinguishable identity color in its README using a portable rendering such as SVG or CSS when suitable.",
+      "statement": "Embed a project's assigned stable, perceptually distinguishable identity color in its README using a portable rendering such as SVG or CSS when suitable.",
+      "rationale": "Public-safe, scoped project-development requirement normalized from an independently authorized specimen.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "show",
+          "object": "stable_project_color",
+          "target": "project_readme"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "The project has an assigned color and a public-facing README."
+        ],
+        "exceptions": [
+          "Do not expose private project artifacts; preserve README rendering compatibility."
+        ]
+      },
+      "categories": {
+        "domains": [
+          "visual_identity",
+          "documentation"
+        ],
+        "topics": [
+          "readme_identity"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "The project has an assigned color and a public-facing README."
+        ],
+        "exclusions": [
+          "Do not expose private project artifacts; preserve README rendering compatibility."
+        ]
+      },
+      "authority": {
+        "source": "Reviewed Nomos catalog guidance; opt-in and subject to task-level authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [
+          "NOM-0009"
+        ],
+        "depends_on": [
+          "NOM-0042"
+        ]
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0073; processing/specimens/PROC-SPEC-0073.json",
+        "license": "MIT",
+        "notes": "Standalone atomic rule; any virtual-group membership is non-normative and does not apply it automatically."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0074",
+      "version": "1.0.0",
+      "title": "Maintain behavioral fidelity during strict software ports",
+      "summary": "During a strict software port, prioritize the agreed upstream application's observable behavior over redesign and unrelated enhancements.",
+      "statement": "During a strict software port, prioritize the agreed upstream application's observable behavior over redesign and unrelated enhancements.",
+      "rationale": "Public-safe, scoped project-development requirement normalized from an independently authorized specimen.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "preserve",
+          "object": "upstream_observable_behavior",
+          "target": "strict_software_port"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "A strict implementation port has been authorized with a defined upstream baseline."
+        ],
+        "exceptions": [
+          "Explicitly authorized deviations from the upstream baseline."
+        ]
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "software_porting"
+        ],
+        "topics": [
+          "port_fidelity"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "A strict implementation port has been authorized with a defined upstream baseline."
+        ],
+        "exclusions": [
+          "Explicitly authorized deviations from the upstream baseline."
+        ]
+      },
+      "authority": {
+        "source": "Reviewed Nomos catalog guidance; opt-in and subject to task-level authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0074; processing/specimens/PROC-SPEC-0074.json",
+        "license": "MIT",
+        "notes": "Standalone atomic rule; any virtual-group membership is non-normative and does not apply it automatically."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0075",
+      "version": "1.0.0",
+      "title": "Define porting MVP through verified replacement capability",
+      "summary": "For a strict software port, judge MVP against the agreed capability to replace the upstream application's baseline functionality rather than successful compilation alone.",
+      "statement": "For a strict software port, judge MVP against the agreed capability to replace the upstream application's baseline functionality rather than successful compilation alone.",
+      "rationale": "Public-safe, scoped project-development requirement normalized from an independently authorized specimen.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "verify",
+          "object": "replacement_capability",
+          "target": "strict_port_mvp"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "Strict port MVP criteria and an upstream baseline have been agreed."
+        ],
+        "exceptions": [
+          "Compilation alone is not proof of replacement capability."
+        ]
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "software_porting"
+        ],
+        "topics": [
+          "port_mvp"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "Strict port MVP criteria and an upstream baseline have been agreed."
+        ],
+        "exclusions": [
+          "Compilation alone is not proof of replacement capability."
+        ]
+      },
+      "authority": {
+        "source": "Reviewed Nomos catalog guidance; opt-in and subject to task-level authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": [
+          "NOM-0074"
+        ]
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0075; processing/specimens/PROC-SPEC-0075.json",
+        "license": "MIT",
+        "notes": "Standalone atomic rule; any virtual-group membership is non-normative and does not apply it automatically."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0076",
+      "version": "1.0.0",
+      "title": "Defer nonessential enhancements until strict-port MVP",
+      "summary": "Keep redesigns and optional post-MVP features outside the strict porting phase until the agreed MVP is reached, unless a separately authorized exception changes scope.",
+      "statement": "Keep redesigns and optional post-MVP features outside the strict porting phase until the agreed MVP is reached, unless a separately authorized exception changes scope.",
+      "rationale": "Public-safe, scoped project-development requirement normalized from an independently authorized specimen.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "defer",
+          "object": "optional_post_mvp_enhancements",
+          "target": "strict_port_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "A strict port is not yet at its agreed replacement-capable MVP."
+        ],
+        "exceptions": [
+          "Independently authorized pre-MVP additions are outside this default deferral."
+        ]
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "software_porting"
+        ],
+        "topics": [
+          "post_mvp_scope"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "A strict port is not yet at its agreed replacement-capable MVP."
+        ],
+        "exclusions": [
+          "Independently authorized pre-MVP additions are outside this default deferral."
+        ]
+      },
+      "authority": {
+        "source": "Reviewed Nomos catalog guidance; opt-in and subject to task-level authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": [
+          "NOM-0075"
+        ]
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0076; processing/specimens/PROC-SPEC-0076.json",
+        "license": "MIT",
+        "notes": "Standalone atomic rule; any virtual-group membership is non-normative and does not apply it automatically."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
     }
   ],
   "groups": [
@@ -6345,6 +7161,222 @@
       "provenance": {
         "source_type": "processed_specimen",
         "reference": "processing/specimens/groups/PROC-GROUP-0008.json"
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      }
+    },
+    {
+      "id": "GROUP-0009",
+      "kind": "virtual_rule_group",
+      "version": "1.0.0",
+      "status": "published",
+      "title": "Project Management & Development",
+      "summary": "Umbrella grouping for progress reporting, completed-work reporting, project identity and strict porting conventions.",
+      "metadata_labels": [
+        "project_management",
+        "development_practices"
+      ],
+      "parent_group_ids": [],
+      "child_group_ids": [
+        "GROUP-0010",
+        "GROUP-0011",
+        "GROUP-0012",
+        "GROUP-0013"
+      ],
+      "member_rule_ids": [],
+      "color": {
+        "space": "OKLCH",
+        "identity_string": "GROUP-0009",
+        "hue_degrees": 19.502,
+        "scheme": "oklab_maximin_v2",
+        "require_text_label": true
+      },
+      "composition": {
+        "opt_in_only": true,
+        "include_descendants": true,
+        "deduplicate_rule_ids": true,
+        "exclude_unpublished_members": true,
+        "no_implicit_activation": true
+      },
+      "provenance": {
+        "source_type": "processed_specimen",
+        "reference": "processing/specimens/groups/PROC-GROUP-0009.json"
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      }
+    },
+    {
+      "id": "GROUP-0010",
+      "kind": "virtual_rule_group",
+      "version": "1.0.0",
+      "status": "published",
+      "title": "Progress Reporting",
+      "summary": "Report touched work items with numeric and visual progress and evidence-grounded overall progress.",
+      "metadata_labels": [
+        "project_management",
+        "progress_reporting"
+      ],
+      "parent_group_ids": [
+        "GROUP-0009"
+      ],
+      "child_group_ids": [],
+      "member_rule_ids": [
+        "NOM-0068",
+        "NOM-0069",
+        "NOM-0070"
+      ],
+      "color": {
+        "space": "OKLCH",
+        "identity_string": "GROUP-0010",
+        "hue_degrees": 334.017,
+        "scheme": "oklab_maximin_v2",
+        "require_text_label": true
+      },
+      "composition": {
+        "opt_in_only": true,
+        "include_descendants": true,
+        "deduplicate_rule_ids": true,
+        "exclude_unpublished_members": true,
+        "no_implicit_activation": true
+      },
+      "provenance": {
+        "source_type": "processed_specimen",
+        "reference": "processing/specimens/groups/PROC-GROUP-0010.json"
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      }
+    },
+    {
+      "id": "GROUP-0011",
+      "kind": "virtual_rule_group",
+      "version": "1.0.0",
+      "status": "published",
+      "title": "Completion Reporting",
+      "summary": "Announce completion exactly once and omit previously announced completed items from later routine progress reports.",
+      "metadata_labels": [
+        "project_management",
+        "completion_reporting"
+      ],
+      "parent_group_ids": [
+        "GROUP-0009"
+      ],
+      "child_group_ids": [],
+      "member_rule_ids": [
+        "NOM-0071",
+        "NOM-0072"
+      ],
+      "color": {
+        "space": "OKLCH",
+        "identity_string": "GROUP-0011",
+        "hue_degrees": 173.045,
+        "scheme": "oklab_maximin_v2",
+        "require_text_label": true
+      },
+      "composition": {
+        "opt_in_only": true,
+        "include_descendants": true,
+        "deduplicate_rule_ids": true,
+        "exclude_unpublished_members": true,
+        "no_implicit_activation": true
+      },
+      "provenance": {
+        "source_type": "processed_specimen",
+        "reference": "processing/specimens/groups/PROC-GROUP-0011.json"
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      }
+    },
+    {
+      "id": "GROUP-0012",
+      "kind": "virtual_rule_group",
+      "version": "1.0.0",
+      "status": "published",
+      "title": "Project Identity",
+      "summary": "Show an established project color in public documentation, subject to overlap review against existing color and README rules.",
+      "metadata_labels": [
+        "project_identity",
+        "documentation"
+      ],
+      "parent_group_ids": [
+        "GROUP-0009"
+      ],
+      "child_group_ids": [],
+      "member_rule_ids": [
+        "NOM-0073"
+      ],
+      "color": {
+        "space": "OKLCH",
+        "identity_string": "GROUP-0012",
+        "hue_degrees": 51.225,
+        "scheme": "oklab_maximin_v2",
+        "require_text_label": true
+      },
+      "composition": {
+        "opt_in_only": true,
+        "include_descendants": true,
+        "deduplicate_rule_ids": true,
+        "exclude_unpublished_members": true,
+        "no_implicit_activation": true
+      },
+      "provenance": {
+        "source_type": "processed_specimen",
+        "reference": "processing/specimens/groups/PROC-GROUP-0012.json"
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      }
+    },
+    {
+      "id": "GROUP-0013",
+      "kind": "virtual_rule_group",
+      "version": "1.0.0",
+      "status": "published",
+      "title": "Porting & Compatibility",
+      "summary": "Preserve upstream behavior, replacement-capable MVPs and bounded post-MVP work in strict ports.",
+      "metadata_labels": [
+        "software_porting",
+        "compatibility"
+      ],
+      "parent_group_ids": [
+        "GROUP-0009"
+      ],
+      "child_group_ids": [],
+      "member_rule_ids": [
+        "NOM-0074",
+        "NOM-0075",
+        "NOM-0076"
+      ],
+      "color": {
+        "space": "OKLCH",
+        "identity_string": "GROUP-0013",
+        "hue_degrees": 100.348,
+        "scheme": "oklab_maximin_v2",
+        "require_text_label": true
+      },
+      "composition": {
+        "opt_in_only": true,
+        "include_descendants": true,
+        "deduplicate_rule_ids": true,
+        "exclude_unpublished_members": true,
+        "no_implicit_activation": true
+      },
+      "provenance": {
+        "source_type": "processed_specimen",
+        "reference": "processing/specimens/groups/PROC-GROUP-0013.json"
       },
       "governance": {
         "created_on": "2026-10-21",

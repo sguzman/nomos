@@ -17,3 +17,7 @@ The existing validator examines only `rules/` and cannot verify conceptual overl
 ## Further completed batch
 
 See independent `PROC-SPEC-0004.json` through `PROC-SPEC-0012.json` records. Each records its source specimen, authorized analysis, normalized rule candidate and explicitly queued downstream TASK-0004. Draft candidates in `candidates/` are retained as historical evidence after catalog review and must not be projected as duplicate rules in the website.
+
+## Project-management and strict-port processing
+
+`PROC-SPEC-0068.json` through `PROC-SPEC-0076.json` retain individual normalized candidate IDs NOM-0068–NOM-0076; the original proposed groups have independent records under `groups/PROC-GROUP-0009.json` through `PROC-GROUP-0013.json`. The candidate snapshots are retained without duplicating published catalog entries in the website. TASK-0010 through TASK-0012 record separately authorized downstream implementation.

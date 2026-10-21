@@ -44,3 +44,7 @@ Separate closed specimen analyses exist for SPEC-0004 through SPEC-0012. Their o
 Specimens `SPEC-0013` through `SPEC-0066` were normalized individually to `NOM-0014` through `NOM-0067`. `SPEC-0067` normalized a third ontology kind, *virtual rule group*, without fabricating a normative rule. Eight proposed `GROUP-0001` through `GROUP-0008` definitions received independent processing records. Source candidate records remain in `processing/specimens/candidates/` and `processing/specimens/groups/candidates/` as historical proposals.
 
 Downstream authorized work is separately recorded as `TASK-0007` (individual catalog publication), `TASK-0008` (group schema/catalog/validator), and `TASK-0009` (website group composition). Group membership never authorizes project work or changes the rules' applicability. Publishing the catalog does not apply its contents to unrelated projects.
+
+## Batch: project-management and strict-port groups (2026-10-21)
+
+SPEC-0068 through SPEC-0076 were separately processed as independent rule proposals, and proposed GROUP-0009 through GROUP-0013 received distinct group-processing records. The authorized downstream tasks are TASK-0010 (atomic rule publication), TASK-0011 (group publication and color identity), and TASK-0012 (public catalog, validation and deployment). The original queued inputs and draft candidates remain as provenance. Explicit authorization covered this batch only; its completion never applies the resulting rule selections to unrelated repositories.

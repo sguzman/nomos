@@ -1,0 +1,42 @@
+{
+  "id": "GROUP-0012",
+  "kind": "virtual_rule_group",
+  "version": "1.0.0",
+  "status": "published",
+  "title": "Project Identity",
+  "summary": "Show an established project color in public documentation, subject to overlap review against existing color and README rules.",
+  "metadata_labels": [
+    "project_identity",
+    "documentation"
+  ],
+  "parent_group_ids": [
+    "GROUP-0009"
+  ],
+  "child_group_ids": [],
+  "member_rule_ids": [
+    "NOM-0073"
+  ],
+  "color": {
+    "space": "OKLCH",
+    "identity_string": "GROUP-0012",
+    "hue_degrees": 51.225,
+    "scheme": "oklab_maximin_v2",
+    "require_text_label": true
+  },
+  "composition": {
+    "opt_in_only": true,
+    "include_descendants": true,
+    "deduplicate_rule_ids": true,
+    "exclude_unpublished_members": true,
+    "no_implicit_activation": true
+  },
+  "provenance": {
+    "source_type": "processed_specimen",
+    "reference": "processing/specimens/groups/PROC-GROUP-0012.json"
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "approved"
+  }
+}

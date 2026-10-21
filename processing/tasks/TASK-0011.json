@@ -1,0 +1,23 @@
+{
+  "processing_id": "TASK-0011",
+  "source_queue_record": "queues/tasks/TASK-0011.json",
+  "status": "verifying",
+  "started_on": "2026-10-21",
+  "authorization": {
+    "source": "User request to process the group and rule downstream tasks",
+    "on": "2026-10-21"
+  },
+  "disposition": {
+    "kind": "implementation_pending_ci",
+    "outputs": [
+      "groups/GROUP-0009.json",
+      "groups/GROUP-0013.json"
+    ],
+    "automatic_application": false
+  },
+  "evidence": {
+    "commit": "pending",
+    "ci": "pending",
+    "browser_check": "not_performed"
+  }
+}

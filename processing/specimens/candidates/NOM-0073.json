@@ -1,0 +1,93 @@
+{
+  "id": "NOM-0073",
+  "version": "0.1.0",
+  "title": "Display project identity colors in README documentation",
+  "summary": "Embed a project's assigned stable, perceptually distinguishable identity color in its README using a portable rendering such as SVG or CSS when suitable.",
+  "statement": "Embed a project's assigned stable, perceptually distinguishable identity color in its README using a portable rendering such as SVG or CSS when suitable.",
+  "rationale": "Public-safe, scoped project-development requirement normalized from an independently authorized specimen.",
+  "language": "en",
+  "status": "draft",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "show",
+      "object": "stable_project_color",
+      "target": "project_readme"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "The project has an assigned color and a public-facing README."
+    ],
+    "exceptions": [
+      "Do not expose private project artifacts; preserve README rendering compatibility."
+    ]
+  },
+  "categories": {
+    "domains": [
+      "visual_identity",
+      "documentation"
+    ],
+    "topics": [
+      "readme_identity"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "The project has an assigned color and a public-facing README."
+    ],
+    "exclusions": [
+      "Do not expose private project artifacts; preserve README rendering compatibility."
+    ]
+  },
+  "authority": {
+    "source": "Normalized proposal awaiting authorized downstream catalog review",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [
+      "NOM-0009"
+    ],
+    "depends_on": [
+      "NOM-0042"
+    ]
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0073; processing/specimens/PROC-SPEC-0073.json",
+    "license": "MIT",
+    "notes": "Standalone atomic rule; any virtual-group membership is non-normative and does not apply it automatically."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "unreviewed"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}
