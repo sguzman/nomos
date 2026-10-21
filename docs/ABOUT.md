@@ -55,3 +55,9 @@ the entire interface immediately. System mode follows OS preference changes.
 Choice is intentionally not persisted, so reload starts in System mode.
 Vanilla JavaScript is retained solely for this browser-native presentation and
 interaction layer; there is no separate non-Rust application backend.
+
+## Catalog state and comparison limits
+
+The public snapshot contains 13 catalog rules: 12 published and one original illustrative draft. Retained `processing/specimens/candidates/` files document proposal history and are not shown twice. A new rule is not an instruction until intentionally selected and exported.
+
+`docs/reasoning.js` compares exclusive Cargo edition values, conditional time-dependent latest editions, and strong versus weak permissions. Without a known toolchain/edition, dynamic edition constraints remain conditional. This is not a general logical proof engine. JavaScript is used only for the static website's browser-native presentation and comparisons; no application backend exists.

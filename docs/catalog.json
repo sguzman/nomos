@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.0",
-  "source": "Nomos public catalog and distinct unapproved rule candidates",
+  "schema_version": "1.1",
+  "source": "Nomos public catalog; candidate history excluded after publication",
   "rules": [
     {
       "id": "NOM-0001",
@@ -169,13 +169,13 @@
     },
     {
       "id": "NOM-0003",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "title": "Do not disclose nonpublic information without authorization",
       "summary": "Do not include confidential or otherwise nonpublic information in public outputs without specific authorization to disclose that information.",
       "statement": "Do not include confidential or otherwise nonpublic information in public outputs without specific authorization to disclose that information.",
       "rationale": "Protect the confidentiality of information independently of whether disclosure quotes a source or paraphrases it.",
       "language": "en",
-      "status": "draft",
+      "status": "published",
       "norm": {
         "kind": "prohibition",
         "predicate": {
@@ -223,7 +223,7 @@
         "exclusions": []
       },
       "authority": {
-        "source": "Proposed through Nomos specimen processing; not an enacted policy",
+        "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
         "tier": "general_guidance",
         "priority": 0,
         "override_policy": "explicit_resolution"
@@ -238,29 +238,29 @@
         "source_type": "authored",
         "reference": "SPEC-0002; PROC-SPEC-0002",
         "license": "MIT",
-        "notes": "Public-safe abstraction; no private source text retained. This candidate is not in the catalog."
+        "notes": "Public-safe abstraction; no private source text retained. This candidate is not in the catalog. Catalog decision recorded in downstream processing tasks; not automatically applicable to any project."
       },
       "governance": {
         "created_on": "2026-10-20",
-        "updated_on": "2026-10-20",
-        "review_status": "unreviewed"
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
       },
       "export_targets": [
         "agents_md",
         "chatgpt_custom_instructions",
         "plain_text"
       ],
-      "registry": "candidate"
+      "registry": "catalog"
     },
     {
       "id": "NOM-0004",
-      "version": "0.1.0",
+      "version": "1.0.0",
       "title": "Do not expose private generation context in public outputs",
       "summary": "Do not reproduce or reveal private conversations, private drafting language, or nonpublic internal instructions in public outputs merely because they informed the work; public release of the result does not by itself authorize release of its private inputs.",
       "statement": "Do not reproduce or reveal private conversations, private drafting language, or nonpublic internal instructions in public outputs merely because they informed the work; public release of the result does not by itself authorize release of its private inputs.",
       "rationale": "Protect the private origin context of generated work, even when no independently confidential factual assertion would be disclosed.",
       "language": "en",
-      "status": "draft",
+      "status": "published",
       "norm": {
         "kind": "prohibition",
         "predicate": {
@@ -310,7 +310,7 @@
         "exclusions": []
       },
       "authority": {
-        "source": "Proposed through Nomos specimen processing; not an enacted policy",
+        "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
         "tier": "general_guidance",
         "priority": 0,
         "override_policy": "explicit_resolution"
@@ -325,19 +325,784 @@
         "source_type": "authored",
         "reference": "SPEC-0001; SPEC-0003; PROC-SPEC-0001; PROC-SPEC-0003",
         "license": "MIT",
-        "notes": "Public-safe abstraction; no private source text retained. This candidate is not in the catalog."
+        "notes": "Public-safe abstraction; no private source text retained. This candidate is not in the catalog. Catalog decision recorded in downstream processing tasks; not automatically applicable to any project."
       },
       "governance": {
         "created_on": "2026-10-20",
-        "updated_on": "2026-10-20",
-        "review_status": "unreviewed"
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
       },
       "export_targets": [
         "agents_md",
         "chatgpt_custom_instructions",
         "plain_text"
       ],
-      "registry": "candidate"
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0005",
+      "version": "1.0.0",
+      "title": "Require system-aware appearance themes in graphical interfaces",
+      "summary": "Graphical and web applications must support light, dark, and system appearance modes; start with system mode and provide an immediately effective on-screen dropdown for changing modes.",
+      "statement": "Graphical and web applications must support light, dark, and system appearance modes; start with system mode and provide an immediately effective on-screen dropdown for changing modes.",
+      "rationale": "Normalized public-safe rule proposal from an explicitly authorized specimen analysis.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "configure",
+          "object": "appearance_modes",
+          "target": "gui_or_website"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "user_interfaces",
+          "software_development"
+        ],
+        "topics": [
+          "theme_control",
+          "content_handling"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [],
+        "exclusions": [
+          "Must be an interface project."
+        ]
+      },
+      "authority": {
+        "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0004; processing/specimens/PROC-SPEC-0004.json",
+        "license": "MIT",
+        "notes": "Public-safe normalized candidate; source conversation is not reproduced. Catalog decision recorded in downstream processing tasks; not automatically applicable to any project."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0006",
+      "version": "1.0.0",
+      "title": "Represent Tarium ontology for humans and machines",
+      "summary": "Each explicitly enrolled Tarium project must publish mutually consistent machine-readable ontology records and human-readable ontology documentation.",
+      "statement": "Each explicitly enrolled Tarium project must publish mutually consistent machine-readable ontology records and human-readable ontology documentation.",
+      "rationale": "Normalized public-safe rule proposal from an explicitly authorized specimen analysis.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "provide",
+          "object": "ontology_representations",
+          "target": "tarium_member_project"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "Only applies to explicitly enrolled Tarium projects."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "ontology",
+          "governance"
+        ],
+        "topics": [
+          "representation"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [],
+        "exclusions": []
+      },
+      "authority": {
+        "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0005; processing/specimens/PROC-SPEC-0005.json",
+        "license": "MIT",
+        "notes": "Public-safe normalized candidate; source conversation is not reproduced. Catalog decision recorded in downstream processing tasks; not automatically applicable to any project."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0007",
+      "version": "1.0.0",
+      "title": "Maintain a per-project ontology and public specimen showcase",
+      "summary": "Each explicitly enrolled Tarium project must maintain its own independently usable ontology and public website showcasing representative ontology specimens.",
+      "statement": "Each explicitly enrolled Tarium project must maintain its own independently usable ontology and public website showcasing representative ontology specimens.",
+      "rationale": "Normalized public-safe rule proposal from an explicitly authorized specimen analysis.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "maintain",
+          "object": "ontology_and_specimen_showcase",
+          "target": "tarium_member_project"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "Tarium membership must be explicitly approved."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "ontology",
+          "governance",
+          "publication"
+        ],
+        "topics": [
+          "specimen_showcase"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "website"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [],
+        "exclusions": []
+      },
+      "authority": {
+        "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0006; processing/specimens/PROC-SPEC-0006.json",
+        "license": "MIT",
+        "notes": "Public-safe normalized candidate; source conversation is not reproduced. Catalog decision recorded in downstream processing tasks; not automatically applicable to any project."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0008",
+      "version": "1.0.0",
+      "title": "Prefer Rust for application code and justify narrow exceptions",
+      "summary": "Write application implementation code in Rust; permit non-Rust website code only with a recorded justification; use Lua when scripting is required, and prefer TOML, JSON, and Markdown for their respective configuration and documentation roles.",
+      "statement": "Write application implementation code in Rust; permit non-Rust website code only with a recorded justification; use Lua when scripting is required, and prefer TOML, JSON, and Markdown for their respective configuration and documentation roles.",
+      "rationale": "Normalized public-safe rule proposal from an explicitly authorized specimen analysis.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "choose",
+          "object": "implementation_language",
+          "target": "software_project"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "Scripting uses Lua; declarative configuration and documentation use their appropriate formats."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development"
+        ],
+        "topics": [
+          "implementation_language"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [],
+        "exclusions": []
+      },
+      "authority": {
+        "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0007; processing/specimens/PROC-SPEC-0007.json",
+        "license": "MIT",
+        "notes": "Public-safe normalized candidate; source conversation is not reproduced. Catalog decision recorded in downstream processing tasks; not automatically applicable to any project. Current website JS is justified as native browser presentation; no retroactive code migration."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0009",
+      "version": "1.0.0",
+      "title": "Derive stable, distinguishable visual identities from strings",
+      "summary": "Assign stable, deterministic identity colors from string IDs using a perceptually aware color method that prioritizes human distinction and preserves readable non-color identifiers.",
+      "statement": "Assign stable, deterministic identity colors from string IDs using a perceptually aware color method that prioritizes human distinction and preserves readable non-color identifiers.",
+      "rationale": "Normalized public-safe rule proposal from an explicitly authorized specimen analysis.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "derive",
+          "object": "identity_color",
+          "target": "visual_identity"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "Finite color spaces cannot guarantee globally unique colors."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "visual_identity"
+        ],
+        "topics": [
+          "identity_color"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "website"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [],
+        "exclusions": []
+      },
+      "authority": {
+        "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0008; processing/specimens/PROC-SPEC-0008.json",
+        "license": "MIT",
+        "notes": "Public-safe normalized candidate; source conversation is not reproduced. Catalog decision recorded in downstream processing tasks; not automatically applicable to any project."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0010",
+      "version": "1.0.0",
+      "title": "Create structured roadmaps with stable emoji identities",
+      "summary": "New projects must begin with a clear roadmap of phases, milestones, subtasks, and features; give each roadmap item its own stable identifying emoji separate from status.",
+      "statement": "New projects must begin with a clear roadmap of phases, milestones, subtasks, and features; give each roadmap item its own stable identifying emoji separate from status.",
+      "rationale": "Normalized public-safe rule proposal from an explicitly authorized specimen analysis.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "define",
+          "object": "roadmap_identity",
+          "target": "new_project"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "Applies when creating a project from scratch."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "governance",
+          "software_development"
+        ],
+        "topics": [
+          "project_roadmap"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [],
+        "exclusions": []
+      },
+      "authority": {
+        "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0009; processing/specimens/PROC-SPEC-0009.json",
+        "license": "MIT",
+        "notes": "Public-safe normalized candidate; source conversation is not reproduced. Catalog decision recorded in downstream processing tasks; not automatically applicable to any project."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0011",
+      "version": "1.0.0",
+      "title": "Keep specimen intake, processing, derived task queue and execution distinct",
+      "summary": "Keep specimen intake, authorized specimen analysis, any resulting downstream task queue, and execution of those tasks as independent, explicitly authorized workflows with distinct states and traceable transitions.",
+      "statement": "Keep specimen intake, authorized specimen analysis, any resulting downstream task queue, and execution of those tasks as independent, explicitly authorized workflows with distinct states and traceable transitions.",
+      "rationale": "Normalized public-safe rule proposal from an explicitly authorized specimen analysis.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "separate",
+          "object": "workflow_stages",
+          "target": "specimen_and_task_system"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "Derived tasks do not exist automatically merely because analysis finishes."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "governance",
+          "workflow_governance"
+        ],
+        "topics": [
+          "workflow_stage"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [],
+        "exclusions": []
+      },
+      "authority": {
+        "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0010; processing/specimens/PROC-SPEC-0010.json",
+        "license": "MIT",
+        "notes": "Public-safe normalized candidate; source conversation is not reproduced. Catalog decision recorded in downstream processing tasks; not automatically applicable to any project. Generalizes existing independent workflow discipline without changing the constitution."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0012",
+      "version": "1.0.0",
+      "title": "Choose the latest stable supported Rust edition",
+      "summary": "When selecting a Cargo package edition, use the newest stable Rust edition supported by the project's toolchain and compatibility requirements.",
+      "statement": "When selecting a Cargo package edition, use the newest stable Rust edition supported by the project's toolchain and compatibility requirements.",
+      "rationale": "Normalized public-safe rule proposal from an explicitly authorized specimen analysis.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "set",
+          "object": "rust_edition",
+          "target": "cargo_manifest"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "Choose newest stable edition supported by the targeted toolchain and project compatibility requirements, at edition-selection time."
+        ],
+        "exceptions": [],
+        "value_constraint": {
+          "field": "package.edition",
+          "operator": "latest_stable_supported"
+        }
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "rust_development"
+        ],
+        "topics": [
+          "edition_selection"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [],
+        "exclusions": []
+      },
+      "authority": {
+        "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0011; processing/specimens/PROC-SPEC-0011.json",
+        "license": "MIT",
+        "notes": "Public-safe normalized candidate; source conversation is not reproduced. Catalog decision recorded in downstream processing tasks; not automatically applicable to any project."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0013",
+      "version": "1.0.0",
+      "title": "Choose Rust edition 2024 for Cargo packages",
+      "summary": "When selecting a Cargo package edition, set the [package].edition value to 2024.",
+      "statement": "When selecting a Cargo package edition, set the [package].edition value to 2024.",
+      "rationale": "Normalized public-safe rule proposal from an explicitly authorized specimen analysis.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "set",
+          "object": "rust_edition",
+          "target": "cargo_manifest"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "Fixed Cargo edition value, even if a newer edition later becomes available."
+        ],
+        "exceptions": [],
+        "value_constraint": {
+          "field": "package.edition",
+          "operator": "equals",
+          "value": "2024"
+        }
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "rust_development"
+        ],
+        "topics": [
+          "edition_selection"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [],
+        "exclusions": []
+      },
+      "authority": {
+        "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0012; processing/specimens/PROC-SPEC-0012.json",
+        "license": "MIT",
+        "notes": "Public-safe normalized candidate; source conversation is not reproduced. Catalog decision recorded in downstream processing tasks; not automatically applicable to any project."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
     }
   ]
 }

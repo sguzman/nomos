@@ -26,17 +26,59 @@ def overlaps(a, b):
     return True
 
 
-def possible_conflict(a, b):
-    """Candidate only; does not resolve precedence, exceptions or free text."""
-    if a["norm"]["predicate"] != b["norm"]["predicate"] or not overlaps(a, b):
-        return False
-    kinds = {a["norm"]["kind"], b["norm"]["kind"]}
+def value_relation(a, b, context=None):
+    """Exclusive single-value settings: same, different, dynamic, or unspecified."""
+    left = a["norm"].get("value_constraint")
+    right = b["norm"].get("value_constraint")
+    if not left or not right or left["field"] != right["field"]:
+        return "unspecified"
+
+    def resolve(expr):
+        if expr["operator"] == "equals":
+            return expr.get("value")
+        return (context or {}).get("latest_stable_supported_edition")
+
+    x, y = resolve(left), resolve(right)
+    if x is None or y is None:
+        return "dynamic_unknown"
+    if x != y:
+        return "different"
+    if left["operator"] != "equals" or right["operator"] != "equals":
+        return "dynamic_equal"
+    return "equal"
+
+
+def assess_pair(a, b, context=None):
+    """Conservative normative analysis: no hidden priority decisions."""
+    if not overlaps(a, b):
+        return "disjoint"
+    if a["norm"]["predicate"] != b["norm"]["predicate"]:
+        return "unrelated"
+    left, right = a["norm"], b["norm"]
+    kinds = {left["kind"], right["kind"]}
+    values = value_relation(a, b, context)
     if kinds == {"prohibition", "obligation"}:
-        return True
+        return "possible_conflict"
     if kinds == {"prohibition", "permission"}:
-        permission = a if a["norm"]["kind"] == "permission" else b
-        return permission["norm"]["permission_strength"] == "strong"
-    return False
+        permission = a if left["kind"] == "permission" else b
+        return "possible_conflict" if permission["norm"]["permission_strength"] == "strong" else "overlap"
+    if kinds == {"obligation"}:
+        if values == "different":
+            return "possible_conflict"
+        if values in ("dynamic_unknown", "dynamic_equal"):
+            return "conditional"
+    if kinds == {"obligation", "permission"}:
+        permission = a if left["kind"] == "permission" else b
+        if permission["norm"]["permission_strength"] == "strong":
+            if values == "different":
+                return "possible_conflict"
+            if values in ("dynamic_unknown", "dynamic_equal"):
+                return "conditional"
+    return "overlap"
+
+
+def possible_conflict(a, b, context=None):
+    return assess_pair(a, b, context) == "possible_conflict"
 
 
 def validate(taxonomy, rules):
@@ -57,6 +99,16 @@ def validate(taxonomy, rules):
         if rule["status"] not in taxonomy["status_values"]:
             errors.append(f"{rid}: unknown status")
         norm = rule["norm"]
+        constraint = norm.get("value_constraint")
+        if constraint is not None:
+            if not isinstance(constraint, dict):
+                errors.append(f"{rid}: value_constraint must be object")
+            elif (constraint.get("field") != "package.edition"
+                  or constraint.get("operator") not in ("equals", "latest_stable_supported")
+                  or (constraint.get("operator") == "equals" and not isinstance(constraint.get("value"), str))
+                  or (constraint.get("operator") == "latest_stable_supported" and "value" in constraint)
+                  or norm.get("predicate") != {"action": "set", "object": "rust_edition", "target": "cargo_manifest"}):
+                errors.append(f"{rid}: invalid Cargo edition value_constraint")
         if norm.get("kind") not in taxonomy["norm_kinds"]:
             errors.append(f"{rid}: unknown normative kind")
         if set(norm.get("predicate", {})) != {"action", "object", "target"}:
@@ -95,9 +147,14 @@ def validate(taxonomy, rules):
     return errors
 
 
-def conflicts(rules):
+def conditional_pairs(rules, context=None):
     return [(a["id"], b["id"]) for i, a in enumerate(rules)
-            for b in rules[i + 1:] if possible_conflict(a, b)]
+            for b in rules[i + 1:] if assess_pair(a, b, context) == "conditional"]
+
+
+def conflicts(rules, context=None):
+    return [(a["id"], b["id"]) for i, a in enumerate(rules)
+            for b in rules[i + 1:] if possible_conflict(a, b, context)]
 
 
 def main():
@@ -109,6 +166,7 @@ def main():
         taxonomy, rules = load_catalog()
         errors = validate(taxonomy, rules)
         candidates = conflicts(rules) if not errors else []
+        conditional = conditional_pairs(rules) if not errors else []
     except (OSError, ValueError, KeyError, TypeError) as exc:
         print(f"Validation could not finish: {exc}", file=sys.stderr)
         return 2
@@ -116,9 +174,11 @@ def main():
         print(f"ERROR: {error}", file=sys.stderr)
     for a, b in candidates:
         print(f"POSSIBLE CONFLICT: {a} <-> {b} (requires human/semantic review)")
+    for a, b in conditional:
+        print(f"CONDITIONAL: {a} <-> {b} (edition/toolchain context required)")
     if errors:
         return 1
-    print(f"Validated {len(rules)} rule records; {len(candidates)} potential conflict pair(s).")
+    print(f"Validated {len(rules)} rule records; {len(candidates)} potential conflict pair(s), {len(conditional)} conditional pair(s).")
     return 1 if args.strict_conflicts and candidates else 0
 
 

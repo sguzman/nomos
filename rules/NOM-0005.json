@@ -1,0 +1,84 @@
+{
+  "id": "NOM-0005",
+  "version": "1.0.0",
+  "title": "Require system-aware appearance themes in graphical interfaces",
+  "summary": "Graphical and web applications must support light, dark, and system appearance modes; start with system mode and provide an immediately effective on-screen dropdown for changing modes.",
+  "statement": "Graphical and web applications must support light, dark, and system appearance modes; start with system mode and provide an immediately effective on-screen dropdown for changing modes.",
+  "rationale": "Normalized public-safe rule proposal from an explicitly authorized specimen analysis.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "configure",
+      "object": "appearance_modes",
+      "target": "gui_or_website"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [],
+    "exceptions": []
+  },
+  "categories": {
+    "domains": [
+      "user_interfaces",
+      "software_development"
+    ],
+    "topics": [
+      "theme_control",
+      "content_handling"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [],
+    "exclusions": [
+      "Must be an interface project."
+    ]
+  },
+  "authority": {
+    "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0004; processing/specimens/PROC-SPEC-0004.json",
+    "license": "MIT",
+    "notes": "Public-safe normalized candidate; source conversation is not reproduced. Catalog decision recorded in downstream processing tasks; not automatically applicable to any project."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

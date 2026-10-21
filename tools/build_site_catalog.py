@@ -18,8 +18,13 @@ def build(root=ROOT):
             rule = json.loads(path.read_text(encoding="utf-8"))
             if required - rule.keys():
                 raise ValueError(f"{path}: missing required fields")
-            if rule["id"] in ids or path.stem != rule["id"]:
-                raise ValueError(f"{path}: duplicate or mismatched ID")
+            if path.stem != rule["id"]:
+                raise ValueError(f"{path}: mismatched ID")
+            # Retain original candidate records as provenance, not duplicates.
+            if registry == "candidate" and rule["id"] in ids:
+                continue
+            if rule["id"] in ids:
+                raise ValueError(f"{path}: duplicate catalog ID")
             if registry == "candidate" and rule["status"] != "draft":
                 raise ValueError(f"{path}: candidate must remain draft")
             if rule["status"] not in ("published", "draft", "reviewed", "deprecated"):
@@ -31,7 +36,7 @@ def build(root=ROOT):
     if not records:
         raise ValueError("Refusing to publish empty catalog")
     records.sort(key=lambda rule: rule["id"])
-    return {"schema_version": "1.0",
+    return {"schema_version": "1.1",
             "source": "Nomos public catalog and distinct unapproved rule candidates",
             "rules": records}
 

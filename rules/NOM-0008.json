@@ -1,0 +1,82 @@
+{
+  "id": "NOM-0008",
+  "version": "1.0.0",
+  "title": "Prefer Rust for application code and justify narrow exceptions",
+  "summary": "Write application implementation code in Rust; permit non-Rust website code only with a recorded justification; use Lua when scripting is required, and prefer TOML, JSON, and Markdown for their respective configuration and documentation roles.",
+  "statement": "Write application implementation code in Rust; permit non-Rust website code only with a recorded justification; use Lua when scripting is required, and prefer TOML, JSON, and Markdown for their respective configuration and documentation roles.",
+  "rationale": "Normalized public-safe rule proposal from an explicitly authorized specimen analysis.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "choose",
+      "object": "implementation_language",
+      "target": "software_project"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "Scripting uses Lua; declarative configuration and documentation use their appropriate formats."
+    ],
+    "exceptions": []
+  },
+  "categories": {
+    "domains": [
+      "software_development"
+    ],
+    "topics": [
+      "implementation_language"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [],
+    "exclusions": []
+  },
+  "authority": {
+    "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0007; processing/specimens/PROC-SPEC-0007.json",
+    "license": "MIT",
+    "notes": "Public-safe normalized candidate; source conversation is not reproduced. Catalog decision recorded in downstream processing tasks; not automatically applicable to any project. Current website JS is justified as native browser presentation; no retroactive code migration."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

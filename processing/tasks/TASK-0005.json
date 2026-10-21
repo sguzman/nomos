@@ -1,0 +1,33 @@
+{
+  "processing_id": "TASK-0005",
+  "source_queue_record": "queues/tasks/TASK-0005.json",
+  "status": "verifying",
+  "started_on": "2026-10-21",
+  "authorization": {
+    "source": "User explicit request to complete specimen processing and downstream task queues",
+    "on": "2026-10-21"
+  },
+  "disposition": {
+    "kind": "completed_pending_ci_verification",
+    "action": "Extend schema, Python validator and JS comparator with dynamic versus fixed Cargo edition constraints and permission-strength tests.",
+    "outputs": [
+      "schema/rule.schema.json",
+      "taxonomy/categories.json",
+      "tools/validate.py",
+      "docs/reasoning.js",
+      "tests/test_rules.py",
+      "tests/test_reasoning.cjs"
+    ],
+    "publication_permitted": true,
+    "automatically_applies_rules": false
+  },
+  "evidence": {
+    "commit": "pending",
+    "github_actions": "pending",
+    "browser_visual_qa": "not_performed",
+    "public_privacy_review": "synthetic/public-safe content only"
+  },
+  "remaining_before_done": [
+    "GitHub Pages workflow and automated tests must pass"
+  ]
+}

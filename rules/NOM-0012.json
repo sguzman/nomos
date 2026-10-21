@@ -1,0 +1,87 @@
+{
+  "id": "NOM-0012",
+  "version": "1.0.0",
+  "title": "Choose the latest stable supported Rust edition",
+  "summary": "When selecting a Cargo package edition, use the newest stable Rust edition supported by the project's toolchain and compatibility requirements.",
+  "statement": "When selecting a Cargo package edition, use the newest stable Rust edition supported by the project's toolchain and compatibility requirements.",
+  "rationale": "Normalized public-safe rule proposal from an explicitly authorized specimen analysis.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "set",
+      "object": "rust_edition",
+      "target": "cargo_manifest"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "Choose newest stable edition supported by the targeted toolchain and project compatibility requirements, at edition-selection time."
+    ],
+    "exceptions": [],
+    "value_constraint": {
+      "field": "package.edition",
+      "operator": "latest_stable_supported"
+    }
+  },
+  "categories": {
+    "domains": [
+      "software_development",
+      "rust_development"
+    ],
+    "topics": [
+      "edition_selection"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [],
+    "exclusions": []
+  },
+  "authority": {
+    "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0011; processing/specimens/PROC-SPEC-0011.json",
+    "license": "MIT",
+    "notes": "Public-safe normalized candidate; source conversation is not reproduced. Catalog decision recorded in downstream processing tasks; not automatically applicable to any project."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

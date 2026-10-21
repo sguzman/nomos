@@ -1,0 +1,36 @@
+{
+  "processing_id": "TASK-0004",
+  "source_queue_record": "queues/tasks/TASK-0004.json",
+  "status": "verifying",
+  "started_on": "2026-10-21",
+  "authorization": {
+    "source": "User explicit request to complete specimen processing and downstream task queues",
+    "on": "2026-10-21"
+  },
+  "disposition": {
+    "kind": "completed_pending_ci_verification",
+    "action": "Review nine additional normalized rule candidates and publish NOM-0005 through NOM-0013 without applying them to consumers.",
+    "outputs": [
+      "rules/NOM-0005.json",
+      "rules/NOM-0006.json",
+      "rules/NOM-0007.json",
+      "rules/NOM-0008.json",
+      "rules/NOM-0009.json",
+      "rules/NOM-0010.json",
+      "rules/NOM-0011.json",
+      "rules/NOM-0012.json",
+      "rules/NOM-0013.json"
+    ],
+    "publication_permitted": true,
+    "automatically_applies_rules": false
+  },
+  "evidence": {
+    "commit": "pending",
+    "github_actions": "pending",
+    "browser_visual_qa": "not_performed",
+    "public_privacy_review": "synthetic/public-safe content only"
+  },
+  "remaining_before_done": [
+    "GitHub Pages workflow and automated tests must pass"
+  ]
+}

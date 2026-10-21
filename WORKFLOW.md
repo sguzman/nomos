@@ -34,3 +34,7 @@ Inspect each store directly for its current entries; do not infer processing fro
 ## Completed specimen intake
 
 After explicit authorization and completion, a queue entry may be marked `processed` and linked to an independent `processing/specimens/PROC-<specimen-id>.json` record. The `intake` object preserves original intake-time metadata; `processing` records the later authorization and outcome. This changes neither the authority of a proposed rule nor the task queue. A duplicate may be linked to a shared proposed candidate without losing its own processing record.
+
+## Explicitly authorized full processing batch — 2026-10-21
+
+Separate closed specimen analyses exist for SPEC-0004 through SPEC-0012. Their outputs were queued into downstream TASK-0004 (catalog review), TASK-0005 (normative edition semantics), and TASK-0006 (website and documentation). TASK-0001 and TASK-0002 were independently authorized for review in the same user request. Task execution has distinct processing records. Neither catalog publication nor task completion enrolls Nomos in Tarium or applies a rule to an unrelated project.

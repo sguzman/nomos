@@ -1,0 +1,86 @@
+{
+  "id": "NOM-0004",
+  "version": "1.0.0",
+  "title": "Do not expose private generation context in public outputs",
+  "summary": "Do not reproduce or reveal private conversations, private drafting language, or nonpublic internal instructions in public outputs merely because they informed the work; public release of the result does not by itself authorize release of its private inputs.",
+  "statement": "Do not reproduce or reveal private conversations, private drafting language, or nonpublic internal instructions in public outputs merely because they informed the work; public release of the result does not by itself authorize release of its private inputs.",
+  "rationale": "Protect the private origin context of generated work, even when no independently confidential factual assertion would be disclosed.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "prohibition",
+    "predicate": {
+      "action": "include",
+      "object": "private_generation_context",
+      "target": "artifact"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "Separate authorization to disclose the private generation context has not been given"
+    ],
+    "exceptions": []
+  },
+  "categories": {
+    "domains": [
+      "privacy",
+      "publication",
+      "agent_instructions"
+    ],
+    "topics": [
+      "information_disclosure",
+      "content_handling",
+      "personal_expression"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "public"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [],
+    "exclusions": []
+  },
+  "authority": {
+    "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0001; SPEC-0003; PROC-SPEC-0001; PROC-SPEC-0003",
+    "license": "MIT",
+    "notes": "Public-safe abstraction; no private source text retained. This candidate is not in the catalog. Catalog decision recorded in downstream processing tasks; not automatically applicable to any project."
+  },
+  "governance": {
+    "created_on": "2026-10-20",
+    "updated_on": "2026-10-21",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

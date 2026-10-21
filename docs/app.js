@@ -28,41 +28,7 @@ function scopeSummary(rule) {
   const parts = scopeAxes.map(axis => human(axis) + ': ' + words(rule.scope.axes[axis]));
   return parts.join('; ');
 }
-function scopeOverlap(a, b) {
-  return scopeAxes.every(axis => {
-    const x = a.scope.axes[axis], y = b.scope.axes[axis];
-    return x.includes('any') || y.includes('any') || x.some(v => y.includes(v));
-  });
-}
-function samePredicate(a, b) {
-  return ['action', 'object', 'target'].every(k => a.norm.predicate[k] === b.norm.predicate[k]);
-}
-function polarityConflict(a, b) {
-  const pair = [a.norm.kind, b.norm.kind];
-  if (pair.includes('prohibition') && pair.includes('obligation')) return true;
-  if (pair.includes('prohibition') && pair.includes('permission')) {
-    const allowed = a.norm.kind === 'permission' ? a : b;
-    return allowed.norm.permission_strength === 'strong';
-  }
-  return false;
-}
-function sharedDomain(a, b) {
-  return a.categories.domains.some(d => b.categories.domains.includes(d));
-}
-function analyze(rules) {
-  const conflicts = [], overlaps = [];
-  for (let i = 0; i < rules.length; i++) for (let j = i + 1; j < rules.length; j++) {
-    const a = rules[i], b = rules[j];
-    if (!scopeOverlap(a, b)) continue;
-    const pair = a.id + ' / ' + b.id;
-    if (samePredicate(a, b) && polarityConflict(a, b)) {
-      conflicts.push(pair + ': opposing normative effects on the same predicate and overlapping scope. Manual review required.');
-    } else if (samePredicate(a, b) || sharedDomain(a, b)) {
-      overlaps.push(pair + ': overlapping domain or action scope. Not necessarily a conflict.');
-    }
-  }
-  return { conflicts, overlaps };
-}
+function analyze(rules) { return NomosReasoning.analyze(rules); }
 function addField(parent, name, content) {
   const div = element('div', 'detail-field');
   div.append(element('strong', '', name), element('span', '', content || 'None recorded'));
@@ -87,6 +53,7 @@ function showDetails(rule) {
   root.append(element('div', 'dialog-statement', rule.statement));
   const grid = element('div', 'detail-grid');
   addField(grid, 'Normative effect', human(rule.norm.kind));
+  if (rule.norm.value_constraint) addField(grid, 'Exclusive value', rule.norm.value_constraint.field + ' · ' + rule.norm.value_constraint.operator + (rule.norm.value_constraint.value ? ' = ' + rule.norm.value_constraint.value : ' (resolved when applied)'));
   addField(grid, 'Predicate', Object.entries(rule.norm.predicate).map(([k, v]) => k + '=' + v).join(' · '));
   addField(grid, 'Domains', words(rule.categories.domains));
   addField(grid, 'Topics', words(rule.categories.topics));
@@ -176,17 +143,19 @@ function renderSelection() {
   const analysis = analyze(selected);
   const panel = $('analysis-panel');
   panel.classList.toggle('conflict', analysis.conflicts.length > 0);
-  panel.classList.toggle('issue', !analysis.conflicts.length && analysis.overlaps.length > 0);
+  panel.classList.toggle('issue', !analysis.conflicts.length && (analysis.overlaps.length > 0 || analysis.conditional.length > 0));
   if (selected.length < 2) {
     $('analysis-summary').textContent = 'Select two or more rules to compare their metadata.';
   } else if (analysis.conflicts.length) {
     $('analysis-summary').textContent = analysis.conflicts.length + ' potential normative conflict(s) found. Export is paused until you revise the selection.';
+  } else if (analysis.conditional.length) {
+    $('analysis-summary').textContent = analysis.conditional.length + ' conditional edition interaction(s). Check actual supported edition and permission strength before treating these as conflicts.';
   } else if (analysis.overlaps.length) {
     $('analysis-summary').textContent = 'No opposing norms found. ' + analysis.overlaps.length + ' overlapping pair(s) may warrant review.';
   } else {
     $('analysis-summary').textContent = 'No conflict candidates detected in recorded metadata. This does not prove full compatibility.';
   }
-  $('analysis-details').replaceChildren(...[...analysis.conflicts, ...analysis.overlaps].map(message => {
+  $('analysis-details').replaceChildren(...[...analysis.conflicts, ...analysis.conditional, ...analysis.overlaps].map(message => {
     const div = element('div', 'analysis-item');
     div.append(element('strong', '', message.split(':')[0]), document.createTextNode(' — ' + message.split(':').slice(1).join(':').trim()));
     return div;
@@ -200,6 +169,7 @@ function ruleExportBlock(rule) {
     '- Applies when: ' + scopeSummary(rule),
     '- Rule: ' + rule.statement
   ];
+  if (rule.norm.value_constraint) out.push('- Value constraint: ' + rule.norm.value_constraint.field + ' ' + rule.norm.value_constraint.operator + (rule.norm.value_constraint.value ? ' ' + rule.norm.value_constraint.value : ' (resolve when applied)'));
   if (rule.norm.conditions.length) out.push('- Conditions: ' + rule.norm.conditions.join('; '));
   if (rule.norm.exceptions.length) out.push('- Exceptions: ' + rule.norm.exceptions.join('; '));
   if (rule.scope.preconditions.length) out.push('- Preconditions: ' + rule.scope.preconditions.join('; '));
@@ -226,6 +196,7 @@ function generateExport(rules, analysis) {
       String(i + 1) + '. [' + r.id + '] ' + r.title + ' (' + statusOf(r) + ')',
       'Scope: ' + scopeSummary(r),
       'Instruction: ' + r.statement,
+      ...(r.norm.value_constraint ? ['Edition value: ' + r.norm.value_constraint.operator + (r.norm.value_constraint.value ? ' ' + r.norm.value_constraint.value : ' (resolve at selection time)')] : []),
       ...(r.norm.conditions.length ? ['Conditions: ' + r.norm.conditions.join('; ')] : []),
       ...(r.norm.exceptions.length ? ['Exceptions: ' + r.norm.exceptions.join('; ')] : []),
       ...(r.scope.preconditions.length ? ['Preconditions: ' + r.scope.preconditions.join('; ')] : []),
@@ -242,6 +213,7 @@ function updatePreview(analysis) {
   $('copy').disabled = !rules.length || blocked;
   const caution = rules.some(r => statusOf(r) !== 'published');
   $('export-note').textContent = blocked ? 'Resolve potential opposing norms before exporting.' :
+    analysis.conditional.length ? 'Conditional edition interactions require context review. Exports are not automatically approved or applied.' :
     caution ? 'Includes at least one unapproved draft/candidate. Inspect before use. No data is uploaded or saved.' :
     'Generated locally. No account, upload, or stored ruleset.';
 }

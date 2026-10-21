@@ -1,14 +1,16 @@
 {
   "id": "TASK-0002",
   "title": "Review private generation-context rule candidate",
-  "status": "proposed",
+  "status": "verifying",
   "kind": "catalog_review",
   "created_on": "2026-10-20",
   "requested_by": "user",
   "authorization": {
     "queue": true,
-    "execute": false,
-    "publish": false
+    "execute": true,
+    "publish": false,
+    "publish_catalog": true,
+    "source": "User explicit processing of all specimens and downstream tasks on 2026-10-21"
   },
   "source_candidate": {
     "id": "NOM-0004",
@@ -20,5 +22,10 @@
     "Confirm candidate metadata and relevant relations",
     "Do not mutate rules/ or publish without a separate authorized catalog decision"
   ],
-  "remarks": "Queued for later review only. Not an active task, not a catalog rule, and not a specimen-processing record."
+  "remarks": "Task execution is separately recorded and awaits checks; queue record preserved as audit trail.",
+  "processing": {
+    "record": "processing/tasks/TASK-0002.json",
+    "started_on": "2026-10-21",
+    "state": "verifying"
+  }
 }

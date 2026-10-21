@@ -49,3 +49,9 @@ A public-repository prohibition and a private-diary allowance can coexist when t
 ## Ontology boundaries
 
 Do not force persistence of a website user's temporary mix-and-match selection. Do not treat an exported `AGENTS.md` or Custom Instructions file as a canonical rule. Rendering is a projection of selected rules, not the ontology itself.
+
+## Cargo edition value constraints
+
+Optional `norm.value_constraint` specifies a single-valued configuration decision: `field: package.edition`, with `operator: equals` and a fixed `value`, or `operator: latest_stable_supported` to resolve from the target Rust toolchain at the decision time. Two overlapping edition obligations can conflict when resolved values differ. Missing toolchain context, or currently equal dynamic and fixed values that might later diverge, are **conditional**, not proven conflicts. Weak permission to select an alternative does not override a contrary obligation; strong permission may create a conflict candidate. Authority and free-text exceptions still require review.
+
+The Rust Edition Guide documents 2024 as the latest stable edition as of 2026-10-21. This dated observation is not the permanent meaning of `latest`. Approved catalog entries are inert until explicitly selected for a consumer. Retained processing candidates are historical provenance, not duplicate catalog records.
