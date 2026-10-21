@@ -22,6 +22,7 @@ A rule is a first-class object even if nobody selects or applies it. A ruleset o
 - [taxonomy/categories.json](taxonomy/categories.json) — controlled categorization vocabulary.
 - [rules/](rules/) — two public-safe initial rules (catalog entries, not automatically active instructions).
 - [ROADMAP.md](ROADMAP.md) — future work; not a task-processing record.
+- [docs/](docs/) — public rule browser and composer. [Site documentation](docs/ABOUT.md).
 
 ## Validate
 

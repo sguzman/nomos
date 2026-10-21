@@ -1,0 +1,343 @@
+{
+  "schema_version": "1.0",
+  "source": "Nomos public catalog and distinct unapproved rule candidates",
+  "rules": [
+    {
+      "id": "NOM-0001",
+      "version": "1.0.0",
+      "title": "Do not publish private material to public repositories",
+      "summary": "Prevent private material from entering public repository surfaces.",
+      "statement": "Do not include private material in public Git repository artifacts or their associated publication surfaces.",
+      "rationale": "Public repositories and their histories are inappropriate destinations for private material.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "prohibition",
+        "predicate": {
+          "action": "include",
+          "object": "private_material",
+          "target": "artifact"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "privacy",
+          "publication"
+        ],
+        "topics": [
+          "information_disclosure",
+          "content_handling"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "git_repository"
+          ],
+          "visibility": [
+            "public"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [],
+        "exclusions": []
+      },
+      "authority": {
+        "source": "Nomos publication constitution",
+        "tier": "repository_policy",
+        "priority": 100,
+        "override_policy": "non_overridable_within_scope"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "CONSTITUTION.md, Article IV",
+        "license": "MIT",
+        "notes": "Abstract category only; does not reproduce private content."
+      },
+      "governance": {
+        "created_on": "2026-10-20",
+        "updated_on": "2026-10-20",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0002",
+      "version": "0.1.0",
+      "title": "Permit private expression in private diaries",
+      "summary": "Allow personal material within an explicitly private diary.",
+      "statement": "An explicitly private diary may contain private material when it remains private.",
+      "rationale": "Privacy constraints differ between private working material and public publication.",
+      "language": "en",
+      "status": "draft",
+      "norm": {
+        "kind": "permission",
+        "predicate": {
+          "action": "include",
+          "object": "private_material",
+          "target": "artifact"
+        },
+        "permission_strength": "strong",
+        "conditions": [],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "privacy",
+          "personal_writing"
+        ],
+        "topics": [
+          "content_handling",
+          "personal_expression"
+        ],
+        "audiences": [
+          "human_authors",
+          "ai_agents"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "private"
+          ],
+          "artifact_kind": [
+            "diary"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [],
+        "exclusions": []
+      },
+      "authority": {
+        "source": "synthetic catalog illustration",
+        "tier": "example",
+        "priority": 10,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "synthetic_example",
+        "reference": "",
+        "license": "MIT",
+        "notes": "Illustrative, inert draft; not a grant to publish private content publicly."
+      },
+      "governance": {
+        "created_on": "2026-10-20",
+        "updated_on": "2026-10-20",
+        "review_status": "unreviewed"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0003",
+      "version": "0.1.0",
+      "title": "Do not disclose nonpublic information without authorization",
+      "summary": "Do not include confidential or otherwise nonpublic information in public outputs without specific authorization to disclose that information.",
+      "statement": "Do not include confidential or otherwise nonpublic information in public outputs without specific authorization to disclose that information.",
+      "rationale": "Protect the confidentiality of information independently of whether disclosure quotes a source or paraphrases it.",
+      "language": "en",
+      "status": "draft",
+      "norm": {
+        "kind": "prohibition",
+        "predicate": {
+          "action": "include",
+          "object": "nonpublic_information",
+          "target": "artifact"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "Specific authorization to disclose the information has not been given"
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "privacy",
+          "publication"
+        ],
+        "topics": [
+          "information_disclosure",
+          "content_handling"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "public"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [],
+        "exclusions": []
+      },
+      "authority": {
+        "source": "Proposed through Nomos specimen processing; not an enacted policy",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0002; PROC-SPEC-0002",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; no private source text retained. This candidate is not in the catalog."
+      },
+      "governance": {
+        "created_on": "2026-10-20",
+        "updated_on": "2026-10-20",
+        "review_status": "unreviewed"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "candidate"
+    },
+    {
+      "id": "NOM-0004",
+      "version": "0.1.0",
+      "title": "Do not expose private generation context in public outputs",
+      "summary": "Do not reproduce or reveal private conversations, private drafting language, or nonpublic internal instructions in public outputs merely because they informed the work; public release of the result does not by itself authorize release of its private inputs.",
+      "statement": "Do not reproduce or reveal private conversations, private drafting language, or nonpublic internal instructions in public outputs merely because they informed the work; public release of the result does not by itself authorize release of its private inputs.",
+      "rationale": "Protect the private origin context of generated work, even when no independently confidential factual assertion would be disclosed.",
+      "language": "en",
+      "status": "draft",
+      "norm": {
+        "kind": "prohibition",
+        "predicate": {
+          "action": "include",
+          "object": "private_generation_context",
+          "target": "artifact"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "Separate authorization to disclose the private generation context has not been given"
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "privacy",
+          "publication",
+          "agent_instructions"
+        ],
+        "topics": [
+          "information_disclosure",
+          "content_handling",
+          "personal_expression"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "public"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [],
+        "exclusions": []
+      },
+      "authority": {
+        "source": "Proposed through Nomos specimen processing; not an enacted policy",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0001; SPEC-0003; PROC-SPEC-0001; PROC-SPEC-0003",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; no private source text retained. This candidate is not in the catalog."
+      },
+      "governance": {
+        "created_on": "2026-10-20",
+        "updated_on": "2026-10-20",
+        "review_status": "unreviewed"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "candidate"
+    }
+  ]
+}

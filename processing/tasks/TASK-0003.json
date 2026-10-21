@@ -1,0 +1,29 @@
+{
+  "id": "TASK-0003",
+  "status": "verifying",
+  "type": "development",
+  "title": "Public rule browser and instruction composer",
+  "authorization": {
+    "source": "direct_user_request",
+    "on": "2026-10-20",
+    "scope": "Build public searchable Nomos showcase with selectable rules, conflict signals, and downloadable AGENTS.md and Custom Instructions"
+  },
+  "started_on": "2026-10-20",
+  "source_repository": "sguzman/nomos",
+  "outputs": [
+    "docs/index.html",
+    "docs/styles.css",
+    "docs/app.js",
+    "docs/catalog.json",
+    "tools/build_site_catalog.py",
+    "tests/test_showcase.py",
+    ".github/workflows/pages.yml"
+  ],
+  "evidence": {
+    "repository_commit": "pending",
+    "static_checks": "pending",
+    "browser_qa": "not_performed",
+    "pages_deployment": "not_verified"
+  },
+  "notes": "Independent authorized development task. Does not process catalog-review tasks or publish draft rule candidates."
+}

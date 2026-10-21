@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore independent rules, compare their scopes, and compose portable agent instructions with Nomos.">
+  <meta name="theme-color" content="#0d1220">
+  <title>Nomos · Rule registry and composer</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#registry">Skip to rule registry</a>
+  <header class="masthead">
+    <div class="shell masthead-inner">
+      <a class="brand" href="./" aria-label="Nomos home"><span class="brand-glyph" aria-hidden="true">N</span><span>nomos<span class="brand-period">.</span></span></a>
+      <div class="masthead-right"><span class="edition">PUBLIC SHOWCASE · 01</span><a href="https://github.com/sguzman/nomos" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="orbit" aria-hidden="true"></span> RULE ONTOLOGY / COMPOSITION</p>
+        <h1 id="hero-title">A rule is not<br><em>an instruction.</em> <span class="soft">Yet.</span></h1>
+        <p class="hero-description">Browse independent normative rules, inspect where they apply, and compose a deliberate set of instructions. Nothing is activated until you select and export it.</p>
+        <div class="hero-actions"><a href="#registry" class="primary-link">Explore rules <span aria-hidden="true">↘</span></a><a class="quiet-link" href="https://github.com/sguzman/nomos/blob/main/ONTOLOGY.md">Read the ontology ↗</a></div>
+      </div>
+      <div class="hero-panel" aria-hidden="true">
+        <div class="diagram-top"><span>NORMATIVE SPACE</span><span>01 / 03</span></div>
+        <div class="diagram-nodes">
+          <span class="node node-one">PROHIBITION</span><span class="node node-two">PERMISSION</span><span class="node node-three">SCOPE</span>
+          <span class="diagram-line line-one"></span><span class="diagram-line line-two"></span><span class="diagram-line line-three"></span>
+          <div class="diagram-core"><span>≋</span></div>
+        </div>
+        <div class="diagram-foot">Compare <span>→</span> Resolve <span>→</span> Compose</div>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Current registry size">
+      <div><span class="stat-number" id="count-all">—</span><span class="stat-label">VISIBLE RULES</span></div>
+      <div><span class="stat-number" id="count-published">—</span><span class="stat-label">PUBLISHED</span></div>
+      <div><span class="stat-number" id="count-draft">—</span><span class="stat-label">DRAFTS / CANDIDATES</span></div>
+      <div><span class="stat-number" id="count-selected">0</span><span class="stat-label">SELECTED</span></div>
+    </section>
+
+    <section class="workspace" id="registry" aria-label="Rule browser and composer">
+      <div class="explorer">
+        <div class="section-heading"><div><p class="eyebrow">01 / DISCOVER</p><h2>Rule registry</h2></div><span class="heading-explainer">Browse first. Apply later.</span></div>
+        <form class="filters" id="filter-form" role="search" autocomplete="off">
+          <label class="search-wrap"><span aria-hidden="true">⌕</span><span class="sr-only">Search rules</span><input id="search" type="search" placeholder="Search rules, domains, IDs…" autocomplete="off"></label>
+          <label><span class="sr-only">Filter by status</span><select id="filter-status"><option value="all">All statuses</option><option value="published">Published</option><option value="draft">Catalog drafts</option><option value="candidate">Candidates</option></select></label>
+          <label><span class="sr-only">Filter by domain</span><select id="filter-domain"><option value="all">All domains</option></select></label>
+          <button type="button" id="clear-filters" class="clear-filters">Reset</button>
+        </form>
+        <div class="results-line"><span id="result-count" aria-live="polite">Loading registry…</span><span class="dot-separator">•</span><span>Entries are independent, even when they overlap</span></div>
+        <div class="rules" id="rule-list" aria-live="polite"></div>
+        <div class="empty hidden" id="empty-results"><strong>No matching rules.</strong><p>Try a broader search or clear the filters.</p></div>
+      </div>
+
+      <aside class="composer" id="composer" aria-labelledby="composer-title">
+        <div class="composer-heading"><p class="eyebrow">02 / COMPOSE</p><h2 id="composer-title">Your ruleset <span id="composer-count" class="count-pill">0</span></h2><p>Choose rules to assemble an export. This selection stays in this page session.</p></div>
+        <div id="selection-list" class="selection-list" aria-live="polite"></div>
+        <div id="selection-empty" class="selection-empty"><span class="selection-symbol" aria-hidden="true">+</span><strong>Nothing selected</strong><span>Add rules from the registry to build an instruction set.</span></div>
+        <button id="clear-selection" class="text-action hidden" type="button">Clear selection</button>
+
+        <div class="analysis-panel" id="analysis-panel" aria-live="polite"><div class="analysis-top"><span class="analysis-icon" aria-hidden="true">◇</span><strong>Compatibility</strong></div><p id="analysis-summary">Select two or more rules to compare their metadata.</p><div id="analysis-details"></div></div>
+
+        <div class="export-section"><p class="eyebrow">03 / EXPORT</p><h3>Output format</h3>
+          <div class="format-tabs" role="group" aria-label="Output format"><button class="active" type="button" data-format="agents" aria-pressed="true">AGENTS.md</button><button type="button" data-format="custom" aria-pressed="false">Custom Instructions</button></div>
+          <label class="preview-label" for="preview">Live preview <span id="preview-length">0 characters</span></label>
+          <textarea id="preview" spellcheck="false" readonly rows="11" aria-label="Generated instructions preview"></textarea>
+          <div class="export-actions"><button id="download" class="download-btn" type="button" disabled>↓ Download file</button><button id="copy" class="copy-btn" type="button" disabled>Copy text</button></div>
+          <p class="export-note" id="export-note">Generated locally in your browser. No account, upload, or stored ruleset.</p>
+          <div id="notice" class="sr-only" aria-live="polite"></div>
+        </div>
+      </aside>
+    </section>
+    <footer><span>Nomos · Independent rules, intentional composition.</span><span>Public data only · <a href="https://github.com/sguzman/nomos">Source on GitHub ↗</a></span></footer>
+  </main>
+
+  <dialog id="rule-dialog" aria-labelledby="dialog-title"><div class="dialog-wrap"><div class="dialog-top"><span class="eyebrow">RULE METADATA</span><button type="button" id="close-dialog" class="close-dialog" aria-label="Close rule details">✕</button></div><div id="rule-detail"></div></div></dialog>
+</body>
+</html>
