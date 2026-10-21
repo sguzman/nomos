@@ -1,0 +1,55 @@
+{
+  "processing_id": "PROC-SPEC-0011",
+  "source_specimen_id": "SPEC-0011",
+  "status": "closed",
+  "authorization": {
+    "source": "User directly authorized processing all remaining specimens and downstream tasks",
+    "on": "2026-10-21"
+  },
+  "processed_on": "2026-10-21",
+  "normalization": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "set",
+      "object": "rust_edition",
+      "target": "cargo_manifest"
+    },
+    "conditions": [
+      "Select at project/manifest decision time using compatible stable editions."
+    ],
+    "scope": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    }
+  },
+  "comparison": {
+    "with_existing": [
+      "SPEC-0012"
+    ],
+    "finding": "The dynamic latest-edition constraint currently resolves to 2024 per the public Rust Edition Guide; a newer edition can change the result."
+  },
+  "disposition": {
+    "kind": "distinct_candidate",
+    "candidate_id": "NOM-0012",
+    "downstream_task": "TASK-0004"
+  },
+  "candidate": {
+    "path": "processing/specimens/candidates/NOM-0012.json",
+    "published": false
+  },
+  "stage_boundaries": {
+    "specimen_processing_complete": true,
+    "task_queue_authorized_separately": true,
+    "task_execution_not_part_of_this_stage": true
+  }
+}

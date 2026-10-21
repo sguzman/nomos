@@ -1,0 +1,56 @@
+{
+  "processing_id": "PROC-SPEC-0010",
+  "source_specimen_id": "SPEC-0010",
+  "status": "closed",
+  "authorization": {
+    "source": "User directly authorized processing all remaining specimens and downstream tasks",
+    "on": "2026-10-21"
+  },
+  "processed_on": "2026-10-21",
+  "normalization": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "separate",
+      "object": "workflow_stages",
+      "target": "specimen_and_task_system"
+    },
+    "conditions": [
+      "Derived tasks do not exist automatically merely because analysis finishes."
+    ],
+    "scope": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    }
+  },
+  "comparison": {
+    "with_existing": [
+      "CONSTITUTION.md Article VI",
+      "WORKFLOW.md"
+    ],
+    "finding": "Existing constitution and workflow provisions cover the distinction; propose general-purpose catalog rule without amending the project constitution."
+  },
+  "disposition": {
+    "kind": "formalizes_existing_governance",
+    "candidate_id": "NOM-0011",
+    "downstream_task": "TASK-0004"
+  },
+  "candidate": {
+    "path": "processing/specimens/candidates/NOM-0011.json",
+    "published": false
+  },
+  "stage_boundaries": {
+    "specimen_processing_complete": true,
+    "task_queue_authorized_separately": true,
+    "task_execution_not_part_of_this_stage": true
+  }
+}

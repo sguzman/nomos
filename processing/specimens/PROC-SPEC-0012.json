@@ -1,0 +1,55 @@
+{
+  "processing_id": "PROC-SPEC-0012",
+  "source_specimen_id": "SPEC-0012",
+  "status": "closed",
+  "authorization": {
+    "source": "User directly authorized processing all remaining specimens and downstream tasks",
+    "on": "2026-10-21"
+  },
+  "processed_on": "2026-10-21",
+  "normalization": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "set",
+      "object": "rust_edition",
+      "target": "cargo_manifest"
+    },
+    "conditions": [
+      "Applies to selection of the Cargo package edition."
+    ],
+    "scope": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    }
+  },
+  "comparison": {
+    "with_existing": [
+      "SPEC-0011"
+    ],
+    "finding": "The imperative is provisionally normalized as an obligation. Permission strength alternatives are analyzed in downstream task work rather than silently changing the proposal."
+  },
+  "disposition": {
+    "kind": "distinct_candidate",
+    "candidate_id": "NOM-0013",
+    "downstream_task": "TASK-0004"
+  },
+  "candidate": {
+    "path": "processing/specimens/candidates/NOM-0013.json",
+    "published": false
+  },
+  "stage_boundaries": {
+    "specimen_processing_complete": true,
+    "task_queue_authorized_separately": true,
+    "task_execution_not_part_of_this_stage": true
+  }
+}

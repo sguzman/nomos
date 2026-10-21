@@ -1,5 +1,5 @@
 {
-  "status": "proposed",
+  "status": "processed",
   "source": {
     "kind": "user_submitted_rule_idea",
     "reference": "Direct rule proposal; original conversation and private phrasing not retained",
@@ -11,8 +11,8 @@
     "operation": "specimen_queue_entry",
     "processing_authorized": false
   },
-  "next_state": "awaiting_explicit_specimen_processing_selection",
-  "remarks": "Queued only. Scope hints and relationships are provisional; no rule was normalized, enacted, published, or applied, and no task was created.",
+  "next_state": "processed_specimen_retained_as_intake_record",
+  "remarks": "Intake retained; see independent processing record for normalized candidate and disposition. Downstream tasks remain independent.",
   "id": "SPEC-0007",
   "title": "Use Rust for application code with narrow language exceptions",
   "abstract": "Use Rust for application implementation. Non-Rust website implementation requires an explicit justification. For standalone scripting, use Lua. Prefer TOML, JSON, and Markdown for configuration or documentation where appropriate; these are formats rather than exceptions authorizing another application language.",
@@ -50,5 +50,11 @@
   "unresolved": [
     "Define 'website code' versus 'scripting' precisely during processing.",
     "Do not retroactively apply a queued specimen to existing code."
-  ]
+  ],
+  "processing": {
+    "authorized_by": "direct_user_request",
+    "authorized_on": "2026-10-21",
+    "record": "processing/specimens/PROC-SPEC-0007.json",
+    "state": "closed"
+  }
 }

@@ -1,0 +1,28 @@
+{
+  "id": "TASK-0006",
+  "title": "Refresh gallery, ontology documentation and export checks",
+  "kind": "website_implementation",
+  "status": "ready",
+  "created_on": "2026-10-21",
+  "source": "Authorized processing of SPEC-0004 through SPEC-0012",
+  "targets": [
+    "NOM-0005",
+    "NOM-0006",
+    "NOM-0007",
+    "NOM-0008",
+    "NOM-0009",
+    "NOM-0010",
+    "NOM-0011",
+    "NOM-0012",
+    "NOM-0013"
+  ],
+  "authorization": {
+    "queue": true,
+    "execute": true,
+    "publish_catalog": true,
+    "source": "User explicit full-process request 2026-10-21"
+  },
+  "scope": "Update gallery public catalog, metadata explanations, browsing and exports; verify deployment and record remaining QA limits.",
+  "processing_record": "processing/tasks/TASK-0006.json",
+  "remarks": "Queue record is independent of execution; processing record is created in a subsequent committed stage."
+}

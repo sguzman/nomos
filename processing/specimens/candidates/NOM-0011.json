@@ -1,0 +1,83 @@
+{
+  "id": "NOM-0011",
+  "version": "0.1.0",
+  "title": "Keep specimen intake, processing, derived task queue and execution distinct",
+  "summary": "Keep specimen intake, authorized specimen analysis, any resulting downstream task queue, and execution of those tasks as independent, explicitly authorized workflows with distinct states and traceable transitions.",
+  "statement": "Keep specimen intake, authorized specimen analysis, any resulting downstream task queue, and execution of those tasks as independent, explicitly authorized workflows with distinct states and traceable transitions.",
+  "rationale": "Normalized public-safe rule proposal from an explicitly authorized specimen analysis.",
+  "language": "en",
+  "status": "draft",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "separate",
+      "object": "workflow_stages",
+      "target": "specimen_and_task_system"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "Derived tasks do not exist automatically merely because analysis finishes."
+    ],
+    "exceptions": []
+  },
+  "categories": {
+    "domains": [
+      "governance",
+      "workflow_governance"
+    ],
+    "topics": [
+      "workflow_stage"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [],
+    "exclusions": []
+  },
+  "authority": {
+    "source": "User-submitted general rule proposal; awaiting downstream catalog review",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0010; processing/specimens/PROC-SPEC-0010.json",
+    "license": "MIT",
+    "notes": "Public-safe normalized candidate; source conversation is not reproduced."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "unreviewed"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

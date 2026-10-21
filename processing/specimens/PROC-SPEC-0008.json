@@ -1,0 +1,56 @@
+{
+  "processing_id": "PROC-SPEC-0008",
+  "source_specimen_id": "SPEC-0008",
+  "status": "closed",
+  "authorization": {
+    "source": "User directly authorized processing all remaining specimens and downstream tasks",
+    "on": "2026-10-21"
+  },
+  "processed_on": "2026-10-21",
+  "normalization": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "derive",
+      "object": "identity_color",
+      "target": "visual_identity"
+    },
+    "conditions": [
+      "Finite color spaces cannot guarantee globally unique colors."
+    ],
+    "scope": {
+      "channel": [
+        "website"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    }
+  },
+  "comparison": {
+    "with_existing": [
+      "NOM-0001",
+      "NOM-0002"
+    ],
+    "finding": "Chromalect/Signal project methods were not copied or inferred; deterministic OKLCH rule-ID colors are already implemented in Nomos."
+  },
+  "disposition": {
+    "kind": "distinct_candidate",
+    "candidate_id": "NOM-0009",
+    "downstream_task": "TASK-0004"
+  },
+  "candidate": {
+    "path": "processing/specimens/candidates/NOM-0009.json",
+    "published": false
+  },
+  "stage_boundaries": {
+    "specimen_processing_complete": true,
+    "task_queue_authorized_separately": true,
+    "task_execution_not_part_of_this_stage": true
+  }
+}

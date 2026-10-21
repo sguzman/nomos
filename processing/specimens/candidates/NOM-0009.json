@@ -1,0 +1,82 @@
+{
+  "id": "NOM-0009",
+  "version": "0.1.0",
+  "title": "Derive stable, distinguishable visual identities from strings",
+  "summary": "Assign stable, deterministic identity colors from string IDs using a perceptually aware color method that prioritizes human distinction and preserves readable non-color identifiers.",
+  "statement": "Assign stable, deterministic identity colors from string IDs using a perceptually aware color method that prioritizes human distinction and preserves readable non-color identifiers.",
+  "rationale": "Normalized public-safe rule proposal from an explicitly authorized specimen analysis.",
+  "language": "en",
+  "status": "draft",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "derive",
+      "object": "identity_color",
+      "target": "visual_identity"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "Finite color spaces cannot guarantee globally unique colors."
+    ],
+    "exceptions": []
+  },
+  "categories": {
+    "domains": [
+      "visual_identity"
+    ],
+    "topics": [
+      "identity_color"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "website"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [],
+    "exclusions": []
+  },
+  "authority": {
+    "source": "User-submitted general rule proposal; awaiting downstream catalog review",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0008; processing/specimens/PROC-SPEC-0008.json",
+    "license": "MIT",
+    "notes": "Public-safe normalized candidate; source conversation is not reproduced."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "unreviewed"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

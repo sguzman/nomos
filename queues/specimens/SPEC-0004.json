@@ -1,5 +1,5 @@
 {
-  "status": "proposed",
+  "status": "processed",
   "source": {
     "kind": "user_submitted_rule_idea",
     "reference": "Direct rule proposal; original conversation and private phrasing not retained",
@@ -11,8 +11,8 @@
     "operation": "specimen_queue_entry",
     "processing_authorized": false
   },
-  "next_state": "awaiting_explicit_specimen_processing_selection",
-  "remarks": "Queued only. Scope hints and relationships are provisional; no rule was normalized, enacted, published, or applied, and no task was created.",
+  "next_state": "processed_specimen_retained_as_intake_record",
+  "remarks": "Intake retained; see independent processing record for normalized candidate and disposition. Downstream tasks remain independent.",
   "id": "SPEC-0004",
   "title": "Provide live system-aware light and dark themes for GUIs",
   "abstract": "Every newly built graphical or web interface should support light, dark, and system-following appearance modes. System-following is the initial default. An accessible dropdown must let users change the mode during use, with the interface updating immediately.",
@@ -41,5 +41,11 @@
   "possible_existing_coverage": [],
   "unresolved": [
     "Do not infer persistence or specific platform implementation from the specimen."
-  ]
+  ],
+  "processing": {
+    "authorized_by": "direct_user_request",
+    "authorized_on": "2026-10-21",
+    "record": "processing/specimens/PROC-SPEC-0004.json",
+    "state": "closed"
+  }
 }
