@@ -73,3 +73,7 @@ One-click **Add all** recursively follows child groups and deduplicates canonica
 Groups and atomic rules appear together in a single, title-sorted result list. One search field and **All items / Groups only / Rules only** filter serve both entity types. Status and domain/label filters are shared. **Browse members** narrows this same list; **Add all** retains each independent rule ID.
 
 Group color applies its stable ID-derived OKLCH hue on the actual swatch parent and on its card accent. The previous hardcoded green CSS fallback could no longer override that identity. The separate group search and gallery have been removed.
+
+## Sorting catalog results
+
+The shared catalog provides a Sort dropdown independent of search and type filters. **Groups first · ID** is the default, followed by **Rules first · ID**, alphabetical name in both directions, canonical ID in both directions, and group member count (largest or smallest first). Group-size sorts place groups ahead of atomic rules, then sort rules by ID. Equal group sizes use stable IDs as tie-breakers; member counts include deduplicated eligible published rules, including nested subgroups. Reset restores the group-first default. Group membership and selected instructions are never changed by sorting.

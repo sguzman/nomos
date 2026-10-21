@@ -39,7 +39,10 @@ dialog{padding:0;border:1px solid light-dark(#b7c3cf, #52687c);border-radius:14p
 
 
 /* Groups and rules share one list and search controls. */
-.catalog-filters{grid-template-columns:minmax(175px,1fr) repeat(3,minmax(120px,auto)) auto}
+.catalog-filters{grid-template-columns:repeat(4,minmax(0,1fr)) auto}
+.catalog-filters .search-wrap{grid-column:1/-1}
+.catalog-filters select{max-width:none;width:100%;min-width:0;text-overflow:ellipsis}
+.catalog-filters .clear-filters{justify-self:start;align-self:center}
 .catalog-filters .search-wrap{min-width:0}
 .catalog-list{display:grid;grid-template-columns:minmax(0,1fr);gap:11px}
 .group-card{
@@ -64,5 +67,5 @@ dialog{padding:0;border:1px solid light-dark(#b7c3cf, #52687c);border-radius:14p
 .group-actions .add-btn:hover:not(:disabled){background:light-dark(oklch(89% .055 var(--rule-hue)),oklch(42% .07 var(--rule-hue)))}
 .active-group-filter{display:inline-flex;margin:0 0 15px;padding:8px 12px;color:var(--accent);border:1px solid var(--accent2);border-radius:7px;background:var(--surface);font-size:12px}
 .group-tag{color:var(--muted);border-style:dashed}
-@media(max-width:1130px){.catalog-filters{grid-template-columns:repeat(3,minmax(0,1fr))}.catalog-filters .search-wrap{grid-column:1/-1}.catalog-filters .clear-filters{grid-column:1/-1;justify-self:start}}
+@media(max-width:1130px){.catalog-filters{grid-template-columns:repeat(2,minmax(0,1fr))}.catalog-filters .search-wrap{grid-column:1/-1}.catalog-filters .clear-filters{grid-column:1/-1;justify-self:start}}
 @media(max-width:540px){.catalog-filters{grid-template-columns:repeat(2,minmax(0,1fr))}.catalog-filters .search-wrap{grid-column:1/-1}.catalog-filters .clear-filters{grid-column:auto;align-self:center}.group-card{padding:16px}}

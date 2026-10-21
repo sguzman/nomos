@@ -158,6 +158,7 @@ function renderCatalog() {
     rules: state.rules, groups: state.groups,
     query: $('search').value, type: $('filter-type').value,
     status: $('filter-status').value, domain: $('filter-domain').value,
+    sort: $('sort-order').value,
     groupFilter: state.groupFilter
   });
   $('catalog-list').replaceChildren(...entries.map(entry =>
@@ -350,7 +351,7 @@ $('active-group-filter').addEventListener('click', () => {
   renderCatalog();
 });
 $('filter-form').addEventListener('submit', event => event.preventDefault());
-for (const id of ['search', 'filter-type', 'filter-status', 'filter-domain']) {
+for (const id of ['search', 'filter-type', 'filter-status', 'filter-domain', 'sort-order']) {
   $(id).addEventListener(id === 'search' ? 'input' : 'change', () => {
     if (id === 'filter-type' && $('filter-type').value !== 'rules') state.groupFilter = null;
     renderCatalog();
@@ -361,6 +362,7 @@ $('clear-filters').addEventListener('click', () => {
   $('filter-type').value = 'all';
   $('filter-status').value = 'all';
   $('filter-domain').value = 'all';
+  $('sort-order').value = 'groups-first';
   state.groupFilter = null;
   renderCatalog();
   $('search').focus();

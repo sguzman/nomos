@@ -67,6 +67,16 @@
           <label><span class="sr-only">Filter by item type</span><select id="filter-type" aria-label="Item type"><option value="all">All items</option><option value="groups">Groups only</option><option value="rules">Rules only</option></select></label>
           <label><span class="sr-only">Filter by status</span><select id="filter-status"><option value="all">All statuses</option><option value="published">Published</option><option value="draft">Catalog drafts</option><option value="candidate">Candidates</option></select></label>
           <label><span class="sr-only">Filter by domain or label</span><select id="filter-domain"><option value="all">All domains / labels</option></select></label>
+          <label><span class="sr-only">Sort catalog</span><select id="sort-order" aria-label="Sort catalog">
+            <option value="groups-first" selected>Groups first · ID</option>
+            <option value="rules-first">Rules first · ID</option>
+            <option value="name-asc">Name · A–Z</option>
+            <option value="name-desc">Name · Z–A</option>
+            <option value="id-asc">ID · ascending</option>
+            <option value="id-desc">ID · descending</option>
+            <option value="members-desc">Group size · most first</option>
+            <option value="members-asc">Group size · fewest first</option>
+          </select></label>
           <button type="button" id="clear-filters" class="clear-filters">Reset</button>
         </form>
         <div class="results-line"><span id="result-count" aria-live="polite">Loading catalog…</span><span class="dot-separator">•</span><span>Collections are optional; every rule stands alone</span></div>
