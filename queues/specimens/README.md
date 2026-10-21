@@ -7,3 +7,7 @@ Public-safe proposed rule and model specimens are placed here until explicitly a
 Group definitions are **queued model inputs only**. They have stable proposed identities and memberships, but have not changed the active ontology or public website. Queue membership authorizes neither specimen processing nor downstream task creation/execution.
 
 See [WORKFLOW.md](../../WORKFLOW.md) for authorization boundaries.
+
+## New intake: project-management and porting practices
+
+`SPEC-0068` through `SPEC-0076` are nine independently queued project-reporting, completion-reporting, project-identity and strict-porting specimens. They reference proposed `GROUP-0009` through `GROUP-0013` in [groups/](groups/). Existing catalog overlaps are provisional review links, not automatic duplication or publication. No downstream tasks are created by this intake.

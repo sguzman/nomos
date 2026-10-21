@@ -1,0 +1,39 @@
+{
+  "id": "SPEC-0074",
+  "title": "Maintain behavioral fidelity during strict software ports",
+  "status": "proposed",
+  "abstract": "During a strict software port, prioritize the agreed upstream application's observable behavior over redesign and unrelated enhancements.",
+  "source": {
+    "kind": "public_safe_rule_extraction",
+    "reference": "Generalized project-management and strict-porting proposal; private drafting text not retained",
+    "material_retained": false
+  },
+  "received_on": "2026-10-21",
+  "intake": {
+    "visibility": "public_safe_abstract_only",
+    "operation": "specimen_queue_entry",
+    "processing_authorized": false
+  },
+  "scope_hints": {
+    "domains": [
+      "project_management",
+      "software_development"
+    ],
+    "trigger": "an explicitly authorized strict software port",
+    "candidate_normative_effect": "subject_to_specimen_processing",
+    "independent_atomic_rule": true,
+    "scope_boundary": "authorized_project_development_and_reporting"
+  },
+  "proposed_virtual_group_refs": [
+    "GROUP-0013"
+  ],
+  "proposed_umbrella_group": "GROUP-0009",
+  "possible_existing_coverage": [
+    "NOM-0008"
+  ],
+  "unresolved": [
+    "Choose and record the upstream behavioral reference baseline for each port."
+  ],
+  "next_state": "awaiting_explicit_specimen_processing_selection",
+  "remarks": "Proposed atomic rule only. Group membership is non-normative; no processing, task creation, rule publication or application is authorized by intake."
+}

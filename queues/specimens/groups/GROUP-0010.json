@@ -1,0 +1,58 @@
+{
+  "id": "GROUP-0010",
+  "kind": "proposed_first_class_virtual_rule_group",
+  "status": "proposed",
+  "received_on": "2026-10-21",
+  "source": {
+    "kind": "public_safe_virtual_group_proposal",
+    "reference": "Proposed grouping of independent project-management and porting specimens",
+    "material_retained": false
+  },
+  "processing_authorized": false,
+  "publication_authorized": false,
+  "title": "Progress Reporting",
+  "summary": "Report touched work items with numeric and visual progress and evidence-grounded overall progress.",
+  "metadata_labels": [
+    "project_management",
+    "progress_reporting"
+  ],
+  "parent_group_ids": [
+    "GROUP-0009"
+  ],
+  "child_group_ids": [],
+  "member_specimen_ids": [
+    "SPEC-0068",
+    "SPEC-0069",
+    "SPEC-0070"
+  ],
+  "related_existing_catalog_rule_ids": [],
+  "membership": {
+    "relation": "references_only",
+    "member_kind": "independent_atomic_specimen",
+    "can_overlap_with_other_groups": true,
+    "resolve_approved_rules_from_provenance_only_after_review": true
+  },
+  "one_click_selection": {
+    "proposed": true,
+    "requires_explicit_user_action": true,
+    "include_descendants": true,
+    "deduplicate_by_canonical_rule_id": true,
+    "never_auto_apply_to_consumer": true,
+    "exclude_unapproved_members": true
+  },
+  "visual_identity": {
+    "color_space": "OKLab/OKLCH",
+    "identity_string": "GROUP-0010",
+    "algorithm_reference": "docs/rule-colors.js",
+    "assignment_status": "pending_processing",
+    "requires_perceptual_distinction": true,
+    "readable_label_required": true
+  },
+  "display": {
+    "proposed_group_card": true,
+    "filterable_by_metadata": true,
+    "show_group_size": true
+  },
+  "next_state": "awaiting_explicit_group_specimen_processing_selection",
+  "remarks": "Independent intake-only group proposal, not a published group. Existing rule IDs are overlap references, not automatically added members."
+}

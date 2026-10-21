@@ -18,3 +18,13 @@ Group membership does not alter a member rule's normative effect, status, versio
 The proposed ontology extension is tracked separately in `../SPEC-0067.json`. Until that specimen is processed and the resulting downstream work is independently authorized, these are reviewable intake records rather than published group objects.
 
 The actual published group schema and website composer use canonical rule IDs rather than these original specimen IDs. Historical proposed membership is preserved solely for traceability. Nothing in this queue activates a published group.
+
+## New unprocessed proposals (2026-10-21)
+
+- `GROUP-0009` — Project Management & Development (umbrella; child groups 0010–0013)
+- `GROUP-0010` — Progress Reporting (SPEC-0068–0070)
+- `GROUP-0011` — Completion Reporting (SPEC-0071–0072)
+- `GROUP-0012` — Project Identity (SPEC-0073; existing-rule overlap review)
+- `GROUP-0013` — Porting & Compatibility (SPEC-0074–0076)
+
+These five definitions are unprocessed proposals. Their color identities are based on stable group IDs, but perceptual color allocation and website publication require separate processing. Each atomic specimen remains independently addressable, even if it later belongs to multiple groups.

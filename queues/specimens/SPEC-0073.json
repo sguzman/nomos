@@ -1,0 +1,41 @@
+{
+  "id": "SPEC-0073",
+  "title": "Display project identity colors in README documentation",
+  "status": "proposed",
+  "abstract": "Embed a project's assigned stable, perceptually distinguishable identity color in its README using a portable rendering such as SVG or CSS when suitable.",
+  "source": {
+    "kind": "public_safe_rule_extraction",
+    "reference": "Generalized project-management and strict-porting proposal; private drafting text not retained",
+    "material_retained": false
+  },
+  "received_on": "2026-10-21",
+  "intake": {
+    "visibility": "public_safe_abstract_only",
+    "operation": "specimen_queue_entry",
+    "processing_authorized": false
+  },
+  "scope_hints": {
+    "domains": [
+      "project_management",
+      "software_development"
+    ],
+    "topic": "NOM-0042",
+    "trigger": "maintaining a README for a project with a color identity",
+    "candidate_normative_effect": "subject_to_specimen_processing",
+    "independent_atomic_rule": true,
+    "scope_boundary": "authorized_project_development_and_reporting"
+  },
+  "proposed_virtual_group_refs": [
+    "GROUP-0012"
+  ],
+  "proposed_umbrella_group": "GROUP-0009",
+  "possible_existing_coverage": [
+    "NOM-0009",
+    "NOM-0042"
+  ],
+  "unresolved": [
+    "Review whether this refines NOM-0009 rather than creating a redundant rule."
+  ],
+  "next_state": "awaiting_explicit_specimen_processing_selection",
+  "remarks": "Proposed atomic rule only. Group membership is non-normative; no processing, task creation, rule publication or application is authorized by intake."
+}

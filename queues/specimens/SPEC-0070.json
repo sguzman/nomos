@@ -1,0 +1,39 @@
+{
+  "id": "SPEC-0070",
+  "title": "Report overall project progress alongside individual items",
+  "status": "proposed",
+  "abstract": "Include an overall project progress summary alongside the progress of relevant phases, milestones, tasks and features.",
+  "source": {
+    "kind": "public_safe_rule_extraction",
+    "reference": "Generalized project-management and strict-porting proposal; private drafting text not retained",
+    "material_retained": false
+  },
+  "received_on": "2026-10-21",
+  "intake": {
+    "visibility": "public_safe_abstract_only",
+    "operation": "specimen_queue_entry",
+    "processing_authorized": false
+  },
+  "scope_hints": {
+    "domains": [
+      "project_management",
+      "software_development"
+    ],
+    "trigger": "reporting development progress for a project",
+    "candidate_normative_effect": "subject_to_specimen_processing",
+    "independent_atomic_rule": true,
+    "scope_boundary": "authorized_project_development_and_reporting"
+  },
+  "proposed_virtual_group_refs": [
+    "GROUP-0010"
+  ],
+  "proposed_umbrella_group": "GROUP-0009",
+  "possible_existing_coverage": [
+    "NOM-0010"
+  ],
+  "unresolved": [
+    "Determine aggregate weighting and avoid double-counting nested work."
+  ],
+  "next_state": "awaiting_explicit_specimen_processing_selection",
+  "remarks": "Proposed atomic rule only. Group membership is non-normative; no processing, task creation, rule publication or application is authorized by intake."
+}
