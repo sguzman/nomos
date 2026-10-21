@@ -1,7 +1,7 @@
 {
   "id": "SPEC-0069",
   "title": "Pair progress percentages with visual progress bars",
-  "status": "proposed",
+  "status": "processed",
   "abstract": "For each reported work item, show a numeric completion percentage together with a visual progress bar conveying the same value.",
   "source": {
     "kind": "public_safe_rule_extraction",
@@ -32,6 +32,12 @@
   "unresolved": [
     "Define handling for unknown progress; do not invent a percentage."
   ],
-  "next_state": "awaiting_explicit_specimen_processing_selection",
-  "remarks": "Proposed atomic rule only. Group membership is non-normative; no processing, task creation, rule publication or application is authorized by intake."
+  "next_state": "processed_specimen_retained_as_intake_record",
+  "remarks": "Proposed atomic rule only. Group membership is non-normative; no processing, task creation, rule publication or application is authorized by intake.",
+  "processing": {
+    "authorized_by": "explicit_user_request",
+    "authorized_on": "2026-10-21",
+    "record": "processing/specimens/PROC-SPEC-0069.json",
+    "state": "closed"
+  }
 }

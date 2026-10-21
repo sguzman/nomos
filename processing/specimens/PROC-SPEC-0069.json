@@ -1,0 +1,29 @@
+{
+  "processing_id": "PROC-SPEC-0069",
+  "source_specimen_id": "SPEC-0069",
+  "status": "closed",
+  "authorization": {
+    "source": "Explicit authorization to process all nine pending specimens and downstream work",
+    "on": "2026-10-21"
+  },
+  "processed_on": "2026-10-21",
+  "normalization": {
+    "candidate_rule_id": "NOM-0069",
+    "kind": "obligation",
+    "scope": "reporting progress for a project work item",
+    "group_proposal": "GROUP-0010",
+    "independent_atomic_rule": true
+  },
+  "comparison": {
+    "possible_overlap": [],
+    "assessment": "Scoped project-development or progress-reporting practice, not a duplicate of an existing catalog predicate.",
+    "no_automatic_priority_change": true
+  },
+  "disposition": {
+    "kind": "normalized_for_separate_catalog_review",
+    "candidate_id": "NOM-0069",
+    "candidate_path": "processing/specimens/candidates/NOM-0069.json",
+    "downstream_task_id": "TASK-0010"
+  },
+  "notes": "The proposal remains independent and does not apply to any project merely by processing or publication."
+}

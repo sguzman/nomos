@@ -1,0 +1,31 @@
+{
+  "processing_id": "PROC-SPEC-0072",
+  "source_specimen_id": "SPEC-0072",
+  "status": "closed",
+  "authorization": {
+    "source": "Explicit authorization to process all nine pending specimens and downstream work",
+    "on": "2026-10-21"
+  },
+  "processed_on": "2026-10-21",
+  "normalization": {
+    "candidate_rule_id": "NOM-0072",
+    "kind": "prohibition",
+    "scope": "subsequent reporting after an item's completion was announced",
+    "group_proposal": "GROUP-0011",
+    "independent_atomic_rule": true
+  },
+  "comparison": {
+    "possible_overlap": [
+      "SPEC-0071"
+    ],
+    "assessment": "This applies only after the first 100% completion notice, not before, and never deletes history.",
+    "no_automatic_priority_change": true
+  },
+  "disposition": {
+    "kind": "normalized_for_separate_catalog_review",
+    "candidate_id": "NOM-0072",
+    "candidate_path": "processing/specimens/candidates/NOM-0072.json",
+    "downstream_task_id": "TASK-0010"
+  },
+  "notes": "The proposal remains independent and does not apply to any project merely by processing or publication."
+}

@@ -1,7 +1,7 @@
 {
   "id": "SPEC-0072",
   "title": "Suppress completed items from subsequent routine progress reports",
-  "status": "proposed",
+  "status": "processed",
   "abstract": "After the 100 percent completion of a project, phase, milestone, task or feature has been reported once, omit it from later routine progress reports while preserving the underlying roadmap and completion history.",
   "source": {
     "kind": "public_safe_rule_extraction",
@@ -34,6 +34,12 @@
   "unresolved": [
     "Determine behavior for reopened items without silently resetting completion history."
   ],
-  "next_state": "awaiting_explicit_specimen_processing_selection",
-  "remarks": "Proposed atomic rule only. Group membership is non-normative; no processing, task creation, rule publication or application is authorized by intake."
+  "next_state": "processed_specimen_retained_as_intake_record",
+  "remarks": "Proposed atomic rule only. Group membership is non-normative; no processing, task creation, rule publication or application is authorized by intake.",
+  "processing": {
+    "authorized_by": "explicit_user_request",
+    "authorized_on": "2026-10-21",
+    "record": "processing/specimens/PROC-SPEC-0072.json",
+    "state": "closed"
+  }
 }

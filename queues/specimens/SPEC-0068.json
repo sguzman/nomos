@@ -1,7 +1,7 @@
 {
   "id": "SPEC-0068",
   "title": "Report progress for touched roadmap items",
-  "status": "proposed",
+  "status": "processed",
   "abstract": "Each development progress report should show progress for every phase, milestone, task and feature worked on during its reporting interval.",
   "source": {
     "kind": "public_safe_rule_extraction",
@@ -34,6 +34,12 @@
   "unresolved": [
     "Determine what counts as touched without re-reporting already announced completed items."
   ],
-  "next_state": "awaiting_explicit_specimen_processing_selection",
-  "remarks": "Proposed atomic rule only. Group membership is non-normative; no processing, task creation, rule publication or application is authorized by intake."
+  "next_state": "processed_specimen_retained_as_intake_record",
+  "remarks": "Proposed atomic rule only. Group membership is non-normative; no processing, task creation, rule publication or application is authorized by intake.",
+  "processing": {
+    "authorized_by": "explicit_user_request",
+    "authorized_on": "2026-10-21",
+    "record": "processing/specimens/PROC-SPEC-0068.json",
+    "state": "closed"
+  }
 }

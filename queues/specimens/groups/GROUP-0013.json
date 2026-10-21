@@ -1,15 +1,15 @@
 {
   "id": "GROUP-0013",
   "kind": "proposed_first_class_virtual_rule_group",
-  "status": "proposed",
+  "status": "processed",
   "received_on": "2026-10-21",
   "source": {
     "kind": "public_safe_virtual_group_proposal",
     "reference": "Proposed grouping of independent project-management and porting specimens",
     "material_retained": false
   },
-  "processing_authorized": false,
-  "publication_authorized": false,
+  "processing_authorized": true,
+  "publication_authorized": true,
   "title": "Porting & Compatibility",
   "summary": "Preserve upstream behavior, replacement-capable MVPs and bounded post-MVP work in strict ports.",
   "metadata_labels": [
@@ -55,6 +55,11 @@
     "filterable_by_metadata": true,
     "show_group_size": true
   },
-  "next_state": "awaiting_explicit_group_specimen_processing_selection",
-  "remarks": "Independent intake-only group proposal, not a published group. Existing rule IDs are overlap references, not automatically added members."
+  "next_state": "processed_group_proposal_retained_as_intake_record",
+  "remarks": "Independent intake-only group proposal, not a published group. Existing rule IDs are overlap references, not automatically added members.",
+  "processing": {
+    "record": "processing/specimens/groups/PROC-GROUP-0013.json",
+    "state": "closed",
+    "authorized_on": "2026-10-21"
+  }
 }

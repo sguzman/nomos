@@ -1,7 +1,7 @@
 {
   "id": "SPEC-0071",
   "title": "Announce first attainment of 100 percent exactly once",
-  "status": "proposed",
+  "status": "processed",
   "abstract": "When a project, phase, milestone, task or feature first reaches 100 percent, show its completion and percentage once in the reporting conversation.",
   "source": {
     "kind": "public_safe_rule_extraction",
@@ -32,6 +32,12 @@
   "unresolved": [
     "Choose a stable marker recording that a completed item has already been announced."
   ],
-  "next_state": "awaiting_explicit_specimen_processing_selection",
-  "remarks": "Proposed atomic rule only. Group membership is non-normative; no processing, task creation, rule publication or application is authorized by intake."
+  "next_state": "processed_specimen_retained_as_intake_record",
+  "remarks": "Proposed atomic rule only. Group membership is non-normative; no processing, task creation, rule publication or application is authorized by intake.",
+  "processing": {
+    "authorized_by": "explicit_user_request",
+    "authorized_on": "2026-10-21",
+    "record": "processing/specimens/PROC-SPEC-0071.json",
+    "state": "closed"
+  }
 }

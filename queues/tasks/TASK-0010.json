@@ -1,0 +1,16 @@
+{
+  "id": "TASK-0010",
+  "title": "Review and publish nine project practice rules",
+  "kind": "catalog_review",
+  "status": "ready",
+  "created_on": "2026-10-21",
+  "source": "Explicitly processed SPEC-0068..SPEC-0076 and GROUP-0009..GROUP-0013",
+  "authorization": {
+    "queue": true,
+    "execute": true,
+    "publish_catalog": true,
+    "source": "Direct user instruction 2026-10-21 to process everything"
+  },
+  "scope": "Review independent normalized NOM-0068..NOM-0076 rule candidates and their overlap/exception metadata.",
+  "processing_record": "processing/tasks/TASK-0010.json"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "TASK-0012",
+  "title": "Update web catalog and complete regression/deployment QA",
+  "kind": "website_implementation",
+  "status": "ready",
+  "created_on": "2026-10-21",
+  "source": "Explicitly processed SPEC-0068..SPEC-0076 and GROUP-0009..GROUP-0013",
+  "authorization": {
+    "queue": true,
+    "execute": true,
+    "publish_catalog": true,
+    "source": "Direct user instruction 2026-10-21 to process everything"
+  },
+  "scope": "Update website projection and tests to 76 independent rules and 13 groups; verify group selection, color, search, tests and deployment.",
+  "processing_record": "processing/tasks/TASK-0012.json"
+}

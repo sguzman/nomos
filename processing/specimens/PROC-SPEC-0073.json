@@ -1,0 +1,32 @@
+{
+  "processing_id": "PROC-SPEC-0073",
+  "source_specimen_id": "SPEC-0073",
+  "status": "closed",
+  "authorization": {
+    "source": "Explicit authorization to process all nine pending specimens and downstream work",
+    "on": "2026-10-21"
+  },
+  "processed_on": "2026-10-21",
+  "normalization": {
+    "candidate_rule_id": "NOM-0073",
+    "kind": "obligation",
+    "scope": "maintaining a README for a project with a color identity",
+    "group_proposal": "GROUP-0012",
+    "independent_atomic_rule": true
+  },
+  "comparison": {
+    "possible_overlap": [
+      "NOM-0009",
+      "NOM-0042"
+    ],
+    "assessment": "Distinct narrow README presentation obligation that refines but does not replace NOM-0009 and complements NOM-0042.",
+    "no_automatic_priority_change": true
+  },
+  "disposition": {
+    "kind": "normalized_for_separate_catalog_review",
+    "candidate_id": "NOM-0073",
+    "candidate_path": "processing/specimens/candidates/NOM-0073.json",
+    "downstream_task_id": "TASK-0010"
+  },
+  "notes": "The proposal remains independent and does not apply to any project merely by processing or publication."
+}

@@ -1,0 +1,31 @@
+{
+  "processing_id": "PROC-GROUP-0010",
+  "source_group_proposal_id": "GROUP-0010",
+  "status": "closed",
+  "authorized_by": "explicit_user_request",
+  "processed_on": "2026-10-21",
+  "normalization": {
+    "kind": "virtual_rule_group",
+    "published_path": "groups/GROUP-0010.json",
+    "candidate_path": "processing/specimens/groups/candidates/GROUP-0010.json",
+    "member_rule_ids": [
+      "NOM-0068",
+      "NOM-0069",
+      "NOM-0070"
+    ],
+    "child_group_ids": [],
+    "parent_group_ids": [
+      "GROUP-0009"
+    ],
+    "independent_rule_identities": true,
+    "one_click_selection_only": true,
+    "group_has_no_normative_effect": true
+  },
+  "comparison": {
+    "existing_group_model": "Follows published GROUP-0001..GROUP-0008 ontology, retaining independent status, membership, and IDs."
+  },
+  "disposition": {
+    "kind": "reviewed_group_proposal",
+    "downstream_task_id": "TASK-0011"
+  }
+}

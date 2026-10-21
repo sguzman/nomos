@@ -1,7 +1,7 @@
 {
   "id": "SPEC-0073",
   "title": "Display project identity colors in README documentation",
-  "status": "proposed",
+  "status": "processed",
   "abstract": "Embed a project's assigned stable, perceptually distinguishable identity color in its README using a portable rendering such as SVG or CSS when suitable.",
   "source": {
     "kind": "public_safe_rule_extraction",
@@ -36,6 +36,12 @@
   "unresolved": [
     "Review whether this refines NOM-0009 rather than creating a redundant rule."
   ],
-  "next_state": "awaiting_explicit_specimen_processing_selection",
-  "remarks": "Proposed atomic rule only. Group membership is non-normative; no processing, task creation, rule publication or application is authorized by intake."
+  "next_state": "processed_specimen_retained_as_intake_record",
+  "remarks": "Proposed atomic rule only. Group membership is non-normative; no processing, task creation, rule publication or application is authorized by intake.",
+  "processing": {
+    "authorized_by": "explicit_user_request",
+    "authorized_on": "2026-10-21",
+    "record": "processing/specimens/PROC-SPEC-0073.json",
+    "state": "closed"
+  }
 }

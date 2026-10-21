@@ -1,15 +1,15 @@
 {
   "id": "GROUP-0012",
   "kind": "proposed_first_class_virtual_rule_group",
-  "status": "proposed",
+  "status": "processed",
   "received_on": "2026-10-21",
   "source": {
     "kind": "public_safe_virtual_group_proposal",
     "reference": "Proposed grouping of independent project-management and porting specimens",
     "material_retained": false
   },
-  "processing_authorized": false,
-  "publication_authorized": false,
+  "processing_authorized": true,
+  "publication_authorized": true,
   "title": "Project Identity",
   "summary": "Show an established project color in public documentation, subject to overlap review against existing color and README rules.",
   "metadata_labels": [
@@ -54,6 +54,11 @@
     "filterable_by_metadata": true,
     "show_group_size": true
   },
-  "next_state": "awaiting_explicit_group_specimen_processing_selection",
-  "remarks": "Independent intake-only group proposal, not a published group. Existing rule IDs are overlap references, not automatically added members."
+  "next_state": "processed_group_proposal_retained_as_intake_record",
+  "remarks": "Independent intake-only group proposal, not a published group. Existing rule IDs are overlap references, not automatically added members.",
+  "processing": {
+    "record": "processing/specimens/groups/PROC-GROUP-0012.json",
+    "state": "closed",
+    "authorized_on": "2026-10-21"
+  }
 }
