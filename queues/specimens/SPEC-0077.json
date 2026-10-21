@@ -1,0 +1,60 @@
+{
+  "id": "SPEC-0077",
+  "title": "Do not suggest names ending with the suffix arium",
+  "status": "proposed",
+  "abstract": "When generating or recommending new names for projects, products, applications, repositories, tools, or other user-named entities, do not propose candidate names whose final letters are 'arium', regardless of letter case.",
+  "source": {
+    "kind": "public_safe_user_requested_constraint",
+    "reference": "Proposed naming-preference prohibition; source language and private conversation not reproduced",
+    "material_retained": false
+  },
+  "received_on": "2026-10-21",
+  "intake": {
+    "visibility": "public_safe_abstract_only",
+    "operation": "specimen_queue_entry",
+    "processing_authorized": false
+  },
+  "scope_hints": {
+    "domains": [
+      "agent_instructions",
+      "software_development",
+      "naming_preferences"
+    ],
+    "topic": "naming_restrictions",
+    "candidate_normative_kind": "prohibition",
+    "predicate_hypothesis": {
+      "action": "suggest",
+      "object": "new_entity_name_ending_in_arium",
+      "target": "user_facing_name_recommendations"
+    },
+    "match": {
+      "kind": "case_insensitive_suffix",
+      "literal": "arium",
+      "whole_name_final_suffix": true
+    },
+    "applies_to": [
+      "new_project_names",
+      "new_application_names",
+      "new_repository_names",
+      "new_tool_names",
+      "other_requested_name_suggestions"
+    ],
+    "scope_boundary": "suggesting_new_names_not_discussing_or_referencing_existing_names",
+    "independent_atomic_rule": true
+  },
+  "possible_existing_coverage": [],
+  "conflict_tracking": {
+    "intention": "Compare this prohibition with opposing permissions or obligations to suggest names across overlapping naming contexts.",
+    "known_limitation": "Existing conflict analysis compares same normalized predicate and scope; it does not reason over arbitrary suffix constraints, so semantically conflicting naming rules may need manual review or a separately authorized predicate/constraint extension.",
+    "automatically_resolved": false,
+    "candidate_relation_type": "conflicts_with",
+    "potential_conflicts": []
+  },
+  "unresolved": [
+    "Normalize the predicate and naming-suffix condition against the existing rule ontology.",
+    "Determine whether a typed name-suffix matcher is warranted for automatic conflict checking; do not pretend the current checker understands the string pattern.",
+    "Distinguish prohibited new recommendations from references to historical or existing names."
+  ],
+  "next_state": "awaiting_explicit_specimen_processing_selection",
+  "remarks": "Queue-only proposed prohibition; it does not authorize normalization, publication, website changes, or downstream engineering. Do not reproduce private or emotional language in the public repository."
+}

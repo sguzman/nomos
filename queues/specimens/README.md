@@ -11,3 +11,7 @@ See [WORKFLOW.md](../../WORKFLOW.md) for authorization boundaries.
 ## Processed project-management and porting intake
 
 `SPEC-0068` through `SPEC-0076` are nine independently processed project-reporting, completion-reporting, project-identity and strict-porting specimens. They reference reviewed `GROUP-0009` through `GROUP-0013` in [groups/](groups/). Existing catalog overlaps are provisional review links, not automatic duplication or publication. Downstream work is recorded separately under TASK-0010 through TASK-0012. The original intake records are retained and do not themselves authorize additional work.
+
+## New queued naming prohibition
+
+`SPEC-0077` proposes one independently addressable negative rule: avoid suggesting new names ending with the case-insensitive suffix `arium`. The intake records the proposed scope and suffix-match semantics for later conflict analysis. This is **queued only**, not a published rule or an authorization to implement new constraint-checking logic.
