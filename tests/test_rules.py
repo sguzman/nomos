@@ -75,10 +75,9 @@ if __name__ == "__main__":
     unittest.main()
 
 class QuantifierBoundsTests(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
+    def setUp(self):
         _, rules = load_catalog()
-        cls.rule = copy.deepcopy(next(r for r in rules if r["id"] == "NOM-0072"))
+        self.rule = copy.deepcopy(next(r for r in rules if r["id"] == "NOM-0072"))
 
     def test_complete_bounds_required(self):
         from validate import validate_bounds
