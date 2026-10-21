@@ -1,8 +1,8 @@
 {
   "id": "SPEC-0085",
-  "title": "Tampermonkey @version must increase on every delivered script change",
+  "title": "Increase Tampermonkey @version on every userscript change",
   "status": "proposed",
-  "abstract": "Increase each changed Tampermonkey userscript's UserScript header @version to a strictly higher value whenever delivering a revision; the update manager compares versions.",
+  "abstract": "Every time a Tampermonkey userscript is changed, including during local iteration, increment its UserScript metadata @version to a strictly higher value. This keeps script revisions distinguishable for update detection; do not wait for a formal release or distribution.",
   "source": {
     "kind": "public_safe_user_requested_rule_extraction",
     "reference": "General versioning or MVP graduation expectation, normalized without private conversation content",
@@ -22,7 +22,7 @@
     ],
     "topic": "browser_artifact_version_increments",
     "phase": "versioning",
-    "trigger": "each_delivered_change",
+    "trigger": "each_userscript_modification",
     "candidate_normative_kind": "obligation",
     "predicate_hypothesis": {
       "action": "increment",
@@ -36,10 +36,10 @@
       "minimum": null,
       "maximum": null,
       "unit": "occurrences",
-      "window": "each_delivered_change",
+      "window": "each_userscript_modification",
       "basis": "candidate_pending_review"
     },
-    "scope_boundary": "Authorized modifications to the existing corresponding browser script or extension; no automatic publishing",
+    "scope_boundary": "Every authorized modification to the existing userscript, including local work; no implicit publishing",
     "independent_atomic_rule": true
   },
   "proposed_virtual_group_refs": [],
@@ -53,7 +53,7 @@
     "automatically_resolved": false
   },
   "unresolved": [
-    "Check platform-specific version comparison and manifest metadata during specimen processing.",
+    "During processing, confirm actual version metadata and browser-specific valid version comparison without weakening the per-change requirement.",
     "Preserve per-project applicability and do not infer an authorization to alter or release other repositories."
   ],
   "next_state": "awaiting_explicit_specimen_processing_selection",

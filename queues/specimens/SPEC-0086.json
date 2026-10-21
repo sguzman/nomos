@@ -1,8 +1,8 @@
 {
   "id": "SPEC-0086",
-  "title": "WebExtension manifest version must increase on every delivered extension change",
+  "title": "Increase WebExtension manifest version on every extension change",
   "status": "proposed",
-  "abstract": "Increase the browser extension's manifest.json version to a valid higher version whenever delivering an extension change; do not confuse version with the distinct manifest_version field.",
+  "abstract": "Every time a browser extension is changed, including during local iteration, increase its manifest.json version to a strictly higher valid extension version. This applies to code, resources and metadata revisions; do not confuse the extension version with manifest_version.",
   "source": {
     "kind": "public_safe_user_requested_rule_extraction",
     "reference": "General versioning or MVP graduation expectation, normalized without private conversation content",
@@ -22,7 +22,7 @@
     ],
     "topic": "browser_artifact_version_increments",
     "phase": "versioning",
-    "trigger": "each_delivered_change",
+    "trigger": "each_extension_modification",
     "candidate_normative_kind": "obligation",
     "predicate_hypothesis": {
       "action": "increment",
@@ -36,10 +36,10 @@
       "minimum": null,
       "maximum": null,
       "unit": "occurrences",
-      "window": "each_delivered_change",
+      "window": "each_extension_modification",
       "basis": "candidate_pending_review"
     },
-    "scope_boundary": "Authorized modifications to the existing corresponding browser script or extension; no automatic publishing",
+    "scope_boundary": "Every authorized modification to an existing browser extension, including local work; no implicit publishing",
     "independent_atomic_rule": true
   },
   "proposed_virtual_group_refs": [],
@@ -53,7 +53,7 @@
     "automatically_resolved": false
   },
   "unresolved": [
-    "Check platform-specific version comparison and manifest metadata during specimen processing.",
+    "During processing, confirm actual version metadata and browser-specific valid version comparison without weakening the per-change requirement.",
     "Preserve per-project applicability and do not infer an authorization to alter or release other repositories."
   ],
   "next_state": "awaiting_explicit_specimen_processing_selection",
