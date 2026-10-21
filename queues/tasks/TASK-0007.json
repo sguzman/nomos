@@ -2,7 +2,7 @@
   "id": "TASK-0007",
   "title": "Review and publish 54 independent development hygiene rules",
   "kind": "catalog_review",
-  "status": "ready",
+  "status": "verifying",
   "created_on": "2026-10-21",
   "origin": [
     "SPEC-0013..SPEC-0067",
@@ -15,5 +15,11 @@
     "source": "Explicit user request 2026-10-21"
   },
   "scope": "Review normalized candidates NOM-0014..NOM-0067 and publish standalone scoped rules without applying them.",
-  "processing_record": "processing/tasks/TASK-0007.json"
+  "processing_record": "processing/tasks/TASK-0007.json",
+  "processing": {
+    "record": "processing/tasks/TASK-0007.json",
+    "started_on": "2026-10-21",
+    "state": "verifying"
+  },
+  "remarks": "Execution is independently recorded and pending GitHub Actions checks."
 }

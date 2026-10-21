@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="./styles.css">
   <script src="./rule-colors.js" defer></script>
   <script src="./reasoning.js" defer></script>
+  <script src="./groups.js" defer></script>
   <script src="./app.js" defer></script>
 </head>
 <body>
@@ -58,7 +59,15 @@
 
     <section class="workspace" id="registry" aria-label="Rule browser and composer">
       <div class="explorer">
-        <div class="section-heading"><div><p class="eyebrow">01 / DISCOVER</p><h2>Rule registry</h2></div><span class="heading-explainer">Browse first. Apply later.</span></div>
+        <section class="group-gallery" aria-labelledby="groups-title">
+          <div class="section-heading"><div><p class="eyebrow">01 / COLLECTIONS</p><h2 id="groups-title">Virtual groups</h2></div><span class="heading-explainer">Group metadata never changes individual rules.</span></div>
+          <label class="search-wrap group-search-label"><span aria-hidden="true">⌕</span><span class="sr-only">Search virtual groups</span><input id="group-search" type="search" placeholder="Search group titles and labels…" autocomplete="off"></label>
+          <div class="results-line" id="group-results" aria-live="polite">Loading groups…</div>
+          <div class="group-list" id="group-list"></div>
+          <div class="empty hidden" id="group-empty">No matching virtual groups.</div>
+        </section>
+        <div class="section-heading"><div><p class="eyebrow">02 / ATOMIC RULES</p><h2>Rule registry</h2></div><span class="heading-explainer">Each rule remains independent.</span></div>
+        <button type="button" class="active-group-filter hidden" id="active-group-filter"></button>
         <form class="filters" id="filter-form" role="search" autocomplete="off">
           <label class="search-wrap"><span aria-hidden="true">⌕</span><span class="sr-only">Search rules</span><input id="search" type="search" placeholder="Search rules, domains, IDs…" autocomplete="off"></label>
           <label><span class="sr-only">Filter by status</span><select id="filter-status"><option value="all">All statuses</option><option value="published">Published</option><option value="draft">Catalog drafts</option><option value="candidate">Candidates</option></select></label>

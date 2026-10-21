@@ -3,15 +3,15 @@
 ## I. Purpose and autonomy
 
 1. Nomos registers rules independently of any agent, project, prompt, compiled ruleset, or export target.
-2. Its core ontology is intentionally narrow: **rules** and the **categories/domains in which they apply**. Metadata is rich; invented ontological entities are not a substitute for evidence of need.
+2. Its core ontology is intentionally narrow: **independent normative rules**, **controlled categories**, and explicitly approved **virtual rule groups**. Group objects have stable identity and metadata but no normative effect; new kinds still require evidence and review.
 3. The project may grow a website for searching, selecting, comparing, and exporting rules. A temporary selection need not be recorded as a first-class use case. Reusable use cases may be introduced deliberately later.
 4. Nomos is a standalone public repository. Membership in Tarium or any other registry requires explicit authorization and is never inferred from naming, links, or future intent.
 
 ## II. Rule independence and application
 
-1. A cataloged rule is **not** an applied instruction merely because it appears in this repository.
+1. A cataloged rule is **not** an applied instruction merely because it appears in this repository. A published virtual group does not itself apply any member rule.
 2. Distinguish rule text, normalized normative effect, applicability, authority, provenance, relations, and lifecycle status.
-3. Rules can be selected for a particular use case or transient composition. A compiler or exporter must not silently add unrelated rules.
+3. Rules can be selected individually or through an explicitly activated group expansion. A compiler or exporter must not silently add unrelated rules, duplicate members or auto-select groups.
 4. Rule precedence and exceptions require explicit, scoped reasoning. A priority number alone must never silently erase a conflict.
 
 ## III. Categories and conflict analysis

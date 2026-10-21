@@ -38,6 +38,8 @@ jobs:
           node --check docs/app.js
           node --check docs/rule-colors.js
           node --check docs/reasoning.js
+          node --check docs/groups.js
+          node --test tests/test_groups_browser.cjs
           node --test tests/test_rule_colors.cjs tests/test_reasoning.cjs
       - name: Configure Pages
         uses: actions/configure-pages@v5

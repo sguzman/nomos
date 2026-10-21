@@ -4,12 +4,19 @@
   "category_axes": {
     "domains": [
       "agent_instructions",
+      "ci_cd",
+      "documentation",
+      "git_repository",
       "governance",
       "ontology",
       "personal_writing",
       "privacy",
       "publication",
+      "qa_verification",
+      "releases",
       "rust_development",
+      "rust_quality",
+      "safety_integrity",
       "software_development",
       "user_interfaces",
       "visual_identity",
@@ -17,6 +24,7 @@
     ],
     "topics": [
       "content_handling",
+      "development_hygiene",
       "edition_selection",
       "identity_color",
       "implementation_language",

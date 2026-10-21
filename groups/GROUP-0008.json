@@ -1,0 +1,47 @@
+{
+  "id": "GROUP-0008",
+  "kind": "virtual_rule_group",
+  "version": "1.0.0",
+  "status": "published",
+  "title": "QA & Verification",
+  "summary": "Smoke tests, interface QA, acceptance reviews and evidence-grounded completion.",
+  "metadata_labels": [
+    "development_hygiene",
+    "qa_verification"
+  ],
+  "parent_group_ids": [
+    "GROUP-0001"
+  ],
+  "child_group_ids": [],
+  "member_rule_ids": [
+    "NOM-0062",
+    "NOM-0063",
+    "NOM-0064",
+    "NOM-0065",
+    "NOM-0066",
+    "NOM-0067"
+  ],
+  "color": {
+    "space": "OKLCH",
+    "identity_string": "GROUP-0008",
+    "hue_degrees": 41.062,
+    "scheme": "golden_angle_id_hue",
+    "require_text_label": true
+  },
+  "composition": {
+    "opt_in_only": true,
+    "include_descendants": true,
+    "deduplicate_rule_ids": true,
+    "exclude_unpublished_members": true,
+    "no_implicit_activation": true
+  },
+  "provenance": {
+    "source_type": "processed_specimen",
+    "reference": "processing/specimens/groups/PROC-GROUP-0008.json"
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "approved"
+  }
+}

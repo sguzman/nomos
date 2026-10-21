@@ -1,0 +1,89 @@
+{
+  "id": "NOM-0024",
+  "version": "1.0.0",
+  "title": "Rust formatting",
+  "summary": "Check Rust source formatting with cargo fmt or equivalent toolchain-supported formatting.",
+  "statement": "Check Rust source formatting with cargo fmt or equivalent toolchain-supported formatting.",
+  "rationale": "General development guidance scoped to the original specimen's trigger.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "practice",
+      "object": "rust_formatting",
+      "target": "authorized_project_work"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "When Rust source changes",
+      "Applies only when expressly selected for a matching project or authorized development workflow.",
+      "This rule does not itself authorize changes to other repositories, publication or destructive work."
+    ],
+    "exceptions": []
+  },
+  "categories": {
+    "domains": [
+      "software_development",
+      "rust_quality"
+    ],
+    "topics": [
+      "development_hygiene"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "When Rust source changes"
+    ],
+    "exclusions": [
+      "Projects or operations outside authorized task scope"
+    ]
+  },
+  "authority": {
+    "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0023; processing/specimens/PROC-SPEC-0023.json",
+    "license": "MIT",
+    "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

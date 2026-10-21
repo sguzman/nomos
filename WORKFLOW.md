@@ -38,3 +38,9 @@ After explicit authorization and completion, a queue entry may be marked `proces
 ## Explicitly authorized full processing batch — 2026-10-21
 
 Separate closed specimen analyses exist for SPEC-0004 through SPEC-0012. Their outputs were queued into downstream TASK-0004 (catalog review), TASK-0005 (normative edition semantics), and TASK-0006 (website and documentation). TASK-0001 and TASK-0002 were independently authorized for review in the same user request. Task execution has distinct processing records. Neither catalog publication nor task completion enrolls Nomos in Tarium or applies a rule to an unrelated project.
+
+## Batch: development-hygiene rules and virtual groups (2026-10-21)
+
+Specimens `SPEC-0013` through `SPEC-0066` were normalized individually to `NOM-0014` through `NOM-0067`. `SPEC-0067` normalized a third ontology kind, *virtual rule group*, without fabricating a normative rule. Eight proposed `GROUP-0001` through `GROUP-0008` definitions received independent processing records. Source candidate records remain in `processing/specimens/candidates/` and `processing/specimens/groups/candidates/` as historical proposals.
+
+Downstream authorized work is separately recorded as `TASK-0007` (individual catalog publication), `TASK-0008` (group schema/catalog/validator), and `TASK-0009` (website group composition). Group membership never authorizes project work or changes the rules' applicability. Publishing the catalog does not apply its contents to unrelated projects.

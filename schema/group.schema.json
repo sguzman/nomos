@@ -1,0 +1,180 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/sguzman/nomos/blob/main/schema/group.schema.json",
+  "title": "Nomos first-class virtual rule group",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "kind",
+    "version",
+    "status",
+    "title",
+    "summary",
+    "metadata_labels",
+    "parent_group_ids",
+    "child_group_ids",
+    "member_rule_ids",
+    "color",
+    "composition",
+    "provenance",
+    "governance"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^GROUP-[0-9]{4,}$"
+    },
+    "kind": {
+      "const": "virtual_rule_group"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "reviewed",
+        "published",
+        "deprecated"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "metadata_labels": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true,
+      "minItems": 1
+    },
+    "parent_group_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^GROUP-[0-9]{4,}$"
+      },
+      "uniqueItems": true
+    },
+    "child_group_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^GROUP-[0-9]{4,}$"
+      },
+      "uniqueItems": true
+    },
+    "member_rule_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^NOM-[0-9]{4,}$"
+      },
+      "uniqueItems": true
+    },
+    "color": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "space",
+        "identity_string",
+        "hue_degrees",
+        "scheme",
+        "require_text_label"
+      ],
+      "properties": {
+        "space": {
+          "const": "OKLCH"
+        },
+        "identity_string": {
+          "type": "string",
+          "pattern": "^GROUP-[0-9]{4,}$"
+        },
+        "hue_degrees": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMaximum": 360
+        },
+        "scheme": {
+          "const": "golden_angle_id_hue"
+        },
+        "require_text_label": {
+          "const": true
+        }
+      }
+    },
+    "composition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "opt_in_only",
+        "include_descendants",
+        "deduplicate_rule_ids",
+        "exclude_unpublished_members",
+        "no_implicit_activation"
+      ],
+      "properties": {
+        "opt_in_only": {
+          "const": true
+        },
+        "include_descendants": {
+          "type": "boolean"
+        },
+        "deduplicate_rule_ids": {
+          "const": true
+        },
+        "exclude_unpublished_members": {
+          "const": true
+        },
+        "no_implicit_activation": {
+          "const": true
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": [
+        "source_type",
+        "reference"
+      ],
+      "properties": {
+        "source_type": {
+          "type": "string"
+        },
+        "reference": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "governance": {
+      "type": "object",
+      "required": [
+        "created_on",
+        "updated_on",
+        "review_status"
+      ],
+      "properties": {
+        "created_on": {
+          "type": "string"
+        },
+        "updated_on": {
+          "type": "string"
+        },
+        "review_status": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

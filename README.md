@@ -1,12 +1,12 @@
 # Nomos
 
-**Nomos** is a public, independent registry of rules and the categories in which they apply. It includes a public website for browsing rules, assembling compatible selections, identifying possible conflicts, and exporting instructions for different consumers (including `AGENTS.md` and ChatGPT Custom Instructions).
+**Nomos** is a public, independent registry of atomic normative rules, their controlled categories, and first-class opt-in virtual groups. It includes a public website for browsing rules, assembling compatible selections, identifying possible conflicts, and exporting instructions for different consumers (including `AGENTS.md` and ChatGPT Custom Instructions).
 
 A rule is a first-class object even if nobody selects or applies it. A ruleset or use case can be saved later, or created temporarily in a website session without becoming an ontology object.
 
 ## Project scope
 
-- A small ontology: **rule**, **category**, and structured rule metadata. Do not invent a large hierarchy of entities yet.
+- A deliberately narrow ontology: **rule**, **category**, **virtual rule group**, and typed metadata.
 - Rich, typed metadata for comparing applicability, normative effects, authority, provenance, and potential conflicts.
 - A deliberately small, public-safe example catalog; this is not a collection of private conversations or personal writing.
 - A sharp distinction between **specimen intake**, **specimen processing**, **task intake**, and **task execution**.
@@ -40,3 +40,7 @@ Nomos is an independent repository. It may be considered for Tarium membership i
 ## Completed specimen corpus
 
 All twelve specimens (SPEC-0001 through SPEC-0012) have processing dispositions. The later batch normalized SPEC-0004 through SPEC-0012 to NOM-0005 through NOM-0013, while earlier candidates NOM-0003/0004 were reviewed and cataloged. All proposals remain traceable to archived processing records. Catalog publication never applies a rule automatically, and Nomos is not enrolled in Tarium.
+
+## Development hygiene catalog
+
+The 54 practices are now standalone opt-in rules, with independently addressable IDs NOM-0014 through NOM-0067. Eight first-class groups provide named, colored metadata collections, including a seven-subgroup umbrella. The website supports individual rule selection or one-click addition of the eligible unique rules of a group. Any group is inert until the user explicitly selects it in the composer.

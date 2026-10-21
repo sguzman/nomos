@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.1",
-  "source": "Nomos public catalog; candidate history excluded after publication",
+  "schema_version": "2.0",
+  "source": "Nomos public catalog and independent published virtual groups",
   "rules": [
     {
       "id": "NOM-0001",
@@ -1103,6 +1103,5255 @@
         "plain_text"
       ],
       "registry": "catalog"
+    },
+    {
+      "id": "NOM-0014",
+      "version": "1.0.0",
+      "title": "Repository inspection",
+      "summary": "Inspect the existing source tree, configuration, branch, and established conventions before modifying a repository.",
+      "statement": "Inspect the existing source tree, configuration, branch, and established conventions before modifying a repository.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "repository_inspection",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "Before authorized repository work",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "git_repository"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "Before authorized repository work"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0013; processing/specimens/PROC-SPEC-0013.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0015",
+      "version": "1.0.0",
+      "title": "Main branch default",
+      "summary": "Use the existing main branch by default; deviate only when specifically instructed for the repository or task.",
+      "statement": "Use the existing main branch by default; deviate only when specifically instructed for the repository or task.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "main_branch_default",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When choosing a Git work branch",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "git_repository"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When choosing a Git work branch"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0014; processing/specimens/PROC-SPEC-0014.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0016",
+      "version": "1.0.0",
+      "title": "Change scope containment",
+      "summary": "Keep changes within the authorized task and repository; avoid unrelated edits or surprise features.",
+      "statement": "Keep changes within the authorized task and repository; avoid unrelated edits or surprise features.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "change_scope_containment",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "During any repository modification",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "git_repository"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "During any repository modification"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0015; processing/specimens/PROC-SPEC-0015.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0017",
+      "version": "1.0.0",
+      "title": "Coherent descriptive commits",
+      "summary": "Record authorized changes in logical commits with concise, informative commit messages.",
+      "statement": "Record authorized changes in logical commits with concise, informative commit messages.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "coherent_descriptive_commits",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When committing authorized work",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "git_repository"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When committing authorized work"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0016; processing/specimens/PROC-SPEC-0016.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0018",
+      "version": "1.0.0",
+      "title": "Maintain ignore rules",
+      "summary": "Exclude generated outputs, temporary artifacts, machine-specific files and secrets through appropriate ignore rules.",
+      "statement": "Exclude generated outputs, temporary artifacts, machine-specific files and secrets through appropriate ignore rules.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "maintain_ignore_rules",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When maintaining repository tracking",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "git_repository"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When maintaining repository tracking"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0017; processing/specimens/PROC-SPEC-0017.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0019",
+      "version": "1.0.0",
+      "title": "Respect project licensing",
+      "summary": "Preserve existing licenses; add a suitable license at an explicitly authorized bootstrap when needed.",
+      "statement": "Preserve existing licenses; add a suitable license at an explicitly authorized bootstrap when needed.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "respect_project_licensing",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When bootstrapping or changing licensing",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "git_repository"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When bootstrapping or changing licensing"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0018; processing/specimens/PROC-SPEC-0018.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0020",
+      "version": "1.0.0",
+      "title": "Dependency lockfile consistency",
+      "summary": "Keep tracked dependency lockfiles synchronized with manifest changes, using the conventions for that application or library.",
+      "statement": "Keep tracked dependency lockfiles synchronized with manifest changes, using the conventions for that application or library.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "dependency_lockfile_consistency",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When dependency configuration changes",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "git_repository"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When dependency configuration changes"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0019; processing/specimens/PROC-SPEC-0019.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0021",
+      "version": "1.0.0",
+      "title": "Remove obsolete scaffolding safely",
+      "summary": "Remove obsolete templates, dead files and stale configuration only after checking for active dependencies and preserving unrelated work.",
+      "statement": "Remove obsolete templates, dead files and stale configuration only after checking for active dependencies and preserving unrelated work.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "remove_obsolete_scaffolding_safely",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When cleanup is in scope",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "git_repository"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When cleanup is in scope"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0020; processing/specimens/PROC-SPEC-0020.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0022",
+      "version": "1.0.0",
+      "title": "Verify Git branch and history",
+      "summary": "Verify branch identity, expected ancestry and the exact changes before updating repository references.",
+      "statement": "Verify branch identity, expected ancestry and the exact changes before updating repository references.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "verify_git_branch_and_history",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "Before commits or reference updates",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "git_repository"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "Before commits or reference updates"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0021; processing/specimens/PROC-SPEC-0021.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0023",
+      "version": "1.0.0",
+      "title": "Verify committed state",
+      "summary": "Confirm successful commits and the intended branch HEAD before reporting work as committed.",
+      "statement": "Confirm successful commits and the intended branch HEAD before reporting work as committed.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "verify_committed_state",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "After repository mutations",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "git_repository"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "After repository mutations"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0022; processing/specimens/PROC-SPEC-0022.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0024",
+      "version": "1.0.0",
+      "title": "Rust formatting",
+      "summary": "Check Rust source formatting with cargo fmt or equivalent toolchain-supported formatting.",
+      "statement": "Check Rust source formatting with cargo fmt or equivalent toolchain-supported formatting.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "rust_formatting",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When Rust source changes",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "rust_quality"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When Rust source changes"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0023; processing/specimens/PROC-SPEC-0023.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0025",
+      "version": "1.0.0",
+      "title": "Rust Clippy linting",
+      "summary": "Run Clippy on relevant targets and address actionable diagnostics; select warning strictness deliberately.",
+      "statement": "Run Clippy on relevant targets and address actionable diagnostics; select warning strictness deliberately.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "rust_clippy_linting",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When Rust code is changed and tooling is available",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "rust_quality"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When Rust code is changed and tooling is available"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0024; processing/specimens/PROC-SPEC-0024.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0026",
+      "version": "1.0.0",
+      "title": "Rust compilation checks",
+      "summary": "Use cargo check or an appropriate build to verify compilation under the project's intended toolchain.",
+      "statement": "Use cargo check or an appropriate build to verify compilation under the project's intended toolchain.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "rust_compilation_checks",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When Rust implementation changes",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "rust_quality"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When Rust implementation changes"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0025; processing/specimens/PROC-SPEC-0025.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0027",
+      "version": "1.0.0",
+      "title": "Unit tests",
+      "summary": "Write and maintain focused automated tests for important functions, modules and invariants.",
+      "statement": "Write and maintain focused automated tests for important functions, modules and invariants.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "unit_tests",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When implementation behavior is added or changed",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "rust_quality"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When implementation behavior is added or changed"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0026; processing/specimens/PROC-SPEC-0026.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0028",
+      "version": "1.0.0",
+      "title": "Integration tests",
+      "summary": "Test interactions across components and public interfaces where integration boundaries warrant it.",
+      "statement": "Test interactions across components and public interfaces where integration boundaries warrant it.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "integration_tests",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When behavior spans components or interfaces",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "rust_quality"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When behavior spans components or interfaces"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0027; processing/specimens/PROC-SPEC-0027.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0029",
+      "version": "1.0.0",
+      "title": "Regression tests",
+      "summary": "Reproduce reported defects with automated tests and retain them to detect recurrence.",
+      "statement": "Reproduce reported defects with automated tests and retain them to detect recurrence.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "regression_tests",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When repairing reproducible bugs",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "rust_quality"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When repairing reproducible bugs"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0028; processing/specimens/PROC-SPEC-0028.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0030",
+      "version": "1.0.0",
+      "title": "Edge-case coverage",
+      "summary": "Cover invalid states, malformed inputs, missing resources and failure paths relevant to the feature.",
+      "statement": "Cover invalid states, malformed inputs, missing resources and failure paths relevant to the feature.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "edge_case_coverage",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When developing or validating behavior",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "rust_quality"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When developing or validating behavior"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0029; processing/specimens/PROC-SPEC-0029.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0031",
+      "version": "1.0.0",
+      "title": "Synthetic fixtures",
+      "summary": "Prefer minimal synthetic, correctly licensed fixtures over personal, secret or commercial inputs.",
+      "statement": "Prefer minimal synthetic, correctly licensed fixtures over personal, secret or commercial inputs.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "synthetic_fixtures",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When tests require sample data",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "rust_quality"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When tests require sample data"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0030; processing/specimens/PROC-SPEC-0030.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0032",
+      "version": "1.0.0",
+      "title": "Deterministic testing",
+      "summary": "Make automated tests reproducible and independent of unnecessary network or timing variability.",
+      "statement": "Make automated tests reproducible and independent of unnecessary network or timing variability.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "deterministic_testing",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When authoring automated tests",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "rust_quality"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When authoring automated tests"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0031; processing/specimens/PROC-SPEC-0031.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0033",
+      "version": "1.0.0",
+      "title": "Feature and target combinations",
+      "summary": "Test relevant feature flags, supported compilation targets and build configurations without inventing platform support.",
+      "statement": "Test relevant feature flags, supported compilation targets and build configurations without inventing platform support.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "feature_and_target_combinations",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When a project supports multiple build variants",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "rust_quality"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When a project supports multiple build variants"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0032; processing/specimens/PROC-SPEC-0032.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0034",
+      "version": "1.0.0",
+      "title": "Continuous validation workflows",
+      "summary": "Configure an appropriate GitHub Actions or comparable validation workflow for a repository.",
+      "statement": "Configure an appropriate GitHub Actions or comparable validation workflow for a repository.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "continuous_validation_workflows",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When automated CI is appropriate and within authorized project work",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "ci_cd"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When automated CI is appropriate and within authorized project work"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0033; processing/specimens/PROC-SPEC-0033.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0035",
+      "version": "1.0.0",
+      "title": "CI event triggers",
+      "summary": "Run configured checks for appropriate events, such as pushes, while respecting repository workflow policies.",
+      "statement": "Run configured checks for appropriate events, such as pushes, while respecting repository workflow policies.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "ci_event_triggers",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When defining CI triggers",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "ci_cd"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When defining CI triggers"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0034; processing/specimens/PROC-SPEC-0034.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0036",
+      "version": "1.0.0",
+      "title": "CI quality gates",
+      "summary": "Combine applicable formatting, compilation, linting and test checks into automated validation stages.",
+      "statement": "Combine applicable formatting, compilation, linting and test checks into automated validation stages.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "ci_quality_gates",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When defining a project CI pipeline",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "ci_cd"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When defining a project CI pipeline"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0035; processing/specimens/PROC-SPEC-0035.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0037",
+      "version": "1.0.0",
+      "title": "Cross-platform CI checks",
+      "summary": "Exercise supported operating systems in CI without claiming unsupported platform compatibility.",
+      "statement": "Exercise supported operating systems in CI without claiming unsupported platform compatibility.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "cross_platform_ci_checks",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When a project advertises multiple target platforms",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "ci_cd"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When a project advertises multiple target platforms"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0036; processing/specimens/PROC-SPEC-0036.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0038",
+      "version": "1.0.0",
+      "title": "Deployment workflows",
+      "summary": "Automate approved website or artifact deployment through GitHub Pages or an appropriate existing target.",
+      "statement": "Automate approved website or artifact deployment through GitHub Pages or an appropriate existing target.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "deployment_workflows",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When a project has an authorized deployment target",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "ci_cd"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When a project has an authorized deployment target"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0037; processing/specimens/PROC-SPEC-0037.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0039",
+      "version": "1.0.0",
+      "title": "Repair failing CI",
+      "summary": "Investigate failed workflow steps, fix underlying causes where authorized and recheck status.",
+      "statement": "Investigate failed workflow steps, fix underlying causes where authorized and recheck status.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "repair_failing_ci",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When an authorized change causes or encounters CI failure",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "ci_cd"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When an authorized change causes or encounters CI failure"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0038; processing/specimens/PROC-SPEC-0038.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0040",
+      "version": "1.0.0",
+      "title": "Workflow configuration maintenance",
+      "summary": "Maintain workflow permissions, triggers, versions and paths to match actual repository needs.",
+      "statement": "Maintain workflow permissions, triggers, versions and paths to match actual repository needs.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "workflow_configuration_maintenance",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When workflow files or project structure change",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "ci_cd"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When workflow files or project structure change"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0039; processing/specimens/PROC-SPEC-0039.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0041",
+      "version": "1.0.0",
+      "title": "Verify CI outcomes",
+      "summary": "Report whether each relevant check was successful, failed, skipped or pending rather than presuming success.",
+      "statement": "Report whether each relevant check was successful, failed, skipped or pending rather than presuming success.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "verify_ci_outcomes",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When reporting automated validation",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "ci_cd"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When reporting automated validation"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0040; processing/specimens/PROC-SPEC-0040.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0042",
+      "version": "1.0.0",
+      "title": "README upkeep",
+      "summary": "Keep the project README aligned with its purpose, setup, usage and development procedures.",
+      "statement": "Keep the project README aligned with its purpose, setup, usage and development procedures.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "readme_upkeep",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When user-facing project behavior or setup changes",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "documentation"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When user-facing project behavior or setup changes"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0041; processing/specimens/PROC-SPEC-0041.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0043",
+      "version": "1.0.0",
+      "title": "Roadmap status accuracy",
+      "summary": "Maintain milestones and task completion states according to evidence; never equate a future idea with an authorized task.",
+      "statement": "Maintain milestones and task completion states according to evidence; never equate a future idea with an authorized task.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "roadmap_status_accuracy",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When project planning is part of work",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "documentation"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When project planning is part of work"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0042; processing/specimens/PROC-SPEC-0042.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0044",
+      "version": "1.0.0",
+      "title": "Architecture documentation",
+      "summary": "Document consequential design decisions, interfaces and data models in project-appropriate files.",
+      "statement": "Document consequential design decisions, interfaces and data models in project-appropriate files.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "architecture_documentation",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When architecture changes merit durable explanation",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "documentation"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When architecture changes merit durable explanation"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0043; processing/specimens/PROC-SPEC-0043.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0045",
+      "version": "1.0.0",
+      "title": "Configuration reference",
+      "summary": "Document configuration keys, defaults, examples and environment requirements.",
+      "statement": "Document configuration keys, defaults, examples and environment requirements.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "configuration_reference",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When configuration surfaces are added or changed",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "documentation"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When configuration surfaces are added or changed"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0044; processing/specimens/PROC-SPEC-0044.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0046",
+      "version": "1.0.0",
+      "title": "CLI help accuracy",
+      "summary": "Synchronize command help, flags and examples with implemented command-line behavior.",
+      "statement": "Synchronize command help, flags and examples with implemented command-line behavior.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "cli_help_accuracy",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When a CLI interface changes",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "documentation"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When a CLI interface changes"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0045; processing/specimens/PROC-SPEC-0045.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0047",
+      "version": "1.0.0",
+      "title": "Changelog upkeep",
+      "summary": "Record notable user-facing changes in the repository's established changelog or release notes.",
+      "statement": "Record notable user-facing changes in the repository's established changelog or release notes.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "changelog_upkeep",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When the repository uses changelogs",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "documentation"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When the repository uses changelogs"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0046; processing/specimens/PROC-SPEC-0046.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0048",
+      "version": "1.0.0",
+      "title": "Documentation consistency audit",
+      "summary": "Identify and correct stale instructions, inaccurate claims and broken internal links.",
+      "statement": "Identify and correct stale instructions, inaccurate claims and broken internal links.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "documentation_consistency_audit",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When documentation is updated or audited",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "documentation"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When documentation is updated or audited"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0047; processing/specimens/PROC-SPEC-0047.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0049",
+      "version": "1.0.0",
+      "title": "Source provenance and attribution",
+      "summary": "Preserve publication-safe references, licenses and hashes needed to explain imported data or resources.",
+      "statement": "Preserve publication-safe references, licenses and hashes needed to explain imported data or resources.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "source_provenance_and_attribution",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When material from outside the project is incorporated",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "documentation"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When material from outside the project is incorporated"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0048; processing/specimens/PROC-SPEC-0048.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0050",
+      "version": "1.0.0",
+      "title": "Public repository privacy review",
+      "summary": "Review public-facing files, fixtures, metadata and commits for unauthorized nonpublic material.",
+      "statement": "Review public-facing files, fixtures, metadata and commits for unauthorized nonpublic material.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "public_repository_privacy_review",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "Before publishing repository changes",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "safety_integrity"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "Before publishing repository changes"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0049; processing/specimens/PROC-SPEC-0049.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0051",
+      "version": "1.0.0",
+      "title": "Keep secrets out of version control",
+      "summary": "Avoid committing credentials, access tokens, private keys and nonpublic configuration.",
+      "statement": "Avoid committing credentials, access tokens, private keys and nonpublic configuration.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "keep_secrets_out_of_version_control",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "Whenever creating or staging repository content",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "safety_integrity"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "Whenever creating or staging repository content"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0050; processing/specimens/PROC-SPEC-0050.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0052",
+      "version": "1.0.0",
+      "title": "Non-destructive operational defaults",
+      "summary": "Prefer inspection, bounded changes and explicit authorization before destructive operations.",
+      "statement": "Prefer inspection, bounded changes and explicit authorization before destructive operations.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "non_destructive_operational_defaults",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When modifying data, files or external systems",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "safety_integrity"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When modifying data, files or external systems"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0051; processing/specimens/PROC-SPEC-0051.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0053",
+      "version": "1.0.0",
+      "title": "Data round-trip integrity",
+      "summary": "Verify preservation of data through import, export, migration, hashing or serialization where applicable.",
+      "statement": "Verify preservation of data through import, export, migration, hashing or serialization where applicable.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "data_round_trip_integrity",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When handling transformations of valuable data",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "safety_integrity"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When handling transformations of valuable data"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0052; processing/specimens/PROC-SPEC-0052.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0054",
+      "version": "1.0.0",
+      "title": "Backwards compatibility checks",
+      "summary": "Guard established public APIs, file formats and command behavior against unintended breaking changes.",
+      "statement": "Guard established public APIs, file formats and command behavior against unintended breaking changes.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "backwards_compatibility_checks",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When changing externally consumed interfaces",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "safety_integrity"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When changing externally consumed interfaces"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0053; processing/specimens/PROC-SPEC-0053.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0055",
+      "version": "1.0.0",
+      "title": "Semantic version policy",
+      "summary": "Use coherent major, minor and patch version semantics for projects adopting semantic versioning.",
+      "statement": "Use coherent major, minor and patch version semantics for projects adopting semantic versioning.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "semantic_version_policy",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When managing versioned releases",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When managing versioned releases"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0054; processing/specimens/PROC-SPEC-0054.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0056",
+      "version": "1.0.0",
+      "title": "Synchronize version references",
+      "summary": "Keep declared package versions, relevant manifests, release notes and tags mutually consistent.",
+      "statement": "Keep declared package versions, relevant manifests, release notes and tags mutually consistent.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "synchronize_version_references",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When preparing or publishing version changes",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When preparing or publishing version changes"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0055; processing/specimens/PROC-SPEC-0055.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0057",
+      "version": "1.0.0",
+      "title": "Release readiness checks",
+      "summary": "Confirm builds, tests, package contents and release notes before an authorized release.",
+      "statement": "Confirm builds, tests, package contents and release notes before an authorized release.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "release_readiness_checks",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "Before producing a release",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "Before producing a release"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0056; processing/specimens/PROC-SPEC-0056.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0058",
+      "version": "1.0.0",
+      "title": "Versioned release tags",
+      "summary": "Create and verify version tags only when publishing a release is explicitly authorized.",
+      "statement": "Create and verify version tags only when publishing a release is explicitly authorized.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "versioned_release_tags",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When an authorized release is made",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When an authorized release is made"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0057; processing/specimens/PROC-SPEC-0057.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0059",
+      "version": "1.0.0",
+      "title": "Release artifact packaging",
+      "summary": "Build and assemble platform-appropriate distributable binaries, libraries or archives for authorized releases.",
+      "statement": "Build and assemble platform-appropriate distributable binaries, libraries or archives for authorized releases.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "release_artifact_packaging",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When a release distributes artifacts",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When a release distributes artifacts"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0058; processing/specimens/PROC-SPEC-0058.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0060",
+      "version": "1.0.0",
+      "title": "Artifact integrity hashes",
+      "summary": "Produce integrity checksums for distributable artifacts when useful and preserve their correspondence to outputs.",
+      "statement": "Produce integrity checksums for distributable artifacts when useful and preserve their correspondence to outputs.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "artifact_integrity_hashes",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When packaging distributables",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When packaging distributables"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0059; processing/specimens/PROC-SPEC-0059.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0061",
+      "version": "1.0.0",
+      "title": "Release workflow automation",
+      "summary": "Use relevant release tooling or workflows when automation adds value and publishing scope is authorized.",
+      "statement": "Use relevant release tooling or workflows when automation adds value and publishing scope is authorized.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "release_workflow_automation",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When maintaining a release process",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When maintaining a release process"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0060; processing/specimens/PROC-SPEC-0060.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0062",
+      "version": "1.0.0",
+      "title": "Automated smoke checks",
+      "summary": "Verify startup and essential functionality with repeatable smoke tests where the environment supports it.",
+      "statement": "Verify startup and essential functionality with repeatable smoke tests where the environment supports it.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "automated_smoke_checks",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When testing a runnable application",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "qa_verification"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When testing a runnable application"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0061; processing/specimens/PROC-SPEC-0061.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0063",
+      "version": "1.0.0",
+      "title": "GUI and browser QA",
+      "summary": "Check relevant UI interactions and layout in a real GUI or browser when available, and disclose untested paths.",
+      "statement": "Check relevant UI interactions and layout in a real GUI or browser when available, and disclose untested paths.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "gui_and_browser_qa",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When interfaces are modified",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "qa_verification"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When interfaces are modified"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0062; processing/specimens/PROC-SPEC-0062.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0064",
+      "version": "1.0.0",
+      "title": "Acceptance criteria review",
+      "summary": "Compare delivered functionality with the original authorized requirements and record deviations.",
+      "statement": "Compare delivered functionality with the original authorized requirements and record deviations.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "acceptance_criteria_review",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "Before closing a work item",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "qa_verification"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "Before closing a work item"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0063; processing/specimens/PROC-SPEC-0063.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0065",
+      "version": "1.0.0",
+      "title": "Evidence-based state labels",
+      "summary": "Distinguish written, staged, committed, compiled, tested, deployed and visually verified states.",
+      "statement": "Distinguish written, staged, committed, compiled, tested, deployed and visually verified states.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "evidence_based_state_labels",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When describing development status",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "qa_verification"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When describing development status"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0064; processing/specimens/PROC-SPEC-0064.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0066",
+      "version": "1.0.0",
+      "title": "Verifiable completion reports",
+      "summary": "Report concrete commit IDs, test results, deployment evidence and unresolved work.",
+      "statement": "Report concrete commit IDs, test results, deployment evidence and unresolved work.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "verifiable_completion_reports",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "At the end of authorized work",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "qa_verification"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "At the end of authorized work"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0065; processing/specimens/PROC-SPEC-0065.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0067",
+      "version": "1.0.0",
+      "title": "Preserve unfinished work state",
+      "summary": "Keep blockers and unfinished acceptance criteria visible rather than marking incomplete work as complete.",
+      "statement": "Keep blockers and unfinished acceptance criteria visible rather than marking incomplete work as complete.",
+      "rationale": "General development guidance scoped to the original specimen's trigger.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "practice",
+          "object": "preserve_unfinished_work_state",
+          "target": "authorized_project_work"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When the requested result is not fully verified",
+          "Applies only when expressly selected for a matching project or authorized development workflow.",
+          "This rule does not itself authorize changes to other repositories, publication or destructive work."
+        ],
+        "exceptions": []
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "qa_verification"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "When the requested result is not fully verified"
+        ],
+        "exclusions": [
+          "Projects or operations outside authorized task scope"
+        ]
+      },
+      "authority": {
+        "source": "Published opt-in hygiene rule; no project-wide activation or execution authorization",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0066; processing/specimens/PROC-SPEC-0066.json",
+        "license": "MIT",
+        "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership. Explicit catalog review approved; applicability and permission checks remain required."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    }
+  ],
+  "groups": [
+    {
+      "id": "GROUP-0001",
+      "kind": "virtual_rule_group",
+      "version": "1.0.0",
+      "status": "published",
+      "title": "Development Hygiene & Quality of Life",
+      "summary": "Opt-in collection of independent development quality practices across Git, code quality, CI, documentation, safety, release management and QA.",
+      "metadata_labels": [
+        "development_hygiene",
+        "development_hygiene"
+      ],
+      "parent_group_ids": [],
+      "child_group_ids": [
+        "GROUP-0002",
+        "GROUP-0003",
+        "GROUP-0004",
+        "GROUP-0005",
+        "GROUP-0006",
+        "GROUP-0007",
+        "GROUP-0008"
+      ],
+      "member_rule_ids": [],
+      "color": {
+        "space": "OKLCH",
+        "identity_string": "GROUP-0001",
+        "hue_degrees": 158.508,
+        "scheme": "golden_angle_id_hue",
+        "require_text_label": true
+      },
+      "composition": {
+        "opt_in_only": true,
+        "include_descendants": true,
+        "deduplicate_rule_ids": true,
+        "exclude_unpublished_members": true,
+        "no_implicit_activation": true
+      },
+      "provenance": {
+        "source_type": "processed_specimen",
+        "reference": "processing/specimens/groups/PROC-GROUP-0001.json"
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      }
+    },
+    {
+      "id": "GROUP-0002",
+      "kind": "virtual_rule_group",
+      "version": "1.0.0",
+      "status": "published",
+      "title": "Git & Repository Hygiene",
+      "summary": "Repository inspection, scoped edits, main-branch default, commit discipline, clean tracking and verified Git state.",
+      "metadata_labels": [
+        "development_hygiene",
+        "git_repository"
+      ],
+      "parent_group_ids": [
+        "GROUP-0001"
+      ],
+      "child_group_ids": [],
+      "member_rule_ids": [
+        "NOM-0014",
+        "NOM-0015",
+        "NOM-0016",
+        "NOM-0017",
+        "NOM-0018",
+        "NOM-0019",
+        "NOM-0020",
+        "NOM-0021",
+        "NOM-0022",
+        "NOM-0023"
+      ],
+      "color": {
+        "space": "OKLCH",
+        "identity_string": "GROUP-0002",
+        "hue_degrees": 296.016,
+        "scheme": "golden_angle_id_hue",
+        "require_text_label": true
+      },
+      "composition": {
+        "opt_in_only": true,
+        "include_descendants": true,
+        "deduplicate_rule_ids": true,
+        "exclude_unpublished_members": true,
+        "no_implicit_activation": true
+      },
+      "provenance": {
+        "source_type": "processed_specimen",
+        "reference": "processing/specimens/groups/PROC-GROUP-0002.json"
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      }
+    },
+    {
+      "id": "GROUP-0003",
+      "kind": "virtual_rule_group",
+      "version": "1.0.0",
+      "status": "published",
+      "title": "Rust Quality",
+      "summary": "Formatting, linting, compilation checks and layered deterministic test coverage for Rust projects.",
+      "metadata_labels": [
+        "development_hygiene",
+        "rust_quality"
+      ],
+      "parent_group_ids": [
+        "GROUP-0001"
+      ],
+      "child_group_ids": [],
+      "member_rule_ids": [
+        "NOM-0024",
+        "NOM-0025",
+        "NOM-0026",
+        "NOM-0027",
+        "NOM-0028",
+        "NOM-0029",
+        "NOM-0030",
+        "NOM-0031",
+        "NOM-0032",
+        "NOM-0033"
+      ],
+      "color": {
+        "space": "OKLCH",
+        "identity_string": "GROUP-0003",
+        "hue_degrees": 73.523,
+        "scheme": "golden_angle_id_hue",
+        "require_text_label": true
+      },
+      "composition": {
+        "opt_in_only": true,
+        "include_descendants": true,
+        "deduplicate_rule_ids": true,
+        "exclude_unpublished_members": true,
+        "no_implicit_activation": true
+      },
+      "provenance": {
+        "source_type": "processed_specimen",
+        "reference": "processing/specimens/groups/PROC-GROUP-0003.json"
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      }
+    },
+    {
+      "id": "GROUP-0004",
+      "kind": "virtual_rule_group",
+      "version": "1.0.0",
+      "status": "published",
+      "title": "CI/CD",
+      "summary": "Automated validation, GitHub Actions, cross-platform checks, deployment and accurate workflow status.",
+      "metadata_labels": [
+        "development_hygiene",
+        "ci_cd"
+      ],
+      "parent_group_ids": [
+        "GROUP-0001"
+      ],
+      "child_group_ids": [],
+      "member_rule_ids": [
+        "NOM-0034",
+        "NOM-0035",
+        "NOM-0036",
+        "NOM-0037",
+        "NOM-0038",
+        "NOM-0039",
+        "NOM-0040",
+        "NOM-0041"
+      ],
+      "color": {
+        "space": "OKLCH",
+        "identity_string": "GROUP-0004",
+        "hue_degrees": 211.031,
+        "scheme": "golden_angle_id_hue",
+        "require_text_label": true
+      },
+      "composition": {
+        "opt_in_only": true,
+        "include_descendants": true,
+        "deduplicate_rule_ids": true,
+        "exclude_unpublished_members": true,
+        "no_implicit_activation": true
+      },
+      "provenance": {
+        "source_type": "processed_specimen",
+        "reference": "processing/specimens/groups/PROC-GROUP-0004.json"
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      }
+    },
+    {
+      "id": "GROUP-0005",
+      "kind": "virtual_rule_group",
+      "version": "1.0.0",
+      "status": "published",
+      "title": "Documentation",
+      "summary": "Project explanations, roadmap accuracy, technical references, changelogs and provenance.",
+      "metadata_labels": [
+        "development_hygiene",
+        "documentation"
+      ],
+      "parent_group_ids": [
+        "GROUP-0001"
+      ],
+      "child_group_ids": [],
+      "member_rule_ids": [
+        "NOM-0042",
+        "NOM-0043",
+        "NOM-0044",
+        "NOM-0045",
+        "NOM-0046",
+        "NOM-0047",
+        "NOM-0048",
+        "NOM-0049"
+      ],
+      "color": {
+        "space": "OKLCH",
+        "identity_string": "GROUP-0005",
+        "hue_degrees": 348.539,
+        "scheme": "golden_angle_id_hue",
+        "require_text_label": true
+      },
+      "composition": {
+        "opt_in_only": true,
+        "include_descendants": true,
+        "deduplicate_rule_ids": true,
+        "exclude_unpublished_members": true,
+        "no_implicit_activation": true
+      },
+      "provenance": {
+        "source_type": "processed_specimen",
+        "reference": "processing/specimens/groups/PROC-GROUP-0005.json"
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      }
+    },
+    {
+      "id": "GROUP-0006",
+      "kind": "virtual_rule_group",
+      "version": "1.0.0",
+      "status": "published",
+      "title": "Safety & Data Integrity",
+      "summary": "Protect private information, prevent destructive side effects and guard valuable data and compatibility.",
+      "metadata_labels": [
+        "development_hygiene",
+        "safety_integrity"
+      ],
+      "parent_group_ids": [
+        "GROUP-0001"
+      ],
+      "child_group_ids": [],
+      "member_rule_ids": [
+        "NOM-0050",
+        "NOM-0051",
+        "NOM-0052",
+        "NOM-0053",
+        "NOM-0054"
+      ],
+      "color": {
+        "space": "OKLCH",
+        "identity_string": "GROUP-0006",
+        "hue_degrees": 126.047,
+        "scheme": "golden_angle_id_hue",
+        "require_text_label": true
+      },
+      "composition": {
+        "opt_in_only": true,
+        "include_descendants": true,
+        "deduplicate_rule_ids": true,
+        "exclude_unpublished_members": true,
+        "no_implicit_activation": true
+      },
+      "provenance": {
+        "source_type": "processed_specimen",
+        "reference": "processing/specimens/groups/PROC-GROUP-0006.json"
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      }
+    },
+    {
+      "id": "GROUP-0007",
+      "kind": "virtual_rule_group",
+      "version": "1.0.0",
+      "status": "published",
+      "title": "Releases",
+      "summary": "Versioning, release readiness, tags, packages, checksums and release workflows.",
+      "metadata_labels": [
+        "development_hygiene",
+        "release_management"
+      ],
+      "parent_group_ids": [
+        "GROUP-0001"
+      ],
+      "child_group_ids": [],
+      "member_rule_ids": [
+        "NOM-0055",
+        "NOM-0056",
+        "NOM-0057",
+        "NOM-0058",
+        "NOM-0059",
+        "NOM-0060",
+        "NOM-0061"
+      ],
+      "color": {
+        "space": "OKLCH",
+        "identity_string": "GROUP-0007",
+        "hue_degrees": 263.554,
+        "scheme": "golden_angle_id_hue",
+        "require_text_label": true
+      },
+      "composition": {
+        "opt_in_only": true,
+        "include_descendants": true,
+        "deduplicate_rule_ids": true,
+        "exclude_unpublished_members": true,
+        "no_implicit_activation": true
+      },
+      "provenance": {
+        "source_type": "processed_specimen",
+        "reference": "processing/specimens/groups/PROC-GROUP-0007.json"
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      }
+    },
+    {
+      "id": "GROUP-0008",
+      "kind": "virtual_rule_group",
+      "version": "1.0.0",
+      "status": "published",
+      "title": "QA & Verification",
+      "summary": "Smoke tests, interface QA, acceptance reviews and evidence-grounded completion.",
+      "metadata_labels": [
+        "development_hygiene",
+        "qa_verification"
+      ],
+      "parent_group_ids": [
+        "GROUP-0001"
+      ],
+      "child_group_ids": [],
+      "member_rule_ids": [
+        "NOM-0062",
+        "NOM-0063",
+        "NOM-0064",
+        "NOM-0065",
+        "NOM-0066",
+        "NOM-0067"
+      ],
+      "color": {
+        "space": "OKLCH",
+        "identity_string": "GROUP-0008",
+        "hue_degrees": 41.062,
+        "scheme": "golden_angle_id_hue",
+        "require_text_label": true
+      },
+      "composition": {
+        "opt_in_only": true,
+        "include_descendants": true,
+        "deduplicate_rule_ids": true,
+        "exclude_unpublished_members": true,
+        "no_implicit_activation": true
+      },
+      "provenance": {
+        "source_type": "processed_specimen",
+        "reference": "processing/specimens/groups/PROC-GROUP-0008.json"
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      }
     }
   ]
 }

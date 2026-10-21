@@ -1,0 +1,25 @@
+{
+  "id": "TASK-0009",
+  "source_queue_record": "queues/tasks/TASK-0009.json",
+  "status": "verifying",
+  "started_on": "2026-10-21",
+  "authorization": {
+    "source": "Explicit user direction to process all group and atomic rule downstream work",
+    "on": "2026-10-21"
+  },
+  "disposition": {
+    "kind": "executed_pending_ci",
+    "summary": "Published group cards, browsing and one-click opt-in composition, browser tests and site snapshot",
+    "publication_authorized": true,
+    "automatic_consumer_activation": false
+  },
+  "evidence": {
+    "commit": "pending",
+    "github_actions": "pending",
+    "browser_visual_qa": "not_performed",
+    "privacy_review": "Synthetic public-safe abstracts only"
+  },
+  "remaining_before_done": [
+    "GitHub Actions build, validation, test and deployment checks must succeed"
+  ]
+}

@@ -3,7 +3,7 @@
 /* Local-only rule selection. Nomos catalog entries are inert until explicitly exported. */
 const $ = id => document.getElementById(id);
 const scopeAxes = ['channel', 'visibility', 'artifact_kind', 'actor'];
-const state = { rules: [], selected: [], format: 'agents' };
+const state = { rules: [], groups: [], groupFilter: null, selected: [], format: 'agents' };
 
 function element(tag, className, content) {
   const n = document.createElement(tag);
@@ -90,6 +90,7 @@ function createCard(rule) {
   const tags = element('div', 'tag-row');
   tags.append(element('span', 'tag norm-tag' + (rule.norm.kind === 'permission' ? ' permission' : ''), human(rule.norm.kind)));
   for (const domain of rule.categories.domains.slice(0, 3)) tags.append(element('span', 'tag', human(domain)));
+  for (const name of ruleGroupTags(rule)) tags.append(element('span','tag group-tag',name));
   card.append(tags);
   const bottom = element('div', 'card-bottom');
   const detail = element('button', 'details-btn', 'View metadata ↗');
@@ -105,10 +106,58 @@ function createCard(rule) {
   card.append(bottom);
   return card;
 }
+function ruleGroupTags(rule) {
+  return state.groups.filter(group=>group.member_rule_ids.includes(rule.id)).map(group=>group.title);
+}
+
+function renderGroups() {
+  const query = $('group-search').value.trim().toLowerCase();
+  const matches = state.groups.filter(g=>[g.id,g.title,g.summary,...g.metadata_labels].join(' ').toLowerCase().includes(query));
+  $('group-results').textContent = matches.length+' of '+state.groups.length+' groups';
+  const nodes = matches.map(g => {
+    const ids = NomosGroups.expand(g.id,state.groups,state.rules);
+    const card=element('article','group-card');
+    card.style.setProperty('--rule-hue',NomosColor.hueForId(g.id)+'deg');
+    const heading=element('div','group-card-heading');
+    const label=element('span','rule-identity');
+    const swatch=element('span','rule-swatch');
+    swatch.setAttribute('aria-hidden','true');
+    label.append(swatch,element('span','rule-id',g.id));
+    heading.append(label,element('span','group-size',ids.length+' rules'));
+    card.append(heading,element('h3','',g.title),element('p','',g.summary));
+    const actions=element('div','group-actions');
+    const browse=element('button','details-btn',state.groupFilter===g.id?'Showing members ✓':'Browse members');
+    browse.type='button';
+    browse.setAttribute('aria-label','Browse rules in '+g.title);
+    browse.addEventListener('click',()=>{
+      state.groupFilter=state.groupFilter===g.id?null:g.id;
+      renderRules();renderGroups();
+      $('rule-list').scrollIntoView({behavior:'smooth',block:'start'});
+    });
+    const add=element('button','add-btn','+ Add all ('+ids.length+')');
+    add.type='button';
+    add.disabled=ids.length===0 || ids.every(id=>state.selected.includes(id));
+    if(add.disabled)add.textContent='✓ All added';
+    add.setAttribute('aria-label','Add all published rules from '+g.title);
+    add.addEventListener('click',()=>{
+      state.selected=[...new Set([...state.selected,...ids])];
+      renderRules();renderSelection();renderGroups();
+      announce('Added '+ids.length+' eligible rules from '+g.title+'.');
+    });
+    actions.append(browse,add);
+    card.append(actions);
+    return card;
+  });
+  $('group-list').replaceChildren(...nodes);
+  $('group-empty').classList.toggle('hidden',nodes.length!==0);
+}
+
 function renderRules() {
   const query = $('search').value.trim().toLowerCase();
   const status = $('filter-status').value, domain = $('filter-domain').value;
+  const groupMemberIds = state.groupFilter ? new Set(NomosGroups.expand(state.groupFilter,state.groups,state.rules)) : null;
   const filtered = state.rules.filter(r => {
+    if (groupMemberIds && !groupMemberIds.has(r.id)) return false;
     if (status !== 'all' && statusOf(r) !== status) return false;
     if (domain !== 'all' && !r.categories.domains.includes(domain)) return false;
     const searchable = [r.id, r.title, r.summary, r.statement,
@@ -117,6 +166,8 @@ function renderRules() {
   });
   $('rule-list').replaceChildren(...filtered.map(createCard));
   $('result-count').textContent = filtered.length + ' of ' + state.rules.length + ' rules';
+  $('active-group-filter').classList.toggle('hidden', !state.groupFilter);
+  $('active-group-filter').textContent = state.groupFilter ? 'Browsing '+(state.groups.find(g=>g.id===state.groupFilter)?.title||state.groupFilter)+' · Clear group filter ×' : '';
   $('empty-results').classList.toggle('hidden', filtered.length !== 0);
 }
 function renderSelection() {
@@ -140,6 +191,7 @@ function renderSelection() {
     return row;
   });
   $('selection-list').replaceChildren(...nodes);
+  if (state.groups.length) renderGroups();
   const analysis = analyze(selected);
   const panel = $('analysis-panel');
   panel.classList.toggle('conflict', analysis.conflicts.length > 0);
@@ -269,6 +321,7 @@ async function init() {
       seen.add(r.id);
     }
     state.rules = catalog.rules;
+    state.groups = Array.isArray(catalog.groups) ? catalog.groups : [];
     $('count-all').textContent = String(state.rules.length);
     $('count-published').textContent = String(state.rules.filter(r => statusOf(r) === 'published').length);
     $('count-draft').textContent = String(state.rules.filter(r => statusOf(r) !== 'published').length);
@@ -277,7 +330,7 @@ async function init() {
       const option = element('option', '', human(domain));
       option.value = domain; $('filter-domain').append(option);
     }
-    renderRules(); renderSelection();
+    renderGroups(); renderRules(); renderSelection();
   } catch (error) {
     $('result-count').textContent = 'Registry could not load.';
     $('empty-results').classList.remove('hidden');
@@ -291,12 +344,16 @@ $('theme-select').addEventListener('change', () => {
   if (!['system', 'light', 'dark'].includes(chosen)) return;
   document.documentElement.dataset.theme = chosen;
 });
+$('group-search').addEventListener('input',renderGroups);
+$('active-group-filter').addEventListener('click',()=>{
+  state.groupFilter=null;renderRules();renderGroups();
+});
 $('filter-form').addEventListener('submit', event => event.preventDefault());
 for (const id of ['search', 'filter-status', 'filter-domain']) {
   $(id).addEventListener(id === 'search' ? 'input' : 'change', renderRules);
 }
 $('clear-filters').addEventListener('click', () => {
-  $('search').value = ''; $('filter-status').value = 'all'; $('filter-domain').value = 'all';
+  $('search').value = ''; $('filter-status').value = 'all'; $('filter-domain').value = 'all'; state.groupFilter=null; renderGroups();
   renderRules(); $('search').focus();
 });
 $('clear-selection').addEventListener('click', () => { state.selected = []; renderRules(); renderSelection(); });

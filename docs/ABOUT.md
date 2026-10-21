@@ -61,3 +61,9 @@ interaction layer; there is no separate non-Rust application backend.
 The public snapshot contains 13 catalog rules: 12 published and one original illustrative draft. Retained `processing/specimens/candidates/` files document proposal history and are not shown twice. A new rule is not an instruction until intentionally selected and exported.
 
 `docs/reasoning.js` compares exclusive Cargo edition values, conditional time-dependent latest editions, and strong versus weak permissions. Without a known toolchain/edition, dynamic edition constraints remain conditional. This is not a general logical proof engine. JavaScript is used only for the static website's browser-native presentation and comparisons; no application backend exists.
+
+## First-class virtual group browser
+
+The public site displays eight first-class groups from `groups/GROUP-*.json`: seven atomic practice areas and an umbrella collection. Each has its own card, description, stable ID-derived OKLCH color, exact distinct published member count, search, **Browse members** and **Add all** controls. Group references are not copies of rule records; atomic rules remain separately searchable and selectable.
+
+One-click **Add all** recursively follows child groups and deduplicates canonical rule IDs. Existing selection is preserved, unapproved/draft members are not added, and no user selection is persisted or exported until the user acts. The UI's `groups.js` expansion is tested separately from the Python catalog's cycle, relationship and membership validation. The meaning of a rule is never changed by group membership.

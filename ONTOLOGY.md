@@ -1,11 +1,12 @@
 # Minimal ontology and rich rule metadata
 
-Nomos currently has only two primary ontological kinds:
+Nomos has three independently identified ontological kinds:
 
 1. **Rule:** an independently versioned normative proposition.
 2. **Category:** a controlled label or applicability facet used to classify and compare rules.
+3. **Virtual rule group:** a first-class, versioned, non-normative collection of references to atomic rules and optional child groups.
 
-Relationships between rules are metadata references, not additional standalone ontological kinds. Compositions, use cases, tasks, and specimens are distinct operational concepts and need not be ontology entities.
+Relationships between rules are metadata references, not additional standalone ontological kinds. Compositions, use cases, tasks, and specimens are operational concepts, not catalog rule or group entities.
 
 ## Rule record
 
@@ -55,3 +56,13 @@ Do not force persistence of a website user's temporary mix-and-match selection. 
 Optional `norm.value_constraint` specifies a single-valued configuration decision: `field: package.edition`, with `operator: equals` and a fixed `value`, or `operator: latest_stable_supported` to resolve from the target Rust toolchain at the decision time. Two overlapping edition obligations can conflict when resolved values differ. Missing toolchain context, or currently equal dynamic and fixed values that might later diverge, are **conditional**, not proven conflicts. Weak permission to select an alternative does not override a contrary obligation; strong permission may create a conflict candidate. Authority and free-text exceptions still require review.
 
 The Rust Edition Guide documents 2024 as the latest stable edition as of 2026-10-21. This dated observation is not the permanent meaning of `latest`. Approved catalog entries are inert until explicitly selected for a consumer. Retained processing candidates are historical provenance, not duplicate catalog records.
+
+## Virtual rule group contract
+
+A group in `groups/GROUP-*.json` is a **first-class entity with independent ID and version**, title, summary, metadata labels, published status, OKLCH identity from its own ID, provenance, governance, canonical `member_rule_ids`, and bidirectional `parent_group_ids`/`child_group_ids`. The machine-readable contract lives at `schema/group.schema.json`.
+
+Group membership does **not** modify a member rule's authority, normative kind, version or applicability. A rule may belong to any number of groups and can always be selected separately. `GROUP-0001` is an umbrella grouping containing seven child groups; the hierarchy expands to 54 **unique** atomic rule IDs. No rule is duplicated in the catalog.
+
+Selecting "Add all" on a group is an **explicit, ephemeral UI action** that recursively adds eligible published members. Unpublished members are omitted; identical IDs are deduplicated across direct and nested membership. Cycles, broken references and mismatched parent/child links fail validation. A group card cannot silently activate member rules outside the current composition; exports include the **selected independent rules**, not opaque group instructions.
+
+The normalized development-hygiene rules are conditional on their documented project triggers and task authorizations, especially release, deployment, or potentially destructive activities. Catalog approval never grants execution authority.

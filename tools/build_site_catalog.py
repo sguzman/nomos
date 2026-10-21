@@ -36,9 +36,15 @@ def build(root=ROOT):
     if not records:
         raise ValueError("Refusing to publish empty catalog")
     records.sort(key=lambda rule: rule["id"])
-    return {"schema_version": "1.1",
-            "source": "Nomos public catalog and distinct unapproved rule candidates",
-            "rules": records}
+    groups = [json.loads(path.read_text(encoding="utf-8"))
+              for path in sorted((root / "groups").glob("GROUP-*.json"))]
+    from groups import validate_groups
+    group_errors = validate_groups(groups, records)
+    if group_errors:
+        raise ValueError("; ".join(group_errors))
+    return {"schema_version": "2.0",
+            "source": "Nomos public catalog and independent published virtual groups",
+            "rules": records, "groups": groups}
 
 
 def main():
