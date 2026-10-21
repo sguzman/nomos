@@ -2,7 +2,7 @@
   "id": "TASK-0008",
   "title": "Publish and validate first-class virtual groups",
   "kind": "ontology_implementation",
-  "status": "verifying",
+  "status": "completed",
   "created_on": "2026-10-21",
   "origin": [
     "SPEC-0013..SPEC-0067",
@@ -19,7 +19,8 @@
   "processing": {
     "record": "processing/tasks/TASK-0008.json",
     "started_on": "2026-10-21",
-    "state": "verifying"
+    "state": "done"
   },
-  "remarks": "Execution is independently recorded and pending GitHub Actions checks."
+  "remarks": "Authorized downstream task completed; see independent execution record for verifiable checks.",
+  "completed_on": "2026-10-21"
 }

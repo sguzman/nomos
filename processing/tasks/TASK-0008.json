@@ -1,25 +1,33 @@
 {
   "id": "TASK-0008",
   "source_queue_record": "queues/tasks/TASK-0008.json",
-  "status": "verifying",
+  "status": "done",
   "started_on": "2026-10-21",
   "authorization": {
     "source": "Explicit user direction to process all group and atomic rule downstream work",
     "on": "2026-10-21"
   },
   "disposition": {
-    "kind": "executed_pending_ci",
+    "kind": "completed",
     "summary": "Published eight first-class group records, schema, membership validator and Python tests",
     "publication_authorized": true,
     "automatic_consumer_activation": false
   },
   "evidence": {
-    "commit": "pending",
-    "github_actions": "pending",
-    "browser_visual_qa": "not_performed",
-    "privacy_review": "Synthetic public-safe abstracts only"
+    "implementation_commit": "a93c59d396c3a7c457f2a607b56cc440d46d2b1a",
+    "repaired_ci_commit": "669d33d9888d53bf64f4079ce2bb6e2673377fb0",
+    "github_actions_run": "https://github.com/sguzman/nomos/actions/runs/39645667614",
+    "github_actions_conclusion": "success",
+    "verified_steps": [
+      "Build public catalog snapshot",
+      "Validate 67 rules and eight group records",
+      "Python unit tests and group membership checks",
+      "Node UI logic and color tests",
+      "GitHub Pages deployment"
+    ],
+    "browser_qa": "not_performed; direct site URL not accessible through current web environment",
+    "privacy_scope": "Public-safe normalized rule summaries and metadata; no private source conversations included",
+    "activation": "Published catalog and group entries remain opt-in; no deployment of rules to unrelated projects"
   },
-  "remaining_before_done": [
-    "GitHub Actions build, validation, test and deployment checks must succeed"
-  ]
+  "completed_on": "2026-10-21"
 }
