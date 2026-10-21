@@ -61,9 +61,9 @@ test('group catalog metadata matches each current color identity',()=>{
   }
 });
 test('palette slots for current rule and group namespaces are independent',()=>{
-  assert.equal(paletteIndex('NOM-0001'),0);
-  assert.equal(paletteIndex('NOM-0067'),66);
-  assert.equal(paletteIndex('GROUP-0001'),127);
-  assert.equal(paletteIndex('GROUP-0008'),134);
+  assert.equal(paletteIndex('NOM-0001'),8);
+  assert.equal(paletteIndex('NOM-0067'),74);
+  assert.equal(paletteIndex('GROUP-0001'),0);
+  assert.equal(paletteIndex('GROUP-0008'),7);
   assert.equal(new Set([...catalog.rules,...catalog.groups].map(x=>paletteIndex(x.id))).size,75);
 });

@@ -80,7 +80,7 @@ The shared catalog provides a Sort dropdown independent of search and type filte
 
 ## Perceptually separated identity palette (v2)
 
-Golden-angle hue-only assignment was insufficient: IDs separated by Fibonacci-sized gaps acquired almost identical purple swatches. Each ID now selects a frozen palette slot selected by a gamut-aware, two-appearance **OKLab maximum-minimum-distance** process. NOM numeric identifiers use slots 1–128, GROUP numeric identifiers 1–8 use separately reserved slots 128–135. The rule/group ID remains the sole lookup key; catalog ordering does not change its colors. Each slot stores gamut-mapped day/night colors and its OKLCH hue. The finite palette cannot ensure unlimited uniqueness; new ID ranges need a palette version extension. Readable IDs remain mandatory.
+Golden-angle hue-only assignment was insufficient: IDs separated by Fibonacci-sized gaps acquired almost identical purple swatches. Each ID now selects a frozen palette slot selected by a gamut-aware, two-appearance **OKLab maximum-minimum-distance** process. GROUP numeric identifiers 1–8 occupy the eight most widely separated opening slots. NOM numeric identifiers 1–128 occupy the following 128 disjoint slots. The rule/group ID remains the sole lookup key; catalog ordering does not change its colors. Each slot stores gamut-mapped day/night colors and its OKLCH hue. The finite palette cannot ensure unlimited uniqueness; new ID ranges need a palette version extension. Readable IDs remain mandatory.
 
 ## Sorting interaction and caching
 

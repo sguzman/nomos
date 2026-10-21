@@ -5990,7 +5990,7 @@
       "color": {
         "space": "OKLCH",
         "identity_string": "GROUP-0001",
-        "hue_degrees": 111.068,
+        "hue_degrees": 136.077,
         "scheme": "oklab_maximin_v2",
         "require_text_label": true
       },
@@ -6041,7 +6041,7 @@
       "color": {
         "space": "OKLCH",
         "identity_string": "GROUP-0002",
-        "hue_degrees": 313.449,
+        "hue_degrees": 244.033,
         "scheme": "oklab_maximin_v2",
         "require_text_label": true
       },
@@ -6092,7 +6092,7 @@
       "color": {
         "space": "OKLCH",
         "identity_string": "GROUP-0003",
-        "hue_degrees": 235.049,
+        "hue_degrees": 294.041,
         "scheme": "oklab_maximin_v2",
         "require_text_label": true
       },
@@ -6141,7 +6141,7 @@
       "color": {
         "space": "OKLCH",
         "identity_string": "GROUP-0004",
-        "hue_degrees": 274.932,
+        "hue_degrees": 139.914,
         "scheme": "oklab_maximin_v2",
         "require_text_label": true
       },
@@ -6190,7 +6190,7 @@
       "color": {
         "space": "OKLCH",
         "identity_string": "GROUP-0005",
-        "hue_degrees": 317.163,
+        "hue_degrees": 66.201,
         "scheme": "oklab_maximin_v2",
         "require_text_label": true
       },
@@ -6236,7 +6236,7 @@
       "color": {
         "space": "OKLCH",
         "identity_string": "GROUP-0006",
-        "hue_degrees": 308.424,
+        "hue_degrees": 327.349,
         "scheme": "oklab_maximin_v2",
         "require_text_label": true
       },
@@ -6284,7 +6284,7 @@
       "color": {
         "space": "OKLCH",
         "identity_string": "GROUP-0007",
-        "hue_degrees": 295.049,
+        "hue_degrees": 239.976,
         "scheme": "oklab_maximin_v2",
         "require_text_label": true
       },
@@ -6331,7 +6331,7 @@
       "color": {
         "space": "OKLCH",
         "identity_string": "GROUP-0008",
-        "hue_degrees": 290.424,
+        "hue_degrees": 332.549,
         "scheme": "oklab_maximin_v2",
         "require_text_label": true
       },

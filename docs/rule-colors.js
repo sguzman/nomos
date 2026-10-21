@@ -8,8 +8,8 @@
  *
  * This avoids the golden-angle/Fibonacci near-collision seen among scattered
  * rule IDs. Palette slots do not depend on catalog order or selected items.
- * NOM-0001..NOM-0128 map to indexed slots; GROUP-0001.. GROUP-0008
- * map to reserved slots 128..135. Other IDs use a stable hash fallback.
+ * GROUP-0001..GROUP-0008 occupy the first eight most separated slots;
+ * NOM-0001..NOM-0128 occupy the next 128 disjoint palette slots. Other IDs use a stable hash fallback.
  * Colors cannot be mathematically unique for unlimited identifiers.
  */
 const NomosColor = (() => {
@@ -30,11 +30,11 @@ const NomosColor = (() => {
     const group = /^GROUP-(\d+)$/.exec(id);
     if (rule) {
       const n = Number(rule[1]);
-      if (Number.isSafeInteger(n) && n >= 1 && n <= 128) return n-1;
+      if (Number.isSafeInteger(n) && n >= 1 && n <= 128) return n+7;
     }
     if (group) {
       const n = Number(group[1]);
-      if (Number.isSafeInteger(n) && n >= 1 && n <= 8) return 126+n;
+      if (Number.isSafeInteger(n) && n >= 1 && n <= 8) return n-1;
     }
     return hashId(id) % DAY.length;
   }
