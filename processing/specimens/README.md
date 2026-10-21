@@ -1,5 +1,15 @@
-# processing/specimens
+# Specimen processing records
 
-Records of explicitly authorized analysis of individual specimens. Do not infer this state from the specimen queue.
+This directory holds **completed analyses** of explicitly authorized specimen inputs. It is not the specimen queue, a catalog of enacted rules, or a task-processing log.
 
-See [the workflow policy](../../WORKFLOW.md). No processing activity has been claimed by this placeholder.
+| Processing record | Input | Disposition | Candidate |
+| --- | --- | --- | --- |
+| [PROC-SPEC-0001](PROC-SPEC-0001.json) | SPEC-0001 | Consolidated with SPEC-0003 | [NOM-0004](candidates/NOM-0004.json) |
+| [PROC-SPEC-0002](PROC-SPEC-0002.json) | SPEC-0002 | Distinct candidate | [NOM-0003](candidates/NOM-0003.json) |
+| [PROC-SPEC-0003](PROC-SPEC-0003.json) | SPEC-0003 | Canonical concept shared with SPEC-0001 | [NOM-0004](candidates/NOM-0004.json) |
+
+The candidate JSON records are complete *draft rule proposals*. Their provisional IDs are not catalog entries: they are **not** in `rules/`, are not active instructions, and have not received publication approval.
+
+Key distinction: `NOM-0003` protects **information confidentiality** regardless of phrasing; `NOM-0004` protects **nonpublic generation context**, even when no factual secret appears. Both partly overlap `NOM-0001`, which already governs public Git repository content. All three are prohibitions, so overlap is **not itself a logical conflict**.
+
+The existing validator examines only `rules/` and cannot verify conceptual overlap based on synonyms or subclass relations. No catalog change or task creation was authorized by this specimen-processing request.

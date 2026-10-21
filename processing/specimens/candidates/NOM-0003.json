@@ -1,0 +1,84 @@
+{
+  "id": "NOM-0003",
+  "version": "0.1.0",
+  "title": "Do not disclose nonpublic information without authorization",
+  "summary": "Do not include confidential or otherwise nonpublic information in public outputs without specific authorization to disclose that information.",
+  "statement": "Do not include confidential or otherwise nonpublic information in public outputs without specific authorization to disclose that information.",
+  "rationale": "Protect the confidentiality of information independently of whether disclosure quotes a source or paraphrases it.",
+  "language": "en",
+  "status": "draft",
+  "norm": {
+    "kind": "prohibition",
+    "predicate": {
+      "action": "include",
+      "object": "nonpublic_information",
+      "target": "artifact"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "Specific authorization to disclose the information has not been given"
+    ],
+    "exceptions": []
+  },
+  "categories": {
+    "domains": [
+      "privacy",
+      "publication"
+    ],
+    "topics": [
+      "information_disclosure",
+      "content_handling"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "public"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [],
+    "exclusions": []
+  },
+  "authority": {
+    "source": "Proposed through Nomos specimen processing; not an enacted policy",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0002; PROC-SPEC-0002",
+    "license": "MIT",
+    "notes": "Public-safe abstraction; no private source text retained. This candidate is not in the catalog."
+  },
+  "governance": {
+    "created_on": "2026-10-20",
+    "updated_on": "2026-10-20",
+    "review_status": "unreviewed"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

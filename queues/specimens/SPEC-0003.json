@@ -1,5 +1,5 @@
 {
-  "status": "proposed",
+  "status": "processed",
   "source": {
     "kind": "user_submitted_rule_idea",
     "reference": "Direct submission; source conversation not copied into this public registry",
@@ -11,7 +11,7 @@
     "operation": "specimen_queue_entry",
     "processing_authorized": false
   },
-  "next_state": "awaiting_explicit_specimen_processing_selection",
+  "next_state": "processed_specimen_retained_as_intake_record",
   "id": "SPEC-0003",
   "title": "Keep private generation context out of published outputs",
   "abstract": "Do not reproduce private source conversations, drafting language, or internal instructions in public-facing outputs merely because they informed the creation of those outputs. Authorization to create or publish a result does not itself authorize disclosure of its private drafting context.",
@@ -42,5 +42,11 @@
     "assessment": "possible_substantial_duplicate",
     "reviewed": false
   },
-  "remarks": "Intake-only abstraction. Exposure of source phrasing or instructions is the proposed boundary, including cases where no independently confidential fact is disclosed. No rule normalization or processing has occurred."
+  "remarks": "Original public-safe intake retained. Authorized analysis and disposition are recorded separately under processing/specimens/. This is not a catalog rule or engineering task.",
+  "processing": {
+    "authorized_by": "explicit_user_request",
+    "authorized_on": "2026-10-20",
+    "record": "processing/specimens/PROC-SPEC-0003.json",
+    "state": "closed"
+  }
 }

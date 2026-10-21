@@ -30,3 +30,7 @@ Prefer a citation, source pointer, or short synthetic phrase over bulk text. Nev
 ## Reading the repository state
 
 Inspect each store directly for its current entries; do not infer processing from queue contents. The original bootstrap catalog rules were authored examples, not products of a claimed specimen-processing run. No processing history should be fabricated or inferred.
+
+## Completed specimen intake
+
+After explicit authorization and completion, a queue entry may be marked `processed` and linked to an independent `processing/specimens/PROC-<specimen-id>.json` record. The `intake` object preserves original intake-time metadata; `processing` records the later authorization and outcome. This changes neither the authority of a proposed rule nor the task queue. A duplicate may be linked to a shared proposed candidate without losing its own processing record.

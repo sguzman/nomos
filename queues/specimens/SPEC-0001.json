@@ -1,6 +1,6 @@
 {
   "id": "SPEC-0001",
-  "status": "proposed",
+  "status": "processed",
   "title": "Prevent private drafting context from appearing in published artifacts",
   "abstract": "Private input used to instruct or inform the creation of an artifact is not itself content approved for publication. Published artifacts should not reproduce private conversational language, personal commentary, or internal instruction material merely because those inputs were used during generation.",
   "source": {
@@ -30,6 +30,12 @@
   "possible_existing_coverage": [
     "NOM-0001"
   ],
-  "next_state": "awaiting_explicit_specimen_processing_selection",
-  "remarks": "Intake metadata is descriptive, not a normalized catalog rule. No specimen analysis, rule update, task creation, or task execution is implied."
+  "next_state": "processed_specimen_retained_as_intake_record",
+  "remarks": "Original public-safe intake retained. Authorized analysis and disposition are recorded separately under processing/specimens/. This is not a catalog rule or engineering task.",
+  "processing": {
+    "authorized_by": "explicit_user_request",
+    "authorized_on": "2026-10-20",
+    "record": "processing/specimens/PROC-SPEC-0001.json",
+    "state": "closed"
+  }
 }

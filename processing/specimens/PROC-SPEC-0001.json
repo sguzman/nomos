@@ -1,0 +1,62 @@
+{
+  "processing_id": "PROC-SPEC-0001",
+  "source_specimen_id": "SPEC-0001",
+  "status": "closed",
+  "authorization": {
+    "kind": "direct_user_request",
+    "scope": "Analyze SPEC-0001, SPEC-0002 and SPEC-0003 as specimens only",
+    "recorded_on": "2026-10-20"
+  },
+  "processed_on": "2026-10-20",
+  "publication": {
+    "candidate_only": true,
+    "catalog_rule_created": false,
+    "existing_rule_changed": false,
+    "task_created": false,
+    "task_executed": false
+  },
+  "provisional_candidate": {
+    "id": "NOM-0004",
+    "location": "processing/specimens/candidates/NOM-0004.json",
+    "catalog_status": "not_published"
+  },
+  "classification": {
+    "norm_kind": "prohibition",
+    "protected_class": "private_generation_context",
+    "action": "include",
+    "target": "public_artifact_or_communication",
+    "scope": "Public-facing outputs derived from private authoring context",
+    "authorization_condition": "No separate permission to release private source context"
+  },
+  "comparisons": [
+    {
+      "with": "SPEC-0003",
+      "relation": "substantially_equivalent",
+      "assessment": "Same core prohibition; SPEC-0003 explicitly distinguishes permission to publish the result from permission to publish input context."
+    },
+    {
+      "with": "SPEC-0002",
+      "relation": "overlaps_not_duplicate",
+      "assessment": "Private context can contain confidential information, but origin/context protection also applies when no factual secret is present."
+    },
+    {
+      "with": "NOM-0001",
+      "relation": "partial_coverage",
+      "assessment": "Already prohibited within public Git repositories; this proposal also covers other public communications and generated artifacts."
+    },
+    {
+      "with": "NOM-0002",
+      "relation": "scope_disjoint",
+      "assessment": "The catalog diary permission applies to private diaries, not public release; public output produced from a private diary is separately governed."
+    }
+  ],
+  "disposition": {
+    "kind": "consolidated_with_other_specimen",
+    "canonical_specimen": "SPEC-0003",
+    "rule_candidate": "NOM-0004",
+    "outcome": "No second competing candidate is created for this duplicate; original source specimen retained for provenance."
+  },
+  "uncertainties": [
+    "Machine-comparison relies on literal normalized predicates; related content classes and action synonyms require semantic review."
+  ]
+}

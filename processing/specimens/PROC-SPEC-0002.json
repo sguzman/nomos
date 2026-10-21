@@ -1,0 +1,61 @@
+{
+  "processing_id": "PROC-SPEC-0002",
+  "source_specimen_id": "SPEC-0002",
+  "status": "closed",
+  "authorization": {
+    "kind": "direct_user_request",
+    "scope": "Analyze SPEC-0001, SPEC-0002 and SPEC-0003 as specimens only",
+    "recorded_on": "2026-10-20"
+  },
+  "processed_on": "2026-10-20",
+  "publication": {
+    "candidate_only": true,
+    "catalog_rule_created": false,
+    "existing_rule_changed": false,
+    "task_created": false,
+    "task_executed": false
+  },
+  "provisional_candidate": {
+    "id": "NOM-0003",
+    "location": "processing/specimens/candidates/NOM-0003.json",
+    "catalog_status": "not_published"
+  },
+  "classification": {
+    "norm_kind": "prohibition",
+    "protected_class": "nonpublic_information",
+    "action": "include",
+    "target": "public_artifact_or_communication",
+    "scope": "Public disclosure, regardless of information source or wording",
+    "authorization_condition": "No specific disclosure authorization"
+  },
+  "comparisons": [
+    {
+      "with": "NOM-0001",
+      "relation": "partial_overlap_not_equivalent",
+      "assessment": "NOM-0001 is public-Git-specific and unconditional; this proposal covers public outputs generally, conditional on disclosure authorization."
+    },
+    {
+      "with": "SPEC-0001",
+      "relation": "partial_overlap",
+      "assessment": "Some private drafting context conveys nonpublic facts; privacy of source phrasing is a distinct protected interest."
+    },
+    {
+      "with": "SPEC-0003",
+      "relation": "partial_overlap",
+      "assessment": "Information confidentiality is independent of revealing private generation provenance."
+    },
+    {
+      "with": "NOM-0002",
+      "relation": "scope_disjoint",
+      "assessment": "Private diary storage is not an authorized public disclosure."
+    }
+  ],
+  "disposition": {
+    "kind": "distinct_candidate",
+    "rule_candidate": "NOM-0003",
+    "outcome": "Separate broad confidentiality rule proposed, not applied or published."
+  },
+  "uncertainties": [
+    "Authorization semantics need contextual definition; the existing repository-level prohibition may remain stricter even where disclosure is otherwise authorized."
+  ]
+}

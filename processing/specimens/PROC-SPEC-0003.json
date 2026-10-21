@@ -1,0 +1,65 @@
+{
+  "processing_id": "PROC-SPEC-0003",
+  "source_specimen_id": "SPEC-0003",
+  "status": "closed",
+  "authorization": {
+    "kind": "direct_user_request",
+    "scope": "Analyze SPEC-0001, SPEC-0002 and SPEC-0003 as specimens only",
+    "recorded_on": "2026-10-20"
+  },
+  "processed_on": "2026-10-20",
+  "publication": {
+    "candidate_only": true,
+    "catalog_rule_created": false,
+    "existing_rule_changed": false,
+    "task_created": false,
+    "task_executed": false
+  },
+  "provisional_candidate": {
+    "id": "NOM-0004",
+    "location": "processing/specimens/candidates/NOM-0004.json",
+    "catalog_status": "not_published"
+  },
+  "classification": {
+    "norm_kind": "prohibition",
+    "protected_class": "private_generation_context",
+    "action": "include",
+    "target": "public_artifact_or_communication",
+    "scope": "Public output authored from nonpublic prompts, discussion or drafting inputs",
+    "authorization_condition": "No separate permission to release the inputs"
+  },
+  "comparisons": [
+    {
+      "with": "SPEC-0001",
+      "relation": "substantially_equivalent",
+      "assessment": "More sharply states the same intent: authorization to publish a result does not imply authorization to expose its source context."
+    },
+    {
+      "with": "SPEC-0002",
+      "relation": "overlaps_not_duplicate",
+      "assessment": "The concern is disclosure of the drafting context itself, not just disclosure of confidential facts."
+    },
+    {
+      "with": "NOM-0001",
+      "relation": "partial_coverage",
+      "assessment": "NOM-0001 covers private source content in public repositories; broader public publication requires a separately scoped rule."
+    },
+    {
+      "with": "NOM-0002",
+      "relation": "scope_disjoint",
+      "assessment": "Private diaries remain private; no public release is authorized by diary storage permission."
+    }
+  ],
+  "disposition": {
+    "kind": "consolidated_canonical",
+    "contributing_specimens": [
+      "SPEC-0001",
+      "SPEC-0003"
+    ],
+    "rule_candidate": "NOM-0004",
+    "outcome": "One draft candidate created from both specimens; not automatically added to the rule catalog."
+  },
+  "uncertainties": [
+    "The distinction between private metadata, private conversation wording, and information explicitly authorized for citation needs later normative review."
+  ]
+}
