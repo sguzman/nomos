@@ -6,6 +6,9 @@ on:
     paths:
       - "docs/**"
       - "rules/**"
+      - "groups/**"
+      - "schema/**"
+      - "taxonomy/**"
       - "processing/specimens/candidates/**"
       - "tools/**"
       - "tests/**"
@@ -34,6 +37,7 @@ jobs:
       - name: Run checks
         run: |
           python3 tools/validate.py
+          python3 tools/validate_groups.py
           python3 -m unittest discover -s tests -v
           node --check docs/app.js
           node --check docs/rule-colors.js
