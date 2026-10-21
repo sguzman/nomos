@@ -27,6 +27,6 @@ A future automation can enact a *specific, authorized* transition, but a backgro
 
 Prefer a citation, source pointer, or short synthetic phrase over bulk text. Never ingest or publish private language as a specimen in this public repository. Source references must themselves be safe for publication. A specimen can be closed without producing any rule.
 
-## Current bootstrapped state
+## Reading the repository state
 
-The four directories are intentionally empty apart from their own README placeholders. The two catalog rules are authored examples, not products of a claimed specimen-processing run. No task-processing history or specimen-processing history is fabricated here.
+Inspect each store directly for its current entries; do not infer processing from queue contents. The original bootstrap catalog rules were authored examples, not products of a claimed specimen-processing run. No processing history should be fabricated or inferred.

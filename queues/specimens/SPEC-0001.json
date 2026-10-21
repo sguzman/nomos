@@ -1,0 +1,35 @@
+{
+  "id": "SPEC-0001",
+  "status": "proposed",
+  "title": "Prevent private drafting context from appearing in published artifacts",
+  "abstract": "Private input used to instruct or inform the creation of an artifact is not itself content approved for publication. Published artifacts should not reproduce private conversational language, personal commentary, or internal instruction material merely because those inputs were used during generation.",
+  "source": {
+    "kind": "user_submitted_rule_idea",
+    "reference": "Direct submission; source conversation not copied into this public registry",
+    "material_retained": false
+  },
+  "received_on": "2026-10-20",
+  "intake": {
+    "visibility": "public_safe_abstract_only",
+    "operation": "specimen_queue_entry",
+    "processing_authorized": false
+  },
+  "scope_hints": {
+    "outbound_destination": [
+      "public_artifact",
+      "public_discussion",
+      "published_documentation"
+    ],
+    "input_classes": [
+      "private_conversation",
+      "private_expression",
+      "internal_instructions"
+    ],
+    "boundary": "private_generation_context_to_public_output"
+  },
+  "possible_existing_coverage": [
+    "NOM-0001"
+  ],
+  "next_state": "awaiting_explicit_specimen_processing_selection",
+  "remarks": "Intake metadata is descriptive, not a normalized catalog rule. No specimen analysis, rule update, task creation, or task execution is implied."
+}
