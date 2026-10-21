@@ -23,3 +23,7 @@ See [WORKFLOW.md](../../WORKFLOW.md) for authorization boundaries.
 ## Browser versioning and MVP inauguration proposals (2026-10-21)
 
 `SPEC-0085`–`SPEC-0086` separately propose mandatory version increments on every change to Tampermonkey userscripts (`@version`) and WebExtensions (`manifest.json` `version`), including local iterations. `SPEC-0087`–`SPEC-0113` contain 27 independent, generalizable MVP graduation rules covering when, why and how to establish, verify, inaugurate and maintain a minimal viable baseline. Existing catalog release and QA atoms are recorded as overlap references; future processing must avoid unnecessary duplication. All remain unprocessed, with no authorization to release or change another repository.
+
+## Queued YAML job error-propagation prohibition (2026-10-21)
+
+`SPEC-0114` independently proposes omitting redundant explicit `exit 1` statements from YAML execution jobs whose commands are already AND-linked with failure propagation by the runner. It complements the separately queued local-repository job practices `SPEC-0078`–`SPEC-0084`. The prohibition is **queued only**, not processed or published, and does not authorize job execution.

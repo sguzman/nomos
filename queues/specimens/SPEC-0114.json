@@ -1,0 +1,60 @@
+{
+  "id": "SPEC-0114",
+  "title": "Do not add explicit exit 1 guards to AND-linked YAML execution jobs",
+  "status": "proposed",
+  "abstract": "When authoring YAML-specification execution jobs whose runner already AND-links commands and propagates failures, do not insert redundant explicit `exit 1` statements or shell error-exit guards in the YAML commands. Rely on the job's existing command-failure behavior instead.",
+  "source": {
+    "kind": "public_safe_user_requested_workflow_rule",
+    "reference": "Generalized YAML job error-handling preference; private source wording not retained",
+    "material_retained": false
+  },
+  "received_on": "2026-10-21",
+  "intake": {
+    "visibility": "public_safe_abstract_only",
+    "operation": "specimen_queue_entry",
+    "processing_authorized": false
+  },
+  "scope_hints": {
+    "domains": [
+      "agent_instructions",
+      "software_development",
+      "workflow_governance"
+    ],
+    "topic": "yaml_job_error_propagation",
+    "candidate_normative_kind": "prohibition",
+    "predicate_hypothesis": {
+      "action": "insert",
+      "object": "redundant_explicit_exit_1_statement",
+      "target": "and_linked_yaml_job_commands"
+    },
+    "bounds_hypothesis": {
+      "quantifier": "all",
+      "interpretation": "universal",
+      "frequency": "never",
+      "minimum": 0,
+      "maximum": 0,
+      "unit": "occurrences",
+      "window": "each_applicable_yaml_job_authored",
+      "basis": "candidate_pending_review"
+    },
+    "trigger": "Preparing or modifying an execution job using the established YAML specification with AND-linked commands",
+    "scope_boundary": "Only YAML job command bodies governed by the existing runner's failure propagation; not a rule to suppress legitimate errors in independent script implementations",
+    "independent_atomic_rule": true
+  },
+  "possible_existing_coverage": [
+    "SPEC-0081",
+    "SPEC-0082",
+    "SPEC-0083"
+  ],
+  "conflict_tracking": {
+    "candidate_relation_type": "conflicts_with",
+    "potential_conflicts": [],
+    "automatically_resolved": false
+  },
+  "unresolved": [
+    "Confirm the exact YAML runner's AND-linking/error-propagation contract during normalization without inventing alternative failure handling.",
+    "Distinguish redundant inline exit statements from legitimate error handling within separately maintained scripts."
+  ],
+  "next_state": "awaiting_explicit_specimen_processing_selection",
+  "remarks": "Queued atomic prohibition only; no specimen processing, catalog publication, YAML job execution or unrelated local repository changes are authorized."
+}
