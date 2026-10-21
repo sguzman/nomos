@@ -1,14 +1,14 @@
 {
   "processing_id": "TASK-0010",
   "source_queue_record": "queues/tasks/TASK-0010.json",
-  "status": "verifying",
+  "status": "done",
   "started_on": "2026-10-21",
   "authorization": {
     "source": "User request to process the group and rule downstream tasks",
     "on": "2026-10-21"
   },
   "disposition": {
-    "kind": "implementation_pending_ci",
+    "kind": "completed",
     "outputs": [
       "rules/NOM-0068.json",
       "rules/NOM-0076.json"
@@ -16,8 +16,18 @@
     "automatic_application": false
   },
   "evidence": {
-    "commit": "pending",
-    "ci": "pending",
-    "browser_check": "not_performed"
-  }
+    "implementation_commit": "33a49cb5cc0632d2e471e913b9ec813781173266",
+    "github_actions_run": "https://github.com/sguzman/nomos/actions/runs/39660371381",
+    "github_actions_conclusion": "success",
+    "verified_steps": [
+      "Built 76-rule, 13-group public catalog",
+      "Validated JSON rule records and virtual-group membership",
+      "Passed Python unit and workflow tests",
+      "Passed JavaScript sorting, palette and composition tests",
+      "Deployed GitHub Pages"
+    ],
+    "real_browser_visual_qa": "not_performed",
+    "selection_scope": "Published records are opt-in only; publication does not activate rules in unrelated projects."
+  },
+  "completed_on": "2026-10-21"
 }

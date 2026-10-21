@@ -2,7 +2,7 @@
   "id": "TASK-0012",
   "title": "Update web catalog and complete regression/deployment QA",
   "kind": "website_implementation",
-  "status": "verifying",
+  "status": "completed",
   "created_on": "2026-10-21",
   "source": "Explicitly processed SPEC-0068..SPEC-0076 and GROUP-0009..GROUP-0013",
   "authorization": {
@@ -16,6 +16,8 @@
   "processing": {
     "record": "processing/tasks/TASK-0012.json",
     "started_on": "2026-10-21",
-    "state": "verifying"
-  }
+    "state": "done"
+  },
+  "completed_on": "2026-10-21",
+  "remarks": "Executed downstream task complete; independent processing record contains validation and deployment evidence."
 }

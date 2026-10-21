@@ -49,9 +49,9 @@ class ProcessingTraceTests(unittest.TestCase):
         for path in task_queue:
             task = json.loads(path.read_text(encoding="utf-8"))
             with self.subTest(task=task["id"]):
-                self.assertIn(task["status"], {"verifying", "completed"})
+                self.assertEqual(task["status"], "completed")
                 execution = read("processing/tasks/" + path.name)
-                self.assertIn(execution["status"], {"verifying", "done"})
+                self.assertEqual(execution["status"], "done")
         self.assertEqual(read("processing/tasks/TASK-0003.json")["status"], "done")
 
     def test_nine_new_candidates_are_published_without_overwriting_history(self):
@@ -62,6 +62,20 @@ class ProcessingTraceTests(unittest.TestCase):
             self.assertEqual(candidate["status"], "draft")
             self.assertEqual(published["status"], "published")
             self.assertEqual(candidate["id"], published["id"])
+
+    def test_completion_and_porting_rules_preserve_separate_meanings(self):
+        first = read("rules/NOM-0071.json")
+        later = read("rules/NOM-0072.json")
+        readme = read("rules/NOM-0073.json")
+        self.assertEqual(first["norm"]["kind"], "obligation")
+        self.assertEqual(later["norm"]["kind"], "prohibition")
+        self.assertNotEqual(first["norm"]["predicate"], later["norm"]["predicate"])
+        self.assertIn("NOM-0071", later["relations"]["depends_on"])
+        self.assertIn("NOM-0009", readme["relations"]["refines"])
+        for n in range(74, 77):
+            rule = read("rules/NOM-" + str(n).zfill(4) + ".json")
+            self.assertTrue(rule["scope"]["preconditions"])
+            self.assertEqual(rule["status"], "published")
 
     def test_group_records_never_auto_activate_rules(self):
         for path in sorted((ROOT / "groups").glob("GROUP-*.json")):
