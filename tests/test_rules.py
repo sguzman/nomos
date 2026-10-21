@@ -41,7 +41,8 @@ class RustEditionTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         _, cls.rules = load_catalog()
-        cls.latest, cls.fixed = cls.rules[-2:]
+        by_id = {rule["id"]: rule for rule in cls.rules}
+        cls.latest, cls.fixed = by_id["NOM-0012"], by_id["NOM-0013"]
 
     def test_current_equal_is_temporally_conditional(self):
         self.assertEqual(assess_pair(self.latest, self.fixed,
