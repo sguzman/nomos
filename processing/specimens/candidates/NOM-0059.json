@@ -1,0 +1,89 @@
+{
+  "id": "NOM-0059",
+  "version": "0.1.0",
+  "title": "Release artifact packaging",
+  "summary": "Build and assemble platform-appropriate distributable binaries, libraries or archives for authorized releases.",
+  "statement": "Build and assemble platform-appropriate distributable binaries, libraries or archives for authorized releases.",
+  "rationale": "General development guidance scoped to the original specimen's trigger.",
+  "language": "en",
+  "status": "draft",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "practice",
+      "object": "release_artifact_packaging",
+      "target": "authorized_project_work"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "When a release distributes artifacts",
+      "Applies only when expressly selected for a matching project or authorized development workflow.",
+      "This rule does not itself authorize changes to other repositories, publication or destructive work."
+    ],
+    "exceptions": []
+  },
+  "categories": {
+    "domains": [
+      "software_development",
+      "releases"
+    ],
+    "topics": [
+      "development_hygiene"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "When a release distributes artifacts"
+    ],
+    "exclusions": [
+      "Projects or operations outside authorized task scope"
+    ]
+  },
+  "authority": {
+    "source": "Optional development hygiene proposal; activation requires explicit selection",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0058; processing/specimens/PROC-SPEC-0058.json",
+    "license": "MIT",
+    "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "unreviewed"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

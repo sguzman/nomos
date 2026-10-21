@@ -1,7 +1,7 @@
 {
   "id": "SPEC-0067",
   "title": "First-class virtual groups for independent atomic rules",
-  "status": "proposed",
+  "status": "processed",
   "abstract": "The ontology should support first-class virtual group entities with stable IDs, metadata labels, identity colors, display cards and named membership relations to independently existing rules. Selecting a group should explicitly add all eligible member rules in one action without forcing the group to be applied by default, duplicating rule content, or requiring all member rules to be chosen individually. Group membership may overlap, and nested collection expansion must deduplicate by canonical rule identity.",
   "source": {
     "kind": "user_submitted_rule_idea",
@@ -66,6 +66,12 @@
     "Allow a rule in multiple groups and preserve group changes independently of rule versions.",
     "Group selection must never override conditional applicability, authority or conflicts."
   ],
-  "next_state": "awaiting_explicit_specimen_processing_selection",
-  "remarks": "Intake only; none of the groups or 54 atomic specimens has been processed, published or activated."
+  "next_state": "processed_specimen_retained_as_intake_record",
+  "remarks": "Intake only; none of the groups or 54 atomic specimens has been processed, published or activated.",
+  "processing": {
+    "authorized_by": "explicit_user_request",
+    "authorized_on": "2026-10-21",
+    "record": "processing/specimens/PROC-SPEC-0067.json",
+    "state": "closed"
+  }
 }

@@ -1,0 +1,19 @@
+{
+  "id": "TASK-0008",
+  "title": "Publish and validate first-class virtual groups",
+  "kind": "ontology_implementation",
+  "status": "ready",
+  "created_on": "2026-10-21",
+  "origin": [
+    "SPEC-0013..SPEC-0067",
+    "GROUP-0001..0008"
+  ],
+  "authorization": {
+    "queue": true,
+    "execute": true,
+    "publish": true,
+    "source": "Explicit user request 2026-10-21"
+  },
+  "scope": "Implement independent group schema and catalog, relationships, cycle and membership validation, and audited published groups.",
+  "processing_record": "processing/tasks/TASK-0008.json"
+}

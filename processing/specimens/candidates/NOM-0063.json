@@ -1,0 +1,89 @@
+{
+  "id": "NOM-0063",
+  "version": "0.1.0",
+  "title": "GUI and browser QA",
+  "summary": "Check relevant UI interactions and layout in a real GUI or browser when available, and disclose untested paths.",
+  "statement": "Check relevant UI interactions and layout in a real GUI or browser when available, and disclose untested paths.",
+  "rationale": "General development guidance scoped to the original specimen's trigger.",
+  "language": "en",
+  "status": "draft",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "practice",
+      "object": "gui_and_browser_qa",
+      "target": "authorized_project_work"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "When interfaces are modified",
+      "Applies only when expressly selected for a matching project or authorized development workflow.",
+      "This rule does not itself authorize changes to other repositories, publication or destructive work."
+    ],
+    "exceptions": []
+  },
+  "categories": {
+    "domains": [
+      "software_development",
+      "qa_verification"
+    ],
+    "topics": [
+      "development_hygiene"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "When interfaces are modified"
+    ],
+    "exclusions": [
+      "Projects or operations outside authorized task scope"
+    ]
+  },
+  "authority": {
+    "source": "Optional development hygiene proposal; activation requires explicit selection",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0062; processing/specimens/PROC-SPEC-0062.json",
+    "license": "MIT",
+    "notes": "Public-safe abstraction; independent atom, not automatically enacted by group membership."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "unreviewed"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

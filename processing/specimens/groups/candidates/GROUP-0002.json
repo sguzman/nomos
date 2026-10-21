@@ -1,0 +1,51 @@
+{
+  "id": "GROUP-0002",
+  "kind": "virtual_rule_group",
+  "version": "0.1.0",
+  "status": "draft",
+  "title": "Git & Repository Hygiene",
+  "summary": "Repository inspection, scoped edits, main-branch default, commit discipline, clean tracking and verified Git state.",
+  "metadata_labels": [
+    "development_hygiene",
+    "git_repository"
+  ],
+  "parent_group_ids": [
+    "GROUP-0001"
+  ],
+  "child_group_ids": [],
+  "member_rule_ids": [
+    "NOM-0014",
+    "NOM-0015",
+    "NOM-0016",
+    "NOM-0017",
+    "NOM-0018",
+    "NOM-0019",
+    "NOM-0020",
+    "NOM-0021",
+    "NOM-0022",
+    "NOM-0023"
+  ],
+  "color": {
+    "space": "OKLCH",
+    "identity_string": "GROUP-0002",
+    "hue_degrees": 296.016,
+    "scheme": "golden_angle_id_hue",
+    "require_text_label": true
+  },
+  "composition": {
+    "opt_in_only": true,
+    "include_descendants": true,
+    "deduplicate_rule_ids": true,
+    "exclude_unpublished_members": true,
+    "no_implicit_activation": true
+  },
+  "provenance": {
+    "source_type": "processed_specimen",
+    "reference": "processing/specimens/groups/PROC-GROUP-0002.json"
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "unreviewed"
+  }
+}

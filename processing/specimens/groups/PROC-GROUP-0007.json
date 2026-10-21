@@ -1,0 +1,27 @@
+{
+  "id": "PROC-GROUP-0007",
+  "source_proposal_id": "GROUP-0007",
+  "status": "closed",
+  "processed_on": "2026-10-21",
+  "authorized_by": "explicit_user_request",
+  "normalization": {
+    "kind": "virtual_rule_group",
+    "catalog_path": "groups/GROUP-0007.json",
+    "member_rule_ids": [
+      "NOM-0055",
+      "NOM-0056",
+      "NOM-0057",
+      "NOM-0058",
+      "NOM-0059",
+      "NOM-0060",
+      "NOM-0061"
+    ],
+    "child_group_ids": [],
+    "denies_inherited_normative_force": true
+  },
+  "disposition": {
+    "kind": "accepted_for_catalog",
+    "downstream_task_id": "TASK-0008"
+  },
+  "notes": "Group publication is distinct from group specimen processing; selection is an explicit UI operation."
+}

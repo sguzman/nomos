@@ -1,0 +1,19 @@
+{
+  "id": "PROC-SPEC-0067",
+  "source_specimen_id": "SPEC-0067",
+  "status": "closed",
+  "processed_on": "2026-10-21",
+  "authorized_by": "explicit_user_request",
+  "assessment": {
+    "disposition": "first_class_ontology_extension",
+    "model": "Virtual groups have their own IDs, versions, descriptions, statuses, labels, colors, parent/child memberships, independent rule references, and no inherent normative force.",
+    "rule_identity": "Atomic catalog rules remain independent",
+    "selection": "Opt-in explicit add-all; deduplicate and never activate unapproved entries",
+    "cycle_policy": "Reject cyclic group references"
+  },
+  "downstream_tasks": [
+    "TASK-0008",
+    "TASK-0009"
+  ],
+  "catalog_rule_created": false
+}

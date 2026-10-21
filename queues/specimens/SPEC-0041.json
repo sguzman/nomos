@@ -1,7 +1,7 @@
 {
   "id": "SPEC-0041",
   "title": "README upkeep",
-  "status": "proposed",
+  "status": "processed",
   "abstract": "Keep the project README aligned with its purpose, setup, usage and development procedures.",
   "source": {
     "kind": "public_safe_inventory_abstraction",
@@ -25,6 +25,12 @@
     "GROUP-0005"
   ],
   "proposed_umbrella_group": "GROUP-0001",
-  "next_state": "awaiting_explicit_specimen_processing_selection",
-  "remarks": "Single independently selectable candidate rule. Group membership is display/composition metadata, not authority, activation, authorization to execute, or proof that this rule applies to any project."
+  "next_state": "processed_specimen_retained_as_intake_record",
+  "remarks": "Single independently selectable candidate rule. Group membership is display/composition metadata, not authority, activation, authorization to execute, or proof that this rule applies to any project.",
+  "processing": {
+    "authorized_by": "explicit_user_request",
+    "authorized_on": "2026-10-21",
+    "record": "processing/specimens/PROC-SPEC-0041.json",
+    "state": "closed"
+  }
 }

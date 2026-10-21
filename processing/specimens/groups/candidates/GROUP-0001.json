@@ -1,0 +1,46 @@
+{
+  "id": "GROUP-0001",
+  "kind": "virtual_rule_group",
+  "version": "0.1.0",
+  "status": "draft",
+  "title": "Development Hygiene & Quality of Life",
+  "summary": "Opt-in collection of independent development quality practices across Git, code quality, CI, documentation, safety, release management and QA.",
+  "metadata_labels": [
+    "development_hygiene",
+    "development_hygiene"
+  ],
+  "parent_group_ids": [],
+  "child_group_ids": [
+    "GROUP-0002",
+    "GROUP-0003",
+    "GROUP-0004",
+    "GROUP-0005",
+    "GROUP-0006",
+    "GROUP-0007",
+    "GROUP-0008"
+  ],
+  "member_rule_ids": [],
+  "color": {
+    "space": "OKLCH",
+    "identity_string": "GROUP-0001",
+    "hue_degrees": 158.508,
+    "scheme": "golden_angle_id_hue",
+    "require_text_label": true
+  },
+  "composition": {
+    "opt_in_only": true,
+    "include_descendants": true,
+    "deduplicate_rule_ids": true,
+    "exclude_unpublished_members": true,
+    "no_implicit_activation": true
+  },
+  "provenance": {
+    "source_type": "processed_specimen",
+    "reference": "processing/specimens/groups/PROC-GROUP-0001.json"
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "unreviewed"
+  }
+}

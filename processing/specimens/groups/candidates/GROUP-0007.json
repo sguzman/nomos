@@ -1,0 +1,48 @@
+{
+  "id": "GROUP-0007",
+  "kind": "virtual_rule_group",
+  "version": "0.1.0",
+  "status": "draft",
+  "title": "Releases",
+  "summary": "Versioning, release readiness, tags, packages, checksums and release workflows.",
+  "metadata_labels": [
+    "development_hygiene",
+    "release_management"
+  ],
+  "parent_group_ids": [
+    "GROUP-0001"
+  ],
+  "child_group_ids": [],
+  "member_rule_ids": [
+    "NOM-0055",
+    "NOM-0056",
+    "NOM-0057",
+    "NOM-0058",
+    "NOM-0059",
+    "NOM-0060",
+    "NOM-0061"
+  ],
+  "color": {
+    "space": "OKLCH",
+    "identity_string": "GROUP-0007",
+    "hue_degrees": 263.554,
+    "scheme": "golden_angle_id_hue",
+    "require_text_label": true
+  },
+  "composition": {
+    "opt_in_only": true,
+    "include_descendants": true,
+    "deduplicate_rule_ids": true,
+    "exclude_unpublished_members": true,
+    "no_implicit_activation": true
+  },
+  "provenance": {
+    "source_type": "processed_specimen",
+    "reference": "processing/specimens/groups/PROC-GROUP-0007.json"
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "unreviewed"
+  }
+}

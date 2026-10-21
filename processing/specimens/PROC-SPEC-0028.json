@@ -1,0 +1,26 @@
+{
+  "processing_id": "PROC-SPEC-0028",
+  "source_specimen_id": "SPEC-0028",
+  "status": "closed",
+  "authorization": {
+    "source": "Explicit user request to process all queued specimens and downstream tasks",
+    "on": "2026-10-21"
+  },
+  "processed_on": "2026-10-21",
+  "normalization": {
+    "kind": "independent_atomic_rule",
+    "candidate_id": "NOM-0029",
+    "group_refs": [
+      "GROUP-0003",
+      "GROUP-0001"
+    ],
+    "trigger": "When repairing reproducible bugs",
+    "normative_kind": "obligation_when_selected"
+  },
+  "disposition": {
+    "kind": "candidate_for_catalog_review",
+    "candidate_path": "processing/specimens/candidates/NOM-0029.json",
+    "downstream_task_id": "TASK-0007"
+  },
+  "caveat": "Not automatically applied to any consumer, repo or project; publication is independent of processing."
+}

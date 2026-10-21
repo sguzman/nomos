@@ -1,10 +1,10 @@
 {
   "kind": "proposed_first_class_virtual_rule_group",
-  "status": "proposed",
+  "status": "processed",
   "received_on": "2026-10-21",
   "origin": "public_safe_development_hygiene_inventory",
-  "processing_authorized": false,
-  "publication_authorized": false,
+  "processing_authorized": true,
+  "publication_authorized": true,
   "id": "GROUP-0004",
   "title": "CI/CD",
   "summary": "Automated validation, GitHub Actions, cross-platform checks, deployment and accurate workflow status.",
@@ -54,6 +54,11 @@
     "show_group_size": true,
     "show_membership_and_status": true
   },
-  "next_state": "awaiting_explicit_group_specimen_processing_selection",
-  "remarks": "Independent group proposal in the specimen intake store. This record does not add a published ontology kind, apply rules, or authorize downstream work."
+  "next_state": "processed_group_proposal_retained_as_intake_record",
+  "remarks": "Independent group proposal in the specimen intake store. This record does not add a published ontology kind, apply rules, or authorize downstream work.",
+  "processing": {
+    "record": "processing/specimens/groups/PROC-GROUP-0004.json",
+    "state": "closed",
+    "authorized_on": "2026-10-21"
+  }
 }

@@ -1,0 +1,49 @@
+{
+  "id": "GROUP-0004",
+  "kind": "virtual_rule_group",
+  "version": "0.1.0",
+  "status": "draft",
+  "title": "CI/CD",
+  "summary": "Automated validation, GitHub Actions, cross-platform checks, deployment and accurate workflow status.",
+  "metadata_labels": [
+    "development_hygiene",
+    "ci_cd"
+  ],
+  "parent_group_ids": [
+    "GROUP-0001"
+  ],
+  "child_group_ids": [],
+  "member_rule_ids": [
+    "NOM-0034",
+    "NOM-0035",
+    "NOM-0036",
+    "NOM-0037",
+    "NOM-0038",
+    "NOM-0039",
+    "NOM-0040",
+    "NOM-0041"
+  ],
+  "color": {
+    "space": "OKLCH",
+    "identity_string": "GROUP-0004",
+    "hue_degrees": 211.031,
+    "scheme": "golden_angle_id_hue",
+    "require_text_label": true
+  },
+  "composition": {
+    "opt_in_only": true,
+    "include_descendants": true,
+    "deduplicate_rule_ids": true,
+    "exclude_unpublished_members": true,
+    "no_implicit_activation": true
+  },
+  "provenance": {
+    "source_type": "processed_specimen",
+    "reference": "processing/specimens/groups/PROC-GROUP-0004.json"
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "unreviewed"
+  }
+}

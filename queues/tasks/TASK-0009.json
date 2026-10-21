@@ -1,0 +1,19 @@
+{
+  "id": "TASK-0009",
+  "title": "Build website group gallery and one-click composer",
+  "kind": "website_implementation",
+  "status": "ready",
+  "created_on": "2026-10-21",
+  "origin": [
+    "SPEC-0013..SPEC-0067",
+    "GROUP-0001..0008"
+  ],
+  "authorization": {
+    "queue": true,
+    "execute": true,
+    "publish": true,
+    "source": "Explicit user request 2026-10-21"
+  },
+  "scope": "Build group cards with distinct OKLCH colors, filters and add-all; recursively collect published rule identities with deduplication and preserve individual rule selection.",
+  "processing_record": "processing/tasks/TASK-0009.json"
+}
