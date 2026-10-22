@@ -55,8 +55,10 @@ def build(root=ROOT):
         ids = profile.get("selected_rule_ids")
         if not isinstance(ids, list) or len(ids) != len(set(ids)) or not set(ids).issubset(published):
             raise ValueError(f"{path}: unknown, unpublished, or duplicate profile members")
-        if profile.get("review", {}).get("selection_confirmed") is not True:
-            raise ValueError(f"{path}: unapproved selection")
+        if not isinstance(profile.get("review", {}).get("selection_confirmed"), bool):
+            raise ValueError(f"{path}: invalid selection review state")
+        if profile["status"] in ("finalized", "deprecated") and profile["review"]["selection_confirmed"] is not True:
+            raise ValueError(f"{path}: only an owner-reviewed selection can be finalized")
         if profile["status"] == "draft" and profile["review"].get("finalization_confirmed") is not False:
             raise ValueError(f"{path}: draft is incorrectly marked finalized")
         if profile["status"] == "finalized" and profile["review"].get("finalization_confirmed") is not True:
