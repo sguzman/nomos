@@ -68,7 +68,8 @@
       ],
       "properties": {
         "selection_confirmed": {
-          "const": true
+          "type": "boolean",
+          "description": "False denotes authorized provisional draft awaiting selection review."
         },
         "finalization_confirmed": {
           "type": "boolean"
@@ -131,6 +132,9 @@
           "review": {
             "properties": {
               "finalization_confirmed": {
+                "const": true
+              },
+              "selection_confirmed": {
                 "const": true
               }
             }

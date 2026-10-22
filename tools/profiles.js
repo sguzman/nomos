@@ -42,13 +42,13 @@ const NomosProfiles = (() => {
     const review = profile.review;
     if (!review || typeof review !== 'object' || Array.isArray(review) ||
       Object.keys(review).sort().join(',') !== 'finalization_confirmed,selection_confirmed' ||
-      review.selection_confirmed !== true || typeof review.finalization_confirmed !== 'boolean')
+      typeof review.selection_confirmed !== 'boolean' || typeof review.finalization_confirmed !== 'boolean')
       errors.push('Review confirmations are required');
     if (profile.status === 'draft' && review?.finalization_confirmed !== false)
       errors.push('Draft cannot claim finalization');
-    if (profile.status === 'finalized' && (!ids?.length || review?.finalization_confirmed !== true))
+    if (profile.status === 'finalized' && (!ids?.length || review?.selection_confirmed !== true || review?.finalization_confirmed !== true))
       errors.push('Finalized profile requires rules and explicit finalization');
-    if (profile.status === 'deprecated' && review?.finalization_confirmed !== true)
+    if (profile.status === 'deprecated' && (review?.selection_confirmed !== true || review?.finalization_confirmed !== true))
       errors.push('Only a finalized profile may be deprecated');
     const gov = profile.governance;
     if (!gov || typeof gov !== 'object' || Array.isArray(gov) ||
@@ -71,13 +71,13 @@ const NomosProfiles = (() => {
   }
 
   function instantiate({ id, title, selectedRuleIds, exportTargets, date }, rules,
-    { selectionConfirmed = false } = {}) {
-    if (selectionConfirmed !== true) throw new Error('User must explicitly approve the proposed selection before instantiating a profile');
+    { selectionConfirmed = false, draftAuthorized = false } = {}) {
+    if (selectionConfirmed !== true && draftAuthorized !== true) throw new Error('User must explicitly approve the proposed selection or authorize a provisional review draft before instantiating a profile');
     const profile = {
       id, kind: 'rule_profile', version: '1.0.0', title, status: 'draft',
       selected_rule_ids: [...selectedRuleIds],
       export_targets: [...exportTargets],
-      review: { selection_confirmed: true, finalization_confirmed: false },
+      review: { selection_confirmed: selectionConfirmed === true, finalization_confirmed: false },
       governance: { created_on: date, updated_on: date }
     };
     assertValid(profile, rules);
@@ -95,9 +95,18 @@ const NomosProfiles = (() => {
     return updated;
   }
 
+  function confirmSelection(profile, rules, { selectionConfirmed = false } = {}) {
+    if (profile.status !== 'draft') throw new Error('Only draft selections may be confirmed');
+    if (selectionConfirmed !== true) throw new Error('Owner must explicitly approve the selected rules');
+    const approved = { ...profile, review: { ...profile.review, selection_confirmed: true } };
+    assertValid(approved, rules);
+    return approved;
+  }
+
   function finalize(profile, rules, { finalizationConfirmed = false } = {}) {
     if (profile.status !== 'draft') throw new Error('Only a draft profile may be finalized');
     if (finalizationConfirmed !== true) throw new Error('User must explicitly approve finalization');
+    if (profile.review?.selection_confirmed !== true) throw new Error('Rule selection requires explicit owner review before finalization');
     const candidate = { ...profile, status: 'finalized',
       review: { ...profile.review, finalization_confirmed: true } };
     const { warnings } = assertValid(candidate, rules);
@@ -112,6 +121,6 @@ const NomosProfiles = (() => {
     return profile.selected_rule_ids.map(id => rules.find(r => r.id === id));
   }
 
-  return Object.freeze({ validate, instantiate, edit, finalize, selectForUse });
+  return Object.freeze({ validate, instantiate, edit, confirmSelection, finalize, selectForUse });
 })();
 if (typeof module !== 'undefined' && module.exports) module.exports = NomosProfiles;
