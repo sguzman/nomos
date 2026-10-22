@@ -1,14 +1,14 @@
 {
   "processing_id": "TASK-0013",
   "source_queue_record": "queues/tasks/TASK-0013.json",
-  "status": "verifying",
+  "status": "done",
   "started_on": "2026-10-21",
   "authorization": {
     "source": "Explicit authorization on 2026-10-21 to process all queued specimens and downstream tasks",
     "on": "2026-10-21"
   },
   "disposition": {
-    "kind": "implementation_in_verification",
+    "kind": "completed",
     "outputs": [
       "rules/",
       "processing/specimens/"
@@ -16,7 +16,16 @@
     "automatic_application": false
   },
   "evidence": {
-    "github_actions_conclusion": "pending",
-    "real_browser_visual_qa": "not_performed"
-  }
+    "implementation_commit": "616171cc6d32d77d2a4a9caa2b3725d4353a60be",
+    "github_actions_run": "https://github.com/sguzman/nomos/actions/runs/39705077519",
+    "github_actions_conclusion": "success",
+    "verified_steps": [
+      "Processed all 38 specimens into independent closed processing records",
+      "Published 34 new atomic rules, reused 4 equivalent existing published rules",
+      "Validated rule schema, bounds, references and catalog records"
+    ],
+    "real_browser_visual_qa": "not_performed",
+    "selection_scope": "Published rules and groups are inert until explicitly selected; no unrelated project's MVP is inaugurated."
+  },
+  "completed_on": "2026-10-21"
 }

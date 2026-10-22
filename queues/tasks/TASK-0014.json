@@ -2,7 +2,7 @@
   "id": "TASK-0014",
   "title": "Publish complete opt-in MVP inauguration group",
   "kind": "virtual_group_publication",
-  "status": "in_progress",
+  "status": "completed",
   "created_on": "2026-10-21",
   "source": "Explicit authorization on 2026-10-21 to process all queued specimens and downstream tasks",
   "authorization": {
@@ -16,7 +16,8 @@
   "processing": {
     "record": "processing/tasks/TASK-0014.json",
     "started_on": "2026-10-21",
-    "state": "verifying"
+    "state": "done"
   },
-  "remarks": "Implementation staged; completion requires passing repository checks and deployment evidence."
+  "remarks": "All authorized downstream work completed. GitHub Actions and GitHub Pages deploy passed; real-browser visual QA not performed.",
+  "completed_on": "2026-10-21"
 }

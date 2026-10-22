@@ -50,12 +50,14 @@ class ProcessingTraceTests(unittest.TestCase):
             task = json.loads(path.read_text(encoding="utf-8"))
             with self.subTest(task=task["id"]):
                 execution = read("processing/tasks/" + path.name)
+                self.assertEqual(task["status"], "completed")
+                self.assertEqual(task["processing"]["state"], "done")
+                self.assertEqual(execution["status"], "done")
                 if int(task["id"].split("-")[1]) >= 13:
-                    self.assertIn(task["status"], {"in_progress", "completed"})
-                    self.assertIn(execution["status"], {"verifying", "done"})
-                else:
-                    self.assertEqual(task["status"], "completed")
-                    self.assertEqual(execution["status"], "done")
+                    evidence = execution["evidence"]
+                    self.assertEqual(evidence["github_actions_conclusion"], "success")
+                    self.assertTrue(evidence["github_actions_run"].startswith(
+                        "https://github.com/sguzman/nomos/actions/runs/"))
         self.assertEqual(read("processing/tasks/TASK-0003.json")["status"], "done")
 
     def test_nine_new_candidates_are_published_without_overwriting_history(self):
