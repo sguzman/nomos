@@ -55,7 +55,7 @@ Nine additional independent opt-in rules `NOM-0068` through `NOM-0076` cover pro
 
 ## Optional rule-profile presets
 
-Rule profiles are **voluntary presets**, not another category of mandatory instructions. You may discuss an intended use, ask for AI-suggested existing rules, review the proposed list, then authorize creating an editable draft. After adding or removing rules, you may separately finalize it and later choose to use or export it as an agent instruction file or ChatGPT Custom Instructions. Profiles are not automatically applied, and discussing an idea never creates one. The `profiles/` registry contains two explicitly authorized, independently editable draft C-to-Rust porting presets (Lite and Full), pending separate finalization and use authorization. Schema and selection operations use JavaScript; no new Python tooling was introduced for this feature.
+Rule profiles are **voluntary presets**, not another category of mandatory instructions. You may discuss an intended use, ask for AI-suggested existing rules, review the proposed list, then authorize creating an editable draft. After adding or removing rules, you may separately finalize it and later choose to use or export it as an agent instruction file or ChatGPT Custom Instructions. Profiles are not automatically applied, and discussing an idea never creates one. The `profiles/` registry contains two previously reviewed C-to-Rust drafts and six newly authorized, unreviewed Rust/Tarium/fork project drafts. The six new selections explicitly await owner confirmation; no draft is finalized or activated. Schema and selection operations use JavaScript; no new Python tooling was introduced for this feature.
 
 ## Browser-version and local-workflow guidance
 
@@ -79,11 +79,11 @@ The static website now displays opt-in profiles alongside rules and groups with 
 
 Nomos now supports an optional, **separate profile-idea intake queue**. Record an idea as `PROFILE-IDEA-0001` etc. with a short public-safe title, optional summary and unreviewed rule/group hints. Creating an idea does **not** process it, construct a rule selection, create a `PROFILE-*` draft, alter the website's active profile registry, or apply any instructions. No example ideas are automatically enqueued.
 
-Use `node tools/profile_ideas.cjs list` to inspect the queue or `node tools/profile_ideas.cjs add --title "Example name"` to add a new item. The command only adds ideas. Details: [queues/profiles/README.md](queues/profiles/README.md). The queue is validated separately with `node tools/validate_profile_ideas.cjs`.
+Use `node tools/profile_ideas.cjs list` to inspect the queue or `node tools/profile_ideas.cjs add --title "Example name"` to add a new item. The command only adds ideas. Details: [queues/profiles/README.md](queues/profiles/README.md). The queue is validated separately with `node tools/validate_profile_ideas.cjs`. The original six queue records now link to their draft profiles; see [the review guide](profiles/REVIEW-2026-10-22.md).
 
 ## Scoped conversational-safety screening rule
 
-`NOM-0114` is a separately published opt-in prohibition against reflexive or repeated formulaic suicide-risk screening prompted only by ordinary frustration or historic difficulty, without credible new present-risk information. Its explicit exception preserves proportionate safety responses to materially new risk indicators. The public catalog contains only generalized wording; no private conversation text, personal examples, or account details were included. This rule is not auto-applied, and the six queued profile ideas remain unprocessed.
+`NOM-0114` is a separately published opt-in prohibition against reflexive or repeated formulaic suicide-risk screening prompted only by ordinary frustration or historic difficulty, without credible new present-risk information. Its explicit exception preserves proportionate safety responses to materially new risk indicators. The public catalog contains only generalized wording; no private conversation text, personal examples, or account details were included. This rule is not auto-applied, and those six ideas were subsequently instantiated only as provisional, unreviewed drafts.
 
 ## Project-specific Tarium atoms (2026-10-22)
 
@@ -92,3 +92,7 @@ Fourteen additional independently selectable rules, `NOM-0115`–`NOM-0128`, enc
 ## Reviewed Tarium relationship dispositions (2026-10-22)
 
 Five heuristic candidate edges concerning private/public separation, clean externalization, publication inspection, public dependencies and membership state have been examined and classified as **complements**. The reasons, former candidate labels, and distinct authorization boundaries are documented in [relationships/REVIEW-2026-10-22.md](relationships/REVIEW-2026-10-22.md). The canonical review results remain machine-readable in [relationships/reviewed.json](relationships/reviewed.json). A reviewed edge suppresses the duplicate heuristic candidate for its pair without altering the rule text or authority. No profile or membership operation was performed.
+
+## Six reviewable Lite/Full project drafts (2026-10-22)
+
+The original Rust-from-scratch, independent Tarium, and Rust-fork-maintenance profile ideas now have six public, browseable, user-authorized **provisional drafts**: `PROFILE-0003` through `PROFILE-0008`. Each has proposed canonical published-rule IDs but an unconfirmed selection (`review.selection_confirmed: false`). Each Lite profile is a strict subset of Full. These do not replace the older C-to-Rust drafts or finalize/apply rules. See [profile review guide](profiles/REVIEW-2026-10-22.md), [workflow](PROFILE_WORKFLOW.md), and the [website catalog](https://sguzman.github.io/nomos/).
