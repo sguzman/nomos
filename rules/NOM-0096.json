@@ -1,6 +1,6 @@
 {
   "id": "NOM-0096",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Do not declare MVP solely from proxy progress indicators",
   "summary": "Do not call an MVP inaugurated solely because CI is green, compilation succeeds, tasks are 100 percent, or milestones are marked complete without operational acceptance evidence.",
   "statement": "Do not call an MVP inaugurated solely because CI is green, compilation succeeds, tasks are 100 percent, or milestones are marked complete without operational acceptance evidence.",
@@ -36,10 +36,11 @@
   "categories": {
     "domains": [
       "project_management",
-      "software_development",
-      "releases"
+      "releases",
+      "software_development"
     ],
     "topics": [
+      "mvp_evidence_standard",
       "mvp_inauguration"
     ],
     "audiences": [
@@ -68,6 +69,9 @@
     ],
     "exclusions": [
       "Does not independently authorize a tag, release or external deployment."
+    ],
+    "project_types": [
+      "software_project"
     ]
   },
   "authority": {
@@ -94,7 +98,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

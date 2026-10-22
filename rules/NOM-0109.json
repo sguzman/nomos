@@ -1,6 +1,6 @@
 {
   "id": "NOM-0109",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Reevaluate inauguration if core acceptance was actually invalid",
   "summary": "If foundational failures invalidate a prior MVP declaration, explicitly correct or reopen the readiness claim, verify repairs, and preserve release history rather than silently claiming success.",
   "statement": "If foundational failures invalidate a prior MVP declaration, explicitly correct or reopen the readiness claim, verify repairs, and preserve release history rather than silently claiming success.",
@@ -36,11 +36,13 @@
   "categories": {
     "domains": [
       "project_management",
-      "software_development",
-      "releases"
+      "qa_verification",
+      "releases",
+      "software_development"
     ],
     "topics": [
-      "mvp_inauguration"
+      "mvp_inauguration",
+      "mvp_invalid_acceptance"
     ],
     "audiences": [
       "ai_agents",
@@ -68,6 +70,9 @@
     ],
     "exclusions": [
       "No implicit authorization to publish tags, releases or deployments."
+    ],
+    "project_types": [
+      "software_project"
     ]
   },
   "authority": {
@@ -93,7 +98,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

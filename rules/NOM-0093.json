@@ -1,6 +1,6 @@
 {
   "id": "NOM-0093",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Test a public library API with an independent consumer",
   "summary": "When a project's MVP includes a reusable library or agent-facing API, confirm it works with an independent consuming application or integration before inaugurating that interface.",
   "statement": "When a project's MVP includes a reusable library or agent-facing API, confirm it works with an independent consuming application or integration before inaugurating that interface.",
@@ -36,10 +36,12 @@
   "categories": {
     "domains": [
       "project_management",
+      "releases",
       "software_development",
-      "releases"
+      "software_testing"
     ],
     "topics": [
+      "mvp_api_consumer",
       "mvp_inauguration"
     ],
     "audiences": [
@@ -68,6 +70,9 @@
     ],
     "exclusions": [
       "Does not independently authorize a tag, release or external deployment."
+    ],
+    "project_types": [
+      "software_project"
     ]
   },
   "authority": {
@@ -94,7 +99,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

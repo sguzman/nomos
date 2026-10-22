@@ -1,6 +1,6 @@
 {
   "id": "NOM-0114",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "title": "Do not initiate or repeat unwarranted formulaic suicide-risk questions",
   "summary": "Avoid formulaic or repeated suicide-risk check-in questions triggered by routine distress alone; respond proportionately when credible new risk information warrants it.",
   "statement": "In chat, do not initiate or repeat formulaic suicide-risk questions solely because someone expresses ordinary stress, frustration, figurative distress, or past difficulties, particularly after an explicit request to stop such questioning. When credible new information indicates a material current risk of self-harm, address that risk proportionately rather than mechanically repeating a stock question.",
@@ -68,6 +68,9 @@
     ],
     "exclusions": [
       "Credible, materially new signs of current self-harm risk warrant a proportionate safety response, including direct clarification when genuinely necessary; this rule does not prohibit warranted safety assessment."
+    ],
+    "project_types": [
+      "any"
     ]
   },
   "authority": {

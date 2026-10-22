@@ -1,6 +1,6 @@
 {
   "id": "NOM-0103",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Provide relevant inaugural downloads through free channels",
   "summary": "For distributable applications or libraries, provide appropriate downloadable release assets through authorized zero-cost hosting where feasible; do not require binaries for source-only products.",
   "statement": "For distributable applications or libraries, provide appropriate downloadable release assets through authorized zero-cost hosting where feasible; do not require binaries for source-only products.",
@@ -36,10 +36,11 @@
   "categories": {
     "domains": [
       "project_management",
-      "software_development",
-      "releases"
+      "releases",
+      "software_development"
     ],
     "topics": [
+      "inaugural_distribution",
       "mvp_inauguration"
     ],
     "audiences": [
@@ -68,6 +69,9 @@
     ],
     "exclusions": [
       "No implicit authorization to publish tags, releases or deployments."
+    ],
+    "project_types": [
+      "software_project"
     ]
   },
   "authority": {
@@ -93,7 +97,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

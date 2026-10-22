@@ -1,6 +1,6 @@
 {
   "id": "NOM-0113",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Inventory upstream capabilities and verified Rust port coverage",
   "summary": "For each in-scope upstream C capability in an authorized C-to-Rust port, record its Rust implementation or replacement mapping, track implementation and verification status, and explicitly identify missing, incompatible or unverified behavior.",
   "statement": "For each in-scope upstream C capability in an authorized C-to-Rust port, record its Rust implementation or replacement mapping, track implementation and verification status, and explicitly identify missing, incompatible or unverified behavior.",
@@ -35,12 +35,13 @@
   },
   "categories": {
     "domains": [
+      "rust_development",
       "software_development",
-      "software_porting",
-      "rust_development"
+      "software_porting"
     ],
     "topics": [
-      "port_coverage_inventory"
+      "port_coverage_inventory",
+      "rust_port_coverage"
     ],
     "audiences": [
       "ai_agents",
@@ -68,6 +69,9 @@
     ],
     "exclusions": [
       "Out-of-scope features and accepted deviations remain explicitly recorded and are not silently reported as implemented."
+    ],
+    "project_types": [
+      "c_to_rust_port"
     ]
   },
   "authority": {
@@ -96,7 +100,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

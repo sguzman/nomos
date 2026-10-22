@@ -1,6 +1,6 @@
 {
   "id": "NOM-0110",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Do not add explicit exit 1 guards to AND-linked YAML execution jobs",
   "summary": "When authoring YAML-specification execution jobs whose runner already AND-links commands and propagates failures, do not insert redundant explicit `exit 1` statements or shell error-exit guards in the YAML commands. Rely on the job's existing command-failure behavior instead.",
   "statement": "When authoring YAML-specification execution jobs whose runner already AND-links commands and propagates failures, do not insert redundant explicit `exit 1` statements or shell error-exit guards in the YAML commands. Rely on the job's existing command-failure behavior instead.",
@@ -40,6 +40,7 @@
       "workflow_governance"
     ],
     "topics": [
+      "yaml_error_propagation",
       "yaml_job_workflow"
     ],
     "audiences": [
@@ -68,6 +69,9 @@
     ],
     "exclusions": [
       "Does not permit inventing substitute repositories or unrelated changes."
+    ],
+    "project_types": [
+      "project"
     ]
   },
   "authority": {
@@ -90,7 +94,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

@@ -1,6 +1,6 @@
 {
   "id": "NOM-0087",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Define the MVP's essential purpose",
   "summary": "Define the project's essential real-user purpose and minimal useful externally observable outcome before deciding whether an MVP is ready.",
   "statement": "Define the project's essential real-user purpose and minimal useful externally observable outcome before deciding whether an MVP is ready.",
@@ -36,10 +36,11 @@
   "categories": {
     "domains": [
       "project_management",
-      "software_development",
-      "releases"
+      "releases",
+      "software_development"
     ],
     "topics": [
+      "mvp_definition",
       "mvp_inauguration"
     ],
     "audiences": [
@@ -68,6 +69,9 @@
     ],
     "exclusions": [
       "No automatic release, tag, deploy, or other project mutation."
+    ],
+    "project_types": [
+      "software_project"
     ]
   },
   "authority": {
@@ -92,7 +96,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

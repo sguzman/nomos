@@ -1,6 +1,6 @@
 {
   "id": "NOM-0111",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Differentially verify C and Rust program behavior",
   "summary": "For each agreed reproducible behavior of an authorized C-to-Rust port, run the original C baseline and Rust implementation with equivalent inputs and relevant environment, compare observable outputs, exit codes and side effects, and document any intentionally accepted differences.",
   "statement": "For each agreed reproducible behavior of an authorized C-to-Rust port, run the original C baseline and Rust implementation with equivalent inputs and relevant environment, compare observable outputs, exit codes and side effects, and document any intentionally accepted differences.",
@@ -35,12 +35,14 @@
   },
   "categories": {
     "domains": [
+      "rust_development",
       "software_development",
       "software_porting",
-      "rust_development"
+      "software_testing"
     ],
     "topics": [
-      "differential_testing"
+      "differential_testing",
+      "rust_port_differential"
     ],
     "audiences": [
       "ai_agents",
@@ -68,6 +70,9 @@
     ],
     "exclusions": [
       "Documented accepted deviations and justified nondeterministic differences; missing baseline executability must be reported as a verification gap, not silently treated as a passing test."
+    ],
+    "project_types": [
+      "c_to_rust_port"
     ]
   },
   "authority": {
@@ -95,7 +100,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

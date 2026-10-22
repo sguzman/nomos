@@ -1,6 +1,6 @@
 {
   "id": "NOM-0112",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Contain and verify necessary unsafe Rust and FFI boundaries",
   "summary": "For each necessary unsafe Rust operation or C FFI boundary in an authorized C-to-Rust port, prefer safe Rust where feasible, isolate the boundary, document required safety and ABI invariants, and test the exposed contract.",
   "statement": "For each necessary unsafe Rust operation or C FFI boundary in an authorized C-to-Rust port, prefer safe Rust where feasible, isolate the boundary, document required safety and ABI invariants, and test the exposed contract.",
@@ -35,11 +35,13 @@
   },
   "categories": {
     "domains": [
+      "rust_development",
+      "security",
       "software_development",
-      "software_porting",
-      "rust_development"
+      "software_porting"
     ],
     "topics": [
+      "rust_port_unsafe_ffi",
       "unsafe_ffi_containment"
     ],
     "audiences": [
@@ -68,6 +70,9 @@
     ],
     "exclusions": [
       "No unsafe or FFI boundary is required when a fully safe Rust implementation can express the behavior."
+    ],
+    "project_types": [
+      "c_to_rust_port"
     ]
   },
   "authority": {
@@ -94,7 +99,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

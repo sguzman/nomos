@@ -1,6 +1,6 @@
 {
   "id": "NOM-0088",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Set testable MVP acceptance criteria and scope",
   "summary": "Before MVP graduation, specify required capabilities, measurable acceptance criteria, target environment, and excluded future features.",
   "statement": "Before MVP graduation, specify required capabilities, measurable acceptance criteria, target environment, and excluded future features.",
@@ -36,10 +36,11 @@
   "categories": {
     "domains": [
       "project_management",
-      "software_development",
-      "releases"
+      "releases",
+      "software_development"
     ],
     "topics": [
+      "mvp_acceptance",
       "mvp_inauguration"
     ],
     "audiences": [
@@ -68,6 +69,9 @@
     ],
     "exclusions": [
       "No automatic release, tag, deploy, or other project mutation."
+    ],
+    "project_types": [
+      "software_project"
     ]
   },
   "authority": {
@@ -93,7 +97,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [
