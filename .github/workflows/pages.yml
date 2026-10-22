@@ -8,6 +8,9 @@ on:
       - "rules/**"
       - "groups/**"
       - "profiles/**"
+      - "relationships/**"
+      - "queues/specimens/**"
+      - "processing/specimens/**"
       - "queues/profiles/**"
       - "schema/**"
       - "taxonomy/**"
@@ -40,6 +43,7 @@ jobs:
         run: |
           python3 tools/validate.py
           python3 tools/validate_groups.py
+          python3 tools/relationships.py
           python3 -m unittest discover -s tests -v
           node --check docs/app.js
           node --check docs/rule-colors.js

@@ -14,9 +14,9 @@ class SiteCatalogTests(unittest.TestCase):
 
     def test_distinct_public_entries(self):
         rules = self.data["rules"]
-        self.assertEqual(len(rules), 114)
+        self.assertEqual(len(rules), 128)
         self.assertEqual({r["id"] for r in rules},
-                         {"NOM-" + str(i).zfill(4) for i in range(1, 115)})
+                         {"NOM-" + str(i).zfill(4) for i in range(1, 129)})
 
     def test_candidates_cannot_be_mislabeled_published(self):
         candidates = [r for r in self.data["rules"] if r["registry"] == "candidate"]
@@ -25,7 +25,7 @@ class SiteCatalogTests(unittest.TestCase):
 
     def test_existing_catalog_keeps_original_statuses(self):
         catalog = [r for r in self.data["rules"] if r["registry"] == "catalog"]
-        self.assertEqual(len(catalog), 114)
+        self.assertEqual(len(catalog), 128)
         self.assertEqual({(r["id"], r["status"]) for r in catalog if r["id"] in {"NOM-0001", "NOM-0002"}},
                          {("NOM-0001", "published"), ("NOM-0002", "draft")})
 
@@ -52,6 +52,16 @@ class SiteCatalogTests(unittest.TestCase):
             self.assertTrue(profile["review"]["selection_confirmed"])
             self.assertFalse(profile["review"]["finalization_confirmed"])
             self.assertEqual(len(profile["selected_rule_ids"]),len(set(profile["selected_rule_ids"])))
+
+    def test_reviewable_project_relationships_and_tarium_scope(self):
+        self.assertEqual(self.data["schema_version"],"2.4")
+        self.assertIn("tarium_project",self.data["project_types"])
+        rules={r["id"]:r for r in self.data["rules"]}
+        self.assertEqual(len([r for r in rules.values() if r["scope"].get("project_types")==["tarium_project"]]),14)
+        links=self.data["relationships"]
+        self.assertTrue(any(x["status"]=="reviewed" and x["source"]=="NOM-0119" and x["target"]=="NOM-0006" for x in links))
+        self.assertTrue(all(x["source"] in rules and x["target"] in rules for x in links))
+        self.assertTrue(any(x["status"]=="candidate" for x in links))
 
     def test_every_current_rule_exposes_bounds_metadata(self):
         for rule in self.data["rules"]:

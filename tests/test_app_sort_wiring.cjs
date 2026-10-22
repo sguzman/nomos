@@ -40,6 +40,7 @@ function launch() {
   get('filter-type').value='all';
   get('filter-status').value='all';
   get('filter-domain').value='all';
+  get('filter-project').value='all';
   get('filter-profile').value='all';
   const document={
     getElementById:get,
@@ -58,7 +59,7 @@ function launch() {
     fetch:async()=>({ok:true,json:async()=>catalog})
   });
   vm.runInContext(source,ctx);
-  vm.runInContext('state.rules=__catalog.rules;state.groups=__catalog.groups;state.profiles=__catalog.profiles;',Object.assign(ctx,{__catalog:catalog}));
+  vm.runInContext('state.rules=__catalog.rules;state.groups=__catalog.groups;state.profiles=__catalog.profiles;state.relationships=__catalog.relationships||[];',Object.assign(ctx,{__catalog:catalog}));
   vm.runInContext('renderCatalog()',ctx);
   function firstIds(count) {
     const cards=get('catalog-list').children;
@@ -153,4 +154,15 @@ test('real catalog initialization includes profiles without activating them',asy
   app.get('filter-type').value='profiles';
   app.get('filter-type').listeners.change();
   assert.deepEqual(app.firstIds(2),['PROFILE-0001','PROFILE-0002']);
+});
+
+test('project type selector filters the real catalog without altering rule selection',()=>{
+  const app=launch();
+  app.get('filter-project').value='tarium_project';
+  app.get('filter-project').listeners.change();
+  assert.deepEqual(app.firstIds(2),['NOM-0115','NOM-0116']);
+  assert.equal(app.get('catalog-list').children.length,14);
+  assert.equal(vm.runInContext('state.selected.length',app.ctx),0);
+  app.get('clear-filters').listeners.click();
+  assert.equal(app.get('filter-project').value,'all');
 });

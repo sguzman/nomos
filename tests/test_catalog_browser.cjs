@@ -138,3 +138,10 @@ test('profiles participate in sort modes and search without creating groups',()=
   assert.ok(search({...args,type:'groups',query:'Strict Port'}).every(x=>x.kind==='group'));
   assert.ok(search({...args,type:'profiles',query:'Strict Port'}).every(x=>x.kind==='profile'));
 });
+
+test('Tarium project filter returns only explicitly scoped rules, including intentional overlaps',()=>{
+  const filtered=search({...args,type:'rules',projectType:'tarium_project'});
+  assert.deepEqual(filtered.map(x=>x.value.id),Array.from({length:14},(_,i)=>'NOM-'+String(i+115).padStart(4,'0')));
+  assert.equal(search({...args,projectType:'rust_project_from_scratch'}).length,0);
+  assert.ok(search({...args,query:'tarium_ontology',type:'rules'}).some(x=>x.value.id==='NOM-0119'));
+});

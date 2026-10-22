@@ -61,13 +61,14 @@
 
     <section class="workspace" id="registry" aria-label="Rule browser and composer">
       <div class="explorer">
-        <div class="section-heading"><div><p class="eyebrow">01 / DISCOVER</p><h2>Catalog</h2></div><span class="heading-explainer">Profiles, groups and independent rules, together.</span></div>
+        <div class="section-heading"><div><p class="eyebrow">01 / DISCOVER</p><h2>Catalog</h2></div><span class="heading-explainer">Profiles, groups, independent rules and their reviewable relationships.</span></div>
         <button type="button" class="active-group-filter hidden" id="active-member-filter"></button>
         <form class="filters catalog-filters" id="filter-form" role="search" autocomplete="off">
           <label class="search-wrap"><span aria-hidden="true">⌕</span><span class="sr-only">Search catalog</span><input id="search" type="search" placeholder="Search rules, groups, profiles, IDs…" autocomplete="off"></label>
           <label><span class="sr-only">Filter by item type</span><select id="filter-type" aria-label="Item type"><option value="all">All items</option><option value="groups">Groups only</option><option value="profiles">Profiles only</option><option value="rules">Rules only</option></select></label>
           <label><span class="sr-only">Filter by status</span><select id="filter-status"><option value="all">All statuses</option><option value="published">Published</option><option value="draft">Drafts</option><option value="finalized">Finalized profiles</option><option value="candidate">Candidates</option></select></label>
           <label><span class="sr-only">Filter by domain or label</span><select id="filter-domain"><option value="all">All domains / labels</option></select></label>
+          <label><span class="sr-only">Filter by project applicability</span><select id="filter-project" aria-label="Project applicability"><option value="all">All project types</option></select></label>
           <label><span class="sr-only">Filter members by profile</span><select id="filter-profile" aria-label="Profile members"><option value="all">All profiles / rules</option></select></label>
           <label><span class="sr-only">Sort catalog</span><select id="sort-order" aria-label="Sort catalog">
             <option value="groups-first" selected>Groups first · ID</option>

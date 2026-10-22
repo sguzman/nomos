@@ -3,7 +3,7 @@
 /* Local-only rule selection. Nomos catalog entries are inert until explicitly exported. */
 const $ = id => document.getElementById(id);
 const scopeAxes = ['channel', 'visibility', 'artifact_kind', 'actor'];
-const state = { rules: [], groups: [], profiles: [], groupFilter: null, profileFilter: null, selected: [], format: 'agents' };
+const state = { rules: [], groups: [], profiles: [], relationships: [], groupFilter: null, profileFilter: null, selected: [], format: 'agents' };
 
 function element(tag, className, content) {
   const n = document.createElement(tag);
@@ -29,9 +29,10 @@ function identityLabel(rule) {
 function selectedRules() { return state.selected.map(byId).filter(Boolean); }
 function scopeSummary(rule) {
   const parts = scopeAxes.map(axis => human(axis) + ': ' + words(rule.scope.axes[axis]));
+  parts.push('project types: ' + words(rule.scope.project_types || ['any']));
   return parts.join('; ');
 }
-function analyze(rules) { return NomosReasoning.analyze(rules); }
+function analyze(rules) { return NomosReasoning.analyze(rules, {}, state.relationships); }
 function addField(parent, name, content) {
   const div = element('div', 'detail-field');
   div.append(element('strong', '', name), element('span', '', content || 'None recorded'));
@@ -69,6 +70,7 @@ function showDetails(rule) {
   addField(grid, 'Topics', words(rule.categories.topics));
   addField(grid, 'Audience', words(rule.categories.audiences));
   addField(grid, 'Applicability', scopeSummary(rule));
+  if(rule.semantic) addField(grid, 'Semantic concept', rule.semantic.concept + (rule.semantic.aliases?.length ? ' · ' + words(rule.semantic.aliases) : ''));
   addField(grid, 'Authority tier', human(rule.authority.tier) + ' (priority ' + rule.authority.priority + ')');
   addField(grid, 'Override handling', human(rule.authority.override_policy));
   addField(grid, 'Review status', human(rule.governance.review_status));
@@ -83,10 +85,37 @@ function showDetails(rule) {
   ]);
   const relationships = Object.entries(rule.relations).flatMap(([key, ids]) => ids.map(id => human(key) + ': ' + id));
   addListSection(root, 'Recorded relationships', relationships.length ? relationships : ['No formal relations recorded']);
+  const related=state.relationships.filter(e=>e.source===rule.id||e.target===rule.id)
+    .sort((x,y)=>(x.status==='reviewed'?-1:1)-(y.status==='reviewed'?-1:1)||x.kind.localeCompare(y.kind));
+  const graph=element('section','relationship-graph');
+  graph.append(element('h3','detail-section-title','Relationship graph'));
+  graph.append(element('p','relationship-explainer',related.length
+    ? related.filter(e=>e.status==='reviewed').length+' reviewed / '+related.filter(e=>e.status==='candidate').length+' candidates · evidence is shown below'
+    : 'No reviewed or suggested links for this rule.'));
+  const graphNodes=element('div','relationship-nodes');
+  const center=element('div','relationship-center');
+  center.append(identityLabel(rule),element('span','relation-center-label','Selected rule'));
+  graphNodes.append(center);
+  for(const edge of related){
+    const otherId=edge.source===rule.id?edge.target:edge.source;
+    const other=byId(otherId);
+    if(!other)continue;
+    const link=element('button','relation-neighbor');
+    link.type='button';
+    link.setAttribute('aria-label','Inspect '+otherId+' relationship to '+rule.id);
+    const caption=element('span','relation-description');
+    caption.append(element('strong','',human(edge.kind)),
+      element('span','relation-status '+edge.status,edge.status+' · '+edge.confidence));
+    link.append(identityLabel(other),caption,element('span','relation-evidence',edge.evidence));
+    link.addEventListener('click',()=>showDetails(other));
+    graphNodes.append(link);
+  }
+  graph.append(graphNodes);
+  root.append(graph);
   root.append(element('p', 'detail-footer',
     'Provenance: ' + human(rule.provenance.source_type) + ' · ' + (rule.provenance.reference || 'No public source reference') +
     ' · Registry: ' + (rule.registry === 'candidate' ? 'Processing candidate — not published' : 'Catalog entry')));
-  $('rule-dialog').showModal();
+  if(!$('rule-dialog').open) $('rule-dialog').showModal();
 }
 function createCard(rule) {
   const selected = state.selected.includes(rule.id);
@@ -100,6 +129,7 @@ function createCard(rule) {
   const tags = element('div', 'tag-row');
   tags.append(element('span', 'tag norm-tag' + (rule.norm.kind === 'permission' ? ' permission' : ''), human(rule.norm.kind)));
   for (const domain of rule.categories.domains.slice(0, 3)) tags.append(element('span', 'tag', human(domain)));
+  for(const p of rule.scope.project_types||[])if(p!=='any')tags.append(element('span','tag project-tag',human(p)));
   const bounds = rule.norm.bounds;
   if (bounds && bounds.basis !== 'unresolved') {
     const label = bounds.frequency !== 'unspecified' ? bounds.frequency :
@@ -232,6 +262,7 @@ function renderCatalog() {
     rules: state.rules, groups: state.groups, profiles: state.profiles,
     query: $('search').value, type: $('filter-type').value,
     status: $('filter-status').value, domain: $('filter-domain').value,
+    projectType: $('filter-project').value,
     sort: $('sort-order').value,
     groupFilter: state.groupFilter, profileFilter: state.profileFilter
   });
@@ -275,19 +306,19 @@ function renderSelection() {
   const analysis = analyze(selected);
   const panel = $('analysis-panel');
   panel.classList.toggle('conflict', analysis.conflicts.length > 0);
-  panel.classList.toggle('issue', !analysis.conflicts.length && (analysis.overlaps.length > 0 || analysis.conditional.length > 0));
+  panel.classList.toggle('issue', !analysis.conflicts.length && (analysis.overlaps.length > 0 || analysis.conditional.length > 0 || analysis.candidates.length > 0));
   if (selected.length < 2) {
     $('analysis-summary').textContent = 'Select two or more rules to compare their metadata.';
   } else if (analysis.conflicts.length) {
     $('analysis-summary').textContent = analysis.conflicts.length + ' potential normative conflict(s) found. Export is paused until you revise the selection.';
   } else if (analysis.conditional.length) {
     $('analysis-summary').textContent = analysis.conditional.length + ' conditional edition interaction(s). Check actual supported edition and permission strength before treating these as conflicts.';
-  } else if (analysis.overlaps.length) {
-    $('analysis-summary').textContent = 'No opposing norms found. ' + analysis.overlaps.length + ' overlapping pair(s) may warrant review.';
+  } else if (analysis.overlaps.length || analysis.candidates.length) {
+    $('analysis-summary').textContent = 'No definite conflict found. ' + analysis.overlaps.length + ' metadata overlap(s) and '+analysis.candidates.length+' semantic relationship(s) warrant review. Suggestions never override or automatically block export.';
   } else {
     $('analysis-summary').textContent = 'No conflict candidates detected in recorded metadata. This does not prove full compatibility.';
   }
-  $('analysis-details').replaceChildren(...[...analysis.conflicts, ...analysis.conditional, ...analysis.overlaps].map(message => {
+  $('analysis-details').replaceChildren(...[...analysis.conflicts, ...analysis.conditional, ...analysis.overlaps, ...analysis.candidates].map(message => {
     const div = element('div', 'analysis-item');
     div.append(element('strong', '', message.split(':')[0]), document.createTextNode(' — ' + message.split(':').slice(1).join(':').trim()));
     return div;
@@ -408,6 +439,7 @@ async function init() {
     state.rules = catalog.rules;
     state.groups = Array.isArray(catalog.groups) ? catalog.groups : [];
     state.profiles = Array.isArray(catalog.profiles) ? catalog.profiles : [];
+    state.relationships = Array.isArray(catalog.relationships) ? catalog.relationships : [];
     for (const profile of state.profiles) {
       if (!/^PROFILE-\d{4,}$/.test(profile.id) || seen.has(profile.id) || !Array.isArray(profile.selected_rule_ids) ||
           !['draft','finalized','deprecated'].includes(profile.status) ||
@@ -427,6 +459,8 @@ async function init() {
       const option = element('option', '', human(domain));
       option.value = domain; $('filter-domain').append(option);
     }
+    const projectTypes=Array.isArray(catalog.project_types) ? catalog.project_types : [];
+    for(const value of projectTypes){const option=element('option','',human(value));option.value=value;$('filter-project').append(option);}
     renderCatalog(); renderSelection();
   } catch (error) {
     $('result-count').textContent = 'Registry could not load.';
@@ -448,7 +482,7 @@ $('active-member-filter').addEventListener('click', () => {
   renderCatalog();
 });
 $('filter-form').addEventListener('submit', event => event.preventDefault());
-for (const id of ['search', 'filter-type', 'filter-status', 'filter-domain', 'filter-profile', 'sort-order']) {
+for (const id of ['search', 'filter-type', 'filter-status', 'filter-domain', 'filter-project', 'filter-profile', 'sort-order']) {
   $(id).addEventListener(id === 'search' ? 'input' : 'change', () => {
     if(id==='filter-profile') {
       state.profileFilter=$('filter-profile').value==='all'?null:$('filter-profile').value;
@@ -474,6 +508,7 @@ $('clear-filters').addEventListener('click', () => {
   $('filter-type').value = 'all';
   $('filter-status').value = 'all';
   $('filter-domain').value = 'all';
+  $('filter-project').value = 'all';
   $('sort-order').value = 'groups-first';
   $('filter-profile').value = 'all';
   state.groupFilter = null;

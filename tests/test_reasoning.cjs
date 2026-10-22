@@ -45,3 +45,22 @@ test('disjoint reviewed count ranges conflict only for the same normalized predi
  b.norm.bounds.basis='unresolved';
  assert.notEqual(cmp.assess(a,b),'conflict');
 });
+
+test('independent project-type facets restrict conflicts and respect generic rules',()=>{
+  const a=rule('A','obligation','equals','2024');
+  const b=rule('B','obligation','equals','2027');
+  a.scope.project_types=['tarium_project'];
+  b.scope.project_types=['rust_fork_maintenance'];
+  assert.equal(cmp.assess(a,b),'disjoint');
+  b.scope.project_types=['any'];
+  assert.equal(cmp.assess(a,b),'conflict');
+});
+test('curated and heuristic semantic edges are advisory and do not hard-block exports',()=>{
+  const a=rule('A','obligation','equals','2024'),b=rule('B','obligation','equals','2024');
+  a.norm.predicate={action:'maintain',object:'project_ontology',target:'repo'};
+  b.norm.predicate={action:'publish',object:'machine_ontology',target:'repo'};
+  const edge={source:'A',target:'B',kind:'possible_overlap',status:'candidate',confidence:'medium',evidence:'Same concept'};
+  const output=cmp.analyze([a,b],{},[edge]);
+  assert.equal(output.conflicts.length,0);
+  assert.equal(output.candidates.length,1);
+});

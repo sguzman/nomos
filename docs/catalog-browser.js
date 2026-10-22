@@ -48,7 +48,7 @@ const NomosCatalog = (() => {
     const members=profileFilter?new Set(preset?profileMemberIds(preset,rules):[]):
       groupFilter?new Set(NomosGroups.expand(groupFilter,groups,rules)):null;
     const hits=[];
-    if(!groupFilter&&!profileFilter){
+    if(!groupFilter&&!profileFilter&&projectType==='all'){
       if(type==='all'||type==='groups')for(const g of groups){
         if(status!=='all'&&g.status!==status)continue;
         if(domain!=='all'&&!g.metadata_labels.includes(domain))continue;
