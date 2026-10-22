@@ -46,6 +46,7 @@ function launch() {
     createElement(tag){return new Node(tag)},
     createTextNode(value){const node=new Node('#text');node.textContent=value;return node},
     querySelectorAll(){return []},
+    querySelector(){return null},
     documentElement:{dataset:{}}
   };
   let source=fs.readFileSync(path.join(root,'docs/app.js'),'utf8');
