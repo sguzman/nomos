@@ -1,0 +1,3821 @@
+{
+  "schema_version": 1,
+  "title": "Retrospective classification of first 114 Nomos rules",
+  "date": "2026-10-22",
+  "classification_only": true,
+  "disposition": "Metadata audit only; original normative statements and automatic activation states unchanged.",
+  "total": 114,
+  "entries": [
+    {
+      "id": "NOM-0001",
+      "title": "Do not publish private material to public repositories",
+      "original": {
+        "domains": [
+          "privacy",
+          "publication"
+        ],
+        "topics": [
+          "information_disclosure",
+          "content_handling"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "privacy",
+          "publication",
+          "security"
+        ],
+        "topics": [
+          "content_handling",
+          "information_disclosure",
+          "private_public_boundary"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0002",
+      "title": "Permit private expression in private diaries",
+      "original": {
+        "domains": [
+          "privacy",
+          "personal_writing"
+        ],
+        "topics": [
+          "content_handling",
+          "personal_expression"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "personal_writing",
+          "privacy"
+        ],
+        "topics": [
+          "content_handling",
+          "personal_expression"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0003",
+      "title": "Do not disclose nonpublic information without authorization",
+      "original": {
+        "domains": [
+          "privacy",
+          "publication"
+        ],
+        "topics": [
+          "information_disclosure",
+          "content_handling"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "privacy",
+          "publication",
+          "security"
+        ],
+        "topics": [
+          "content_handling",
+          "information_disclosure"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0004",
+      "title": "Do not expose private generation context in public outputs",
+      "original": {
+        "domains": [
+          "privacy",
+          "publication",
+          "agent_instructions"
+        ],
+        "topics": [
+          "information_disclosure",
+          "content_handling",
+          "personal_expression"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "agent_instructions",
+          "privacy",
+          "publication"
+        ],
+        "topics": [
+          "content_handling",
+          "information_disclosure",
+          "personal_expression",
+          "private_public_boundary"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0005",
+      "title": "Require system-aware appearance themes in graphical interfaces",
+      "original": {
+        "domains": [
+          "user_interfaces",
+          "software_development"
+        ],
+        "topics": [
+          "theme_control",
+          "content_handling"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "software_development",
+          "user_interfaces"
+        ],
+        "topics": [
+          "content_handling",
+          "gui_theme_support",
+          "theme_control"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0006",
+      "title": "Represent Tarium ontology for humans and machines",
+      "original": {
+        "domains": [
+          "ontology",
+          "governance"
+        ],
+        "topics": [
+          "representation"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "governance",
+          "ontology"
+        ],
+        "topics": [
+          "ontology_representation",
+          "representation"
+        ],
+        "project_types": [
+          "tarium_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0007",
+      "title": "Maintain a per-project ontology and public specimen showcase",
+      "original": {
+        "domains": [
+          "ontology",
+          "governance",
+          "publication"
+        ],
+        "topics": [
+          "specimen_showcase"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "governance",
+          "ontology",
+          "publication"
+        ],
+        "topics": [
+          "ontology_gallery",
+          "specimen_showcase"
+        ],
+        "project_types": [
+          "tarium_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0008",
+      "title": "Prefer Rust for application code and justify narrow exceptions",
+      "original": {
+        "domains": [
+          "software_development"
+        ],
+        "topics": [
+          "implementation_language"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "rust_development",
+          "software_development"
+        ],
+        "topics": [
+          "implementation_language",
+          "rust_preference"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0009",
+      "title": "Derive stable, distinguishable visual identities from strings",
+      "original": {
+        "domains": [
+          "visual_identity"
+        ],
+        "topics": [
+          "identity_color"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "visual_identity"
+        ],
+        "topics": [
+          "identity_color",
+          "identity_colors"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0010",
+      "title": "Create structured roadmaps with stable emoji identities",
+      "original": {
+        "domains": [
+          "governance",
+          "software_development"
+        ],
+        "topics": [
+          "project_roadmap"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "governance",
+          "project_management",
+          "software_development"
+        ],
+        "topics": [
+          "project_roadmap",
+          "roadmap_structure"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0011",
+      "title": "Keep specimen intake, processing, derived task queue and execution distinct",
+      "original": {
+        "domains": [
+          "governance",
+          "workflow_governance"
+        ],
+        "topics": [
+          "workflow_stage"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "governance",
+          "workflow_governance"
+        ],
+        "topics": [
+          "specimen_task_workflow",
+          "workflow_stage"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0012",
+      "title": "Choose the latest stable supported Rust edition",
+      "original": {
+        "domains": [
+          "software_development",
+          "rust_development"
+        ],
+        "topics": [
+          "edition_selection"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "rust_development",
+          "software_development"
+        ],
+        "topics": [
+          "edition_selection"
+        ],
+        "project_types": [
+          "rust_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0013",
+      "title": "Choose Rust edition 2024 for Cargo packages",
+      "original": {
+        "domains": [
+          "software_development",
+          "rust_development"
+        ],
+        "topics": [
+          "edition_selection"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "rust_development",
+          "software_development"
+        ],
+        "topics": [
+          "edition_selection"
+        ],
+        "project_types": [
+          "rust_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0014",
+      "title": "Repository inspection",
+      "original": {
+        "domains": [
+          "software_development",
+          "git_repository"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "git_repository",
+          "software_development"
+        ],
+        "topics": [
+          "repository_inspection"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0015",
+      "title": "Main branch default",
+      "original": {
+        "domains": [
+          "software_development",
+          "git_repository"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "git_repository",
+          "software_development"
+        ],
+        "topics": [
+          "branch_policy"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0016",
+      "title": "Change scope containment",
+      "original": {
+        "domains": [
+          "software_development",
+          "git_repository"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "git_repository",
+          "software_development"
+        ],
+        "topics": [
+          "change_scope"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0017",
+      "title": "Coherent descriptive commits",
+      "original": {
+        "domains": [
+          "software_development",
+          "git_repository"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "git_repository",
+          "software_development"
+        ],
+        "topics": [
+          "commit_quality"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0018",
+      "title": "Maintain ignore rules",
+      "original": {
+        "domains": [
+          "software_development",
+          "git_repository"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "git_repository",
+          "software_development"
+        ],
+        "topics": [
+          "ignore_file_maintenance"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0019",
+      "title": "Respect project licensing",
+      "original": {
+        "domains": [
+          "software_development",
+          "git_repository"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "git_repository",
+          "software_development"
+        ],
+        "topics": [
+          "license_compliance"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0020",
+      "title": "Dependency lockfile consistency",
+      "original": {
+        "domains": [
+          "software_development",
+          "git_repository"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "dependency_management",
+          "git_repository",
+          "software_development"
+        ],
+        "topics": [
+          "lockfile_integrity"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0021",
+      "title": "Remove obsolete scaffolding safely",
+      "original": {
+        "domains": [
+          "software_development",
+          "git_repository"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "git_repository",
+          "maintenance",
+          "software_development"
+        ],
+        "topics": [
+          "scaffold_cleanup"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0022",
+      "title": "Verify Git branch and history",
+      "original": {
+        "domains": [
+          "software_development",
+          "git_repository"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "git_repository",
+          "software_development"
+        ],
+        "topics": [
+          "git_history_verification"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0023",
+      "title": "Verify committed state",
+      "original": {
+        "domains": [
+          "software_development",
+          "git_repository"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "git_repository",
+          "software_development"
+        ],
+        "topics": [
+          "committed_state_verification"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0024",
+      "title": "Rust formatting",
+      "original": {
+        "domains": [
+          "software_development",
+          "rust_quality"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "rust_quality",
+          "software_development"
+        ],
+        "topics": [
+          "rust_formatting"
+        ],
+        "project_types": [
+          "rust_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0025",
+      "title": "Rust Clippy linting",
+      "original": {
+        "domains": [
+          "software_development",
+          "rust_quality"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "rust_quality",
+          "software_development"
+        ],
+        "topics": [
+          "rust_linting"
+        ],
+        "project_types": [
+          "rust_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0026",
+      "title": "Rust compilation checks",
+      "original": {
+        "domains": [
+          "software_development",
+          "rust_quality"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "rust_quality",
+          "software_development"
+        ],
+        "topics": [
+          "rust_compilation"
+        ],
+        "project_types": [
+          "rust_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0027",
+      "title": "Unit tests",
+      "original": {
+        "domains": [
+          "software_development",
+          "rust_quality"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "rust_quality",
+          "software_development",
+          "software_testing"
+        ],
+        "topics": [
+          "unit_testing"
+        ],
+        "project_types": [
+          "rust_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0028",
+      "title": "Integration tests",
+      "original": {
+        "domains": [
+          "software_development",
+          "rust_quality"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "rust_quality",
+          "software_development",
+          "software_testing"
+        ],
+        "topics": [
+          "integration_testing"
+        ],
+        "project_types": [
+          "rust_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0029",
+      "title": "Regression tests",
+      "original": {
+        "domains": [
+          "software_development",
+          "rust_quality"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "rust_quality",
+          "software_development",
+          "software_testing"
+        ],
+        "topics": [
+          "regression_testing"
+        ],
+        "project_types": [
+          "rust_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0030",
+      "title": "Edge-case coverage",
+      "original": {
+        "domains": [
+          "software_development",
+          "rust_quality"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "rust_quality",
+          "software_development",
+          "software_testing"
+        ],
+        "topics": [
+          "edge_case_testing"
+        ],
+        "project_types": [
+          "rust_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0031",
+      "title": "Synthetic fixtures",
+      "original": {
+        "domains": [
+          "software_development",
+          "rust_quality"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "rust_quality",
+          "software_development",
+          "software_testing"
+        ],
+        "topics": [
+          "synthetic_test_fixtures"
+        ],
+        "project_types": [
+          "rust_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0032",
+      "title": "Deterministic testing",
+      "original": {
+        "domains": [
+          "software_development",
+          "rust_quality"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "rust_quality",
+          "software_development",
+          "software_testing"
+        ],
+        "topics": [
+          "deterministic_testing"
+        ],
+        "project_types": [
+          "rust_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0033",
+      "title": "Feature and target combinations",
+      "original": {
+        "domains": [
+          "software_development",
+          "rust_quality"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "rust_quality",
+          "software_development",
+          "software_testing"
+        ],
+        "topics": [
+          "target_feature_testing"
+        ],
+        "project_types": [
+          "rust_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0034",
+      "title": "Continuous validation workflows",
+      "original": {
+        "domains": [
+          "software_development",
+          "ci_cd"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "ci_cd",
+          "software_development"
+        ],
+        "topics": [
+          "ci_workflows"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0035",
+      "title": "CI event triggers",
+      "original": {
+        "domains": [
+          "software_development",
+          "ci_cd"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "ci_cd",
+          "software_development"
+        ],
+        "topics": [
+          "ci_triggers"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0036",
+      "title": "CI quality gates",
+      "original": {
+        "domains": [
+          "software_development",
+          "ci_cd"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "ci_cd",
+          "software_development",
+          "software_testing"
+        ],
+        "topics": [
+          "ci_quality_gates"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0037",
+      "title": "Cross-platform CI checks",
+      "original": {
+        "domains": [
+          "software_development",
+          "ci_cd"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "ci_cd",
+          "software_development"
+        ],
+        "topics": [
+          "cross_platform_ci"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0038",
+      "title": "Deployment workflows",
+      "original": {
+        "domains": [
+          "software_development",
+          "ci_cd"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "ci_cd",
+          "software_development"
+        ],
+        "topics": [
+          "deployment_workflows"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0039",
+      "title": "Repair failing CI",
+      "original": {
+        "domains": [
+          "software_development",
+          "ci_cd"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "ci_cd",
+          "software_development"
+        ],
+        "topics": [
+          "ci_repair"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0040",
+      "title": "Workflow configuration maintenance",
+      "original": {
+        "domains": [
+          "software_development",
+          "ci_cd"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "ci_cd",
+          "software_development"
+        ],
+        "topics": [
+          "ci_configuration"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0041",
+      "title": "Verify CI outcomes",
+      "original": {
+        "domains": [
+          "software_development",
+          "ci_cd"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "ci_cd",
+          "software_development"
+        ],
+        "topics": [
+          "ci_result_verification"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0042",
+      "title": "README upkeep",
+      "original": {
+        "domains": [
+          "software_development",
+          "documentation"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "documentation",
+          "software_development"
+        ],
+        "topics": [
+          "readme_maintenance"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0043",
+      "title": "Roadmap status accuracy",
+      "original": {
+        "domains": [
+          "software_development",
+          "documentation"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "documentation",
+          "project_management",
+          "software_development"
+        ],
+        "topics": [
+          "roadmap_status"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0044",
+      "title": "Architecture documentation",
+      "original": {
+        "domains": [
+          "software_development",
+          "documentation"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "documentation",
+          "project_architecture",
+          "software_development"
+        ],
+        "topics": [
+          "architecture_documentation"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0045",
+      "title": "Configuration reference",
+      "original": {
+        "domains": [
+          "software_development",
+          "documentation"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "documentation",
+          "software_development"
+        ],
+        "topics": [
+          "configuration_documentation"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0046",
+      "title": "CLI help accuracy",
+      "original": {
+        "domains": [
+          "software_development",
+          "documentation"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "documentation",
+          "software_development"
+        ],
+        "topics": [
+          "cli_help"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0047",
+      "title": "Changelog upkeep",
+      "original": {
+        "domains": [
+          "software_development",
+          "documentation"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "documentation",
+          "maintenance",
+          "software_development"
+        ],
+        "topics": [
+          "changelog"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0048",
+      "title": "Documentation consistency audit",
+      "original": {
+        "domains": [
+          "software_development",
+          "documentation"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "documentation",
+          "software_development"
+        ],
+        "topics": [
+          "documentation_audit"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0049",
+      "title": "Source provenance and attribution",
+      "original": {
+        "domains": [
+          "software_development",
+          "documentation"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "documentation",
+          "software_development"
+        ],
+        "topics": [
+          "source_provenance"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0050",
+      "title": "Public repository privacy review",
+      "original": {
+        "domains": [
+          "software_development",
+          "safety_integrity"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "privacy",
+          "publication",
+          "safety_integrity",
+          "software_development"
+        ],
+        "topics": [
+          "public_privacy_review"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0051",
+      "title": "Keep secrets out of version control",
+      "original": {
+        "domains": [
+          "software_development",
+          "safety_integrity"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "privacy",
+          "safety_integrity",
+          "security",
+          "software_development"
+        ],
+        "topics": [
+          "secret_management"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0052",
+      "title": "Non-destructive operational defaults",
+      "original": {
+        "domains": [
+          "software_development",
+          "safety_integrity"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "safety_integrity",
+          "software_development"
+        ],
+        "topics": [
+          "safe_operations"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0053",
+      "title": "Data round-trip integrity",
+      "original": {
+        "domains": [
+          "software_development",
+          "safety_integrity"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "data_integrity",
+          "safety_integrity",
+          "software_development"
+        ],
+        "topics": [
+          "data_roundtrip"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0054",
+      "title": "Backwards compatibility checks",
+      "original": {
+        "domains": [
+          "software_development",
+          "safety_integrity"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "maintenance",
+          "safety_integrity",
+          "software_development"
+        ],
+        "topics": [
+          "backward_compatibility"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0055",
+      "title": "Semantic version policy",
+      "original": {
+        "domains": [
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "releases",
+          "software_development"
+        ],
+        "topics": [
+          "semantic_versioning"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0056",
+      "title": "Synchronize version references",
+      "original": {
+        "domains": [
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "releases",
+          "software_development"
+        ],
+        "topics": [
+          "version_consistency"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0057",
+      "title": "Release readiness checks",
+      "original": {
+        "domains": [
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "releases",
+          "software_development"
+        ],
+        "topics": [
+          "release_readiness"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0058",
+      "title": "Versioned release tags",
+      "original": {
+        "domains": [
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "releases",
+          "software_development"
+        ],
+        "topics": [
+          "release_tagging"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0059",
+      "title": "Release artifact packaging",
+      "original": {
+        "domains": [
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "releases",
+          "software_development"
+        ],
+        "topics": [
+          "artifact_packaging"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0060",
+      "title": "Artifact integrity hashes",
+      "original": {
+        "domains": [
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "data_integrity",
+          "releases",
+          "software_development"
+        ],
+        "topics": [
+          "artifact_hashing"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0061",
+      "title": "Release workflow automation",
+      "original": {
+        "domains": [
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "releases",
+          "software_development"
+        ],
+        "topics": [
+          "release_automation"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0062",
+      "title": "Automated smoke checks",
+      "original": {
+        "domains": [
+          "software_development",
+          "qa_verification"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "qa_verification",
+          "software_development",
+          "software_testing"
+        ],
+        "topics": [
+          "smoke_testing"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0063",
+      "title": "GUI and browser QA",
+      "original": {
+        "domains": [
+          "software_development",
+          "qa_verification"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "qa_verification",
+          "software_development",
+          "software_testing",
+          "user_interfaces"
+        ],
+        "topics": [
+          "gui_browser_testing"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0064",
+      "title": "Acceptance criteria review",
+      "original": {
+        "domains": [
+          "software_development",
+          "qa_verification"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "qa_verification",
+          "software_development"
+        ],
+        "topics": [
+          "acceptance_criteria"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0065",
+      "title": "Evidence-based state labels",
+      "original": {
+        "domains": [
+          "software_development",
+          "qa_verification"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "qa_verification",
+          "software_development"
+        ],
+        "topics": [
+          "evidence_based_status"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0066",
+      "title": "Verifiable completion reports",
+      "original": {
+        "domains": [
+          "software_development",
+          "qa_verification"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "qa_verification",
+          "software_development"
+        ],
+        "topics": [
+          "completion_evidence"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0067",
+      "title": "Preserve unfinished work state",
+      "original": {
+        "domains": [
+          "software_development",
+          "qa_verification"
+        ],
+        "topics": [
+          "development_hygiene"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "maintenance",
+          "qa_verification",
+          "software_development"
+        ],
+        "topics": [
+          "unfinished_work_state"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0068",
+      "title": "Report progress for touched roadmap items",
+      "original": {
+        "domains": [
+          "project_management"
+        ],
+        "topics": [
+          "progress_reporting"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "project_management"
+        ],
+        "topics": [
+          "progress_reporting"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0069",
+      "title": "Pair progress percentages with visual progress bars",
+      "original": {
+        "domains": [
+          "project_management",
+          "user_interfaces"
+        ],
+        "topics": [
+          "progress_reporting"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "project_management",
+          "user_interfaces"
+        ],
+        "topics": [
+          "progress_reporting"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0070",
+      "title": "Report overall project progress alongside individual items",
+      "original": {
+        "domains": [
+          "project_management"
+        ],
+        "topics": [
+          "progress_reporting"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "project_management"
+        ],
+        "topics": [
+          "progress_reporting"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0071",
+      "title": "Announce first attainment of 100 percent exactly once",
+      "original": {
+        "domains": [
+          "project_management"
+        ],
+        "topics": [
+          "completion_reporting"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "project_management"
+        ],
+        "topics": [
+          "completion_reporting"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0072",
+      "title": "Suppress completed items from subsequent routine progress reports",
+      "original": {
+        "domains": [
+          "project_management"
+        ],
+        "topics": [
+          "completion_reporting"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "project_management"
+        ],
+        "topics": [
+          "completion_reporting"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0073",
+      "title": "Display project identity colors in README documentation",
+      "original": {
+        "domains": [
+          "visual_identity",
+          "documentation"
+        ],
+        "topics": [
+          "readme_identity"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "documentation",
+          "visual_identity"
+        ],
+        "topics": [
+          "readme_identity"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0074",
+      "title": "Maintain behavioral fidelity during strict software ports",
+      "original": {
+        "domains": [
+          "software_development",
+          "software_porting"
+        ],
+        "topics": [
+          "port_fidelity"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "software_development",
+          "software_porting"
+        ],
+        "topics": [
+          "port_fidelity",
+          "strict_port_fidelity"
+        ],
+        "project_types": [
+          "software_port"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0075",
+      "title": "Define porting MVP through verified replacement capability",
+      "original": {
+        "domains": [
+          "software_development",
+          "software_porting"
+        ],
+        "topics": [
+          "port_mvp"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "software_development",
+          "software_porting"
+        ],
+        "topics": [
+          "port_mvp"
+        ],
+        "project_types": [
+          "software_port"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0076",
+      "title": "Defer nonessential enhancements until strict-port MVP",
+      "original": {
+        "domains": [
+          "software_development",
+          "software_porting"
+        ],
+        "topics": [
+          "post_mvp_scope"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "software_development",
+          "software_porting"
+        ],
+        "topics": [
+          "post_mvp_scope"
+        ],
+        "project_types": [
+          "software_port"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0077",
+      "title": "Do not suggest names ending with the suffix arium",
+      "original": {
+        "domains": [
+          "agent_instructions",
+          "software_development"
+        ],
+        "topics": [
+          "naming_restrictions"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "agent_instructions",
+          "software_development"
+        ],
+        "topics": [
+          "naming_restrictions"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0078",
+      "title": "Ask for the actual local repository path before issuing YAML execution jobs",
+      "original": {
+        "domains": [
+          "agent_instructions",
+          "software_development",
+          "workflow_governance"
+        ],
+        "topics": [
+          "yaml_job_workflow"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "agent_instructions",
+          "software_development",
+          "workflow_governance"
+        ],
+        "topics": [
+          "local_job_path",
+          "yaml_job_workflow"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0079",
+      "title": "Do not invent local repository paths",
+      "original": {
+        "domains": [
+          "agent_instructions",
+          "software_development",
+          "workflow_governance"
+        ],
+        "topics": [
+          "yaml_job_workflow"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "agent_instructions",
+          "software_development",
+          "workflow_governance"
+        ],
+        "topics": [
+          "repository_path_integrity",
+          "yaml_job_workflow"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0080",
+      "title": "Do not create substitute repositories or temporary project clones",
+      "original": {
+        "domains": [
+          "agent_instructions",
+          "software_development",
+          "workflow_governance"
+        ],
+        "topics": [
+          "yaml_job_workflow"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "agent_instructions",
+          "software_development",
+          "workflow_governance"
+        ],
+        "topics": [
+          "repository_clone_policy",
+          "yaml_job_workflow"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0081",
+      "title": "Do not embed large Python programs in YAML execution jobs",
+      "original": {
+        "domains": [
+          "agent_instructions",
+          "software_development",
+          "workflow_governance"
+        ],
+        "topics": [
+          "yaml_job_workflow"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "agent_instructions",
+          "software_development",
+          "workflow_governance"
+        ],
+        "topics": [
+          "yaml_job_workflow",
+          "yaml_script_size"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0082",
+      "title": "Place nontrivial job scripts in the repository scripts directory",
+      "original": {
+        "domains": [
+          "agent_instructions",
+          "software_development",
+          "workflow_governance"
+        ],
+        "topics": [
+          "yaml_job_workflow"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "agent_instructions",
+          "software_development",
+          "workflow_governance"
+        ],
+        "topics": [
+          "job_script_placement",
+          "yaml_job_workflow"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0083",
+      "title": "Invoke external scripts from YAML jobs",
+      "original": {
+        "domains": [
+          "agent_instructions",
+          "software_development",
+          "workflow_governance"
+        ],
+        "topics": [
+          "yaml_job_workflow"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "agent_instructions",
+          "software_development",
+          "workflow_governance"
+        ],
+        "topics": [
+          "job_script_invocation",
+          "yaml_job_workflow"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0084",
+      "title": "Pull latest changes before local repository YAML job work",
+      "original": {
+        "domains": [
+          "agent_instructions",
+          "software_development",
+          "workflow_governance"
+        ],
+        "topics": [
+          "yaml_job_workflow"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "agent_instructions",
+          "software_development",
+          "workflow_governance"
+        ],
+        "topics": [
+          "repository_sync",
+          "yaml_job_workflow"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0085",
+      "title": "Increase Tampermonkey @version on every userscript change",
+      "original": {
+        "domains": [
+          "agent_instructions",
+          "software_development"
+        ],
+        "topics": [
+          "browser_artifact_versioning"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "agent_instructions",
+          "software_development"
+        ],
+        "topics": [
+          "browser_artifact_versioning",
+          "browser_userscript_version"
+        ],
+        "project_types": [
+          "browser_userscript"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0086",
+      "title": "Increase WebExtension manifest version on every extension change",
+      "original": {
+        "domains": [
+          "agent_instructions",
+          "software_development"
+        ],
+        "topics": [
+          "browser_artifact_versioning"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "agent_instructions",
+          "software_development"
+        ],
+        "topics": [
+          "browser_artifact_versioning",
+          "browser_extension_version"
+        ],
+        "project_types": [
+          "browser_extension"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0087",
+      "title": "Define the MVP's essential purpose",
+      "original": {
+        "domains": [
+          "project_management",
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "project_management",
+          "releases",
+          "software_development"
+        ],
+        "topics": [
+          "mvp_definition",
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0088",
+      "title": "Set testable MVP acceptance criteria and scope",
+      "original": {
+        "domains": [
+          "project_management",
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "project_management",
+          "releases",
+          "software_development"
+        ],
+        "topics": [
+          "mvp_acceptance",
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0089",
+      "title": "Verify essential workflows end to end",
+      "original": {
+        "domains": [
+          "project_management",
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "project_management",
+          "releases",
+          "software_development",
+          "software_testing"
+        ],
+        "topics": [
+          "mvp_end_to_end_testing",
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0090",
+      "title": "Pass applicable automated tests and CI gates",
+      "original": {
+        "domains": [
+          "project_management",
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "project_management",
+          "releases",
+          "software_development",
+          "software_testing"
+        ],
+        "topics": [
+          "mvp_ci_gate",
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0091",
+      "title": "Verify the MVP in the intended actual environment",
+      "original": {
+        "domains": [
+          "project_management",
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "project_management",
+          "releases",
+          "software_development",
+          "software_testing"
+        ],
+        "topics": [
+          "mvp_environment_verification",
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0092",
+      "title": "Verify the user installation or operating path",
+      "original": {
+        "domains": [
+          "project_management",
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "project_management",
+          "releases",
+          "software_development"
+        ],
+        "topics": [
+          "mvp_inauguration",
+          "mvp_installation"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0093",
+      "title": "Test a public library API with an independent consumer",
+      "original": {
+        "domains": [
+          "project_management",
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "project_management",
+          "releases",
+          "software_development",
+          "software_testing"
+        ],
+        "topics": [
+          "mvp_api_consumer",
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0094",
+      "title": "Do not inaugurate despite purpose-defeating defects",
+      "original": {
+        "domains": [
+          "project_management",
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "project_management",
+          "releases",
+          "software_development",
+          "software_testing"
+        ],
+        "topics": [
+          "mvp_defect_gate",
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0095",
+      "title": "Get explicit project-owner acceptance for inauguration",
+      "original": {
+        "domains": [
+          "project_management",
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "governance",
+          "project_management",
+          "releases",
+          "software_development"
+        ],
+        "topics": [
+          "mvp_inauguration",
+          "mvp_owner_approval"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0096",
+      "title": "Do not declare MVP solely from proxy progress indicators",
+      "original": {
+        "domains": [
+          "project_management",
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "project_management",
+          "releases",
+          "software_development"
+        ],
+        "topics": [
+          "mvp_evidence_standard",
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0097",
+      "title": "Record the graduation into a maintained baseline",
+      "original": {
+        "domains": [
+          "project_management",
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "maintenance",
+          "project_management",
+          "releases",
+          "software_development"
+        ],
+        "topics": [
+          "mvp_baseline",
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0098",
+      "title": "Record MVP compatibility promises and accepted limitations",
+      "original": {
+        "domains": [
+          "project_management",
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "maintenance",
+          "project_management",
+          "releases",
+          "software_development"
+        ],
+        "topics": [
+          "mvp_compatibility",
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0099",
+      "title": "Keep future improvements outside MVP acceptance requirements",
+      "original": {
+        "domains": [
+          "project_management",
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "project_management",
+          "releases",
+          "software_development"
+        ],
+        "topics": [
+          "mvp_inauguration",
+          "mvp_scope_boundary"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0100",
+      "title": "Reconcile README, roadmap and milestones at graduation",
+      "original": {
+        "domains": [
+          "project_management",
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "documentation",
+          "project_management",
+          "releases",
+          "software_development"
+        ],
+        "topics": [
+          "mvp_documentation",
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0101",
+      "title": "Establish an approved stable inaugural version",
+      "original": {
+        "domains": [
+          "project_management",
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "project_management",
+          "releases",
+          "software_development"
+        ],
+        "topics": [
+          "inaugural_version",
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0102",
+      "title": "Tag and release the exact verified and accepted commit",
+      "original": {
+        "domains": [
+          "project_management",
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "project_management",
+          "releases",
+          "software_development"
+        ],
+        "topics": [
+          "inaugural_release",
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0103",
+      "title": "Provide relevant inaugural downloads through free channels",
+      "original": {
+        "domains": [
+          "project_management",
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "project_management",
+          "releases",
+          "software_development"
+        ],
+        "topics": [
+          "inaugural_distribution",
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0104",
+      "title": "Verify the published inaugural release",
+      "original": {
+        "domains": [
+          "project_management",
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "project_management",
+          "qa_verification",
+          "releases",
+          "software_development"
+        ],
+        "topics": [
+          "inaugural_release_verification",
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0105",
+      "title": "Record durable evidence for MVP acceptance",
+      "original": {
+        "domains": [
+          "project_management",
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "project_management",
+          "qa_verification",
+          "releases",
+          "software_development"
+        ],
+        "topics": [
+          "mvp_evidence_record",
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0106",
+      "title": "Use standardized post-MVP commits and releases",
+      "original": {
+        "domains": [
+          "project_management",
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "maintenance",
+          "project_management",
+          "releases",
+          "software_development"
+        ],
+        "topics": [
+          "mvp_inauguration",
+          "post_mvp_releases"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0107",
+      "title": "Manage changes after MVP with the compatibility contract",
+      "original": {
+        "domains": [
+          "project_management",
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "maintenance",
+          "project_management",
+          "releases",
+          "software_development"
+        ],
+        "topics": [
+          "mvp_inauguration",
+          "post_mvp_compatibility"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0108",
+      "title": "Do not authorize unrelated operational work through inauguration",
+      "original": {
+        "domains": [
+          "project_management",
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "governance",
+          "project_management",
+          "releases",
+          "software_development"
+        ],
+        "topics": [
+          "mvp_authorization_boundary",
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0109",
+      "title": "Reevaluate inauguration if core acceptance was actually invalid",
+      "original": {
+        "domains": [
+          "project_management",
+          "software_development",
+          "releases"
+        ],
+        "topics": [
+          "mvp_inauguration"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "project_management",
+          "qa_verification",
+          "releases",
+          "software_development"
+        ],
+        "topics": [
+          "mvp_inauguration",
+          "mvp_invalid_acceptance"
+        ],
+        "project_types": [
+          "software_project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0110",
+      "title": "Do not add explicit exit 1 guards to AND-linked YAML execution jobs",
+      "original": {
+        "domains": [
+          "agent_instructions",
+          "software_development",
+          "workflow_governance"
+        ],
+        "topics": [
+          "yaml_job_workflow"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "agent_instructions",
+          "software_development",
+          "workflow_governance"
+        ],
+        "topics": [
+          "yaml_error_propagation",
+          "yaml_job_workflow"
+        ],
+        "project_types": [
+          "project"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0111",
+      "title": "Differentially verify C and Rust program behavior",
+      "original": {
+        "domains": [
+          "software_development",
+          "software_porting",
+          "rust_development"
+        ],
+        "topics": [
+          "differential_testing"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "rust_development",
+          "software_development",
+          "software_porting",
+          "software_testing"
+        ],
+        "topics": [
+          "differential_testing",
+          "rust_port_differential"
+        ],
+        "project_types": [
+          "c_to_rust_port"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0112",
+      "title": "Contain and verify necessary unsafe Rust and FFI boundaries",
+      "original": {
+        "domains": [
+          "software_development",
+          "software_porting",
+          "rust_development"
+        ],
+        "topics": [
+          "unsafe_ffi_containment"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "rust_development",
+          "security",
+          "software_development",
+          "software_porting"
+        ],
+        "topics": [
+          "rust_port_unsafe_ffi",
+          "unsafe_ffi_containment"
+        ],
+        "project_types": [
+          "c_to_rust_port"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0113",
+      "title": "Inventory upstream capabilities and verified Rust port coverage",
+      "original": {
+        "domains": [
+          "software_development",
+          "software_porting",
+          "rust_development"
+        ],
+        "topics": [
+          "port_coverage_inventory"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "rust_development",
+          "software_development",
+          "software_porting"
+        ],
+        "topics": [
+          "port_coverage_inventory",
+          "rust_port_coverage"
+        ],
+        "project_types": [
+          "c_to_rust_port"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    },
+    {
+      "id": "NOM-0114",
+      "title": "Do not initiate or repeat unwarranted formulaic suicide-risk questions",
+      "original": {
+        "domains": [
+          "agent_instructions",
+          "safety_integrity"
+        ],
+        "topics": [
+          "unwarranted_safety_checkin_repetition"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "classified": {
+        "domains": [
+          "agent_instructions",
+          "safety_integrity"
+        ],
+        "topics": [
+          "unwarranted_safety_checkin_repetition"
+        ],
+        "project_types": [
+          "any"
+        ]
+      },
+      "review": {
+        "status": "retrospective_classification",
+        "basis": "Public rule title and statement, typed predicate, current category and published project contracts"
+      }
+    }
+  ]
+}
