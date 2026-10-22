@@ -2,7 +2,7 @@
   "id": "TASK-0016",
   "title": "Integrate C-to-Rust porting rules and create reviewed Lite and Full profile drafts",
   "kind": "catalog_and_profile_integration",
-  "status": "ready",
+  "status": "verifying",
   "created_on": "2026-10-21",
   "source": "Explicit authorization to process three C-to-Rust specimens and recreate both approved profile selections",
   "authorization": {
@@ -13,5 +13,10 @@
   },
   "scope": "Update tests, catalog/site documentation, and instantiate two editable profile drafts with the new published rules, keeping finalization and activation separate.",
   "processing_record": "processing/tasks/TASK-0016.json",
-  "remarks": "Authorized downstream task; execution record remains separate."
+  "remarks": "Integration committed; GitHub Actions verification pending.",
+  "processing": {
+    "record": "processing/tasks/TASK-0016.json",
+    "started_on": "2026-10-21",
+    "state": "verifying"
+  }
 }

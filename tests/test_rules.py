@@ -142,3 +142,16 @@ class QuantifierBoundsTests(unittest.TestCase):
         b["norm"]["bounds"]["window"] = "per report"
         b["norm"]["bounds"]["basis"] = "unresolved"
         assert not bounds_incompatible(a,b)
+
+
+class CToRustPortRulesTests(unittest.TestCase):
+    def test_new_distinct_porting_obligations(self):
+        _, rules = load_catalog()
+        by_id = {r["id"]:r for r in rules}
+        for rid, action in (("NOM-0111","compare"),("NOM-0112","contain_and_verify"),("NOM-0113","track")):
+            rule = by_id[rid]
+            self.assertEqual(rule["status"],"published")
+            self.assertEqual(rule["norm"]["kind"],"obligation")
+            self.assertEqual(rule["norm"]["predicate"]["action"],action)
+            self.assertIn("NOM-0074",rule["relations"]["depends_on"])
+            self.assertEqual(rule["norm"]["bounds"]["interpretation"],"universal")

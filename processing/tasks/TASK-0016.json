@@ -1,0 +1,36 @@
+{
+  "processing_id": "TASK-0016",
+  "source_queue_record": "queues/tasks/TASK-0016.json",
+  "status": "verifying",
+  "started_on": "2026-10-21",
+  "authorization": {
+    "source": "Explicit authorization to process porting specimens and create two reviewed draft selections",
+    "on": "2026-10-21"
+  },
+  "disposition": {
+    "kind": "catalog_and_profile_integration",
+    "outputs": [
+      "rules/NOM-0111.json",
+      "rules/NOM-0112.json",
+      "rules/NOM-0113.json",
+      "profiles/PROFILE-0001.json",
+      "profiles/PROFILE-0002.json",
+      "tests/",
+      "README.md",
+      "WORKFLOW.md"
+    ],
+    "automatic_application": false
+  },
+  "evidence": {
+    "implementation_commit": null,
+    "github_actions_run": null,
+    "github_actions_conclusion": "pending",
+    "verified_steps": [
+      "Three independent processed specimens mapped to published canonical atoms",
+      "Two draft profile selections constructed with published canonical IDs",
+      "Five privacy safeguards and all new port rules selected in both"
+    ],
+    "real_browser_visual_qa": "not_performed",
+    "selection_scope": "Drafts are opt-in. Finalization and use are not authorized."
+  }
+}

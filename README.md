@@ -21,7 +21,7 @@ A rule remains independent even when selected for a group or profile. Discussing
 - [schema/rule.schema.json](schema/rule.schema.json) — machine-readable rule record contract.
 - [schema/profile.schema.json](schema/profile.schema.json) — optional reusable rule-profile preset contract.
 - [PROFILE_WORKFLOW.md](PROFILE_WORKFLOW.md) — discuss, review, instantiate, edit and finalize a profile, all opt-in.
-- [profiles/](profiles/) — reserved for explicitly instantiated presets (currently none).
+- [profiles/](profiles/) — explicitly authorized opt-in draft presets; none automatically applies.
 - [taxonomy/categories.json](taxonomy/categories.json) — controlled categorization vocabulary.
 - [rules/](rules/) — independent catalog entries; inert until selected.
 - [ROADMAP.md](ROADMAP.md) — future work; not a task-processing record.
@@ -54,7 +54,7 @@ Nine additional independent opt-in rules `NOM-0068` through `NOM-0076` cover pro
 
 ## Optional rule-profile presets
 
-Rule profiles are **voluntary presets**, not another category of mandatory instructions. You may discuss an intended use, ask for AI-suggested existing rules, review the proposed list, then authorize creating an editable draft. After adding or removing rules, you may separately finalize it and later choose to use or export it as an agent instruction file or ChatGPT Custom Instructions. Profiles are not automatically applied, and discussing an idea never creates one. The `profiles/` registry is intentionally empty until the first user-approved profile is requested. Schema and selection operations use JavaScript; no new Python tooling was introduced for this feature.
+Rule profiles are **voluntary presets**, not another category of mandatory instructions. You may discuss an intended use, ask for AI-suggested existing rules, review the proposed list, then authorize creating an editable draft. After adding or removing rules, you may separately finalize it and later choose to use or export it as an agent instruction file or ChatGPT Custom Instructions. Profiles are not automatically applied, and discussing an idea never creates one. The `profiles/` registry contains two explicitly authorized, independently editable draft C-to-Rust porting presets (Lite and Full), pending separate finalization and use authorization. Schema and selection operations use JavaScript; no new Python tooling was introduced for this feature.
 
 ## Browser-version and local-workflow guidance
 
@@ -63,3 +63,9 @@ The 10 new operational rules from SPEC-0077–SPEC-0086 cover restrictions on ne
 ## MVP inauguration experience
 
 `GROUP-0014` is a fully opt-in, first-class **MVP Inauguration & Post-MVP Lifecycle** collection. It contains 50 distinct published atomic rules: existing general QA, testing, release and compatibility guidance plus new, specifically scoped rules from the 27 MVP specimens. Four incoming specimens reused equivalent existing published rules instead of duplicating their normative effects. Inauguration requires project-specific acceptance, relevant runtime checks, owner approval and separately authorized release actions; group publication never inaugurates a separate project or auto-selects the profile's rules.
+
+## C-to-Rust strict-port rule coverage and profiles
+
+Three independent published atoms extend port guidance: `NOM-0111` compares upstream C and Rust observable behavior under equivalent inputs, `NOM-0112` isolates and verifies necessary unsafe/FFI boundaries, and `NOM-0113` inventories verified upstream-to-Rust capability coverage. Inputs `SPEC-0115`–`SPEC-0117` have independent processing/disposition records.
+
+Two **draft** profiles select existing rules by ID: [Lite (41)](profiles/PROFILE-0001.json) and [Full (93)](profiles/PROFILE-0002.json). Both select all three new port rules and five public-private-information safeguards. Full additionally includes `NOM-0010` and `NOM-0068`–`NOM-0072` for permanent phase/milestone/task/feature emoji identities, numeric completion percentages, progress bars, overall progress and restrained completion reporting. Draft creation neither finalizes nor applies a profile.

@@ -20,9 +20,23 @@ test('schema defines an independent optional profile type, not a virtual group',
   assert.equal(schema.additionalProperties, false);
 });
 
-test('no real presets have been invented before user chooses one', () => {
-  const filenames = fs.readdirSync(path.resolve(__dirname, '../profiles'));
-  assert.deepEqual(filenames.filter(f => /^PROFILE-.*\.json$/.test(f)), []);
+test('authorized C-to-Rust profiles are independently editable drafts with privacy', () => {
+  const folder=path.resolve(__dirname,'../profiles');
+  const filenames=fs.readdirSync(folder).filter(f=>/^PROFILE-.*\.json$/.test(f)).sort();
+  assert.deepEqual(filenames,['PROFILE-0001.json','PROFILE-0002.json']);
+  const [lite,full]=filenames.map(f=>JSON.parse(fs.readFileSync(path.join(folder,f),'utf8')));
+  for(const profile of [lite,full]){
+    assert.equal(profile.status,'draft');
+    assert.equal(profile.review.selection_confirmed,true);
+    assert.equal(profile.review.finalization_confirmed,false);
+    assert.deepEqual(profiles.validate(profile,published).errors,[]);
+    for(const id of ['NOM-0111','NOM-0112','NOM-0113','NOM-0001','NOM-0003','NOM-0004','NOM-0050','NOM-0051']) assert.ok(profile.selected_rule_ids.includes(id),id);
+    assert.throws(()=>profiles.selectForUse(profile,published,{userSelected:true}),/finalized/);
+  }
+  assert.equal(lite.selected_rule_ids.length,41);
+  assert.equal(full.selected_rule_ids.length,93);
+  assert.ok(lite.selected_rule_ids.every(id=>full.selected_rule_ids.includes(id)));
+  for(const id of ['NOM-0010','NOM-0068','NOM-0069','NOM-0070','NOM-0071','NOM-0072']) assert.ok(full.selected_rule_ids.includes(id),id);
 });
 
 test('discussion or suggestions cannot create a profile without selection confirmation', () => {

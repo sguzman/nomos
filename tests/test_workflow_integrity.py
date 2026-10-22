@@ -13,7 +13,7 @@ def read(path):
 class ProcessingTraceTests(unittest.TestCase):
     def test_processed_and_pending_specimens_keep_separate_states(self):
         specimens = sorted((ROOT / "queues/specimens").glob("SPEC-*.json"))
-        self.assertEqual(len(specimens), 114)
+        self.assertEqual(len(specimens), 117)
         for path in specimens:
             original = json.loads(path.read_text(encoding="utf-8"))
             with self.subTest(specimen=original["id"]):
@@ -45,11 +45,15 @@ class ProcessingTraceTests(unittest.TestCase):
 
     def test_task_queues_and_execution_records_closed(self):
         task_queue = sorted((ROOT / "queues/tasks").glob("TASK-*.json"))
-        self.assertEqual(len(task_queue), 14)
+        self.assertEqual(len(task_queue), 15)
         for path in task_queue:
             task = json.loads(path.read_text(encoding="utf-8"))
             with self.subTest(task=task["id"]):
                 execution = read("processing/tasks/" + path.name)
+                if task["id"] == "TASK-0016" and task["status"] == "verifying":
+                    self.assertEqual(task["processing"]["state"], "verifying")
+                    self.assertEqual(execution["status"], "verifying")
+                    continue
                 self.assertEqual(task["status"], "completed")
                 self.assertEqual(task["processing"]["state"], "done")
                 self.assertEqual(execution["status"], "done")
@@ -97,6 +101,17 @@ class ProcessingTraceTests(unittest.TestCase):
             else:
                 self.assertEqual(analysis["disposition"]["kind"], "normalized_and_published")
                 self.assertEqual(read("processing/specimens/candidates/" + rid + ".json")["status"], "draft")
+
+    def test_port_specimens_are_independent_and_published(self):
+        for n in range(115, 118):
+            sid = "SPEC-" + str(n).zfill(4)
+            rid = "NOM-" + str(n - 4).zfill(4)
+            specimen = read("queues/specimens/" + sid + ".json")
+            disposition = read("processing/specimens/PROC-" + sid + ".json")
+            self.assertEqual(specimen["status"], "processed")
+            self.assertEqual(disposition["normalization"]["canonical_rule_id"], rid)
+            self.assertEqual(read("processing/specimens/candidates/" + rid + ".json")["status"], "draft")
+            self.assertEqual(read("rules/" + rid + ".json")["status"], "published")
 
     def test_group_records_never_auto_activate_rules(self):
         for path in sorted((ROOT / "groups").glob("GROUP-*.json")):
