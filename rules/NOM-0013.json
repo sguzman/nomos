@@ -1,6 +1,6 @@
 {
   "id": "NOM-0013",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "title": "Choose Rust edition 2024 for Cargo packages",
   "summary": "When selecting a Cargo package edition, set the [package].edition value to 2024.",
   "statement": "When selecting a Cargo package edition, set the [package].edition value to 2024.",
@@ -38,8 +38,8 @@
   },
   "categories": {
     "domains": [
-      "software_development",
-      "rust_development"
+      "rust_development",
+      "software_development"
     ],
     "topics": [
       "edition_selection"
@@ -66,7 +66,10 @@
       ]
     },
     "preconditions": [],
-    "exclusions": []
+    "exclusions": [],
+    "project_types": [
+      "rust_project"
+    ]
   },
   "authority": {
     "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
@@ -88,7 +91,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

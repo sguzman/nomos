@@ -1,6 +1,6 @@
 {
   "id": "NOM-0001",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "title": "Do not publish private material to public repositories",
   "summary": "Prevent private material from entering public repository surfaces.",
   "statement": "Do not include private material in public Git repository artifacts or their associated publication surfaces.",
@@ -32,11 +32,13 @@
   "categories": {
     "domains": [
       "privacy",
-      "publication"
+      "publication",
+      "security"
     ],
     "topics": [
+      "content_handling",
       "information_disclosure",
-      "content_handling"
+      "private_public_boundary"
     ],
     "audiences": [
       "ai_agents",
@@ -60,7 +62,10 @@
       ]
     },
     "preconditions": [],
-    "exclusions": []
+    "exclusions": [],
+    "project_types": [
+      "any"
+    ]
   },
   "authority": {
     "source": "Nomos publication constitution",
@@ -82,7 +87,7 @@
   },
   "governance": {
     "created_on": "2026-10-20",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

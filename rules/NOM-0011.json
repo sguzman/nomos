@@ -1,6 +1,6 @@
 {
   "id": "NOM-0011",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "title": "Keep specimen intake, processing, derived task queue and execution distinct",
   "summary": "Keep specimen intake, authorized specimen analysis, any resulting downstream task queue, and execution of those tasks as independent, explicitly authorized workflows with distinct states and traceable transitions.",
   "statement": "Keep specimen intake, authorized specimen analysis, any resulting downstream task queue, and execution of those tasks as independent, explicitly authorized workflows with distinct states and traceable transitions.",
@@ -37,6 +37,7 @@
       "workflow_governance"
     ],
     "topics": [
+      "specimen_task_workflow",
       "workflow_stage"
     ],
     "audiences": [
@@ -61,7 +62,10 @@
       ]
     },
     "preconditions": [],
-    "exclusions": []
+    "exclusions": [],
+    "project_types": [
+      "any"
+    ]
   },
   "authority": {
     "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
@@ -83,7 +87,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

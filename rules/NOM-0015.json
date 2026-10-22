@@ -1,6 +1,6 @@
 {
   "id": "NOM-0015",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "title": "Main branch default",
   "summary": "Use the existing main branch by default; deviate only when specifically instructed for the repository or task.",
   "statement": "Use the existing main branch by default; deviate only when specifically instructed for the repository or task.",
@@ -35,11 +35,11 @@
   },
   "categories": {
     "domains": [
-      "software_development",
-      "git_repository"
+      "git_repository",
+      "software_development"
     ],
     "topics": [
-      "development_hygiene"
+      "branch_policy"
     ],
     "audiences": [
       "ai_agents",
@@ -67,6 +67,9 @@
     ],
     "exclusions": [
       "Projects or operations outside authorized task scope"
+    ],
+    "project_types": [
+      "project"
     ]
   },
   "authority": {
@@ -89,7 +92,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

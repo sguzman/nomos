@@ -1,6 +1,6 @@
 {
   "id": "NOM-0004",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "title": "Do not expose private generation context in public outputs",
   "summary": "Do not reproduce or reveal private conversations, private drafting language, or nonpublic internal instructions in public outputs merely because they informed the work; public release of the result does not by itself authorize release of its private inputs.",
   "statement": "Do not reproduce or reveal private conversations, private drafting language, or nonpublic internal instructions in public outputs merely because they informed the work; public release of the result does not by itself authorize release of its private inputs.",
@@ -33,14 +33,15 @@
   },
   "categories": {
     "domains": [
+      "agent_instructions",
       "privacy",
-      "publication",
-      "agent_instructions"
+      "publication"
     ],
     "topics": [
-      "information_disclosure",
       "content_handling",
-      "personal_expression"
+      "information_disclosure",
+      "personal_expression",
+      "private_public_boundary"
     ],
     "audiences": [
       "ai_agents",
@@ -64,7 +65,10 @@
       ]
     },
     "preconditions": [],
-    "exclusions": []
+    "exclusions": [],
+    "project_types": [
+      "any"
+    ]
   },
   "authority": {
     "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
@@ -86,7 +90,7 @@
   },
   "governance": {
     "created_on": "2026-10-20",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

@@ -1,6 +1,6 @@
 {
   "id": "NOM-0003",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "title": "Do not disclose nonpublic information without authorization",
   "summary": "Do not include confidential or otherwise nonpublic information in public outputs without specific authorization to disclose that information.",
   "statement": "Do not include confidential or otherwise nonpublic information in public outputs without specific authorization to disclose that information.",
@@ -34,11 +34,12 @@
   "categories": {
     "domains": [
       "privacy",
-      "publication"
+      "publication",
+      "security"
     ],
     "topics": [
-      "information_disclosure",
-      "content_handling"
+      "content_handling",
+      "information_disclosure"
     ],
     "audiences": [
       "ai_agents",
@@ -62,7 +63,10 @@
       ]
     },
     "preconditions": [],
-    "exclusions": []
+    "exclusions": [],
+    "project_types": [
+      "any"
+    ]
   },
   "authority": {
     "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
@@ -84,7 +88,7 @@
   },
   "governance": {
     "created_on": "2026-10-20",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

@@ -1,6 +1,6 @@
 {
   "id": "NOM-0005",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "title": "Require system-aware appearance themes in graphical interfaces",
   "summary": "Graphical and web applications must support light, dark, and system appearance modes; start with system mode and provide an immediately effective on-screen dropdown for changing modes.",
   "statement": "Graphical and web applications must support light, dark, and system appearance modes; start with system mode and provide an immediately effective on-screen dropdown for changing modes.",
@@ -31,12 +31,13 @@
   },
   "categories": {
     "domains": [
-      "user_interfaces",
-      "software_development"
+      "software_development",
+      "user_interfaces"
     ],
     "topics": [
-      "theme_control",
-      "content_handling"
+      "content_handling",
+      "gui_theme_support",
+      "theme_control"
     ],
     "audiences": [
       "ai_agents",
@@ -62,6 +63,9 @@
     "preconditions": [],
     "exclusions": [
       "Must be an interface project."
+    ],
+    "project_types": [
+      "any"
     ]
   },
   "authority": {
@@ -84,7 +88,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

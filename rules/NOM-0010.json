@@ -1,6 +1,6 @@
 {
   "id": "NOM-0010",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "title": "Create structured roadmaps with stable emoji identities",
   "summary": "New projects must begin with a clear roadmap of phases, milestones, subtasks, and features; give each roadmap item its own stable identifying emoji separate from status.",
   "statement": "New projects must begin with a clear roadmap of phases, milestones, subtasks, and features; give each roadmap item its own stable identifying emoji separate from status.",
@@ -34,10 +34,12 @@
   "categories": {
     "domains": [
       "governance",
+      "project_management",
       "software_development"
     ],
     "topics": [
-      "project_roadmap"
+      "project_roadmap",
+      "roadmap_structure"
     ],
     "audiences": [
       "ai_agents",
@@ -61,7 +63,10 @@
       ]
     },
     "preconditions": [],
-    "exclusions": []
+    "exclusions": [],
+    "project_types": [
+      "project"
+    ]
   },
   "authority": {
     "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
@@ -83,7 +88,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

@@ -1,6 +1,6 @@
 {
   "id": "NOM-0006",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "title": "Represent Tarium ontology for humans and machines",
   "summary": "Each explicitly enrolled Tarium project must publish mutually consistent machine-readable ontology records and human-readable ontology documentation.",
   "statement": "Each explicitly enrolled Tarium project must publish mutually consistent machine-readable ontology records and human-readable ontology documentation.",
@@ -33,10 +33,11 @@
   },
   "categories": {
     "domains": [
-      "ontology",
-      "governance"
+      "governance",
+      "ontology"
     ],
     "topics": [
+      "ontology_representation",
       "representation"
     ],
     "audiences": [
@@ -61,7 +62,10 @@
       ]
     },
     "preconditions": [],
-    "exclusions": []
+    "exclusions": [],
+    "project_types": [
+      "tarium_project"
+    ]
   },
   "authority": {
     "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
@@ -83,7 +87,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

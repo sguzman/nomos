@@ -1,6 +1,6 @@
 {
   "id": "NOM-0022",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "title": "Verify Git branch and history",
   "summary": "Verify branch identity, expected ancestry and the exact changes before updating repository references.",
   "statement": "Verify branch identity, expected ancestry and the exact changes before updating repository references.",
@@ -35,11 +35,11 @@
   },
   "categories": {
     "domains": [
-      "software_development",
-      "git_repository"
+      "git_repository",
+      "software_development"
     ],
     "topics": [
-      "development_hygiene"
+      "git_history_verification"
     ],
     "audiences": [
       "ai_agents",
@@ -67,6 +67,9 @@
     ],
     "exclusions": [
       "Projects or operations outside authorized task scope"
+    ],
+    "project_types": [
+      "project"
     ]
   },
   "authority": {
@@ -89,7 +92,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

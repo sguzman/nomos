@@ -1,6 +1,6 @@
 {
   "id": "NOM-0007",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "title": "Maintain a per-project ontology and public specimen showcase",
   "summary": "Each explicitly enrolled Tarium project must maintain its own independently usable ontology and public website showcasing representative ontology specimens.",
   "statement": "Each explicitly enrolled Tarium project must maintain its own independently usable ontology and public website showcasing representative ontology specimens.",
@@ -33,11 +33,12 @@
   },
   "categories": {
     "domains": [
-      "ontology",
       "governance",
+      "ontology",
       "publication"
     ],
     "topics": [
+      "ontology_gallery",
       "specimen_showcase"
     ],
     "audiences": [
@@ -62,7 +63,10 @@
       ]
     },
     "preconditions": [],
-    "exclusions": []
+    "exclusions": [],
+    "project_types": [
+      "tarium_project"
+    ]
   },
   "authority": {
     "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
@@ -84,7 +88,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

@@ -1,6 +1,6 @@
 {
   "id": "NOM-0025",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "title": "Rust Clippy linting",
   "summary": "Run Clippy on relevant targets and address actionable diagnostics; select warning strictness deliberately.",
   "statement": "Run Clippy on relevant targets and address actionable diagnostics; select warning strictness deliberately.",
@@ -35,11 +35,11 @@
   },
   "categories": {
     "domains": [
-      "software_development",
-      "rust_quality"
+      "rust_quality",
+      "software_development"
     ],
     "topics": [
-      "development_hygiene"
+      "rust_linting"
     ],
     "audiences": [
       "ai_agents",
@@ -67,6 +67,9 @@
     ],
     "exclusions": [
       "Projects or operations outside authorized task scope"
+    ],
+    "project_types": [
+      "rust_project"
     ]
   },
   "authority": {
@@ -89,7 +92,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [
