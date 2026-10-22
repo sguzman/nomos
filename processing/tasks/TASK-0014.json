@@ -1,0 +1,21 @@
+{
+  "processing_id": "TASK-0014",
+  "source_queue_record": "queues/tasks/TASK-0014.json",
+  "status": "verifying",
+  "started_on": "2026-10-21",
+  "authorization": {
+    "source": "Explicit authorization on 2026-10-21 to process all queued specimens and downstream tasks",
+    "on": "2026-10-21"
+  },
+  "disposition": {
+    "kind": "implementation_in_verification",
+    "outputs": [
+      "groups/GROUP-0014.json"
+    ],
+    "automatic_application": false
+  },
+  "evidence": {
+    "github_actions_conclusion": "pending",
+    "real_browser_visual_qa": "not_performed"
+  }
+}

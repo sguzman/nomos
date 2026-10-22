@@ -1,0 +1,105 @@
+{
+  "id": "NOM-0087",
+  "version": "0.1.0",
+  "title": "Define the MVP's essential purpose",
+  "summary": "Define the project's essential real-user purpose and minimal useful externally observable outcome before deciding whether an MVP is ready.",
+  "statement": "Define the project's essential real-user purpose and minimal useful externally observable outcome before deciding whether an MVP is ready.",
+  "rationale": "Public-safe, independently reviewed operational rule.",
+  "language": "en",
+  "status": "draft",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "define",
+      "object": "define_the_mvp_s_essential_purpose",
+      "target": "project_mvp_lifecycle"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "Only during an authorized MVP readiness, graduation, release, or maintenance review."
+    ],
+    "exceptions": [
+      "No automatic release, tag, deploy, or other project mutation."
+    ],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
+  },
+  "categories": {
+    "domains": [
+      "project_management",
+      "software_development",
+      "releases"
+    ],
+    "topics": [
+      [
+        "mvp_inauguration"
+      ]
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "Only during an authorized MVP readiness, graduation, release, or maintenance review."
+    ],
+    "exclusions": [
+      "No automatic release, tag, deploy, or other project mutation."
+    ]
+  },
+  "authority": {
+    "source": "Retained normalized processing candidate",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": [
+      "NOM-0064"
+    ]
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0087; processing/specimens/PROC-SPEC-0087.json",
+    "license": "MIT",
+    "notes": "Independent opt-in rule; group membership conveys no authority."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "unreviewed"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

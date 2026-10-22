@@ -7,14 +7,14 @@ const { hueForId } = require('../docs/rule-colors.js');
 const catalog = require('../docs/catalog.json');
 const args = { rules: catalog.rules, groups: catalog.groups };
 
-test('unified catalog shows all 76 rules and all thirteen groups', () => {
+test('unified catalog shows all 110 rules and all fourteen groups', () => {
   const results = search(args);
-  assert.equal(results.length, 89);
-  assert.equal(results.filter(x => x.kind === 'rule').length, 76);
-  assert.equal(results.filter(x => x.kind === 'group').length, 13);
-  assert.deepEqual(results.slice(0, 13).map(x => x.value.id),
-    Array.from({ length: 13 }, (_, i) => 'GROUP-' + String(i + 1).padStart(4, '0')));
-  assert.equal(results[13].value.id, 'NOM-0001');
+  assert.equal(results.length, 124);
+  assert.equal(results.filter(x => x.kind === 'rule').length, 110);
+  assert.equal(results.filter(x => x.kind === 'group').length, 14);
+  assert.deepEqual(results.slice(0, 14).map(x => x.value.id),
+    Array.from({ length: 14 }, (_, i) => 'GROUP-' + String(i + 1).padStart(4, '0')));
+  assert.equal(results[14].value.id, 'NOM-0001');
 });
 test('entity type selector filters one shared catalog', () => {
   assert.equal(search({ ...args, type: 'groups' }).length, 13);
@@ -41,7 +41,7 @@ test('Browse members uses shared filtered catalog and excludes groups', () => {
 });
 test('all group IDs generate distinct stable OKLCH hues', () => {
   const hues = catalog.groups.map(g => hueForId(g.id));
-  assert.equal(new Set(hues).size, 13);
+  assert.equal(new Set(hues).size, 14);
   for (let i=0;i<hues.length;i++) {
     assert.equal(hueForId(catalog.groups[i].id), hues[i]);
     assert.equal(hues[i], catalog.groups[i].color.hue_degrees);
@@ -51,9 +51,9 @@ test('all group IDs generate distinct stable OKLCH hues', () => {
 test('rules-first reverses type precedence with stable IDs inside each type', () => {
   const results = search({ ...args, sort: 'rules-first' });
   assert.equal(results[0].value.id, 'NOM-0001');
-  assert.equal(results[75].value.id, 'NOM-0076');
-  assert.equal(results[76].value.id, 'GROUP-0001');
-  assert.equal(results.at(-1).value.id, 'GROUP-0013');
+  assert.equal(results[109].value.id, 'NOM-0110');
+  assert.equal(results[110].value.id, 'GROUP-0001');
+  assert.equal(results.at(-1).value.id, 'GROUP-0014');
 });
 test('name and ID sort directions work on the combined results', () => {
   const asc = search({ ...args, sort: 'name-asc' });

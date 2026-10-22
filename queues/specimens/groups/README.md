@@ -32,3 +32,7 @@ These five source proposals have independent closed processing records and appro
 ## Pending all-in-one MVP experience proposal (2026-10-21)
 
 `GROUP-0014` — **MVP Inauguration & Post-MVP Lifecycle**: one independently queued virtual group with `SPEC-0087`–`SPEC-0113` and proposed references to 27 existing published release, QA and compatibility rules. Members remain independent and project applicability must be reviewed before any future opt-in composition. Two browser versioning specimens `SPEC-0085`–`SPEC-0086` are separately queued and not automatic group members. The group has not been processed or published, and it does not initiate any inauguration.
+
+## Processed GROUP-0014 (2026-10-21)
+
+`GROUP-0014` received a separate reviewed processing record and is published as a 50-member opt-in virtual group. Member IDs reference only independent published rules; no group or profile auto-application occurs. The original proposal remains as intake history.

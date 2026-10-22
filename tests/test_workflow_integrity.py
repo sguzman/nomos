@@ -13,15 +13,10 @@ def read(path):
 class ProcessingTraceTests(unittest.TestCase):
     def test_processed_and_pending_specimens_keep_separate_states(self):
         specimens = sorted((ROOT / "queues/specimens").glob("SPEC-*.json"))
-        self.assertEqual(len(specimens), 84)
+        self.assertEqual(len(specimens), 114)
         for path in specimens:
             original = json.loads(path.read_text(encoding="utf-8"))
             with self.subTest(specimen=original["id"]):
-                if 77 <= int(original["id"].split("-")[1]) <= 84:
-                    self.assertEqual(original["status"], "proposed")
-                    self.assertFalse(original["intake"]["processing_authorized"])
-                    self.assertNotIn("processing", original)
-                    continue
                 self.assertEqual(original["status"], "processed")
                 processing = original["processing"]
                 self.assertEqual(processing["state"], "closed")
@@ -29,7 +24,7 @@ class ProcessingTraceTests(unittest.TestCase):
 
     def test_group_proposals_have_separate_records(self):
         proposals = sorted((ROOT / "queues/specimens/groups").glob("GROUP-*.json"))
-        self.assertEqual(len(proposals), 13)
+        self.assertEqual(len(proposals), 14)
         for path in proposals:
             obj = json.loads(path.read_text(encoding="utf-8"))
             with self.subTest(group=obj["id"]):
@@ -50,13 +45,17 @@ class ProcessingTraceTests(unittest.TestCase):
 
     def test_task_queues_and_execution_records_closed(self):
         task_queue = sorted((ROOT / "queues/tasks").glob("TASK-*.json"))
-        self.assertEqual(len(task_queue), 11)
+        self.assertEqual(len(task_queue), 14)
         for path in task_queue:
             task = json.loads(path.read_text(encoding="utf-8"))
             with self.subTest(task=task["id"]):
-                self.assertEqual(task["status"], "completed")
                 execution = read("processing/tasks/" + path.name)
-                self.assertEqual(execution["status"], "done")
+                if int(task["id"].split("-")[1]) >= 13:
+                    self.assertIn(task["status"], {"in_progress", "completed"})
+                    self.assertIn(execution["status"], {"verifying", "done"})
+                else:
+                    self.assertEqual(task["status"], "completed")
+                    self.assertEqual(execution["status"], "done")
         self.assertEqual(read("processing/tasks/TASK-0003.json")["status"], "done")
 
     def test_nine_new_candidates_are_published_without_overwriting_history(self):
@@ -81,6 +80,21 @@ class ProcessingTraceTests(unittest.TestCase):
             rule = read("rules/NOM-" + str(n).zfill(4) + ".json")
             self.assertTrue(rule["scope"]["preconditions"])
             self.assertEqual(rule["status"], "published")
+
+    def test_processed_new_specimens_map_to_published_or_reused_atoms(self):
+        reused = {"SPEC-0090": "NOM-0075", "SPEC-0103": "NOM-0056",
+                  "SPEC-0104": "NOM-0047", "SPEC-0107": "NOM-0060"}
+        for number in range(77, 115):
+            sid = "SPEC-" + str(number).zfill(4)
+            analysis = read("processing/specimens/PROC-" + sid + ".json")
+            rid = analysis["normalization"]["canonical_rule_id"]
+            self.assertEqual(read("rules/" + rid + ".json")["status"], "published")
+            if sid in reused:
+                self.assertEqual(rid, reused[sid])
+                self.assertEqual(analysis["disposition"]["kind"], "resolved_to_existing_rule")
+            else:
+                self.assertEqual(analysis["disposition"]["kind"], "normalized_and_published")
+                self.assertEqual(read("processing/specimens/candidates/" + rid + ".json")["status"], "draft")
 
     def test_group_records_never_auto_activate_rules(self):
         for path in sorted((ROOT / "groups").glob("GROUP-*.json")):

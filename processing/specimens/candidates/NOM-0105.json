@@ -1,0 +1,104 @@
+{
+  "id": "NOM-0105",
+  "version": "0.1.0",
+  "title": "Record durable evidence for MVP acceptance",
+  "summary": "Preserve the acceptance criteria, test results, exact commit, limitations, owner approval and release references without exposing private discussions.",
+  "statement": "Preserve the acceptance criteria, test results, exact commit, limitations, owner approval and release references without exposing private discussions.",
+  "rationale": "Independently normalized public-safe operational guidance.",
+  "language": "en",
+  "status": "draft",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "record",
+      "object": "record_durable_evidence_for_mvp_acceptance",
+      "target": "project_mvp_lifecycle"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "A user-authorized MVP review, inauguration or post-MVP maintenance operation is taking place."
+    ],
+    "exceptions": [
+      "No implicit authorization to publish tags, releases or deployments."
+    ],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
+  },
+  "categories": {
+    "domains": [
+      "project_management",
+      "software_development",
+      "releases"
+    ],
+    "topics": [
+      "mvp_inauguration"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "A user-authorized MVP review, inauguration or post-MVP maintenance operation is taking place."
+    ],
+    "exclusions": [
+      "No implicit authorization to publish tags, releases or deployments."
+    ]
+  },
+  "authority": {
+    "source": "Retained normalized processing candidate",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": [
+      "NOM-0065",
+      "NOM-0066"
+    ]
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0109; processing/specimens/PROC-SPEC-0109.json",
+    "license": "MIT",
+    "notes": "Standalone opt-in rule, no inherited application."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "unreviewed"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

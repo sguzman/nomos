@@ -1,7 +1,7 @@
 {
   "id": "SPEC-0077",
   "title": "Do not suggest names ending with the suffix arium",
-  "status": "proposed",
+  "status": "processed",
   "abstract": "When generating or recommending new names for projects, products, applications, repositories, tools, or other user-named entities, do not propose candidate names whose final letters are 'arium', regardless of letter case.",
   "source": {
     "kind": "public_safe_user_requested_constraint",
@@ -55,6 +55,12 @@
     "Determine whether a typed name-suffix matcher is warranted for automatic conflict checking; do not pretend the current checker understands the string pattern.",
     "Distinguish prohibited new recommendations from references to historical or existing names."
   ],
-  "next_state": "awaiting_explicit_specimen_processing_selection",
-  "remarks": "Queue-only proposed prohibition; it does not authorize normalization, publication, website changes, or downstream engineering. Do not reproduce private or emotional language in the public repository."
+  "next_state": "processed_specimen_retained_as_intake_record",
+  "remarks": "Queue-only proposed prohibition; it does not authorize normalization, publication, website changes, or downstream engineering. Do not reproduce private or emotional language in the public repository.",
+  "processing": {
+    "authorized_by": "explicit_user_request",
+    "authorized_on": "2026-10-21",
+    "record": "processing/specimens/PROC-SPEC-0077.json",
+    "state": "closed"
+  }
 }

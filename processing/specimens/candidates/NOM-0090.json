@@ -1,0 +1,107 @@
+{
+  "id": "NOM-0090",
+  "version": "0.1.0",
+  "title": "Pass applicable automated tests and CI gates",
+  "summary": "Run and pass the relevant unit, integration, regression, formatting, lint, compilation, and configured CI checks before inauguration; disclose untested targets.",
+  "statement": "Run and pass the relevant unit, integration, regression, formatting, lint, compilation, and configured CI checks before inauguration; disclose untested targets.",
+  "rationale": "Reviewed independent public-safe operational practice.",
+  "language": "en",
+  "status": "draft",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "pass",
+      "object": "pass_applicable_automated_tests_and_ci_gates",
+      "target": "project_mvp_lifecycle"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "An authorized MVP readiness, graduation, release, or follow-up review is in progress."
+    ],
+    "exceptions": [
+      "Does not independently authorize a tag, release or external deployment."
+    ],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
+  },
+  "categories": {
+    "domains": [
+      "project_management",
+      "software_development",
+      "releases"
+    ],
+    "topics": [
+      "mvp_inauguration"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "An authorized MVP readiness, graduation, release, or follow-up review is in progress."
+    ],
+    "exclusions": [
+      "Does not independently authorize a tag, release or external deployment."
+    ]
+  },
+  "authority": {
+    "source": "Retained normalized processing candidate",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": [
+      "NOM-0027",
+      "NOM-0028",
+      "NOM-0029",
+      "NOM-0036",
+      "NOM-0041"
+    ]
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0091; processing/specimens/PROC-SPEC-0091.json",
+    "license": "MIT",
+    "notes": "Rule remains independent and opt-in."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "unreviewed"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

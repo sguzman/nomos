@@ -1,0 +1,106 @@
+{
+  "id": "NOM-0086",
+  "version": "0.1.0",
+  "title": "Increase WebExtension manifest version on every extension change",
+  "summary": "Every time a browser extension is changed, including during local iteration, increase its manifest.json version to a strictly higher valid extension version. This applies to code, resources and metadata revisions; do not confuse the extension version with manifest_version.",
+  "statement": "Every time a browser extension is changed, including during local iteration, increase its manifest.json version to a strictly higher valid extension version. This applies to code, resources and metadata revisions; do not confuse the extension version with manifest_version.",
+  "rationale": "Public-safe, independently reviewed operational rule.",
+  "language": "en",
+  "status": "draft",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "increment",
+      "object": "webextension_manifest_version_field",
+      "target": "modified_extension"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "Every authorized script or extension modification, including local changes."
+    ],
+    "exceptions": [
+      "Metadata changes do not independently authorize distribution."
+    ],
+    "bounds": {
+      "quantifier": "all",
+      "interpretation": "universal",
+      "frequency": "always",
+      "minimum": null,
+      "maximum": null,
+      "unit": "occurrences",
+      "window": "each modification",
+      "cue": "Every time",
+      "basis": "explicit_text"
+    }
+  },
+  "categories": {
+    "domains": [
+      "agent_instructions",
+      "software_development"
+    ],
+    "topics": [
+      [
+        "browser_artifact_versioning"
+      ]
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "Every authorized script or extension modification, including local changes."
+    ],
+    "exclusions": [
+      "Metadata changes do not independently authorize distribution."
+    ]
+  },
+  "authority": {
+    "source": "Retained normalized processing candidate",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [
+      "NOM-0055"
+    ],
+    "depends_on": [
+      "NOM-0056"
+    ]
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0086; processing/specimens/PROC-SPEC-0086.json",
+    "license": "MIT",
+    "notes": "Independent opt-in rule; group membership conveys no authority."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "unreviewed"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

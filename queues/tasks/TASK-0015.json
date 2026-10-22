@@ -1,0 +1,22 @@
+{
+  "id": "TASK-0015",
+  "title": "Integrate site catalog, docs, tests and deployed QA",
+  "kind": "website_integration",
+  "status": "in_progress",
+  "created_on": "2026-10-21",
+  "source": "Explicit authorization on 2026-10-21 to process all queued specimens and downstream tasks",
+  "authorization": {
+    "queue": true,
+    "execute": true,
+    "publish_catalog": true,
+    "source": "Explicit authorization on 2026-10-21 to process all queued specimens and downstream tasks"
+  },
+  "scope": "Update taxonomy, schema, website, tests and workflow trace; verify GitHub Pages and document remaining QA limitations.",
+  "processing_record": "processing/tasks/TASK-0015.json",
+  "processing": {
+    "record": "processing/tasks/TASK-0015.json",
+    "started_on": "2026-10-21",
+    "state": "verifying"
+  },
+  "remarks": "Implementation staged; completion requires passing repository checks and deployment evidence."
+}

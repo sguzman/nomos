@@ -1,0 +1,105 @@
+{
+  "id": "NOM-0092",
+  "version": "1.0.0",
+  "title": "Verify the user installation or operating path",
+  "summary": "Demonstrate the real documented path to obtain, build, launch, install or consume the product before MVP graduation, according to project type.",
+  "statement": "Demonstrate the real documented path to obtain, build, launch, install or consume the product before MVP graduation, according to project type.",
+  "rationale": "Reviewed independent public-safe operational practice.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "verify",
+      "object": "verify_the_user_installation_or_operating_path",
+      "target": "project_mvp_lifecycle"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "An authorized MVP readiness, graduation, release, or follow-up review is in progress."
+    ],
+    "exceptions": [
+      "Does not independently authorize a tag, release or external deployment."
+    ],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
+  },
+  "categories": {
+    "domains": [
+      "project_management",
+      "software_development",
+      "releases"
+    ],
+    "topics": [
+      "mvp_inauguration"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "An authorized MVP readiness, graduation, release, or follow-up review is in progress."
+    ],
+    "exclusions": [
+      "Does not independently authorize a tag, release or external deployment."
+    ]
+  },
+  "authority": {
+    "source": "Reviewed Nomos guidance; requires opt-in selection",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": [
+      "NOM-0057",
+      "NOM-0059",
+      "NOM-0062"
+    ]
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0093; processing/specimens/PROC-SPEC-0093.json",
+    "license": "MIT",
+    "notes": "Rule remains independent and opt-in."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

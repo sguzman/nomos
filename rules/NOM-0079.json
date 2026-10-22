@@ -1,0 +1,105 @@
+{
+  "id": "NOM-0079",
+  "version": "1.0.0",
+  "title": "Do not invent local repository paths",
+  "summary": "Do not fabricate, infer, or substitute an unverified filesystem path for a project when writing or running a YAML-specified job against a local Git repository.",
+  "statement": "Do not fabricate, infer, or substitute an unverified filesystem path for a project when writing or running a YAML-specified job against a local Git repository.",
+  "rationale": "Public-safe, independently reviewed operational rule.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "prohibition",
+    "predicate": {
+      "action": "invent",
+      "object": "unverified_repository_path",
+      "target": "local_repository_yaml_job"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "Job targets an existing explicitly authorized local repository."
+    ],
+    "exceptions": [
+      "Does not authorize changing unrelated or substitute repositories."
+    ],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "never",
+      "minimum": 0,
+      "maximum": 0,
+      "unit": "occurrences",
+      "window": null,
+      "cue": "Do not",
+      "basis": "reviewed_inference"
+    }
+  },
+  "categories": {
+    "domains": [
+      "agent_instructions",
+      "software_development",
+      "workflow_governance"
+    ],
+    "topics": [
+      [
+        "yaml_job_workflow"
+      ]
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "Job targets an existing explicitly authorized local repository."
+    ],
+    "exclusions": [
+      "Does not authorize changing unrelated or substitute repositories."
+    ]
+  },
+  "authority": {
+    "source": "Reviewed Nomos guidance; explicitly selected use only",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": [
+      "NOM-0014"
+    ]
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0079; processing/specimens/PROC-SPEC-0079.json",
+    "license": "MIT",
+    "notes": "Independent opt-in rule; group membership conveys no authority."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

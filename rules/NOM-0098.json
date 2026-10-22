@@ -1,0 +1,105 @@
+{
+  "id": "NOM-0098",
+  "version": "1.0.0",
+  "title": "Record MVP compatibility promises and accepted limitations",
+  "summary": "Document the inaugural supported features, public interfaces, data formats, environments, operational requirements and accepted limitations as a maintainable contract.",
+  "statement": "Document the inaugural supported features, public interfaces, data formats, environments, operational requirements and accepted limitations as a maintainable contract.",
+  "rationale": "Reviewed independent public-safe operational practice.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "record",
+      "object": "record_mvp_compatibility_promises_and_accepted_limitations",
+      "target": "project_mvp_lifecycle"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "An authorized MVP readiness, graduation, release, or follow-up review is in progress."
+    ],
+    "exceptions": [
+      "Does not independently authorize a tag, release or external deployment."
+    ],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
+  },
+  "categories": {
+    "domains": [
+      "project_management",
+      "software_development",
+      "releases"
+    ],
+    "topics": [
+      "mvp_inauguration"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "An authorized MVP readiness, graduation, release, or follow-up review is in progress."
+    ],
+    "exclusions": [
+      "Does not independently authorize a tag, release or external deployment."
+    ]
+  },
+  "authority": {
+    "source": "Reviewed Nomos guidance; requires opt-in selection",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": [
+      "NOM-0044",
+      "NOM-0054",
+      "NOM-0064"
+    ]
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0099; processing/specimens/PROC-SPEC-0099.json",
+    "license": "MIT",
+    "notes": "Rule remains independent and opt-in."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

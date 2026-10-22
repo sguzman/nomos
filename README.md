@@ -55,3 +55,11 @@ Nine additional independent opt-in rules `NOM-0068` through `NOM-0076` cover pro
 ## Optional rule-profile presets
 
 Rule profiles are **voluntary presets**, not another category of mandatory instructions. You may discuss an intended use, ask for AI-suggested existing rules, review the proposed list, then authorize creating an editable draft. After adding or removing rules, you may separately finalize it and later choose to use or export it as an agent instruction file or ChatGPT Custom Instructions. Profiles are not automatically applied, and discussing an idea never creates one. The `profiles/` registry is intentionally empty until the first user-approved profile is requested. Schema and selection operations use JavaScript; no new Python tooling was introduced for this feature.
+
+## Browser-version and local-workflow guidance
+
+The 10 new operational rules from SPEC-0077–SPEC-0086 cover restrictions on new naming suggestions, verifying local repository paths, avoiding substitute projects and inlined YAML-job programs, external script invocation, pulling before local work, and per-change version increments for Tampermonkey userscripts and browser extensions. The separate SPEC-0114 produces a prohibition on redundant `exit 1` guards in YAML jobs with built-in AND-linked failure propagation. All rules remain selectable guidance, not a mandate to execute jobs or modify a system.
+
+## MVP inauguration experience
+
+`GROUP-0014` is a fully opt-in, first-class **MVP Inauguration & Post-MVP Lifecycle** collection. It contains 50 distinct published atomic rules: existing general QA, testing, release and compatibility guidance plus new, specifically scoped rules from the 27 MVP specimens. Four incoming specimens reused equivalent existing published rules instead of duplicating their normative effects. Inauguration requires project-specific acceptance, relevant runtime checks, owner approval and separately authorized release actions; group publication never inaugurates a separate project or auto-selects the profile's rules.

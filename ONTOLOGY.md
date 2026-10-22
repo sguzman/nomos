@@ -102,3 +102,9 @@ A profile in `profiles/PROFILE-*.json` is a **purpose-specific reusable preset**
 Profiles can name output targets `agents_md` (agent instructions), `chatgpt_custom_instructions`, or `plain_text`; format support does not grant permission to install or apply instructions anywhere. Missing new rule ideas must follow ordinary specimen processing and publication rather than being hallucinated into a profile. Machine checks reject duplicate rule IDs, unpublished references, invalid export targets and unsupported state transitions; existing conservative rule-conflict analysis is reused to flag potential incompatibilities before finalization. Catalog revisions do not silently change the selected IDs or add rules.
 
 **No default profile is required. No rule profile has been instantiated merely by adding this ontology kind.**
+
+## MVP graduation collection and de-duplicated intake
+
+The approved `GROUP-0014` is a virtual rule group, **not** an applied workflow or a rule profile. Its 50 canonical published rule references combine cross-cutting QA, release and compatibility atoms with narrowly scoped MVP acceptance, inauguration and post-maintenance rules. The 27 MVP-specific intake specimens do not imply 27 new catalog entries: four reuse existing canonical definitions after explicit comparison, and 23 add independently defined normative atoms. A project may opt in to individual rules or to the group; none is mandated by the presence of an MVP project.
+
+Prohibited actions remain marked `norm.kind: prohibition` with independently reviewable `norm.bounds`. The case-insensitive name-suffix restriction, YAML job safety constraints and per-modification browser artifact version requirements have separate predicates; their authorization conditions must be checked for actual applicability. Automatic conflict scanning is conservative and does not infer arbitrary natural-language semantic contradictions.

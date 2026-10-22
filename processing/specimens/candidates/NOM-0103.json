@@ -1,0 +1,104 @@
+{
+  "id": "NOM-0103",
+  "version": "0.1.0",
+  "title": "Provide relevant inaugural downloads through free channels",
+  "summary": "For distributable applications or libraries, provide appropriate downloadable release assets through authorized zero-cost hosting where feasible; do not require binaries for source-only products.",
+  "statement": "For distributable applications or libraries, provide appropriate downloadable release assets through authorized zero-cost hosting where feasible; do not require binaries for source-only products.",
+  "rationale": "Independently normalized public-safe operational guidance.",
+  "language": "en",
+  "status": "draft",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "provide",
+      "object": "provide_relevant_inaugural_downloads_through_free_channels",
+      "target": "project_mvp_lifecycle"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "A user-authorized MVP review, inauguration or post-MVP maintenance operation is taking place."
+    ],
+    "exceptions": [
+      "No implicit authorization to publish tags, releases or deployments."
+    ],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
+  },
+  "categories": {
+    "domains": [
+      "project_management",
+      "software_development",
+      "releases"
+    ],
+    "topics": [
+      "mvp_inauguration"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "A user-authorized MVP review, inauguration or post-MVP maintenance operation is taking place."
+    ],
+    "exclusions": [
+      "No implicit authorization to publish tags, releases or deployments."
+    ]
+  },
+  "authority": {
+    "source": "Retained normalized processing candidate",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": [
+      "NOM-0059",
+      "NOM-0061"
+    ]
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0106; processing/specimens/PROC-SPEC-0106.json",
+    "license": "MIT",
+    "notes": "Standalone opt-in rule, no inherited application."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "unreviewed"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

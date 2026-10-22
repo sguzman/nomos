@@ -1,0 +1,105 @@
+{
+  "id": "NOM-0104",
+  "version": "1.0.0",
+  "title": "Verify the published inaugural release",
+  "summary": "Confirm the published tag, version, CI result, release metadata, assets and documented usage path actually correspond to the accepted candidate.",
+  "statement": "Confirm the published tag, version, CI result, release metadata, assets and documented usage path actually correspond to the accepted candidate.",
+  "rationale": "Independently normalized public-safe operational guidance.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "verify",
+      "object": "verify_the_published_inaugural_release",
+      "target": "project_mvp_lifecycle"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "A user-authorized MVP review, inauguration or post-MVP maintenance operation is taking place."
+    ],
+    "exceptions": [
+      "No implicit authorization to publish tags, releases or deployments."
+    ],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
+  },
+  "categories": {
+    "domains": [
+      "project_management",
+      "software_development",
+      "releases"
+    ],
+    "topics": [
+      "mvp_inauguration"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "A user-authorized MVP review, inauguration or post-MVP maintenance operation is taking place."
+    ],
+    "exclusions": [
+      "No implicit authorization to publish tags, releases or deployments."
+    ]
+  },
+  "authority": {
+    "source": "Reviewed Nomos guidance; explicitly selected use only",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": [
+      "NOM-0041",
+      "NOM-0057",
+      "NOM-0066"
+    ]
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0108; processing/specimens/PROC-SPEC-0108.json",
+    "license": "MIT",
+    "notes": "Standalone opt-in rule, no inherited application."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

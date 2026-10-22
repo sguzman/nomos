@@ -15,8 +15,8 @@ class VirtualGroupTests(unittest.TestCase):
         cls.groups = load_groups()
         cls.published = {r["id"] for r in cls.rules if r["status"] == "published"}
 
-    def test_thirteen_groups_valid(self):
-        self.assertEqual(len(self.groups), 13)
+    def test_fourteen_groups_valid(self):
+        self.assertEqual(len(self.groups), 14)
         self.assertEqual(validate_groups(self.groups, self.rules), [])
 
     def test_umbrella_contains_exactly_54_independent_rules(self):
@@ -38,6 +38,13 @@ class VirtualGroupTests(unittest.TestCase):
         for index, expected in ((10,3),(11,2),(12,1),(13,3)):
             self.assertEqual(len(expand_member_ids("GROUP-" + str(index).zfill(4),
                                                    self.groups, self.published)), expected)
+
+    def test_mvp_inauguration_group_reuses_existing_atoms(self):
+        members = expand_member_ids("GROUP-0014", self.groups, self.published)
+        self.assertEqual(len(members), 50)
+        self.assertEqual(len(members), len(set(members)))
+        self.assertIn("NOM-0075", members)
+        self.assertIn("NOM-0110", members)
 
     def test_overlapping_groups_do_not_duplicate_rules(self):
         groups = copy.deepcopy(self.groups)

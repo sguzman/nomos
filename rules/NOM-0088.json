@@ -1,0 +1,106 @@
+{
+  "id": "NOM-0088",
+  "version": "1.0.0",
+  "title": "Set testable MVP acceptance criteria and scope",
+  "summary": "Before MVP graduation, specify required capabilities, measurable acceptance criteria, target environment, and excluded future features.",
+  "statement": "Before MVP graduation, specify required capabilities, measurable acceptance criteria, target environment, and excluded future features.",
+  "rationale": "Public-safe, independently reviewed operational rule.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "set",
+      "object": "set_testable_mvp_acceptance_criteria_and_scope",
+      "target": "project_mvp_lifecycle"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "Only during an authorized MVP readiness, graduation, release, or maintenance review."
+    ],
+    "exceptions": [
+      "No automatic release, tag, deploy, or other project mutation."
+    ],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
+  },
+  "categories": {
+    "domains": [
+      "project_management",
+      "software_development",
+      "releases"
+    ],
+    "topics": [
+      [
+        "mvp_inauguration"
+      ]
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "Only during an authorized MVP readiness, graduation, release, or maintenance review."
+    ],
+    "exclusions": [
+      "No automatic release, tag, deploy, or other project mutation."
+    ]
+  },
+  "authority": {
+    "source": "Reviewed Nomos guidance; explicitly selected use only",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": [
+      "NOM-0064",
+      "NOM-0075"
+    ]
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0088; processing/specimens/PROC-SPEC-0088.json",
+    "license": "MIT",
+    "notes": "Independent opt-in rule; group membership conveys no authority."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

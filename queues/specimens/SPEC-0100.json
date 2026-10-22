@@ -1,7 +1,7 @@
 {
   "id": "SPEC-0100",
   "title": "Keep future improvements outside MVP acceptance requirements",
-  "status": "proposed",
+  "status": "processed",
   "abstract": "Separate optional future enhancements from essential MVP gates; completing the minimum useful product need not exhaust the roadmap, but required features cannot be silently deferred.",
   "source": {
     "kind": "public_safe_user_requested_rule_extraction",
@@ -58,6 +58,12 @@
     "Compare with existing catalog rules and refine/reuse existing predicates rather than publish duplicates.",
     "Preserve per-project applicability and do not infer an authorization to alter or release other repositories."
   ],
-  "next_state": "awaiting_explicit_specimen_processing_selection",
-  "remarks": "Queue-only atomic proposal, not processed or published; no release, repository modification or downstream task execution is authorized by this intake."
+  "next_state": "processed_specimen_retained_as_intake_record",
+  "remarks": "Queue-only atomic proposal, not processed or published; no release, repository modification or downstream task execution is authorized by this intake.",
+  "processing": {
+    "authorized_by": "explicit_user_request",
+    "authorized_on": "2026-10-21",
+    "record": "processing/specimens/PROC-SPEC-0100.json",
+    "state": "closed"
+  }
 }

@@ -1,0 +1,22 @@
+{
+  "id": "TASK-0014",
+  "title": "Publish complete opt-in MVP inauguration group",
+  "kind": "virtual_group_publication",
+  "status": "in_progress",
+  "created_on": "2026-10-21",
+  "source": "Explicit authorization on 2026-10-21 to process all queued specimens and downstream tasks",
+  "authorization": {
+    "queue": true,
+    "execute": true,
+    "publish_catalog": true,
+    "source": "Explicit authorization on 2026-10-21 to process all queued specimens and downstream tasks"
+  },
+  "scope": "Normalize GROUP-0014 membership with existing and new canonical rule IDs; preserve color distinction and user-controlled composition.",
+  "processing_record": "processing/tasks/TASK-0014.json",
+  "processing": {
+    "record": "processing/tasks/TASK-0014.json",
+    "started_on": "2026-10-21",
+    "state": "verifying"
+  },
+  "remarks": "Implementation staged; completion requires passing repository checks and deployment evidence."
+}

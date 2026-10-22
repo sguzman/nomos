@@ -1,0 +1,29 @@
+{
+  "processing_id": "PROC-SPEC-0114",
+  "source_specimen_id": "SPEC-0114",
+  "status": "closed",
+  "authorization": {
+    "source": "Explicit instruction to process all queued specimens, group and downstream work",
+    "on": "2026-10-21"
+  },
+  "processed_on": "2026-10-21",
+  "normalization": {
+    "kind": "prohibition",
+    "canonical_rule_id": "NOM-0110",
+    "independent_atomic_specimen": true,
+    "phase": null,
+    "group_proposal": null
+  },
+  "comparison": {
+    "possible_overlap": [],
+    "assessment": "Independent scoped requirement; overlapping practices do not imply normative equivalence.",
+    "no_automatic_priority_change": true
+  },
+  "disposition": {
+    "kind": "normalized_and_published",
+    "candidate_id": "NOM-0110",
+    "candidate_path": "processing/specimens/candidates/NOM-0110.json",
+    "downstream_task_id": "TASK-0013"
+  },
+  "notes": "Catalog publication does not activate rules."
+}

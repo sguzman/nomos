@@ -37,6 +37,29 @@ class RuleTests(unittest.TestCase):
         permission["norm"]["predicate"]["object"] = "other_material"
         self.assertFalse(possible_conflict(self.rules[0], permission))
 
+class OperationalRulesTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        _, cls.rules = load_catalog()
+        cls.by_id = {r["id"]: r for r in cls.rules}
+
+    def test_yml_explicit_exit_guard_is_prohibited(self):
+        rule = self.by_id["NOM-0110"]
+        self.assertEqual(rule["norm"]["kind"], "prohibition")
+        self.assertIn("exit_1", rule["norm"]["predicate"]["object"])
+        self.assertEqual(rule["norm"]["bounds"]["maximum"], 0)
+
+    def test_browser_versions_change_every_modification(self):
+        for rid in ("NOM-0085", "NOM-0086"):
+            rule = self.by_id[rid]
+            self.assertEqual(rule["norm"]["bounds"]["frequency"], "always")
+            self.assertEqual(rule["norm"]["bounds"]["window"], "each modification")
+
+    def test_naming_prohibition_has_scoped_predicate(self):
+        rule = self.by_id["NOM-0077"]
+        self.assertEqual(rule["norm"]["kind"], "prohibition")
+        self.assertIn("arium", rule["norm"]["predicate"]["object"])
+
 class RustEditionTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

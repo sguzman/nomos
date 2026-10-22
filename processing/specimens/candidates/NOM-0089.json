@@ -1,0 +1,104 @@
+{
+  "id": "NOM-0089",
+  "version": "0.1.0",
+  "title": "Verify essential workflows end to end",
+  "summary": "Exercise the MVP's essential workflows end to end in the actual running implementation before inaugurating it; compilation alone cannot establish readiness.",
+  "statement": "Exercise the MVP's essential workflows end to end in the actual running implementation before inaugurating it; compilation alone cannot establish readiness.",
+  "rationale": "Reviewed independent public-safe operational practice.",
+  "language": "en",
+  "status": "draft",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "verify",
+      "object": "verify_essential_workflows_end_to_end",
+      "target": "project_mvp_lifecycle"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "An authorized MVP readiness, graduation, release, or follow-up review is in progress."
+    ],
+    "exceptions": [
+      "Does not independently authorize a tag, release or external deployment."
+    ],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
+  },
+  "categories": {
+    "domains": [
+      "project_management",
+      "software_development",
+      "releases"
+    ],
+    "topics": [
+      "mvp_inauguration"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "An authorized MVP readiness, graduation, release, or follow-up review is in progress."
+    ],
+    "exclusions": [
+      "Does not independently authorize a tag, release or external deployment."
+    ]
+  },
+  "authority": {
+    "source": "Retained normalized processing candidate",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": [
+      "NOM-0062",
+      "NOM-0064"
+    ]
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0089; processing/specimens/PROC-SPEC-0089.json",
+    "license": "MIT",
+    "notes": "Rule remains independent and opt-in."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "unreviewed"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

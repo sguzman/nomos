@@ -27,3 +27,7 @@ See [WORKFLOW.md](../../WORKFLOW.md) for authorization boundaries.
 ## Queued YAML job error-propagation prohibition (2026-10-21)
 
 `SPEC-0114` independently proposes omitting redundant explicit `exit 1` statements from YAML execution jobs whose commands are already AND-linked with failure propagation by the runner. It complements the separately queued local-repository job practices `SPEC-0078`–`SPEC-0084`. The prohibition is **queued only**, not processed or published, and does not authorize job execution.
+
+## Completed normalization and publication batch (2026-10-21)
+
+All 38 intake records `SPEC-0077`–`SPEC-0114` were individually reviewed and marked `processed` by explicit authorization. The independent records `processing/specimens/PROC-SPEC-*.json` describe each outcome. Four equivalent MVP proposals reuse established canonical rules rather than produce duplicates; the remaining 34 new atomic rules are `NOM-0077`–`NOM-0110`. The initial intake metadata is retained unchanged, so original `processing_authorized: false` values describe intake time, not the later granted batch authorization.

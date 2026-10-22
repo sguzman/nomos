@@ -1,0 +1,102 @@
+{
+  "id": "NOM-0077",
+  "version": "1.0.0",
+  "title": "Do not suggest names ending with the suffix arium",
+  "summary": "When generating or recommending new names for projects, products, applications, repositories, tools, or other user-named entities, do not propose candidate names whose final letters are 'arium', regardless of letter case.",
+  "statement": "When generating or recommending new names for projects, products, applications, repositories, tools, or other user-named entities, do not propose candidate names whose final letters are 'arium', regardless of letter case.",
+  "rationale": "Public-safe, independently reviewed operational rule.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "prohibition",
+    "predicate": {
+      "action": "suggest",
+      "object": "new_name_ending_in_arium_case_insensitive",
+      "target": "user_facing_name_proposal"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "Proposing a new name; established names may still be mentioned."
+    ],
+    "exceptions": [
+      "Does not prevent discussing historical or existing names."
+    ],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "never",
+      "minimum": 0,
+      "maximum": 0,
+      "unit": "occurrences",
+      "window": null,
+      "cue": "Do not",
+      "basis": "reviewed_inference"
+    }
+  },
+  "categories": {
+    "domains": [
+      "agent_instructions",
+      "software_development"
+    ],
+    "topics": [
+      [
+        "naming_restrictions"
+      ]
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "Proposing a new name; established names may still be mentioned."
+    ],
+    "exclusions": [
+      "Does not prevent discussing historical or existing names."
+    ]
+  },
+  "authority": {
+    "source": "Reviewed Nomos guidance; explicitly selected use only",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0077; processing/specimens/PROC-SPEC-0077.json",
+    "license": "MIT",
+    "notes": "Independent opt-in rule; group membership conveys no authority."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

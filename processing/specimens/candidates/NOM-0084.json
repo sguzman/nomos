@@ -1,0 +1,106 @@
+{
+  "id": "NOM-0084",
+  "version": "0.1.0",
+  "title": "Pull latest changes before local repository YAML job work",
+  "summary": "Before performing work on an existing local Git repository through a YAML-specified execution job, run git pull in that verified repository to retrieve the latest remote changes rather than operating on an assumed-current checkout.",
+  "statement": "Before performing work on an existing local Git repository through a YAML-specified execution job, run git pull in that verified repository to retrieve the latest remote changes rather than operating on an assumed-current checkout.",
+  "rationale": "Public-safe, independently reviewed operational rule.",
+  "language": "en",
+  "status": "draft",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "run",
+      "object": "git_pull",
+      "target": "local_repository_preflight"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "Job targets an existing explicitly authorized local repository."
+    ],
+    "exceptions": [
+      "Does not authorize changing unrelated or substitute repositories."
+    ],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
+  },
+  "categories": {
+    "domains": [
+      "agent_instructions",
+      "software_development",
+      "workflow_governance"
+    ],
+    "topics": [
+      [
+        "yaml_job_workflow"
+      ]
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "Job targets an existing explicitly authorized local repository."
+    ],
+    "exclusions": [
+      "Does not authorize changing unrelated or substitute repositories."
+    ]
+  },
+  "authority": {
+    "source": "Retained normalized processing candidate",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": [
+      "NOM-0014",
+      "NOM-0015"
+    ]
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0084; processing/specimens/PROC-SPEC-0084.json",
+    "license": "MIT",
+    "notes": "Independent opt-in rule; group membership conveys no authority."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "unreviewed"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

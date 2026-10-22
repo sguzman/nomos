@@ -1,7 +1,7 @@
 {
   "id": "SPEC-0086",
   "title": "Increase WebExtension manifest version on every extension change",
-  "status": "proposed",
+  "status": "processed",
   "abstract": "Every time a browser extension is changed, including during local iteration, increase its manifest.json version to a strictly higher valid extension version. This applies to code, resources and metadata revisions; do not confuse the extension version with manifest_version.",
   "source": {
     "kind": "public_safe_user_requested_rule_extraction",
@@ -56,6 +56,12 @@
     "During processing, confirm actual version metadata and browser-specific valid version comparison without weakening the per-change requirement.",
     "Preserve per-project applicability and do not infer an authorization to alter or release other repositories."
   ],
-  "next_state": "awaiting_explicit_specimen_processing_selection",
-  "remarks": "Queue-only atomic proposal, not processed or published; no release, repository modification or downstream task execution is authorized by this intake."
+  "next_state": "processed_specimen_retained_as_intake_record",
+  "remarks": "Queue-only atomic proposal, not processed or published; no release, repository modification or downstream task execution is authorized by this intake.",
+  "processing": {
+    "authorized_by": "explicit_user_request",
+    "authorized_on": "2026-10-21",
+    "record": "processing/specimens/PROC-SPEC-0086.json",
+    "state": "closed"
+  }
 }

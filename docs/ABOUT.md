@@ -97,3 +97,7 @@ Identity colors preserve all earlier NOM-0001–NOM-0067 and GROUP-0001–GROUP-
 Rule details now show structured quantity, logical interpretation, frequency, numeric limits, source cue and evidence status from `norm.bounds`. This is separate from the prohibition/permission/obligation kind and action predicate. Historical entries with no reviewed quantifier are marked `unresolved` instead of having “never”, “always”, “any”, or “all” guessed from vague language. Exported instructions include resolved quantification when meaningful. Tests cover internal consistency and conservatively detectable numeric interval conflicts. See [ONTOLOGY.md](../ONTOLOGY.md).
 
 Reviewed quantifiers also appear as small **Bounds:** tags on rule cards and are indexed by catalog search. Unreviewed entries are not misleadingly given categorical badges; their detail metadata explicitly identifies unresolved semantics.
+
+## Expanded reviewed catalog
+
+The site lists 110 distinct rules and 14 independently selectable virtual groups, including the 50-rule `GROUP-0014` MVP graduation and maintenance collection. Named browser-version restrictions and local YAML-job rules are individually addressable. "Add all" expands only published group members when explicitly selected; no project is changed by viewing or exporting a catalog. Profile presets remain a separate, empty, optional registry. Browser visual QA has not been performed by these automated checks.

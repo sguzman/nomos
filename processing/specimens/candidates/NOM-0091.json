@@ -1,0 +1,106 @@
+{
+  "id": "NOM-0091",
+  "version": "0.1.0",
+  "title": "Verify the MVP in the intended actual environment",
+  "summary": "Test essential behavior on the intended desktop, browser, CLI, service, device or other real target environment, including necessary integration boundaries.",
+  "statement": "Test essential behavior on the intended desktop, browser, CLI, service, device or other real target environment, including necessary integration boundaries.",
+  "rationale": "Reviewed independent public-safe operational practice.",
+  "language": "en",
+  "status": "draft",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "verify",
+      "object": "verify_the_mvp_in_the_intended_actual_environment",
+      "target": "project_mvp_lifecycle"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "An authorized MVP readiness, graduation, release, or follow-up review is in progress."
+    ],
+    "exceptions": [
+      "Does not independently authorize a tag, release or external deployment."
+    ],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
+  },
+  "categories": {
+    "domains": [
+      "project_management",
+      "software_development",
+      "releases"
+    ],
+    "topics": [
+      "mvp_inauguration"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "An authorized MVP readiness, graduation, release, or follow-up review is in progress."
+    ],
+    "exclusions": [
+      "Does not independently authorize a tag, release or external deployment."
+    ]
+  },
+  "authority": {
+    "source": "Retained normalized processing candidate",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [
+      "NOM-0063"
+    ],
+    "depends_on": [
+      "NOM-0064",
+      "NOM-0065"
+    ]
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0092; processing/specimens/PROC-SPEC-0092.json",
+    "license": "MIT",
+    "notes": "Rule remains independent and opt-in."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "unreviewed"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

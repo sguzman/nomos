@@ -1,0 +1,103 @@
+{
+  "id": "NOM-0082",
+  "version": "0.1.0",
+  "title": "Place nontrivial job scripts in the repository scripts directory",
+  "summary": "When an automation job requires a substantial standalone script, create or maintain that script as a file under the verified local project's scripts/ directory rather than implementing it inside the job YAML.",
+  "statement": "When an automation job requires a substantial standalone script, create or maintain that script as a file under the verified local project's scripts/ directory rather than implementing it inside the job YAML.",
+  "rationale": "Public-safe, independently reviewed operational rule.",
+  "language": "en",
+  "status": "draft",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "store",
+      "object": "standalone_job_script",
+      "target": "repository_scripts_directory"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "Job targets an existing explicitly authorized local repository."
+    ],
+    "exceptions": [
+      "Does not authorize changing unrelated or substitute repositories."
+    ],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
+  },
+  "categories": {
+    "domains": [
+      "agent_instructions",
+      "software_development",
+      "workflow_governance"
+    ],
+    "topics": [
+      [
+        "yaml_job_workflow"
+      ]
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "Job targets an existing explicitly authorized local repository."
+    ],
+    "exclusions": [
+      "Does not authorize changing unrelated or substitute repositories."
+    ]
+  },
+  "authority": {
+    "source": "Retained normalized processing candidate",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0082; processing/specimens/PROC-SPEC-0082.json",
+    "license": "MIT",
+    "notes": "Independent opt-in rule; group membership conveys no authority."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "unreviewed"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

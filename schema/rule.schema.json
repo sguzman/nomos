@@ -315,6 +315,7 @@
           "uniqueItems": true,
           "items": {
             "enum": [
+              "browser_artifact_versioning",
               "completion_reporting",
               "content_handling",
               "development_hygiene",
@@ -322,6 +323,8 @@
               "identity_color",
               "implementation_language",
               "information_disclosure",
+              "mvp_inauguration",
+              "naming_restrictions",
               "personal_expression",
               "port_fidelity",
               "port_mvp",
@@ -333,7 +336,8 @@
               "rule_composition",
               "specimen_showcase",
               "theme_control",
-              "workflow_stage"
+              "workflow_stage",
+              "yaml_job_workflow"
             ]
           }
         },

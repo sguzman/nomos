@@ -1,0 +1,105 @@
+{
+  "id": "NOM-0081",
+  "version": "0.1.0",
+  "title": "Do not embed large Python programs in YAML execution jobs",
+  "summary": "Do not put substantial multi-line Python program implementations directly inside YAML job commands; keep executable program logic in separate source files.",
+  "statement": "Do not put substantial multi-line Python program implementations directly inside YAML job commands; keep executable program logic in separate source files.",
+  "rationale": "Public-safe, independently reviewed operational rule.",
+  "language": "en",
+  "status": "draft",
+  "norm": {
+    "kind": "prohibition",
+    "predicate": {
+      "action": "embed",
+      "object": "large_inline_python_program",
+      "target": "yaml_job_commands"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "Job targets an existing explicitly authorized local repository."
+    ],
+    "exceptions": [
+      "Does not authorize changing unrelated or substitute repositories."
+    ],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "never",
+      "minimum": 0,
+      "maximum": 0,
+      "unit": "occurrences",
+      "window": null,
+      "cue": "Do not",
+      "basis": "reviewed_inference"
+    }
+  },
+  "categories": {
+    "domains": [
+      "agent_instructions",
+      "software_development",
+      "workflow_governance"
+    ],
+    "topics": [
+      [
+        "yaml_job_workflow"
+      ]
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "Job targets an existing explicitly authorized local repository."
+    ],
+    "exclusions": [
+      "Does not authorize changing unrelated or substitute repositories."
+    ]
+  },
+  "authority": {
+    "source": "Retained normalized processing candidate",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": [
+      "NOM-0014"
+    ]
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0081; processing/specimens/PROC-SPEC-0081.json",
+    "license": "MIT",
+    "notes": "Independent opt-in rule; group membership conveys no authority."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "unreviewed"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

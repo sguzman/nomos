@@ -1,7 +1,7 @@
 {
   "id": "SPEC-0114",
   "title": "Do not add explicit exit 1 guards to AND-linked YAML execution jobs",
-  "status": "proposed",
+  "status": "processed",
   "abstract": "When authoring YAML-specification execution jobs whose runner already AND-links commands and propagates failures, do not insert redundant explicit `exit 1` statements or shell error-exit guards in the YAML commands. Rely on the job's existing command-failure behavior instead.",
   "source": {
     "kind": "public_safe_user_requested_workflow_rule",
@@ -55,6 +55,12 @@
     "Confirm the exact YAML runner's AND-linking/error-propagation contract during normalization without inventing alternative failure handling.",
     "Distinguish redundant inline exit statements from legitimate error handling within separately maintained scripts."
   ],
-  "next_state": "awaiting_explicit_specimen_processing_selection",
-  "remarks": "Queued atomic prohibition only; no specimen processing, catalog publication, YAML job execution or unrelated local repository changes are authorized."
+  "next_state": "processed_specimen_retained_as_intake_record",
+  "remarks": "Queued atomic prohibition only; no specimen processing, catalog publication, YAML job execution or unrelated local repository changes are authorized.",
+  "processing": {
+    "authorized_by": "explicit_user_request",
+    "authorized_on": "2026-10-21",
+    "record": "processing/specimens/PROC-SPEC-0114.json",
+    "state": "closed"
+  }
 }

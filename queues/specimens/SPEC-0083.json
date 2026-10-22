@@ -1,7 +1,7 @@
 {
   "id": "SPEC-0083",
   "title": "Invoke external scripts from YAML jobs",
-  "status": "proposed",
+  "status": "processed",
   "abstract": "When a YAML execution job uses a standalone script, keep the YAML focused on invoking the script file from its confirmed project path instead of embedding the script body in YAML commands.",
   "source": {
     "kind": "public_safe_user_requested_workflow_rule",
@@ -53,6 +53,12 @@
     "Distinguish mandatory git pull from the separate need to handle pull failures or non-fast-forward updates safely.",
     "Confirm there is no implicit authorization to fabricate, create, clone, or modify an unrelated repository."
   ],
-  "next_state": "awaiting_explicit_specimen_processing_selection",
-  "remarks": "Queued atomic proposal only. No specimen processing, catalog publication, local job execution, repository creation, or downstream task authorization is implied."
+  "next_state": "processed_specimen_retained_as_intake_record",
+  "remarks": "Queued atomic proposal only. No specimen processing, catalog publication, local job execution, repository creation, or downstream task authorization is implied.",
+  "processing": {
+    "authorized_by": "explicit_user_request",
+    "authorized_on": "2026-10-21",
+    "record": "processing/specimens/PROC-SPEC-0083.json",
+    "state": "closed"
+  }
 }

@@ -1,0 +1,22 @@
+{
+  "id": "TASK-0013",
+  "title": "Review and publish normalized atomic rule specimens",
+  "kind": "rule_publication",
+  "status": "in_progress",
+  "created_on": "2026-10-21",
+  "source": "Explicit authorization on 2026-10-21 to process all queued specimens and downstream tasks",
+  "authorization": {
+    "queue": true,
+    "execute": true,
+    "publish_catalog": true,
+    "source": "Explicit authorization on 2026-10-21 to process all queued specimens and downstream tasks"
+  },
+  "scope": "Review SPEC-0077..SPEC-0114 independently, reuse equivalent existing rules, publish new atoms with bounds and provenance.",
+  "processing_record": "processing/tasks/TASK-0013.json",
+  "processing": {
+    "record": "processing/tasks/TASK-0013.json",
+    "started_on": "2026-10-21",
+    "state": "verifying"
+  },
+  "remarks": "Implementation staged; completion requires passing repository checks and deployment evidence."
+}

@@ -9,8 +9,8 @@
  * This avoids the golden-angle/Fibonacci near-collision seen among scattered
  * rule IDs. Palette slots do not depend on catalog order or selected items.
  * GROUP-0001..GROUP-0008 occupy the first eight most separated slots;
- * NOM-0001..NOM-0067 retain slots 8..74, while new groups occupy five
- * perceptually spread slots from the unused tail. New rules occupy the other
+ * NOM-0001..NOM-0067 retain slots 8..74, while later groups occupy separate reserved
+ * perceptually spread slots from the unused tail. New rules occupy available separate
  * tail slots without changing established identity colors.
  * Colors cannot be mathematically unique for unlimited identifiers.
  */

@@ -1,7 +1,7 @@
 {
   "id": "SPEC-0091",
   "title": "Pass applicable automated tests and CI gates",
-  "status": "proposed",
+  "status": "processed",
   "abstract": "Run and pass the relevant unit, integration, regression, formatting, lint, compilation, and configured CI checks before inauguration; disclose untested targets.",
   "source": {
     "kind": "public_safe_user_requested_rule_extraction",
@@ -61,6 +61,12 @@
     "Compare with existing catalog rules and refine/reuse existing predicates rather than publish duplicates.",
     "Preserve per-project applicability and do not infer an authorization to alter or release other repositories."
   ],
-  "next_state": "awaiting_explicit_specimen_processing_selection",
-  "remarks": "Queue-only atomic proposal, not processed or published; no release, repository modification or downstream task execution is authorized by this intake."
+  "next_state": "processed_specimen_retained_as_intake_record",
+  "remarks": "Queue-only atomic proposal, not processed or published; no release, repository modification or downstream task execution is authorized by this intake.",
+  "processing": {
+    "authorized_by": "explicit_user_request",
+    "authorized_on": "2026-10-21",
+    "record": "processing/specimens/PROC-SPEC-0091.json",
+    "state": "closed"
+  }
 }

@@ -1,0 +1,32 @@
+{
+  "processing_id": "PROC-SPEC-0084",
+  "source_specimen_id": "SPEC-0084",
+  "status": "closed",
+  "authorization": {
+    "source": "Explicit instruction to process all queued specimens, group and downstream work",
+    "on": "2026-10-21"
+  },
+  "processed_on": "2026-10-21",
+  "normalization": {
+    "kind": "obligation",
+    "canonical_rule_id": "NOM-0084",
+    "independent_atomic_specimen": true,
+    "phase": null,
+    "group_proposal": null
+  },
+  "comparison": {
+    "possible_overlap": [
+      "NOM-0014",
+      "NOM-0015"
+    ],
+    "assessment": "Independent scoped requirement; related catalog rules retained as provenance, not assumed logically identical.",
+    "no_automatic_priority_change": true
+  },
+  "disposition": {
+    "kind": "normalized_and_published",
+    "candidate_id": "NOM-0084",
+    "candidate_path": "processing/specimens/candidates/NOM-0084.json",
+    "downstream_task_id": "TASK-0013"
+  },
+  "notes": "Catalog status does not activate this rule in any project."
+}

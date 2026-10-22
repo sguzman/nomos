@@ -52,3 +52,9 @@ SPEC-0068 through SPEC-0076 were separately processed as independent rule propos
 ## Optional profile preset lifecycle
 
 Profile authoring is a separate **opt-in composition workflow**, not a fifth specimen or task processing queue. See [PROFILE_WORKFLOW.md](PROFILE_WORKFLOW.md): discuss use case → suggest catalog rules (transient) → review formal proposed selection (transient) → explicit authorization to instantiate draft → user may add or remove atomic rules → separate authorization to finalize → optional future explicit selection or export. No step obliges the user to use profiles, and a finalized profile never applies itself. New rule ideas still require separately authorized specimen/catalog work.
+
+## Authorized batch: naming, YAML jobs, browser versions and MVP inauguration (2026-10-21)
+
+Explicit user authorization processed SPEC-0077 through SPEC-0114 independently (38 records) and GROUP-0014 through its separate group-processing record. Each original queue record remains as historical intake with its original no-authorization field preserved. Exactly four of the 38 proposals resolve to prior canonical rules (SPEC-0090 → NOM-0075, SPEC-0103 → NOM-0056, SPEC-0104 → NOM-0047, SPEC-0107 → NOM-0060). The other 34 produce independently published catalog atoms NOM-0077–NOM-0110, with retained draft candidates and processing dispositions. GROUP-0014 contains 50 unique published member references, not 50 new rules.
+
+Independent downstream work is tracked as TASK-0013 (rule publication), TASK-0014 (group publication and color), and TASK-0015 (website, validation, deployment and evidence). Group membership, status transitions and catalog publication never imply activation of rules or authorization to inaugurate an unrelated project.

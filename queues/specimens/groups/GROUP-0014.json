@@ -1,7 +1,7 @@
 {
   "id": "GROUP-0014",
   "kind": "proposed_first_class_virtual_rule_group",
-  "status": "proposed",
+  "status": "processed",
   "title": "MVP Inauguration & Post-MVP Lifecycle",
   "summary": "Optional complete MVP graduation set including acceptance gates, runtime validation, clear graduation rationale, inaugural release ceremony and post-MVP governance.",
   "received_on": "2026-10-21",
@@ -10,8 +10,8 @@
     "reference": "User-requested all-in-one MVP experience, not a release authorization",
     "material_retained": false
   },
-  "processing_authorized": false,
-  "publication_authorized": false,
+  "processing_authorized": true,
+  "publication_authorized": true,
   "metadata_labels": [
     "mvp_inauguration",
     "readiness_gates",
@@ -111,6 +111,12 @@
     "after",
     "safety"
   ],
-  "next_state": "awaiting_explicit_group_specimen_processing_selection",
-  "remarks": "Queue-only group proposal; contains 27 queued MVP specimens and 27 candidate existing catalog rule references. No inauguration is initiated."
+  "next_state": "processed_group_retained_as_intake",
+  "remarks": "Queue-only group proposal; contains 27 queued MVP specimens and 27 candidate existing catalog rule references. No inauguration is initiated.",
+  "processing": {
+    "authorized_by": "explicit_user_request",
+    "authorized_on": "2026-10-21",
+    "record": "processing/specimens/groups/PROC-GROUP-0014.json",
+    "state": "closed"
+  }
 }

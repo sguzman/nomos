@@ -1,0 +1,106 @@
+{
+  "id": "NOM-0085",
+  "version": "0.1.0",
+  "title": "Increase Tampermonkey @version on every userscript change",
+  "summary": "Every time a Tampermonkey userscript is changed, including during local iteration, increment its UserScript metadata @version to a strictly higher value. This keeps script revisions distinguishable for update detection; do not wait for a formal release or distribution.",
+  "statement": "Every time a Tampermonkey userscript is changed, including during local iteration, increment its UserScript metadata @version to a strictly higher value. This keeps script revisions distinguishable for update detection; do not wait for a formal release or distribution.",
+  "rationale": "Public-safe, independently reviewed operational rule.",
+  "language": "en",
+  "status": "draft",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "increment",
+      "object": "tampermonkey_metadata_at_version",
+      "target": "modified_userscript"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "Every authorized script or extension modification, including local changes."
+    ],
+    "exceptions": [
+      "Metadata changes do not independently authorize distribution."
+    ],
+    "bounds": {
+      "quantifier": "all",
+      "interpretation": "universal",
+      "frequency": "always",
+      "minimum": null,
+      "maximum": null,
+      "unit": "occurrences",
+      "window": "each modification",
+      "cue": "Every time",
+      "basis": "explicit_text"
+    }
+  },
+  "categories": {
+    "domains": [
+      "agent_instructions",
+      "software_development"
+    ],
+    "topics": [
+      [
+        "browser_artifact_versioning"
+      ]
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "Every authorized script or extension modification, including local changes."
+    ],
+    "exclusions": [
+      "Metadata changes do not independently authorize distribution."
+    ]
+  },
+  "authority": {
+    "source": "Retained normalized processing candidate",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [
+      "NOM-0055"
+    ],
+    "depends_on": [
+      "NOM-0056"
+    ]
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0085; processing/specimens/PROC-SPEC-0085.json",
+    "license": "MIT",
+    "notes": "Independent opt-in rule; group membership conveys no authority."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "unreviewed"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

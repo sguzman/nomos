@@ -1,0 +1,101 @@
+{
+  "id": "NOM-0110",
+  "version": "0.1.0",
+  "title": "Do not add explicit exit 1 guards to AND-linked YAML execution jobs",
+  "summary": "When authoring YAML-specification execution jobs whose runner already AND-links commands and propagates failures, do not insert redundant explicit `exit 1` statements or shell error-exit guards in the YAML commands. Rely on the job's existing command-failure behavior instead.",
+  "statement": "When authoring YAML-specification execution jobs whose runner already AND-links commands and propagates failures, do not insert redundant explicit `exit 1` statements or shell error-exit guards in the YAML commands. Rely on the job's existing command-failure behavior instead.",
+  "rationale": "Independently normalized public-safe operational guidance.",
+  "language": "en",
+  "status": "draft",
+  "norm": {
+    "kind": "prohibition",
+    "predicate": {
+      "action": "insert",
+      "object": "redundant_explicit_exit_1_guard",
+      "target": "and_linked_yaml_job"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "The YAML runner already AND-links commands and propagates errors."
+    ],
+    "exceptions": [
+      "Does not permit inventing substitute repositories or unrelated changes."
+    ],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "never",
+      "minimum": 0,
+      "maximum": 0,
+      "unit": "occurrences",
+      "window": null,
+      "cue": "Do not",
+      "basis": "reviewed_inference"
+    }
+  },
+  "categories": {
+    "domains": [
+      "agent_instructions",
+      "software_development",
+      "workflow_governance"
+    ],
+    "topics": [
+      "yaml_job_workflow"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "The YAML runner already AND-links commands and propagates errors."
+    ],
+    "exclusions": [
+      "Does not permit inventing substitute repositories or unrelated changes."
+    ]
+  },
+  "authority": {
+    "source": "Retained normalized processing candidate",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0114; processing/specimens/PROC-SPEC-0114.json",
+    "license": "MIT",
+    "notes": "Standalone opt-in rule, no inherited application."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "unreviewed"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

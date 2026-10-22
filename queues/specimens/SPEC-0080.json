@@ -1,7 +1,7 @@
 {
   "id": "SPEC-0080",
   "title": "Do not create substitute repositories or temporary project clones",
-  "status": "proposed",
+  "status": "processed",
   "abstract": "When a YAML-specified job is intended to operate on the user's existing local repository, do not create a replacement project, repository checkout, or temporary clone as a substitute for that repository.",
   "source": {
     "kind": "public_safe_user_requested_workflow_rule",
@@ -55,6 +55,12 @@
     "Distinguish mandatory git pull from the separate need to handle pull failures or non-fast-forward updates safely.",
     "Confirm there is no implicit authorization to fabricate, create, clone, or modify an unrelated repository."
   ],
-  "next_state": "awaiting_explicit_specimen_processing_selection",
-  "remarks": "Queued atomic proposal only. No specimen processing, catalog publication, local job execution, repository creation, or downstream task authorization is implied."
+  "next_state": "processed_specimen_retained_as_intake_record",
+  "remarks": "Queued atomic proposal only. No specimen processing, catalog publication, local job execution, repository creation, or downstream task authorization is implied.",
+  "processing": {
+    "authorized_by": "explicit_user_request",
+    "authorized_on": "2026-10-21",
+    "record": "processing/specimens/PROC-SPEC-0080.json",
+    "state": "closed"
+  }
 }
