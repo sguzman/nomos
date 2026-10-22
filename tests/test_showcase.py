@@ -67,7 +67,9 @@ class SiteCatalogTests(unittest.TestCase):
         self.assertTrue(all(x["source"] in rules and x["target"] in rules for x in links))
         self.assertEqual(len(links),58)
         self.assertTrue(all(x["status"]=="reviewed" for x in links))
-        self.assertFalse(any(x["kind"].startswith("possible_") for x in links))
+        self.assertFalse(any(x["status"]=="candidate" for x in links))
+        self.assertTrue(any(x["kind"]=="possible_conflict" and x["status"]=="reviewed"
+                            and {x["source"],x["target"]}=={"NOM-0012","NOM-0013"} for x in links))
 
     def test_every_current_rule_exposes_bounds_metadata(self):
         for rule in self.data["rules"]:
