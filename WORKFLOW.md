@@ -70,3 +70,7 @@ The explicitly authorized public-safe specimens `SPEC-0115`–`SPEC-0117` were q
 Queuing an idea records a public-safe title and optional short summary and tentative rule/group references. A queued idea is **not reviewed, processed, approved, instantiated, finalized, selected, or applied**. Do not drain the queue automatically. Processing an individual idea requires a later explicit request naming it; reviewing a selection does not authorize draft instantiation. Only separate, explicit selection approval permits a real draft under [PROFILE_WORKFLOW.md](PROFILE_WORKFLOW.md), followed by separate finalization and opt-in use. Administrative status changes such as deferral/cancellation are not profile processing.
 
 The queue intentionally starts with **zero ideas** until specifically nominated. The intake-only CLI and schema live in `tools/profile_ideas.cjs` and `schema/profile-idea.schema.json`.
+
+## Authorized normalization of conversational check-in rule (2026-10-22)
+
+At the user's explicit request, `SPEC-0118` was processed into one scoped, independently published prohibition, `NOM-0114`. The separate candidate and `processing/specimens/PROC-SPEC-0118.json` record preserve the process and the boundary allowing proportionate responses to newly credible present danger. Processing did not authorize selecting, activating, creating or changing profiles or processing any of the six queued `PROFILE-IDEA-*` items. Public artifacts contain no private conversational quotations.

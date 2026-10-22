@@ -80,3 +80,7 @@ The static website now displays opt-in profiles alongside rules and groups with 
 Nomos now supports an optional, **separate profile-idea intake queue**. Record an idea as `PROFILE-IDEA-0001` etc. with a short public-safe title, optional summary and unreviewed rule/group hints. Creating an idea does **not** process it, construct a rule selection, create a `PROFILE-*` draft, alter the website's active profile registry, or apply any instructions. No example ideas are automatically enqueued.
 
 Use `node tools/profile_ideas.cjs list` to inspect the queue or `node tools/profile_ideas.cjs add --title "Example name"` to add a new item. The command only adds ideas. Details: [queues/profiles/README.md](queues/profiles/README.md). The queue is validated separately with `node tools/validate_profile_ideas.cjs`.
+
+## Scoped conversational-safety screening rule
+
+`NOM-0114` is a separately published opt-in prohibition against reflexive or repeated formulaic suicide-risk screening prompted only by ordinary frustration or historic difficulty, without credible new present-risk information. Its explicit exception preserves proportionate safety responses to materially new risk indicators. The public catalog contains only generalized wording; no private conversation text, personal examples, or account details were included. This rule is not auto-applied, and the six queued profile ideas remain unprocessed.

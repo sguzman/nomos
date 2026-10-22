@@ -18,15 +18,29 @@ class ProcessingTraceTests(unittest.TestCase):
             original = json.loads(path.read_text(encoding="utf-8"))
             with self.subTest(specimen=original["id"]):
                 if original["id"] == "SPEC-0118":
-                    self.assertEqual(original["status"], "proposed")
+                    self.assertEqual(original["status"], "processed")
                     self.assertFalse(original["intake"]["processing_authorized"])
-                    self.assertNotIn("processing", original)
-                    self.assertEqual(original["scope_hints"]["candidate_normative_kind"], "prohibition")
+                    self.assertEqual(original["processing"]["state"], "closed")
+                    self.assertEqual(original["processing"]["record"], "processing/specimens/PROC-SPEC-0118.json")
+                    self.assertEqual(read(original["processing"]["record"])["status"], "closed")
                     continue
                 self.assertEqual(original["status"], "processed")
                 processing = original["processing"]
                 self.assertEqual(processing["state"], "closed")
                 self.assertTrue((ROOT / processing["record"]).is_file())
+
+    def test_single_scoped_prohibition_processed_without_touching_profile_idea_queue(self):
+        p=read("processing/specimens/PROC-SPEC-0118.json")
+        rule=read("rules/NOM-0114.json")
+        candidate=read("processing/specimens/candidates/NOM-0114.json")
+        self.assertEqual(p["normalization"]["canonical_rule_id"], "NOM-0114")
+        self.assertEqual(p["disposition"]["kind"], "normalized_and_published")
+        self.assertEqual(rule["status"], "published")
+        self.assertEqual(candidate["status"], "draft")
+        self.assertEqual(rule["norm"]["kind"], "prohibition")
+        self.assertEqual(rule["norm"]["bounds"]["maximum"], 0)
+        self.assertIn("materially new", rule["norm"]["exceptions"][0])
+        self.assertEqual(len(list((ROOT / "queues/profiles").glob("PROFILE-IDEA-*.json"))), 6)
 
     def test_group_proposals_have_separate_records(self):
         proposals = sorted((ROOT / "queues/specimens/groups").glob("GROUP-*.json"))

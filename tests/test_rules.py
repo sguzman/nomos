@@ -155,3 +155,18 @@ class CToRustPortRulesTests(unittest.TestCase):
             self.assertEqual(rule["norm"]["predicate"]["action"],action)
             self.assertIn("NOM-0074",rule["relations"]["depends_on"])
             self.assertEqual(rule["norm"]["bounds"]["interpretation"],"universal")
+
+
+class ContextualSafetyQuestionProhibitionTests(unittest.TestCase):
+    def test_single_published_atom_has_narrow_chat_scope_and_exception(self):
+        _, rules = load_catalog()
+        rule = next(r for r in rules if r["id"] == "NOM-0114")
+        self.assertEqual(rule["status"], "published")
+        self.assertEqual(rule["norm"]["kind"], "prohibition")
+        self.assertEqual(rule["norm"]["predicate"]["object"], "unwarranted_formulaic_suicide_risk_question")
+        self.assertEqual(rule["norm"]["bounds"]["frequency"], "never")
+        self.assertEqual(rule["norm"]["bounds"]["maximum"], 0)
+        self.assertEqual(rule["scope"]["axes"]["channel"], ["chat"])
+        self.assertEqual(rule["scope"]["axes"]["actor"], ["ai_agent"])
+        self.assertIn("materially new", rule["norm"]["exceptions"][0])
+        self.assertFalse(any(rule["id"] in p["selected_rule_ids"] for p in __import__("json").loads((pathlib.Path(__file__).resolve().parents[1] / "docs/catalog.json").read_text())["profiles"]))

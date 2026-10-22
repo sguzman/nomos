@@ -1,0 +1,32 @@
+{
+  "processing_id": "PROC-SPEC-0118",
+  "source_specimen_id": "SPEC-0118",
+  "status": "closed",
+  "authorization": {
+    "source": "Explicit request to process queued SPEC-0118",
+    "on": "2026-10-22"
+  },
+  "processed_on": "2026-10-22",
+  "normalization": {
+    "kind": "prohibition",
+    "canonical_rule_id": "NOM-0114",
+    "independent_atomic_specimen": true,
+    "phase": null,
+    "group_proposal": null
+  },
+  "comparison": {
+    "possible_overlap": [
+      "NOM-0004"
+    ],
+    "assessment": "Existing privacy/publication rules address disclosure, not unwarranted conversational safety check-in repetition. One targeted, scoped prohibition covers both unsolicited reflexive initiation and repeated formulaic prompts without splitting into duplicate atoms.",
+    "safety_boundary": "Scope is limited to unwarranted questioning; materially new credible indications of current risk permit proportionate safety responses.",
+    "no_automatic_priority_change": true
+  },
+  "disposition": {
+    "kind": "normalized_and_published",
+    "candidate_id": "NOM-0114",
+    "candidate_path": "processing/specimens/candidates/NOM-0114.json",
+    "downstream_task_id": null
+  },
+  "notes": "No profile was edited and no queued profile ideas were processed or selected. Catalog publication does not activate rules in unrelated conversations."
+}

@@ -1,7 +1,7 @@
 {
   "id": "SPEC-0118",
   "title": "Prohibit repetitive unsupported suicide-risk check-in questions",
-  "status": "proposed",
+  "status": "processed",
   "abstract": "Do not repeatedly or reflexively ask unsolicited, formulaic suicide-risk clarification questions based solely on routine frustration, stress, figurative speech, or past expressions of distress, particularly after a request to stop. Any renewed safety question must be justified by material current risk signals and should avoid mechanically repeating prior wording.",
   "source": {
     "kind": "public_safe_user_submitted_rule_idea",
@@ -36,6 +36,12 @@
     "During later normalization, confirm whether a single targeted prohibition adequately covers both reflexive and repeated prompting without creating unnecessary duplicate rules.",
     "Separate unnecessary scripted questioning from justified direct safety questions when credible new indications of immediate risk appear."
   ],
-  "next_state": "await_explicit_processing_authorization",
-  "remarks": "Queued only, not normalized or published; does not authorize unsolicited analysis, policy changes, or project execution."
+  "next_state": "processed_specimen_retained_as_intake_record",
+  "remarks": "Source intake retained as a public-safe abstract; authorized review yielded one scoped, published canonical prohibition without copying private conversation text.",
+  "processing": {
+    "authorized_by": "explicit_user_request",
+    "authorized_on": "2026-10-22",
+    "record": "processing/specimens/PROC-SPEC-0118.json",
+    "state": "closed"
+  }
 }

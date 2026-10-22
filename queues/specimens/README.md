@@ -34,4 +34,4 @@ All 38 intake records `SPEC-0077`–`SPEC-0114` were individually reviewed and m
 
 ## Pending conversational-safety prompt repetition rule (2026-10-21)
 
-`SPEC-0118` proposes one public-safe prohibition against unsupported, repetitive and formulaic suicide-risk check-in questions. Its scope explicitly distinguishes ordinary frustration and distress from concrete new risk signals requiring proportionate attention. This specimen is queued only: no normalization, catalog publication, profile creation or automatic application has been authorized.
+`SPEC-0118` proposes one public-safe prohibition against unsupported, repetitive and formulaic suicide-risk check-in questions. Its scope explicitly distinguishes ordinary frustration and distress from concrete new risk signals requiring proportionate attention. This specimen was subsequently processed by explicit authorization on 2026-10-22. Its one reviewed canonical rule is `NOM-0114`; candidate and processing disposition are independently retained. No profile was changed or rule automatically applied.
