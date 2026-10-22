@@ -12166,7 +12166,7 @@
     },
     {
       "id": "NOM-0120",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "title": "Maintain human and machine gallery representations",
       "summary": "Maintain an independently navigable, human-facing gallery or showcase of the project's public specimens or results and a corresponding machine-readable index. Represent an empty gallery accurately without inventing exhibits.",
       "statement": "Maintain an independently navigable, human-facing gallery or showcase of the project's public specimens or results and a corresponding machine-readable index. Represent an empty gallery accurately without inventing exhibits.",
@@ -12247,9 +12247,7 @@
       "relations": {
         "conflicts_with": [],
         "exceptions_to": [],
-        "refines": [
-          "NOM-0007"
-        ],
+        "refines": [],
         "depends_on": []
       },
       "provenance": {
@@ -12498,7 +12496,7 @@
     },
     {
       "id": "NOM-0123",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "title": "Externalize private source work through a clean reviewed public subset",
       "summary": "When separately authorized to externalize a private-origin project, classify candidate inputs privately, approve releasable items individually, rewrite or exclude unsafe material, and create a clean public repository without importing nonpublic Git history, logs or artifacts.",
       "statement": "When separately authorized to externalize a private-origin project, classify candidate inputs privately, approve releasable items individually, rewrite or exclude unsafe material, and create a clean public repository without importing nonpublic Git history, logs or artifacts.",
@@ -12551,7 +12549,7 @@
             "any"
           ],
           "visibility": [
-            "public"
+            "any"
           ],
           "artifact_kind": [
             "any"
@@ -14122,8 +14120,8 @@
     {
       "source": "NOM-0120",
       "target": "NOM-0007",
-      "kind": "refines",
-      "evidence": "Reviewed against the public Tarium project contract; the project-specific atom preserves its independent scope and does not replace general Nomos guidance.",
+      "kind": "complements",
+      "evidence": "The Tarium dual-gallery representation adds machine-index requirements while the older showcase rule separately addresses presentation. Neither rule silently overrides the other.",
       "status": "reviewed",
       "confidence": "high",
       "method": "explicit_editorial_review"

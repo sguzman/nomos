@@ -1,6 +1,6 @@
 {
   "id": "NOM-0120",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "title": "Maintain human and machine gallery representations",
   "summary": "Maintain an independently navigable, human-facing gallery or showcase of the project's public specimens or results and a corresponding machine-readable index. Represent an empty gallery accurately without inventing exhibits.",
   "statement": "Maintain an independently navigable, human-facing gallery or showcase of the project's public specimens or results and a corresponding machine-readable index. Represent an empty gallery accurately without inventing exhibits.",
@@ -81,9 +81,7 @@
   "relations": {
     "conflicts_with": [],
     "exceptions_to": [],
-    "refines": [
-      "NOM-0007"
-    ],
+    "refines": [],
     "depends_on": []
   },
   "provenance": {

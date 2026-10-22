@@ -33,8 +33,8 @@
     {
       "source": "NOM-0120",
       "target": "NOM-0007",
-      "kind": "refines",
-      "evidence": "Reviewed against the public Tarium project contract; the project-specific atom preserves its independent scope and does not replace general Nomos guidance."
+      "kind": "complements",
+      "evidence": "The Tarium dual-gallery representation adds machine-index requirements while the older showcase rule separately addresses presentation. Neither rule silently overrides the other."
     },
     {
       "source": "NOM-0121",
