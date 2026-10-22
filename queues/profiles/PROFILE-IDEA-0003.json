@@ -3,12 +3,14 @@
   "kind": "profile_idea",
   "title": "Independent Tarium Project — Lite",
   "summary": "A focused profile for establishing an independently housed public-facing Tarium-compatible project, preserving self-contained project materials and explicit membership authorization. Pair with PROFILE-IDEA-0004 (Full); no project membership or rule selection is implied.",
-  "status": "queued",
+  "status": "instantiated",
   "proposed_rule_ids": [],
   "proposed_group_ids": [],
-  "linked_profile_ids": [],
+  "linked_profile_ids": [
+    "PROFILE-0005"
+  ],
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21"
+    "updated_on": "2026-10-22"
   }
 }

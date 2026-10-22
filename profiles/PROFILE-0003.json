@@ -1,0 +1,57 @@
+{
+  "id": "PROFILE-0003",
+  "kind": "rule_profile",
+  "version": "0.1.0",
+  "title": "New Rust Project from Scratch - Lite",
+  "status": "draft",
+  "selected_rule_ids": [
+    "NOM-0001",
+    "NOM-0003",
+    "NOM-0004",
+    "NOM-0008",
+    "NOM-0012",
+    "NOM-0014",
+    "NOM-0015",
+    "NOM-0016",
+    "NOM-0017",
+    "NOM-0018",
+    "NOM-0019",
+    "NOM-0020",
+    "NOM-0022",
+    "NOM-0023",
+    "NOM-0024",
+    "NOM-0025",
+    "NOM-0026",
+    "NOM-0027",
+    "NOM-0028",
+    "NOM-0029",
+    "NOM-0030",
+    "NOM-0032",
+    "NOM-0042",
+    "NOM-0044",
+    "NOM-0045",
+    "NOM-0049",
+    "NOM-0050",
+    "NOM-0051",
+    "NOM-0052",
+    "NOM-0054",
+    "NOM-0062",
+    "NOM-0064",
+    "NOM-0065",
+    "NOM-0066",
+    "NOM-0067"
+  ],
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ],
+  "review": {
+    "selection_confirmed": false,
+    "finalization_confirmed": false
+  },
+  "governance": {
+    "created_on": "2026-10-22",
+    "updated_on": "2026-10-22"
+  }
+}

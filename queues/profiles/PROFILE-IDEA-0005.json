@@ -3,12 +3,14 @@
   "kind": "profile_idea",
   "title": "Fork and Maintain a Rust Project — Lite",
   "summary": "A focused profile for maintaining a Rust fork, tracking upstream changes, fixing defects and making scoped patches while verifying behavior and repository hygiene. Pair with PROFILE-IDEA-0006 (Full); no upstream or fork changes are authorized.",
-  "status": "queued",
+  "status": "instantiated",
   "proposed_rule_ids": [],
   "proposed_group_ids": [],
-  "linked_profile_ids": [],
+  "linked_profile_ids": [
+    "PROFILE-0007"
+  ],
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21"
+    "updated_on": "2026-10-22"
   }
 }

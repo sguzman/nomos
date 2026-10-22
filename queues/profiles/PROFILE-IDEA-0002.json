@@ -3,12 +3,14 @@
   "kind": "profile_idea",
   "title": "Full Rust Project from Scratch — Full",
   "summary": "A comprehensive profile for building a standalone Rust project from scratch, with extended engineering, verification, documentation, CI, staged milestones, emoji item identities, quantitative progress reporting, and release/lifecycle practices. Pair with PROFILE-IDEA-0001 (Lite); no selection is approved yet.",
-  "status": "queued",
+  "status": "instantiated",
   "proposed_rule_ids": [],
   "proposed_group_ids": [],
-  "linked_profile_ids": [],
+  "linked_profile_ids": [
+    "PROFILE-0004"
+  ],
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21"
+    "updated_on": "2026-10-22"
   }
 }

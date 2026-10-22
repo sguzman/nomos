@@ -3,12 +3,14 @@
   "kind": "profile_idea",
   "title": "Fork and Maintain a Rust Project — Full",
   "summary": "A comprehensive profile for long-term Rust fork stewardship, incorporating upstream sync, patch/bugfix/feature development, compatibility and regression verification, CI, documentation, milestone and percentage reporting, release management, and privacy safeguards. Pair with PROFILE-IDEA-0005 (Lite); exact rule selection remains unreviewed.",
-  "status": "queued",
+  "status": "instantiated",
   "proposed_rule_ids": [],
   "proposed_group_ids": [],
-  "linked_profile_ids": [],
+  "linked_profile_ids": [
+    "PROFILE-0008"
+  ],
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21"
+    "updated_on": "2026-10-22"
   }
 }
