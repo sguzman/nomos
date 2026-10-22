@@ -1,10 +1,10 @@
 {
-  "schema_version": "2.4",
+  "schema_version": "2.5",
   "source": "Nomos public catalog of atomic rules, virtual groups, and opt-in profile presets",
   "rules": [
     {
       "id": "NOM-0001",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "title": "Do not publish private material to public repositories",
       "summary": "Prevent private material from entering public repository surfaces.",
       "statement": "Do not include private material in public Git repository artifacts or their associated publication surfaces.",
@@ -36,11 +36,13 @@
       "categories": {
         "domains": [
           "privacy",
-          "publication"
+          "publication",
+          "security"
         ],
         "topics": [
+          "content_handling",
           "information_disclosure",
-          "content_handling"
+          "private_public_boundary"
         ],
         "audiences": [
           "ai_agents",
@@ -64,7 +66,10 @@
           ]
         },
         "preconditions": [],
-        "exclusions": []
+        "exclusions": [],
+        "project_types": [
+          "any"
+        ]
       },
       "authority": {
         "source": "Nomos publication constitution",
@@ -86,7 +91,7 @@
       },
       "governance": {
         "created_on": "2026-10-20",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -98,7 +103,7 @@
     },
     {
       "id": "NOM-0002",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "title": "Permit private expression in private diaries",
       "summary": "Allow personal material within an explicitly private diary.",
       "statement": "An explicitly private diary may contain private material when it remains private.",
@@ -129,8 +134,8 @@
       },
       "categories": {
         "domains": [
-          "privacy",
-          "personal_writing"
+          "personal_writing",
+          "privacy"
         ],
         "topics": [
           "content_handling",
@@ -157,7 +162,10 @@
           ]
         },
         "preconditions": [],
-        "exclusions": []
+        "exclusions": [],
+        "project_types": [
+          "any"
+        ]
       },
       "authority": {
         "source": "synthetic catalog illustration",
@@ -179,7 +187,7 @@
       },
       "governance": {
         "created_on": "2026-10-20",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "unreviewed"
       },
       "export_targets": [
@@ -191,7 +199,7 @@
     },
     {
       "id": "NOM-0003",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "title": "Do not disclose nonpublic information without authorization",
       "summary": "Do not include confidential or otherwise nonpublic information in public outputs without specific authorization to disclose that information.",
       "statement": "Do not include confidential or otherwise nonpublic information in public outputs without specific authorization to disclose that information.",
@@ -225,11 +233,12 @@
       "categories": {
         "domains": [
           "privacy",
-          "publication"
+          "publication",
+          "security"
         ],
         "topics": [
-          "information_disclosure",
-          "content_handling"
+          "content_handling",
+          "information_disclosure"
         ],
         "audiences": [
           "ai_agents",
@@ -253,7 +262,10 @@
           ]
         },
         "preconditions": [],
-        "exclusions": []
+        "exclusions": [],
+        "project_types": [
+          "any"
+        ]
       },
       "authority": {
         "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
@@ -275,7 +287,7 @@
       },
       "governance": {
         "created_on": "2026-10-20",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -287,7 +299,7 @@
     },
     {
       "id": "NOM-0004",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "title": "Do not expose private generation context in public outputs",
       "summary": "Do not reproduce or reveal private conversations, private drafting language, or nonpublic internal instructions in public outputs merely because they informed the work; public release of the result does not by itself authorize release of its private inputs.",
       "statement": "Do not reproduce or reveal private conversations, private drafting language, or nonpublic internal instructions in public outputs merely because they informed the work; public release of the result does not by itself authorize release of its private inputs.",
@@ -320,14 +332,15 @@
       },
       "categories": {
         "domains": [
+          "agent_instructions",
           "privacy",
-          "publication",
-          "agent_instructions"
+          "publication"
         ],
         "topics": [
-          "information_disclosure",
           "content_handling",
-          "personal_expression"
+          "information_disclosure",
+          "personal_expression",
+          "private_public_boundary"
         ],
         "audiences": [
           "ai_agents",
@@ -351,7 +364,10 @@
           ]
         },
         "preconditions": [],
-        "exclusions": []
+        "exclusions": [],
+        "project_types": [
+          "any"
+        ]
       },
       "authority": {
         "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
@@ -373,7 +389,7 @@
       },
       "governance": {
         "created_on": "2026-10-20",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -385,7 +401,7 @@
     },
     {
       "id": "NOM-0005",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "title": "Require system-aware appearance themes in graphical interfaces",
       "summary": "Graphical and web applications must support light, dark, and system appearance modes; start with system mode and provide an immediately effective on-screen dropdown for changing modes.",
       "statement": "Graphical and web applications must support light, dark, and system appearance modes; start with system mode and provide an immediately effective on-screen dropdown for changing modes.",
@@ -416,12 +432,13 @@
       },
       "categories": {
         "domains": [
-          "user_interfaces",
-          "software_development"
+          "software_development",
+          "user_interfaces"
         ],
         "topics": [
-          "theme_control",
-          "content_handling"
+          "content_handling",
+          "gui_theme_support",
+          "theme_control"
         ],
         "audiences": [
           "ai_agents",
@@ -447,6 +464,9 @@
         "preconditions": [],
         "exclusions": [
           "Must be an interface project."
+        ],
+        "project_types": [
+          "any"
         ]
       },
       "authority": {
@@ -469,7 +489,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -481,7 +501,7 @@
     },
     {
       "id": "NOM-0006",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Represent Tarium ontology for humans and machines",
       "summary": "Each explicitly enrolled Tarium project must publish mutually consistent machine-readable ontology records and human-readable ontology documentation.",
       "statement": "Each explicitly enrolled Tarium project must publish mutually consistent machine-readable ontology records and human-readable ontology documentation.",
@@ -514,10 +534,11 @@
       },
       "categories": {
         "domains": [
-          "ontology",
-          "governance"
+          "governance",
+          "ontology"
         ],
         "topics": [
+          "ontology_representation",
           "representation"
         ],
         "audiences": [
@@ -542,7 +563,10 @@
           ]
         },
         "preconditions": [],
-        "exclusions": []
+        "exclusions": [],
+        "project_types": [
+          "tarium_project"
+        ]
       },
       "authority": {
         "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
@@ -564,7 +588,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -576,7 +600,7 @@
     },
     {
       "id": "NOM-0007",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Maintain a per-project ontology and public specimen showcase",
       "summary": "Each explicitly enrolled Tarium project must maintain its own independently usable ontology and public website showcasing representative ontology specimens.",
       "statement": "Each explicitly enrolled Tarium project must maintain its own independently usable ontology and public website showcasing representative ontology specimens.",
@@ -609,11 +633,12 @@
       },
       "categories": {
         "domains": [
-          "ontology",
           "governance",
+          "ontology",
           "publication"
         ],
         "topics": [
+          "ontology_gallery",
           "specimen_showcase"
         ],
         "audiences": [
@@ -638,7 +663,10 @@
           ]
         },
         "preconditions": [],
-        "exclusions": []
+        "exclusions": [],
+        "project_types": [
+          "tarium_project"
+        ]
       },
       "authority": {
         "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
@@ -660,7 +688,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -672,7 +700,7 @@
     },
     {
       "id": "NOM-0008",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Prefer Rust for application code and justify narrow exceptions",
       "summary": "Write application implementation code in Rust; permit non-Rust website code only with a recorded justification; use Lua when scripting is required, and prefer TOML, JSON, and Markdown for their respective configuration and documentation roles.",
       "statement": "Write application implementation code in Rust; permit non-Rust website code only with a recorded justification; use Lua when scripting is required, and prefer TOML, JSON, and Markdown for their respective configuration and documentation roles.",
@@ -705,10 +733,12 @@
       },
       "categories": {
         "domains": [
+          "rust_development",
           "software_development"
         ],
         "topics": [
-          "implementation_language"
+          "implementation_language",
+          "rust_preference"
         ],
         "audiences": [
           "ai_agents",
@@ -732,7 +762,10 @@
           ]
         },
         "preconditions": [],
-        "exclusions": []
+        "exclusions": [],
+        "project_types": [
+          "software_project"
+        ]
       },
       "authority": {
         "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
@@ -754,7 +787,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -766,7 +799,7 @@
     },
     {
       "id": "NOM-0009",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "title": "Derive stable, distinguishable visual identities from strings",
       "summary": "Assign stable, deterministic identity colors from string IDs using a perceptually aware color method that prioritizes human distinction and preserves readable non-color identifiers.",
       "statement": "Assign stable, deterministic identity colors from string IDs using a perceptually aware color method that prioritizes human distinction and preserves readable non-color identifiers.",
@@ -802,7 +835,8 @@
           "visual_identity"
         ],
         "topics": [
-          "identity_color"
+          "identity_color",
+          "identity_colors"
         ],
         "audiences": [
           "ai_agents",
@@ -826,7 +860,10 @@
           ]
         },
         "preconditions": [],
-        "exclusions": []
+        "exclusions": [],
+        "project_types": [
+          "any"
+        ]
       },
       "authority": {
         "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
@@ -848,7 +885,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -860,7 +897,7 @@
     },
     {
       "id": "NOM-0010",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Create structured roadmaps with stable emoji identities",
       "summary": "New projects must begin with a clear roadmap of phases, milestones, subtasks, and features; give each roadmap item its own stable identifying emoji separate from status.",
       "statement": "New projects must begin with a clear roadmap of phases, milestones, subtasks, and features; give each roadmap item its own stable identifying emoji separate from status.",
@@ -894,10 +931,12 @@
       "categories": {
         "domains": [
           "governance",
+          "project_management",
           "software_development"
         ],
         "topics": [
-          "project_roadmap"
+          "project_roadmap",
+          "roadmap_structure"
         ],
         "audiences": [
           "ai_agents",
@@ -921,7 +960,10 @@
           ]
         },
         "preconditions": [],
-        "exclusions": []
+        "exclusions": [],
+        "project_types": [
+          "project"
+        ]
       },
       "authority": {
         "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
@@ -943,7 +985,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -955,7 +997,7 @@
     },
     {
       "id": "NOM-0011",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "title": "Keep specimen intake, processing, derived task queue and execution distinct",
       "summary": "Keep specimen intake, authorized specimen analysis, any resulting downstream task queue, and execution of those tasks as independent, explicitly authorized workflows with distinct states and traceable transitions.",
       "statement": "Keep specimen intake, authorized specimen analysis, any resulting downstream task queue, and execution of those tasks as independent, explicitly authorized workflows with distinct states and traceable transitions.",
@@ -992,6 +1034,7 @@
           "workflow_governance"
         ],
         "topics": [
+          "specimen_task_workflow",
           "workflow_stage"
         ],
         "audiences": [
@@ -1016,7 +1059,10 @@
           ]
         },
         "preconditions": [],
-        "exclusions": []
+        "exclusions": [],
+        "project_types": [
+          "any"
+        ]
       },
       "authority": {
         "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
@@ -1038,7 +1084,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -1050,7 +1096,7 @@
     },
     {
       "id": "NOM-0012",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Choose the latest stable supported Rust edition",
       "summary": "When selecting a Cargo package edition, use the newest stable Rust edition supported by the project's toolchain and compatibility requirements.",
       "statement": "When selecting a Cargo package edition, use the newest stable Rust edition supported by the project's toolchain and compatibility requirements.",
@@ -1087,8 +1133,8 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "rust_development"
+          "rust_development",
+          "software_development"
         ],
         "topics": [
           "edition_selection"
@@ -1115,7 +1161,10 @@
           ]
         },
         "preconditions": [],
-        "exclusions": []
+        "exclusions": [],
+        "project_types": [
+          "rust_project"
+        ]
       },
       "authority": {
         "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
@@ -1137,7 +1186,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -1149,7 +1198,7 @@
     },
     {
       "id": "NOM-0013",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Choose Rust edition 2024 for Cargo packages",
       "summary": "When selecting a Cargo package edition, set the [package].edition value to 2024.",
       "statement": "When selecting a Cargo package edition, set the [package].edition value to 2024.",
@@ -1187,8 +1236,8 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "rust_development"
+          "rust_development",
+          "software_development"
         ],
         "topics": [
           "edition_selection"
@@ -1215,7 +1264,10 @@
           ]
         },
         "preconditions": [],
-        "exclusions": []
+        "exclusions": [],
+        "project_types": [
+          "rust_project"
+        ]
       },
       "authority": {
         "source": "Published in Nomos by explicit batch authorization; general guidance, never automatically applied",
@@ -1237,7 +1289,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -1249,7 +1301,7 @@
     },
     {
       "id": "NOM-0014",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Repository inspection",
       "summary": "Inspect the existing source tree, configuration, branch, and established conventions before modifying a repository.",
       "statement": "Inspect the existing source tree, configuration, branch, and established conventions before modifying a repository.",
@@ -1284,11 +1336,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "git_repository"
+          "git_repository",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "repository_inspection"
         ],
         "audiences": [
           "ai_agents",
@@ -1316,6 +1368,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -1338,7 +1393,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -1350,7 +1405,7 @@
     },
     {
       "id": "NOM-0015",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Main branch default",
       "summary": "Use the existing main branch by default; deviate only when specifically instructed for the repository or task.",
       "statement": "Use the existing main branch by default; deviate only when specifically instructed for the repository or task.",
@@ -1385,11 +1440,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "git_repository"
+          "git_repository",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "branch_policy"
         ],
         "audiences": [
           "ai_agents",
@@ -1417,6 +1472,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -1439,7 +1497,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -1451,7 +1509,7 @@
     },
     {
       "id": "NOM-0016",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Change scope containment",
       "summary": "Keep changes within the authorized task and repository; avoid unrelated edits or surprise features.",
       "statement": "Keep changes within the authorized task and repository; avoid unrelated edits or surprise features.",
@@ -1486,11 +1544,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "git_repository"
+          "git_repository",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "change_scope"
         ],
         "audiences": [
           "ai_agents",
@@ -1518,6 +1576,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -1540,7 +1601,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -1552,7 +1613,7 @@
     },
     {
       "id": "NOM-0017",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Coherent descriptive commits",
       "summary": "Record authorized changes in logical commits with concise, informative commit messages.",
       "statement": "Record authorized changes in logical commits with concise, informative commit messages.",
@@ -1587,11 +1648,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "git_repository"
+          "git_repository",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "commit_quality"
         ],
         "audiences": [
           "ai_agents",
@@ -1619,6 +1680,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -1641,7 +1705,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -1653,7 +1717,7 @@
     },
     {
       "id": "NOM-0018",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Maintain ignore rules",
       "summary": "Exclude generated outputs, temporary artifacts, machine-specific files and secrets through appropriate ignore rules.",
       "statement": "Exclude generated outputs, temporary artifacts, machine-specific files and secrets through appropriate ignore rules.",
@@ -1688,11 +1752,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "git_repository"
+          "git_repository",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "ignore_file_maintenance"
         ],
         "audiences": [
           "ai_agents",
@@ -1720,6 +1784,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -1742,7 +1809,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -1754,7 +1821,7 @@
     },
     {
       "id": "NOM-0019",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Respect project licensing",
       "summary": "Preserve existing licenses; add a suitable license at an explicitly authorized bootstrap when needed.",
       "statement": "Preserve existing licenses; add a suitable license at an explicitly authorized bootstrap when needed.",
@@ -1789,11 +1856,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "git_repository"
+          "git_repository",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "license_compliance"
         ],
         "audiences": [
           "ai_agents",
@@ -1821,6 +1888,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -1843,7 +1913,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -1855,7 +1925,7 @@
     },
     {
       "id": "NOM-0020",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Dependency lockfile consistency",
       "summary": "Keep tracked dependency lockfiles synchronized with manifest changes, using the conventions for that application or library.",
       "statement": "Keep tracked dependency lockfiles synchronized with manifest changes, using the conventions for that application or library.",
@@ -1890,11 +1960,12 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "git_repository"
+          "dependency_management",
+          "git_repository",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "lockfile_integrity"
         ],
         "audiences": [
           "ai_agents",
@@ -1922,6 +1993,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -1944,7 +2018,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -1956,7 +2030,7 @@
     },
     {
       "id": "NOM-0021",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Remove obsolete scaffolding safely",
       "summary": "Remove obsolete templates, dead files and stale configuration only after checking for active dependencies and preserving unrelated work.",
       "statement": "Remove obsolete templates, dead files and stale configuration only after checking for active dependencies and preserving unrelated work.",
@@ -1991,11 +2065,12 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "git_repository"
+          "git_repository",
+          "maintenance",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "scaffold_cleanup"
         ],
         "audiences": [
           "ai_agents",
@@ -2023,6 +2098,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -2045,7 +2123,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -2057,7 +2135,7 @@
     },
     {
       "id": "NOM-0022",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Verify Git branch and history",
       "summary": "Verify branch identity, expected ancestry and the exact changes before updating repository references.",
       "statement": "Verify branch identity, expected ancestry and the exact changes before updating repository references.",
@@ -2092,11 +2170,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "git_repository"
+          "git_repository",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "git_history_verification"
         ],
         "audiences": [
           "ai_agents",
@@ -2124,6 +2202,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -2146,7 +2227,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -2158,7 +2239,7 @@
     },
     {
       "id": "NOM-0023",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Verify committed state",
       "summary": "Confirm successful commits and the intended branch HEAD before reporting work as committed.",
       "statement": "Confirm successful commits and the intended branch HEAD before reporting work as committed.",
@@ -2193,11 +2274,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "git_repository"
+          "git_repository",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "committed_state_verification"
         ],
         "audiences": [
           "ai_agents",
@@ -2225,6 +2306,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -2247,7 +2331,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -2259,7 +2343,7 @@
     },
     {
       "id": "NOM-0024",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Rust formatting",
       "summary": "Check Rust source formatting with cargo fmt or equivalent toolchain-supported formatting.",
       "statement": "Check Rust source formatting with cargo fmt or equivalent toolchain-supported formatting.",
@@ -2294,11 +2378,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "rust_quality"
+          "rust_quality",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "rust_formatting"
         ],
         "audiences": [
           "ai_agents",
@@ -2326,6 +2410,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "rust_project"
         ]
       },
       "authority": {
@@ -2348,7 +2435,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -2360,7 +2447,7 @@
     },
     {
       "id": "NOM-0025",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Rust Clippy linting",
       "summary": "Run Clippy on relevant targets and address actionable diagnostics; select warning strictness deliberately.",
       "statement": "Run Clippy on relevant targets and address actionable diagnostics; select warning strictness deliberately.",
@@ -2395,11 +2482,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "rust_quality"
+          "rust_quality",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "rust_linting"
         ],
         "audiences": [
           "ai_agents",
@@ -2427,6 +2514,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "rust_project"
         ]
       },
       "authority": {
@@ -2449,7 +2539,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -2461,7 +2551,7 @@
     },
     {
       "id": "NOM-0026",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Rust compilation checks",
       "summary": "Use cargo check or an appropriate build to verify compilation under the project's intended toolchain.",
       "statement": "Use cargo check or an appropriate build to verify compilation under the project's intended toolchain.",
@@ -2496,11 +2586,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "rust_quality"
+          "rust_quality",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "rust_compilation"
         ],
         "audiences": [
           "ai_agents",
@@ -2528,6 +2618,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "rust_project"
         ]
       },
       "authority": {
@@ -2550,7 +2643,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -2562,7 +2655,7 @@
     },
     {
       "id": "NOM-0027",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Unit tests",
       "summary": "Write and maintain focused automated tests for important functions, modules and invariants.",
       "statement": "Write and maintain focused automated tests for important functions, modules and invariants.",
@@ -2597,11 +2690,12 @@
       },
       "categories": {
         "domains": [
+          "rust_quality",
           "software_development",
-          "rust_quality"
+          "software_testing"
         ],
         "topics": [
-          "development_hygiene"
+          "unit_testing"
         ],
         "audiences": [
           "ai_agents",
@@ -2629,6 +2723,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "rust_project"
         ]
       },
       "authority": {
@@ -2651,7 +2748,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -2663,7 +2760,7 @@
     },
     {
       "id": "NOM-0028",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Integration tests",
       "summary": "Test interactions across components and public interfaces where integration boundaries warrant it.",
       "statement": "Test interactions across components and public interfaces where integration boundaries warrant it.",
@@ -2698,11 +2795,12 @@
       },
       "categories": {
         "domains": [
+          "rust_quality",
           "software_development",
-          "rust_quality"
+          "software_testing"
         ],
         "topics": [
-          "development_hygiene"
+          "integration_testing"
         ],
         "audiences": [
           "ai_agents",
@@ -2730,6 +2828,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "rust_project"
         ]
       },
       "authority": {
@@ -2752,7 +2853,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -2764,7 +2865,7 @@
     },
     {
       "id": "NOM-0029",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Regression tests",
       "summary": "Reproduce reported defects with automated tests and retain them to detect recurrence.",
       "statement": "Reproduce reported defects with automated tests and retain them to detect recurrence.",
@@ -2799,11 +2900,12 @@
       },
       "categories": {
         "domains": [
+          "rust_quality",
           "software_development",
-          "rust_quality"
+          "software_testing"
         ],
         "topics": [
-          "development_hygiene"
+          "regression_testing"
         ],
         "audiences": [
           "ai_agents",
@@ -2831,6 +2933,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "rust_project"
         ]
       },
       "authority": {
@@ -2853,7 +2958,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -2865,7 +2970,7 @@
     },
     {
       "id": "NOM-0030",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Edge-case coverage",
       "summary": "Cover invalid states, malformed inputs, missing resources and failure paths relevant to the feature.",
       "statement": "Cover invalid states, malformed inputs, missing resources and failure paths relevant to the feature.",
@@ -2900,11 +3005,12 @@
       },
       "categories": {
         "domains": [
+          "rust_quality",
           "software_development",
-          "rust_quality"
+          "software_testing"
         ],
         "topics": [
-          "development_hygiene"
+          "edge_case_testing"
         ],
         "audiences": [
           "ai_agents",
@@ -2932,6 +3038,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "rust_project"
         ]
       },
       "authority": {
@@ -2954,7 +3063,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -2966,7 +3075,7 @@
     },
     {
       "id": "NOM-0031",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Synthetic fixtures",
       "summary": "Prefer minimal synthetic, correctly licensed fixtures over personal, secret or commercial inputs.",
       "statement": "Prefer minimal synthetic, correctly licensed fixtures over personal, secret or commercial inputs.",
@@ -3001,11 +3110,12 @@
       },
       "categories": {
         "domains": [
+          "rust_quality",
           "software_development",
-          "rust_quality"
+          "software_testing"
         ],
         "topics": [
-          "development_hygiene"
+          "synthetic_test_fixtures"
         ],
         "audiences": [
           "ai_agents",
@@ -3033,6 +3143,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "rust_project"
         ]
       },
       "authority": {
@@ -3055,7 +3168,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -3067,7 +3180,7 @@
     },
     {
       "id": "NOM-0032",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Deterministic testing",
       "summary": "Make automated tests reproducible and independent of unnecessary network or timing variability.",
       "statement": "Make automated tests reproducible and independent of unnecessary network or timing variability.",
@@ -3102,11 +3215,12 @@
       },
       "categories": {
         "domains": [
+          "rust_quality",
           "software_development",
-          "rust_quality"
+          "software_testing"
         ],
         "topics": [
-          "development_hygiene"
+          "deterministic_testing"
         ],
         "audiences": [
           "ai_agents",
@@ -3134,6 +3248,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "rust_project"
         ]
       },
       "authority": {
@@ -3156,7 +3273,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -3168,7 +3285,7 @@
     },
     {
       "id": "NOM-0033",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Feature and target combinations",
       "summary": "Test relevant feature flags, supported compilation targets and build configurations without inventing platform support.",
       "statement": "Test relevant feature flags, supported compilation targets and build configurations without inventing platform support.",
@@ -3203,11 +3320,12 @@
       },
       "categories": {
         "domains": [
+          "rust_quality",
           "software_development",
-          "rust_quality"
+          "software_testing"
         ],
         "topics": [
-          "development_hygiene"
+          "target_feature_testing"
         ],
         "audiences": [
           "ai_agents",
@@ -3235,6 +3353,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "rust_project"
         ]
       },
       "authority": {
@@ -3257,7 +3378,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -3269,7 +3390,7 @@
     },
     {
       "id": "NOM-0034",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Continuous validation workflows",
       "summary": "Configure an appropriate GitHub Actions or comparable validation workflow for a repository.",
       "statement": "Configure an appropriate GitHub Actions or comparable validation workflow for a repository.",
@@ -3304,11 +3425,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "ci_cd"
+          "ci_cd",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "ci_workflows"
         ],
         "audiences": [
           "ai_agents",
@@ -3336,6 +3457,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -3358,7 +3482,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -3370,7 +3494,7 @@
     },
     {
       "id": "NOM-0035",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "CI event triggers",
       "summary": "Run configured checks for appropriate events, such as pushes, while respecting repository workflow policies.",
       "statement": "Run configured checks for appropriate events, such as pushes, while respecting repository workflow policies.",
@@ -3405,11 +3529,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "ci_cd"
+          "ci_cd",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "ci_triggers"
         ],
         "audiences": [
           "ai_agents",
@@ -3437,6 +3561,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -3459,7 +3586,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -3471,7 +3598,7 @@
     },
     {
       "id": "NOM-0036",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "CI quality gates",
       "summary": "Combine applicable formatting, compilation, linting and test checks into automated validation stages.",
       "statement": "Combine applicable formatting, compilation, linting and test checks into automated validation stages.",
@@ -3506,11 +3633,12 @@
       },
       "categories": {
         "domains": [
+          "ci_cd",
           "software_development",
-          "ci_cd"
+          "software_testing"
         ],
         "topics": [
-          "development_hygiene"
+          "ci_quality_gates"
         ],
         "audiences": [
           "ai_agents",
@@ -3538,6 +3666,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -3560,7 +3691,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -3572,7 +3703,7 @@
     },
     {
       "id": "NOM-0037",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Cross-platform CI checks",
       "summary": "Exercise supported operating systems in CI without claiming unsupported platform compatibility.",
       "statement": "Exercise supported operating systems in CI without claiming unsupported platform compatibility.",
@@ -3607,11 +3738,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "ci_cd"
+          "ci_cd",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "cross_platform_ci"
         ],
         "audiences": [
           "ai_agents",
@@ -3639,6 +3770,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -3661,7 +3795,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -3673,7 +3807,7 @@
     },
     {
       "id": "NOM-0038",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Deployment workflows",
       "summary": "Automate approved website or artifact deployment through GitHub Pages or an appropriate existing target.",
       "statement": "Automate approved website or artifact deployment through GitHub Pages or an appropriate existing target.",
@@ -3708,11 +3842,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "ci_cd"
+          "ci_cd",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "deployment_workflows"
         ],
         "audiences": [
           "ai_agents",
@@ -3740,6 +3874,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -3762,7 +3899,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -3774,7 +3911,7 @@
     },
     {
       "id": "NOM-0039",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Repair failing CI",
       "summary": "Investigate failed workflow steps, fix underlying causes where authorized and recheck status.",
       "statement": "Investigate failed workflow steps, fix underlying causes where authorized and recheck status.",
@@ -3809,11 +3946,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "ci_cd"
+          "ci_cd",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "ci_repair"
         ],
         "audiences": [
           "ai_agents",
@@ -3841,6 +3978,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -3863,7 +4003,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -3875,7 +4015,7 @@
     },
     {
       "id": "NOM-0040",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Workflow configuration maintenance",
       "summary": "Maintain workflow permissions, triggers, versions and paths to match actual repository needs.",
       "statement": "Maintain workflow permissions, triggers, versions and paths to match actual repository needs.",
@@ -3910,11 +4050,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "ci_cd"
+          "ci_cd",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "ci_configuration"
         ],
         "audiences": [
           "ai_agents",
@@ -3942,6 +4082,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -3964,7 +4107,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -3976,7 +4119,7 @@
     },
     {
       "id": "NOM-0041",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Verify CI outcomes",
       "summary": "Report whether each relevant check was successful, failed, skipped or pending rather than presuming success.",
       "statement": "Report whether each relevant check was successful, failed, skipped or pending rather than presuming success.",
@@ -4011,11 +4154,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "ci_cd"
+          "ci_cd",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "ci_result_verification"
         ],
         "audiences": [
           "ai_agents",
@@ -4043,6 +4186,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -4065,7 +4211,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -4077,7 +4223,7 @@
     },
     {
       "id": "NOM-0042",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "README upkeep",
       "summary": "Keep the project README aligned with its purpose, setup, usage and development procedures.",
       "statement": "Keep the project README aligned with its purpose, setup, usage and development procedures.",
@@ -4112,11 +4258,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "documentation"
+          "documentation",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "readme_maintenance"
         ],
         "audiences": [
           "ai_agents",
@@ -4144,6 +4290,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -4166,7 +4315,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -4178,7 +4327,7 @@
     },
     {
       "id": "NOM-0043",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Roadmap status accuracy",
       "summary": "Maintain milestones and task completion states according to evidence; never equate a future idea with an authorized task.",
       "statement": "Maintain milestones and task completion states according to evidence; never equate a future idea with an authorized task.",
@@ -4213,11 +4362,12 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "documentation"
+          "documentation",
+          "project_management",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "roadmap_status"
         ],
         "audiences": [
           "ai_agents",
@@ -4245,6 +4395,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -4267,7 +4420,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -4279,7 +4432,7 @@
     },
     {
       "id": "NOM-0044",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Architecture documentation",
       "summary": "Document consequential design decisions, interfaces and data models in project-appropriate files.",
       "statement": "Document consequential design decisions, interfaces and data models in project-appropriate files.",
@@ -4314,11 +4467,12 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "documentation"
+          "documentation",
+          "project_architecture",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "architecture_documentation"
         ],
         "audiences": [
           "ai_agents",
@@ -4346,6 +4500,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -4368,7 +4525,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -4380,7 +4537,7 @@
     },
     {
       "id": "NOM-0045",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Configuration reference",
       "summary": "Document configuration keys, defaults, examples and environment requirements.",
       "statement": "Document configuration keys, defaults, examples and environment requirements.",
@@ -4415,11 +4572,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "documentation"
+          "documentation",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "configuration_documentation"
         ],
         "audiences": [
           "ai_agents",
@@ -4447,6 +4604,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -4469,7 +4629,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -4481,7 +4641,7 @@
     },
     {
       "id": "NOM-0046",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "CLI help accuracy",
       "summary": "Synchronize command help, flags and examples with implemented command-line behavior.",
       "statement": "Synchronize command help, flags and examples with implemented command-line behavior.",
@@ -4516,11 +4676,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "documentation"
+          "documentation",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "cli_help"
         ],
         "audiences": [
           "ai_agents",
@@ -4548,6 +4708,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -4570,7 +4733,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -4582,7 +4745,7 @@
     },
     {
       "id": "NOM-0047",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Changelog upkeep",
       "summary": "Record notable user-facing changes in the repository's established changelog or release notes.",
       "statement": "Record notable user-facing changes in the repository's established changelog or release notes.",
@@ -4617,11 +4780,12 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "documentation"
+          "documentation",
+          "maintenance",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "changelog"
         ],
         "audiences": [
           "ai_agents",
@@ -4649,6 +4813,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -4671,7 +4838,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -4683,7 +4850,7 @@
     },
     {
       "id": "NOM-0048",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Documentation consistency audit",
       "summary": "Identify and correct stale instructions, inaccurate claims and broken internal links.",
       "statement": "Identify and correct stale instructions, inaccurate claims and broken internal links.",
@@ -4718,11 +4885,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "documentation"
+          "documentation",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "documentation_audit"
         ],
         "audiences": [
           "ai_agents",
@@ -4750,6 +4917,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -4772,7 +4942,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -4784,7 +4954,7 @@
     },
     {
       "id": "NOM-0049",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Source provenance and attribution",
       "summary": "Preserve publication-safe references, licenses and hashes needed to explain imported data or resources.",
       "statement": "Preserve publication-safe references, licenses and hashes needed to explain imported data or resources.",
@@ -4819,11 +4989,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "documentation"
+          "documentation",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "source_provenance"
         ],
         "audiences": [
           "ai_agents",
@@ -4851,6 +5021,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -4873,7 +5046,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -4885,7 +5058,7 @@
     },
     {
       "id": "NOM-0050",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Public repository privacy review",
       "summary": "Review public-facing files, fixtures, metadata and commits for unauthorized nonpublic material.",
       "statement": "Review public-facing files, fixtures, metadata and commits for unauthorized nonpublic material.",
@@ -4920,11 +5093,13 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "safety_integrity"
+          "privacy",
+          "publication",
+          "safety_integrity",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "public_privacy_review"
         ],
         "audiences": [
           "ai_agents",
@@ -4952,6 +5127,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -4974,7 +5152,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -4986,7 +5164,7 @@
     },
     {
       "id": "NOM-0051",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Keep secrets out of version control",
       "summary": "Avoid committing credentials, access tokens, private keys and nonpublic configuration.",
       "statement": "Avoid committing credentials, access tokens, private keys and nonpublic configuration.",
@@ -5021,11 +5199,13 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "safety_integrity"
+          "privacy",
+          "safety_integrity",
+          "security",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "secret_management"
         ],
         "audiences": [
           "ai_agents",
@@ -5053,6 +5233,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -5075,7 +5258,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -5087,7 +5270,7 @@
     },
     {
       "id": "NOM-0052",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Non-destructive operational defaults",
       "summary": "Prefer inspection, bounded changes and explicit authorization before destructive operations.",
       "statement": "Prefer inspection, bounded changes and explicit authorization before destructive operations.",
@@ -5122,11 +5305,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "safety_integrity"
+          "safety_integrity",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "safe_operations"
         ],
         "audiences": [
           "ai_agents",
@@ -5154,6 +5337,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -5176,7 +5362,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -5188,7 +5374,7 @@
     },
     {
       "id": "NOM-0053",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Data round-trip integrity",
       "summary": "Verify preservation of data through import, export, migration, hashing or serialization where applicable.",
       "statement": "Verify preservation of data through import, export, migration, hashing or serialization where applicable.",
@@ -5223,11 +5409,12 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "safety_integrity"
+          "data_integrity",
+          "safety_integrity",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "data_roundtrip"
         ],
         "audiences": [
           "ai_agents",
@@ -5255,6 +5442,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -5277,7 +5467,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -5289,7 +5479,7 @@
     },
     {
       "id": "NOM-0054",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Backwards compatibility checks",
       "summary": "Guard established public APIs, file formats and command behavior against unintended breaking changes.",
       "statement": "Guard established public APIs, file formats and command behavior against unintended breaking changes.",
@@ -5324,11 +5514,12 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "safety_integrity"
+          "maintenance",
+          "safety_integrity",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "backward_compatibility"
         ],
         "audiences": [
           "ai_agents",
@@ -5356,6 +5547,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -5378,7 +5572,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -5390,7 +5584,7 @@
     },
     {
       "id": "NOM-0055",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Semantic version policy",
       "summary": "Use coherent major, minor and patch version semantics for projects adopting semantic versioning.",
       "statement": "Use coherent major, minor and patch version semantics for projects adopting semantic versioning.",
@@ -5425,11 +5619,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "releases"
+          "releases",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "semantic_versioning"
         ],
         "audiences": [
           "ai_agents",
@@ -5457,6 +5651,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -5479,7 +5676,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -5491,7 +5688,7 @@
     },
     {
       "id": "NOM-0056",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Synchronize version references",
       "summary": "Keep declared package versions, relevant manifests, release notes and tags mutually consistent.",
       "statement": "Keep declared package versions, relevant manifests, release notes and tags mutually consistent.",
@@ -5526,11 +5723,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "releases"
+          "releases",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "version_consistency"
         ],
         "audiences": [
           "ai_agents",
@@ -5558,6 +5755,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -5580,7 +5780,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -5592,7 +5792,7 @@
     },
     {
       "id": "NOM-0057",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Release readiness checks",
       "summary": "Confirm builds, tests, package contents and release notes before an authorized release.",
       "statement": "Confirm builds, tests, package contents and release notes before an authorized release.",
@@ -5627,11 +5827,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "releases"
+          "releases",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "release_readiness"
         ],
         "audiences": [
           "ai_agents",
@@ -5659,6 +5859,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -5681,7 +5884,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -5693,7 +5896,7 @@
     },
     {
       "id": "NOM-0058",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Versioned release tags",
       "summary": "Create and verify version tags only when publishing a release is explicitly authorized.",
       "statement": "Create and verify version tags only when publishing a release is explicitly authorized.",
@@ -5728,11 +5931,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "releases"
+          "releases",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "release_tagging"
         ],
         "audiences": [
           "ai_agents",
@@ -5760,6 +5963,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -5782,7 +5988,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -5794,7 +6000,7 @@
     },
     {
       "id": "NOM-0059",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Release artifact packaging",
       "summary": "Build and assemble platform-appropriate distributable binaries, libraries or archives for authorized releases.",
       "statement": "Build and assemble platform-appropriate distributable binaries, libraries or archives for authorized releases.",
@@ -5829,11 +6035,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "releases"
+          "releases",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "artifact_packaging"
         ],
         "audiences": [
           "ai_agents",
@@ -5861,6 +6067,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -5883,7 +6092,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -5895,7 +6104,7 @@
     },
     {
       "id": "NOM-0060",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Artifact integrity hashes",
       "summary": "Produce integrity checksums for distributable artifacts when useful and preserve their correspondence to outputs.",
       "statement": "Produce integrity checksums for distributable artifacts when useful and preserve their correspondence to outputs.",
@@ -5930,11 +6139,12 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "releases"
+          "data_integrity",
+          "releases",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "artifact_hashing"
         ],
         "audiences": [
           "ai_agents",
@@ -5962,6 +6172,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -5984,7 +6197,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -5996,7 +6209,7 @@
     },
     {
       "id": "NOM-0061",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Release workflow automation",
       "summary": "Use relevant release tooling or workflows when automation adds value and publishing scope is authorized.",
       "statement": "Use relevant release tooling or workflows when automation adds value and publishing scope is authorized.",
@@ -6031,11 +6244,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "releases"
+          "releases",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "release_automation"
         ],
         "audiences": [
           "ai_agents",
@@ -6063,6 +6276,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -6085,7 +6301,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -6097,7 +6313,7 @@
     },
     {
       "id": "NOM-0062",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Automated smoke checks",
       "summary": "Verify startup and essential functionality with repeatable smoke tests where the environment supports it.",
       "statement": "Verify startup and essential functionality with repeatable smoke tests where the environment supports it.",
@@ -6132,11 +6348,12 @@
       },
       "categories": {
         "domains": [
+          "qa_verification",
           "software_development",
-          "qa_verification"
+          "software_testing"
         ],
         "topics": [
-          "development_hygiene"
+          "smoke_testing"
         ],
         "audiences": [
           "ai_agents",
@@ -6164,6 +6381,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -6186,7 +6406,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -6198,7 +6418,7 @@
     },
     {
       "id": "NOM-0063",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "GUI and browser QA",
       "summary": "Check relevant UI interactions and layout in a real GUI or browser when available, and disclose untested paths.",
       "statement": "Check relevant UI interactions and layout in a real GUI or browser when available, and disclose untested paths.",
@@ -6233,11 +6453,13 @@
       },
       "categories": {
         "domains": [
+          "qa_verification",
           "software_development",
-          "qa_verification"
+          "software_testing",
+          "user_interfaces"
         ],
         "topics": [
-          "development_hygiene"
+          "gui_browser_testing"
         ],
         "audiences": [
           "ai_agents",
@@ -6265,6 +6487,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -6287,7 +6512,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -6299,7 +6524,7 @@
     },
     {
       "id": "NOM-0064",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Acceptance criteria review",
       "summary": "Compare delivered functionality with the original authorized requirements and record deviations.",
       "statement": "Compare delivered functionality with the original authorized requirements and record deviations.",
@@ -6334,11 +6559,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "qa_verification"
+          "qa_verification",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "acceptance_criteria"
         ],
         "audiences": [
           "ai_agents",
@@ -6366,6 +6591,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -6388,7 +6616,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -6400,7 +6628,7 @@
     },
     {
       "id": "NOM-0065",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Evidence-based state labels",
       "summary": "Distinguish written, staged, committed, compiled, tested, deployed and visually verified states.",
       "statement": "Distinguish written, staged, committed, compiled, tested, deployed and visually verified states.",
@@ -6435,11 +6663,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "qa_verification"
+          "qa_verification",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "evidence_based_status"
         ],
         "audiences": [
           "ai_agents",
@@ -6467,6 +6695,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -6489,7 +6720,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -6501,7 +6732,7 @@
     },
     {
       "id": "NOM-0066",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Verifiable completion reports",
       "summary": "Report concrete commit IDs, test results, deployment evidence and unresolved work.",
       "statement": "Report concrete commit IDs, test results, deployment evidence and unresolved work.",
@@ -6536,11 +6767,11 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "qa_verification"
+          "qa_verification",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "completion_evidence"
         ],
         "audiences": [
           "ai_agents",
@@ -6568,6 +6799,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -6590,7 +6824,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -6602,7 +6836,7 @@
     },
     {
       "id": "NOM-0067",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Preserve unfinished work state",
       "summary": "Keep blockers and unfinished acceptance criteria visible rather than marking incomplete work as complete.",
       "statement": "Keep blockers and unfinished acceptance criteria visible rather than marking incomplete work as complete.",
@@ -6637,11 +6871,12 @@
       },
       "categories": {
         "domains": [
-          "software_development",
-          "qa_verification"
+          "maintenance",
+          "qa_verification",
+          "software_development"
         ],
         "topics": [
-          "development_hygiene"
+          "unfinished_work_state"
         ],
         "audiences": [
           "ai_agents",
@@ -6669,6 +6904,9 @@
         ],
         "exclusions": [
           "Projects or operations outside authorized task scope"
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -6691,7 +6929,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -6703,7 +6941,7 @@
     },
     {
       "id": "NOM-0068",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Report progress for touched roadmap items",
       "summary": "Each development progress report should show progress for every phase, milestone, task and feature worked on during its reporting interval.",
       "statement": "Each development progress report should show progress for every phase, milestone, task and feature worked on during its reporting interval.",
@@ -6769,6 +7007,9 @@
         ],
         "exclusions": [
           "Items whose completed state was already announced and not reopened."
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -6791,7 +7032,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -6803,7 +7044,7 @@
     },
     {
       "id": "NOM-0069",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Pair progress percentages with visual progress bars",
       "summary": "For each reported work item, show a numeric completion percentage together with a visual progress bar conveying the same value.",
       "statement": "For each reported work item, show a numeric completion percentage together with a visual progress bar conveying the same value.",
@@ -6870,6 +7111,9 @@
         ],
         "exclusions": [
           "Do not invent numerical precision when progress cannot be estimated."
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -6892,7 +7136,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -6904,7 +7148,7 @@
     },
     {
       "id": "NOM-0070",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Report overall project progress alongside individual items",
       "summary": "Include an overall project progress summary alongside the progress of relevant phases, milestones, tasks and features.",
       "statement": "Include an overall project progress summary alongside the progress of relevant phases, milestones, tasks and features.",
@@ -6970,6 +7214,9 @@
         ],
         "exclusions": [
           "Do not double-count nested milestones or infer unverified aggregate percentages."
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -6992,7 +7239,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -7004,7 +7251,7 @@
     },
     {
       "id": "NOM-0071",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Announce first attainment of 100 percent exactly once",
       "summary": "When a project, phase, milestone, task or feature first reaches 100 percent, show its completion and percentage once in the reporting conversation.",
       "statement": "When a project, phase, milestone, task or feature first reaches 100 percent, show its completion and percentage once in the reporting conversation.",
@@ -7070,6 +7317,9 @@
         ],
         "exclusions": [
           "Historical completion events should not be reannounced as new completions."
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -7092,7 +7342,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -7104,7 +7354,7 @@
     },
     {
       "id": "NOM-0072",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Suppress completed items from subsequent routine progress reports",
       "summary": "After the 100 percent completion of a project, phase, milestone, task or feature has been reported once, omit it from later routine progress reports while preserving the underlying roadmap and completion history.",
       "statement": "After the 100 percent completion of a project, phase, milestone, task or feature has been reported once, omit it from later routine progress reports while preserving the underlying roadmap and completion history.",
@@ -7170,6 +7420,9 @@
         ],
         "exclusions": [
           "This does not erase archived completion data; explicitly reopened work may be reported as incomplete."
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -7194,7 +7447,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -7206,7 +7459,7 @@
     },
     {
       "id": "NOM-0073",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Display project identity colors in README documentation",
       "summary": "Embed a project's assigned stable, perceptually distinguishable identity color in its README using a portable rendering such as SVG or CSS when suitable.",
       "statement": "Embed a project's assigned stable, perceptually distinguishable identity color in its README using a portable rendering such as SVG or CSS when suitable.",
@@ -7241,8 +7494,8 @@
       },
       "categories": {
         "domains": [
-          "visual_identity",
-          "documentation"
+          "documentation",
+          "visual_identity"
         ],
         "topics": [
           "readme_identity"
@@ -7273,6 +7526,9 @@
         ],
         "exclusions": [
           "Do not expose private project artifacts; preserve README rendering compatibility."
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -7299,7 +7555,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -7311,7 +7567,7 @@
     },
     {
       "id": "NOM-0074",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Maintain behavioral fidelity during strict software ports",
       "summary": "During a strict software port, prioritize the agreed upstream application's observable behavior over redesign and unrelated enhancements.",
       "statement": "During a strict software port, prioritize the agreed upstream application's observable behavior over redesign and unrelated enhancements.",
@@ -7350,7 +7606,8 @@
           "software_porting"
         ],
         "topics": [
-          "port_fidelity"
+          "port_fidelity",
+          "strict_port_fidelity"
         ],
         "audiences": [
           "ai_agents",
@@ -7378,6 +7635,9 @@
         ],
         "exclusions": [
           "Explicitly authorized deviations from the upstream baseline."
+        ],
+        "project_types": [
+          "software_port"
         ]
       },
       "authority": {
@@ -7400,7 +7660,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -7412,7 +7672,7 @@
     },
     {
       "id": "NOM-0075",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Define porting MVP through verified replacement capability",
       "summary": "For a strict software port, judge MVP against the agreed capability to replace the upstream application's baseline functionality rather than successful compilation alone.",
       "statement": "For a strict software port, judge MVP against the agreed capability to replace the upstream application's baseline functionality rather than successful compilation alone.",
@@ -7479,6 +7739,9 @@
         ],
         "exclusions": [
           "Compilation alone is not proof of replacement capability."
+        ],
+        "project_types": [
+          "software_port"
         ]
       },
       "authority": {
@@ -7503,7 +7766,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -7515,7 +7778,7 @@
     },
     {
       "id": "NOM-0076",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "title": "Defer nonessential enhancements until strict-port MVP",
       "summary": "Keep redesigns and optional post-MVP features outside the strict porting phase until the agreed MVP is reached, unless a separately authorized exception changes scope.",
       "statement": "Keep redesigns and optional post-MVP features outside the strict porting phase until the agreed MVP is reached, unless a separately authorized exception changes scope.",
@@ -7582,6 +7845,9 @@
         ],
         "exclusions": [
           "Independently authorized pre-MVP additions are outside this default deferral."
+        ],
+        "project_types": [
+          "software_port"
         ]
       },
       "authority": {
@@ -7606,7 +7872,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -7618,7 +7884,7 @@
     },
     {
       "id": "NOM-0077",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "title": "Do not suggest names ending with the suffix arium",
       "summary": "When generating or recommending new names for projects, products, applications, repositories, tools, or other user-named entities, do not propose candidate names whose final letters are 'arium', regardless of letter case.",
       "statement": "When generating or recommending new names for projects, products, applications, repositories, tools, or other user-named entities, do not propose candidate names whose final letters are 'arium', regardless of letter case.",
@@ -7685,6 +7951,9 @@
         ],
         "exclusions": [
           "Does not prevent discussing historical or existing names."
+        ],
+        "project_types": [
+          "any"
         ]
       },
       "authority": {
@@ -7707,7 +7976,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -7719,7 +7988,7 @@
     },
     {
       "id": "NOM-0078",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Ask for the actual local repository path before issuing YAML execution jobs",
       "summary": "Before preparing or executing a YAML-specified job that operates on an existing local Git repository, request and use the user's actual local repository filesystem path instead of assuming its location.",
       "statement": "Before preparing or executing a YAML-specified job that operates on an existing local Git repository, request and use the user's actual local repository filesystem path instead of assuming its location.",
@@ -7759,6 +8028,7 @@
           "workflow_governance"
         ],
         "topics": [
+          "local_job_path",
           "yaml_job_workflow"
         ],
         "audiences": [
@@ -7787,6 +8057,9 @@
         ],
         "exclusions": [
           "Does not authorize changing unrelated or substitute repositories."
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -7811,7 +8084,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -7823,7 +8096,7 @@
     },
     {
       "id": "NOM-0079",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Do not invent local repository paths",
       "summary": "Do not fabricate, infer, or substitute an unverified filesystem path for a project when writing or running a YAML-specified job against a local Git repository.",
       "statement": "Do not fabricate, infer, or substitute an unverified filesystem path for a project when writing or running a YAML-specified job against a local Git repository.",
@@ -7863,6 +8136,7 @@
           "workflow_governance"
         ],
         "topics": [
+          "repository_path_integrity",
           "yaml_job_workflow"
         ],
         "audiences": [
@@ -7891,6 +8165,9 @@
         ],
         "exclusions": [
           "Does not authorize changing unrelated or substitute repositories."
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -7915,7 +8192,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -7927,7 +8204,7 @@
     },
     {
       "id": "NOM-0080",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Do not create substitute repositories or temporary project clones",
       "summary": "When a YAML-specified job is intended to operate on the user's existing local repository, do not create a replacement project, repository checkout, or temporary clone as a substitute for that repository.",
       "statement": "When a YAML-specified job is intended to operate on the user's existing local repository, do not create a replacement project, repository checkout, or temporary clone as a substitute for that repository.",
@@ -7967,6 +8244,7 @@
           "workflow_governance"
         ],
         "topics": [
+          "repository_clone_policy",
           "yaml_job_workflow"
         ],
         "audiences": [
@@ -7995,6 +8273,9 @@
         ],
         "exclusions": [
           "Does not authorize changing unrelated or substitute repositories."
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -8019,7 +8300,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -8031,7 +8312,7 @@
     },
     {
       "id": "NOM-0081",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Do not embed large Python programs in YAML execution jobs",
       "summary": "Do not put substantial multi-line Python program implementations directly inside YAML job commands; keep executable program logic in separate source files.",
       "statement": "Do not put substantial multi-line Python program implementations directly inside YAML job commands; keep executable program logic in separate source files.",
@@ -8071,7 +8352,8 @@
           "workflow_governance"
         ],
         "topics": [
-          "yaml_job_workflow"
+          "yaml_job_workflow",
+          "yaml_script_size"
         ],
         "audiences": [
           "ai_agents",
@@ -8099,6 +8381,9 @@
         ],
         "exclusions": [
           "Does not authorize changing unrelated or substitute repositories."
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -8123,7 +8408,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -8135,7 +8420,7 @@
     },
     {
       "id": "NOM-0082",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Place nontrivial job scripts in the repository scripts directory",
       "summary": "When an automation job requires a substantial standalone script, create or maintain that script as a file under the verified local project's scripts/ directory rather than implementing it inside the job YAML.",
       "statement": "When an automation job requires a substantial standalone script, create or maintain that script as a file under the verified local project's scripts/ directory rather than implementing it inside the job YAML.",
@@ -8175,6 +8460,7 @@
           "workflow_governance"
         ],
         "topics": [
+          "job_script_placement",
           "yaml_job_workflow"
         ],
         "audiences": [
@@ -8203,6 +8489,9 @@
         ],
         "exclusions": [
           "Does not authorize changing unrelated or substitute repositories."
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -8225,7 +8514,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -8237,7 +8526,7 @@
     },
     {
       "id": "NOM-0083",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Invoke external scripts from YAML jobs",
       "summary": "When a YAML execution job uses a standalone script, keep the YAML focused on invoking the script file from its confirmed project path instead of embedding the script body in YAML commands.",
       "statement": "When a YAML execution job uses a standalone script, keep the YAML focused on invoking the script file from its confirmed project path instead of embedding the script body in YAML commands.",
@@ -8277,6 +8566,7 @@
           "workflow_governance"
         ],
         "topics": [
+          "job_script_invocation",
           "yaml_job_workflow"
         ],
         "audiences": [
@@ -8305,6 +8595,9 @@
         ],
         "exclusions": [
           "Does not authorize changing unrelated or substitute repositories."
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -8327,7 +8620,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -8339,7 +8632,7 @@
     },
     {
       "id": "NOM-0084",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Pull latest changes before local repository YAML job work",
       "summary": "Before performing work on an existing local Git repository through a YAML-specified execution job, run git pull in that verified repository to retrieve the latest remote changes rather than operating on an assumed-current checkout.",
       "statement": "Before performing work on an existing local Git repository through a YAML-specified execution job, run git pull in that verified repository to retrieve the latest remote changes rather than operating on an assumed-current checkout.",
@@ -8379,6 +8672,7 @@
           "workflow_governance"
         ],
         "topics": [
+          "repository_sync",
           "yaml_job_workflow"
         ],
         "audiences": [
@@ -8407,6 +8701,9 @@
         ],
         "exclusions": [
           "Does not authorize changing unrelated or substitute repositories."
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -8432,7 +8729,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -8444,7 +8741,7 @@
     },
     {
       "id": "NOM-0085",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Increase Tampermonkey @version on every userscript change",
       "summary": "Every time a Tampermonkey userscript is changed, including during local iteration, increment its UserScript metadata @version to a strictly higher value. This keeps script revisions distinguishable for update detection; do not wait for a formal release or distribution.",
       "statement": "Every time a Tampermonkey userscript is changed, including during local iteration, increment its UserScript metadata @version to a strictly higher value. This keeps script revisions distinguishable for update detection; do not wait for a formal release or distribution.",
@@ -8483,7 +8780,8 @@
           "software_development"
         ],
         "topics": [
-          "browser_artifact_versioning"
+          "browser_artifact_versioning",
+          "browser_userscript_version"
         ],
         "audiences": [
           "ai_agents",
@@ -8511,6 +8809,9 @@
         ],
         "exclusions": [
           "Metadata changes do not independently authorize distribution."
+        ],
+        "project_types": [
+          "browser_userscript"
         ]
       },
       "authority": {
@@ -8537,7 +8838,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -8549,7 +8850,7 @@
     },
     {
       "id": "NOM-0086",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Increase WebExtension manifest version on every extension change",
       "summary": "Every time a browser extension is changed, including during local iteration, increase its manifest.json version to a strictly higher valid extension version. This applies to code, resources and metadata revisions; do not confuse the extension version with manifest_version.",
       "statement": "Every time a browser extension is changed, including during local iteration, increase its manifest.json version to a strictly higher valid extension version. This applies to code, resources and metadata revisions; do not confuse the extension version with manifest_version.",
@@ -8588,7 +8889,8 @@
           "software_development"
         ],
         "topics": [
-          "browser_artifact_versioning"
+          "browser_artifact_versioning",
+          "browser_extension_version"
         ],
         "audiences": [
           "ai_agents",
@@ -8616,6 +8918,9 @@
         ],
         "exclusions": [
           "Metadata changes do not independently authorize distribution."
+        ],
+        "project_types": [
+          "browser_extension"
         ]
       },
       "authority": {
@@ -8642,7 +8947,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -8654,7 +8959,7 @@
     },
     {
       "id": "NOM-0087",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Define the MVP's essential purpose",
       "summary": "Define the project's essential real-user purpose and minimal useful externally observable outcome before deciding whether an MVP is ready.",
       "statement": "Define the project's essential real-user purpose and minimal useful externally observable outcome before deciding whether an MVP is ready.",
@@ -8690,10 +8995,11 @@
       "categories": {
         "domains": [
           "project_management",
-          "software_development",
-          "releases"
+          "releases",
+          "software_development"
         ],
         "topics": [
+          "mvp_definition",
           "mvp_inauguration"
         ],
         "audiences": [
@@ -8722,6 +9028,9 @@
         ],
         "exclusions": [
           "No automatic release, tag, deploy, or other project mutation."
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -8746,7 +9055,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -8758,7 +9067,7 @@
     },
     {
       "id": "NOM-0088",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Set testable MVP acceptance criteria and scope",
       "summary": "Before MVP graduation, specify required capabilities, measurable acceptance criteria, target environment, and excluded future features.",
       "statement": "Before MVP graduation, specify required capabilities, measurable acceptance criteria, target environment, and excluded future features.",
@@ -8794,10 +9103,11 @@
       "categories": {
         "domains": [
           "project_management",
-          "software_development",
-          "releases"
+          "releases",
+          "software_development"
         ],
         "topics": [
+          "mvp_acceptance",
           "mvp_inauguration"
         ],
         "audiences": [
@@ -8826,6 +9136,9 @@
         ],
         "exclusions": [
           "No automatic release, tag, deploy, or other project mutation."
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -8851,7 +9164,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -8863,7 +9176,7 @@
     },
     {
       "id": "NOM-0089",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Verify essential workflows end to end",
       "summary": "Exercise the MVP's essential workflows end to end in the actual running implementation before inaugurating it; compilation alone cannot establish readiness.",
       "statement": "Exercise the MVP's essential workflows end to end in the actual running implementation before inaugurating it; compilation alone cannot establish readiness.",
@@ -8899,10 +9212,12 @@
       "categories": {
         "domains": [
           "project_management",
+          "releases",
           "software_development",
-          "releases"
+          "software_testing"
         ],
         "topics": [
+          "mvp_end_to_end_testing",
           "mvp_inauguration"
         ],
         "audiences": [
@@ -8931,6 +9246,9 @@
         ],
         "exclusions": [
           "Does not independently authorize a tag, release or external deployment."
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -8956,7 +9274,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -8968,7 +9286,7 @@
     },
     {
       "id": "NOM-0090",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Pass applicable automated tests and CI gates",
       "summary": "Run and pass the relevant unit, integration, regression, formatting, lint, compilation, and configured CI checks before inauguration; disclose untested targets.",
       "statement": "Run and pass the relevant unit, integration, regression, formatting, lint, compilation, and configured CI checks before inauguration; disclose untested targets.",
@@ -9004,10 +9322,12 @@
       "categories": {
         "domains": [
           "project_management",
+          "releases",
           "software_development",
-          "releases"
+          "software_testing"
         ],
         "topics": [
+          "mvp_ci_gate",
           "mvp_inauguration"
         ],
         "audiences": [
@@ -9036,6 +9356,9 @@
         ],
         "exclusions": [
           "Does not independently authorize a tag, release or external deployment."
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -9064,7 +9387,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -9076,7 +9399,7 @@
     },
     {
       "id": "NOM-0091",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Verify the MVP in the intended actual environment",
       "summary": "Test essential behavior on the intended desktop, browser, CLI, service, device or other real target environment, including necessary integration boundaries.",
       "statement": "Test essential behavior on the intended desktop, browser, CLI, service, device or other real target environment, including necessary integration boundaries.",
@@ -9112,10 +9435,12 @@
       "categories": {
         "domains": [
           "project_management",
+          "releases",
           "software_development",
-          "releases"
+          "software_testing"
         ],
         "topics": [
+          "mvp_environment_verification",
           "mvp_inauguration"
         ],
         "audiences": [
@@ -9144,6 +9469,9 @@
         ],
         "exclusions": [
           "Does not independently authorize a tag, release or external deployment."
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -9171,7 +9499,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -9183,7 +9511,7 @@
     },
     {
       "id": "NOM-0092",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Verify the user installation or operating path",
       "summary": "Demonstrate the real documented path to obtain, build, launch, install or consume the product before MVP graduation, according to project type.",
       "statement": "Demonstrate the real documented path to obtain, build, launch, install or consume the product before MVP graduation, according to project type.",
@@ -9219,11 +9547,12 @@
       "categories": {
         "domains": [
           "project_management",
-          "software_development",
-          "releases"
+          "releases",
+          "software_development"
         ],
         "topics": [
-          "mvp_inauguration"
+          "mvp_inauguration",
+          "mvp_installation"
         ],
         "audiences": [
           "ai_agents",
@@ -9251,6 +9580,9 @@
         ],
         "exclusions": [
           "Does not independently authorize a tag, release or external deployment."
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -9277,7 +9609,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -9289,7 +9621,7 @@
     },
     {
       "id": "NOM-0093",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Test a public library API with an independent consumer",
       "summary": "When a project's MVP includes a reusable library or agent-facing API, confirm it works with an independent consuming application or integration before inaugurating that interface.",
       "statement": "When a project's MVP includes a reusable library or agent-facing API, confirm it works with an independent consuming application or integration before inaugurating that interface.",
@@ -9325,10 +9657,12 @@
       "categories": {
         "domains": [
           "project_management",
+          "releases",
           "software_development",
-          "releases"
+          "software_testing"
         ],
         "topics": [
+          "mvp_api_consumer",
           "mvp_inauguration"
         ],
         "audiences": [
@@ -9357,6 +9691,9 @@
         ],
         "exclusions": [
           "Does not independently authorize a tag, release or external deployment."
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -9383,7 +9720,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -9395,7 +9732,7 @@
     },
     {
       "id": "NOM-0094",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Do not inaugurate despite purpose-defeating defects",
       "summary": "Do not declare the MVP inaugurated while known defects, regressions or failed acceptance checks prevent its agreed essential purpose; accepted minor limitations must be disclosed.",
       "statement": "Do not declare the MVP inaugurated while known defects, regressions or failed acceptance checks prevent its agreed essential purpose; accepted minor limitations must be disclosed.",
@@ -9431,10 +9768,12 @@
       "categories": {
         "domains": [
           "project_management",
+          "releases",
           "software_development",
-          "releases"
+          "software_testing"
         ],
         "topics": [
+          "mvp_defect_gate",
           "mvp_inauguration"
         ],
         "audiences": [
@@ -9463,6 +9802,9 @@
         ],
         "exclusions": [
           "Does not independently authorize a tag, release or external deployment."
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -9488,7 +9830,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -9500,7 +9842,7 @@
     },
     {
       "id": "NOM-0095",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Get explicit project-owner acceptance for inauguration",
       "summary": "Before changing the MVP status or publishing its inaugural release, obtain explicit owner approval of the verified acceptance evidence and acknowledged limitations.",
       "statement": "Before changing the MVP status or publishing its inaugural release, obtain explicit owner approval of the verified acceptance evidence and acknowledged limitations.",
@@ -9535,12 +9877,14 @@
       },
       "categories": {
         "domains": [
+          "governance",
           "project_management",
-          "software_development",
-          "releases"
+          "releases",
+          "software_development"
         ],
         "topics": [
-          "mvp_inauguration"
+          "mvp_inauguration",
+          "mvp_owner_approval"
         ],
         "audiences": [
           "ai_agents",
@@ -9568,6 +9912,9 @@
         ],
         "exclusions": [
           "Does not independently authorize a tag, release or external deployment."
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -9593,7 +9940,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -9605,7 +9952,7 @@
     },
     {
       "id": "NOM-0096",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Do not declare MVP solely from proxy progress indicators",
       "summary": "Do not call an MVP inaugurated solely because CI is green, compilation succeeds, tasks are 100 percent, or milestones are marked complete without operational acceptance evidence.",
       "statement": "Do not call an MVP inaugurated solely because CI is green, compilation succeeds, tasks are 100 percent, or milestones are marked complete without operational acceptance evidence.",
@@ -9641,10 +9988,11 @@
       "categories": {
         "domains": [
           "project_management",
-          "software_development",
-          "releases"
+          "releases",
+          "software_development"
         ],
         "topics": [
+          "mvp_evidence_standard",
           "mvp_inauguration"
         ],
         "audiences": [
@@ -9673,6 +10021,9 @@
         ],
         "exclusions": [
           "Does not independently authorize a tag, release or external deployment."
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -9699,7 +10050,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -9711,7 +10062,7 @@
     },
     {
       "id": "NOM-0097",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Record the graduation into a maintained baseline",
       "summary": "At MVP inauguration, record the transition from exploratory implementation to a maintained, versioned baseline for the product's core capabilities.",
       "statement": "At MVP inauguration, record the transition from exploratory implementation to a maintained, versioned baseline for the product's core capabilities.",
@@ -9746,11 +10097,13 @@
       },
       "categories": {
         "domains": [
+          "maintenance",
           "project_management",
-          "software_development",
-          "releases"
+          "releases",
+          "software_development"
         ],
         "topics": [
+          "mvp_baseline",
           "mvp_inauguration"
         ],
         "audiences": [
@@ -9779,6 +10132,9 @@
         ],
         "exclusions": [
           "Does not independently authorize a tag, release or external deployment."
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -9804,7 +10160,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -9816,7 +10172,7 @@
     },
     {
       "id": "NOM-0098",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Record MVP compatibility promises and accepted limitations",
       "summary": "Document the inaugural supported features, public interfaces, data formats, environments, operational requirements and accepted limitations as a maintainable contract.",
       "statement": "Document the inaugural supported features, public interfaces, data formats, environments, operational requirements and accepted limitations as a maintainable contract.",
@@ -9851,11 +10207,13 @@
       },
       "categories": {
         "domains": [
+          "maintenance",
           "project_management",
-          "software_development",
-          "releases"
+          "releases",
+          "software_development"
         ],
         "topics": [
+          "mvp_compatibility",
           "mvp_inauguration"
         ],
         "audiences": [
@@ -9884,6 +10242,9 @@
         ],
         "exclusions": [
           "Does not independently authorize a tag, release or external deployment."
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -9910,7 +10271,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -9922,7 +10283,7 @@
     },
     {
       "id": "NOM-0099",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Keep future improvements outside MVP acceptance requirements",
       "summary": "Separate optional future enhancements from essential MVP gates; completing the minimum useful product need not exhaust the roadmap, but required features cannot be silently deferred.",
       "statement": "Separate optional future enhancements from essential MVP gates; completing the minimum useful product need not exhaust the roadmap, but required features cannot be silently deferred.",
@@ -9958,11 +10319,12 @@
       "categories": {
         "domains": [
           "project_management",
-          "software_development",
-          "releases"
+          "releases",
+          "software_development"
         ],
         "topics": [
-          "mvp_inauguration"
+          "mvp_inauguration",
+          "mvp_scope_boundary"
         ],
         "audiences": [
           "ai_agents",
@@ -9990,6 +10352,9 @@
         ],
         "exclusions": [
           "Does not independently authorize a tag, release or external deployment."
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -10015,7 +10380,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -10027,7 +10392,7 @@
     },
     {
       "id": "NOM-0100",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Reconcile README, roadmap and milestones at graduation",
       "summary": "Before the inaugural release, make README, roadmap and milestone reports accurately reflect verified MVP features and unresolved work.",
       "statement": "Before the inaugural release, make README, roadmap and milestone reports accurately reflect verified MVP features and unresolved work.",
@@ -10062,11 +10427,13 @@
       },
       "categories": {
         "domains": [
+          "documentation",
           "project_management",
-          "software_development",
-          "releases"
+          "releases",
+          "software_development"
         ],
         "topics": [
+          "mvp_documentation",
           "mvp_inauguration"
         ],
         "audiences": [
@@ -10095,6 +10462,9 @@
         ],
         "exclusions": [
           "Does not independently authorize a tag, release or external deployment."
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -10123,7 +10493,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -10135,7 +10505,7 @@
     },
     {
       "id": "NOM-0101",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Establish an approved stable inaugural version",
       "summary": "For a SemVer-based MVP inauguration, choose the accepted initial maintained release version, normally v1.0.0 unless the project has an explicitly different established contract.",
       "statement": "For a SemVer-based MVP inauguration, choose the accepted initial maintained release version, normally v1.0.0 unless the project has an explicitly different established contract.",
@@ -10171,10 +10541,11 @@
       "categories": {
         "domains": [
           "project_management",
-          "software_development",
-          "releases"
+          "releases",
+          "software_development"
         ],
         "topics": [
+          "inaugural_version",
           "mvp_inauguration"
         ],
         "audiences": [
@@ -10203,6 +10574,9 @@
         ],
         "exclusions": [
           "No implicit authorization to publish tags, releases or deployments."
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -10228,7 +10602,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -10240,7 +10614,7 @@
     },
     {
       "id": "NOM-0102",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Tag and release the exact verified and accepted commit",
       "summary": "After explicit release authorization, create and verify the inaugural version tag and GitHub release for the exact tested and accepted commit.",
       "statement": "After explicit release authorization, create and verify the inaugural version tag and GitHub release for the exact tested and accepted commit.",
@@ -10276,10 +10650,11 @@
       "categories": {
         "domains": [
           "project_management",
-          "software_development",
-          "releases"
+          "releases",
+          "software_development"
         ],
         "topics": [
+          "inaugural_release",
           "mvp_inauguration"
         ],
         "audiences": [
@@ -10308,6 +10683,9 @@
         ],
         "exclusions": [
           "No implicit authorization to publish tags, releases or deployments."
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -10333,7 +10711,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -10345,7 +10723,7 @@
     },
     {
       "id": "NOM-0103",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Provide relevant inaugural downloads through free channels",
       "summary": "For distributable applications or libraries, provide appropriate downloadable release assets through authorized zero-cost hosting where feasible; do not require binaries for source-only products.",
       "statement": "For distributable applications or libraries, provide appropriate downloadable release assets through authorized zero-cost hosting where feasible; do not require binaries for source-only products.",
@@ -10381,10 +10759,11 @@
       "categories": {
         "domains": [
           "project_management",
-          "software_development",
-          "releases"
+          "releases",
+          "software_development"
         ],
         "topics": [
+          "inaugural_distribution",
           "mvp_inauguration"
         ],
         "audiences": [
@@ -10413,6 +10792,9 @@
         ],
         "exclusions": [
           "No implicit authorization to publish tags, releases or deployments."
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -10438,7 +10820,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -10450,7 +10832,7 @@
     },
     {
       "id": "NOM-0104",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Verify the published inaugural release",
       "summary": "Confirm the published tag, version, CI result, release metadata, assets and documented usage path actually correspond to the accepted candidate.",
       "statement": "Confirm the published tag, version, CI result, release metadata, assets and documented usage path actually correspond to the accepted candidate.",
@@ -10486,10 +10868,12 @@
       "categories": {
         "domains": [
           "project_management",
-          "software_development",
-          "releases"
+          "qa_verification",
+          "releases",
+          "software_development"
         ],
         "topics": [
+          "inaugural_release_verification",
           "mvp_inauguration"
         ],
         "audiences": [
@@ -10518,6 +10902,9 @@
         ],
         "exclusions": [
           "No implicit authorization to publish tags, releases or deployments."
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -10544,7 +10931,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -10556,7 +10943,7 @@
     },
     {
       "id": "NOM-0105",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Record durable evidence for MVP acceptance",
       "summary": "Preserve the acceptance criteria, test results, exact commit, limitations, owner approval and release references without exposing private discussions.",
       "statement": "Preserve the acceptance criteria, test results, exact commit, limitations, owner approval and release references without exposing private discussions.",
@@ -10592,10 +10979,12 @@
       "categories": {
         "domains": [
           "project_management",
-          "software_development",
-          "releases"
+          "qa_verification",
+          "releases",
+          "software_development"
         ],
         "topics": [
+          "mvp_evidence_record",
           "mvp_inauguration"
         ],
         "audiences": [
@@ -10624,6 +11013,9 @@
         ],
         "exclusions": [
           "No implicit authorization to publish tags, releases or deployments."
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -10649,7 +11041,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -10661,7 +11053,7 @@
     },
     {
       "id": "NOM-0106",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Use standardized post-MVP commits and releases",
       "summary": "For projects adopting maintained post-MVP governance, use agreed standardized commits, normally Conventional Commits, and consistent changelog/release discipline without rewriting history.",
       "statement": "For projects adopting maintained post-MVP governance, use agreed standardized commits, normally Conventional Commits, and consistent changelog/release discipline without rewriting history.",
@@ -10696,12 +11088,14 @@
       },
       "categories": {
         "domains": [
+          "maintenance",
           "project_management",
-          "software_development",
-          "releases"
+          "releases",
+          "software_development"
         ],
         "topics": [
-          "mvp_inauguration"
+          "mvp_inauguration",
+          "post_mvp_releases"
         ],
         "audiences": [
           "ai_agents",
@@ -10729,6 +11123,9 @@
         ],
         "exclusions": [
           "No implicit authorization to publish tags, releases or deployments."
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -10756,7 +11153,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -10768,7 +11165,7 @@
     },
     {
       "id": "NOM-0107",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Manage changes after MVP with the compatibility contract",
       "summary": "After inauguration, classify bug fixes, additive changes and incompatible changes against supported behavior and version them under the project's approved SemVer policy.",
       "statement": "After inauguration, classify bug fixes, additive changes and incompatible changes against supported behavior and version them under the project's approved SemVer policy.",
@@ -10803,12 +11200,14 @@
       },
       "categories": {
         "domains": [
+          "maintenance",
           "project_management",
-          "software_development",
-          "releases"
+          "releases",
+          "software_development"
         ],
         "topics": [
-          "mvp_inauguration"
+          "mvp_inauguration",
+          "post_mvp_compatibility"
         ],
         "audiences": [
           "ai_agents",
@@ -10836,6 +11235,9 @@
         ],
         "exclusions": [
           "No implicit authorization to publish tags, releases or deployments."
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -10862,7 +11264,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -10874,7 +11276,7 @@
     },
     {
       "id": "NOM-0108",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Do not authorize unrelated operational work through inauguration",
       "summary": "Do not interpret MVP inauguration as permission to alter unrelated repositories, system services, startup behavior or deployments outside the approved scope.",
       "statement": "Do not interpret MVP inauguration as permission to alter unrelated repositories, system services, startup behavior or deployments outside the approved scope.",
@@ -10909,11 +11311,13 @@
       },
       "categories": {
         "domains": [
+          "governance",
           "project_management",
-          "software_development",
-          "releases"
+          "releases",
+          "software_development"
         ],
         "topics": [
+          "mvp_authorization_boundary",
           "mvp_inauguration"
         ],
         "audiences": [
@@ -10942,6 +11346,9 @@
         ],
         "exclusions": [
           "No implicit authorization to publish tags, releases or deployments."
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -10966,7 +11373,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -10978,7 +11385,7 @@
     },
     {
       "id": "NOM-0109",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Reevaluate inauguration if core acceptance was actually invalid",
       "summary": "If foundational failures invalidate a prior MVP declaration, explicitly correct or reopen the readiness claim, verify repairs, and preserve release history rather than silently claiming success.",
       "statement": "If foundational failures invalidate a prior MVP declaration, explicitly correct or reopen the readiness claim, verify repairs, and preserve release history rather than silently claiming success.",
@@ -11014,11 +11421,13 @@
       "categories": {
         "domains": [
           "project_management",
-          "software_development",
-          "releases"
+          "qa_verification",
+          "releases",
+          "software_development"
         ],
         "topics": [
-          "mvp_inauguration"
+          "mvp_inauguration",
+          "mvp_invalid_acceptance"
         ],
         "audiences": [
           "ai_agents",
@@ -11046,6 +11455,9 @@
         ],
         "exclusions": [
           "No implicit authorization to publish tags, releases or deployments."
+        ],
+        "project_types": [
+          "software_project"
         ]
       },
       "authority": {
@@ -11071,7 +11483,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -11083,7 +11495,7 @@
     },
     {
       "id": "NOM-0110",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Do not add explicit exit 1 guards to AND-linked YAML execution jobs",
       "summary": "When authoring YAML-specification execution jobs whose runner already AND-links commands and propagates failures, do not insert redundant explicit `exit 1` statements or shell error-exit guards in the YAML commands. Rely on the job's existing command-failure behavior instead.",
       "statement": "When authoring YAML-specification execution jobs whose runner already AND-links commands and propagates failures, do not insert redundant explicit `exit 1` statements or shell error-exit guards in the YAML commands. Rely on the job's existing command-failure behavior instead.",
@@ -11123,6 +11535,7 @@
           "workflow_governance"
         ],
         "topics": [
+          "yaml_error_propagation",
           "yaml_job_workflow"
         ],
         "audiences": [
@@ -11151,6 +11564,9 @@
         ],
         "exclusions": [
           "Does not permit inventing substitute repositories or unrelated changes."
+        ],
+        "project_types": [
+          "project"
         ]
       },
       "authority": {
@@ -11173,7 +11589,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -11185,7 +11601,7 @@
     },
     {
       "id": "NOM-0111",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Differentially verify C and Rust program behavior",
       "summary": "For each agreed reproducible behavior of an authorized C-to-Rust port, run the original C baseline and Rust implementation with equivalent inputs and relevant environment, compare observable outputs, exit codes and side effects, and document any intentionally accepted differences.",
       "statement": "For each agreed reproducible behavior of an authorized C-to-Rust port, run the original C baseline and Rust implementation with equivalent inputs and relevant environment, compare observable outputs, exit codes and side effects, and document any intentionally accepted differences.",
@@ -11220,12 +11636,14 @@
       },
       "categories": {
         "domains": [
+          "rust_development",
           "software_development",
           "software_porting",
-          "rust_development"
+          "software_testing"
         ],
         "topics": [
-          "differential_testing"
+          "differential_testing",
+          "rust_port_differential"
         ],
         "audiences": [
           "ai_agents",
@@ -11253,6 +11671,9 @@
         ],
         "exclusions": [
           "Documented accepted deviations and justified nondeterministic differences; missing baseline executability must be reported as a verification gap, not silently treated as a passing test."
+        ],
+        "project_types": [
+          "c_to_rust_port"
         ]
       },
       "authority": {
@@ -11280,7 +11701,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -11292,7 +11713,7 @@
     },
     {
       "id": "NOM-0112",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Contain and verify necessary unsafe Rust and FFI boundaries",
       "summary": "For each necessary unsafe Rust operation or C FFI boundary in an authorized C-to-Rust port, prefer safe Rust where feasible, isolate the boundary, document required safety and ABI invariants, and test the exposed contract.",
       "statement": "For each necessary unsafe Rust operation or C FFI boundary in an authorized C-to-Rust port, prefer safe Rust where feasible, isolate the boundary, document required safety and ABI invariants, and test the exposed contract.",
@@ -11327,11 +11748,13 @@
       },
       "categories": {
         "domains": [
+          "rust_development",
+          "security",
           "software_development",
-          "software_porting",
-          "rust_development"
+          "software_porting"
         ],
         "topics": [
+          "rust_port_unsafe_ffi",
           "unsafe_ffi_containment"
         ],
         "audiences": [
@@ -11360,6 +11783,9 @@
         ],
         "exclusions": [
           "No unsafe or FFI boundary is required when a fully safe Rust implementation can express the behavior."
+        ],
+        "project_types": [
+          "c_to_rust_port"
         ]
       },
       "authority": {
@@ -11386,7 +11812,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -11398,7 +11824,7 @@
     },
     {
       "id": "NOM-0113",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "title": "Inventory upstream capabilities and verified Rust port coverage",
       "summary": "For each in-scope upstream C capability in an authorized C-to-Rust port, record its Rust implementation or replacement mapping, track implementation and verification status, and explicitly identify missing, incompatible or unverified behavior.",
       "statement": "For each in-scope upstream C capability in an authorized C-to-Rust port, record its Rust implementation or replacement mapping, track implementation and verification status, and explicitly identify missing, incompatible or unverified behavior.",
@@ -11433,12 +11859,13 @@
       },
       "categories": {
         "domains": [
+          "rust_development",
           "software_development",
-          "software_porting",
-          "rust_development"
+          "software_porting"
         ],
         "topics": [
-          "port_coverage_inventory"
+          "port_coverage_inventory",
+          "rust_port_coverage"
         ],
         "audiences": [
           "ai_agents",
@@ -11466,6 +11893,9 @@
         ],
         "exclusions": [
           "Out-of-scope features and accepted deviations remain explicitly recorded and are not silently reported as implemented."
+        ],
+        "project_types": [
+          "c_to_rust_port"
         ]
       },
       "authority": {
@@ -11494,7 +11924,7 @@
       },
       "governance": {
         "created_on": "2026-10-21",
-        "updated_on": "2026-10-21",
+        "updated_on": "2026-10-22",
         "review_status": "approved"
       },
       "export_targets": [
@@ -11506,7 +11936,7 @@
     },
     {
       "id": "NOM-0114",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "title": "Do not initiate or repeat unwarranted formulaic suicide-risk questions",
       "summary": "Avoid formulaic or repeated suicide-risk check-in questions triggered by routine distress alone; respond proportionately when credible new risk information warrants it.",
       "statement": "In chat, do not initiate or repeat formulaic suicide-risk questions solely because someone expresses ordinary stress, frustration, figurative distress, or past difficulties, particularly after an explicit request to stop such questioning. When credible new information indicates a material current risk of self-harm, address that risk proportionately rather than mechanically repeating a stock question.",
@@ -11574,6 +12004,9 @@
         ],
         "exclusions": [
           "Credible, materially new signs of current self-harm risk warrant a proportionate safety response, including direct clarification when genuinely necessary; this rule does not prohibit warranted safety assessment."
+        ],
+        "project_types": [
+          "any"
         ]
       },
       "authority": {
@@ -14039,10 +14472,16 @@
     }
   ],
   "project_types": [
-    "tarium_project",
+    "project",
+    "software_project",
+    "software_port",
+    "rust_project",
     "rust_project_from_scratch",
     "rust_fork_maintenance",
-    "c_to_rust_port"
+    "c_to_rust_port",
+    "browser_userscript",
+    "browser_extension",
+    "tarium_project"
   ],
   "relationships": [
     {
@@ -14225,5 +14664,206 @@
       "confidence": "high",
       "method": "explicit_editorial_review"
     }
-  ]
+  ],
+  "project_hierarchy": {
+    "schema_version": 1,
+    "wildcard": "any",
+    "description": "Project types are overlapping facets, not a disjoint enumeration. Only explicitly documented exclusive pairs can prove disjointness; Tarium can also be Rust.",
+    "types": [
+      {
+        "id": "project",
+        "parents": [],
+        "description": "Project work across software and non-software domains"
+      },
+      {
+        "id": "software_project",
+        "parents": [
+          "project"
+        ],
+        "description": "A project constructing or maintaining software"
+      },
+      {
+        "id": "software_port",
+        "parents": [
+          "software_project"
+        ],
+        "description": "A port replacing existing software behavior"
+      },
+      {
+        "id": "rust_project",
+        "parents": [
+          "software_project"
+        ],
+        "description": "Software project written in Rust"
+      },
+      {
+        "id": "rust_project_from_scratch",
+        "parents": [
+          "rust_project"
+        ],
+        "exclusive_with": [
+          "rust_fork_maintenance"
+        ],
+        "description": "A new Rust codebase rather than an upstream fork"
+      },
+      {
+        "id": "rust_fork_maintenance",
+        "parents": [
+          "rust_project"
+        ],
+        "exclusive_with": [
+          "rust_project_from_scratch"
+        ],
+        "description": "Stewardship of a Rust upstream-derived fork"
+      },
+      {
+        "id": "c_to_rust_port",
+        "parents": [
+          "software_port",
+          "rust_project"
+        ],
+        "description": "C implementation ported into a Rust replacement"
+      },
+      {
+        "id": "browser_userscript",
+        "parents": [
+          "software_project"
+        ],
+        "description": "A userscript project running in a browser extension manager"
+      },
+      {
+        "id": "browser_extension",
+        "parents": [
+          "software_project"
+        ],
+        "description": "A browser extension project"
+      },
+      {
+        "id": "tarium_project",
+        "parents": [
+          "project"
+        ],
+        "description": "An independently maintained public Tarium candidate or member project; enrollment requires separate explicit authorization"
+      }
+    ]
+  },
+  "domain_definitions": {
+    "schema_version": 1,
+    "description": "Controlled topical domains. Multiple domains may describe a rule; domain labels classify subject and do not activate instructions or confer project membership.",
+    "families": {
+      "Engineering": "Source code, dependencies and repository implementation",
+      "Knowledge": "Explanatory and machine-readable project knowledge",
+      "Governance": "Authorizations, policies and coordination",
+      "Lifecycle": "Projects, milestones, maintenance and releases",
+      "Quality": "Testing, verification and correctness",
+      "Privacy": "Privacy, publication boundaries and security",
+      "Design": "Human-readable identity and interface presentation"
+    },
+    "domains": {
+      "agent_instructions": {
+        "family": "Governance",
+        "description": "Instructions addressed to assistants or automation actors"
+      },
+      "ci_cd": {
+        "family": "Engineering",
+        "description": "Continuous integration, deployment and pipeline verification"
+      },
+      "documentation": {
+        "family": "Knowledge",
+        "description": "Documentation, descriptions, developer and user guides"
+      },
+      "git_repository": {
+        "family": "Engineering",
+        "description": "Repository workflow and Git history management"
+      },
+      "governance": {
+        "family": "Governance",
+        "description": "Institutional or project rules and authorization boundaries"
+      },
+      "ontology": {
+        "family": "Knowledge",
+        "description": "Domain models, entities, semantics and conceptual relations"
+      },
+      "personal_writing": {
+        "family": "Privacy",
+        "description": "Personal expression and private writing contexts"
+      },
+      "privacy": {
+        "family": "Privacy",
+        "description": "Privacy and permitted disclosure of nonpublic material"
+      },
+      "project_management": {
+        "family": "Lifecycle",
+        "description": "Plans, milestones, progress and task coordination"
+      },
+      "publication": {
+        "family": "Privacy",
+        "description": "Public release and exposure of artifacts"
+      },
+      "qa_verification": {
+        "family": "Quality",
+        "description": "Acceptance and independent verification of work"
+      },
+      "releases": {
+        "family": "Lifecycle",
+        "description": "Versions, packaging, inauguration and maintenance releases"
+      },
+      "rust_development": {
+        "family": "Engineering",
+        "description": "Rust language, Cargo edition and Rust implementation"
+      },
+      "rust_quality": {
+        "family": "Quality",
+        "description": "Rust tooling and behavior verification"
+      },
+      "safety_integrity": {
+        "family": "Privacy",
+        "description": "Operational safety and safeguards against damage"
+      },
+      "software_development": {
+        "family": "Engineering",
+        "description": "General software production and execution"
+      },
+      "software_porting": {
+        "family": "Engineering",
+        "description": "Migration, equivalence and replacement of existing programs"
+      },
+      "user_interfaces": {
+        "family": "Design",
+        "description": "Interface behavior, themes and presentation"
+      },
+      "visual_identity": {
+        "family": "Design",
+        "description": "Stable identity colors and visual labels"
+      },
+      "workflow_governance": {
+        "family": "Governance",
+        "description": "Permission boundaries, state transitions and workflow rules"
+      },
+      "software_testing": {
+        "family": "Quality",
+        "description": "Test design, cases, fixtures, test execution and regressions"
+      },
+      "dependency_management": {
+        "family": "Engineering",
+        "description": "Declared dependency state, reproducibility and lockfiles"
+      },
+      "security": {
+        "family": "Privacy",
+        "description": "Secrets, authentication material and secure publication"
+      },
+      "data_integrity": {
+        "family": "Quality",
+        "description": "Data roundtrips, checksums and information integrity"
+      },
+      "project_architecture": {
+        "family": "Engineering",
+        "description": "System architecture, separation and implementation design"
+      },
+      "maintenance": {
+        "family": "Lifecycle",
+        "description": "Maintenance, compatibility and post-release evolution"
+      }
+    }
+  }
 }
