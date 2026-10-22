@@ -1,0 +1,46 @@
+{
+  "id": "SPEC-0117",
+  "title": "Inventory and verify upstream port coverage",
+  "status": "proposed",
+  "abstract": "For an authorized C-to-Rust port, record relevant upstream capabilities and their Rust equivalents, tracking implementation and verification status and exposing omitted or incompatible functionality.",
+  "source": {
+    "kind": "public_safe_user_requested_workflow_rule",
+    "reference": "Public-safe generalized C-to-Rust porting proposal; no private source language retained",
+    "material_retained": false
+  },
+  "received_on": "2026-10-21",
+  "intake": {
+    "visibility": "public_safe_abstract_only",
+    "operation": "specimen_queue_entry",
+    "processing_authorized": true
+  },
+  "scope_hints": {
+    "domains": [
+      "software_development",
+      "software_porting",
+      "rust_development"
+    ],
+    "topic": "port_fidelity",
+    "candidate_normative_kind": "obligation",
+    "predicate_hypothesis": {
+      "action": "track",
+      "object": "upstream_capability_coverage",
+      "target": "c_to_rust_port"
+    },
+    "trigger": "An explicitly authorized strict C-to-Rust port",
+    "scope_boundary": "Only applicable to the agreed upstream baseline, target requirements and observable behavior",
+    "independent_atomic_rule": true
+  },
+  "possible_existing_coverage": [
+    "NOM-0074",
+    "NOM-0075",
+    "NOM-0028",
+    "NOM-0029",
+    "NOM-0054"
+  ],
+  "unresolved": [
+    "Confirm this adds a distinct, independently testable requirement without duplicating general port-fidelity or Rust-testing guidance."
+  ],
+  "next_state": "await_authorized_processing",
+  "remarks": "Specimen intake is distinct from processing and publication; no rule is applied by queuing it."
+}
