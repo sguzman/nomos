@@ -5,7 +5,7 @@ const path=require('node:path');
 const {readQueue,validateQueue}=require('./profile_ideas.cjs');
 const root=path.resolve(__dirname,'..');
 const profilesDir=path.join(root,'profiles');
-const profileIds=new Set(fs.readdirSync(profilesDir).filter(name=>/^PROFILE-\\d{4,}\\.json$/.test(name)).map(x=>x.slice(0,-5)));
+const profileIds=new Set(fs.readdirSync(profilesDir).filter(name=>/^PROFILE-\d{4,}\.json$/.test(name)).map(x=>x.slice(0,-5)));
 try {
   const entries=readQueue();
   const errors=validateQueue(entries,{profileIds});

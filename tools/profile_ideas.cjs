@@ -5,13 +5,13 @@ const fs=require('node:fs');
 const path=require('node:path');
 const root=path.resolve(__dirname,'..');
 const defaultDir=path.join(root,'queues','profiles');
-const idPattern=/^PROFILE-IDEA-(\\d{4,})$/;
-const rulePattern=/^NOM-\\d{4,}$/;
-const groupPattern=/^GROUP-\\d{4,}$/;
-const profilePattern=/^PROFILE-\\d{4,}$/;
+const idPattern=/^PROFILE-IDEA-(\d{4,})$/;
+const rulePattern=/^NOM-\d{4,}$/;
+const groupPattern=/^GROUP-\d{4,}$/;
+const profilePattern=/^PROFILE-\d{4,}$/;
 const statusValues=new Set(['queued','deferred','cancelled','instantiated']);
 const fields=['id','kind','title','summary','status','proposed_rule_ids','proposed_group_ids','linked_profile_ids','governance'];
-const datePattern=/^\\d{4}-\\d{2}-\\d{2}$/;
+const datePattern=/^\d{4}-\d{2}-\d{2}$/;
 function unique(values){return new Set(values).size===values.length;}
 function validDate(s){
   if(typeof s!=='string'||!datePattern.test(s))return false;
@@ -44,7 +44,7 @@ function readQueue(dir=defaultDir){
   const names=fs.readdirSync(dir).filter(name=>name.endsWith('.json')).sort();
   const entries=[];
   for(const name of names){
-    if(!/^PROFILE-IDEA-\\d{4,}\\.json$/.test(name))throw new Error('Invalid queue filename: '+name);
+    if(!/^PROFILE-IDEA-\d{4,}\.json$/.test(name))throw new Error('Invalid queue filename: '+name);
     const record=JSON.parse(fs.readFileSync(path.join(dir,name),'utf8'));
     if(name!==record.id+'.json')throw new Error('Queue filename and record ID differ: '+name);
     entries.push(record);
@@ -78,7 +78,7 @@ function enqueue(data,dir=defaultDir){
   const problems=validateQueue(existing);
   if(problems.length)throw new Error(problems.join('; '));
   const idea=newIdea(data,existing);
-  fs.writeFileSync(path.join(dir,idea.id+'.json'),JSON.stringify(idea,null,2)+'\\n',{flag:'wx'});
+  fs.writeFileSync(path.join(dir,idea.id+'.json'),JSON.stringify(idea,null,2)+'\n',{flag:'wx'});
   return idea;
 }
 function parseIds(arg){return arg?arg.split(',').map(x=>x.trim()):[];}
@@ -86,7 +86,7 @@ function cli(args){
   const [action,...options]=args;
   if(action==='list'){
     if(options.length)throw new Error('list takes no arguments');
-    for(const idea of readQueue())process.stdout.write(idea.id+'  '+idea.status+'  '+idea.title+'\\n');
+    for(const idea of readQueue())process.stdout.write(idea.id+'  '+idea.status+'  '+idea.title+'\n');
     return;
   }
   if(action!=='add')throw new Error('Usage: profile_ideas.cjs list | add --title "..." [--summary "..."] [--rules NOM-0001,NOM-0003] [--groups GROUP-0001]');
@@ -98,7 +98,7 @@ function cli(args){
   }
   const idea=enqueue({title:parsed['--title'],summary:parsed['--summary']||'',
     ruleIds:parseIds(parsed['--rules']),groupIds:parseIds(parsed['--groups'])});
-  process.stdout.write('Queued '+idea.id+' (not processed or instantiated)\\n');
+  process.stdout.write('Queued '+idea.id+' (not processed or instantiated)\n');
 }
 if(require.main===module){
   try{cli(process.argv.slice(2));}catch(error){console.error(error.message);process.exitCode=1;}

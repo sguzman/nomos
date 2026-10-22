@@ -26,7 +26,7 @@ test('enqueue stores ideas only, never profile records or processing authorizati
     assert.equal(fs.readdirSync(tmp).length,2);
     assert.deepEqual(queue.readQueue(tmp).map(x=>x.id),[first.id,second.id]);
     assert.deepEqual(queue.validateQueue(queue.readQueue(tmp)),[]);
-    assert.ok(!fs.readdirSync(tmp).some(name=>/^PROFILE-\\d/.test(name)));
+    assert.ok(!fs.readdirSync(tmp).some(name=>/^PROFILE-\d/.test(name)));
   }finally{fs.rmSync(tmp,{recursive:true,force:true});}
 });
 test('ideas reject invalid fields, fake profile linkage, repeated hints and identifiers',()=>{
