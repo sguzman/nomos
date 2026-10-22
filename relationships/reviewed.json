@@ -317,6 +317,36 @@
       "target": "NOM-0016",
       "kind": "refines",
       "evidence": "No unrelated work through MVP inauguration is a specific instance of general change-scope containment."
+    },
+    {
+      "source": "NOM-0117",
+      "target": "NOM-0123",
+      "kind": "complements",
+      "evidence": "Privacy prohibition forbids exposure of private Taria material; authorized externalization requires making a separately reviewed public-safe subset and forbids transplanting private source history. The externalization obligation does not require disclosing protected material."
+    },
+    {
+      "source": "NOM-0117",
+      "target": "NOM-0124",
+      "kind": "complements",
+      "evidence": "The prohibition on disclosing private Taria resources is the protected boundary; prepublication inspection is a preventive control for that boundary. Reviewing source and artifacts does not authorize exposing them."
+    },
+    {
+      "source": "NOM-0121",
+      "target": "NOM-0122",
+      "kind": "complements",
+      "evidence": "Publicly reproducible core operation and the prohibition of hidden private cross-project dependencies support the same outcome at different integration boundaries. Neither demands a dependency the other forbids."
+    },
+    {
+      "source": "NOM-0123",
+      "target": "NOM-0124",
+      "kind": "complements",
+      "evidence": "A separately authorized clean-subset externalization workflow and the prepublication review of all output surfaces are separate, compatible checkpoints. The former prepares releasable material; the latter verifies exposure risks before release."
+    },
+    {
+      "source": "NOM-0125",
+      "target": "NOM-0128",
+      "kind": "complements",
+      "evidence": "Pre-enrollment verification after owner authorization and ongoing accuracy of project manifests and membership claims concern admission and truthful state maintenance respectively. Neither grants or implies enrollment authority."
     }
   ]
 }

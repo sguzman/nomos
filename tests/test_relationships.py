@@ -51,10 +51,32 @@ class RelationshipReviewTests(unittest.TestCase):
         reviewed=json.loads((ROOT/"relationships/reviewed.json").read_text())
         self.assertEqual(validate_reviewed(reviewed,rules),[])
         edges=build_relationships(rules)
-        self.assertEqual(len([x for x in edges if x["status"]=="reviewed"]),53)
+        self.assertEqual(len([x for x in edges if x["status"]=="reviewed"]),58)
         pairs=[tuple(sorted((x["source"],x["target"]))) for x in edges]
         self.assertEqual(len(pairs),len(set(pairs)))
         self.assertTrue(any(x["source"]=="NOM-0120" and x["target"]=="NOM-0007" and x["kind"]=="complements" for x in edges))
+
+    def test_five_tarium_review_decisions_are_complementary_and_suppress_heuristics(self):
+        expected={
+            ("NOM-0117","NOM-0123"),
+            ("NOM-0117","NOM-0124"),
+            ("NOM-0121","NOM-0122"),
+            ("NOM-0123","NOM-0124"),
+            ("NOM-0125","NOM-0128"),
+        }
+        edges=build_relationships(list(self.rules.values()))
+        found={}
+        for edge in edges:
+            key=(edge["source"],edge["target"])
+            if key in expected:
+                self.assertNotIn(key,found)
+                found[key]=edge
+        self.assertEqual(set(found),expected)
+        self.assertTrue(all(edge["kind"]=="complements" and edge["status"]=="reviewed"
+                            and edge["method"]=="explicit_editorial_review" and edge["evidence"]
+                            for edge in found.values()))
+        self.assertFalse([e for e in edges if e["status"]=="candidate"])
+        self.assertEqual(len(edges),58)
 
     def test_gallery_and_externalization_scopes_preserve_distinct_requirements(self):
         self.assertEqual(self.rules["NOM-0120"]["relations"]["refines"],[])

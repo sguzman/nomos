@@ -14865,20 +14865,20 @@
     {
       "source": "NOM-0117",
       "target": "NOM-0123",
-      "kind": "possible_conflict",
-      "status": "candidate",
-      "confidence": "medium",
-      "method": "rule_metadata_heuristic",
-      "evidence": "Shared semantic concept: public_material_boundary; applicability and conditions require review"
+      "kind": "complements",
+      "evidence": "Privacy prohibition forbids exposure of private Taria material; authorized externalization requires making a separately reviewed public-safe subset and forbids transplanting private source history. The externalization obligation does not require disclosing protected material.",
+      "status": "reviewed",
+      "confidence": "high",
+      "method": "explicit_editorial_review"
     },
     {
       "source": "NOM-0117",
       "target": "NOM-0124",
-      "kind": "possible_conflict",
-      "status": "candidate",
-      "confidence": "medium",
-      "method": "rule_metadata_heuristic",
-      "evidence": "Shared semantic concept: public_material_boundary; applicability and conditions require review"
+      "kind": "complements",
+      "evidence": "The prohibition on disclosing private Taria resources is the protected boundary; prepublication inspection is a preventive control for that boundary. Reviewing source and artifacts does not authorize exposing them.",
+      "status": "reviewed",
+      "confidence": "high",
+      "method": "explicit_editorial_review"
     },
     {
       "source": "NOM-0118",
@@ -14919,11 +14919,11 @@
     {
       "source": "NOM-0121",
       "target": "NOM-0122",
-      "kind": "possible_conflict",
-      "status": "candidate",
-      "confidence": "medium",
-      "method": "rule_metadata_heuristic",
-      "evidence": "Shared semantic concept: public_dependencies; applicability and conditions require review"
+      "kind": "complements",
+      "evidence": "Publicly reproducible core operation and the prohibition of hidden private cross-project dependencies support the same outcome at different integration boundaries. Neither demands a dependency the other forbids.",
+      "status": "reviewed",
+      "confidence": "high",
+      "method": "explicit_editorial_review"
     },
     {
       "source": "NOM-0122",
@@ -14946,11 +14946,11 @@
     {
       "source": "NOM-0123",
       "target": "NOM-0124",
-      "kind": "possible_refinement",
-      "status": "candidate",
-      "confidence": "medium",
-      "method": "rule_metadata_heuristic",
-      "evidence": "Shared semantic concept: public_material_boundary; applicability and conditions require review"
+      "kind": "complements",
+      "evidence": "A separately authorized clean-subset externalization workflow and the prepublication review of all output surfaces are separate, compatible checkpoints. The former prepares releasable material; the latter verifies exposure risks before release.",
+      "status": "reviewed",
+      "confidence": "high",
+      "method": "explicit_editorial_review"
     },
     {
       "source": "NOM-0124",
@@ -14973,11 +14973,11 @@
     {
       "source": "NOM-0125",
       "target": "NOM-0128",
-      "kind": "possible_refinement",
-      "status": "candidate",
-      "confidence": "medium",
-      "method": "rule_metadata_heuristic",
-      "evidence": "Shared semantic concept: explicit_membership_authorization; applicability and conditions require review"
+      "kind": "complements",
+      "evidence": "Pre-enrollment verification after owner authorization and ongoing accuracy of project manifests and membership claims concern admission and truthful state maintenance respectively. Neither grants or implies enrollment authority.",
+      "status": "reviewed",
+      "confidence": "high",
+      "method": "explicit_editorial_review"
     },
     {
       "source": "NOM-0126",

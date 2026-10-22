@@ -118,3 +118,7 @@ The first 114 rules were audited individually. The site now supports project-typ
 ## Domain directory
 
 The catalog has a collapsed, browsable directory of controlled domains grouped into seven families. Each domain displays a live rule count and filters the existing rule registry when chosen. The family selector and project applicability selector are independent; neither acts on the rule composer or changes selection. Domain definitions live in `taxonomy/domains.json`. Generic projects may span several domain families and specific project contexts.
+
+## Tarium relationship review
+
+The five remaining heuristic relationship suggestions were reviewed as complementary requirements, with pair-by-pair reasons in [the repository review](https://github.com/sguzman/nomos/blob/main/relationships/REVIEW-2026-10-22.md). The rule metadata graph now marks the pairs as reviewed instead of unreviewed possible conflicts or refinements. This does not change the individual rules or authorize applying them.
