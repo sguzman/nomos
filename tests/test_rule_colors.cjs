@@ -38,7 +38,7 @@ test('colors are deterministic by ID and valid in both appearance modes',()=>{
   }
 });
 test('all published rule and group swatches have nontrivial OKLab separation',()=>{
-  const ids=[...catalog.rules.map(r=>r.id),...catalog.groups.map(g=>g.id)];
+  const ids=[...catalog.rules.map(r=>r.id),...catalog.groups.map(g=>g.id),...catalog.profiles.map(p=>p.id)];
   assert.equal(new Set(ids.map(id=>colorForId(id).day)).size,ids.length);
   assert.equal(new Set(ids.map(id=>colorForId(id).night)).size,ids.length);
   for(const mode of ['day','night']) {
@@ -70,5 +70,8 @@ test('palette slots for current rule and group namespaces are independent',()=>{
   assert.equal(paletteIndex('NOM-0068'),75);
   assert.equal(paletteIndex('NOM-0076'),84);
   assert.equal(paletteIndex('GROUP-0014'),135);
-  assert.equal(new Set([...catalog.rules,...catalog.groups].map(x=>paletteIndex(x.id))).size, catalog.rules.length + catalog.groups.length);
+  assert.equal(paletteIndex('PROFILE-0001'),136);
+  assert.equal(paletteIndex('PROFILE-0002'),137);
+  assert.equal(new Set([...catalog.rules,...catalog.groups,...catalog.profiles].map(x=>paletteIndex(x.id))).size,
+    catalog.rules.length + catalog.groups.length + catalog.profiles.length);
 });

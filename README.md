@@ -69,3 +69,7 @@ The 10 new operational rules from SPEC-0077–SPEC-0086 cover restrictions on ne
 Three independent published atoms extend port guidance: `NOM-0111` compares upstream C and Rust observable behavior under equivalent inputs, `NOM-0112` isolates and verifies necessary unsafe/FFI boundaries, and `NOM-0113` inventories verified upstream-to-Rust capability coverage. Inputs `SPEC-0115`–`SPEC-0117` have independent processing/disposition records.
 
 Two **draft** profiles select existing rules by ID: [Lite (41)](profiles/PROFILE-0001.json) and [Full (93)](profiles/PROFILE-0002.json). Both select all three new port rules and five public-private-information safeguards. Full additionally includes `NOM-0010` and `NOM-0068`–`NOM-0072` for permanent phase/milestone/task/feature emoji identities, numeric completion percentages, progress bars, overall progress and restrained completion reporting. Draft creation neither finalizes nor applies a profile.
+
+## Profile catalog browsing
+
+The static website now displays opt-in profiles alongside rules and groups with their stable PROFILE IDs, individually distinguishable day/night colors, draft/finalized status, and exact member counts. The dedicated Profiles-only type filter, Profile members selector and Browse members actions show each profile's selected independent rules. Viewing drafts never finalizes, activates or bulk-selects them; individual rule selections stay separate.

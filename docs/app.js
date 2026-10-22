@@ -409,7 +409,7 @@ async function init() {
     state.groups = Array.isArray(catalog.groups) ? catalog.groups : [];
     state.profiles = Array.isArray(catalog.profiles) ? catalog.profiles : [];
     for (const profile of state.profiles) {
-      if (!/^PROFILE-\\d{4,}$/.test(profile.id) || seen.has(profile.id) || !Array.isArray(profile.selected_rule_ids) ||
+      if (!/^PROFILE-\d{4,}$/.test(profile.id) || seen.has(profile.id) || !Array.isArray(profile.selected_rule_ids) ||
           !['draft','finalized','deprecated'].includes(profile.status) ||
           profile.selected_rule_ids.some(id=>!state.rules.some(r=>r.id===id && r.status==='published' && r.registry==='catalog')))
         throw new Error('Invalid profile record');
@@ -453,7 +453,12 @@ for (const id of ['search', 'filter-type', 'filter-status', 'filter-domain', 'fi
     if(id==='filter-profile') {
       state.profileFilter=$('filter-profile').value==='all'?null:$('filter-profile').value;
       state.groupFilter=null;
-      if(state.profileFilter)$('filter-type').value='rules';
+      if(state.profileFilter){
+        $('filter-type').value='rules';
+        $('filter-status').value='all';
+        $('filter-domain').value='all';
+        $('search').value='';
+      }
     }
     if(id==='filter-type' && $('filter-type').value!=='rules') {
       state.groupFilter=null;

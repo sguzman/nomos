@@ -43,6 +43,16 @@ class SiteCatalogTests(unittest.TestCase):
                 for rid in group["member_rule_ids"]:
                     self.assertEqual(rules[rid]["status"], "published")
 
+    def test_optional_profiles_are_in_public_catalog_but_not_activated(self):
+        profiles=self.data["profiles"]
+        self.assertEqual([p["id"] for p in profiles], ["PROFILE-0001","PROFILE-0002"])
+        self.assertEqual([len(p["selected_rule_ids"]) for p in profiles], [41,93])
+        for profile in profiles:
+            self.assertEqual(profile["status"],"draft")
+            self.assertTrue(profile["review"]["selection_confirmed"])
+            self.assertFalse(profile["review"]["finalization_confirmed"])
+            self.assertEqual(len(profile["selected_rule_ids"]),len(set(profile["selected_rule_ids"])))
+
     def test_every_current_rule_exposes_bounds_metadata(self):
         for rule in self.data["rules"]:
             bounds = rule["norm"]["bounds"]

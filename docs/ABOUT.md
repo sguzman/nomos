@@ -101,3 +101,9 @@ Reviewed quantifiers also appear as small **Bounds:** tags on rule cards and are
 ## Expanded reviewed catalog
 
 The site lists 110 distinct rules and 14 independently selectable virtual groups, including the 50-rule `GROUP-0014` MVP graduation and maintenance collection. Named browser-version restrictions and local YAML-job rules are individually addressable. "Add all" expands only published group members when explicitly selected; no project is changed by viewing or exporting a catalog. Profile presets remain a separate, empty, optional registry. Browser visual QA has not been performed by these automated checks.
+
+## Optional profile presets in the unified browser
+
+Both user-approved C-to-Rust draft presets now appear in the same searchable catalog as groups and rules, with stable independent PROFILE IDs and day/night identity colors, member counts, status, and Browse members. The Item type supports Profiles only, and the Profile members selector filters the rule list to that preset's canonical published membership. No profile is auto-applied, exported or finalized by browsing; draft cards intentionally omit bulk Add all. A finalized profile can offer Add all after a deliberate click, while individual rules remain independently selectable. The website only contains public-safe profile metadata and source-approved rule IDs.
+
+Two additional dedicated fixed color slots were added for PROFILE-0001 and PROFILE-0002 without altering existing group/rule identity assignments. Browser and build checks cover profile search, membership, color separation and draft selection boundaries.

@@ -5,19 +5,22 @@ global.NomosGroups = require('../docs/groups.js');
 const { search } = require('../docs/catalog-browser.js');
 const { hueForId } = require('../docs/rule-colors.js');
 const catalog = require('../docs/catalog.json');
-const args = { rules: catalog.rules, groups: catalog.groups };
+const args = { rules: catalog.rules, groups: catalog.groups, profiles: catalog.profiles };
 
-test('unified catalog shows every published or draft catalog rule and all fourteen groups', () => {
+test('unified catalog includes rules, groups, and independent profiles', () => {
   const results = search(args);
-  assert.equal(results.length, catalog.rules.length + catalog.groups.length);
+  assert.equal(results.length, catalog.rules.length + catalog.groups.length + catalog.profiles.length);
   assert.equal(results.filter(x => x.kind === 'rule').length, catalog.rules.length);
   assert.equal(results.filter(x => x.kind === 'group').length, 14);
+  assert.equal(results.filter(x => x.kind === 'profile').length, 2);
   assert.deepEqual(results.slice(0, 14).map(x => x.value.id),
     Array.from({ length: 14 }, (_, i) => 'GROUP-' + String(i + 1).padStart(4, '0')));
-  assert.equal(results[14].value.id, 'NOM-0001');
+  assert.deepEqual(results.slice(14,16).map(x=>x.value.id),['PROFILE-0001','PROFILE-0002']);
+  assert.equal(results[16].value.id, 'NOM-0001');
 });
 test('entity type selector filters one shared catalog', () => {
   assert.equal(search({ ...args, type: 'groups' }).length, 14);
+  assert.equal(search({ ...args, type: 'profiles' }).length, 2);
   assert.equal(search({ ...args, type: 'rules' }).length, catalog.rules.length);
 });
 test('one search field finds a group and its atomic member rules', () => {
@@ -29,6 +32,8 @@ test('one search field finds a group and its atomic member rules', () => {
 test('status and shared domain/label filters apply to both entity types', () => {
   assert.equal(search({ ...args, type: 'groups', status: 'draft' }).length, 0);
   assert.equal(search({ ...args, type: 'rules', status: 'draft' }).length, 1);
+  assert.equal(search({ ...args, type: 'profiles', status: 'draft' }).length, 2);
+  assert.equal(search({ ...args, type: 'profiles', status: 'published' }).length, 0);
   const rust = search({ ...args, domain: 'rust_quality' });
   assert.equal(rust.filter(x => x.kind === 'group').length, 1);
   assert.equal(rust.filter(x => x.kind === 'rule').length, 10);
@@ -53,7 +58,7 @@ test('rules-first reverses type precedence with stable IDs inside each type', ()
   assert.equal(results[0].value.id, 'NOM-0001');
   assert.equal(results[catalog.rules.length-1].value.id, catalog.rules.at(-1).id);
   assert.equal(results[catalog.rules.length].value.id, 'GROUP-0001');
-  assert.equal(results.at(-1).value.id, 'GROUP-0014');
+  assert.equal(results.at(-1).value.id, 'PROFILE-0002');
 });
 test('name and ID sort directions work on the combined results', () => {
   const asc = search({ ...args, sort: 'name-asc' });
@@ -110,4 +115,25 @@ test('quantified bounds are searchable without fabricating unresolved values',()
   assert.ok(once.some(x=>x.value.id==='NOM-0071'));
   const any = search({ ...args, type:'rules', query:'free_choice' });
   assert.equal(any.filter(x=>x.value.norm.bounds.basis!=='unresolved').length,0);
+});
+
+test('profile membership filtering returns exact deduplicated published atoms',()=>{
+  for(const profile of catalog.profiles){
+    const members=search({...args,type:'rules',profileFilter:profile.id});
+    assert.deepEqual(new Set(members.map(x=>x.value.id)),new Set(profile.selected_rule_ids));
+    assert.equal(members.length,profile.selected_rule_ids.length);
+    assert.ok(members.every(x=>x.kind==='rule'));
+    assert.ok(search({...args,type:'profiles',query:profile.title}).some(x=>x.value.id===profile.id));
+  }
+  assert.equal(search({...args,type:'rules',profileFilter:'PROFILE-9999'}).length,0);
+  const unsafe=search({...args,type:'rules',profileFilter:'PROFILE-0001',query:'unsafe'});
+  assert.ok(unsafe.some(x=>x.value.id==='NOM-0112'));
+  assert.equal(search({...args,profileFilter:'PROFILE-0002',status:'draft'}).length,0);
+});
+test('profiles participate in sort modes and search without creating groups',()=>{
+  assert.deepEqual(search({...args,type:'profiles',sort:'id-desc'}).map(x=>x.value.id),['PROFILE-0002','PROFILE-0001']);
+  const size=search({...args,type:'profiles',sort:'members-desc'}).map(x=>x.value.id);
+  assert.deepEqual(size,['PROFILE-0002','PROFILE-0001']);
+  assert.equal(catalog.groups.length,14);
+  assert.equal(search({...args,type:'groups',query:'Strict Port'}).length,0);
 });

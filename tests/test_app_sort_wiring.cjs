@@ -40,6 +40,7 @@ function launch() {
   get('filter-type').value='all';
   get('filter-status').value='all';
   get('filter-domain').value='all';
+  get('filter-profile').value='all';
   const document={
     getElementById:get,
     createElement(tag){return new Node(tag)},
@@ -55,7 +56,7 @@ function launch() {
     NomosCatalog:browser,console,setTimeout,clearTimeout
   });
   vm.runInContext(source,ctx);
-  vm.runInContext('state.rules=__catalog.rules;state.groups=__catalog.groups;',Object.assign(ctx,{__catalog:catalog}));
+  vm.runInContext('state.rules=__catalog.rules;state.groups=__catalog.groups;state.profiles=__catalog.profiles;',Object.assign(ctx,{__catalog:catalog}));
   vm.runInContext('renderCatalog()',ctx);
   function firstIds(count) {
     const cards=get('catalog-list').children;
@@ -104,4 +105,37 @@ test('reset restores groups-first default and view top',()=>{
   app.get('clear-filters').listeners.click();
   assert.equal(app.get('sort-order').value,'groups-first');
   assert.deepEqual(app.firstIds(2),['GROUP-0001','GROUP-0002']);
+});
+
+test('profile cards browse their exact member sets and clear the member filter',()=>{
+  const app=launch();
+  app.get('filter-type').value='profiles';
+  app.get('filter-type').listeners.change();
+  assert.deepEqual(app.firstIds(2),['PROFILE-0001','PROFILE-0002']);
+  const card=app.get('catalog-list').children[0];
+  const actions=card.children.find(n=>n.className==='group-actions');
+  assert.equal(actions.children.length,2);
+  assert.equal(actions.children[1].tag,'span'); // Draft must not expose bulk activation
+  actions.children[0].listeners.click();
+  assert.equal(app.get('filter-profile').value,'PROFILE-0001');
+  assert.equal(app.get('filter-type').value,'rules');
+  assert.equal(app.get('catalog-list').children.length,41);
+  assert.match(app.get('active-member-filter').textContent,/C-to-Rust Strict Port/);
+  assert.equal(vm.runInContext('state.selected.length',app.ctx),0);
+  app.get('active-member-filter').listeners.click();
+  assert.equal(app.get('filter-profile').value,'all');
+  app.get('clear-filters').listeners.click();
+  assert.deepEqual(app.firstIds(2),['GROUP-0001','GROUP-0002']);
+});
+test('profile dropdown selects a profile and resets incompatible filters',()=>{
+  const app=launch();
+  app.get('filter-status').value='draft';
+  app.get('filter-type').value='profiles';
+  app.get('filter-type').listeners.change();
+  app.get('filter-profile').value='PROFILE-0002';
+  app.get('filter-profile').listeners.change();
+  assert.equal(app.get('filter-status').value,'all');
+  assert.equal(app.get('filter-type').value,'rules');
+  assert.equal(app.get('catalog-list').children.length,93);
+  assert.equal(vm.runInContext('state.selected.length',app.ctx),0);
 });
