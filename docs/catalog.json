@@ -11182,6 +11182,327 @@
         "plain_text"
       ],
       "registry": "catalog"
+    },
+    {
+      "id": "NOM-0111",
+      "version": "1.0.0",
+      "title": "Differentially verify C and Rust program behavior",
+      "summary": "For each agreed reproducible behavior of an authorized C-to-Rust port, run the original C baseline and Rust implementation with equivalent inputs and relevant environment, compare observable outputs, exit codes and side effects, and document any intentionally accepted differences.",
+      "statement": "For each agreed reproducible behavior of an authorized C-to-Rust port, run the original C baseline and Rust implementation with equivalent inputs and relevant environment, compare observable outputs, exit codes and side effects, and document any intentionally accepted differences.",
+      "rationale": "Running equivalent cases against the upstream implementation reveals behavioral divergences that normal unit tests may miss. Record nondeterministic output normalization and untestable cases explicitly.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "compare",
+          "object": "upstream_and_rust_observable_results",
+          "target": "c_to_rust_port"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "An authorized C-to-Rust port has an agreed upstream baseline and equivalent test cases are runnable or reference observations are available."
+        ],
+        "exceptions": [
+          "Documented accepted deviations and justified nondeterministic differences; missing baseline executability must be reported as a verification gap, not silently treated as a passing test."
+        ],
+        "bounds": {
+          "quantifier": "all",
+          "interpretation": "universal",
+          "frequency": "always",
+          "minimum": null,
+          "maximum": null,
+          "unit": "entities",
+          "window": "each in-scope port verification or implementation cycle",
+          "cue": "For each",
+          "basis": "explicit_text"
+        }
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "software_porting",
+          "rust_development"
+        ],
+        "topics": [
+          "differential_testing"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "An authorized C-to-Rust port has an agreed upstream baseline and equivalent test cases are runnable or reference observations are available."
+        ],
+        "exclusions": [
+          "Documented accepted deviations and justified nondeterministic differences; missing baseline executability must be reported as a verification gap, not silently treated as a passing test."
+        ]
+      },
+      "authority": {
+        "source": "Reviewed Nomos guidance; explicitly selected use only",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [
+          "NOM-0074",
+          "NOM-0029"
+        ],
+        "depends_on": [
+          "NOM-0074"
+        ]
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0115; processing/specimens/PROC-SPEC-0115.json",
+        "license": "MIT",
+        "notes": "Public-safe C-to-Rust-porting rule; catalog publication does not activate or apply it."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0112",
+      "version": "1.0.0",
+      "title": "Contain and verify necessary unsafe Rust and FFI boundaries",
+      "summary": "For each necessary unsafe Rust operation or C FFI boundary in an authorized C-to-Rust port, prefer safe Rust where feasible, isolate the boundary, document required safety and ABI invariants, and test the exposed contract.",
+      "statement": "For each necessary unsafe Rust operation or C FFI boundary in an authorized C-to-Rust port, prefer safe Rust where feasible, isolate the boundary, document required safety and ABI invariants, and test the exposed contract.",
+      "rationale": "Safety and ABI assumptions hidden across modules are difficult to audit. Restricting and exercising necessary boundaries reduces undefined behavior and compatibility risk without forbidding justified interoperability.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "contain_and_verify",
+          "object": "unsafe_and_ffi_boundaries",
+          "target": "c_to_rust_port"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "An authorized C-to-Rust port uses Rust unsafe operations or an FFI boundary."
+        ],
+        "exceptions": [
+          "No unsafe or FFI boundary is required when a fully safe Rust implementation can express the behavior."
+        ],
+        "bounds": {
+          "quantifier": "all",
+          "interpretation": "universal",
+          "frequency": "always",
+          "minimum": null,
+          "maximum": null,
+          "unit": "entities",
+          "window": "each in-scope port verification or implementation cycle",
+          "cue": "For each",
+          "basis": "explicit_text"
+        }
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "software_porting",
+          "rust_development"
+        ],
+        "topics": [
+          "unsafe_ffi_containment"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "An authorized C-to-Rust port uses Rust unsafe operations or an FFI boundary."
+        ],
+        "exclusions": [
+          "No unsafe or FFI boundary is required when a fully safe Rust implementation can express the behavior."
+        ]
+      },
+      "authority": {
+        "source": "Reviewed Nomos guidance; explicitly selected use only",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [
+          "NOM-0030"
+        ],
+        "depends_on": [
+          "NOM-0074"
+        ]
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0116; processing/specimens/PROC-SPEC-0116.json",
+        "license": "MIT",
+        "notes": "Public-safe C-to-Rust-porting rule; catalog publication does not activate or apply it."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0113",
+      "version": "1.0.0",
+      "title": "Inventory upstream capabilities and verified Rust port coverage",
+      "summary": "For each in-scope upstream C capability in an authorized C-to-Rust port, record its Rust implementation or replacement mapping, track implementation and verification status, and explicitly identify missing, incompatible or unverified behavior.",
+      "statement": "For each in-scope upstream C capability in an authorized C-to-Rust port, record its Rust implementation or replacement mapping, track implementation and verification status, and explicitly identify missing, incompatible or unverified behavior.",
+      "rationale": "A source-to-target coverage inventory makes omissions and fidelity gaps visible; code quantity or successful compilation alone is not evidence that the agreed baseline has been replaced.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "track",
+          "object": "upstream_capability_coverage",
+          "target": "c_to_rust_port"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "An upstream baseline and the port's in-scope feature set have been identified."
+        ],
+        "exceptions": [
+          "Out-of-scope features and accepted deviations remain explicitly recorded and are not silently reported as implemented."
+        ],
+        "bounds": {
+          "quantifier": "all",
+          "interpretation": "universal",
+          "frequency": "always",
+          "minimum": null,
+          "maximum": null,
+          "unit": "entities",
+          "window": "each in-scope port verification or implementation cycle",
+          "cue": "For each",
+          "basis": "explicit_text"
+        }
+      },
+      "categories": {
+        "domains": [
+          "software_development",
+          "software_porting",
+          "rust_development"
+        ],
+        "topics": [
+          "port_coverage_inventory"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "preconditions": [
+          "An upstream baseline and the port's in-scope feature set have been identified."
+        ],
+        "exclusions": [
+          "Out-of-scope features and accepted deviations remain explicitly recorded and are not silently reported as implemented."
+        ]
+      },
+      "authority": {
+        "source": "Reviewed Nomos guidance; explicitly selected use only",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [
+          "NOM-0075",
+          "NOM-0064"
+        ],
+        "depends_on": [
+          "NOM-0074",
+          "NOM-0075"
+        ]
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0117; processing/specimens/PROC-SPEC-0117.json",
+        "license": "MIT",
+        "notes": "Public-safe C-to-Rust-porting rule; catalog publication does not activate or apply it."
+      },
+      "governance": {
+        "created_on": "2026-10-21",
+        "updated_on": "2026-10-21",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "registry": "catalog"
     }
   ],
   "groups": [
