@@ -62,3 +62,11 @@ Independent downstream work is tracked as TASK-0013 (rule publication), TASK-001
 ## Authorized strict C-to-Rust specimen batch and optional profile drafts (2026-10-21)
 
 The explicitly authorized public-safe specimens `SPEC-0115`–`SPEC-0117` were queued and independently normalized into published rules `NOM-0111`–`NOM-0113` with separate candidate and processing records. Downstream `TASK-0016` covers validation, documentation and the two approved draft profiles `PROFILE-0001` and `PROFILE-0002`. Profile finalization, export and application remain separately opt-in. No unrelated project or group is changed or activated.
+
+## Independent optional profile-idea queue (2026-10-21)
+
+`queues/profiles/` is an **intake-only operational backlog**, separate from all four specimen/task stores, the reviewed `profiles/` registry, and the four ontology kinds. Its `PROFILE-IDEA-*` IDs never reserve or become real `PROFILE-*` IDs.
+
+Queuing an idea records a public-safe title and optional short summary and tentative rule/group references. A queued idea is **not reviewed, processed, approved, instantiated, finalized, selected, or applied**. Do not drain the queue automatically. Processing an individual idea requires a later explicit request naming it; reviewing a selection does not authorize draft instantiation. Only separate, explicit selection approval permits a real draft under [PROFILE_WORKFLOW.md](PROFILE_WORKFLOW.md), followed by separate finalization and opt-in use. Administrative status changes such as deferral/cancellation are not profile processing.
+
+The queue intentionally starts with **zero ideas** until specifically nominated. The intake-only CLI and schema live in `tools/profile_ideas.cjs` and `schema/profile-idea.schema.json`.

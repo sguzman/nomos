@@ -8,6 +8,7 @@ on:
       - "rules/**"
       - "groups/**"
       - "profiles/**"
+      - "queues/profiles/**"
       - "schema/**"
       - "taxonomy/**"
       - "processing/specimens/candidates/**"
@@ -50,6 +51,10 @@ jobs:
           node --check tools/profiles.js
           node --check tools/validate_profiles.cjs
           node tools/validate_profiles.cjs
+          node --check tools/profile_ideas.cjs
+          node --check tools/validate_profile_ideas.cjs
+          node tools/validate_profile_ideas.cjs
+          node --test tests/test_profile_ideas.cjs
           node --test tests/test_profiles.cjs
       - name: Configure Pages
         uses: actions/configure-pages@v5

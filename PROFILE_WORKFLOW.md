@@ -2,6 +2,10 @@
 
 This workflow describes how to create a **reusable preset of selected rules**, not an instruction to create or use one. Rule profiles are a fourth Nomos ontology kind, separate from predefined virtual groups. No profile exists before the user explicitly authorizes its instantiation.
 
+## Optional intake before stage 1
+
+A user may explicitly **queue an idea** in `queues/profiles/PROFILE-IDEA-*.json` without reviewing, selecting rules, processing it or creating a profile. That queue is operational intake, not an actual profile or a fifth ontology kind. Tentative rule/group IDs are hints and cannot be treated as a reviewed selection. The queue is never drained automatically. A separate request naming an idea is needed to begin discussion/review; still another explicit decision is needed before creating a `profiles/PROFILE-*.json` draft. See [queues/profiles/README.md](queues/profiles/README.md).
+
 ## User-controlled stages
 
 1. **Discuss a use case.** The user describes the desired work, such as a strict feature-parity port. This is a conversation, not a stored profile. No rules are applied.

@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/sguzman/nomos/blob/main/schema/profile-idea.schema.json",
+  "title": "Nomos profile-idea queue record",
+  "description": "Operational queue entry only; no reviewed rule selection, profile creation, or application.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "kind",
+    "title",
+    "summary",
+    "status",
+    "proposed_rule_ids",
+    "proposed_group_ids",
+    "linked_profile_ids",
+    "governance"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^PROFILE-IDEA-[0-9]{4,}$"
+    },
+    "kind": {
+      "const": "profile_idea"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "summary": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "queued",
+        "deferred",
+        "cancelled",
+        "instantiated"
+      ]
+    },
+    "proposed_rule_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^NOM-[0-9]{4,}$"
+      }
+    },
+    "proposed_group_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^GROUP-[0-9]{4,}$"
+      }
+    },
+    "linked_profile_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^PROFILE-[0-9]{4,}$"
+      }
+    },
+    "governance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "created_on",
+        "updated_on"
+      ],
+      "properties": {
+        "created_on": {
+          "type": "string",
+          "format": "date"
+        },
+        "updated_on": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "instantiated"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "linked_profile_ids": {
+            "minItems": 1
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "linked_profile_ids": {
+            "maxItems": 0
+          }
+        }
+      }
+    }
+  ]
+}

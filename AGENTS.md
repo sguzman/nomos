@@ -39,3 +39,7 @@ The validator is intentionally limited. Inspect the changed Markdown/JSON and sc
 ## Profile presets are inert
 
 Profiles are optional selections, not mandatory instructions. First discuss the use case and suggest existing catalog rule IDs *without persisting a profile*. Await explicit authorization before instantiating a draft. Allow add/remove in the draft and require separate approval to finalize; another explicit choice is required to select or export the finalized preset. Never create a default profile or activate one on a user's behalf. See [PROFILE_WORKFLOW.md](PROFILE_WORKFLOW.md).
+
+## Profile-idea queue is intake, never processing
+
+`queues/profiles/` stores **ideas** with independent `PROFILE-IDEA-*` IDs. Creating a queue entry does not grant permission to investigate it, choose rules, instantiate a `PROFILE-*` draft, finalize, or export. The separate `profiles/` registry remains the only place for authorized profile records. No queue entry should be silently promoted, and no private wording belongs in the public queue. See [queues/profiles/README.md](queues/profiles/README.md).

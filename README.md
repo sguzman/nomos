@@ -22,6 +22,7 @@ A rule remains independent even when selected for a group or profile. Discussing
 - [schema/profile.schema.json](schema/profile.schema.json) — optional reusable rule-profile preset contract.
 - [PROFILE_WORKFLOW.md](PROFILE_WORKFLOW.md) — discuss, review, instantiate, edit and finalize a profile, all opt-in.
 - [profiles/](profiles/) — explicitly authorized opt-in draft presets; none automatically applies.
+- [queues/profiles/](queues/profiles/) — separate, public-safe queue of unprocessed profile ideas; not actual profiles.
 - [taxonomy/categories.json](taxonomy/categories.json) — controlled categorization vocabulary.
 - [rules/](rules/) — independent catalog entries; inert until selected.
 - [ROADMAP.md](ROADMAP.md) — future work; not a task-processing record.
@@ -73,3 +74,9 @@ Two **draft** profiles select existing rules by ID: [Lite (41)](profiles/PROFILE
 ## Profile catalog browsing
 
 The static website now displays opt-in profiles alongside rules and groups with their stable PROFILE IDs, individually distinguishable day/night colors, draft/finalized status, and exact member counts. The dedicated Profiles-only type filter, Profile members selector and Browse members actions show each profile's selected independent rules. Viewing drafts never finalizes, activates or bulk-selects them; individual rule selections stay separate.
+
+## Queue future profile ideas without processing
+
+Nomos now supports an optional, **separate profile-idea intake queue**. Record an idea as `PROFILE-IDEA-0001` etc. with a short public-safe title, optional summary and unreviewed rule/group hints. Creating an idea does **not** process it, construct a rule selection, create a `PROFILE-*` draft, alter the website's active profile registry, or apply any instructions. No example ideas are automatically enqueued.
+
+Use `node tools/profile_ideas.cjs list` to inspect the queue or `node tools/profile_ideas.cjs add --title "Example name"` to add a new item. The command only adds ideas. Details: [queues/profiles/README.md](queues/profiles/README.md). The queue is validated separately with `node tools/validate_profile_ideas.cjs`.
