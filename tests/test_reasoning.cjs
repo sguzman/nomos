@@ -51,9 +51,12 @@ test('independent project-type facets restrict conflicts and respect generic rul
   const b=rule('B','obligation','equals','2027');
   a.scope.project_types=['tarium_project'];
   b.scope.project_types=['rust_fork_maintenance'];
-  assert.equal(cmp.assess(a,b),'disjoint');
+  assert.equal(cmp.assess(a,b),'conflict'); // Can be both Tarium and Rust.
+  a.scope.project_types=['rust_project_from_scratch'];
+  const hierarchy=require('../taxonomy/project-types.json');
+  assert.equal(cmp.assess(a,b,{project_hierarchy:hierarchy}),'disjoint');
   b.scope.project_types=['any'];
-  assert.equal(cmp.assess(a,b),'conflict');
+  assert.equal(cmp.assess(a,b,{project_hierarchy:hierarchy}),'conflict');
 });
 test('curated and heuristic semantic edges are advisory and do not hard-block exports',()=>{
   const a=rule('A','obligation','equals','2024'),b=rule('B','obligation','equals','2024');

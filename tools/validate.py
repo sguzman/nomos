@@ -7,6 +7,7 @@ import argparse
 import json
 import pathlib
 import sys
+from project_types import read_hierarchy, types_can_overlap, validate_hierarchy
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 
@@ -23,9 +24,9 @@ def overlaps(a, b):
         left, right = set(a["scope"]["axes"][key]), set(b["scope"]["axes"][key])
         if "any" not in left and "any" not in right and not (left & right):
             return False
-    left_types = set(a.get("scope", {}).get("project_types", ["any"]))
-    right_types = set(b.get("scope", {}).get("project_types", ["any"]))
-    return "any" in left_types or "any" in right_types or bool(left_types & right_types)
+    return types_can_overlap(a.get("scope", {}).get("project_types", ["any"]),
+                             b.get("scope", {}).get("project_types", ["any"]),
+                             read_hierarchy())
 
 
 def value_relation(a, b, context=None):
@@ -153,6 +154,7 @@ def possible_conflict(a, b, context=None):
 def validate(taxonomy, rules):
     errors = []
     seen = set()
+    errors.extend(validate_hierarchy(read_hierarchy(),taxonomy))
     required = {"id", "version", "title", "summary", "statement", "rationale", "language",
                 "status", "norm", "categories", "scope", "authority", "relations",
                 "provenance", "governance", "export_targets"}

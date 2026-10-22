@@ -59,7 +59,7 @@ function launch() {
     fetch:async()=>({ok:true,json:async()=>catalog})
   });
   vm.runInContext(source,ctx);
-  vm.runInContext('state.rules=__catalog.rules;state.groups=__catalog.groups;state.profiles=__catalog.profiles;state.relationships=__catalog.relationships||[];',Object.assign(ctx,{__catalog:catalog}));
+  vm.runInContext('state.rules=__catalog.rules;state.groups=__catalog.groups;state.profiles=__catalog.profiles;state.relationships=__catalog.relationships||[];state.projectHierarchy=__catalog.project_hierarchy||null;',Object.assign(ctx,{__catalog:catalog}));
   vm.runInContext('renderCatalog()',ctx);
   function firstIds(count) {
     const cards=get('catalog-list').children;
@@ -160,8 +160,8 @@ test('project type selector filters the real catalog without altering rule selec
   const app=launch();
   app.get('filter-project').value='tarium_project';
   app.get('filter-project').listeners.change();
-  assert.deepEqual(app.firstIds(2),['NOM-0115','NOM-0116']);
-  assert.equal(app.get('catalog-list').children.length,14);
+  assert.deepEqual(app.firstIds(2),['NOM-0006','NOM-0007']);
+  assert.equal(app.get('catalog-list').children.length,16);
   assert.equal(vm.runInContext('state.selected.length',app.ctx),0);
   app.get('clear-filters').listeners.click();
   assert.equal(app.get('filter-project').value,'all');

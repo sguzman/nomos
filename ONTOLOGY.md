@@ -118,3 +118,11 @@ Optional `semantic.concept` and `semantic.aliases` annotate a normalized meaning
 Reviewed edges live in `relationships/reviewed.json` with public-safe evidence. They may mark `equivalent`, `refines`, `complements`, `conflicts_with`, or `exceptions_to`. Explicit reviewed edges take precedence over **duplicate candidate display** for that pair only, not over source rule authority. The site displays both reviewed and candidate links per rule. A relationship graph does **not** apply, override, select or export rules; a possible conflict still requires human review, and existing strict norm checks remain separate.
 
 Scope metadata is used for **filtering and review**, not to infer approval to enroll a project in Tarium, release code, create a profile, or perform work in another repository.
+
+## Retrospective domain and project classification (2026-10-22)
+
+The 114 original rules were classified individually without rewriting their normative statements. The evidence and old/new fields are recorded in `audits/legacy-classification-2026-10-22.json`. Domains are controlled subject labels documented in `taxonomy/domains.json` and may co-occur. Topics are narrower, with 54 legacy `development_hygiene` items receiving specific replacements. No domain implies instruction activation.
+
+The independent project hierarchy is `taxonomy/project-types.json`, with `project` and `software_project` parents, `rust_project` and `software_port` subtrees, and distinct browser and Tarium contexts. Multiple inheritance is supported (e.g. C-to-Rust ports descend from both software port and Rust project). **These are not mutually exclusive categories:** a Tarium project may also be a Rust project. Only expressly documented exclusive pairs can prove disjointness in rule analysis. For project filters, a selected concrete type includes rules scoped to that type or its parents, while truly universal `any` rules remain available under All. Filtering does not select or activate rules.
+
+Reviewed relationships and inferential candidate edges continue to be maintained separately. Classification and inheritance do not grant enrollment, editing, release or profile-instantiation permission. Former published rule versions and previous metadata remain inspectable in Git history.

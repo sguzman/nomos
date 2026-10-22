@@ -110,3 +110,7 @@ Two additional dedicated fixed color slots were added for PROFILE-0001 and PROFI
 
 ## Project scope and reviewable relationships
 Rules may carry a controlled `scope.project_types` facet independent of category. The Project applicability filter lists rules **explicitly** scoped to the selected project type; general-purpose rules remain discoverable through All project types. Each rule's View metadata dialog shows a navigable relationship graph: reviewed links and evidence-based heuristic suggestions are distinguished. An inferred edge is a candidate for human review, not an automatic equivalence, rule override, conflict resolution, or instruction selection. Composer analysis shows relationship suggestions without silently blocking exports.
+
+## Retrospective classification
+
+The first 114 rules were audited individually. The site now supports project-type inheritance: choosing Tarium shows explicit Tarium rules plus any rules classified for its `project` parent. Choosing a Rust fork includes explicit `rust_project`, `software_project`, and `project` requirements. Universal `any` rules remain browsable under All, rather than silently added to a selection. These overlapping project types do not imply a rule conflict by themselves.

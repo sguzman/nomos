@@ -3,7 +3,7 @@
 /* Local-only rule selection. Nomos catalog entries are inert until explicitly exported. */
 const $ = id => document.getElementById(id);
 const scopeAxes = ['channel', 'visibility', 'artifact_kind', 'actor'];
-const state = { rules: [], groups: [], profiles: [], relationships: [], groupFilter: null, profileFilter: null, selected: [], format: 'agents' };
+const state = { rules: [], groups: [], profiles: [], relationships: [], projectHierarchy: null, groupFilter: null, profileFilter: null, selected: [], format: 'agents' };
 
 function element(tag, className, content) {
   const n = document.createElement(tag);
@@ -32,7 +32,7 @@ function scopeSummary(rule) {
   parts.push('project types: ' + words(rule.scope.project_types || ['any']));
   return parts.join('; ');
 }
-function analyze(rules) { return NomosReasoning.analyze(rules, {}, state.relationships); }
+function analyze(rules) { return NomosReasoning.analyze(rules, {project_hierarchy:state.projectHierarchy}, state.relationships); }
 function addField(parent, name, content) {
   const div = element('div', 'detail-field');
   div.append(element('strong', '', name), element('span', '', content || 'None recorded'));
@@ -262,7 +262,7 @@ function renderCatalog() {
     rules: state.rules, groups: state.groups, profiles: state.profiles,
     query: $('search').value, type: $('filter-type').value,
     status: $('filter-status').value, domain: $('filter-domain').value,
-    projectType: $('filter-project').value,
+    projectType: $('filter-project').value, projectHierarchy: state.projectHierarchy,
     sort: $('sort-order').value,
     groupFilter: state.groupFilter, profileFilter: state.profileFilter
   });
@@ -440,6 +440,7 @@ async function init() {
     state.groups = Array.isArray(catalog.groups) ? catalog.groups : [];
     state.profiles = Array.isArray(catalog.profiles) ? catalog.profiles : [];
     state.relationships = Array.isArray(catalog.relationships) ? catalog.relationships : [];
+    state.projectHierarchy = catalog.project_hierarchy || null;
     for (const profile of state.profiles) {
       if (!/^PROFILE-\d{4,}$/.test(profile.id) || seen.has(profile.id) || !Array.isArray(profile.selected_rule_ids) ||
           !['draft','finalized','deprecated'].includes(profile.status) ||

@@ -64,10 +64,14 @@ def build(root=ROOT):
         profiles.append(profile)
     from relationships import build_relationships
     relationships=build_relationships(records,root)
-    return {"schema_version": "2.4",
+    from project_types import read_hierarchy
+    hierarchy=read_hierarchy(root)
+    return {"schema_version": "2.5",
             "source": "Nomos public catalog of atomic rules, virtual groups, and opt-in profile presets",
             "rules": records, "groups": groups, "profiles": profiles,
-            "relationships": relationships, "project_types": ["tarium_project","rust_project_from_scratch","rust_fork_maintenance","c_to_rust_port"]}
+            "relationships": relationships,
+            "project_types": [r["id"] for r in hierarchy["types"]],
+            "project_hierarchy": hierarchy}
 
 
 def fingerprint_assets(root=ROOT):

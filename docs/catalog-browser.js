@@ -42,7 +42,15 @@ const NomosCatalog = (() => {
       return compareId(a,b);
     });
   }
-  function search({rules,groups,profiles=[],query='',type='all',status='all',domain='all',groupFilter=null,profileFilter=null,projectType='all',sort='groups-first'}){
+  function typeMatches(ruleTypes,target,hierarchy){
+    if(ruleTypes.includes('any'))return false; // Broad rules remain under All.
+    const index=new Map((hierarchy?.types||[]).map(r=>[r.id,r]));
+    const ancestors=new Set();
+    const visit=id=>{if(ancestors.has(id))return;ancestors.add(id);for(const p of index.get(id)?.parents||[])visit(p);};
+    visit(target);
+    return ruleTypes.some(t=>ancestors.has(t));
+  }
+  function search({rules,groups,profiles=[],query='',type='all',status='all',domain='all',groupFilter=null,profileFilter=null,projectType='all',projectHierarchy=null,sort='groups-first'}){
     const term=String(query).trim().toLocaleLowerCase();
     const preset=profileFilter?profiles.find(p=>p.id===profileFilter):null;
     const members=profileFilter?new Set(preset?profileMemberIds(preset,rules):[]):
@@ -63,7 +71,7 @@ const NomosCatalog = (() => {
     }
     if(type==='all'||type==='rules'||members)for(const r of rules){
       if(members&&!members.has(r.id))continue;
-      if(projectType!=='all'&&!(r.scope.project_types||['any']).includes(projectType))continue;
+      if(projectType!=='all'&&!typeMatches(r.scope.project_types||['any'],projectType,projectHierarchy))continue;
       if(status!=='all'&&(r.registry==='candidate'?'candidate':r.status)!==status)continue;
       if(domain!=='all'&&!r.categories.domains.includes(domain))continue;
       const memberships=groups.filter(g=>g.member_rule_ids.includes(r.id));
@@ -78,6 +86,6 @@ const NomosCatalog = (() => {
     }
     return sortEntries(hits,sort,groups,rules);
   }
-  return Object.freeze({search,SORT_MODES,profileMemberIds});
+  return Object.freeze({search,SORT_MODES,profileMemberIds,typeMatches});
 })();
 if(typeof module!=='undefined'&&module.exports)module.exports=NomosCatalog;

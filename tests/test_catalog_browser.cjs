@@ -145,3 +145,16 @@ test('Tarium project filter returns only explicitly scoped rules, including inte
   assert.equal(search({...args,projectType:'rust_project_from_scratch'}).length,0);
   assert.ok(search({...args,query:'tarium_ontology',type:'rules'}).some(x=>x.value.id==='NOM-0119'));
 });
+
+test('project hierarchy selects scoped ancestors but not unrelated or wildcard-only rules',()=>{
+  const hierarchy=require('../taxonomy/project-types.json');
+  const t=search({...args,type:'rules',projectType:'tarium_project',projectHierarchy:hierarchy});
+  assert.ok(t.some(x=>x.value.id==='NOM-0006'));
+  assert.ok(t.some(x=>x.value.id==='NOM-0007'));
+  assert.ok(t.some(x=>x.value.id==='NOM-0119'));
+  assert.ok(t.every(x=>!(x.value.scope.project_types||['any']).includes('any')));
+  const fork=search({...args,type:'rules',projectType:'rust_fork_maintenance',projectHierarchy:hierarchy});
+  assert.ok(fork.some(x=>x.value.id==='NOM-0012'));
+  assert.ok(fork.some(x=>x.value.id==='NOM-0024'));
+  assert.ok(!fork.some(x=>x.value.id==='NOM-0085'));
+});

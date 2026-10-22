@@ -54,10 +54,12 @@ class SiteCatalogTests(unittest.TestCase):
             self.assertEqual(len(profile["selected_rule_ids"]),len(set(profile["selected_rule_ids"])))
 
     def test_reviewable_project_relationships_and_tarium_scope(self):
-        self.assertEqual(self.data["schema_version"],"2.4")
+        self.assertEqual(self.data["schema_version"],"2.5")
+        self.assertIn("rust_project", self.data["project_types"])
+        self.assertIn("project_hierarchy", self.data)
         self.assertIn("tarium_project",self.data["project_types"])
         rules={r["id"]:r for r in self.data["rules"]}
-        self.assertEqual(len([r for r in rules.values() if r["scope"].get("project_types")==["tarium_project"]]),14)
+        self.assertEqual(len([r for r in rules.values() if r["scope"].get("project_types")==["tarium_project"]]),16)
         links=self.data["relationships"]
         self.assertTrue(any(x["status"]=="reviewed" and x["source"]=="NOM-0119" and x["target"]=="NOM-0006" for x in links))
         self.assertTrue(all(x["source"] in rules and x["target"] in rules for x in links))

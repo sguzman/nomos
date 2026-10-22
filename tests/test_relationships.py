@@ -25,7 +25,9 @@ class RelationshipReviewTests(unittest.TestCase):
         y["norm"]["kind"]="prohibition"
         self.assertEqual(infer(x,y)[0],"possible_conflict")
         y["scope"]["project_types"]=["rust_fork_maintenance"]
-        self.assertIsNone(infer(x,y))
+        self.assertEqual(infer(x,y)[0],"possible_conflict")  # Tarium and Rust may coexist.
+        x["scope"]["project_types"]=["rust_project_from_scratch"]
+        self.assertIsNone(infer(x,y))  # This specific pair is explicitly exclusive.
 
     def test_project_type_any_overlaps_specialized_context(self):
         a=copy.deepcopy(self.rules["NOM-0119"])
@@ -33,7 +35,7 @@ class RelationshipReviewTests(unittest.TestCase):
         b["scope"]["project_types"]=["any"]
         self.assertTrue(overlaps(a,b))
         b["scope"]["project_types"]=["rust_project_from_scratch"]
-        self.assertFalse(overlaps(a,b))
+        self.assertTrue(overlaps(a,b))  # A Tarium project can also use Rust.
 
     def test_distinct_predicates_with_shared_concept_become_candidates(self):
         x=copy.deepcopy(self.rules["NOM-0119"])

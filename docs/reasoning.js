@@ -2,12 +2,17 @@
 /* Pure, dependency-free, conservative rule comparison: no priority shortcuts. */
 const NomosReasoning = (() => {
   const axes = ['channel', 'visibility', 'artifact_kind', 'actor'];
-  function overlaps(a,b) {
-    return axes.every(key=>{
+  function overlaps(a,b,hierarchy=null) {
+    const facets=axes.every(key=>{
       const x=a.scope.axes[key],y=b.scope.axes[key];
       return x.includes('any')||y.includes('any')||x.some(v=>y.includes(v));
-    })&&(projectTypes(a).includes('any')||projectTypes(b).includes('any')||
-          projectTypes(a).some(v=>projectTypes(b).includes(v)));
+    });
+    if(!facets)return false;
+    const left=projectTypes(a),right=projectTypes(b);
+    if(left.includes('any')||right.includes('any'))return true;
+    const byId=new Map((hierarchy?.types||[]).map(x=>[x.id,x]));
+    // Different labels are not necessarily disjoint: a Tarium project can use Rust.
+    return left.some(a=>right.some(b=>a===b||!(byId.get(a)?.exclusive_with||[]).includes(b)));
   }
   function projectTypes(rule) {return rule.scope?.project_types||['any'];}
   function samePredicate(a,b) {
@@ -31,7 +36,7 @@ const NomosReasoning = (() => {
            (y.maximum!=null&&x.minimum!=null&&y.maximum<x.minimum);
   }
   function assess(a,b,context={}) {
-    if(!overlaps(a,b)) return 'disjoint';
+    if(!overlaps(a,b,context.project_hierarchy)) return 'disjoint';
     if(!samePredicate(a,b)) return 'unrelated';
     const kinds=new Set([a.norm.kind,b.norm.kind]);
     const relation=values(a,b,context);
