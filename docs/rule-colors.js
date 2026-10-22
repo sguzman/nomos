@@ -42,6 +42,7 @@ const NomosColor = (() => {
       const n = Number(group[1]);
       if (Number.isSafeInteger(n) && n >= 1 && n <= 8) return n-1;
       if (Number.isSafeInteger(n) && n >= 9 && n <= 13) return EXTRA_GROUP_SLOTS[n-9];
+      if (n === 14) return 135; // separate fixed slot, preserving previous group and rule identities
     }
     return hashId(id) % DAY.length;
   }
