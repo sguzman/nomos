@@ -53,7 +53,8 @@ function launch() {
   source=source.replace(/init\(\);\s*$/,'');
   const ctx=vm.createContext({
     document,NomosColor:color,NomosGroups:groups,NomosReasoning:reasoning,
-    NomosCatalog:browser,console,setTimeout,clearTimeout
+    NomosCatalog:browser,console,setTimeout,clearTimeout,
+    fetch:async()=>({ok:true,json:async()=>catalog})
   });
   vm.runInContext(source,ctx);
   vm.runInContext('state.rules=__catalog.rules;state.groups=__catalog.groups;state.profiles=__catalog.profiles;',Object.assign(ctx,{__catalog:catalog}));
@@ -82,7 +83,8 @@ test('real Sort change event rerenders DOM in the selected order',()=>{
   assert.match(app.get('result-count').textContent,/rules-first/);
   app.get('sort-order').value='id-desc';
   app.get('sort-order').listeners.change();
-  assert.deepEqual(app.firstIds(2), catalog.rules.map(x=>x.id).sort().reverse().slice(0,2));
+  const expected=[...catalog.rules,...catalog.groups,...catalog.profiles].map(x=>x.id).sort().reverse().slice(0,2);
+  assert.deepEqual(app.firstIds(2),expected);
   app.get('sort-order').value='groups-first';
   app.get('sort-order').listeners.change();
   assert.deepEqual(app.firstIds(2),['GROUP-0001','GROUP-0002']);
@@ -138,4 +140,16 @@ test('profile dropdown selects a profile and resets incompatible filters',()=>{
   assert.equal(app.get('filter-type').value,'rules');
   assert.equal(app.get('catalog-list').children.length,93);
   assert.equal(vm.runInContext('state.selected.length',app.ctx),0);
+});
+
+test('real catalog initialization includes profiles without activating them',async()=>{
+  const app=launch();
+  await vm.runInContext('init()',app.ctx);
+  assert.equal(app.get('count-all').textContent,String(catalog.rules.length+catalog.groups.length+catalog.profiles.length));
+  assert.equal(app.get('count-draft').textContent,'3'); // one draft rule and two draft profiles
+  assert.deepEqual(app.get('filter-profile').children.map(x=>x.value),['PROFILE-0001','PROFILE-0002']);
+  assert.equal(vm.runInContext('state.selected.length',app.ctx),0);
+  app.get('filter-type').value='profiles';
+  app.get('filter-type').listeners.change();
+  assert.deepEqual(app.firstIds(2),['PROFILE-0001','PROFILE-0002']);
 });

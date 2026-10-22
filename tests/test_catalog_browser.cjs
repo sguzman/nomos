@@ -135,5 +135,6 @@ test('profiles participate in sort modes and search without creating groups',()=
   const size=search({...args,type:'profiles',sort:'members-desc'}).map(x=>x.value.id);
   assert.deepEqual(size,['PROFILE-0002','PROFILE-0001']);
   assert.equal(catalog.groups.length,14);
-  assert.equal(search({...args,type:'groups',query:'Strict Port'}).length,0);
+  assert.ok(search({...args,type:'groups',query:'Strict Port'}).every(x=>x.kind==='group'));
+  assert.ok(search({...args,type:'profiles',query:'Strict Port'}).every(x=>x.kind==='profile'));
 });
