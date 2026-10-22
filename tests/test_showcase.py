@@ -45,11 +45,11 @@ class SiteCatalogTests(unittest.TestCase):
 
     def test_optional_profiles_are_in_public_catalog_but_not_activated(self):
         profiles=self.data["profiles"]
-        self.assertEqual([p["id"] for p in profiles], ["PROFILE-0001","PROFILE-0002"])
-        self.assertEqual([len(p["selected_rule_ids"]) for p in profiles], [41,93])
+        self.assertEqual([p["id"] for p in profiles], ["PROFILE-"+str(i).zfill(4) for i in range(1,9)])
+        self.assertEqual([len(p["selected_rule_ids"]) for p in profiles], [41,93,35,90,29,61,34,89])
         for profile in profiles:
             self.assertEqual(profile["status"],"draft")
-            self.assertTrue(profile["review"]["selection_confirmed"])
+            self.assertEqual(profile["review"]["selection_confirmed"], int(profile["id"].split("-")[1])<=2)
             self.assertFalse(profile["review"]["finalization_confirmed"])
             self.assertEqual(len(profile["selected_rule_ids"]),len(set(profile["selected_rule_ids"])))
 

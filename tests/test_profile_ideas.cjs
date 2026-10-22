@@ -51,25 +51,30 @@ test('queued records do not become published profiles through website catalog bu
   const catalog=require('../docs/catalog.json');
   const profiles=require('../profiles/PROFILE-0001.json');
   assert.equal(profiles.kind,'rule_profile');
-  assert.deepEqual(catalog.profiles.map(p=>p.kind),['rule_profile','rule_profile']);
+  assert.equal(catalog.profiles.length,8);
+  assert.ok(catalog.profiles.every(p=>p.kind==='rule_profile'));
   assert.ok(!catalog.profiles.some(p=>p.id.startsWith('PROFILE-IDEA-')));
 });
 
-test('six specifically authorized profile ideas remain only queued with Lite and Full variants',()=>{
+test('six explicitly instantiated profile ideas retain correct linked unreviewed drafts',()=>{
   const ideas=queue.readQueue();
   assert.equal(ideas.length,6);
   assert.deepEqual(ideas.map(x=>x.id),Array.from({length:6},(_,i)=>'PROFILE-IDEA-'+String(i+1).padStart(4,'0')));
   for(const idea of ideas){
-    assert.equal(idea.status,'queued');
+    assert.equal(idea.status,'instantiated');
     assert.deepEqual(idea.proposed_rule_ids,[]);
     assert.deepEqual(idea.proposed_group_ids,[]);
-    assert.deepEqual(idea.linked_profile_ids,[]);
+    const linked='PROFILE-'+String(Number(idea.id.slice(-4))+2).padStart(4,'0');
+    assert.deepEqual(idea.linked_profile_ids,[linked]);
+    const profile=require('../profiles/'+linked+'.json');
+    assert.equal(profile.status,'draft');
+    assert.equal(profile.review.selection_confirmed,false);
     assert.equal(queue.validateIdea(idea).length,0);
     assert.match(idea.title, /Lite|Full/);
   }
   const pairs=[[ideas[0],ideas[1]],[ideas[2],ideas[3]],[ideas[4],ideas[5]]];
   for(const pair of pairs)assert.notEqual(pair[0].title,pair[1].title);
   const catalog=require('../docs/catalog.json');
-  assert.equal(catalog.profiles.length,2);
+  assert.equal(catalog.profiles.length,8);
   assert.ok(catalog.profiles.every(p=>p.kind==='rule_profile'));
 });

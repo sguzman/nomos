@@ -217,10 +217,14 @@ function createProfileCard(profile) {
   identity.append(element('span','identity-status',' · '+profile.status.toUpperCase()));
   heading.append(identity,element('span','group-size',ids.length+' rules'));
   card.append(heading,element('h3','',profile.title));
-  card.append(element('p','','Optional '+profile.status+' profile preset. Browsing does not apply or export its rules.'));
+  card.append(element('p','',profile.status==='draft'&&profile.review?.selection_confirmed===false
+    ? 'Provisional rule selection — awaiting owner review. Browse members to inspect the suggested rules. Nothing is applied.'
+    : 'Optional '+profile.status+' profile preset. Browsing does not apply or export its rules.'));
   const tags=element('div','tag-row group-labels');
   tags.append(element('span','tag','Rule profile'));
   tags.append(element('span','status-pill '+profile.status,profile.status.toUpperCase()));
+  if(profile.status==='draft'&&profile.review?.selection_confirmed===false)
+    tags.append(element('span','tag','Selection not reviewed'));
   tags.append(element('span','tag','v'+profile.version));
   card.append(tags);
   const actions=element('div','group-actions');
@@ -252,7 +256,7 @@ function createProfileCard(profile) {
     });
     actions.append(add);
   } else {
-    actions.append(element('span','profile-readonly','Draft — browse only'));
+    actions.append(element('span','profile-readonly',profile.review?.selection_confirmed===false?'Draft — review selection':'Draft — browse only'));
   }
   card.append(actions);
   return card;

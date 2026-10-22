@@ -23,8 +23,9 @@ test('schema defines an independent optional profile type, not a virtual group',
 test('authorized C-to-Rust profiles are independently editable drafts with privacy', () => {
   const folder=path.resolve(__dirname,'../profiles');
   const filenames=fs.readdirSync(folder).filter(f=>/^PROFILE-.*\.json$/.test(f)).sort();
-  assert.deepEqual(filenames,['PROFILE-0001.json','PROFILE-0002.json']);
-  const [lite,full]=filenames.map(f=>JSON.parse(fs.readFileSync(path.join(folder,f),'utf8')));
+  assert.deepEqual(filenames,Array.from({length:8},(_,i)=>'PROFILE-'+String(i+1).padStart(4,'0')+'.json'));
+  const original=filenames.slice(0,2);
+  const [lite,full]=original.map(f=>JSON.parse(fs.readFileSync(path.join(folder,f),'utf8')));
   for(const profile of [lite,full]){
     assert.equal(profile.status,'draft');
     assert.equal(profile.review.selection_confirmed,true);
@@ -110,4 +111,43 @@ test('schema status and confirmation constraints agree with runtime rules',()=>{
   assert.ok(profiles.validate(forged,published).errors.some(e=>e.includes('Finalized')));
   const extra={...p,auto_apply:true};
   assert.ok(profiles.validate(extra,published).errors.length);
+});
+
+test('six explicitly authorized provisional drafts preserve unconfirmed selections',()=>{
+  const paths=Array.from({length:6},(_,i)=>path.resolve(__dirname,'../profiles/PROFILE-'+String(i+3).padStart(4,'0')+'.json'));
+  const drafts=paths.map(p=>JSON.parse(fs.readFileSync(p,'utf8')));
+  const expected=[35,90,29,61,34,89];
+  assert.deepEqual(drafts.map(p=>p.selected_rule_ids.length),expected);
+  for(const p of drafts){
+    assert.equal(p.status,'draft');
+    assert.equal(p.review.selection_confirmed,false);
+    assert.equal(p.review.finalization_confirmed,false);
+    assert.deepEqual(profiles.validate(p,published).errors,[]);
+    assert.ok(p.selected_rule_ids.every(id=>published.some(r=>r.id===id)));
+    assert.throws(()=>profiles.selectForUse(p,published,{userSelected:true}),/finalized/);
+    assert.throws(()=>profiles.finalize(p,published,{finalizationConfirmed:true}),/selection requires explicit owner review/);
+    assert.ok(!p.selected_rule_ids.includes('NOM-0013')); // avoid competing fixed-versus-current edition rule
+  }
+  for(let i=0;i<drafts.length;i+=2){
+    const lite=new Set(drafts[i].selected_rule_ids);
+    const full=new Set(drafts[i+1].selected_rule_ids);
+    assert.ok(lite.size<full.size);
+    assert.ok([...lite].every(id=>full.has(id)));
+  }
+  for(const p of [drafts[0],drafts[1],drafts[4],drafts[5]])
+    assert.ok(!p.selected_rule_ids.some(id=>['NOM-0074','NOM-0075','NOM-0076','NOM-0111','NOM-0112','NOM-0113'].includes(id)));
+  for(const p of [drafts[2],drafts[3]])
+    for(const id of ['NOM-0006','NOM-0007','NOM-0115','NOM-0116','NOM-0117','NOM-0118','NOM-0119','NOM-0120'])
+      assert.ok(p.selected_rule_ids.includes(id),id);
+});
+test('unconfirmed draft can only be confirmed with explicit owner selection approval',()=>{
+  const proposed=profiles.instantiate(args(),published,{draftAuthorized:true});
+  assert.equal(proposed.review.selection_confirmed,false);
+  assert.throws(()=>profiles.confirmSelection(proposed,published),/explicitly approve/);
+  assert.throws(()=>profiles.finalize(proposed,published,{finalizationConfirmed:true}),/owner review/);
+  const confirmed=profiles.confirmSelection(proposed,published,{selectionConfirmed:true});
+  assert.equal(confirmed.review.selection_confirmed,true);
+  assert.equal(proposed.review.selection_confirmed,false);
+  assert.equal(confirmed.review.finalization_confirmed,false);
+  assert.deepEqual(profiles.validate(confirmed,published).errors,[]);
 });

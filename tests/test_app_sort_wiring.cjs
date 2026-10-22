@@ -149,8 +149,8 @@ test('real catalog initialization includes profiles without activating them',asy
   const app=launch();
   await vm.runInContext('init()',app.ctx);
   assert.equal(app.get('count-all').textContent,String(catalog.rules.length+catalog.groups.length+catalog.profiles.length));
-  assert.equal(app.get('count-draft').textContent,'3'); // one draft rule and two draft profiles
-  assert.deepEqual(app.get('filter-profile').children.map(x=>x.value),['PROFILE-0001','PROFILE-0002']);
+  assert.equal(app.get('count-draft').textContent,'9'); // one draft rule and eight draft profiles
+  assert.deepEqual(app.get('filter-profile').children.map(x=>x.value),Array.from({length:8},(_,i)=>'PROFILE-'+String(i+1).padStart(4,'0')));
   assert.equal(vm.runInContext('state.selected.length',app.ctx),0);
   app.get('filter-type').value='profiles';
   app.get('filter-type').listeners.change();
@@ -180,4 +180,17 @@ test('domain-family selector and directory navigate rule classifications without
   assert.equal(vm.runInContext('state.selected.length',app.ctx),0);
   app.get('clear-filters').listeners.click();
   assert.equal(app.get('filter-family').value,'all');
+});
+
+test('new provisional draft card shows selection-review state and browses the exact member set',()=>{
+  const app=launch();
+  app.get('filter-type').value='profiles';app.get('filter-type').listeners.change();
+  const cards=app.get('catalog-list').children;
+  assert.equal(cards.length,8);
+  const candidate=cards[2];
+  const actions=candidate.children.find(n=>n.className==='group-actions');
+  assert.match(JSON.stringify(candidate,(k,v)=>['listeners','style'].includes(k)?undefined:v),/Selection not reviewed/);
+  actions.children[0].listeners.click();
+  assert.equal(app.get('catalog-list').children.length,35);
+  assert.equal(vm.runInContext('state.selected.length',app.ctx),0);
 });
