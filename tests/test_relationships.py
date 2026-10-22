@@ -51,7 +51,7 @@ class RelationshipReviewTests(unittest.TestCase):
         reviewed=json.loads((ROOT/"relationships/reviewed.json").read_text())
         self.assertEqual(validate_reviewed(reviewed,rules),[])
         edges=build_relationships(rules)
-        self.assertEqual(len([x for x in edges if x["status"]=="reviewed"]),14)
+        self.assertEqual(len([x for x in edges if x["status"]=="reviewed"]),53)
         pairs=[tuple(sorted((x["source"],x["target"]))) for x in edges]
         self.assertEqual(len(pairs),len(set(pairs)))
         self.assertTrue(any(x["source"]=="NOM-0120" and x["target"]=="NOM-0007" and x["kind"]=="complements" for x in edges))

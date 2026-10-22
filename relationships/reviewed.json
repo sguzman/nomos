@@ -83,6 +83,240 @@
       "target": "NOM-0116",
       "kind": "complements",
       "evidence": "Reviewed against the public Tarium project contract; the project-specific atom preserves its independent scope and does not replace general Nomos guidance."
+    },
+    {
+      "source": "NOM-0001",
+      "target": "NOM-0003",
+      "kind": "complements",
+      "evidence": "The public-repository privacy prohibition and the broader nonpublic-disclosure rule address related but not identical boundaries."
+    },
+    {
+      "source": "NOM-0004",
+      "target": "NOM-0003",
+      "kind": "refines",
+      "evidence": "Private generation context is a specific class of nonpublic information; both disclosure restrictions remain independently selectable."
+    },
+    {
+      "source": "NOM-0006",
+      "target": "NOM-0007",
+      "kind": "complements",
+      "evidence": "Ontology human/machine representation and independently maintained public specimen presentation impose different Tarium requirements."
+    },
+    {
+      "source": "NOM-0012",
+      "target": "NOM-0013",
+      "kind": "possible_conflict",
+      "evidence": "Choosing the latest stable supported edition and fixing edition 2024 can diverge when a later edition is supported. Conditional, not a proven current contradiction."
+    },
+    {
+      "source": "NOM-0014",
+      "target": "NOM-0022",
+      "kind": "complements",
+      "evidence": "Repository inspection gathers source state; verifying Git branch and history checks a distinct repository invariant."
+    },
+    {
+      "source": "NOM-0015",
+      "target": "NOM-0022",
+      "kind": "complements",
+      "evidence": "Default branch policy and verification of the actual branch are related but independently enforceable."
+    },
+    {
+      "source": "NOM-0016",
+      "target": "NOM-0080",
+      "kind": "complements",
+      "evidence": "Change containment and prohibiting invented substitute project clones both restrict unauthorized deviations."
+    },
+    {
+      "source": "NOM-0024",
+      "target": "NOM-0025",
+      "kind": "complements",
+      "evidence": "Rust formatting and Clippy lint checks verify distinct dimensions of code quality."
+    },
+    {
+      "source": "NOM-0027",
+      "target": "NOM-0028",
+      "kind": "complements",
+      "evidence": "Unit and integration tests exercise distinct levels of Rust behavior."
+    },
+    {
+      "source": "NOM-0027",
+      "target": "NOM-0029",
+      "kind": "complements",
+      "evidence": "Regression verification and unit tests are complementary testing practices."
+    },
+    {
+      "source": "NOM-0036",
+      "target": "NOM-0034",
+      "kind": "refines",
+      "evidence": "Quality gates are a specific strengthening of continuous CI validation workflows."
+    },
+    {
+      "source": "NOM-0034",
+      "target": "NOM-0041",
+      "kind": "complements",
+      "evidence": "Configuring continuous checks and confirming the actual CI outcomes require separate verification."
+    },
+    {
+      "source": "NOM-0042",
+      "target": "NOM-0048",
+      "kind": "complements",
+      "evidence": "Maintaining README content and auditing consistency across project documentation are distinct duties."
+    },
+    {
+      "source": "NOM-0043",
+      "target": "NOM-0068",
+      "kind": "complements",
+      "evidence": "Accurate roadmap records support but do not replace progress reporting for currently touched work."
+    },
+    {
+      "source": "NOM-0050",
+      "target": "NOM-0001",
+      "kind": "complements",
+      "evidence": "Publication review supports the privacy prohibition without making the prohibition dependent on a scanner passing."
+    },
+    {
+      "source": "NOM-0051",
+      "target": "NOM-0003",
+      "kind": "complements",
+      "evidence": "Secrets-control practices support the broader nonpublic-disclosure rule, while remaining independently applicable."
+    },
+    {
+      "source": "NOM-0055",
+      "target": "NOM-0056",
+      "kind": "complements",
+      "evidence": "A semantic version policy and matching references to the current version are distinct responsibilities."
+    },
+    {
+      "source": "NOM-0102",
+      "target": "NOM-0057",
+      "kind": "refines",
+      "evidence": "An inaugural release must tag the verified owner-accepted commit, a narrower condition than general release readiness."
+    },
+    {
+      "source": "NOM-0062",
+      "target": "NOM-0089",
+      "kind": "complements",
+      "evidence": "Smoke tests and verification of all essential MVP workflows provide different levels of coverage."
+    },
+    {
+      "source": "NOM-0088",
+      "target": "NOM-0064",
+      "kind": "refines",
+      "evidence": "Testable MVP acceptance criteria specialize general acceptance review for an inaugural baseline."
+    },
+    {
+      "source": "NOM-0065",
+      "target": "NOM-0066",
+      "kind": "complements",
+      "evidence": "Evidence-based status labels and verifiable completion reports constrain different reporting steps."
+    },
+    {
+      "source": "NOM-0069",
+      "target": "NOM-0068",
+      "kind": "refines",
+      "evidence": "Visual bars accompanying percentages specialize reporting of touched roadmap items."
+    },
+    {
+      "source": "NOM-0068",
+      "target": "NOM-0070",
+      "kind": "complements",
+      "evidence": "Reporting touched items and the overall project progress provide complementary granularity."
+    },
+    {
+      "source": "NOM-0071",
+      "target": "NOM-0072",
+      "kind": "complements",
+      "evidence": "Announcing first completion and suppressing repeated routine 100-percent announcements are complementary timing requirements."
+    },
+    {
+      "source": "NOM-0073",
+      "target": "NOM-0009",
+      "kind": "refines",
+      "evidence": "Displaying stable identity colors in README refines the general visual identity requirement."
+    },
+    {
+      "source": "NOM-0111",
+      "target": "NOM-0074",
+      "kind": "refines",
+      "evidence": "Differential C-versus-Rust verification is one specific method of checking strict-port fidelity."
+    },
+    {
+      "source": "NOM-0113",
+      "target": "NOM-0075",
+      "kind": "refines",
+      "evidence": "Upstream feature coverage inventories specialize evidence of replacement capability for strict-port MVP."
+    },
+    {
+      "source": "NOM-0076",
+      "target": "NOM-0099",
+      "kind": "complements",
+      "evidence": "Deferring nonessential work during strict ports and excluding future enhancements from MVP gates express complementary scope limits."
+    },
+    {
+      "source": "NOM-0087",
+      "target": "NOM-0088",
+      "kind": "complements",
+      "evidence": "Defining purpose and specifying testable MVP criteria are distinct MVP planning operations."
+    },
+    {
+      "source": "NOM-0089",
+      "target": "NOM-0091",
+      "kind": "complements",
+      "evidence": "End-to-end workflow tests and testing in the real target environment cover different requirements."
+    },
+    {
+      "source": "NOM-0090",
+      "target": "NOM-0036",
+      "kind": "refines",
+      "evidence": "Passing applicable automated CI gates specializes the standing CI quality-gate practice at MVP graduation."
+    },
+    {
+      "source": "NOM-0094",
+      "target": "NOM-0096",
+      "kind": "complements",
+      "evidence": "Blocking purpose-defeating defects and rejecting proxy-only graduation indicators are distinct safeguards."
+    },
+    {
+      "source": "NOM-0096",
+      "target": "NOM-0065",
+      "kind": "refines",
+      "evidence": "Refusing proxy-only MVP completion claims specializes general evidence-based status reporting."
+    },
+    {
+      "source": "NOM-0097",
+      "target": "NOM-0098",
+      "kind": "complements",
+      "evidence": "Preserving a graduated MVP baseline and recording its accepted compatibility promises are distinct duties."
+    },
+    {
+      "source": "NOM-0100",
+      "target": "NOM-0042",
+      "kind": "refines",
+      "evidence": "Reconciling README, roadmap and milestone state at MVP graduation specializes ongoing README maintenance."
+    },
+    {
+      "source": "NOM-0101",
+      "target": "NOM-0102",
+      "kind": "complements",
+      "evidence": "Approving a stable inaugural version and releasing the accepted exact commit are separate gates."
+    },
+    {
+      "source": "NOM-0102",
+      "target": "NOM-0104",
+      "kind": "complements",
+      "evidence": "Tagging a verified commit and checking the resulting public release are separate verification activities."
+    },
+    {
+      "source": "NOM-0107",
+      "target": "NOM-0054",
+      "kind": "refines",
+      "evidence": "Post-MVP change management specializes general backwards compatibility checks using the accepted compatibility contract."
+    },
+    {
+      "source": "NOM-0108",
+      "target": "NOM-0016",
+      "kind": "refines",
+      "evidence": "No unrelated work through MVP inauguration is a specific instance of general change-scope containment."
     }
   ]
 }
