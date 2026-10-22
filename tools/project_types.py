@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """Overlap-aware project applicability with explicit rather than inferred exclusivity."""
 import json
+from functools import lru_cache
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
 
+@lru_cache(maxsize=4)
 def read_hierarchy(root=ROOT):
     return json.loads((root/"taxonomy/project-types.json").read_text(encoding="utf-8"))
 

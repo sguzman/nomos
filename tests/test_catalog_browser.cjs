@@ -141,7 +141,7 @@ test('profiles participate in sort modes and search without creating groups',()=
 
 test('Tarium project filter returns only explicitly scoped rules, including intentional overlaps',()=>{
   const filtered=search({...args,type:'rules',projectType:'tarium_project'});
-  assert.deepEqual(filtered.map(x=>x.value.id),Array.from({length:14},(_,i)=>'NOM-'+String(i+115).padStart(4,'0')));
+  assert.deepEqual(filtered.map(x=>x.value.id),['NOM-0006','NOM-0007',...Array.from({length:14},(_,i)=>'NOM-'+String(i+115).padStart(4,'0'))]);
   assert.equal(search({...args,projectType:'rust_project_from_scratch'}).length,0);
   assert.ok(search({...args,query:'tarium_ontology',type:'rules'}).some(x=>x.value.id==='NOM-0119'));
 });
