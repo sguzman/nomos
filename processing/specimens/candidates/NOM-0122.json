@@ -1,0 +1,109 @@
+{
+  "id": "NOM-0122",
+  "version": "0.1.0",
+  "title": "Restrict Tarium cross-project integrations to public resources",
+  "summary": "Reference other projects only through appropriate public interfaces, resources and published dependencies; do not infer official membership for a referenced project or create hidden reliance on private repositories or data.",
+  "statement": "Reference other projects only through appropriate public interfaces, resources and published dependencies; do not infer official membership for a referenced project or create hidden reliance on private repositories or data.",
+  "rationale": "Tarium's public constitution defines a specialized, independently selectable project requirement. Overlap with general Nomos guidance is intentionally preserved and auditable.",
+  "language": "en",
+  "status": "draft",
+  "norm": {
+    "kind": "prohibition",
+    "predicate": {
+      "action": "create",
+      "object": "unauthorized_private_or_implied_cross_project_dependency",
+      "target": "tarium_project_integration"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "The task concerns an independently authorized public Tarium candidate or member project."
+    ],
+    "exceptions": [
+      "This rule does not authorize Tarium membership changes, private-material disclosure, or unrelated repository operations."
+    ],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "never",
+      "minimum": 0,
+      "maximum": 0,
+      "unit": "occurrences",
+      "window": "each applicable Tarium project operation",
+      "cue": "Do not",
+      "basis": "explicit_text"
+    }
+  },
+  "categories": {
+    "domains": [
+      "governance",
+      "agent_instructions"
+    ],
+    "topics": [
+      "tarium_interoperation"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "public"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "project_types": [
+      "tarium_project"
+    ],
+    "preconditions": [
+      "The user has separately authorized the relevant project task; Tarium membership remains a separately approved operation."
+    ],
+    "exclusions": [
+      "No automatic cross-repository action, enrollment, or publication of nonpublic source data."
+    ]
+  },
+  "authority": {
+    "source": "Reviewed public-document normalization candidate, retained for provenance",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "public_document",
+    "reference": "https://github.com/sguzman/tarium/blob/main/CONSTITUTION.md; CONSTITUTION.md Article V; SPEC-0126; processing/specimens/PROC-SPEC-0126.json",
+    "license": "MIT",
+    "notes": "Public governance-based abstraction; no private source conversation retained. Rule publication does not create project membership or apply it to a repository."
+  },
+  "governance": {
+    "created_on": "2026-10-22",
+    "updated_on": "2026-10-22",
+    "review_status": "unreviewed"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ],
+  "semantic": {
+    "concept": "tarium_public_interoperation",
+    "aliases": [
+      "public_dependencies"
+    ]
+  }
+}

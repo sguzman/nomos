@@ -1,0 +1,111 @@
+{
+  "id": "NOM-0120",
+  "version": "0.1.0",
+  "title": "Maintain human and machine gallery representations",
+  "summary": "Maintain an independently navigable, human-facing gallery or showcase of the project's public specimens or results and a corresponding machine-readable index. Represent an empty gallery accurately without inventing exhibits.",
+  "statement": "Maintain an independently navigable, human-facing gallery or showcase of the project's public specimens or results and a corresponding machine-readable index. Represent an empty gallery accurately without inventing exhibits.",
+  "rationale": "Tarium's public constitution defines a specialized, independently selectable project requirement. Overlap with general Nomos guidance is intentionally preserved and auditable.",
+  "language": "en",
+  "status": "draft",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "maintain",
+      "object": "dual_representation_gallery",
+      "target": "tarium_project_repository"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "The task concerns an independently authorized public Tarium candidate or member project."
+    ],
+    "exceptions": [
+      "This rule does not authorize Tarium membership changes, private-material disclosure, or unrelated repository operations."
+    ],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
+  },
+  "categories": {
+    "domains": [
+      "ontology",
+      "agent_instructions"
+    ],
+    "topics": [
+      "tarium_gallery"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "public"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "project_types": [
+      "tarium_project"
+    ],
+    "preconditions": [
+      "The user has separately authorized the relevant project task; Tarium membership remains a separately approved operation."
+    ],
+    "exclusions": [
+      "No automatic cross-repository action, enrollment, or publication of nonpublic source data."
+    ]
+  },
+  "authority": {
+    "source": "Reviewed public-document normalization candidate, retained for provenance",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [
+      "NOM-0007"
+    ],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "public_document",
+    "reference": "https://github.com/sguzman/tarium/blob/main/CONSTITUTION.md; CONSTITUTION.md Article IV; templates/project/gallery; SPEC-0124; processing/specimens/PROC-SPEC-0124.json",
+    "license": "MIT",
+    "notes": "Public governance-based abstraction; no private source conversation retained. Rule publication does not create project membership or apply it to a repository."
+  },
+  "governance": {
+    "created_on": "2026-10-22",
+    "updated_on": "2026-10-22",
+    "review_status": "unreviewed"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ],
+  "semantic": {
+    "concept": "tarium_gallery",
+    "aliases": [
+      "specimen_showcase"
+    ]
+  }
+}

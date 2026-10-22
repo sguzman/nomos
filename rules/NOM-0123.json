@@ -1,0 +1,111 @@
+{
+  "id": "NOM-0123",
+  "version": "1.0.0",
+  "title": "Externalize private source work through a clean reviewed public subset",
+  "summary": "When separately authorized to externalize a private-origin project, classify candidate inputs privately, approve releasable items individually, rewrite or exclude unsafe material, and create a clean public repository without importing nonpublic Git history, logs or artifacts.",
+  "statement": "When separately authorized to externalize a private-origin project, classify candidate inputs privately, approve releasable items individually, rewrite or exclude unsafe material, and create a clean public repository without importing nonpublic Git history, logs or artifacts.",
+  "rationale": "Tarium's public constitution defines a specialized, independently selectable project requirement. Overlap with general Nomos guidance is intentionally preserved and auditable.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "externalize",
+      "object": "approved_public_subset",
+      "target": "tarium_project_repository"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "The task concerns an independently authorized public Tarium candidate or member project."
+    ],
+    "exceptions": [
+      "This rule does not authorize Tarium membership changes, private-material disclosure, or unrelated repository operations."
+    ],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
+  },
+  "categories": {
+    "domains": [
+      "privacy",
+      "agent_instructions"
+    ],
+    "topics": [
+      "tarium_externalization"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "public"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "project_types": [
+      "tarium_project"
+    ],
+    "preconditions": [
+      "The user has separately authorized the relevant project task; Tarium membership remains a separately approved operation."
+    ],
+    "exclusions": [
+      "No automatic cross-repository action, enrollment, or publication of nonpublic source data."
+    ]
+  },
+  "authority": {
+    "source": "Tarium public governance, selected as optional project guidance",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [
+      "NOM-0004"
+    ],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "public_document",
+    "reference": "https://github.com/sguzman/tarium/blob/main/CONSTITUTION.md; CONSTITUTION.md Article VI; EXTERNALIZATION.md; SPEC-0127; processing/specimens/PROC-SPEC-0127.json",
+    "license": "MIT",
+    "notes": "Public governance-based abstraction; no private source conversation retained. Rule publication does not create project membership or apply it to a repository."
+  },
+  "governance": {
+    "created_on": "2026-10-22",
+    "updated_on": "2026-10-22",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ],
+  "semantic": {
+    "concept": "tarium_clean_externalization",
+    "aliases": [
+      "public_material_boundary"
+    ]
+  }
+}

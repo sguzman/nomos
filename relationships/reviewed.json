@@ -1,3 +1,88 @@
 {
-  "edges": []
+  "edges": [
+    {
+      "source": "NOM-0115",
+      "target": "NOM-0016",
+      "kind": "complements",
+      "evidence": "Reviewed against the public Tarium project contract; the project-specific atom preserves its independent scope and does not replace general Nomos guidance."
+    },
+    {
+      "source": "NOM-0116",
+      "target": "NOM-0015",
+      "kind": "complements",
+      "evidence": "Reviewed against the public Tarium project contract; the project-specific atom preserves its independent scope and does not replace general Nomos guidance."
+    },
+    {
+      "source": "NOM-0117",
+      "target": "NOM-0003",
+      "kind": "refines",
+      "evidence": "Reviewed against the public Tarium project contract; the project-specific atom preserves its independent scope and does not replace general Nomos guidance."
+    },
+    {
+      "source": "NOM-0118",
+      "target": "NOM-0004",
+      "kind": "complements",
+      "evidence": "Reviewed against the public Tarium project contract; the project-specific atom preserves its independent scope and does not replace general Nomos guidance."
+    },
+    {
+      "source": "NOM-0119",
+      "target": "NOM-0006",
+      "kind": "refines",
+      "evidence": "Reviewed against the public Tarium project contract; the project-specific atom preserves its independent scope and does not replace general Nomos guidance."
+    },
+    {
+      "source": "NOM-0120",
+      "target": "NOM-0007",
+      "kind": "refines",
+      "evidence": "Reviewed against the public Tarium project contract; the project-specific atom preserves its independent scope and does not replace general Nomos guidance."
+    },
+    {
+      "source": "NOM-0121",
+      "target": "NOM-0049",
+      "kind": "complements",
+      "evidence": "Reviewed against the public Tarium project contract; the project-specific atom preserves its independent scope and does not replace general Nomos guidance."
+    },
+    {
+      "source": "NOM-0122",
+      "target": "NOM-0003",
+      "kind": "complements",
+      "evidence": "Reviewed against the public Tarium project contract; the project-specific atom preserves its independent scope and does not replace general Nomos guidance."
+    },
+    {
+      "source": "NOM-0123",
+      "target": "NOM-0004",
+      "kind": "refines",
+      "evidence": "Reviewed against the public Tarium project contract; the project-specific atom preserves its independent scope and does not replace general Nomos guidance."
+    },
+    {
+      "source": "NOM-0124",
+      "target": "NOM-0050",
+      "kind": "refines",
+      "evidence": "Reviewed against the public Tarium project contract; the project-specific atom preserves its independent scope and does not replace general Nomos guidance."
+    },
+    {
+      "source": "NOM-0125",
+      "target": "NOM-0116",
+      "kind": "complements",
+      "evidence": "Reviewed against the public Tarium project contract; the project-specific atom preserves its independent scope and does not replace general Nomos guidance."
+    },
+    {
+      "source": "NOM-0126",
+      "target": "NOM-0119",
+      "kind": "refines",
+      "evidence": "Reviewed against the public Tarium project contract; the project-specific atom preserves its independent scope and does not replace general Nomos guidance."
+    },
+    {
+      "source": "NOM-0127",
+      "target": "NOM-0120",
+      "kind": "refines",
+      "evidence": "Reviewed against the public Tarium project contract; the project-specific atom preserves its independent scope and does not replace general Nomos guidance."
+    },
+    {
+      "source": "NOM-0128",
+      "target": "NOM-0116",
+      "kind": "complements",
+      "evidence": "Reviewed against the public Tarium project contract; the project-specific atom preserves its independent scope and does not replace general Nomos guidance."
+    }
+  ]
 }

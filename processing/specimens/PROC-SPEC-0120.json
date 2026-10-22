@@ -1,0 +1,29 @@
+{
+  "processing_id": "PROC-SPEC-0120",
+  "source_specimen_id": "SPEC-0120",
+  "status": "closed",
+  "authorization": {
+    "source": "Explicit user request to implement project-specific Tarium atoms and relationship detection",
+    "on": "2026-10-22"
+  },
+  "processed_on": "2026-10-22",
+  "normalization": {
+    "kind": "prohibition",
+    "canonical_rule_id": "NOM-0116",
+    "independent_atomic_specimen": true,
+    "phase": null,
+    "group_proposal": null
+  },
+  "comparison": {
+    "possible_overlap": [],
+    "assessment": "Distinct explicitly scoped Tarium project guidance; known overlap is retained and surfaced as a refinement or supporting relation, not silently deduplicated.",
+    "no_automatic_priority_change": true
+  },
+  "disposition": {
+    "kind": "normalized_and_published",
+    "candidate_id": "NOM-0116",
+    "candidate_path": "processing/specimens/candidates/NOM-0116.json",
+    "downstream_task_id": null
+  },
+  "notes": "One independently selectable, opt-in rule with public Tarium document provenance; no profile selection or enrollment."
+}

@@ -84,3 +84,7 @@ Use `node tools/profile_ideas.cjs list` to inspect the queue or `node tools/prof
 ## Scoped conversational-safety screening rule
 
 `NOM-0114` is a separately published opt-in prohibition against reflexive or repeated formulaic suicide-risk screening prompted only by ordinary frustration or historic difficulty, without credible new present-risk information. Its explicit exception preserves proportionate safety responses to materially new risk indicators. The public catalog contains only generalized wording; no private conversation text, personal examples, or account details were included. This rule is not auto-applied, and the six queued profile ideas remain unprocessed.
+
+## Project-specific Tarium atoms (2026-10-22)
+
+Fourteen additional independently selectable rules, `NOM-0115`–`NOM-0128`, encode Tarium-specific public governance requirements: standalone repositories, owner-controlled membership, strict private/public separation, project constitutions, complete ontologies, dual galleries, public-only reproducibility and integrations, clean externalization, publication review, enrollment preflight, ontology evolution, gallery integrity, and manifest consistency. They intentionally coexist with overlapping general rules. Their reviewed inter-rule links are recorded in `relationships/reviewed.json`; heuristic candidates are identified separately. Each has an independent processing record and retained draft candidate. No profile draft or membership operation is authorized or performed by this publication.

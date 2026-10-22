@@ -1,0 +1,46 @@
+{
+  "id": "SPEC-0121",
+  "title": "Never expose private Taria resources through Tarium projects",
+  "status": "processed",
+  "abstract": "Do not publish, link, import or require private Taria resources, conversations, histories, unpublished research, internal paths or nonpublic dependencies in a public Tarium project without separately authorized publication of appropriate material.",
+  "source": {
+    "kind": "public_document",
+    "reference": "https://github.com/sguzman/tarium/blob/main/CONSTITUTION.md",
+    "material_retained": false
+  },
+  "received_on": "2026-10-22",
+  "intake": {
+    "visibility": "public_safe_abstract_only",
+    "operation": "specimen_queue_entry",
+    "processing_authorized": true
+  },
+  "scope_hints": {
+    "domains": [
+      "privacy",
+      "agent_instructions"
+    ],
+    "topic": "tarium_public_boundary",
+    "candidate_normative_kind": "prohibition",
+    "predicate_hypothesis": {
+      "action": "expose",
+      "object": "private_taria_resources",
+      "target": "public_tarium_project"
+    },
+    "scope_boundary": "Only explicitly authorized work on independent public Tarium projects",
+    "independent_atomic_rule": true
+  },
+  "possible_existing_coverage": [
+    "NOM-0001",
+    "NOM-0003",
+    "NOM-0004"
+  ],
+  "unresolved": [],
+  "next_state": "processed_specimen_retained_as_intake_record",
+  "remarks": "Public-source rule normalization reviewed as a distinct project-specific atom; overlapping general rules retained.",
+  "processing": {
+    "authorized_by": "explicit_user_request",
+    "authorized_on": "2026-10-22",
+    "record": "processing/specimens/PROC-SPEC-0121.json",
+    "state": "closed"
+  }
+}

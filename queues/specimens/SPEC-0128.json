@@ -1,0 +1,44 @@
+{
+  "id": "SPEC-0128",
+  "title": "Review every Tarium publication surface for private-content exposure",
+  "status": "processed",
+  "abstract": "Before publicly publishing Tarium project material, review source files, fixtures, metadata, documentation, images, generated output, changes, commit text and release artifacts for private-origin disclosures; do not treat an automated signature check as proof of safety.",
+  "source": {
+    "kind": "public_document",
+    "reference": "https://github.com/sguzman/tarium/blob/main/CONSTITUTION.md",
+    "material_retained": false
+  },
+  "received_on": "2026-10-22",
+  "intake": {
+    "visibility": "public_safe_abstract_only",
+    "operation": "specimen_queue_entry",
+    "processing_authorized": true
+  },
+  "scope_hints": {
+    "domains": [
+      "privacy",
+      "agent_instructions"
+    ],
+    "topic": "tarium_publication_review",
+    "candidate_normative_kind": "obligation",
+    "predicate_hypothesis": {
+      "action": "review",
+      "object": "all_publication_surfaces",
+      "target": "tarium_project_repository"
+    },
+    "scope_boundary": "Only explicitly authorized work on independent public Tarium projects",
+    "independent_atomic_rule": true
+  },
+  "possible_existing_coverage": [
+    "NOM-0050"
+  ],
+  "unresolved": [],
+  "next_state": "processed_specimen_retained_as_intake_record",
+  "remarks": "Public-source rule normalization reviewed as a distinct project-specific atom; overlapping general rules retained.",
+  "processing": {
+    "authorized_by": "explicit_user_request",
+    "authorized_on": "2026-10-22",
+    "record": "processing/specimens/PROC-SPEC-0128.json",
+    "state": "closed"
+  }
+}

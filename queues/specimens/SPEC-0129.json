@@ -1,0 +1,42 @@
+{
+  "id": "SPEC-0129",
+  "title": "Verify independently authorized Tarium enrollment preconditions",
+  "status": "processed",
+  "abstract": "Only after explicit authorization to enroll a named public repository, verify its independence, public constitution, documented ontology, human gallery, machine gallery index, licensing, public dependencies and accurate registry metadata before changing its Tarium membership entry.",
+  "source": {
+    "kind": "public_document",
+    "reference": "https://github.com/sguzman/tarium/blob/main/CONSTITUTION.md",
+    "material_retained": false
+  },
+  "received_on": "2026-10-22",
+  "intake": {
+    "visibility": "public_safe_abstract_only",
+    "operation": "specimen_queue_entry",
+    "processing_authorized": true
+  },
+  "scope_hints": {
+    "domains": [
+      "governance",
+      "agent_instructions"
+    ],
+    "topic": "tarium_admission_preflight",
+    "candidate_normative_kind": "obligation",
+    "predicate_hypothesis": {
+      "action": "verify",
+      "object": "membership_preflight",
+      "target": "central_tarium_registry"
+    },
+    "scope_boundary": "Only explicitly authorized work on independent public Tarium projects",
+    "independent_atomic_rule": true
+  },
+  "possible_existing_coverage": [],
+  "unresolved": [],
+  "next_state": "processed_specimen_retained_as_intake_record",
+  "remarks": "Public-source rule normalization reviewed as a distinct project-specific atom; overlapping general rules retained.",
+  "processing": {
+    "authorized_by": "explicit_user_request",
+    "authorized_on": "2026-10-22",
+    "record": "processing/specimens/PROC-SPEC-0129.json",
+    "state": "closed"
+  }
+}
