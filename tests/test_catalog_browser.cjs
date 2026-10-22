@@ -7,10 +7,10 @@ const { hueForId } = require('../docs/rule-colors.js');
 const catalog = require('../docs/catalog.json');
 const args = { rules: catalog.rules, groups: catalog.groups };
 
-test('unified catalog shows all 110 rules and all fourteen groups', () => {
+test('unified catalog shows every published or draft catalog rule and all fourteen groups', () => {
   const results = search(args);
-  assert.equal(results.length, 124);
-  assert.equal(results.filter(x => x.kind === 'rule').length, 110);
+  assert.equal(results.length, catalog.rules.length + catalog.groups.length);
+  assert.equal(results.filter(x => x.kind === 'rule').length, catalog.rules.length);
   assert.equal(results.filter(x => x.kind === 'group').length, 14);
   assert.deepEqual(results.slice(0, 14).map(x => x.value.id),
     Array.from({ length: 14 }, (_, i) => 'GROUP-' + String(i + 1).padStart(4, '0')));
@@ -18,7 +18,7 @@ test('unified catalog shows all 110 rules and all fourteen groups', () => {
 });
 test('entity type selector filters one shared catalog', () => {
   assert.equal(search({ ...args, type: 'groups' }).length, 14);
-  assert.equal(search({ ...args, type: 'rules' }).length, 110);
+  assert.equal(search({ ...args, type: 'rules' }).length, catalog.rules.length);
 });
 test('one search field finds a group and its atomic member rules', () => {
   const found = search({ ...args, query: 'Rust Quality' });
@@ -51,8 +51,8 @@ test('all group IDs generate distinct stable OKLCH hues', () => {
 test('rules-first reverses type precedence with stable IDs inside each type', () => {
   const results = search({ ...args, sort: 'rules-first' });
   assert.equal(results[0].value.id, 'NOM-0001');
-  assert.equal(results[109].value.id, 'NOM-0110');
-  assert.equal(results[110].value.id, 'GROUP-0001');
+  assert.equal(results[catalog.rules.length-1].value.id, catalog.rules.at(-1).id);
+  assert.equal(results[catalog.rules.length].value.id, 'GROUP-0001');
   assert.equal(results.at(-1).value.id, 'GROUP-0014');
 });
 test('name and ID sort directions work on the combined results', () => {

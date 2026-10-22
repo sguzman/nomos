@@ -81,7 +81,7 @@ test('real Sort change event rerenders DOM in the selected order',()=>{
   assert.match(app.get('result-count').textContent,/rules-first/);
   app.get('sort-order').value='id-desc';
   app.get('sort-order').listeners.change();
-  assert.deepEqual(app.firstIds(2),['NOM-0110','NOM-0109']);
+  assert.deepEqual(app.firstIds(2), catalog.rules.map(x=>x.id).sort().reverse().slice(0,2));
   app.get('sort-order').value='groups-first';
   app.get('sort-order').listeners.change();
   assert.deepEqual(app.firstIds(2),['GROUP-0001','GROUP-0002']);
