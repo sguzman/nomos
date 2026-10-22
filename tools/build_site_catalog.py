@@ -44,9 +44,27 @@ def build(root=ROOT):
     group_errors = validate_groups(groups, records)
     if group_errors:
         raise ValueError("; ".join(group_errors))
-    return {"schema_version": "2.0",
-            "source": "Nomos public catalog and independent published virtual groups",
-            "rules": records, "groups": groups}
+    profiles = []
+    published = {r["id"] for r in records if r["status"] == "published" and r["registry"] == "catalog"}
+    for path in sorted((root / "profiles").glob("PROFILE-*.json")):
+        profile = json.loads(path.read_text(encoding="utf-8"))
+        if path.stem != profile.get("id") or profile.get("kind") != "rule_profile":
+            raise ValueError(f"{path}: invalid profile identity")
+        if profile.get("status") not in ("draft", "finalized", "deprecated"):
+            raise ValueError(f"{path}: invalid profile state")
+        ids = profile.get("selected_rule_ids")
+        if not isinstance(ids, list) or len(ids) != len(set(ids)) or not set(ids).issubset(published):
+            raise ValueError(f"{path}: unknown, unpublished, or duplicate profile members")
+        if profile.get("review", {}).get("selection_confirmed") is not True:
+            raise ValueError(f"{path}: unapproved selection")
+        if profile["status"] == "draft" and profile["review"].get("finalization_confirmed") is not False:
+            raise ValueError(f"{path}: draft is incorrectly marked finalized")
+        if profile["status"] == "finalized" and profile["review"].get("finalization_confirmed") is not True:
+            raise ValueError(f"{path}: finalization was not confirmed")
+        profiles.append(profile)
+    return {"schema_version": "2.3",
+            "source": "Nomos public catalog of atomic rules, virtual groups, and opt-in profile presets",
+            "rules": records, "groups": groups, "profiles": profiles}
 
 
 def fingerprint_assets(root=ROOT):
