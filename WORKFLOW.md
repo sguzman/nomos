@@ -78,3 +78,7 @@ At the user's explicit request, `SPEC-0118` was processed into one scoped, indep
 ## Queued Rust-fork stewardship specimens (2026-10-22)
 
 The optional Rust-fork profile review identified missing upstream and patch-management specialization. Exactly six public-safe, independently addressable candidate specimens were added as `SPEC-0133`–`SPEC-0138` in `queues/specimens/`, all with `status: proposed` and `intake.processing_authorized: false`. This is **intake only**; no `processing/specimens/` disposition, `rules/NOM-*.json` publication, `queues/tasks/` item or profile-selection update is implied. Separate, explicit authorization remains necessary for each workflow transition.
+
+## Queued required-user-action summary footer (2026-10-22)
+
+`SPEC-0139` records one independent and public-safe reporting convention for completed-work summaries: explicitly enumerate genuine required user inputs or state that nothing is required. It is a queued specimen, not a published `NOM-*` rule or globally activated instruction. Separate authorization is required for normalization or publication; it does not change existing profile selections.

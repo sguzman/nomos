@@ -39,3 +39,7 @@ All 38 intake records `SPEC-0077`–`SPEC-0114` were individually reviewed and m
 ## Rust-fork upstream stewardship candidates (2026-10-22)
 
 Six independent public-safe specimen proposals `SPEC-0133`–`SPEC-0138` address gaps identified while drafting the Rust-fork maintenance Lite/Full presets: upstream identity, divergence inspection, patch provenance, conflict reconciliation, regression validation after integration and selecting upstream changes within approved scope. All six remain **`proposed`** with `processing_authorized: false`. Their `possible_existing_coverage` IDs help later semantic comparison; overlaps do not prevent specialized rules from coexisting. Intake does not authorize analysis, publication, profile edits, branch or upstream changes, or any release. The proposed rules are not selectable until separately reviewed and published.
+
+## Explicit user-action footer candidate (2026-10-22)
+
+`SPEC-0139` separately proposes a consistently labeled end-of-work summary section that distinguishes required user decisions/inputs from optional next steps and explicitly says when no action is necessary. This overlaps but does not replace the existing verification/completion-reporting rules `NOM-0066`, `NOM-0067`, `NOM-0071`, and `NOM-0072`. It is **proposed only**, with no specimen processing, publication, profile edits, or automatic activation authorized by intake.

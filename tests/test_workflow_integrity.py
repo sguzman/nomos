@@ -13,15 +13,16 @@ def read(path):
 class ProcessingTraceTests(unittest.TestCase):
     def test_processed_and_pending_specimens_keep_separate_states(self):
         specimens = sorted((ROOT / "queues/specimens").glob("SPEC-*.json"))
-        self.assertEqual(len(specimens), 138)
+        self.assertEqual(len(specimens), 139)
         for path in specimens:
             original = json.loads(path.read_text(encoding="utf-8"))
             with self.subTest(specimen=original["id"]):
                 number=int(original["id"].split("-")[1])
-                if 133 <= number <= 138:
+                if 133 <= number <= 139:
                     self.assertEqual(original["status"], "proposed")
                     self.assertFalse(original["intake"]["processing_authorized"])
-                    self.assertEqual(original["scope_hints"]["project_types"], ["rust_fork_maintenance"])
+                    expected_scope=["rust_fork_maintenance"] if number<=138 else ["project"]
+                    self.assertEqual(original["scope_hints"]["project_types"], expected_scope)
                     self.assertEqual(original["next_state"], "await_explicit_specimen_processing_authorization")
                     self.assertNotIn("processing", original)
                     self.assertFalse((ROOT / "processing/specimens" / ("PROC-" + original["id"] + ".json")).exists())
@@ -63,6 +64,15 @@ class ProcessingTraceTests(unittest.TestCase):
                           read("profiles/PROFILE-0008.json")["review"]["selection_confirmed"]],[False,False])
         self.assertEqual([len(read("profiles/PROFILE-0007.json")["selected_rule_ids"]),
                           len(read("profiles/PROFILE-0008.json")["selected_rule_ids"])],[34,89])
+
+    def test_completed_work_action_footer_is_queued_without_activation(self):
+        specimen=read("queues/specimens/SPEC-0139.json")
+        self.assertEqual(specimen["status"],"proposed")
+        self.assertEqual(specimen["scope_hints"]["predicate_hypothesis"]["target"],"completed_work_summary")
+        self.assertFalse(specimen["intake"]["processing_authorized"])
+        self.assertTrue(specimen["possible_existing_coverage"])
+        self.assertNotIn("processing",specimen)
+        self.assertFalse((ROOT/"processing/specimens/PROC-SPEC-0139.json").exists())
 
     def test_group_proposals_have_separate_records(self):
         proposals = sorted((ROOT / "queues/specimens/groups").glob("GROUP-*.json"))
