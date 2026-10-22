@@ -95,3 +95,14 @@ dialog{padding:0;border:1px solid light-dark(#b7c3cf, #52687c);border-radius:14p
 .relation-status.candidate{border-style:dashed}
 .relation-evidence{display:block;width:100%;font-size:11px;line-height:1.55;color:var(--muted)}
 @media(max-width:540px){.catalog-filters{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Collapsible domain directory: seven named families, not a second rule registry. */
+.domain-directory{margin:12px 0 16px;border:1px solid var(--line);background:var(--surface);border-radius:9px}
+.domain-directory summary{padding:12px 15px;cursor:pointer;color:var(--muted);font-size:12px;font-weight:650}
+.domain-directory-content{padding:4px 15px 15px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.domain-family{min-width:0}
+.domain-family-heading{font-size:12px;color:var(--accent);margin:8px 0}
+.domain-family-chips{display:flex;flex-wrap:wrap;gap:6px}
+.domain-chip{font-size:11px;color:var(--ink);background:var(--surface);border:1px solid var(--line);padding:7px 10px;border-radius:6px;cursor:pointer;line-height:1.35;text-align:left}
+.domain-chip:hover,.domain-chip:focus-visible{border-color:var(--accent);outline-offset:2px}
+@media(max-width:540px){.domain-directory-content{grid-template-columns:minmax(0,1fr)}}

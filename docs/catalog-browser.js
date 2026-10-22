@@ -50,13 +50,13 @@ const NomosCatalog = (() => {
     visit(target);
     return ruleTypes.some(t=>ancestors.has(t));
   }
-  function search({rules,groups,profiles=[],query='',type='all',status='all',domain='all',groupFilter=null,profileFilter=null,projectType='all',projectHierarchy=null,sort='groups-first'}){
+  function search({rules,groups,profiles=[],query='',type='all',status='all',domain='all',groupFilter=null,profileFilter=null,projectType='all',projectHierarchy=null,family='all',domainDefinitions=null,sort='groups-first'}){
     const term=String(query).trim().toLocaleLowerCase();
     const preset=profileFilter?profiles.find(p=>p.id===profileFilter):null;
     const members=profileFilter?new Set(preset?profileMemberIds(preset,rules):[]):
       groupFilter?new Set(NomosGroups.expand(groupFilter,groups,rules)):null;
     const hits=[];
-    if(!groupFilter&&!profileFilter&&projectType==='all'){
+    if(!groupFilter&&!profileFilter&&projectType==='all'&&family==='all'){
       if(type==='all'||type==='groups')for(const g of groups){
         if(status!=='all'&&g.status!==status)continue;
         if(domain!=='all'&&!g.metadata_labels.includes(domain))continue;
@@ -72,6 +72,7 @@ const NomosCatalog = (() => {
     if(type==='all'||type==='rules'||members)for(const r of rules){
       if(members&&!members.has(r.id))continue;
       if(projectType!=='all'&&!typeMatches(r.scope.project_types||['any'],projectType,projectHierarchy))continue;
+      if(family!=='all'&&!r.categories.domains.some(d=>domainDefinitions?.domains?.[d]?.family===family))continue;
       if(status!=='all'&&(r.registry==='candidate'?'candidate':r.status)!==status)continue;
       if(domain!=='all'&&!r.categories.domains.includes(domain))continue;
       const memberships=groups.filter(g=>g.member_rule_ids.includes(r.id));

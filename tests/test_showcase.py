@@ -57,6 +57,8 @@ class SiteCatalogTests(unittest.TestCase):
         self.assertEqual(self.data["schema_version"],"2.5")
         self.assertIn("rust_project", self.data["project_types"])
         self.assertIn("project_hierarchy", self.data)
+        self.assertEqual(len(self.data["domain_definitions"]["domains"]),26)
+        self.assertEqual(len(self.data["domain_definitions"]["families"]),7)
         self.assertIn("tarium_project",self.data["project_types"])
         rules={r["id"]:r for r in self.data["rules"]}
         self.assertEqual(len([r for r in rules.values() if r["scope"].get("project_types")==["tarium_project"]]),16)

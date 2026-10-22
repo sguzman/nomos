@@ -114,3 +114,7 @@ Rules may carry a controlled `scope.project_types` facet independent of category
 ## Retrospective classification
 
 The first 114 rules were audited individually. The site now supports project-type inheritance: choosing Tarium shows explicit Tarium rules plus any rules classified for its `project` parent. Choosing a Rust fork includes explicit `rust_project`, `software_project`, and `project` requirements. Universal `any` rules remain browsable under All, rather than silently added to a selection. These overlapping project types do not imply a rule conflict by themselves.
+
+## Domain directory
+
+The catalog has a collapsed, browsable directory of controlled domains grouped into seven families. Each domain displays a live rule count and filters the existing rule registry when chosen. The family selector and project applicability selector are independent; neither acts on the rule composer or changes selection. Domain definitions live in `taxonomy/domains.json`. Generic projects may span several domain families and specific project contexts.

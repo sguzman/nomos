@@ -39,6 +39,7 @@ function launch() {
   get('search').value='';
   get('filter-type').value='all';
   get('filter-status').value='all';
+  get('filter-family').value='all';
   get('filter-domain').value='all';
   get('filter-project').value='all';
   get('filter-profile').value='all';
@@ -59,7 +60,7 @@ function launch() {
     fetch:async()=>({ok:true,json:async()=>catalog})
   });
   vm.runInContext(source,ctx);
-  vm.runInContext('state.rules=__catalog.rules;state.groups=__catalog.groups;state.profiles=__catalog.profiles;state.relationships=__catalog.relationships||[];state.projectHierarchy=__catalog.project_hierarchy||null;',Object.assign(ctx,{__catalog:catalog}));
+  vm.runInContext('state.rules=__catalog.rules;state.groups=__catalog.groups;state.profiles=__catalog.profiles;state.relationships=__catalog.relationships||[];state.projectHierarchy=__catalog.project_hierarchy||null;state.domainDefinitions=__catalog.domain_definitions||null;',Object.assign(ctx,{__catalog:catalog}));
   vm.runInContext('renderCatalog()',ctx);
   function firstIds(count) {
     const cards=get('catalog-list').children;
@@ -165,4 +166,18 @@ test('project type selector filters the real catalog without altering rule selec
   assert.equal(vm.runInContext('state.selected.length',app.ctx),0);
   app.get('clear-filters').listeners.click();
   assert.equal(app.get('filter-project').value,'all');
+});
+
+test('domain-family selector and directory navigate rule classifications without selecting rules',async()=>{
+  const app=launch();
+  await vm.runInContext('init()',app.ctx);
+  assert.ok(app.get('filter-family').children.some(x=>x.value==='Knowledge'));
+  assert.ok(app.get('domain-taxonomy').children.length>=7);
+  app.get('filter-family').value='Knowledge';
+  app.get('filter-family').listeners.change();
+  assert.ok(app.firstIds(100).includes('NOM-0006'));
+  assert.ok(app.get('catalog-list').children.every(n=>n.className==='rule-card'));
+  assert.equal(vm.runInContext('state.selected.length',app.ctx),0);
+  app.get('clear-filters').listeners.click();
+  assert.equal(app.get('filter-family').value,'all');
 });

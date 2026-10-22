@@ -158,3 +158,13 @@ test('project hierarchy selects scoped ancestors but not unrelated or wildcard-o
   assert.ok(fork.some(x=>x.value.id==='NOM-0024'));
   assert.ok(!fork.some(x=>x.value.id==='NOM-0085'));
 });
+
+test('family browsing discovers governed domains without pretending groups are domain rules',()=>{
+  const domainDefinitions=require('../taxonomy/domains.json');
+  const knowledge=search({...args,family:'Knowledge',domainDefinitions});
+  assert.ok(knowledge.some(x=>x.value.id==='NOM-0006'));
+  assert.ok(knowledge.some(x=>x.value.id==='NOM-0042'));
+  assert.ok(knowledge.every(x=>x.kind==='rule'));
+  assert.ok(knowledge.every(x=>x.value.categories.domains.some(d=>domainDefinitions.domains[d]?.family==='Knowledge')));
+  assert.equal(search({...args,family:'nonsense',domainDefinitions}).length,0);
+});

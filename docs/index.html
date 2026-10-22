@@ -67,6 +67,7 @@
           <label class="search-wrap"><span aria-hidden="true">⌕</span><span class="sr-only">Search catalog</span><input id="search" type="search" placeholder="Search rules, groups, profiles, IDs…" autocomplete="off"></label>
           <label><span class="sr-only">Filter by item type</span><select id="filter-type" aria-label="Item type"><option value="all">All items</option><option value="groups">Groups only</option><option value="profiles">Profiles only</option><option value="rules">Rules only</option></select></label>
           <label><span class="sr-only">Filter by status</span><select id="filter-status"><option value="all">All statuses</option><option value="published">Published</option><option value="draft">Drafts</option><option value="finalized">Finalized profiles</option><option value="candidate">Candidates</option></select></label>
+          <label><span class="sr-only">Filter by domain family</span><select id="filter-family" aria-label="Domain family"><option value="all">All domain families</option></select></label>
           <label><span class="sr-only">Filter by domain or label</span><select id="filter-domain"><option value="all">All domains / labels</option></select></label>
           <label><span class="sr-only">Filter by project applicability</span><select id="filter-project" aria-label="Project applicability"><option value="all">All project types</option></select></label>
           <label><span class="sr-only">Filter members by profile</span><select id="filter-profile" aria-label="Profile members"><option value="all">All profiles / rules</option></select></label>
@@ -82,6 +83,7 @@
           </select></label>
           <button type="button" id="clear-filters" class="clear-filters">Reset</button>
         </form>
+        <details class="domain-directory"><summary>Browse domains and their families</summary><div class="domain-directory-content" id="domain-taxonomy"></div></details>
         <div class="results-line"><span id="result-count" aria-live="polite">Loading catalog…</span><span class="dot-separator">•</span><span>Profiles and groups are opt-in; every rule stands alone</span></div>
         <div class="rules catalog-list" id="catalog-list" aria-live="polite"></div>
         <div class="empty hidden" id="empty-results"><strong>No matching items.</strong><p>Try a broader search or reset the filters.</p></div>

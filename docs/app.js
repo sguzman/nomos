@@ -3,7 +3,7 @@
 /* Local-only rule selection. Nomos catalog entries are inert until explicitly exported. */
 const $ = id => document.getElementById(id);
 const scopeAxes = ['channel', 'visibility', 'artifact_kind', 'actor'];
-const state = { rules: [], groups: [], profiles: [], relationships: [], projectHierarchy: null, groupFilter: null, profileFilter: null, selected: [], format: 'agents' };
+const state = { rules: [], groups: [], profiles: [], relationships: [], projectHierarchy: null, domainDefinitions: null, groupFilter: null, profileFilter: null, selected: [], format: 'agents' };
 
 function element(tag, className, content) {
   const n = document.createElement(tag);
@@ -263,6 +263,7 @@ function renderCatalog() {
     query: $('search').value, type: $('filter-type').value,
     status: $('filter-status').value, domain: $('filter-domain').value,
     projectType: $('filter-project').value, projectHierarchy: state.projectHierarchy,
+    family: $('filter-family').value, domainDefinitions: state.domainDefinitions,
     sort: $('sort-order').value,
     groupFilter: state.groupFilter, profileFilter: state.profileFilter
   });
@@ -441,6 +442,7 @@ async function init() {
     state.profiles = Array.isArray(catalog.profiles) ? catalog.profiles : [];
     state.relationships = Array.isArray(catalog.relationships) ? catalog.relationships : [];
     state.projectHierarchy = catalog.project_hierarchy || null;
+    state.domainDefinitions = catalog.domain_definitions || null;
     for (const profile of state.profiles) {
       if (!/^PROFILE-\d{4,}$/.test(profile.id) || seen.has(profile.id) || !Array.isArray(profile.selected_rule_ids) ||
           !['draft','finalized','deprecated'].includes(profile.status) ||
@@ -455,10 +457,48 @@ async function init() {
     $('count-published').textContent = String(state.rules.filter(r => statusOf(r) === 'published').length);
     $('count-draft').textContent = String(state.rules.filter(r => statusOf(r) !== 'published').length +
       state.profiles.filter(p=>p.status==='draft').length);
+    const domainDefinitions=state.domainDefinitions?.domains||{};
+    const familyNames=Object.keys(state.domainDefinitions?.families||{}).sort();
+    for(const family of familyNames){
+      const rules=state.rules.filter(r=>r.categories.domains.some(d=>domainDefinitions[d]?.family===family));
+      const option=element('option','',family+' · '+rules.length+' rules');
+      option.value=family;
+      $('filter-family').append(option);
+    }
+    const directory=$('domain-taxonomy');
+    for(const family of familyNames){
+      const section=element('section','domain-family');
+      const heading=element('h3','domain-family-heading',family);
+      section.append(heading);
+      const chips=element('div','domain-family-chips');
+      for(const domain of Object.keys(domainDefinitions).filter(d=>domainDefinitions[d].family===family).sort()){
+        const count=state.rules.filter(r=>r.categories.domains.includes(domain)).length;
+        const button=element('button','domain-chip',human(domain)+' · '+count);
+        button.type='button';
+        button.title=domainDefinitions[domain].description;
+        button.setAttribute('aria-label','Browse '+human(domain)+' rules');
+        button.addEventListener('click',()=>{
+          $('filter-family').value=family;
+          $('filter-domain').value=domain;
+          $('filter-type').value='rules';
+          $('filter-status').value='all';
+          $('filter-profile').value='all';
+          state.groupFilter=null;state.profileFilter=null;
+          renderCatalog();
+          $('catalog-list').scrollIntoView({block:'start',behavior:'smooth'});
+        });
+        chips.append(button);
+      }
+      section.append(chips);
+      directory.append(section);
+    }
     const domains = [...new Set([...state.rules.flatMap(r => r.categories.domains), ...state.groups.flatMap(g => g.metadata_labels)])].sort();
     for (const domain of domains) {
-      const option = element('option', '', human(domain));
-      option.value = domain; $('filter-domain').append(option);
+      const family=domainDefinitions[domain]?.family;
+      const option = element('option', '', (family ? family+' · ' : '')+human(domain));
+      option.value = domain;
+      if(domainDefinitions[domain])option.title=domainDefinitions[domain].description;
+      $('filter-domain').append(option);
     }
     const projectTypes=Array.isArray(catalog.project_types) ? catalog.project_types : [];
     for(const value of projectTypes){const option=element('option','',human(value));option.value=value;$('filter-project').append(option);}
@@ -483,7 +523,7 @@ $('active-member-filter').addEventListener('click', () => {
   renderCatalog();
 });
 $('filter-form').addEventListener('submit', event => event.preventDefault());
-for (const id of ['search', 'filter-type', 'filter-status', 'filter-domain', 'filter-project', 'filter-profile', 'sort-order']) {
+for (const id of ['search', 'filter-type', 'filter-status', 'filter-family', 'filter-domain', 'filter-project', 'filter-profile', 'sort-order']) {
   $(id).addEventListener(id === 'search' ? 'input' : 'change', () => {
     if(id==='filter-profile') {
       state.profileFilter=$('filter-profile').value==='all'?null:$('filter-profile').value;
@@ -509,6 +549,7 @@ $('clear-filters').addEventListener('click', () => {
   $('filter-type').value = 'all';
   $('filter-status').value = 'all';
   $('filter-domain').value = 'all';
+  $('filter-family').value = 'all';
   $('filter-project').value = 'all';
   $('sort-order').value = 'groups-first';
   $('filter-profile').value = 'all';

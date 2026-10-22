@@ -66,12 +66,14 @@ def build(root=ROOT):
     relationships=build_relationships(records,root)
     from project_types import read_hierarchy
     hierarchy=read_hierarchy(root)
+    domain_definitions=json.loads((root/"taxonomy/domains.json").read_text(encoding="utf-8"))
     return {"schema_version": "2.5",
             "source": "Nomos public catalog of atomic rules, virtual groups, and opt-in profile presets",
             "rules": records, "groups": groups, "profiles": profiles,
             "relationships": relationships,
             "project_types": [r["id"] for r in hierarchy["types"]],
-            "project_hierarchy": hierarchy}
+            "project_hierarchy": hierarchy,
+            "domain_definitions": domain_definitions}
 
 
 def fingerprint_assets(root=ROOT):
