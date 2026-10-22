@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "wildcard": "any",
+  "description": "Project types are overlapping facets, not a disjoint enumeration. Only explicitly documented exclusive pairs can prove disjointness; Tarium can also be Rust.",
+  "types": [
+    {
+      "id": "project",
+      "parents": [],
+      "description": "Project work across software and non-software domains"
+    },
+    {
+      "id": "software_project",
+      "parents": [
+        "project"
+      ],
+      "description": "A project constructing or maintaining software"
+    },
+    {
+      "id": "software_port",
+      "parents": [
+        "software_project"
+      ],
+      "description": "A port replacing existing software behavior"
+    },
+    {
+      "id": "rust_project",
+      "parents": [
+        "software_project"
+      ],
+      "description": "Software project written in Rust"
+    },
+    {
+      "id": "rust_project_from_scratch",
+      "parents": [
+        "rust_project"
+      ],
+      "exclusive_with": [
+        "rust_fork_maintenance"
+      ],
+      "description": "A new Rust codebase rather than an upstream fork"
+    },
+    {
+      "id": "rust_fork_maintenance",
+      "parents": [
+        "rust_project"
+      ],
+      "exclusive_with": [
+        "rust_project_from_scratch"
+      ],
+      "description": "Stewardship of a Rust upstream-derived fork"
+    },
+    {
+      "id": "c_to_rust_port",
+      "parents": [
+        "software_port",
+        "rust_project"
+      ],
+      "description": "C implementation ported into a Rust replacement"
+    },
+    {
+      "id": "browser_userscript",
+      "parents": [
+        "software_project"
+      ],
+      "description": "A userscript project running in a browser extension manager"
+    },
+    {
+      "id": "browser_extension",
+      "parents": [
+        "software_project"
+      ],
+      "description": "A browser extension project"
+    },
+    {
+      "id": "tarium_project",
+      "parents": [
+        "project"
+      ],
+      "description": "An independently maintained public Tarium candidate or member project; enrollment requires separate explicit authorization"
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "description": "Controlled topical domains. Multiple domains may describe a rule; domain labels classify subject and do not activate instructions or confer project membership.",
+  "families": {
+    "Engineering": "Source code, dependencies and repository implementation",
+    "Knowledge": "Explanatory and machine-readable project knowledge",
+    "Governance": "Authorizations, policies and coordination",
+    "Lifecycle": "Projects, milestones, maintenance and releases",
+    "Quality": "Testing, verification and correctness",
+    "Privacy": "Privacy, publication boundaries and security",
+    "Design": "Human-readable identity and interface presentation"
+  },
+  "domains": {
+    "agent_instructions": {
+      "family": "Governance",
+      "description": "Instructions addressed to assistants or automation actors"
+    },
+    "ci_cd": {
+      "family": "Engineering",
+      "description": "Continuous integration, deployment and pipeline verification"
+    },
+    "documentation": {
+      "family": "Knowledge",
+      "description": "Documentation, descriptions, developer and user guides"
+    },
+    "git_repository": {
+      "family": "Engineering",
+      "description": "Repository workflow and Git history management"
+    },
+    "governance": {
+      "family": "Governance",
+      "description": "Institutional or project rules and authorization boundaries"
+    },
+    "ontology": {
+      "family": "Knowledge",
+      "description": "Domain models, entities, semantics and conceptual relations"
+    },
+    "personal_writing": {
+      "family": "Privacy",
+      "description": "Personal expression and private writing contexts"
+    },
+    "privacy": {
+      "family": "Privacy",
+      "description": "Privacy and permitted disclosure of nonpublic material"
+    },
+    "project_management": {
+      "family": "Lifecycle",
+      "description": "Plans, milestones, progress and task coordination"
+    },
+    "publication": {
+      "family": "Privacy",
+      "description": "Public release and exposure of artifacts"
+    },
+    "qa_verification": {
+      "family": "Quality",
+      "description": "Acceptance and independent verification of work"
+    },
+    "releases": {
+      "family": "Lifecycle",
+      "description": "Versions, packaging, inauguration and maintenance releases"
+    },
+    "rust_development": {
+      "family": "Engineering",
+      "description": "Rust language, Cargo edition and Rust implementation"
+    },
+    "rust_quality": {
+      "family": "Quality",
+      "description": "Rust tooling and behavior verification"
+    },
+    "safety_integrity": {
+      "family": "Privacy",
+      "description": "Operational safety and safeguards against damage"
+    },
+    "software_development": {
+      "family": "Engineering",
+      "description": "General software production and execution"
+    },
+    "software_porting": {
+      "family": "Engineering",
+      "description": "Migration, equivalence and replacement of existing programs"
+    },
+    "user_interfaces": {
+      "family": "Design",
+      "description": "Interface behavior, themes and presentation"
+    },
+    "visual_identity": {
+      "family": "Design",
+      "description": "Stable identity colors and visual labels"
+    },
+    "workflow_governance": {
+      "family": "Governance",
+      "description": "Permission boundaries, state transitions and workflow rules"
+    },
+    "software_testing": {
+      "family": "Quality",
+      "description": "Test design, cases, fixtures, test execution and regressions"
+    },
+    "dependency_management": {
+      "family": "Engineering",
+      "description": "Declared dependency state, reproducibility and lockfiles"
+    },
+    "security": {
+      "family": "Privacy",
+      "description": "Secrets, authentication material and secure publication"
+    },
+    "data_integrity": {
+      "family": "Quality",
+      "description": "Data roundtrips, checksums and information integrity"
+    },
+    "project_architecture": {
+      "family": "Engineering",
+      "description": "System architecture, separation and implementation design"
+    },
+    "maintenance": {
+      "family": "Lifecycle",
+      "description": "Maintenance, compatibility and post-release evolution"
+    }
+  }
+}
