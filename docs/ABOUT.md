@@ -122,3 +122,7 @@ The catalog has a collapsed, browsable directory of controlled domains grouped i
 ## Tarium relationship review
 
 The five remaining heuristic relationship suggestions were reviewed as complementary requirements, with pair-by-pair reasons in [the repository review](https://github.com/sguzman/nomos/blob/main/relationships/REVIEW-2026-10-22.md). The rule metadata graph now marks the pairs as reviewed instead of unreviewed possible conflicts or refinements. This does not change the individual rules or authorize applying them.
+
+## Six provisional profiles for owner review (2026-10-22)
+
+In addition to the two previously reviewed C-to-Rust draft profiles, six more drafts are available: Rust-from-scratch Lite and Full (`PROFILE-0003/0004`), independent Tarium Lite and Full (`0005/0006`), and Rust-fork-maintenance Lite and Full (`0007/0008`). These are explicitly authorized **draft records**, not approved rule selections. Each has `review.selection_confirmed: false` and `review.finalization_confirmed: false`. Their cards visibly identify the proposed selection as awaiting review; Browse members shows the rule IDs and metadata. Draft cards never offer Add all. Existing C-to-Rust drafts retain their prior selection confirmations. The [review guide](https://github.com/sguzman/nomos/blob/main/profiles/REVIEW-2026-10-22.md) explains the inclusion boundaries, Lite/Full nesting, and unresolved specializations.

@@ -1,6 +1,6 @@
 # Profile idea queue — intake only
 
-This directory stores **ideas for possible future rule profiles**, not profile records or instructions to process anything. Six user-nominated profile-idea records are queued below. None has been reviewed or processed.
+This directory stores **ideas for possible future rule profiles**, not profile records or instructions to process anything. The six user-nominated profile ideas were explicitly instantiated as provisional drafts for owner review on 2026-10-22. Their selected rule lists have **not** been approved or finalized.
 
 ## Queue contract
 
@@ -25,10 +25,17 @@ The `add` command **only** creates one queued idea; it has no processing or prof
 
 To proceed later, explicitly name the queue ID and separately authorize reviewing its selection under [PROFILE_WORKFLOW.md](../../PROFILE_WORKFLOW.md). Reviewing is **not** authorization to instantiate a draft; confirmation to instantiate, then separate finalization and use remain independently required.
 
-## Current unprocessed backlog (2026-10-21)
+## Profile ideas instantiated as provisional drafts (2026-10-22)
 
-- `PROFILE-IDEA-0001` / `0002`: New standalone Rust project from scratch — Lite / Full
-- `PROFILE-IDEA-0003` / `0004`: Independent Tarium project — Lite / Full
-- `PROFILE-IDEA-0005` / `0006`: Fork and maintain an existing Rust project — Lite / Full
+| Original idea | Resulting editable draft | Rules |
+| --- | --- | ---: |
+| `PROFILE-IDEA-0001` | `PROFILE-0003` — Rust from scratch Lite | 35 |
+| `PROFILE-IDEA-0002` | `PROFILE-0004` — Rust from scratch Full | 90 |
+| `PROFILE-IDEA-0003` | `PROFILE-0005` — Tarium Lite | 29 |
+| `PROFILE-IDEA-0004` | `PROFILE-0006` — Tarium Full | 61 |
+| `PROFILE-IDEA-0005` | `PROFILE-0007` — Rust fork Lite | 34 |
+| `PROFILE-IDEA-0006` | `PROFILE-0008` — Rust fork Full | 89 |
 
-All six remain `queued`. These are paired variant ideas, not approved rule selections or actual profile records. Neither pair is authorized for automatic processing.
+The six queue records are now `instantiated` and link to real `profiles/PROFILE-*.json` files. The original proposed hints remain historical intake metadata. In each new profile, `review.selection_confirmed=false` means the **user has not yet accepted the specific membership list**, despite authorizing the draft's creation. Browse the drafts in the [public catalog](https://sguzman.github.io/nomos/), filter Profiles only, and use Browse members to inspect canonical rule IDs. No draft is applied or finalized by viewing it.
+
+See [PROFILE_WORKFLOW.md](../../PROFILE_WORKFLOW.md) and [selection review notes](../../profiles/REVIEW-2026-10-22.md).
