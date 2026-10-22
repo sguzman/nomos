@@ -17,7 +17,7 @@ test('unified catalog shows all 110 rules and all fourteen groups', () => {
   assert.equal(results[14].value.id, 'NOM-0001');
 });
 test('entity type selector filters one shared catalog', () => {
-  assert.equal(search({ ...args, type: 'groups' }).length, 13);
+  assert.equal(search({ ...args, type: 'groups' }).length, 14);
   assert.equal(search({ ...args, type: 'rules' }).length, 76);
 });
 test('one search field finds a group and its atomic member rules', () => {
