@@ -1,0 +1,41 @@
+{
+  "id": "SPEC-0118",
+  "title": "Prohibit repetitive unsupported suicide-risk check-in questions",
+  "status": "proposed",
+  "abstract": "Do not repeatedly or reflexively ask unsolicited, formulaic suicide-risk clarification questions based solely on routine frustration, stress, figurative speech, or past expressions of distress, particularly after a request to stop. Any renewed safety question must be justified by material current risk signals and should avoid mechanically repeating prior wording.",
+  "source": {
+    "kind": "public_safe_user_submitted_rule_idea",
+    "reference": "Generalized conversational-safety interaction preference; no private source dialogue retained",
+    "material_retained": false
+  },
+  "received_on": "2026-10-21",
+  "intake": {
+    "visibility": "public_safe_abstract_only",
+    "operation": "specimen_queue_entry",
+    "processing_authorized": false
+  },
+  "scope_hints": {
+    "domains": [
+      "agent_instructions",
+      "conversation_quality",
+      "safety_interaction"
+    ],
+    "topic": "repetitive_unwarranted_safety_checkins",
+    "candidate_normative_kind": "prohibition",
+    "predicate_hypothesis": {
+      "action": "repeatedly_initiate",
+      "object": "unsupported_formulaic_suicide_risk_questions",
+      "target": "conversational_safety_checkins"
+    },
+    "trigger": "General distress or frustration without new material indications of imminent self-harm risk",
+    "scope_boundary": "Avoid unnecessary or repetitive screening; preserve proportionate safety responses to concrete, current, material signs of immediate danger. No general prohibition on warranted safety assessment.",
+    "independent_atomic_rule": true
+  },
+  "possible_existing_coverage": [],
+  "unresolved": [
+    "During later normalization, confirm whether a single targeted prohibition adequately covers both reflexive and repeated prompting without creating unnecessary duplicate rules.",
+    "Separate unnecessary scripted questioning from justified direct safety questions when credible new indications of immediate risk appear."
+  ],
+  "next_state": "await_explicit_processing_authorization",
+  "remarks": "Queued only, not normalized or published; does not authorize unsolicited analysis, policy changes, or project execution."
+}

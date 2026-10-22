@@ -1,6 +1,6 @@
 # Profile idea queue — intake only
 
-This directory stores **ideas for possible future rule profiles**, not profile records or instructions to process anything. It intentionally starts with **zero queued ideas**: no specific idea has been nominated yet.
+This directory stores **ideas for possible future rule profiles**, not profile records or instructions to process anything. Six user-nominated profile-idea records are queued below. None has been reviewed or processed.
 
 ## Queue contract
 
@@ -24,3 +24,11 @@ node tools/validate_profile_ideas.cjs
 The `add` command **only** creates one queued idea; it has no processing or profile-instantiation command. Omit `--summary` to record only a title. `--rules` and `--groups` accept optional comma-separated **tentative** IDs. The CLI never auto-selects a proposed ID and never edits `profiles/`.
 
 To proceed later, explicitly name the queue ID and separately authorize reviewing its selection under [PROFILE_WORKFLOW.md](../../PROFILE_WORKFLOW.md). Reviewing is **not** authorization to instantiate a draft; confirmation to instantiate, then separate finalization and use remain independently required.
+
+## Current unprocessed backlog (2026-10-21)
+
+- `PROFILE-IDEA-0001` / `0002`: New standalone Rust project from scratch — Lite / Full
+- `PROFILE-IDEA-0003` / `0004`: Independent Tarium project — Lite / Full
+- `PROFILE-IDEA-0005` / `0006`: Fork and maintain an existing Rust project — Lite / Full
+
+All six remain `queued`. These are paired variant ideas, not approved rule selections or actual profile records. Neither pair is authorized for automatic processing.

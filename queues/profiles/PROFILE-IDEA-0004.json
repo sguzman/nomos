@@ -1,0 +1,14 @@
+{
+  "id": "PROFILE-IDEA-0004",
+  "kind": "profile_idea",
+  "title": "Independent Tarium Project — Full",
+  "summary": "A comprehensive profile for operating an independent public-facing Tarium project with self-contained ontology/gallery, reviewable provenance, privacy safeguards, full QA/documentation and lifecycle practices. Pair with PROFILE-IDEA-0003 (Lite); Tarium membership still requires separate authorization.",
+  "status": "queued",
+  "proposed_rule_ids": [],
+  "proposed_group_ids": [],
+  "linked_profile_ids": [],
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21"
+  }
+}

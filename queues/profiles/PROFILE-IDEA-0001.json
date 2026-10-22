@@ -1,0 +1,14 @@
+{
+  "id": "PROFILE-IDEA-0001",
+  "kind": "profile_idea",
+  "title": "Full Rust Project from Scratch — Lite",
+  "summary": "A focused profile for starting and implementing a new standalone Rust project from an empty repository, emphasizing core engineering, validation, minimal documentation, and public-output hygiene. Pair with PROFILE-IDEA-0002 (Full); exact rule selection requires separate review.",
+  "status": "queued",
+  "proposed_rule_ids": [],
+  "proposed_group_ids": [],
+  "linked_profile_ids": [],
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21"
+  }
+}

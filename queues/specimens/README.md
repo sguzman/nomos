@@ -31,3 +31,7 @@ See [WORKFLOW.md](../../WORKFLOW.md) for authorization boundaries.
 ## Completed normalization and publication batch (2026-10-21)
 
 All 38 intake records `SPEC-0077`–`SPEC-0114` were individually reviewed and marked `processed` by explicit authorization. The independent records `processing/specimens/PROC-SPEC-*.json` describe each outcome. Four equivalent MVP proposals reuse established canonical rules rather than produce duplicates; the remaining 34 new atomic rules are `NOM-0077`–`NOM-0110`. The initial intake metadata is retained unchanged, so original `processing_authorized: false` values describe intake time, not the later granted batch authorization.
+
+## Pending conversational-safety prompt repetition rule (2026-10-21)
+
+`SPEC-0118` proposes one public-safe prohibition against unsupported, repetitive and formulaic suicide-risk check-in questions. Its scope explicitly distinguishes ordinary frustration and distress from concrete new risk signals requiring proportionate attention. This specimen is queued only: no normalization, catalog publication, profile creation or automatic application has been authorized.
