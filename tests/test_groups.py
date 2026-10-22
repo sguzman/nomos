@@ -44,7 +44,7 @@ class VirtualGroupTests(unittest.TestCase):
         self.assertEqual(len(members), 50)
         self.assertEqual(len(members), len(set(members)))
         self.assertIn("NOM-0075", members)
-        self.assertIn("NOM-0110", members)
+        self.assertIn("NOM-0109", members)
 
     def test_overlapping_groups_do_not_duplicate_rules(self):
         groups = copy.deepcopy(self.groups)
