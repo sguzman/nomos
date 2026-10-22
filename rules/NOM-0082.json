@@ -1,6 +1,6 @@
 {
   "id": "NOM-0082",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Place nontrivial job scripts in the repository scripts directory",
   "summary": "When an automation job requires a substantial standalone script, create or maintain that script as a file under the verified local project's scripts/ directory rather than implementing it inside the job YAML.",
   "statement": "When an automation job requires a substantial standalone script, create or maintain that script as a file under the verified local project's scripts/ directory rather than implementing it inside the job YAML.",
@@ -40,6 +40,7 @@
       "workflow_governance"
     ],
     "topics": [
+      "job_script_placement",
       "yaml_job_workflow"
     ],
     "audiences": [
@@ -68,6 +69,9 @@
     ],
     "exclusions": [
       "Does not authorize changing unrelated or substitute repositories."
+    ],
+    "project_types": [
+      "project"
     ]
   },
   "authority": {
@@ -90,7 +94,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

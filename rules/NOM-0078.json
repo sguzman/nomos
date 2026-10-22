@@ -1,6 +1,6 @@
 {
   "id": "NOM-0078",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Ask for the actual local repository path before issuing YAML execution jobs",
   "summary": "Before preparing or executing a YAML-specified job that operates on an existing local Git repository, request and use the user's actual local repository filesystem path instead of assuming its location.",
   "statement": "Before preparing or executing a YAML-specified job that operates on an existing local Git repository, request and use the user's actual local repository filesystem path instead of assuming its location.",
@@ -40,6 +40,7 @@
       "workflow_governance"
     ],
     "topics": [
+      "local_job_path",
       "yaml_job_workflow"
     ],
     "audiences": [
@@ -68,6 +69,9 @@
     ],
     "exclusions": [
       "Does not authorize changing unrelated or substitute repositories."
+    ],
+    "project_types": [
+      "project"
     ]
   },
   "authority": {
@@ -92,7 +96,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

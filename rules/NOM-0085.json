@@ -1,6 +1,6 @@
 {
   "id": "NOM-0085",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Increase Tampermonkey @version on every userscript change",
   "summary": "Every time a Tampermonkey userscript is changed, including during local iteration, increment its UserScript metadata @version to a strictly higher value. This keeps script revisions distinguishable for update detection; do not wait for a formal release or distribution.",
   "statement": "Every time a Tampermonkey userscript is changed, including during local iteration, increment its UserScript metadata @version to a strictly higher value. This keeps script revisions distinguishable for update detection; do not wait for a formal release or distribution.",
@@ -39,7 +39,8 @@
       "software_development"
     ],
     "topics": [
-      "browser_artifact_versioning"
+      "browser_artifact_versioning",
+      "browser_userscript_version"
     ],
     "audiences": [
       "ai_agents",
@@ -67,6 +68,9 @@
     ],
     "exclusions": [
       "Metadata changes do not independently authorize distribution."
+    ],
+    "project_types": [
+      "browser_userscript"
     ]
   },
   "authority": {
@@ -93,7 +97,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

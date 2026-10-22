@@ -1,6 +1,6 @@
 {
   "id": "NOM-0075",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "title": "Define porting MVP through verified replacement capability",
   "summary": "For a strict software port, judge MVP against the agreed capability to replace the upstream application's baseline functionality rather than successful compilation alone.",
   "statement": "For a strict software port, judge MVP against the agreed capability to replace the upstream application's baseline functionality rather than successful compilation alone.",
@@ -67,6 +67,9 @@
     ],
     "exclusions": [
       "Compilation alone is not proof of replacement capability."
+    ],
+    "project_types": [
+      "software_port"
     ]
   },
   "authority": {
@@ -91,7 +94,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

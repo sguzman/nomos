@@ -1,6 +1,6 @@
 {
   "id": "NOM-0077",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "title": "Do not suggest names ending with the suffix arium",
   "summary": "When generating or recommending new names for projects, products, applications, repositories, tools, or other user-named entities, do not propose candidate names whose final letters are 'arium', regardless of letter case.",
   "statement": "When generating or recommending new names for projects, products, applications, repositories, tools, or other user-named entities, do not propose candidate names whose final letters are 'arium', regardless of letter case.",
@@ -67,6 +67,9 @@
     ],
     "exclusions": [
       "Does not prevent discussing historical or existing names."
+    ],
+    "project_types": [
+      "any"
     ]
   },
   "authority": {
@@ -89,7 +92,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

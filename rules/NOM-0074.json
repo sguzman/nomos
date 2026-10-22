@@ -1,6 +1,6 @@
 {
   "id": "NOM-0074",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "title": "Maintain behavioral fidelity during strict software ports",
   "summary": "During a strict software port, prioritize the agreed upstream application's observable behavior over redesign and unrelated enhancements.",
   "statement": "During a strict software port, prioritize the agreed upstream application's observable behavior over redesign and unrelated enhancements.",
@@ -39,7 +39,8 @@
       "software_porting"
     ],
     "topics": [
-      "port_fidelity"
+      "port_fidelity",
+      "strict_port_fidelity"
     ],
     "audiences": [
       "ai_agents",
@@ -67,6 +68,9 @@
     ],
     "exclusions": [
       "Explicitly authorized deviations from the upstream baseline."
+    ],
+    "project_types": [
+      "software_port"
     ]
   },
   "authority": {
@@ -89,7 +93,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

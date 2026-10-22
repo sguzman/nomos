@@ -1,6 +1,6 @@
 {
   "id": "NOM-0062",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "title": "Automated smoke checks",
   "summary": "Verify startup and essential functionality with repeatable smoke tests where the environment supports it.",
   "statement": "Verify startup and essential functionality with repeatable smoke tests where the environment supports it.",
@@ -35,11 +35,12 @@
   },
   "categories": {
     "domains": [
+      "qa_verification",
       "software_development",
-      "qa_verification"
+      "software_testing"
     ],
     "topics": [
-      "development_hygiene"
+      "smoke_testing"
     ],
     "audiences": [
       "ai_agents",
@@ -67,6 +68,9 @@
     ],
     "exclusions": [
       "Projects or operations outside authorized task scope"
+    ],
+    "project_types": [
+      "software_project"
     ]
   },
   "authority": {
@@ -89,7 +93,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

@@ -1,6 +1,6 @@
 {
   "id": "NOM-0065",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "title": "Evidence-based state labels",
   "summary": "Distinguish written, staged, committed, compiled, tested, deployed and visually verified states.",
   "statement": "Distinguish written, staged, committed, compiled, tested, deployed and visually verified states.",
@@ -35,11 +35,11 @@
   },
   "categories": {
     "domains": [
-      "software_development",
-      "qa_verification"
+      "qa_verification",
+      "software_development"
     ],
     "topics": [
-      "development_hygiene"
+      "evidence_based_status"
     ],
     "audiences": [
       "ai_agents",
@@ -67,6 +67,9 @@
     ],
     "exclusions": [
       "Projects or operations outside authorized task scope"
+    ],
+    "project_types": [
+      "project"
     ]
   },
   "authority": {
@@ -89,7 +92,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

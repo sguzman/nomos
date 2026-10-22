@@ -1,6 +1,6 @@
 {
   "id": "NOM-0084",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "Pull latest changes before local repository YAML job work",
   "summary": "Before performing work on an existing local Git repository through a YAML-specified execution job, run git pull in that verified repository to retrieve the latest remote changes rather than operating on an assumed-current checkout.",
   "statement": "Before performing work on an existing local Git repository through a YAML-specified execution job, run git pull in that verified repository to retrieve the latest remote changes rather than operating on an assumed-current checkout.",
@@ -40,6 +40,7 @@
       "workflow_governance"
     ],
     "topics": [
+      "repository_sync",
       "yaml_job_workflow"
     ],
     "audiences": [
@@ -68,6 +69,9 @@
     ],
     "exclusions": [
       "Does not authorize changing unrelated or substitute repositories."
+    ],
+    "project_types": [
+      "project"
     ]
   },
   "authority": {
@@ -93,7 +97,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

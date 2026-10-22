@@ -1,6 +1,6 @@
 {
   "id": "NOM-0068",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "title": "Report progress for touched roadmap items",
   "summary": "Each development progress report should show progress for every phase, milestone, task and feature worked on during its reporting interval.",
   "statement": "Each development progress report should show progress for every phase, milestone, task and feature worked on during its reporting interval.",
@@ -66,6 +66,9 @@
     ],
     "exclusions": [
       "Items whose completed state was already announced and not reopened."
+    ],
+    "project_types": [
+      "project"
     ]
   },
   "authority": {
@@ -88,7 +91,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

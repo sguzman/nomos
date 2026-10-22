@@ -1,6 +1,6 @@
 {
   "id": "NOM-0071",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "title": "Announce first attainment of 100 percent exactly once",
   "summary": "When a project, phase, milestone, task or feature first reaches 100 percent, show its completion and percentage once in the reporting conversation.",
   "statement": "When a project, phase, milestone, task or feature first reaches 100 percent, show its completion and percentage once in the reporting conversation.",
@@ -66,6 +66,9 @@
     ],
     "exclusions": [
       "Historical completion events should not be reannounced as new completions."
+    ],
+    "project_types": [
+      "project"
     ]
   },
   "authority": {
@@ -88,7 +91,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [
