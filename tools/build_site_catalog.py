@@ -62,9 +62,12 @@ def build(root=ROOT):
         if profile["status"] == "finalized" and profile["review"].get("finalization_confirmed") is not True:
             raise ValueError(f"{path}: finalization was not confirmed")
         profiles.append(profile)
-    return {"schema_version": "2.3",
+    from relationships import build_relationships
+    relationships=build_relationships(records,root)
+    return {"schema_version": "2.4",
             "source": "Nomos public catalog of atomic rules, virtual groups, and opt-in profile presets",
-            "rules": records, "groups": groups, "profiles": profiles}
+            "rules": records, "groups": groups, "profiles": profiles,
+            "relationships": relationships, "project_types": ["tarium_project","rust_project_from_scratch","rust_fork_maintenance","c_to_rust_port"]}
 
 
 def fingerprint_assets(root=ROOT):

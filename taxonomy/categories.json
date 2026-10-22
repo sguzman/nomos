@@ -118,5 +118,12 @@
     "agents_md",
     "chatgpt_custom_instructions",
     "plain_text"
+  ],
+  "project_types": [
+    "any",
+    "tarium_project",
+    "rust_project_from_scratch",
+    "rust_fork_maintenance",
+    "c_to_rust_port"
   ]
 }

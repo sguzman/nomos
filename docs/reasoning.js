@@ -6,8 +6,10 @@ const NomosReasoning = (() => {
     return axes.every(key=>{
       const x=a.scope.axes[key],y=b.scope.axes[key];
       return x.includes('any')||y.includes('any')||x.some(v=>y.includes(v));
-    });
+    })&&(projectTypes(a).includes('any')||projectTypes(b).includes('any')||
+          projectTypes(a).some(v=>projectTypes(b).includes(v)));
   }
+  function projectTypes(rule) {return rule.scope?.project_types||['any'];}
   function samePredicate(a,b) {
     return ['action','object','target'].every(k=>a.norm.predicate[k]===b.norm.predicate[k]);
   }
@@ -52,8 +54,8 @@ const NomosReasoning = (() => {
     }
     return 'overlap';
   }
-  function analyze(rules,context={}) {
-    const conflicts=[], conditional=[], overlapsFound=[];
+  function analyze(rules,context={},relationships=[]) {
+    const conflicts=[], conditional=[], overlapsFound=[], candidates=[];
     for(let i=0;i<rules.length;i++)for(let j=i+1;j<rules.length;j++){
       const a=rules[i],b=rules[j],pair=a.id+' / '+b.id;
       const result=assess(a,b,context);
@@ -63,8 +65,17 @@ const NomosReasoning = (() => {
         samePredicate(a,b)||a.categories.domains.some(d=>b.categories.domains.includes(d))
       ))overlapsFound.push(pair+': overlapping scope or domain; not necessarily a conflict.');
     }
-    return {conflicts,conditional,overlaps:overlapsFound};
+    const ids=new Set(rules.map(r=>r.id));
+    for(const edge of relationships){
+      if(ids.has(edge.source)&&ids.has(edge.target)){
+        const message=edge.source+' / '+edge.target+': '+edge.kind.replace(/_/g,' ')+
+          ' ['+edge.status+'] '+edge.evidence;
+        if(edge.kind==='possible_conflict')candidates.push(message);
+        else if(edge.kind!=='conflicts_with')candidates.push(message);
+      }
+    }
+    return {conflicts,conditional,overlaps:overlapsFound,candidates};
   }
-  return Object.freeze({overlaps,samePredicate,values,boundsIncompatible,assess,analyze});
+  return Object.freeze({overlaps,projectTypes,samePredicate,values,boundsIncompatible,assess,analyze});
 })();
 if(typeof module!=='undefined'&&module.exports)module.exports=NomosReasoning;

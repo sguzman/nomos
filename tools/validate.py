@@ -23,7 +23,9 @@ def overlaps(a, b):
         left, right = set(a["scope"]["axes"][key]), set(b["scope"]["axes"][key])
         if "any" not in left and "any" not in right and not (left & right):
             return False
-    return True
+    left_types = set(a.get("scope", {}).get("project_types", ["any"]))
+    right_types = set(b.get("scope", {}).get("project_types", ["any"]))
+    return "any" in left_types or "any" in right_types or bool(left_types & right_types)
 
 
 def value_relation(a, b, context=None):
@@ -165,6 +167,23 @@ def validate(taxonomy, rules):
         seen.add(rid)
         if rule["status"] not in taxonomy["status_values"]:
             errors.append(f"{rid}: unknown status")
+        project_types = rule["scope"].get("project_types", ["any"])
+        allowed_project_types = set(taxonomy["project_types"])
+        if (not isinstance(project_types, list) or not project_types
+            or len(project_types) != len(set(project_types))
+            or not set(project_types) <= allowed_project_types
+            or ("any" in project_types and len(project_types) > 1)):
+            errors.append(f"{rid}: invalid scope.project_types")
+        semantic = rule.get("semantic")
+        if semantic is not None:
+            import re
+            if (not isinstance(semantic, dict) or set(semantic) != {"concept", "aliases"}
+                or not isinstance(semantic["concept"], str)
+                or not re.fullmatch(r"[a-z][a-z0-9_]*", semantic["concept"])
+                or not isinstance(semantic["aliases"], list)
+                or any(not isinstance(x, str) or not re.fullmatch(r"[a-z][a-z0-9_]*", x) for x in semantic["aliases"])
+                or len(semantic["aliases"]) != len(set(semantic["aliases"]))):
+                errors.append(f"{rid}: invalid semantic annotation")
         norm = rule["norm"]
         errors.extend(validate_bounds(rule))
         constraint = norm.get("value_constraint")

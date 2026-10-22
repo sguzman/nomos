@@ -451,6 +451,20 @@
           "items": {
             "type": "string"
           }
+        },
+        "project_types": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "any",
+              "tarium_project",
+              "rust_project_from_scratch",
+              "rust_fork_maintenance",
+              "c_to_rust_port"
+            ]
+          }
         }
       }
     },
@@ -595,6 +609,28 @@
           "chatgpt_custom_instructions",
           "plain_text"
         ]
+      }
+    },
+    "semantic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "concept",
+        "aliases"
+      ],
+      "properties": {
+        "concept": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]*$"
+        },
+        "aliases": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          }
+        }
       }
     }
   }

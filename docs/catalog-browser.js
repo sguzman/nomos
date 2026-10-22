@@ -42,7 +42,7 @@ const NomosCatalog = (() => {
       return compareId(a,b);
     });
   }
-  function search({rules,groups,profiles=[],query='',type='all',status='all',domain='all',groupFilter=null,profileFilter=null,sort='groups-first'}){
+  function search({rules,groups,profiles=[],query='',type='all',status='all',domain='all',groupFilter=null,profileFilter=null,projectType='all',sort='groups-first'}){
     const term=String(query).trim().toLocaleLowerCase();
     const preset=profileFilter?profiles.find(p=>p.id===profileFilter):null;
     const members=profileFilter?new Set(preset?profileMemberIds(preset,rules):[]):
@@ -63,12 +63,13 @@ const NomosCatalog = (() => {
     }
     if(type==='all'||type==='rules'||members)for(const r of rules){
       if(members&&!members.has(r.id))continue;
+      if(projectType!=='all'&&!(r.scope.project_types||['any']).includes(projectType))continue;
       if(status!=='all'&&(r.registry==='candidate'?'candidate':r.status)!==status)continue;
       if(domain!=='all'&&!r.categories.domains.includes(domain))continue;
       const memberships=groups.filter(g=>g.member_rule_ids.includes(r.id));
       const presets=profiles.filter(p=>p.selected_rule_ids.includes(r.id));
       const haystack=[r.id,r.title,r.summary,r.statement,...r.categories.domains,
-        ...r.categories.topics,...r.categories.audiences,r.norm.kind,
+        ...r.categories.topics,...r.categories.audiences,r.norm.kind, ...(r.scope.project_types||['any']), r.semantic?.concept||'', ...(r.semantic?.aliases||[]),
         r.norm.bounds?.quantifier||'',r.norm.bounds?.interpretation||'',
         r.norm.bounds?.frequency||'',r.norm.bounds?.cue||'',
         ...memberships.flatMap(g=>[g.id,g.title,...g.metadata_labels]),
