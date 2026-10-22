@@ -1,7 +1,7 @@
 {
   "id": "SPEC-0115",
   "title": "Differential testing for C-to-Rust ports",
-  "status": "proposed",
+  "status": "processed",
   "abstract": "For an authorized C-to-Rust port, exercise the upstream C executable and Rust replacement with equivalent inputs and environments, then compare outputs, exit status and relevant observable side effects against documented intentional differences.",
   "source": {
     "kind": "public_safe_user_requested_workflow_rule",
@@ -41,6 +41,12 @@
   "unresolved": [
     "Confirm this adds a distinct, independently testable requirement without duplicating general port-fidelity or Rust-testing guidance."
   ],
-  "next_state": "await_authorized_processing",
-  "remarks": "Specimen intake is distinct from processing and publication; no rule is applied by queuing it."
+  "next_state": "processed_specimen_retained_as_intake_record",
+  "remarks": "The original public-safe intake is retained; its independently authorized processing produced a published atomic rule, not automatic application.",
+  "processing": {
+    "authorized_by": "explicit_user_request",
+    "authorized_on": "2026-10-21",
+    "record": "processing/specimens/PROC-SPEC-0115.json",
+    "state": "closed"
+  }
 }

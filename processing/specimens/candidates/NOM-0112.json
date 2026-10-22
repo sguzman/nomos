@@ -1,0 +1,105 @@
+{
+  "id": "NOM-0112",
+  "version": "0.1.0",
+  "title": "Contain and verify necessary unsafe Rust and FFI boundaries",
+  "summary": "For each necessary unsafe Rust operation or C FFI boundary in an authorized C-to-Rust port, prefer safe Rust where feasible, isolate the boundary, document required safety and ABI invariants, and test the exposed contract.",
+  "statement": "For each necessary unsafe Rust operation or C FFI boundary in an authorized C-to-Rust port, prefer safe Rust where feasible, isolate the boundary, document required safety and ABI invariants, and test the exposed contract.",
+  "rationale": "Safety and ABI assumptions hidden across modules are difficult to audit. Restricting and exercising necessary boundaries reduces undefined behavior and compatibility risk without forbidding justified interoperability.",
+  "language": "en",
+  "status": "draft",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "contain_and_verify",
+      "object": "unsafe_and_ffi_boundaries",
+      "target": "c_to_rust_port"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "An authorized C-to-Rust port uses Rust unsafe operations or an FFI boundary."
+    ],
+    "exceptions": [
+      "No unsafe or FFI boundary is required when a fully safe Rust implementation can express the behavior."
+    ],
+    "bounds": {
+      "quantifier": "all",
+      "interpretation": "universal",
+      "frequency": "always",
+      "minimum": null,
+      "maximum": null,
+      "unit": "entities",
+      "window": "each in-scope port verification or implementation cycle",
+      "cue": "For each",
+      "basis": "explicit_text"
+    }
+  },
+  "categories": {
+    "domains": [
+      "software_development",
+      "software_porting",
+      "rust_development"
+    ],
+    "topics": [
+      "unsafe_ffi_containment"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "An authorized C-to-Rust port uses Rust unsafe operations or an FFI boundary."
+    ],
+    "exclusions": [
+      "No unsafe or FFI boundary is required when a fully safe Rust implementation can express the behavior."
+    ]
+  },
+  "authority": {
+    "source": "Retained independently reviewed processing candidate",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [
+      "NOM-0030"
+    ],
+    "depends_on": [
+      "NOM-0074"
+    ]
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0116; processing/specimens/PROC-SPEC-0116.json",
+    "license": "MIT",
+    "notes": "Public-safe C-to-Rust-porting rule; catalog publication does not activate or apply it."
+  },
+  "governance": {
+    "created_on": "2026-10-21",
+    "updated_on": "2026-10-21",
+    "review_status": "unreviewed"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

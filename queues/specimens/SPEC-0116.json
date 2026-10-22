@@ -1,7 +1,7 @@
 {
   "id": "SPEC-0116",
   "title": "Contain and verify unsafe Rust and FFI boundaries",
-  "status": "proposed",
+  "status": "processed",
   "abstract": "For an authorized C-to-Rust port, prefer safe Rust, restrict necessary unsafe operations and FFI to clearly identified boundaries, justify invariants, and test those boundaries.",
   "source": {
     "kind": "public_safe_user_requested_workflow_rule",
@@ -41,6 +41,12 @@
   "unresolved": [
     "Confirm this adds a distinct, independently testable requirement without duplicating general port-fidelity or Rust-testing guidance."
   ],
-  "next_state": "await_authorized_processing",
-  "remarks": "Specimen intake is distinct from processing and publication; no rule is applied by queuing it."
+  "next_state": "processed_specimen_retained_as_intake_record",
+  "remarks": "The original public-safe intake is retained; its independently authorized processing produced a published atomic rule, not automatic application.",
+  "processing": {
+    "authorized_by": "explicit_user_request",
+    "authorized_on": "2026-10-21",
+    "record": "processing/specimens/PROC-SPEC-0116.json",
+    "state": "closed"
+  }
 }

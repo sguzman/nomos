@@ -1,0 +1,32 @@
+{
+  "processing_id": "PROC-SPEC-0117",
+  "source_specimen_id": "SPEC-0117",
+  "status": "closed",
+  "authorization": {
+    "source": "Explicit user authorization to queue, process and publish three C-to-Rust rules",
+    "on": "2026-10-21"
+  },
+  "processed_on": "2026-10-21",
+  "normalization": {
+    "kind": "obligation",
+    "canonical_rule_id": "NOM-0113",
+    "independent_atomic_specimen": true,
+    "phase": null,
+    "group_proposal": null
+  },
+  "comparison": {
+    "possible_overlap": [
+      "NOM-0075",
+      "NOM-0064"
+    ],
+    "assessment": "Adds a distinct scoped implementation or verification obligation beyond general compatibility and testing practices; no identical existing predicate.",
+    "no_automatic_priority_change": true
+  },
+  "disposition": {
+    "kind": "normalized_and_published",
+    "candidate_id": "NOM-0113",
+    "candidate_path": "processing/specimens/candidates/NOM-0113.json",
+    "downstream_task_id": "TASK-0016"
+  },
+  "notes": "Independent rule published for opt-in selection; profiles require separate reviewed authorization."
+}

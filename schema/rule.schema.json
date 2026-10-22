@@ -319,6 +319,7 @@
               "completion_reporting",
               "content_handling",
               "development_hygiene",
+              "differential_testing",
               "edition_selection",
               "identity_color",
               "implementation_language",
@@ -326,6 +327,7 @@
               "mvp_inauguration",
               "naming_restrictions",
               "personal_expression",
+              "port_coverage_inventory",
               "port_fidelity",
               "port_mvp",
               "post_mvp_scope",
@@ -336,6 +338,7 @@
               "rule_composition",
               "specimen_showcase",
               "theme_control",
+              "unsafe_ffi_containment",
               "workflow_stage",
               "yaml_job_workflow"
             ]
