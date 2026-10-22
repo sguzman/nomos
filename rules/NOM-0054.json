@@ -1,6 +1,6 @@
 {
   "id": "NOM-0054",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "title": "Backwards compatibility checks",
   "summary": "Guard established public APIs, file formats and command behavior against unintended breaking changes.",
   "statement": "Guard established public APIs, file formats and command behavior against unintended breaking changes.",
@@ -35,11 +35,12 @@
   },
   "categories": {
     "domains": [
-      "software_development",
-      "safety_integrity"
+      "maintenance",
+      "safety_integrity",
+      "software_development"
     ],
     "topics": [
-      "development_hygiene"
+      "backward_compatibility"
     ],
     "audiences": [
       "ai_agents",
@@ -67,6 +68,9 @@
     ],
     "exclusions": [
       "Projects or operations outside authorized task scope"
+    ],
+    "project_types": [
+      "software_project"
     ]
   },
   "authority": {
@@ -89,7 +93,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

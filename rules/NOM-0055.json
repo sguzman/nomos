@@ -1,6 +1,6 @@
 {
   "id": "NOM-0055",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "title": "Semantic version policy",
   "summary": "Use coherent major, minor and patch version semantics for projects adopting semantic versioning.",
   "statement": "Use coherent major, minor and patch version semantics for projects adopting semantic versioning.",
@@ -35,11 +35,11 @@
   },
   "categories": {
     "domains": [
-      "software_development",
-      "releases"
+      "releases",
+      "software_development"
     ],
     "topics": [
-      "development_hygiene"
+      "semantic_versioning"
     ],
     "audiences": [
       "ai_agents",
@@ -67,6 +67,9 @@
     ],
     "exclusions": [
       "Projects or operations outside authorized task scope"
+    ],
+    "project_types": [
+      "project"
     ]
   },
   "authority": {
@@ -89,7 +92,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

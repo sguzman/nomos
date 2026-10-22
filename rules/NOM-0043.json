@@ -1,6 +1,6 @@
 {
   "id": "NOM-0043",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "title": "Roadmap status accuracy",
   "summary": "Maintain milestones and task completion states according to evidence; never equate a future idea with an authorized task.",
   "statement": "Maintain milestones and task completion states according to evidence; never equate a future idea with an authorized task.",
@@ -35,11 +35,12 @@
   },
   "categories": {
     "domains": [
-      "software_development",
-      "documentation"
+      "documentation",
+      "project_management",
+      "software_development"
     ],
     "topics": [
-      "development_hygiene"
+      "roadmap_status"
     ],
     "audiences": [
       "ai_agents",
@@ -67,6 +68,9 @@
     ],
     "exclusions": [
       "Projects or operations outside authorized task scope"
+    ],
+    "project_types": [
+      "project"
     ]
   },
   "authority": {
@@ -89,7 +93,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

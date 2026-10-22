@@ -1,6 +1,6 @@
 {
   "id": "NOM-0049",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "title": "Source provenance and attribution",
   "summary": "Preserve publication-safe references, licenses and hashes needed to explain imported data or resources.",
   "statement": "Preserve publication-safe references, licenses and hashes needed to explain imported data or resources.",
@@ -35,11 +35,11 @@
   },
   "categories": {
     "domains": [
-      "software_development",
-      "documentation"
+      "documentation",
+      "software_development"
     ],
     "topics": [
-      "development_hygiene"
+      "source_provenance"
     ],
     "audiences": [
       "ai_agents",
@@ -67,6 +67,9 @@
     ],
     "exclusions": [
       "Projects or operations outside authorized task scope"
+    ],
+    "project_types": [
+      "project"
     ]
   },
   "authority": {
@@ -89,7 +92,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

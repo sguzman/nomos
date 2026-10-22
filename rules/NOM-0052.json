@@ -1,6 +1,6 @@
 {
   "id": "NOM-0052",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "title": "Non-destructive operational defaults",
   "summary": "Prefer inspection, bounded changes and explicit authorization before destructive operations.",
   "statement": "Prefer inspection, bounded changes and explicit authorization before destructive operations.",
@@ -35,11 +35,11 @@
   },
   "categories": {
     "domains": [
-      "software_development",
-      "safety_integrity"
+      "safety_integrity",
+      "software_development"
     ],
     "topics": [
-      "development_hygiene"
+      "safe_operations"
     ],
     "audiences": [
       "ai_agents",
@@ -67,6 +67,9 @@
     ],
     "exclusions": [
       "Projects or operations outside authorized task scope"
+    ],
+    "project_types": [
+      "project"
     ]
   },
   "authority": {
@@ -89,7 +92,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

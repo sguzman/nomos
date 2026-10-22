@@ -1,6 +1,6 @@
 {
   "id": "NOM-0042",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "title": "README upkeep",
   "summary": "Keep the project README aligned with its purpose, setup, usage and development procedures.",
   "statement": "Keep the project README aligned with its purpose, setup, usage and development procedures.",
@@ -35,11 +35,11 @@
   },
   "categories": {
     "domains": [
-      "software_development",
-      "documentation"
+      "documentation",
+      "software_development"
     ],
     "topics": [
-      "development_hygiene"
+      "readme_maintenance"
     ],
     "audiences": [
       "ai_agents",
@@ -67,6 +67,9 @@
     ],
     "exclusions": [
       "Projects or operations outside authorized task scope"
+    ],
+    "project_types": [
+      "project"
     ]
   },
   "authority": {
@@ -89,7 +92,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

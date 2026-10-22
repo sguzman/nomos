@@ -1,6 +1,6 @@
 {
   "id": "NOM-0029",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "title": "Regression tests",
   "summary": "Reproduce reported defects with automated tests and retain them to detect recurrence.",
   "statement": "Reproduce reported defects with automated tests and retain them to detect recurrence.",
@@ -35,11 +35,12 @@
   },
   "categories": {
     "domains": [
+      "rust_quality",
       "software_development",
-      "rust_quality"
+      "software_testing"
     ],
     "topics": [
-      "development_hygiene"
+      "regression_testing"
     ],
     "audiences": [
       "ai_agents",
@@ -67,6 +68,9 @@
     ],
     "exclusions": [
       "Projects or operations outside authorized task scope"
+    ],
+    "project_types": [
+      "rust_project"
     ]
   },
   "authority": {
@@ -89,7 +93,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

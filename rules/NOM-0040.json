@@ -1,6 +1,6 @@
 {
   "id": "NOM-0040",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "title": "Workflow configuration maintenance",
   "summary": "Maintain workflow permissions, triggers, versions and paths to match actual repository needs.",
   "statement": "Maintain workflow permissions, triggers, versions and paths to match actual repository needs.",
@@ -35,11 +35,11 @@
   },
   "categories": {
     "domains": [
-      "software_development",
-      "ci_cd"
+      "ci_cd",
+      "software_development"
     ],
     "topics": [
-      "development_hygiene"
+      "ci_configuration"
     ],
     "audiences": [
       "ai_agents",
@@ -67,6 +67,9 @@
     ],
     "exclusions": [
       "Projects or operations outside authorized task scope"
+    ],
+    "project_types": [
+      "project"
     ]
   },
   "authority": {
@@ -89,7 +92,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [

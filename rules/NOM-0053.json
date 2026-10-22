@@ -1,6 +1,6 @@
 {
   "id": "NOM-0053",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "title": "Data round-trip integrity",
   "summary": "Verify preservation of data through import, export, migration, hashing or serialization where applicable.",
   "statement": "Verify preservation of data through import, export, migration, hashing or serialization where applicable.",
@@ -35,11 +35,12 @@
   },
   "categories": {
     "domains": [
-      "software_development",
-      "safety_integrity"
+      "data_integrity",
+      "safety_integrity",
+      "software_development"
     ],
     "topics": [
-      "development_hygiene"
+      "data_roundtrip"
     ],
     "audiences": [
       "ai_agents",
@@ -67,6 +68,9 @@
     ],
     "exclusions": [
       "Projects or operations outside authorized task scope"
+    ],
+    "project_types": [
+      "software_project"
     ]
   },
   "authority": {
@@ -89,7 +93,7 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21",
+    "updated_on": "2026-10-22",
     "review_status": "approved"
   },
   "export_targets": [
