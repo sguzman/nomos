@@ -61,13 +61,14 @@
 
     <section class="workspace" id="registry" aria-label="Rule browser and composer">
       <div class="explorer">
-        <div class="section-heading"><div><p class="eyebrow">01 / DISCOVER</p><h2>Catalog</h2></div><span class="heading-explainer">Groups and independent rules, together.</span></div>
-        <button type="button" class="active-group-filter hidden" id="active-group-filter"></button>
+        <div class="section-heading"><div><p class="eyebrow">01 / DISCOVER</p><h2>Catalog</h2></div><span class="heading-explainer">Profiles, groups and independent rules, together.</span></div>
+        <button type="button" class="active-group-filter hidden" id="active-member-filter"></button>
         <form class="filters catalog-filters" id="filter-form" role="search" autocomplete="off">
-          <label class="search-wrap"><span aria-hidden="true">⌕</span><span class="sr-only">Search catalog</span><input id="search" type="search" placeholder="Search rules, groups, domains, IDs…" autocomplete="off"></label>
-          <label><span class="sr-only">Filter by item type</span><select id="filter-type" aria-label="Item type"><option value="all">All items</option><option value="groups">Groups only</option><option value="rules">Rules only</option></select></label>
-          <label><span class="sr-only">Filter by status</span><select id="filter-status"><option value="all">All statuses</option><option value="published">Published</option><option value="draft">Catalog drafts</option><option value="candidate">Candidates</option></select></label>
+          <label class="search-wrap"><span aria-hidden="true">⌕</span><span class="sr-only">Search catalog</span><input id="search" type="search" placeholder="Search rules, groups, profiles, IDs…" autocomplete="off"></label>
+          <label><span class="sr-only">Filter by item type</span><select id="filter-type" aria-label="Item type"><option value="all">All items</option><option value="groups">Groups only</option><option value="profiles">Profiles only</option><option value="rules">Rules only</option></select></label>
+          <label><span class="sr-only">Filter by status</span><select id="filter-status"><option value="all">All statuses</option><option value="published">Published</option><option value="draft">Drafts</option><option value="finalized">Finalized profiles</option><option value="candidate">Candidates</option></select></label>
           <label><span class="sr-only">Filter by domain or label</span><select id="filter-domain"><option value="all">All domains / labels</option></select></label>
+          <label><span class="sr-only">Filter members by profile</span><select id="filter-profile" aria-label="Profile members"><option value="all">All profiles / rules</option></select></label>
           <label><span class="sr-only">Sort catalog</span><select id="sort-order" aria-label="Sort catalog">
             <option value="groups-first" selected>Groups first · ID</option>
             <option value="rules-first">Rules first · ID</option>
@@ -75,12 +76,12 @@
             <option value="name-desc">Name · Z–A</option>
             <option value="id-asc">ID · ascending</option>
             <option value="id-desc">ID · descending</option>
-            <option value="members-desc">Group size · most first</option>
-            <option value="members-asc">Group size · fewest first</option>
+            <option value="members-desc">Collection size · most first</option>
+            <option value="members-asc">Collection size · fewest first</option>
           </select></label>
           <button type="button" id="clear-filters" class="clear-filters">Reset</button>
         </form>
-        <div class="results-line"><span id="result-count" aria-live="polite">Loading catalog…</span><span class="dot-separator">•</span><span>Collections are optional; every rule stands alone</span></div>
+        <div class="results-line"><span id="result-count" aria-live="polite">Loading catalog…</span><span class="dot-separator">•</span><span>Profiles and groups are opt-in; every rule stands alone</span></div>
         <div class="rules catalog-list" id="catalog-list" aria-live="polite"></div>
         <div class="empty hidden" id="empty-results"><strong>No matching items.</strong><p>Try a broader search or reset the filters.</p></div>
       </div>

@@ -3,7 +3,7 @@
 /* Local-only rule selection. Nomos catalog entries are inert until explicitly exported. */
 const $ = id => document.getElementById(id);
 const scopeAxes = ['channel', 'visibility', 'artifact_kind', 'actor'];
-const state = { rules: [], groups: [], groupFilter: null, selected: [], format: 'agents' };
+const state = { rules: [], groups: [], profiles: [], groupFilter: null, profileFilter: null, selected: [], format: 'agents' };
 
 function element(tag, className, content) {
   const n = document.createElement(tag);
@@ -151,6 +151,8 @@ function createGroupCard(group) {
   browse.setAttribute('aria-label', 'Browse rules in ' + group.title);
   browse.addEventListener('click', () => {
     state.groupFilter = group.id;
+    state.profileFilter = null;
+    $('filter-profile').value = 'all';
     $('filter-type').value = 'rules';
     $('filter-status').value = 'all';
     $('filter-domain').value = 'all';
@@ -173,25 +175,79 @@ function createGroupCard(group) {
   card.append(actions);
   return card;
 }
+function createProfileCard(profile) {
+  const ids=NomosCatalog.profileMemberIds(profile,state.rules);
+  const card=element('article','group-card profile-card');
+  const color=NomosColor.colorForId(profile.id);
+  card.style.setProperty('--rule-hue',color.hue+'deg');
+  card.style.setProperty('--rule-day',color.day);
+  card.style.setProperty('--rule-night',color.night);
+  const heading=element('div','group-card-heading');
+  const identity=identityLabel(profile);
+  identity.append(element('span','identity-status',' · '+profile.status.toUpperCase()));
+  heading.append(identity,element('span','group-size',ids.length+' rules'));
+  card.append(heading,element('h3','',profile.title));
+  card.append(element('p','','Optional '+profile.status+' profile preset. Browsing does not apply or export its rules.'));
+  const tags=element('div','tag-row group-labels');
+  tags.append(element('span','tag','Rule profile'));
+  tags.append(element('span','status-pill '+profile.status,profile.status.toUpperCase()));
+  tags.append(element('span','tag','v'+profile.version));
+  card.append(tags);
+  const actions=element('div','group-actions');
+  const browse=element('button','details-btn','Browse members');
+  browse.type='button';
+  browse.setAttribute('aria-label','Browse rules in profile '+profile.title);
+  browse.addEventListener('click',()=>{
+    state.groupFilter=null;
+    state.profileFilter=profile.id;
+    $('filter-profile').value=profile.id;
+    $('filter-type').value='rules';
+    $('filter-status').value='all';
+    $('filter-domain').value='all';
+    $('search').value='';
+    renderCatalog();
+    $('catalog-list').scrollIntoView({behavior:'smooth',block:'start'});
+  });
+  actions.append(browse);
+  if(profile.status==='finalized'){
+    const add=element('button','add-btn','+ Add all ('+ids.length+')');
+    add.type='button';
+    add.disabled=ids.length===0||ids.every(id=>state.selected.includes(id));
+    if(add.disabled)add.textContent='✓ All added';
+    add.setAttribute('aria-label','Explicitly add all published rules from finalized profile '+profile.title);
+    add.addEventListener('click',()=>{
+      state.selected=[...new Set([...state.selected,...ids])];
+      renderSelection();renderCatalog();
+      announce('Explicitly selected rules from finalized profile '+profile.title+'.');
+    });
+    actions.append(add);
+  } else {
+    actions.append(element('span','profile-readonly','Draft — browse only'));
+  }
+  card.append(actions);
+  return card;
+}
 function renderCatalog() {
   const entries = NomosCatalog.search({
-    rules: state.rules, groups: state.groups,
+    rules: state.rules, groups: state.groups, profiles: state.profiles,
     query: $('search').value, type: $('filter-type').value,
     status: $('filter-status').value, domain: $('filter-domain').value,
     sort: $('sort-order').value,
-    groupFilter: state.groupFilter
+    groupFilter: state.groupFilter, profileFilter: state.profileFilter
   });
   $('catalog-list').replaceChildren(...entries.map(entry =>
-    entry.kind === 'group' ? createGroupCard(entry.value) : createCard(entry.value)
+    entry.kind === 'group' ? createGroupCard(entry.value) :
+    entry.kind === 'profile' ? createProfileCard(entry.value) : createCard(entry.value)
   ));
   const currentSort = $('sort-order');
   const sortName = currentSort.options[currentSort.selectedIndex]?.textContent || 'Groups first · ID';
   $('result-count').textContent = entries.length + ' of ' +
-    (state.rules.length + state.groups.length) + ' items · ' + sortName;
-  $('active-group-filter').classList.toggle('hidden', !state.groupFilter);
-  $('active-group-filter').textContent = state.groupFilter ?
-    'Browsing ' + (state.groups.find(g => g.id === state.groupFilter)?.title || state.groupFilter) +
-    ' · Clear group filter ×' : '';
+    (state.rules.length + state.groups.length + state.profiles.length) + ' items · ' + sortName;
+  const active=state.profileFilter||state.groupFilter;
+  const title=state.profileFilter?state.profiles.find(p=>p.id===active)?.title:
+    state.groups.find(g=>g.id===active)?.title;
+  $('active-member-filter').classList.toggle('hidden',!active);
+  $('active-member-filter').textContent=active?'Browsing '+(title||active)+' · Clear member filter ×':'';
   $('empty-results').classList.toggle('hidden', entries.length !== 0);
 }
 
@@ -351,9 +407,21 @@ async function init() {
     }
     state.rules = catalog.rules;
     state.groups = Array.isArray(catalog.groups) ? catalog.groups : [];
-    $('count-all').textContent = String(state.rules.length + state.groups.length);
+    state.profiles = Array.isArray(catalog.profiles) ? catalog.profiles : [];
+    for (const profile of state.profiles) {
+      if (!/^PROFILE-\\d{4,}$/.test(profile.id) || seen.has(profile.id) || !Array.isArray(profile.selected_rule_ids) ||
+          !['draft','finalized','deprecated'].includes(profile.status) ||
+          profile.selected_rule_ids.some(id=>!state.rules.some(r=>r.id===id && r.status==='published' && r.registry==='catalog')))
+        throw new Error('Invalid profile record');
+      seen.add(profile.id);
+      const option=element('option','',profile.id+' · '+profile.title);
+      option.value=profile.id;
+      $('filter-profile').append(option);
+    }
+    $('count-all').textContent = String(state.rules.length + state.groups.length + state.profiles.length);
     $('count-published').textContent = String(state.rules.filter(r => statusOf(r) === 'published').length);
-    $('count-draft').textContent = String(state.rules.filter(r => statusOf(r) !== 'published').length);
+    $('count-draft').textContent = String(state.rules.filter(r => statusOf(r) !== 'published').length +
+      state.profiles.filter(p=>p.status==='draft').length);
     const domains = [...new Set([...state.rules.flatMap(r => r.categories.domains), ...state.groups.flatMap(g => g.metadata_labels)])].sort();
     for (const domain of domains) {
       const option = element('option', '', human(domain));
@@ -373,14 +441,25 @@ $('theme-select').addEventListener('change', () => {
   if (!['system', 'light', 'dark'].includes(chosen)) return;
   document.documentElement.dataset.theme = chosen;
 });
-$('active-group-filter').addEventListener('click', () => {
-  state.groupFilter = null;
+$('active-member-filter').addEventListener('click', () => {
+  state.groupFilter=null;
+  state.profileFilter=null;
+  $('filter-profile').value='all';
   renderCatalog();
 });
 $('filter-form').addEventListener('submit', event => event.preventDefault());
-for (const id of ['search', 'filter-type', 'filter-status', 'filter-domain', 'sort-order']) {
+for (const id of ['search', 'filter-type', 'filter-status', 'filter-domain', 'filter-profile', 'sort-order']) {
   $(id).addEventListener(id === 'search' ? 'input' : 'change', () => {
-    if (id === 'filter-type' && $('filter-type').value !== 'rules') state.groupFilter = null;
+    if(id==='filter-profile') {
+      state.profileFilter=$('filter-profile').value==='all'?null:$('filter-profile').value;
+      state.groupFilter=null;
+      if(state.profileFilter)$('filter-type').value='rules';
+    }
+    if(id==='filter-type' && $('filter-type').value!=='rules') {
+      state.groupFilter=null;
+      state.profileFilter=null;
+      $('filter-profile').value='all';
+    }
     renderCatalog();
     if (id === 'sort-order') $('filter-form').scrollIntoView({ block: 'start', behavior: 'instant' });
   });
@@ -391,7 +470,9 @@ $('clear-filters').addEventListener('click', () => {
   $('filter-status').value = 'all';
   $('filter-domain').value = 'all';
   $('sort-order').value = 'groups-first';
+  $('filter-profile').value = 'all';
   state.groupFilter = null;
+  state.profileFilter = null;
   renderCatalog();
   $('search').focus();
 });

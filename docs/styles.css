@@ -72,3 +72,9 @@ dialog{padding:0;border:1px solid light-dark(#b7c3cf, #52687c);border-radius:14p
 
 /* Rerendering sorted cards must not preserve an old card as the scroll anchor. */
 #catalog-list{overflow-anchor:none}
+
+/* Profile cards use the same geometry as groups, but retain unique ID-derived colors. */
+.profile-card{border-left-width:4px}
+.profile-card .status-pill{white-space:nowrap}
+.profile-card .profile-readonly{font-size:12px;color:var(--muted);padding:7px 0}
+.profile-card .group-actions{min-height:35px}
