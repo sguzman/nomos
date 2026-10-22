@@ -35,3 +35,7 @@ All 38 intake records `SPEC-0077`–`SPEC-0114` were individually reviewed and m
 ## Pending conversational-safety prompt repetition rule (2026-10-21)
 
 `SPEC-0118` proposes one public-safe prohibition against unsupported, repetitive and formulaic suicide-risk check-in questions. Its scope explicitly distinguishes ordinary frustration and distress from concrete new risk signals requiring proportionate attention. This specimen was subsequently processed by explicit authorization on 2026-10-22. Its one reviewed canonical rule is `NOM-0114`; candidate and processing disposition are independently retained. No profile was changed or rule automatically applied.
+
+## Rust-fork upstream stewardship candidates (2026-10-22)
+
+Six independent public-safe specimen proposals `SPEC-0133`–`SPEC-0138` address gaps identified while drafting the Rust-fork maintenance Lite/Full presets: upstream identity, divergence inspection, patch provenance, conflict reconciliation, regression validation after integration and selecting upstream changes within approved scope. All six remain **`proposed`** with `processing_authorized: false`. Their `possible_existing_coverage` IDs help later semantic comparison; overlaps do not prevent specialized rules from coexisting. Intake does not authorize analysis, publication, profile edits, branch or upstream changes, or any release. The proposed rules are not selectable until separately reviewed and published.

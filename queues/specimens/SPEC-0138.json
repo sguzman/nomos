@@ -1,0 +1,47 @@
+{
+  "id": "SPEC-0138",
+  "title": "Select upstream fixes and features within authorized fork maintenance scope",
+  "status": "proposed",
+  "abstract": "Classify upstream changes as security or correctness fixes, compatibility changes, maintenance improvements or optional features, and incorporate only those permitted by the fork's approved scope and supported versions. Do not equate 'new upstream version available' with blanket authorization to import all upstream behavior or release it.",
+  "source": {
+    "kind": "public_document",
+    "reference": "https://github.com/sguzman/nomos/blob/main/profiles/REVIEW-2026-10-22.md",
+    "material_retained": false
+  },
+  "received_on": "2026-10-22",
+  "intake": {
+    "visibility": "public_safe_abstract_only",
+    "operation": "specimen_queue_entry",
+    "processing_authorized": false
+  },
+  "scope_hints": {
+    "domains": [
+      "git_repository",
+      "software_development",
+      "project_management"
+    ],
+    "topic": "rust_fork_selective_upstream_adoption",
+    "candidate_normative_kind": "obligation",
+    "predicate_hypothesis": {
+      "action": "select",
+      "object": "authorized_upstream_change_set",
+      "target": "rust_fork_maintenance_scope"
+    },
+    "project_types": [
+      "rust_fork_maintenance"
+    ],
+    "scope_boundary": "Only separately authorized work on an existing Rust fork and its explicitly identified upstream; neither queueing nor this proposed requirement authorizes repository edits, upstream integrations, releases, or unrelated work.",
+    "independent_atomic_rule": true
+  },
+  "possible_existing_coverage": [
+    "NOM-0016",
+    "NOM-0054",
+    "NOM-0057",
+    "NOM-0107"
+  ],
+  "unresolved": [
+    "If an urgent security fix materially alters compatibility, determine the owner-approved exception and verification policy during separate rule review."
+  ],
+  "next_state": "await_explicit_specimen_processing_authorization",
+  "remarks": "Provisional Rust-fork maintenance rule proposal derived from a documented gap in the public Nomos draft-profile review. Queued only: no rule ID assigned, no processing record, no draft-profile edits, no automatic activation."
+}

@@ -1,0 +1,46 @@
+{
+  "id": "SPEC-0136",
+  "title": "Resolve upstream integration conflicts without silently losing fork changes",
+  "status": "proposed",
+  "abstract": "When an authorized fork integration produces competing edits, identify the affected fork-specific patches and upstream changes, choose an explicit resolution supported by the approved task, and verify that intended behavior is preserved; never treat an automatic merge or rebase result as authorization to discard a local customization.",
+  "source": {
+    "kind": "public_document",
+    "reference": "https://github.com/sguzman/nomos/blob/main/profiles/REVIEW-2026-10-22.md",
+    "material_retained": false
+  },
+  "received_on": "2026-10-22",
+  "intake": {
+    "visibility": "public_safe_abstract_only",
+    "operation": "specimen_queue_entry",
+    "processing_authorized": false
+  },
+  "scope_hints": {
+    "domains": [
+      "git_repository",
+      "software_development",
+      "project_management"
+    ],
+    "topic": "rust_fork_conflict_reconciliation",
+    "candidate_normative_kind": "obligation",
+    "predicate_hypothesis": {
+      "action": "reconcile",
+      "object": "upstream_and_fork_patch_conflicts",
+      "target": "authorized_rust_fork_integration"
+    },
+    "project_types": [
+      "rust_fork_maintenance"
+    ],
+    "scope_boundary": "Only separately authorized work on an existing Rust fork and its explicitly identified upstream; neither queueing nor this proposed requirement authorizes repository edits, upstream integrations, releases, or unrelated work.",
+    "independent_atomic_rule": true
+  },
+  "possible_existing_coverage": [
+    "NOM-0016",
+    "NOM-0022",
+    "NOM-0054"
+  ],
+  "unresolved": [
+    "Clarify the evidentiary minimum for recording resolution decisions when no textual conflict is emitted but behavior changes."
+  ],
+  "next_state": "await_explicit_specimen_processing_authorization",
+  "remarks": "Provisional Rust-fork maintenance rule proposal derived from a documented gap in the public Nomos draft-profile review. Queued only: no rule ID assigned, no processing record, no draft-profile edits, no automatic activation."
+}

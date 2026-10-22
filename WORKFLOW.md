@@ -74,3 +74,7 @@ The queue intentionally starts with **zero ideas** until specifically nominated.
 ## Authorized normalization of conversational check-in rule (2026-10-22)
 
 At the user's explicit request, `SPEC-0118` was processed into one scoped, independently published prohibition, `NOM-0114`. The separate candidate and `processing/specimens/PROC-SPEC-0118.json` record preserve the process and the boundary allowing proportionate responses to newly credible present danger. Processing did not authorize selecting, activating, creating or changing profiles or processing any of the six queued `PROFILE-IDEA-*` items. Public artifacts contain no private conversational quotations.
+
+## Queued Rust-fork stewardship specimens (2026-10-22)
+
+The optional Rust-fork profile review identified missing upstream and patch-management specialization. Exactly six public-safe, independently addressable candidate specimens were added as `SPEC-0133`–`SPEC-0138` in `queues/specimens/`, all with `status: proposed` and `intake.processing_authorized: false`. This is **intake only**; no `processing/specimens/` disposition, `rules/NOM-*.json` publication, `queues/tasks/` item or profile-selection update is implied. Separate, explicit authorization remains necessary for each workflow transition.

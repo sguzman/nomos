@@ -13,10 +13,19 @@ def read(path):
 class ProcessingTraceTests(unittest.TestCase):
     def test_processed_and_pending_specimens_keep_separate_states(self):
         specimens = sorted((ROOT / "queues/specimens").glob("SPEC-*.json"))
-        self.assertEqual(len(specimens), 132)
+        self.assertEqual(len(specimens), 138)
         for path in specimens:
             original = json.loads(path.read_text(encoding="utf-8"))
             with self.subTest(specimen=original["id"]):
+                number=int(original["id"].split("-")[1])
+                if 133 <= number <= 138:
+                    self.assertEqual(original["status"], "proposed")
+                    self.assertFalse(original["intake"]["processing_authorized"])
+                    self.assertEqual(original["scope_hints"]["project_types"], ["rust_fork_maintenance"])
+                    self.assertEqual(original["next_state"], "await_explicit_specimen_processing_authorization")
+                    self.assertNotIn("processing", original)
+                    self.assertFalse((ROOT / "processing/specimens" / ("PROC-" + original["id"] + ".json")).exists())
+                    continue
                 if original["id"] == "SPEC-0118":
                     self.assertEqual(original["status"], "processed")
                     self.assertFalse(original["intake"]["processing_authorized"])
@@ -41,6 +50,19 @@ class ProcessingTraceTests(unittest.TestCase):
         self.assertEqual(rule["norm"]["bounds"]["maximum"], 0)
         self.assertIn("materially new", rule["norm"]["exceptions"][0])
         self.assertEqual(len(list((ROOT / "queues/profiles").glob("PROFILE-IDEA-*.json"))), 6)
+
+
+    def test_six_rust_fork_candidates_are_atomic_unprocessed_and_do_not_modify_profiles(self):
+        records=[read("queues/specimens/SPEC-"+str(i).zfill(4)+".json") for i in range(133,139)]
+        self.assertEqual([s["status"] for s in records],["proposed"]*6)
+        self.assertEqual(len({tuple(s["scope_hints"]["predicate_hypothesis"].values()) for s in records}),6)
+        self.assertTrue(all(s["possible_existing_coverage"] for s in records))
+        self.assertTrue(all(not s["intake"]["processing_authorized"] for s in records))
+        self.assertTrue(all(s["source"]["material_retained"] is False for s in records))
+        self.assertEqual([read("profiles/PROFILE-0007.json")["review"]["selection_confirmed"],
+                          read("profiles/PROFILE-0008.json")["review"]["selection_confirmed"]],[False,False])
+        self.assertEqual([len(read("profiles/PROFILE-0007.json")["selected_rule_ids"]),
+                          len(read("profiles/PROFILE-0008.json")["selected_rule_ids"])],[34,89])
 
     def test_group_proposals_have_separate_records(self):
         proposals = sorted((ROOT / "queues/specimens/groups").glob("GROUP-*.json"))
