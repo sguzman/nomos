@@ -40,9 +40,7 @@
       "workflow_governance"
     ],
     "topics": [
-      [
-        "yaml_job_workflow"
-      ]
+      "yaml_job_workflow"
     ],
     "audiences": [
       "ai_agents",

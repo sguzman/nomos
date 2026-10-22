@@ -39,9 +39,7 @@
       "software_development"
     ],
     "topics": [
-      [
-        "browser_artifact_versioning"
-      ]
+      "browser_artifact_versioning"
     ],
     "audiences": [
       "ai_agents",
