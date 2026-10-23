@@ -77,6 +77,22 @@
         "project"
       ],
       "description": "An independently maintained public Tarium candidate or member project; enrollment requires separate explicit authorization"
+    },
+    {
+      "id": "cpp_to_rust_port",
+      "parents": [
+        "software_port",
+        "rust_project"
+      ],
+      "description": "C++ implementation ported into a Rust replacement"
+    },
+    {
+      "id": "python_to_rust_port",
+      "parents": [
+        "software_port",
+        "rust_project"
+      ],
+      "description": "Python implementation ported into a Rust replacement"
     }
   ]
 }

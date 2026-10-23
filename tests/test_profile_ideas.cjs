@@ -51,14 +51,14 @@ test('queued records do not become published profiles through website catalog bu
   const catalog=require('../docs/catalog.json');
   const profiles=require('../profiles/PROFILE-0001.json');
   assert.equal(profiles.kind,'rule_profile');
-  assert.equal(catalog.profiles.length,8);
+  assert.equal(catalog.profiles.length,12);
   assert.ok(catalog.profiles.every(p=>p.kind==='rule_profile'));
   assert.ok(!catalog.profiles.some(p=>p.id.startsWith('PROFILE-IDEA-')));
 });
 
 test('six explicitly instantiated profile ideas retain correct linked unreviewed drafts',()=>{
   const all=queue.readQueue();
-  assert.equal(all.length,8);
+  assert.equal(all.length,10);
   const ideas=all.slice(0,6);
   assert.deepEqual(ideas.map(x=>x.id),Array.from({length:6},(_,i)=>'PROFILE-IDEA-'+String(i+1).padStart(4,'0')));
   for(const idea of ideas){
@@ -76,25 +76,33 @@ test('six explicitly instantiated profile ideas retain correct linked unreviewed
   const pairs=[[ideas[0],ideas[1]],[ideas[2],ideas[3]],[ideas[4],ideas[5]]];
   for(const pair of pairs)assert.notEqual(pair[0].title,pair[1].title);
   const catalog=require('../docs/catalog.json');
-  assert.equal(catalog.profiles.length,8);
+  assert.equal(catalog.profiles.length,12);
   assert.ok(catalog.profiles.every(p=>p.kind==='rule_profile'));
 });
 
 test('C++-to-Rust Lite/Full ideas stay queued and separate from C-to-Rust drafts',()=>{
   const ideas=queue.readQueue();
-  const cpp=ideas.slice(6);
+  const cpp=ideas.slice(6,8);
   assert.deepEqual(cpp.map(x=>x.id),['PROFILE-IDEA-0007','PROFILE-IDEA-0008']);
   for(const idea of cpp){
-    assert.equal(idea.status,'queued');
+    assert.equal(idea.status,'instantiated');
     assert.deepEqual(idea.proposed_rule_ids,[]);
     assert.deepEqual(idea.proposed_group_ids,[]);
-    assert.deepEqual(idea.linked_profile_ids,[]);
+    assert.deepEqual(idea.linked_profile_ids,['PROFILE-'+String(Number(idea.id.slice(-4))+2).padStart(4,'0')]);
     assert.equal(queue.validateIdea(idea).length,0);
     assert.match(idea.title,/C\+\+-to-Rust/);
     assert.match(idea.summary,/PROFILE-000[12]/);
   }
   const catalog=require('../docs/catalog.json');
-  assert.equal(catalog.profiles.length,8);
-  assert.ok(!catalog.profiles.some(p=>p.title.includes('C++-to-Rust')));
-  assert.equal(queue.nextIdeaId(ideas),'PROFILE-IDEA-0009');
+  assert.equal(catalog.profiles.length,12);
+  assert.ok(catalog.profiles.some(p=>p.title.includes('C++-to-Rust')));
+  assert.equal(queue.nextIdeaId(ideas),'PROFILE-IDEA-0011');
+});
+
+test('Python-to-Rust ideas have instantiated unconfirmed Lite/Full profiles',()=>{
+ const ideas=queue.readQueue().slice(8);
+ assert.deepEqual(ideas.map(x=>x.id),['PROFILE-IDEA-0009','PROFILE-IDEA-0010']);
+ for(const idea of ideas){assert.equal(idea.status,'instantiated');assert.equal(queue.validateIdea(idea).length,0);
+   assert.equal(idea.linked_profile_ids.length,1);const p=require('../profiles/'+idea.linked_profile_ids[0]+'.json');
+   assert.equal(p.review.selection_confirmed,false);assert.equal(p.status,'draft');}
 });

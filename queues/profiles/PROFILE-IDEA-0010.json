@@ -1,0 +1,16 @@
+{
+  "id": "PROFILE-IDEA-0010",
+  "title": "Strict Python-to-Rust Program Port — Full",
+  "summary": "User-authorized provisional Python-to-Rust strict-port Full selection. Extend Lite with verification, CI, packaging, migration, versioning and reporting rules; language-specific semantics require separate future atomic-rule review.",
+  "kind": "profile_idea",
+  "status": "instantiated",
+  "proposed_rule_ids": [],
+  "proposed_group_ids": [],
+  "linked_profile_ids": [
+    "PROFILE-0012"
+  ],
+  "governance": {
+    "created_on": "2026-10-22",
+    "updated_on": "2026-10-22"
+  }
+}

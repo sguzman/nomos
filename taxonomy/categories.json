@@ -249,6 +249,8 @@
     "c_to_rust_port",
     "browser_userscript",
     "browser_extension",
-    "tarium_project"
+    "tarium_project",
+    "cpp_to_rust_port",
+    "python_to_rust_port"
   ]
 }

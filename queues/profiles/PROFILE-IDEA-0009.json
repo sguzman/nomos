@@ -1,0 +1,16 @@
+{
+  "id": "PROFILE-IDEA-0009",
+  "title": "Strict Python-to-Rust Program Port — Lite",
+  "summary": "User-authorized provisional Python-to-Rust strict-port Lite selection. Preserve Python observable behavior and appropriate Rust/test hygiene; document dynamic-language semantic gaps before confirmation.",
+  "kind": "profile_idea",
+  "status": "instantiated",
+  "proposed_rule_ids": [],
+  "proposed_group_ids": [],
+  "linked_profile_ids": [
+    "PROFILE-0011"
+  ],
+  "governance": {
+    "created_on": "2026-10-22",
+    "updated_on": "2026-10-22"
+  }
+}

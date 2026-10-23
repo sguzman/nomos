@@ -23,7 +23,7 @@ test('schema defines an independent optional profile type, not a virtual group',
 test('authorized C-to-Rust profiles are independently editable drafts with privacy', () => {
   const folder=path.resolve(__dirname,'../profiles');
   const filenames=fs.readdirSync(folder).filter(f=>/^PROFILE-.*\.json$/.test(f)).sort();
-  assert.deepEqual(filenames,Array.from({length:8},(_,i)=>'PROFILE-'+String(i+1).padStart(4,'0')+'.json'));
+  assert.deepEqual(filenames,Array.from({length:12},(_,i)=>'PROFILE-'+String(i+1).padStart(4,'0')+'.json'));
   const original=filenames.slice(0,2);
   const [lite,full]=original.map(f=>JSON.parse(fs.readFileSync(path.join(folder,f),'utf8')));
   for(const profile of [lite,full]){
@@ -150,4 +150,20 @@ test('unconfirmed draft can only be confirmed with explicit owner selection appr
   assert.equal(proposed.review.selection_confirmed,false);
   assert.equal(confirmed.review.finalization_confirmed,false);
   assert.deepEqual(profiles.validate(confirmed,published).errors,[]);
+});
+
+test('C++ and Python provisional port drafts reuse neutral atoms without C-only atoms',()=>{
+  const ids=['PROFILE-0009','PROFILE-0010','PROFILE-0011','PROFILE-0012'];
+  const drafts=ids.map(id=>require('../profiles/'+id+'.json'));
+  for(const p of drafts){
+    assert.equal(p.status,'draft');
+    assert.equal(p.review.selection_confirmed,false);
+    assert.equal(p.review.finalization_confirmed,false);
+    assert.deepEqual(profiles.validate(p,published).errors,[]);
+    for(const cOnly of ['NOM-0111','NOM-0112','NOM-0113'])assert.ok(!p.selected_rule_ids.includes(cOnly));
+    for(const general of ['NOM-0074','NOM-0075','NOM-0076'])assert.ok(p.selected_rule_ids.includes(general));
+    assert.throws(()=>profiles.finalize(p,published,{finalizationConfirmed:true}),/owner review/);
+  }
+  for(let i=0;i<drafts.length;i+=2){const lite=new Set(drafts[i].selected_rule_ids), full=new Set(drafts[i+1].selected_rule_ids);
+    assert.ok(lite.size<full.size);assert.ok([...lite].every(id=>full.has(id)));}
 });
