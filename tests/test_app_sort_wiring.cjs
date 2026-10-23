@@ -149,8 +149,8 @@ test('real catalog initialization includes profiles without activating them',asy
   const app=launch();
   await vm.runInContext('init()',app.ctx);
   assert.equal(app.get('count-all').textContent,String(catalog.rules.length+catalog.groups.length+catalog.profiles.length));
-  assert.equal(app.get('count-draft').textContent,'9'); // one draft rule and eight draft profiles
-  assert.deepEqual(app.get('filter-profile').children.map(x=>x.value),Array.from({length:8},(_,i)=>'PROFILE-'+String(i+1).padStart(4,'0')));
+  assert.equal(app.get('count-draft').textContent,'13'); // one draft rule and twelve draft profiles
+  assert.deepEqual(app.get('filter-profile').children.map(x=>x.value),Array.from({length:12},(_,i)=>'PROFILE-'+String(i+1).padStart(4,'0')));
   assert.equal(vm.runInContext('state.selected.length',app.ctx),0);
   app.get('filter-type').value='profiles';
   app.get('filter-type').listeners.change();
@@ -162,7 +162,7 @@ test('project type selector filters the real catalog without altering rule selec
   app.get('filter-project').value='tarium_project';
   app.get('filter-project').listeners.change();
   assert.deepEqual(app.firstIds(2),['NOM-0006','NOM-0007']);
-  assert.equal(app.get('catalog-list').children.length,65);
+  assert.equal(app.get('catalog-list').children.length,67);
   assert.equal(vm.runInContext('state.selected.length',app.ctx),0);
   app.get('clear-filters').listeners.click();
   assert.equal(app.get('filter-project').value,'all');
@@ -186,7 +186,7 @@ test('new provisional draft card shows selection-review state and browses the ex
   const app=launch();
   app.get('filter-type').value='profiles';app.get('filter-type').listeners.change();
   const cards=app.get('catalog-list').children;
-  assert.equal(cards.length,8);
+  assert.equal(cards.length,12);
   const candidate=cards[2];
   const actions=candidate.children.find(n=>n.className==='group-actions');
   assert.match(JSON.stringify(candidate,(k,v)=>['listeners','style'].includes(k)?undefined:v),/Selection not reviewed/);
