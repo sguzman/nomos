@@ -1,0 +1,14 @@
+{
+  "id": "PROFILE-IDEA-0008",
+  "title": "Strict C++-to-Rust Program Port — Full",
+  "summary": "Comprehensive, opt-in profile idea for a high-fidelity, maintainable C++-to-Rust replacement. Start from the language-neutral core of C-to-Rust Full (PROFILE-0002), with complete behavior/feature inventory, differential and edge-case test matrices, build/CI, coverage, reproducible validation, documentation, versioning, release/MVP gates, roadmaps and evidence-based progress. Add separately reviewed C++-specific requirements for RAII/destructor and exception semantics, object models and dispatch/templates, ABI/FFI and data layout, concurrency/atomicity, platform/toolchain differences, and explicit deviations. Lite must be a strict subset of Full; no existing C-to-Rust selection is automatically copied or approved.",
+  "kind": "profile_idea",
+  "status": "queued",
+  "proposed_rule_ids": [],
+  "proposed_group_ids": [],
+  "linked_profile_ids": [],
+  "governance": {
+    "created_on": "2026-10-22",
+    "updated_on": "2026-10-22"
+  }
+}

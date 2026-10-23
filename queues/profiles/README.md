@@ -39,3 +39,7 @@ To proceed later, explicitly name the queue ID and separately authorize reviewin
 The six queue records are now `instantiated` and link to real `profiles/PROFILE-*.json` files. The original proposed hints remain historical intake metadata. In each new profile, `review.selection_confirmed=false` means the **user has not yet accepted the specific membership list**, despite authorizing the draft's creation. Browse the drafts in the [public catalog](https://sguzman.github.io/nomos/), filter Profiles only, and use Browse members to inspect canonical rule IDs. No draft is applied or finalized by viewing it.
 
 See [PROFILE_WORKFLOW.md](../../PROFILE_WORKFLOW.md) and [selection review notes](../../profiles/REVIEW-2026-10-22.md).
+
+## C++-to-Rust port profile ideas awaiting review (2026-10-22)
+
+`PROFILE-IDEA-0007` (Lite) and `PROFILE-IDEA-0008` (Full) are **queued**, not instantiated. They propose reusing the language-neutral strict-porting coverage from the existing C-to-Rust draft pair while evaluating C++-specific semantics separately. The C-only rules and existing draft selections are not automatically inherited or approved. No new `PROFILE-*` records, rule selections, or exports have been created.

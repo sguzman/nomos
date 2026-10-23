@@ -84,10 +84,13 @@ class RetrospectiveClassificationTests(unittest.TestCase):
         profiles=[load("profiles/PROFILE-"+str(i).zfill(4)+".json") for i in (1,2)]
         self.assertEqual([(p["status"],len(p["selected_rule_ids"])) for p in profiles],[("draft",41),("draft",93)])
         ideas=list((ROOT/"queues/profiles").glob("PROFILE-IDEA-*.json"))
-        self.assertEqual(len(ideas),6)
-        self.assertTrue(all(json.loads(p.read_text())["status"]=="instantiated" for p in ideas))
-        self.assertEqual({json.loads(p.read_text())["linked_profile_ids"][0] for p in ideas},
+        self.assertEqual(len(ideas),8)
+        originals=[load("queues/profiles/PROFILE-IDEA-"+str(i).zfill(4)+".json") for i in range(1,7)]
+        self.assertTrue(all(p["status"]=="instantiated" for p in originals))
+        self.assertEqual({p["linked_profile_ids"][0] for p in originals},
                          {"PROFILE-"+str(i).zfill(4) for i in range(3,9)})
+        upcoming=[load("queues/profiles/PROFILE-IDEA-"+str(i).zfill(4)+".json") for i in (7,8)]
+        self.assertTrue(all(p["status"]=="queued" and p["linked_profile_ids"]==[] for p in upcoming))
 
 if __name__=="__main__":
     unittest.main()

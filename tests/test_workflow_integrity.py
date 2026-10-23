@@ -13,12 +13,12 @@ def read(path):
 class ProcessingTraceTests(unittest.TestCase):
     def test_processed_and_pending_specimens_keep_separate_states(self):
         specimens = sorted((ROOT / "queues/specimens").glob("SPEC-*.json"))
-        self.assertEqual(len(specimens), 139)
+        self.assertEqual(len(specimens), 140)
         for path in specimens:
             original = json.loads(path.read_text(encoding="utf-8"))
             with self.subTest(specimen=original["id"]):
                 number=int(original["id"].split("-")[1])
-                if 133 <= number <= 139:
+                if 133 <= number <= 140:
                     self.assertEqual(original["status"], "proposed")
                     self.assertFalse(original["intake"]["processing_authorized"])
                     expected_scope=["rust_fork_maintenance"] if number<=138 else ["project"]
@@ -50,7 +50,7 @@ class ProcessingTraceTests(unittest.TestCase):
         self.assertEqual(rule["norm"]["kind"], "prohibition")
         self.assertEqual(rule["norm"]["bounds"]["maximum"], 0)
         self.assertIn("materially new", rule["norm"]["exceptions"][0])
-        self.assertEqual(len(list((ROOT / "queues/profiles").glob("PROFILE-IDEA-*.json"))), 6)
+        self.assertEqual(len(list((ROOT / "queues/profiles").glob("PROFILE-IDEA-*.json"))), 8)
 
 
     def test_six_rust_fork_candidates_are_atomic_unprocessed_and_do_not_modify_profiles(self):
@@ -73,6 +73,16 @@ class ProcessingTraceTests(unittest.TestCase):
         self.assertTrue(specimen["possible_existing_coverage"])
         self.assertNotIn("processing",specimen)
         self.assertFalse((ROOT/"processing/specimens/PROC-SPEC-0139.json").exists())
+
+    def test_readme_public_orientation_proposal_is_unprocessed_and_separate(self):
+        s=read("queues/specimens/SPEC-0140.json")
+        self.assertEqual(s["status"],"proposed")
+        self.assertFalse(s["intake"]["processing_authorized"])
+        self.assertEqual(s["scope_hints"]["predicate_hypothesis"]["target"],"public_repository_readme")
+        self.assertEqual(s["possible_existing_coverage"],["NOM-0042","NOM-0047","NOM-0048"])
+        self.assertNotIn("processing",s)
+        self.assertFalse((ROOT/"processing/specimens/PROC-SPEC-0140.json").exists())
+        self.assertFalse((ROOT/"rules/NOM-0129.json").exists())
 
     def test_group_proposals_have_separate_records(self):
         proposals = sorted((ROOT / "queues/specimens/groups").glob("GROUP-*.json"))

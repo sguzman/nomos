@@ -1,0 +1,47 @@
+{
+  "id": "SPEC-0140",
+  "title": "Keep repository READMEs approachable and separate from change histories",
+  "status": "proposed",
+  "abstract": "Write a repository README as a professional, welcoming orientation for new visitors: briefly explain what the project is, its value, how to get started, and links to relevant resources. Do not use it as an accumulating changelog, internal progress log, or dump of implementation details. Put extensive explanations, designs, technical references, and long-form guides under docs/; where a chronological change history is useful, maintain a separate changelog file such as CHANGELOG.md and link to it. Brief release highlights in a README are permissible when helpful.",
+  "source": {
+    "kind": "public_safe_user_submitted_rule_idea",
+    "reference": "Generalized README presentation and documentation organization preference; no private conversation retained",
+    "material_retained": false
+  },
+  "received_on": "2026-10-22",
+  "intake": {
+    "visibility": "public_safe_abstract_only",
+    "operation": "specimen_queue_entry",
+    "processing_authorized": false
+  },
+  "scope_hints": {
+    "domains": [
+      "documentation",
+      "software_development",
+      "publication"
+    ],
+    "topic": "readme_public_orientation_and_documentation_separation",
+    "candidate_normative_kind": "obligation",
+    "predicate_hypothesis": {
+      "action": "maintain",
+      "object": "concise_visitor_friendly_readme_with_linked_detailed_docs",
+      "target": "public_repository_readme"
+    },
+    "project_types": [
+      "project"
+    ],
+    "scope_boundary": "Repository README files intended for a public or prospective contributor audience; README summary and navigation are allowed, lengthy docs belong under docs/, and a separate changelog is appropriate when a project tracks substantive history. Do not invent release history or require a changelog in projects that do not need one.",
+    "independent_atomic_rule": true
+  },
+  "possible_existing_coverage": [
+    "NOM-0042",
+    "NOM-0047",
+    "NOM-0048"
+  ],
+  "unresolved": [
+    "During processing, decide whether README audience/presentation and long-form documentation separation require separate atomic rules; maintain the user's single-rule proposal as the intake identity.",
+    "Clarify optional changelog creation versus required separation of an existing changelog from README content."
+  ],
+  "next_state": "await_explicit_specimen_processing_authorization",
+  "remarks": "Queued documentation-organization rule proposal only. It does not change current published rules, edit unrelated project documentation, or change profile selections."
+}

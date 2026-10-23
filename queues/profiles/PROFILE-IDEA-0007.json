@@ -1,0 +1,14 @@
+{
+  "id": "PROFILE-IDEA-0007",
+  "title": "Strict C++-to-Rust Program Port — Lite",
+  "summary": "Focused, opt-in profile idea for faithfully replacing an existing C++ program with Rust. Reuse language-independent strict-porting requirements from the C-to-Rust Lite draft (PROFILE-0001), including externally observable parity, targeted differential/regression tests, project/repository hygiene, documentation, and privacy. Review C++-specific gaps separately: object lifetime and RAII, ownership and aliasing, exceptions and error propagation, overloads/templates and runtime polymorphism, memory/layout and ABI/FFI boundaries, and threading/concurrency. Do not assume that C-specific atomic rules automatically apply to C++.",
+  "kind": "profile_idea",
+  "status": "queued",
+  "proposed_rule_ids": [],
+  "proposed_group_ids": [],
+  "linked_profile_ids": [],
+  "governance": {
+    "created_on": "2026-10-22",
+    "updated_on": "2026-10-22"
+  }
+}

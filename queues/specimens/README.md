@@ -43,3 +43,7 @@ Six independent public-safe specimen proposals `SPEC-0133`–`SPEC-0138` address
 ## Explicit user-action footer candidate (2026-10-22)
 
 `SPEC-0139` separately proposes a consistently labeled end-of-work summary section that distinguishes required user decisions/inputs from optional next steps and explicitly says when no action is necessary. This overlaps but does not replace the existing verification/completion-reporting rules `NOM-0066`, `NOM-0067`, `NOM-0071`, and `NOM-0072`. It is **proposed only**, with no specimen processing, publication, profile edits, or automatic activation authorized by intake.
+
+## README presentation and documentation organization (2026-10-22)
+
+`SPEC-0140` proposes keeping READMEs concise, welcoming and useful to repository visitors, with long-form material under `docs/` and chronological changes in a separate changelog when appropriate. It overlaps documentation rules `NOM-0042`, `NOM-0047`, and `NOM-0048`. This is intake only; no new catalog rule is published or automatically applied.

@@ -57,8 +57,9 @@ test('queued records do not become published profiles through website catalog bu
 });
 
 test('six explicitly instantiated profile ideas retain correct linked unreviewed drafts',()=>{
-  const ideas=queue.readQueue();
-  assert.equal(ideas.length,6);
+  const all=queue.readQueue();
+  assert.equal(all.length,8);
+  const ideas=all.slice(0,6);
   assert.deepEqual(ideas.map(x=>x.id),Array.from({length:6},(_,i)=>'PROFILE-IDEA-'+String(i+1).padStart(4,'0')));
   for(const idea of ideas){
     assert.equal(idea.status,'instantiated');
@@ -77,4 +78,23 @@ test('six explicitly instantiated profile ideas retain correct linked unreviewed
   const catalog=require('../docs/catalog.json');
   assert.equal(catalog.profiles.length,8);
   assert.ok(catalog.profiles.every(p=>p.kind==='rule_profile'));
+});
+
+test('C++-to-Rust Lite/Full ideas stay queued and separate from C-to-Rust drafts',()=>{
+  const ideas=queue.readQueue();
+  const cpp=ideas.slice(6);
+  assert.deepEqual(cpp.map(x=>x.id),['PROFILE-IDEA-0007','PROFILE-IDEA-0008']);
+  for(const idea of cpp){
+    assert.equal(idea.status,'queued');
+    assert.deepEqual(idea.proposed_rule_ids,[]);
+    assert.deepEqual(idea.proposed_group_ids,[]);
+    assert.deepEqual(idea.linked_profile_ids,[]);
+    assert.equal(queue.validateIdea(idea).length,0);
+    assert.match(idea.title,/C\+\+-to-Rust/);
+    assert.match(idea.summary,/PROFILE-000[12]/);
+  }
+  const catalog=require('../docs/catalog.json');
+  assert.equal(catalog.profiles.length,8);
+  assert.ok(!catalog.profiles.some(p=>p.title.includes('C++-to-Rust')));
+  assert.equal(queue.nextIdeaId(ideas),'PROFILE-IDEA-0009');
 });

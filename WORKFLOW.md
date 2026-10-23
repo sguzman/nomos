@@ -82,3 +82,7 @@ The optional Rust-fork profile review identified missing upstream and patch-mana
 ## Queued required-user-action summary footer (2026-10-22)
 
 `SPEC-0139` records one independent and public-safe reporting convention for completed-work summaries: explicitly enumerate genuine required user inputs or state that nothing is required. It is a queued specimen, not a published `NOM-*` rule or globally activated instruction. Separate authorization is required for normalization or publication; it does not change existing profile selections.
+
+## New optional C++ port profiles and README rule intake (2026-10-22)
+
+Two separate C++-to-Rust profile ideas, `PROFILE-IDEA-0007` and `0008`, are queued for Lite/Full drafting. Existing strict C-to-Rust draft profiles remain untouched; C++-specific semantic and test requirements need later review before creating concrete profile selections. The public-facing README-documentation rule idea is queued independently as `SPEC-0140`, with processing authorization deliberately absent. None of these entries instantiates, finalizes, publishes, or activates a rule or profile.
