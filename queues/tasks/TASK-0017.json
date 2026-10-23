@@ -2,7 +2,7 @@
   "id": "TASK-0017",
   "title": "Process eight queued fork, completion and README specimens",
   "kind": "catalog_and_documentation_integration",
-  "status": "verifying",
+  "status": "completed",
   "created_on": "2026-10-22",
   "source": "Explicit user authorization to process all eight queued specimen proposals",
   "authorization": {
@@ -13,10 +13,11 @@
   },
   "scope": "Normalize and publish SPEC-0133–0140, preserve candidate history, update taxonomy and documentation, verify CI and deployment; do not auto-activate profiles.",
   "processing_record": "processing/tasks/TASK-0017.json",
-  "remarks": "Pending independent CI/deployment verification.",
+  "remarks": "Eight source specimens normalized and published, four new strict-port profiles instantiated without selection approval, public documentation refreshed. All CI checks and GitHub Pages deployment passed in run 39893310805.",
   "processing": {
     "record": "processing/tasks/TASK-0017.json",
     "started_on": "2026-10-22",
-    "state": "verifying"
-  }
+    "state": "done"
+  },
+  "completed_on": "2026-10-22"
 }

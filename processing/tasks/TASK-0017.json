@@ -1,14 +1,14 @@
 {
   "processing_id": "TASK-0017",
   "source_queue_record": "queues/tasks/TASK-0017.json",
-  "status": "verifying",
+  "status": "done",
   "started_on": "2026-10-22",
   "authorization": {
     "source": "Explicit user request for full specimen normalization and publication",
     "on": "2026-10-22"
   },
   "disposition": {
-    "kind": "pending_verification",
+    "kind": "completed",
     "outputs": [
       "rules/NOM-0129.json",
       "rules/NOM-0130.json",
@@ -17,19 +17,42 @@
       "rules/NOM-0133.json",
       "rules/NOM-0134.json",
       "rules/NOM-0135.json",
-      "rules/NOM-0136.json"
+      "rules/NOM-0136.json",
+      "processing/specimens/PROC-SPEC-0133.json",
+      "processing/specimens/PROC-SPEC-0134.json",
+      "processing/specimens/PROC-SPEC-0135.json",
+      "processing/specimens/PROC-SPEC-0136.json",
+      "processing/specimens/PROC-SPEC-0137.json",
+      "processing/specimens/PROC-SPEC-0138.json",
+      "processing/specimens/PROC-SPEC-0139.json",
+      "processing/specimens/PROC-SPEC-0140.json",
+      "profiles/PROFILE-0009.json",
+      "profiles/PROFILE-0010.json",
+      "profiles/PROFILE-0011.json",
+      "profiles/PROFILE-0012.json",
+      "taxonomy/categories.json",
+      "schema/rule.schema.json",
+      "tests/",
+      "README.md",
+      "docs/ABOUT.md",
+      "profiles/REVIEW-2026-10-23.md"
     ],
     "automatic_application": false
   },
   "evidence": {
-    "implementation_commit": null,
-    "github_actions_run": null,
-    "github_actions_conclusion": "pending",
+    "implementation_commit": "96f42a2344ab69974fe567bd13fbdc3c3b33cf83",
+    "github_actions_run": "https://github.com/sguzman/nomos/actions/runs/39893310805",
+    "github_actions_conclusion": "success",
     "verified_steps": [
-      "Eight rule/candidate/processing triples created",
-      "Eight queue entries marked processed"
+      "All eight SPEC-0133–0140 records have independent closed processing dispositions",
+      "Published NOM-0129–0136 records have retained draft candidates and controlled taxonomy",
+      "Four provisional strict-port profiles remain unconfirmed and Lite is strictly nested within Full",
+      "Python validation and 62-unit-test suite passed",
+      "Browser JavaScript, profile, profile-idea and perceptual color checks passed",
+      "GitHub Actions upload and Pages deployment succeeded in run 39893310805"
     ],
     "real_browser_visual_qa": "not_performed",
     "selection_scope": "No automatic profile changes."
-  }
+  },
+  "completed_on": "2026-10-22"
 }
