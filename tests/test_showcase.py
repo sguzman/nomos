@@ -14,9 +14,9 @@ class SiteCatalogTests(unittest.TestCase):
 
     def test_distinct_public_entries(self):
         rules = self.data["rules"]
-        self.assertEqual(len(rules), 128)
+        self.assertEqual(len(rules), 136)
         self.assertEqual({r["id"] for r in rules},
-                         {"NOM-" + str(i).zfill(4) for i in range(1, 129)})
+                         {"NOM-" + str(i).zfill(4) for i in range(1, 137)})
 
     def test_candidates_cannot_be_mislabeled_published(self):
         candidates = [r for r in self.data["rules"] if r["registry"] == "candidate"]
@@ -25,7 +25,7 @@ class SiteCatalogTests(unittest.TestCase):
 
     def test_existing_catalog_keeps_original_statuses(self):
         catalog = [r for r in self.data["rules"] if r["registry"] == "catalog"]
-        self.assertEqual(len(catalog), 128)
+        self.assertEqual(len(catalog), 136)
         self.assertEqual({(r["id"], r["status"]) for r in catalog if r["id"] in {"NOM-0001", "NOM-0002"}},
                          {("NOM-0001", "published"), ("NOM-0002", "draft")})
 
@@ -45,8 +45,8 @@ class SiteCatalogTests(unittest.TestCase):
 
     def test_optional_profiles_are_in_public_catalog_but_not_activated(self):
         profiles=self.data["profiles"]
-        self.assertEqual([p["id"] for p in profiles], ["PROFILE-"+str(i).zfill(4) for i in range(1,9)])
-        self.assertEqual([len(p["selected_rule_ids"]) for p in profiles], [41,93,35,90,29,61,34,89])
+        self.assertEqual([p["id"] for p in profiles], ["PROFILE-"+str(i).zfill(4) for i in range(1,13)])
+        self.assertEqual([len(p["selected_rule_ids"]) for p in profiles], [41,93,35,90,29,61,34,89,38,90,39,90])
         for profile in profiles:
             self.assertEqual(profile["status"],"draft")
             self.assertEqual(profile["review"]["selection_confirmed"], int(profile["id"].split("-")[1])<=2)
@@ -60,6 +60,8 @@ class SiteCatalogTests(unittest.TestCase):
         self.assertEqual(len(self.data["domain_definitions"]["domains"]),26)
         self.assertEqual(len(self.data["domain_definitions"]["families"]),7)
         self.assertIn("tarium_project",self.data["project_types"])
+        self.assertIn("cpp_to_rust_port",self.data["project_types"])
+        self.assertIn("python_to_rust_port",self.data["project_types"])
         rules={r["id"]:r for r in self.data["rules"]}
         self.assertEqual(len([r for r in rules.values() if r["scope"].get("project_types")==["tarium_project"]]),16)
         links=self.data["relationships"]

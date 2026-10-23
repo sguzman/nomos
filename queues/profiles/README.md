@@ -40,6 +40,6 @@ The six queue records are now `instantiated` and link to real `profiles/PROFILE-
 
 See [PROFILE_WORKFLOW.md](../../PROFILE_WORKFLOW.md) and [selection review notes](../../profiles/REVIEW-2026-10-22.md).
 
-## C++-to-Rust port profile ideas awaiting review (2026-10-22)
+## Additional strict-port profile drafts (2026-10-22)
 
-`PROFILE-IDEA-0007` (Lite) and `PROFILE-IDEA-0008` (Full) are **queued**, not instantiated. They propose reusing the language-neutral strict-porting coverage from the existing C-to-Rust draft pair while evaluating C++-specific semantics separately. The C-only rules and existing draft selections are not automatically inherited or approved. No new `PROFILE-*` records, rule selections, or exports have been created.
+`PROFILE-IDEA-0007`/`0008` link to the C++-to-Rust Lite/Full provisional drafts `PROFILE-0009`/`0010`. Newly requested Python-to-Rust `PROFILE-IDEA-0009`/`0010` link to drafts `PROFILE-0011`/`0012`. These four selections are unconfirmed and inert. The source-language-specific C-only rules were excluded; the remaining C++ and Python semantic coverage gaps are described in [the current review guide](../../profiles/REVIEW-2026-10-23.md).

@@ -80,17 +80,21 @@ class RetrospectiveClassificationTests(unittest.TestCase):
         for id in ("NOM-0111","NOM-0112","NOM-0113"):
             self.assertEqual(self.rules[id]["scope"]["project_types"],["c_to_rust_port"])
 
-    def test_other_profiles_and_queued_ideas_unchanged(self):
+    def test_legacy_profiles_preserved_and_new_ideas_explicitly_instantiated(self):
         profiles=[load("profiles/PROFILE-"+str(i).zfill(4)+".json") for i in (1,2)]
         self.assertEqual([(p["status"],len(p["selected_rule_ids"])) for p in profiles],[("draft",41),("draft",93)])
         ideas=list((ROOT/"queues/profiles").glob("PROFILE-IDEA-*.json"))
-        self.assertEqual(len(ideas),8)
+        self.assertEqual(len(ideas),10)
         originals=[load("queues/profiles/PROFILE-IDEA-"+str(i).zfill(4)+".json") for i in range(1,7)]
         self.assertTrue(all(p["status"]=="instantiated" for p in originals))
         self.assertEqual({p["linked_profile_ids"][0] for p in originals},
                          {"PROFILE-"+str(i).zfill(4) for i in range(3,9)})
         upcoming=[load("queues/profiles/PROFILE-IDEA-"+str(i).zfill(4)+".json") for i in (7,8)]
-        self.assertTrue(all(p["status"]=="queued" and p["linked_profile_ids"]==[] for p in upcoming))
+        self.assertEqual([p["linked_profile_ids"] for p in upcoming],[["PROFILE-0009"],["PROFILE-0010"]])
+        self.assertTrue(all(p["status"]=="instantiated" for p in upcoming))
+        python_ideas=[load("queues/profiles/PROFILE-IDEA-"+str(i).zfill(4)+".json") for i in (9,10)]
+        self.assertEqual([p["linked_profile_ids"] for p in python_ideas],[["PROFILE-0011"],["PROFILE-0012"]])
+        self.assertTrue(all(p["status"]=="instantiated" for p in python_ideas))
 
 if __name__=="__main__":
     unittest.main()
