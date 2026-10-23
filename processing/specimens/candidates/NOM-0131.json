@@ -1,0 +1,109 @@
+{
+  "id": "NOM-0131",
+  "version": "0.1.0",
+  "title": "Maintain provenance and disposition for fork-specific patches",
+  "summary": "Maintain a reviewable ledger linking independently maintained fork patches to their originating change, purpose, upstream issue or commit when known, and current status such as pending, upstreamed, superseded or deliberately retained; update it when patches are changed, rebased or retired.",
+  "statement": "Maintain a reviewable ledger linking independently maintained fork patches to their originating change, purpose, upstream issue or commit when known, and current status such as pending, upstreamed, superseded or deliberately retained; update it when patches are changed, rebased or retired.",
+  "rationale": "Independent normalization of SPEC-0135. Track purpose, origin, upstreaming state, retained changes and patch disposition. Existing overlapping general rules remain independently selectable.",
+  "language": "en",
+  "status": "draft",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "maintain",
+      "object": "fork_patch_lineage_and_dispositions",
+      "target": "rust_fork_patch_ledger"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "When a Rust fork retains independently maintained patches."
+    ],
+    "exceptions": [
+      "The reviewable ledger can live in files, commit notes or issue metadata; no single file format is mandatory."
+    ],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
+  },
+  "categories": {
+    "domains": [
+      "git_repository",
+      "maintenance"
+    ],
+    "topics": [
+      "rust_fork_patch_provenance"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "project_types": [
+      "rust_fork_maintenance"
+    ],
+    "preconditions": [
+      "When a Rust fork retains independently maintained patches."
+    ],
+    "exclusions": [
+      "The reviewable ledger can live in files, commit notes or issue metadata; no single file format is mandatory."
+    ]
+  },
+  "authority": {
+    "source": "Historical normalization candidate",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": [
+      "NOM-0129"
+    ]
+  },
+  "provenance": {
+    "source_type": "public_document",
+    "reference": "SPEC-0135; processing/specimens/PROC-SPEC-0135.json",
+    "license": "MIT",
+    "notes": "Only generalized public-safe text retained; publication does not authorize external actions."
+  },
+  "governance": {
+    "created_on": "2026-10-22",
+    "updated_on": "2026-10-22",
+    "review_status": "unreviewed"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ],
+  "semantic": {
+    "concept": "rust_fork_patch_provenance",
+    "aliases": []
+  }
+}

@@ -1,7 +1,7 @@
 {
   "id": "SPEC-0139",
   "title": "End completed-work reports with explicit user action requirements",
-  "status": "proposed",
+  "status": "processed",
   "abstract": "When reporting a completed work session or development deliverable, end the summary with a clearly separated user-action section. State each approval, decision, choice or input genuinely needed to proceed, identifying what it unblocks. If no user action is necessary, explicitly state that nothing is required. Keep optional follow-up suggestions distinct from mandatory action, and do not imply that automatic work authorization follows from reporting a possible next step.",
   "source": {
     "kind": "public_safe_user_submitted_rule_idea",
@@ -12,7 +12,7 @@
   "intake": {
     "visibility": "public_safe_abstract_only",
     "operation": "specimen_queue_entry",
-    "processing_authorized": false
+    "processing_authorized": true
   },
   "scope_hints": {
     "domains": [
@@ -39,9 +39,13 @@
     "NOM-0071",
     "NOM-0072"
   ],
-  "unresolved": [
-    "During later rule normalization, define a compact standardized footer label and distinguish required blockers from discretionary review opportunities without hiding real user decisions."
-  ],
-  "next_state": "await_explicit_specimen_processing_authorization",
-  "remarks": "Queue-only, independent completion-reporting atom, generalized from a formatting requirement. This does not publish or apply a rule or modify any profiles."
+  "unresolved": [],
+  "next_state": "processed_specimen_retained_as_intake_record",
+  "remarks": "Normalized and published as NOM-0135; no rule application or unrelated repository action.",
+  "processing": {
+    "authorized_by": "explicit_user_request",
+    "authorized_on": "2026-10-22",
+    "record": "processing/specimens/PROC-SPEC-0139.json",
+    "state": "closed"
+  }
 }

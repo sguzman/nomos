@@ -1,0 +1,33 @@
+{
+  "processing_id": "PROC-SPEC-0140",
+  "source_specimen_id": "SPEC-0140",
+  "status": "closed",
+  "authorization": {
+    "source": "Explicit user request to fully process queued specimens",
+    "on": "2026-10-22"
+  },
+  "processed_on": "2026-10-22",
+  "normalization": {
+    "kind": "obligation",
+    "canonical_rule_id": "NOM-0136",
+    "independent_atomic_specimen": true,
+    "phase": null,
+    "group_proposal": null
+  },
+  "comparison": {
+    "possible_overlap": [
+      "NOM-0042",
+      "NOM-0047",
+      "NOM-0048"
+    ],
+    "assessment": "One cohesive README audience-and-documentation-separation rule, distinct from general upkeep and changelog rules.",
+    "no_automatic_priority_change": true
+  },
+  "disposition": {
+    "kind": "normalized_and_published",
+    "candidate_id": "NOM-0136",
+    "candidate_path": "processing/specimens/candidates/NOM-0136.json",
+    "downstream_task_id": "TASK-0017"
+  },
+  "notes": "Keep README welcoming and concise; send detailed material to docs/ and change history to separate changelog. No profile membership was changed."
+}

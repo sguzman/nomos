@@ -19,13 +19,12 @@ class ProcessingTraceTests(unittest.TestCase):
             with self.subTest(specimen=original["id"]):
                 number=int(original["id"].split("-")[1])
                 if 133 <= number <= 140:
-                    self.assertEqual(original["status"], "proposed")
-                    self.assertFalse(original["intake"]["processing_authorized"])
+                    self.assertEqual(original["status"], "processed")
+                    self.assertTrue(original["intake"]["processing_authorized"])
                     expected_scope=["rust_fork_maintenance"] if number<=138 else ["project"]
                     self.assertEqual(original["scope_hints"]["project_types"], expected_scope)
-                    self.assertEqual(original["next_state"], "await_explicit_specimen_processing_authorization")
-                    self.assertNotIn("processing", original)
-                    self.assertFalse((ROOT / "processing/specimens" / ("PROC-" + original["id"] + ".json")).exists())
+                    self.assertEqual(original["processing"]["state"],"closed")
+                    self.assertTrue((ROOT / original["processing"]["record"]).is_file())
                     continue
                 if original["id"] == "SPEC-0118":
                     self.assertEqual(original["status"], "processed")
@@ -50,39 +49,26 @@ class ProcessingTraceTests(unittest.TestCase):
         self.assertEqual(rule["norm"]["kind"], "prohibition")
         self.assertEqual(rule["norm"]["bounds"]["maximum"], 0)
         self.assertIn("materially new", rule["norm"]["exceptions"][0])
-        self.assertEqual(len(list((ROOT / "queues/profiles").glob("PROFILE-IDEA-*.json"))), 8)
+        self.assertEqual(len(list((ROOT / "queues/profiles").glob("PROFILE-IDEA-*.json"))), 10)
 
 
-    def test_six_rust_fork_candidates_are_atomic_unprocessed_and_do_not_modify_profiles(self):
-        records=[read("queues/specimens/SPEC-"+str(i).zfill(4)+".json") for i in range(133,139)]
-        self.assertEqual([s["status"] for s in records],["proposed"]*6)
-        self.assertEqual(len({tuple(s["scope_hints"]["predicate_hypothesis"].values()) for s in records}),6)
-        self.assertTrue(all(s["possible_existing_coverage"] for s in records))
-        self.assertTrue(all(not s["intake"]["processing_authorized"] for s in records))
-        self.assertTrue(all(s["source"]["material_retained"] is False for s in records))
-        self.assertEqual([read("profiles/PROFILE-0007.json")["review"]["selection_confirmed"],
-                          read("profiles/PROFILE-0008.json")["review"]["selection_confirmed"]],[False,False])
+    def test_eight_processed_specimens_have_distinct_published_rules(self):
+        for number in range(133,141):
+            sid="SPEC-"+str(number).zfill(4)
+            rid="NOM-"+str(number-4).zfill(4)
+            specimen=read("queues/specimens/"+sid+".json")
+            process=read("processing/specimens/PROC-"+sid+".json")
+            rule=read("rules/"+rid+".json")
+            candidate=read("processing/specimens/candidates/"+rid+".json")
+            self.assertEqual(specimen["status"],"processed")
+            self.assertEqual(process["status"],"closed")
+            self.assertEqual(process["normalization"]["canonical_rule_id"],rid)
+            self.assertEqual(rule["status"],"published")
+            self.assertEqual(candidate["status"],"draft")
+            self.assertEqual(rule["categories"]["topics"],[specimen["scope_hints"]["topic"]])
+            self.assertFalse(specimen["source"]["material_retained"])
         self.assertEqual([len(read("profiles/PROFILE-0007.json")["selected_rule_ids"]),
                           len(read("profiles/PROFILE-0008.json")["selected_rule_ids"])],[34,89])
-
-    def test_completed_work_action_footer_is_queued_without_activation(self):
-        specimen=read("queues/specimens/SPEC-0139.json")
-        self.assertEqual(specimen["status"],"proposed")
-        self.assertEqual(specimen["scope_hints"]["predicate_hypothesis"]["target"],"completed_work_summary")
-        self.assertFalse(specimen["intake"]["processing_authorized"])
-        self.assertTrue(specimen["possible_existing_coverage"])
-        self.assertNotIn("processing",specimen)
-        self.assertFalse((ROOT/"processing/specimens/PROC-SPEC-0139.json").exists())
-
-    def test_readme_public_orientation_proposal_is_unprocessed_and_separate(self):
-        s=read("queues/specimens/SPEC-0140.json")
-        self.assertEqual(s["status"],"proposed")
-        self.assertFalse(s["intake"]["processing_authorized"])
-        self.assertEqual(s["scope_hints"]["predicate_hypothesis"]["target"],"public_repository_readme")
-        self.assertEqual(s["possible_existing_coverage"],["NOM-0042","NOM-0047","NOM-0048"])
-        self.assertNotIn("processing",s)
-        self.assertFalse((ROOT/"processing/specimens/PROC-SPEC-0140.json").exists())
-        self.assertFalse((ROOT/"rules/NOM-0129.json").exists())
 
     def test_group_proposals_have_separate_records(self):
         proposals = sorted((ROOT / "queues/specimens/groups").glob("GROUP-*.json"))
@@ -107,12 +93,12 @@ class ProcessingTraceTests(unittest.TestCase):
 
     def test_task_queues_and_execution_records_closed(self):
         task_queue = sorted((ROOT / "queues/tasks").glob("TASK-*.json"))
-        self.assertEqual(len(task_queue), 15)
+        self.assertEqual(len(task_queue), 16)
         for path in task_queue:
             task = json.loads(path.read_text(encoding="utf-8"))
             with self.subTest(task=task["id"]):
                 execution = read("processing/tasks/" + path.name)
-                if task["id"] == "TASK-0016" and task["status"] == "verifying":
+                if task["id"] in ("TASK-0016","TASK-0017") and task["status"] == "verifying":
                     self.assertEqual(task["processing"]["state"], "verifying")
                     self.assertEqual(execution["status"], "verifying")
                     continue

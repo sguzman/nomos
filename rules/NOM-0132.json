@@ -1,0 +1,110 @@
+{
+  "id": "NOM-0132",
+  "version": "1.0.0",
+  "title": "Resolve upstream integration conflicts without silently losing fork changes",
+  "summary": "When an authorized fork integration produces competing edits, identify the affected fork-specific patches and upstream changes, choose an explicit resolution supported by the approved task, and verify that intended behavior is preserved; never treat an automatic merge or rebase result as authorization to discard a local customization.",
+  "statement": "When an authorized fork integration produces competing edits, identify the affected fork-specific patches and upstream changes, choose an explicit resolution supported by the approved task, and verify that intended behavior is preserved; never treat an automatic merge or rebase result as authorization to discard a local customization.",
+  "rationale": "Independent normalization of SPEC-0136. Record consequential resolutions and check semantic conflicts even without textual merge markers. Existing overlapping general rules remain independently selectable.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "reconcile",
+      "object": "upstream_and_fork_patch_conflicts",
+      "target": "authorized_rust_fork_integration"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "When authorized upstream integration affects local behavior or patches."
+    ],
+    "exceptions": [
+      "Behavioral changes and unresolved conflicts must be surfaced; do not invent authorization to discard customizations."
+    ],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
+  },
+  "categories": {
+    "domains": [
+      "git_repository",
+      "software_development"
+    ],
+    "topics": [
+      "rust_fork_conflict_reconciliation"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "project_types": [
+      "rust_fork_maintenance"
+    ],
+    "preconditions": [
+      "When authorized upstream integration affects local behavior or patches."
+    ],
+    "exclusions": [
+      "Behavioral changes and unresolved conflicts must be surfaced; do not invent authorization to discard customizations."
+    ]
+  },
+  "authority": {
+    "source": "Explicitly reviewed public-safe specimen normalization; opt-in guidance",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": [
+      "NOM-0130",
+      "NOM-0131"
+    ]
+  },
+  "provenance": {
+    "source_type": "public_document",
+    "reference": "SPEC-0136; processing/specimens/PROC-SPEC-0136.json",
+    "license": "MIT",
+    "notes": "Only generalized public-safe text retained; publication does not authorize external actions."
+  },
+  "governance": {
+    "created_on": "2026-10-22",
+    "updated_on": "2026-10-22",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ],
+  "semantic": {
+    "concept": "rust_fork_conflict_reconciliation",
+    "aliases": []
+  }
+}

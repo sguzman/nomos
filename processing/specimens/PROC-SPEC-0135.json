@@ -1,0 +1,34 @@
+{
+  "processing_id": "PROC-SPEC-0135",
+  "source_specimen_id": "SPEC-0135",
+  "status": "closed",
+  "authorization": {
+    "source": "Explicit user request to fully process queued specimens",
+    "on": "2026-10-22"
+  },
+  "processed_on": "2026-10-22",
+  "normalization": {
+    "kind": "obligation",
+    "canonical_rule_id": "NOM-0131",
+    "independent_atomic_specimen": true,
+    "phase": null,
+    "group_proposal": null
+  },
+  "comparison": {
+    "possible_overlap": [
+      "NOM-0017",
+      "NOM-0022",
+      "NOM-0049",
+      "NOM-0047"
+    ],
+    "assessment": "Distinct scoped Rust-fork lifecycle obligation; general overlapping repository rules remain independent.",
+    "no_automatic_priority_change": true
+  },
+  "disposition": {
+    "kind": "normalized_and_published",
+    "candidate_id": "NOM-0131",
+    "candidate_path": "processing/specimens/candidates/NOM-0131.json",
+    "downstream_task_id": "TASK-0017"
+  },
+  "notes": "Track purpose, origin, upstreaming state, retained changes and patch disposition. No profile membership was changed."
+}

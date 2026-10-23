@@ -75,14 +75,18 @@ The queue intentionally starts with **zero ideas** until specifically nominated.
 
 At the user's explicit request, `SPEC-0118` was processed into one scoped, independently published prohibition, `NOM-0114`. The separate candidate and `processing/specimens/PROC-SPEC-0118.json` record preserve the process and the boundary allowing proportionate responses to newly credible present danger. Processing did not authorize selecting, activating, creating or changing profiles or processing any of the six queued `PROFILE-IDEA-*` items. Public artifacts contain no private conversational quotations.
 
-## Queued Rust-fork stewardship specimens (2026-10-22)
+## Historical intake: Rust-fork stewardship specimens (2026-10-22)
 
-The optional Rust-fork profile review identified missing upstream and patch-management specialization. Exactly six public-safe, independently addressable candidate specimens were added as `SPEC-0133`–`SPEC-0138` in `queues/specimens/`, all with `status: proposed` and `intake.processing_authorized: false`. This is **intake only**; no `processing/specimens/` disposition, `rules/NOM-*.json` publication, `queues/tasks/` item or profile-selection update is implied. Separate, explicit authorization remains necessary for each workflow transition.
+The optional Rust-fork profile review identified missing upstream and patch-management specialization. The six public-safe candidates were originally queued without processing authority. Their subsequent explicitly authorized publication is recorded below.
 
 ## Queued required-user-action summary footer (2026-10-22)
 
-`SPEC-0139` records one independent and public-safe reporting convention for completed-work summaries: explicitly enumerate genuine required user inputs or state that nothing is required. It is a queued specimen, not a published `NOM-*` rule or globally activated instruction. Separate authorization is required for normalization or publication; it does not change existing profile selections.
+`SPEC-0139` records one independent and public-safe reporting convention for completed-work summaries: explicitly enumerate genuine required user inputs or state that nothing is required. It was originally a queued specimen; its later publication as `NOM-0135` is recorded below. No profile selection changed.
 
 ## New optional C++ port profiles and README rule intake (2026-10-22)
 
-Two separate C++-to-Rust profile ideas, `PROFILE-IDEA-0007` and `0008`, are queued for Lite/Full drafting. Existing strict C-to-Rust draft profiles remain untouched; C++-specific semantic and test requirements need later review before creating concrete profile selections. The public-facing README-documentation rule idea is queued independently as `SPEC-0140`, with processing authorization deliberately absent. None of these entries instantiates, finalizes, publishes, or activates a rule or profile.
+Two separate C++-to-Rust profile ideas, `PROFILE-IDEA-0007` and `0008`, are queued for Lite/Full drafting. Existing strict C-to-Rust draft profiles remain untouched; C++-specific semantic and test requirements need later review before creating concrete profile selections. The public-facing README-documentation rule idea is queued independently as `SPEC-0140`, with processing authorization initially absent. Later explicit authorization published `SPEC-0140` as `NOM-0136`; no profile was finalized or activated.
+
+## Completed processing of eight remaining specimen proposals (2026-10-22)
+
+With separately explicit authorization, `SPEC-0133`–`SPEC-0140` were individually normalized into published opt-in rules `NOM-0129`–`NOM-0136`. Each source has a distinct processing disposition and retained draft candidate. Six fork-specific atoms address baseline, divergence, patch lineage, integration conflict, post-sync tests and selective upstream adoption. Two general atoms address action-required report footers and visitor-focused README organization. `TASK-0017` records verification independently. No profiles were altered or activated and no external repository maintenance was authorized by the publication.

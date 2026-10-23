@@ -1,0 +1,110 @@
+{
+  "id": "NOM-0129",
+  "version": "1.0.0",
+  "title": "Record the authoritative upstream source and synchronization baseline",
+  "summary": "For an authorized Rust fork maintenance task, identify the intended upstream repository and remote, the branch or release being followed, and the last verified upstream commit incorporated into the fork. Do not infer upstream identity from similarly named remotes or unrelated repositories.",
+  "statement": "For an authorized Rust fork maintenance task, identify the intended upstream repository and remote, the branch or release being followed, and the last verified upstream commit incorporated into the fork. Do not infer upstream identity from similarly named remotes or unrelated repositories.",
+  "rationale": "Independent normalization of SPEC-0133. Record exact repository, branch/tag and verified revision for every tracked upstream line. Existing overlapping general rules remain independently selectable.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "record",
+      "object": "upstream_identity_and_base_revision",
+      "target": "rust_fork_maintenance_preflight"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "During an authorized Rust fork baseline review."
+    ],
+    "exceptions": [
+      "Recording upstream refs does not permit merges or other repository operations."
+    ],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
+  },
+  "categories": {
+    "domains": [
+      "git_repository",
+      "maintenance"
+    ],
+    "topics": [
+      "rust_fork_upstream_provenance"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "project_types": [
+      "rust_fork_maintenance"
+    ],
+    "preconditions": [
+      "During an authorized Rust fork baseline review."
+    ],
+    "exclusions": [
+      "Recording upstream refs does not permit merges or other repository operations."
+    ]
+  },
+  "authority": {
+    "source": "Explicitly reviewed public-safe specimen normalization; opt-in guidance",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": [
+      "NOM-0014",
+      "NOM-0022"
+    ]
+  },
+  "provenance": {
+    "source_type": "public_document",
+    "reference": "SPEC-0133; processing/specimens/PROC-SPEC-0133.json",
+    "license": "MIT",
+    "notes": "Only generalized public-safe text retained; publication does not authorize external actions."
+  },
+  "governance": {
+    "created_on": "2026-10-22",
+    "updated_on": "2026-10-22",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ],
+  "semantic": {
+    "concept": "rust_fork_upstream_provenance",
+    "aliases": []
+  }
+}

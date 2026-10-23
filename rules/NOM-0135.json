@@ -1,0 +1,110 @@
+{
+  "id": "NOM-0135",
+  "version": "1.0.0",
+  "title": "End completed-work reports with explicit user action requirements",
+  "summary": "When reporting a completed work session or development deliverable, end the summary with a clearly separated user-action section. State each approval, decision, choice or input genuinely needed to proceed, identifying what it unblocks. If no user action is necessary, explicitly state that nothing is required. Keep optional follow-up suggestions distinct from mandatory action, and do not imply that automatic work authorization follows from reporting a possible next step.",
+  "statement": "When reporting a completed work session or development deliverable, end the summary with a clearly separated user-action section. State each approval, decision, choice or input genuinely needed to proceed, identifying what it unblocks. If no user action is necessary, explicitly state that nothing is required. Keep optional follow-up suggestions distinct from mandatory action, and do not imply that automatic work authorization follows from reporting a possible next step.",
+  "rationale": "Independent normalization of SPEC-0139. End completed-work reports with an explicit required-user-action section, or state none. Existing overlapping general rules remain independently selectable.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "conclude_with",
+      "object": "explicit_required_user_action_or_none",
+      "target": "completed_work_summary"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "When reporting a completed development work session or deliverable."
+    ],
+    "exceptions": [
+      "Not required for casual answers; never invent mandatory approvals or conflate optional follow-ups with blockers."
+    ],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
+  },
+  "categories": {
+    "domains": [
+      "project_management",
+      "agent_instructions"
+    ],
+    "topics": [
+      "end_of_work_action_requirement_reporting"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "project_types": [
+      "project"
+    ],
+    "preconditions": [
+      "When reporting a completed development work session or deliverable."
+    ],
+    "exclusions": [
+      "Not required for casual answers; never invent mandatory approvals or conflate optional follow-ups with blockers."
+    ]
+  },
+  "authority": {
+    "source": "Explicitly reviewed public-safe specimen normalization; opt-in guidance",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [
+      "NOM-0066",
+      "NOM-0067"
+    ],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0139; processing/specimens/PROC-SPEC-0139.json",
+    "license": "MIT",
+    "notes": "Only generalized public-safe text retained; publication does not authorize external actions."
+  },
+  "governance": {
+    "created_on": "2026-10-22",
+    "updated_on": "2026-10-22",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ],
+  "semantic": {
+    "concept": "end_of_work_action_requirement_reporting",
+    "aliases": []
+  }
+}

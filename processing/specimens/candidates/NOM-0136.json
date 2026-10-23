@@ -1,0 +1,111 @@
+{
+  "id": "NOM-0136",
+  "version": "0.1.0",
+  "title": "Keep repository READMEs approachable and separate from change histories",
+  "summary": "Write a repository README as a professional, welcoming orientation for new visitors: briefly explain what the project is, its value, how to get started, and links to relevant resources. Do not use it as an accumulating changelog, internal progress log, or dump of implementation details. Put extensive explanations, designs, technical references, and long-form guides under docs/; where a chronological change history is useful, maintain a separate changelog file such as CHANGELOG.md and link to it. Brief release highlights in a README are permissible when helpful.",
+  "statement": "Write a repository README as a professional, welcoming orientation for new visitors: briefly explain what the project is, its value, how to get started, and links to relevant resources. Do not use it as an accumulating changelog, internal progress log, or dump of implementation details. Put extensive explanations, designs, technical references, and long-form guides under docs/; where a chronological change history is useful, maintain a separate changelog file such as CHANGELOG.md and link to it. Brief release highlights in a README are permissible when helpful.",
+  "rationale": "Independent normalization of SPEC-0140. Keep README welcoming and concise; send detailed material to docs/ and change history to separate changelog. Existing overlapping general rules remain independently selectable.",
+  "language": "en",
+  "status": "draft",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "maintain",
+      "object": "concise_visitor_friendly_readme_with_linked_detailed_docs",
+      "target": "public_repository_readme"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "When preparing a public-facing repository README."
+    ],
+    "exceptions": [
+      "Short release highlights are permitted; a separate changelog is needed only when chronological history is maintained."
+    ],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
+  },
+  "categories": {
+    "domains": [
+      "documentation",
+      "publication"
+    ],
+    "topics": [
+      "readme_public_orientation_and_documentation_separation"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "public"
+      ],
+      "artifact_kind": [
+        "repository_content"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "project_types": [
+      "project"
+    ],
+    "preconditions": [
+      "When preparing a public-facing repository README."
+    ],
+    "exclusions": [
+      "Short release highlights are permitted; a separate changelog is needed only when chronological history is maintained."
+    ]
+  },
+  "authority": {
+    "source": "Historical normalization candidate",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [
+      "NOM-0042",
+      "NOM-0047",
+      "NOM-0048"
+    ],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0140; processing/specimens/PROC-SPEC-0140.json",
+    "license": "MIT",
+    "notes": "Only generalized public-safe text retained; publication does not authorize external actions."
+  },
+  "governance": {
+    "created_on": "2026-10-22",
+    "updated_on": "2026-10-22",
+    "review_status": "unreviewed"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ],
+  "semantic": {
+    "concept": "readme_public_orientation_and_documentation_separation",
+    "aliases": []
+  }
+}

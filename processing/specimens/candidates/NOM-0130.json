@@ -1,0 +1,109 @@
+{
+  "id": "NOM-0130",
+  "version": "0.1.0",
+  "title": "Inspect upstream divergence before selecting incoming changes",
+  "summary": "Before an authorized synchronization of a Rust fork, fetch the intended upstream references and compare the fork's actual upstream ancestry and incoming commits or tags. Review the change scope and proposed integration strategy before modifying maintained branches.",
+  "statement": "Before an authorized synchronization of a Rust fork, fetch the intended upstream references and compare the fork's actual upstream ancestry and incoming commits or tags. Review the change scope and proposed integration strategy before modifying maintained branches.",
+  "rationale": "Independent normalization of SPEC-0134. Review incoming commits and ancestry before choosing any integration strategy. Existing overlapping general rules remain independently selectable.",
+  "language": "en",
+  "status": "draft",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "inspect",
+      "object": "upstream_divergence_and_integration_plan",
+      "target": "rust_fork_sync_operation"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "Before changes from a verified upstream are integrated."
+    ],
+    "exceptions": [
+      "Fetch and compare first; merge/rebase/cherry-pick or releases require separately authorized scope."
+    ],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
+  },
+  "categories": {
+    "domains": [
+      "git_repository",
+      "maintenance"
+    ],
+    "topics": [
+      "rust_fork_upstream_change_discovery"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "project_types": [
+      "rust_fork_maintenance"
+    ],
+    "preconditions": [
+      "Before changes from a verified upstream are integrated."
+    ],
+    "exclusions": [
+      "Fetch and compare first; merge/rebase/cherry-pick or releases require separately authorized scope."
+    ]
+  },
+  "authority": {
+    "source": "Historical normalization candidate",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": [
+      "NOM-0129"
+    ]
+  },
+  "provenance": {
+    "source_type": "public_document",
+    "reference": "SPEC-0134; processing/specimens/PROC-SPEC-0134.json",
+    "license": "MIT",
+    "notes": "Only generalized public-safe text retained; publication does not authorize external actions."
+  },
+  "governance": {
+    "created_on": "2026-10-22",
+    "updated_on": "2026-10-22",
+    "review_status": "unreviewed"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ],
+  "semantic": {
+    "concept": "rust_fork_upstream_change_discovery",
+    "aliases": []
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "processing_id": "TASK-0017",
+  "source_queue_record": "queues/tasks/TASK-0017.json",
+  "status": "verifying",
+  "started_on": "2026-10-22",
+  "authorization": {
+    "source": "Explicit user request for full specimen normalization and publication",
+    "on": "2026-10-22"
+  },
+  "disposition": {
+    "kind": "pending_verification",
+    "outputs": [
+      "rules/NOM-0129.json",
+      "rules/NOM-0130.json",
+      "rules/NOM-0131.json",
+      "rules/NOM-0132.json",
+      "rules/NOM-0133.json",
+      "rules/NOM-0134.json",
+      "rules/NOM-0135.json",
+      "rules/NOM-0136.json"
+    ],
+    "automatic_application": false
+  },
+  "evidence": {
+    "implementation_commit": null,
+    "github_actions_run": null,
+    "github_actions_conclusion": "pending",
+    "verified_steps": [
+      "Eight rule/candidate/processing triples created",
+      "Eight queue entries marked processed"
+    ],
+    "real_browser_visual_qa": "not_performed",
+    "selection_scope": "No automatic profile changes."
+  }
+}

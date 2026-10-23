@@ -1,0 +1,109 @@
+{
+  "id": "NOM-0133",
+  "version": "1.0.0",
+  "title": "Verify affected fork behavior after upstream integration",
+  "summary": "After integrating authorized upstream changes into a Rust fork, run appropriate tests and focused compatibility or regression checks against the fork's promised interfaces, supported platforms and preserved customizations, and record any unresolved failures before describing the integration as complete.",
+  "statement": "After integrating authorized upstream changes into a Rust fork, run appropriate tests and focused compatibility or regression checks against the fork's promised interfaces, supported platforms and preserved customizations, and record any unresolved failures before describing the integration as complete.",
+  "rationale": "Independent normalization of SPEC-0137. Verify fork customizations, affected public contracts and supported targets. Existing overlapping general rules remain independently selectable.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "verify",
+      "object": "post_integration_fork_behavior",
+      "target": "rust_fork_sync_acceptance"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "After authorized upstream integration into an existing Rust fork."
+    ],
+    "exceptions": [
+      "Use affected-behavior checks with the fork's established compatibility promises; untestable paths remain disclosed."
+    ],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
+  },
+  "categories": {
+    "domains": [
+      "qa_verification",
+      "software_testing"
+    ],
+    "topics": [
+      "rust_fork_post_sync_verification"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "project_types": [
+      "rust_fork_maintenance"
+    ],
+    "preconditions": [
+      "After authorized upstream integration into an existing Rust fork."
+    ],
+    "exclusions": [
+      "Use affected-behavior checks with the fork's established compatibility promises; untestable paths remain disclosed."
+    ]
+  },
+  "authority": {
+    "source": "Explicitly reviewed public-safe specimen normalization; opt-in guidance",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": [
+      "NOM-0132"
+    ]
+  },
+  "provenance": {
+    "source_type": "public_document",
+    "reference": "SPEC-0137; processing/specimens/PROC-SPEC-0137.json",
+    "license": "MIT",
+    "notes": "Only generalized public-safe text retained; publication does not authorize external actions."
+  },
+  "governance": {
+    "created_on": "2026-10-22",
+    "updated_on": "2026-10-22",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ],
+  "semantic": {
+    "concept": "rust_fork_post_sync_verification",
+    "aliases": []
+  }
+}

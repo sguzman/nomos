@@ -1,0 +1,109 @@
+{
+  "id": "NOM-0134",
+  "version": "1.0.0",
+  "title": "Select upstream fixes and features within authorized fork maintenance scope",
+  "summary": "Classify upstream changes as security or correctness fixes, compatibility changes, maintenance improvements or optional features, and incorporate only those permitted by the fork's approved scope and supported versions. Do not equate 'new upstream version available' with blanket authorization to import all upstream behavior or release it.",
+  "statement": "Classify upstream changes as security or correctness fixes, compatibility changes, maintenance improvements or optional features, and incorporate only those permitted by the fork's approved scope and supported versions. Do not equate 'new upstream version available' with blanket authorization to import all upstream behavior or release it.",
+  "rationale": "Independent normalization of SPEC-0138. Classify fixes versus optional features and respect the approved maintenance scope. Existing overlapping general rules remain independently selectable.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "select",
+      "object": "authorized_upstream_change_set",
+      "target": "rust_fork_maintenance_scope"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "When deciding which upstream changes to include in a maintained fork."
+    ],
+    "exceptions": [
+      "The availability of an upstream release does not authorize importing everything; compatibility exceptions require approval."
+    ],
+    "bounds": {
+      "quantifier": "unspecified",
+      "interpretation": "unspecified",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "unspecified",
+      "window": null,
+      "cue": null,
+      "basis": "unresolved"
+    }
+  },
+  "categories": {
+    "domains": [
+      "maintenance",
+      "git_repository"
+    ],
+    "topics": [
+      "rust_fork_selective_upstream_adoption"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "project_types": [
+      "rust_fork_maintenance"
+    ],
+    "preconditions": [
+      "When deciding which upstream changes to include in a maintained fork."
+    ],
+    "exclusions": [
+      "The availability of an upstream release does not authorize importing everything; compatibility exceptions require approval."
+    ]
+  },
+  "authority": {
+    "source": "Explicitly reviewed public-safe specimen normalization; opt-in guidance",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": [
+      "NOM-0130"
+    ]
+  },
+  "provenance": {
+    "source_type": "public_document",
+    "reference": "SPEC-0138; processing/specimens/PROC-SPEC-0138.json",
+    "license": "MIT",
+    "notes": "Only generalized public-safe text retained; publication does not authorize external actions."
+  },
+  "governance": {
+    "created_on": "2026-10-22",
+    "updated_on": "2026-10-22",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ],
+  "semantic": {
+    "concept": "rust_fork_selective_upstream_adoption",
+    "aliases": []
+  }
+}
