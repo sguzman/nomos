@@ -1,0 +1,32 @@
+{
+  "id": "RIA-0130",
+  "kind": "rule_situation_intent_analysis_intake",
+  "status": "queued",
+  "source": {
+    "rule_id": "NOM-0130",
+    "path": "rules/NOM-0130.json",
+    "version": "1.0.0",
+    "status_at_snapshot": "published",
+    "snapshot_commit": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
+    "git_blob_sha": "d4e7ce8d21b9f34996d9f83099ddce846bcddc20"
+  },
+  "requested_analysis": [
+    "applicable_situations",
+    "desired_outcomes",
+    "atomicity_and_nonintent_roles",
+    "existing_ontology_reuse",
+    "candidate_semantic_links"
+  ],
+  "authorization": {
+    "intake_authorized": true,
+    "processing_authorized": false,
+    "normalization_authorized": false,
+    "publication_authorized": false,
+    "canonical_rule_edit_authorized": false,
+    "profile_edit_authorized": false
+  },
+  "governance": {
+    "queued_on": "2026-10-24",
+    "source_basis": "existing_public_canonical_rule"
+  }
+}
