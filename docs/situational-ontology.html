@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Explore Nomos situations, atomic intent candidates, reusable compositions, execution conditions and evaluation dimensions.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="nomos-situational-catalog" content="./catalog.json">
+  <title>Situational ontology · Nomos</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./situational-ontology.css">
+  <script src="./situational-ontology.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#ontology">Skip to ontology</a>
+  <header class="masthead"><div class="shell masthead-inner">
+    <a class="brand" href="./"><span class="brand-glyph" aria-hidden="true">N</span><span>nomos<span class="brand-period">.</span></span></a>
+    <div class="masthead-right"><a href="./">Rules</a><a href="./situational-prompts.html">Prompt versions</a></div>
+  </div></header>
+  <main class="shell ontology-page" id="ontology">
+    <header class="ontology-intro">
+      <p class="eyebrow">NOMOS / SITUATIONAL ONTOLOGY</p>
+      <h1>Situations, <em>intents</em> and compositions.</h1>
+      <p>A formal separation between when an instruction is useful, the outcomes it seeks, the words used to express it, and evidence about what actually occurred. None of these catalog entries activates an agent.</p>
+    </header>
+    <section class="ontology-browser" aria-labelledby="ontotitle">
+      <h2 id="ontotitle">Browse formal objects</h2>
+      <div class="ontology-controls">
+        <label>Search by code, objective or identifier <input id="ontology-query" type="search" placeholder="Search the ontology…" autocomplete="off"></label>
+        <label>Object type <select id="ontology-type">
+          <option value="all">All objects</option>
+          <option value="situations">Situations</option>
+          <option value="intents">Intents</option>
+          <option value="intent_families">Compositions</option>
+          <option value="execution_conditions">Execution conditions</option>
+          <option value="evaluation_dimensions">Evaluation dimensions</option>
+        </select></label>
+      </div>
+      <p id="ontology-count" aria-live="polite">Loading…</p>
+      <div id="ontology-results" class="ontology-results"></div>
+      <p id="ontology-empty" hidden>No objects match these filters.</p>
+      <p id="ontology-error" role="alert" hidden></p>
+    </section>
+    <section class="ontology-note">
+      <h2>Evidence and versions are separate</h2>
+      <p id="ontology-evaluation-count">Evaluation data loading…</p>
+      <p>Published prompts retain <strong>every generation</strong>. Family membership and intent annotations describe design goals, not measured success. Performance comparisons require recorded observations and evidence. <a href="./situational-prompts.html">Browse and copy a specific generation.</a></p>
+    </section>
+  </main>
+</body>
+</html>
