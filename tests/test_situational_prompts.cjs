@@ -2,8 +2,9 @@
 const {test}=require('node:test');
 const assert=require('node:assert/strict');
 const ns=require('../docs/situational-prompts.js');
-const sample={id:'SIT-0001',title:'Neutral sample',summary:'An example of a public-safe trigger',
+const sample={id:'SIT-0001',summary:'An example of a public-safe trigger',
   status:'draft',text:'Sample instruction',situation:{code:'normal_continuation',trigger:'When the operator requests another pass',purpose:'Advance a selected task'},
+  intent:{operation:'continue',outcome:'Advance selected work'},
   applicability:{appropriate_when:['Explicitly selected work'],not_appropriate_when:['Diagnostic-only requests'],preconditions:[]},
   execution:{mode:'sustained_execution',objective:'Perform the approved work',handoff:'after_available_work',progress_evidence:true},
   failure_modes:{guards_against:['Premature handoff'],tradeoffs:['May require extended execution']},

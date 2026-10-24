@@ -12,9 +12,10 @@ class SituationalPromptTests(unittest.TestCase):
     def fixture(self):
         return {
             'id':'SIT-0001','kind':'situational_prompt','version':'1.0.0',
-            'title':'Synthetic sample','summary':'Metadata validation example','status':'draft',
+            'summary':'Metadata validation example','status':'draft',
             'text':'Run the explicitly requested test.',
             'situation':{'code':'interruption_diagnosis','trigger':'An operation stopped unexpectedly','purpose':'Assess current state'},
+            'intent':{'operation':'diagnose','outcome':'Report the known state'},
             'applicability':{'appropriate_when':['A diagnostic request'], 'not_appropriate_when':['An execution request'],'preconditions':[]},
             'execution':{'mode':'diagnosis_only','objective':'Report known state','handoff':'diagnostic_response','progress_evidence':True},
             'failure_modes':{'guards_against':['Invented test results'],'tradeoffs':[]},

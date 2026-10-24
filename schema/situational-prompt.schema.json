@@ -9,11 +9,11 @@
     "id",
     "kind",
     "version",
-    "title",
     "summary",
     "status",
     "text",
     "situation",
+    "intent",
     "applicability",
     "execution",
     "failure_modes",
@@ -34,10 +34,6 @@
       "type": "string",
       "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
     },
-    "title": {
-      "type": "string",
-      "minLength": 1
-    },
     "summary": {
       "type": "string",
       "minLength": 1
@@ -53,7 +49,7 @@
     "text": {
       "type": "string",
       "minLength": 1,
-      "description": "The exact user-approved prompt, kept distinct from descriptive metadata."
+      "description": "Independently authored, public-safe situational text. Publication and copying require a separate owner approval."
     },
     "situation": {
       "type": "object",
@@ -81,6 +77,30 @@
           "minLength": 1
         },
         "purpose": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "intent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "operation",
+        "outcome"
+      ],
+      "properties": {
+        "operation": {
+          "enum": [
+            "continue",
+            "recover_execution",
+            "recover_context",
+            "diagnose",
+            "reinforce_accountability",
+            "reinforce_scope"
+          ]
+        },
+        "outcome": {
           "type": "string",
           "minLength": 1
         }
@@ -136,7 +156,8 @@
         "mode": {
           "enum": [
             "sustained_execution",
-            "diagnosis_only"
+            "diagnosis_only",
+            "reinforcement_only"
           ]
         },
         "objective": {
@@ -146,7 +167,8 @@
         "handoff": {
           "enum": [
             "after_available_work",
-            "diagnostic_response"
+            "diagnostic_response",
+            "no_execution_requested"
           ]
         },
         "progress_evidence": {
@@ -323,6 +345,30 @@
     {
       "if": {
         "properties": {
+          "execution": {
+            "properties": {
+              "mode": {
+                "const": "reinforcement_only"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "execution": {
+            "properties": {
+              "handoff": {
+                "const": "no_execution_requested"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
           "status": {
             "const": "published"
           }
@@ -334,6 +380,26 @@
             "properties": {
               "review_status": {
                 "const": "approved"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "reviewed"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "governance": {
+            "properties": {
+              "review_status": {
+                "const": "reviewed"
               }
             }
           }

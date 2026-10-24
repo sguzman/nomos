@@ -12,7 +12,7 @@ CODES = {
     "progress_audit", "scope_refocus", "context_recovery_and_audit",
 }
 STATUSES = {"draft", "reviewed", "published", "deprecated"}
-FIELDS = {"id", "kind", "version", "title", "summary", "status", "text", "situation",
+FIELDS = {"id", "kind", "version", "summary", "status", "text", "situation", "intent",
           "applicability", "execution", "failure_modes", "interaction", "relations",
           "provenance", "governance"}
 
@@ -25,10 +25,11 @@ def check_record(record, filename):
     if record.get("kind") != "situational_prompt": fail("wrong kind")
     if not re.fullmatch(r"[0-9]+\.[0-9]+\.[0-9]+", str(record.get("version"))): fail("invalid version")
     if record.get("status") not in STATUSES: fail("invalid status")
-    for key in ("title", "summary", "text"):
+    for key in ("summary", "text"):
         if not isinstance(record.get(key), str) or not record[key].strip(): fail("empty " + key)
     expected = {
         "situation": {"code", "trigger", "purpose"},
+        "intent": {"operation", "outcome"},
         "applicability": {"appropriate_when", "not_appropriate_when", "preconditions"},
         "execution": {"mode", "objective", "handoff", "progress_evidence"},
         "failure_modes": {"guards_against", "tradeoffs"},
@@ -43,6 +44,12 @@ def check_record(record, filename):
             fail("invalid " + group + " fields")
             return issues
     situ, app, ex = record["situation"], record["applicability"], record["execution"]
+    intent = record["intent"]
+    if intent["operation"] not in ("continue", "recover_execution", "recover_context",
+                                    "diagnose", "reinforce_accountability", "reinforce_scope"):
+        fail("invalid intent operation")
+    if not isinstance(intent["outcome"], str) or not intent["outcome"].strip():
+        fail("empty intent outcome")
     if situ["code"] not in CODES: fail("invalid situation code")
     for key in ("trigger", "purpose"):
         if not isinstance(situ[key], str) or not situ[key].strip(): fail("empty situation." + key)
@@ -55,9 +62,14 @@ def check_record(record, filename):
                     or any(not isinstance(s, str) or not s.strip() for s in values)
                     or (key in ("appropriate_when", "not_appropriate_when", "guards_against") and not values)):
                 fail("invalid list " + key)
-    if ex["mode"] not in ("sustained_execution", "diagnosis_only"): fail("invalid execution mode")
-    if ex["handoff"] != ("after_available_work" if ex["mode"] == "sustained_execution" else "diagnostic_response"):
+    if ex["mode"] not in ("sustained_execution", "diagnosis_only", "reinforcement_only"): fail("invalid execution mode")
+    handoffs = {"sustained_execution":"after_available_work",
+                "diagnosis_only":"diagnostic_response",
+                "reinforcement_only":"no_execution_requested"}
+    if ex["handoff"] != handoffs.get(ex["mode"]):
         fail("execution handoff inconsistent with mode")
+    if intent["operation"] in ("reinforce_accountability", "reinforce_scope") and ex["mode"] != "reinforcement_only":
+        fail("reinforcement intent must not initiate execution")
     if not isinstance(ex["objective"], str) or not ex["objective"].strip(): fail("empty execution objective")
     if type(ex["progress_evidence"]) is not bool: fail("progress_evidence must be boolean")
     interaction=record["interaction"]
@@ -78,6 +90,8 @@ def check_record(record, filename):
     if governance["review_status"] not in ("pending","reviewed","approved"): fail("invalid review status")
     if record["status"] == "published" and governance["review_status"] != "approved":
         fail("published prompt requires approved review")
+    if record["status"] == "reviewed" and governance["review_status"] != "reviewed":
+        fail("reviewed prompt must have reviewed governance")
     return issues
 
 def load_prompts(root=ROOT):

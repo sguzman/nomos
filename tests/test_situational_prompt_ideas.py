@@ -26,13 +26,15 @@ class PromptIntakeTests(unittest.TestCase):
         self.assertEqual([r["expected_behavior"]["mode"] for r in records],
                          ["continuation"]*4+["diagnosis","reinforcement","reinforcement","continuation"])
         for r in records:
-            self.assertEqual(r["status"],"queued")
+            self.assertEqual(r["status"],"instantiated")
             self.assertIs(r["review"]["publication_authorized"],False)
-            self.assertEqual(r["review"]["linked_prompt_ids"],[])
+            self.assertEqual(r["review"]["linked_prompt_ids"],["SIT-"+r["id"].split("-")[-1]])
             self.assertNotIn("text",r)
     def test_queue_does_not_enter_public_copyable_catalog(self):
         public=build()
-        self.assertEqual(public["situational_prompts"],[])
+        self.assertEqual(len(public["situational_prompts"]),8)
+        self.assertTrue(all(p["status"]=="reviewed" for p in public["situational_prompts"]))
+        self.assertTrue(all("title" not in p and "source_label" not in p for p in public["situational_prompts"]))
         self.assertTrue(all(x.get("kind")!="situational_prompt_idea"
                             for x in public["rules"]+public["groups"]+public["profiles"]))
     def test_rejects_unauthorized_publication_and_launcher_metadata(self):
