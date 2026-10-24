@@ -1,0 +1,26 @@
+{
+  "id": "SIT-REV-0004-03",
+  "kind": "situational_prompt_revision",
+  "canonical_prompt_id": "SIT-0004",
+  "situation_code": "interrupted_execution_with_completion_gate",
+  "status": "queued",
+  "proposed_version": "3.0.0",
+  "base_published_version": "1.0.0",
+  "predecessor_ref": "SIT-REV-0004-02",
+  "source": {
+    "artifact": "items3.json",
+    "artifact_version": 1,
+    "entry_ordinal": 4,
+    "content_sha256": "336dc9347e3ddb0d93437939c6a6eea89300a08ddc2f137a3f8389604b0ebc93"
+  },
+  "proposed_text": "The chat broke. Recover actual project state and resume sustained autonomous execution toward 100% completion. Implement, verify, and commit as many remaining in-scope tasks as possible. If one task is blocked, pursue other legitimate unfinished tasks. If all agreed acceptance criteria are verified complete, stop without inventing more work. Otherwise stop only when no productive executable work remains or the execution limit is reached. Report verified overall percentage, change, and exact remaining state.",
+  "review": {
+    "processing_authorized": false,
+    "publication_authorized": false,
+    "flags": []
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24"
+  }
+}
