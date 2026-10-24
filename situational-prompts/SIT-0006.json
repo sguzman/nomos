@@ -1,0 +1,64 @@
+{
+  "id": "SIT-0006",
+  "kind": "situational_prompt",
+  "version": "1.0.0",
+  "status": "reviewed",
+  "summary": "Keep progress reporting honest without creating new work.",
+  "text": "Ground progress claims in verified deliverables, tests, and acceptance criteria. Correct unsupported completion percentages and avoid substituting repeated status updates for tangible work. This is an accountability reminder; it does not independently authorize new tasks.",
+  "situation": {
+    "code": "progress_audit",
+    "trigger": "The user suspects prior progress reporting does not match delivered changes.",
+    "purpose": "Challenge unsupported progress claims and demand accountability."
+  },
+  "intent": {
+    "operation": "reinforce_accountability",
+    "outcome": "Keep progress reporting honest without creating new work."
+  },
+  "applicability": {
+    "appropriate_when": [
+      "Earlier reports lack credible evidence",
+      "Claims of elapsed work and unchanged percentages need scrutiny"
+    ],
+    "not_appropriate_when": [
+      "No progress claim exists to assess",
+      "The user is requesting a new project rather than auditing ongoing work"
+    ],
+    "preconditions": [
+      "Compare any available claims to actual repository or test evidence"
+    ]
+  },
+  "execution": {
+    "mode": "reinforcement_only",
+    "objective": "Challenge unsupported progress claims and demand accountability.",
+    "handoff": "no_execution_requested",
+    "progress_evidence": true
+  },
+  "failure_modes": {
+    "guards_against": [
+      "Inflated progress percentages",
+      "Recycled status updates presented as achievement",
+      "Unsupported claims of completed work"
+    ],
+    "tradeoffs": [
+      "The original text expresses concern; it is not itself an explicit implementation directive",
+      "Accusations must not substitute for inspecting evidence"
+    ]
+  },
+  "interaction": {
+    "invocation": "explicit_only",
+    "target": "chatgpt"
+  },
+  "relations": {
+    "related_prompt_ids": []
+  },
+  "provenance": {
+    "source_type": "synthetic",
+    "reference": "queues/situational-prompts/SIT-IDEA-0006.json",
+    "notes": "Independently normalized public-safe text from intake metadata; no personal message wording or launcher labels."
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24",
+    "review_status": "reviewed"
+  }
+}

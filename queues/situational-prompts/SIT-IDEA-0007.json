@@ -1,7 +1,7 @@
 {
   "id": "SIT-IDEA-0007",
   "kind": "situational_prompt_idea",
-  "status": "queued",
+  "status": "instantiated",
   "title": "ack remind",
   "summary": "Reinforce the established completion goal and prevent unrelated task invention.",
   "source": {
@@ -45,7 +45,9 @@
   "review": {
     "content_state": "awaiting_publication_review",
     "publication_authorized": false,
-    "linked_prompt_ids": []
+    "linked_prompt_ids": [
+      "SIT-0007"
+    ]
   },
   "governance": {
     "created_on": "2026-10-24",

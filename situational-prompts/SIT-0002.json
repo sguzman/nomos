@@ -1,0 +1,63 @@
+{
+  "id": "SIT-0002",
+  "kind": "situational_prompt",
+  "version": "1.0.0",
+  "status": "reviewed",
+  "summary": "Resume unfinished work without duplicating completed changes.",
+  "text": "The previous execution was interrupted. Inspect the actual project state before resuming so completed work is not repeated. Continue implementing, verifying, and committing as much authorized unfinished work as possible. If one task is blocked, pursue other valid work when available. Report evidence-backed progress at the end.",
+  "situation": {
+    "code": "interrupted_execution",
+    "trigger": "A chat or execution stops unexpectedly while agreed development remains unfinished.",
+    "purpose": "Resume the established project after an interrupted chat or execution."
+  },
+  "intent": {
+    "operation": "recover_execution",
+    "outcome": "Resume unfinished work without duplicating completed changes."
+  },
+  "applicability": {
+    "appropriate_when": [
+      "The previous run stopped unexpectedly",
+      "The current project is known or recoverable"
+    ],
+    "not_appropriate_when": [
+      "There is no earlier authorized project",
+      "The user only wants to learn why execution failed"
+    ],
+    "preconditions": [
+      "Check repository and last verified work before repeating changes"
+    ]
+  },
+  "execution": {
+    "mode": "sustained_execution",
+    "objective": "Resume the established project after an interrupted chat or execution.",
+    "handoff": "after_available_work",
+    "progress_evidence": true
+  },
+  "failure_modes": {
+    "guards_against": [
+      "Context loss",
+      "Duplicated commits or tasks",
+      "Treating an isolated blocker as global completion"
+    ],
+    "tradeoffs": [
+      "The interruption may conceal partially applied changes"
+    ]
+  },
+  "interaction": {
+    "invocation": "explicit_only",
+    "target": "chatgpt"
+  },
+  "relations": {
+    "related_prompt_ids": []
+  },
+  "provenance": {
+    "source_type": "synthetic",
+    "reference": "queues/situational-prompts/SIT-IDEA-0002.json",
+    "notes": "Independently normalized public-safe text from intake metadata; no personal message wording or launcher labels."
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24",
+    "review_status": "reviewed"
+  }
+}

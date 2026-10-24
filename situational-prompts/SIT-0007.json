@@ -1,0 +1,63 @@
+{
+  "id": "SIT-0007",
+  "kind": "situational_prompt",
+  "version": "1.0.0",
+  "status": "reviewed",
+  "summary": "Maintain scope discipline without starting an unrelated task.",
+  "text": "Keep current work focused on the previously agreed scope and acceptance criteria. Prioritize unfinished requirements instead of unrelated improvements, invented tasks, or redundant planning. Do not claim completion without evidence. This reminder does not expand the authorized scope.",
+  "situation": {
+    "code": "scope_refocus",
+    "trigger": "The active work is at risk of drifting from its original accepted scope.",
+    "purpose": "Reinforce the established completion goal and prevent unrelated task invention."
+  },
+  "intent": {
+    "operation": "reinforce_scope",
+    "outcome": "Maintain scope discipline without starting an unrelated task."
+  },
+  "applicability": {
+    "appropriate_when": [
+      "An established project objective exists",
+      "The user wants to reaffirm scope and completion targets"
+    ],
+    "not_appropriate_when": [
+      "The original objective is unknown",
+      "The user is explicitly changing the scope"
+    ],
+    "preconditions": [
+      "Use established acceptance criteria rather than inventing new ones"
+    ]
+  },
+  "execution": {
+    "mode": "reinforcement_only",
+    "objective": "Reinforce the established completion goal and prevent unrelated task invention.",
+    "handoff": "no_execution_requested",
+    "progress_evidence": false
+  },
+  "failure_modes": {
+    "guards_against": [
+      "Invented busywork",
+      "Unauthorized scope expansion",
+      "Misleading completion percentages"
+    ],
+    "tradeoffs": [
+      "The source wording is a reminder, not a standalone authorization for new work"
+    ]
+  },
+  "interaction": {
+    "invocation": "explicit_only",
+    "target": "chatgpt"
+  },
+  "relations": {
+    "related_prompt_ids": []
+  },
+  "provenance": {
+    "source_type": "synthetic",
+    "reference": "queues/situational-prompts/SIT-IDEA-0007.json",
+    "notes": "Independently normalized public-safe text from intake metadata; no personal message wording or launcher labels."
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24",
+    "review_status": "reviewed"
+  }
+}

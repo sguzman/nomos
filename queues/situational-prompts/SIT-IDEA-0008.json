@@ -1,7 +1,7 @@
 {
   "id": "SIT-IDEA-0008",
   "kind": "situational_prompt_idea",
-  "status": "queued",
+  "status": "instantiated",
   "title": "ack context remind",
   "summary": "Combine successor-chat recovery with scope and evidence reminders before sustained continuation.",
   "source": {
@@ -46,7 +46,9 @@
   "review": {
     "content_state": "awaiting_publication_review",
     "publication_authorized": false,
-    "linked_prompt_ids": []
+    "linked_prompt_ids": [
+      "SIT-0008"
+    ]
   },
   "governance": {
     "created_on": "2026-10-24",

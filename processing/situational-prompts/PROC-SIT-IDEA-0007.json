@@ -1,0 +1,14 @@
+{
+  "id": "PROC-SIT-IDEA-0007",
+  "kind": "situational_prompt_processing",
+  "intake_id": "SIT-IDEA-0007",
+  "output_prompt_id": "SIT-0007",
+  "authorization": "Explicit owner request to process the eight queued situations on 2026-10-24.",
+  "disposition": "normalized_to_reviewed_entry",
+  "publication": "awaiting_separate_owner_approval",
+  "source_handling": "Queue retains intake labels; canonical record uses structured situation metadata and independently authored public-safe text.",
+  "governance": {
+    "processed_on": "2026-10-24",
+    "recorded_by": "Nomos contributor"
+  }
+}

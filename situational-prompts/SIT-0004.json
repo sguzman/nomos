@@ -1,0 +1,63 @@
+{
+  "id": "SIT-0004",
+  "kind": "situational_prompt",
+  "version": "1.0.0",
+  "status": "reviewed",
+  "summary": "Resume interrupted work while honoring verified completion.",
+  "text": "The previous execution was interrupted. Recheck current work and continue across unfinished authorized tasks. Stop without inventing new tasks if all agreed acceptance criteria are verified complete. Otherwise, work across available requirements even if one is blocked, and report the verified state when no further productive execution is available.",
+  "situation": {
+    "code": "interrupted_execution_with_completion_gate",
+    "trigger": "The chat broke and the user wants continuation unless agreed work is already complete.",
+    "purpose": "Resume interrupted development but allow a genuine completed-project handoff."
+  },
+  "intent": {
+    "operation": "recover_execution",
+    "outcome": "Resume interrupted work while honoring verified completion."
+  },
+  "applicability": {
+    "appropriate_when": [
+      "The original project may have further work",
+      "The user wants work to stop if no legitimate tasks remain"
+    ],
+    "not_appropriate_when": [
+      "The user wants only a failure explanation",
+      "Project scope is unspecified and cannot be recovered"
+    ],
+    "preconditions": [
+      "Verify actual completion state before asserting that work is finished"
+    ]
+  },
+  "execution": {
+    "mode": "sustained_execution",
+    "objective": "Resume interrupted development but allow a genuine completed-project handoff.",
+    "handoff": "after_available_work",
+    "progress_evidence": true
+  },
+  "failure_modes": {
+    "guards_against": [
+      "Inventing new tasks after full completion",
+      "Premature stopping",
+      "Unverified completion claims"
+    ],
+    "tradeoffs": [
+      "This is not a request to broaden the roadmap after the agreed scope is complete"
+    ]
+  },
+  "interaction": {
+    "invocation": "explicit_only",
+    "target": "chatgpt"
+  },
+  "relations": {
+    "related_prompt_ids": []
+  },
+  "provenance": {
+    "source_type": "synthetic",
+    "reference": "queues/situational-prompts/SIT-IDEA-0004.json",
+    "notes": "Independently normalized public-safe text from intake metadata; no personal message wording or launcher labels."
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24",
+    "review_status": "reviewed"
+  }
+}

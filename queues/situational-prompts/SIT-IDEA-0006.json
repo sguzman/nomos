@@ -1,7 +1,7 @@
 {
   "id": "SIT-IDEA-0006",
   "kind": "situational_prompt_idea",
-  "status": "queued",
+  "status": "instantiated",
   "title": "ack deception",
   "summary": "Challenge unsupported progress claims and demand accountability.",
   "source": {
@@ -46,7 +46,9 @@
   "review": {
     "content_state": "awaiting_publication_review",
     "publication_authorized": false,
-    "linked_prompt_ids": []
+    "linked_prompt_ids": [
+      "SIT-0006"
+    ]
   },
   "governance": {
     "created_on": "2026-10-24",

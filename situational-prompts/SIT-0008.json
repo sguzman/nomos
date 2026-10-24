@@ -1,0 +1,64 @@
+{
+  "id": "SIT-0008",
+  "kind": "situational_prompt",
+  "version": "1.0.0",
+  "status": "reviewed",
+  "summary": "Restore context and accountability before sustained development.",
+  "text": "The previous conversation reached its limit. Reconstruct established decisions, scope, and progress from available context and repository evidence; correct unsupported claims without treating unknowns as facts. Then continue completing, verifying, and committing as many unfinished authorized tasks as possible. Return with evidence-backed progress and remaining work.",
+  "situation": {
+    "code": "context_recovery_and_audit",
+    "trigger": "A prior conversation reached its limit and the user wants the successor to retain accountability and scope.",
+    "purpose": "Combine successor-chat recovery with scope and evidence reminders before sustained continuation."
+  },
+  "intent": {
+    "operation": "recover_context",
+    "outcome": "Restore context and accountability before sustained development."
+  },
+  "applicability": {
+    "appropriate_when": [
+      "A project is continuing in a new conversation",
+      "History recovery and progress credibility are both relevant"
+    ],
+    "not_appropriate_when": [
+      "The user only asks for a diagnostic snapshot",
+      "The prior project or its scope cannot be established"
+    ],
+    "preconditions": [
+      "Rebuild from available evidence; do not treat missing context as verified"
+    ]
+  },
+  "execution": {
+    "mode": "sustained_execution",
+    "objective": "Combine successor-chat recovery with scope and evidence reminders before sustained continuation.",
+    "handoff": "after_available_work",
+    "progress_evidence": true
+  },
+  "failure_modes": {
+    "guards_against": [
+      "Context loss",
+      "Unsupported progress claims",
+      "Scope drift",
+      "Redundant replanning"
+    ],
+    "tradeoffs": [
+      "Do not overinvest in process checks at the expense of useful authorized work"
+    ]
+  },
+  "interaction": {
+    "invocation": "explicit_only",
+    "target": "chatgpt"
+  },
+  "relations": {
+    "related_prompt_ids": []
+  },
+  "provenance": {
+    "source_type": "synthetic",
+    "reference": "queues/situational-prompts/SIT-IDEA-0008.json",
+    "notes": "Independently normalized public-safe text from intake metadata; no personal message wording or launcher labels."
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24",
+    "review_status": "reviewed"
+  }
+}

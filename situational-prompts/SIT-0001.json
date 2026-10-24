@@ -1,0 +1,64 @@
+{
+  "id": "SIT-0001",
+  "kind": "situational_prompt",
+  "version": "1.0.0",
+  "status": "reviewed",
+  "summary": "Advance as many unfinished authorized requirements as available execution permits.",
+  "text": "Continue the established project autonomously within its agreed scope. Complete, verify, and commit as much unfinished work as the available execution permits. Do not return after a single task if other productive work remains. Report verified progress and remaining work when execution ends.",
+  "situation": {
+    "code": "normal_continuation",
+    "trigger": "The ongoing agent has reported satisfactory progress and additional agreed work remains.",
+    "purpose": "Continue an active, already authorized project after a satisfactory work update."
+  },
+  "intent": {
+    "operation": "continue",
+    "outcome": "Advance as many unfinished authorized requirements as available execution permits."
+  },
+  "applicability": {
+    "appropriate_when": [
+      "A development interaction is already underway",
+      "The user wants sustained continuation, not a new project plan"
+    ],
+    "not_appropriate_when": [
+      "The user is asking only for a diagnosis",
+      "No authorized work or objective is established"
+    ],
+    "preconditions": [
+      "Recover the current roadmap and established instructions when necessary"
+    ]
+  },
+  "execution": {
+    "mode": "sustained_execution",
+    "objective": "Continue an active, already authorized project after a satisfactory work update.",
+    "handoff": "after_available_work",
+    "progress_evidence": true
+  },
+  "failure_modes": {
+    "guards_against": [
+      "Premature handoff after one task",
+      "Incomplete work disguised as closure",
+      "Scope drift"
+    ],
+    "tradeoffs": [
+      "The phrase about reaching full completion does not itself establish a measurable denominator",
+      "A prompt cannot guarantee a specific execution duration"
+    ]
+  },
+  "interaction": {
+    "invocation": "explicit_only",
+    "target": "chatgpt"
+  },
+  "relations": {
+    "related_prompt_ids": []
+  },
+  "provenance": {
+    "source_type": "synthetic",
+    "reference": "queues/situational-prompts/SIT-IDEA-0001.json",
+    "notes": "Independently normalized public-safe text from intake metadata; no personal message wording or launcher labels."
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24",
+    "review_status": "reviewed"
+  }
+}
