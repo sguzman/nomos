@@ -53,3 +53,7 @@ The [ontology explorer](situational-ontology.html) displays 49 independently pub
 ## Comparative progress reporting
 
 [Rule NOM-0137](../rules/NOM-0137.json) adds the previous verified percentage, current verified percentage, and signed percentage-point change for each applicable visual completion bar. Values must use a comparable acceptance-criteria basis; unknown or revised denominators cannot become fabricated progress claims. This is a standalone opt-in catalog rule, not an automatic chat instruction.
+
+## Rule situations and intentions (2026-10-24)
+
+The [rule semantics browser](rule-concepts.html) connects 137 source rules to independently reusable situations and intended outcomes. All links cite the original source rule text and preserve the original source identity and status; the unapproved rule `NOM-0002` stays draft. Search, filter by situation and intent, and open original rule and condition evidence. The new relationships do not narrow applicability, add normative authority, select any rule or profile, or represent empirical success.
