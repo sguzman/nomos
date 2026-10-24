@@ -1,6 +1,6 @@
 {
-  "schema_version": "2.5",
-  "source": "Nomos public catalog of atomic rules, virtual groups, and opt-in profile presets",
+  "schema_version": "2.6",
+  "source": "Nomos public catalog of atomic rules, virtual groups, opt-in profiles, and situational prompts",
   "rules": [
     {
       "id": "NOM-0001",
@@ -14941,6 +14941,7 @@
       }
     }
   ],
+  "situational_prompts": [],
   "project_types": [
     "project",
     "software_project",

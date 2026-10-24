@@ -8,6 +8,7 @@ on:
       - "rules/**"
       - "groups/**"
       - "profiles/**"
+      - "situational-prompts/**"
       - "relationships/**"
       - "queues/specimens/**"
       - "processing/specimens/**"
@@ -42,10 +43,13 @@ jobs:
       - name: Run checks
         run: |
           python3 tools/validate.py
+          python3 tools/validate_situational_prompts.py
           python3 tools/validate_groups.py
           python3 tools/relationships.py
           python3 -m unittest discover -s tests -v
           node --check docs/app.js
+          node --check docs/situational-prompts.js
+          node --test tests/test_situational_prompts.cjs
           node --check docs/rule-colors.js
           node --check docs/reasoning.js
           node --check docs/groups.js

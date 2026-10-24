@@ -1,0 +1,353 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/sguzman/nomos/blob/main/schema/situational-prompt.schema.json",
+  "title": "Nomos situational prompt",
+  "description": "Explicitly invoked, context-specific reusable instruction text. Inert until the user invokes it; not an atomic rule, group, or selected rule profile.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "kind",
+    "version",
+    "title",
+    "summary",
+    "status",
+    "text",
+    "situation",
+    "applicability",
+    "execution",
+    "failure_modes",
+    "interaction",
+    "relations",
+    "provenance",
+    "governance"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^SIT-[0-9]{4,}$"
+    },
+    "kind": {
+      "const": "situational_prompt"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "reviewed",
+        "published",
+        "deprecated"
+      ]
+    },
+    "text": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The exact user-approved prompt, kept distinct from descriptive metadata."
+    },
+    "situation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "trigger",
+        "purpose"
+      ],
+      "properties": {
+        "code": {
+          "enum": [
+            "normal_continuation",
+            "interrupted_execution",
+            "conversation_limit_recovery",
+            "interrupted_execution_with_completion_gate",
+            "interruption_diagnosis",
+            "progress_audit",
+            "scope_refocus",
+            "context_recovery_and_audit"
+          ]
+        },
+        "trigger": {
+          "type": "string",
+          "minLength": 1
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "applicability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "appropriate_when",
+        "not_appropriate_when",
+        "preconditions"
+      ],
+      "properties": {
+        "appropriate_when": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "not_appropriate_when": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "preconditions": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "execution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "objective",
+        "handoff",
+        "progress_evidence"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "sustained_execution",
+            "diagnosis_only"
+          ]
+        },
+        "objective": {
+          "type": "string",
+          "minLength": 1
+        },
+        "handoff": {
+          "enum": [
+            "after_available_work",
+            "diagnostic_response"
+          ]
+        },
+        "progress_evidence": {
+          "type": "boolean"
+        }
+      }
+    },
+    "failure_modes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "guards_against",
+        "tradeoffs"
+      ],
+      "properties": {
+        "guards_against": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "tradeoffs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "interaction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "invocation",
+        "target",
+        "shortcut_key"
+      ],
+      "properties": {
+        "invocation": {
+          "const": "explicit_only"
+        },
+        "target": {
+          "enum": [
+            "chatgpt",
+            "general_agent"
+          ]
+        },
+        "shortcut_key": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[A-Z]$",
+          "description": "Optional local hotkey hint; does not cause automatic activation."
+        }
+      }
+    },
+    "relations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "related_prompt_ids"
+      ],
+      "properties": {
+        "related_prompt_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^SIT-[0-9]{4,}$"
+          }
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_type",
+        "reference",
+        "notes"
+      ],
+      "properties": {
+        "source_type": {
+          "enum": [
+            "owner_authored",
+            "synthetic",
+            "public_reference"
+          ]
+        },
+        "reference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "governance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "created_on",
+        "updated_on",
+        "review_status"
+      ],
+      "properties": {
+        "created_on": {
+          "type": "string",
+          "format": "date"
+        },
+        "updated_on": {
+          "type": "string",
+          "format": "date"
+        },
+        "review_status": {
+          "enum": [
+            "pending",
+            "reviewed",
+            "approved"
+          ]
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "execution": {
+            "properties": {
+              "mode": {
+                "const": "diagnosis_only"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "execution": {
+            "properties": {
+              "handoff": {
+                "const": "diagnostic_response"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "execution": {
+            "properties": {
+              "mode": {
+                "const": "sustained_execution"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "execution": {
+            "properties": {
+              "handoff": {
+                "const": "after_available_work"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "published"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "governance": {
+            "properties": {
+              "review_status": {
+                "const": "approved"
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

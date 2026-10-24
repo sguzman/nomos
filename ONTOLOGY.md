@@ -1,13 +1,20 @@
 # Minimal ontology and rich rule metadata
 
-Nomos has four independently identified ontological kinds:
+Nomos has five independently identified ontological kinds:
 
 1. **Rule:** an independently versioned normative proposition.
 2. **Category:** a controlled label or applicability facet used to classify and compare rules.
 3. **Virtual rule group:** a first-class, versioned, non-normative predefined collection of atomic rules and optional child groups.
 4. **Rule profile:** a first-class, versioned, *optional* and user-reviewed preset of selected atomic rule IDs for a particular kind of work or instruction export.
+5. **Situational prompt:** a separately versioned instruction text for explicit invocation in a documented conversation situation, with applicability and failure-mode annotations, not an atomic rule or profile.
 
 Relationships between rules are metadata references, not additional standalone ontological kinds. Temporary compositions, use-case discussion, proposed selections, tasks, and specimens remain operational concepts; they are not automatically catalog objects.
+
+## Situational-prompt contract
+
+The independent `situational-prompts/SIT-*.json` registry stores inert, explicitly invoked text. Its [JSON Schema](schema/situational-prompt.schema.json) distinguishes the exact approved `text` from metadata about `situation` (code, trigger, purpose), `applicability` (appropriate and inappropriate contexts, prerequisites), `execution` (sustained execution versus diagnosis, objective, handoff, evidence), `failure_modes` (known hazards and tradeoffs), `interaction` (explicit invocation and optional key hint), relationships, provenance, and lifecycle governance.
+
+A situational prompt is not a proposition with a normative polarity or predicate and must not be forced into the atomic rule schema or synthesized into a rule profile. The website has a dedicated browser; these prompts never auto-select, apply, enter a rule export, or bind keyboard shortcuts. Publication and copying are separately gated by review and explicit user action. The initial registry is intentionally empty pending actual owner-authorized content.
 
 ## Rule record
 

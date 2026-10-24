@@ -3,9 +3,16 @@
 ## I. Purpose and autonomy
 
 1. Nomos registers rules independently of any agent, project, prompt, compiled ruleset, or export target.
-2. Its core ontology has **independent normative rules**, **controlled categories**, explicitly approved **virtual rule groups**, and separately approved **optional rule-profile presets**. Groups and profiles have identities but no normative effect; a profile is a user-chosen reusable selection, not a requirement.
+2. Its core ontology has **independent normative rules**, **controlled categories**, explicitly approved **virtual rule groups**, separately approved **optional rule-profile presets**, and independently reviewed **situational prompts** for explicit, context-specific invocation. Groups and profiles have identities but no normative effect; a profile is a user-chosen reusable selection, not a requirement.
 3. The project may offer searching, selecting, comparing, and exporting rules. Temporary selections and AI-suggested selections are not automatically profiles; only an explicitly approved selection may be instantiated as an optional profile draft, and finalization requires a separate explicit decision.
 4. Nomos is a standalone public repository. Membership in Tarium or any other registry requires explicit authorization and is never inferred from naming, links, or future intent.
+
+## I-A. Situational-prompt independence
+
+1. Situational prompts are separate, versioned normative-text artifacts. They describe what to ask an agent at a specific conversational moment; they are not atomic rules, rule groups, or profiles and have no automatic authority.
+2. A situational prompt must document its trigger, purpose, appropriate and inappropriate situations, prerequisites, requested mode and handoff, guarded failure modes, tradeoffs, provenance, and review state.
+3. Publication does not invoke a prompt, bind a key, select rules, or authorize work. The user explicitly selects and invokes a prompt; storing a hotkey hint has no runtime effect.
+4. Only reviewed and approved public-safe prompt text may be offered for copying on the public website. Private discussions and wording must never be imported without separate explicit publication authorization.
 
 ## II. Rule independence and application
 

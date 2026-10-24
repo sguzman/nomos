@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Browse explicitly invoked situational prompts and inspect when each one belongs.">
+  <meta name="color-scheme" content="light dark">
+  <title>Situational prompts · Nomos</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./situational-prompts.css">
+  <script src="./situational-prompts.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#prompts">Skip to situational prompts</a>
+  <header class="masthead"><div class="shell masthead-inner">
+    <a class="brand" href="./" aria-label="Nomos home"><span class="brand-glyph" aria-hidden="true">N</span><span>nomos<span class="brand-period">.</span></span></a>
+    <div class="masthead-right"><a href="./">Rule catalog</a><a href="https://github.com/sguzman/nomos/tree/main/situational-prompts">Source ↗</a></div>
+  </div></header>
+  <main class="shell situational-page">
+    <section class="situational-intro">
+      <p class="eyebrow">NOMOS / SITUATIONAL PROMPTS</p>
+      <h1>Instructions for a <em>specific moment.</em></h1>
+      <p>Unlike a permanent rule or a rule-profile preset, a situational prompt is deliberately invoked for one conversation event. Browse its trigger, appropriate use, exclusions, and known hazards before copying. Nothing activates automatically.</p>
+    </section>
+    <section id="prompts" aria-labelledby="situational-title" class="situational-browser">
+      <div class="situational-heading"><h2 id="situational-title">Situational prompt registry</h2><span id="situational-count" aria-live="polite">Loading…</span></div>
+      <div class="situational-controls">
+        <label for="situational-search">Find by title, context, hazard or ID<input id="situational-search" type="search" placeholder="Search situations…" autocomplete="off"></label>
+        <label for="situational-mode">Purpose<select id="situational-mode"><option value="all">All purposes</option><option value="sustained_execution">Sustained execution</option><option value="diagnosis_only">Diagnosis only</option></select></label>
+        <label for="situational-status">Review status<select id="situational-status"><option value="all">All statuses</option><option value="published">Published</option><option value="draft">Draft</option><option value="reviewed">Reviewed</option><option value="deprecated">Deprecated</option></select></label>
+      </div>
+      <div id="situational-list" class="situational-list" aria-live="polite"></div>
+      <p id="situational-empty" class="situational-empty" hidden>No entries match. This new registry starts empty until individual prompts are reviewed and approved.</p>
+      <p id="situational-error" class="situational-error" role="alert" hidden></p>
+      <p id="situational-notice" class="sr-only" aria-live="polite"></p>
+    </section>
+    <footer><span>Separate from atomic rules, virtual groups, and optional rule profiles.</span><span>Public metadata only · <a href="https://github.com/sguzman/nomos/blob/main/schema/situational-prompt.schema.json">Schema ↗</a></span></footer>
+  </main>
+</body>
+</html>

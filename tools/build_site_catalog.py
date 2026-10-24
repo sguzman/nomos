@@ -64,14 +64,19 @@ def build(root=ROOT):
         if profile["status"] == "finalized" and profile["review"].get("finalization_confirmed") is not True:
             raise ValueError(f"{path}: finalization was not confirmed")
         profiles.append(profile)
+    from validate_situational_prompts import load_prompts
+    situational_prompts, prompt_errors = load_prompts(root)
+    if prompt_errors:
+        raise ValueError("; ".join(prompt_errors))
     from relationships import build_relationships
     relationships=build_relationships(records,root)
     from project_types import read_hierarchy
     hierarchy=read_hierarchy(root)
     domain_definitions=json.loads((root/"taxonomy/domains.json").read_text(encoding="utf-8"))
-    return {"schema_version": "2.5",
-            "source": "Nomos public catalog of atomic rules, virtual groups, and opt-in profile presets",
+    return {"schema_version": "2.6",
+            "source": "Nomos public catalog of atomic rules, virtual groups, opt-in profiles, and situational prompts",
             "rules": records, "groups": groups, "profiles": profiles,
+            "situational_prompts": situational_prompts,
             "relationships": relationships,
             "project_types": [r["id"] for r in hierarchy["types"]],
             "project_hierarchy": hierarchy,
@@ -95,6 +100,18 @@ def fingerprint_assets(root=ROOT):
         if count != 1:
             raise ValueError(f"Expected one HTML asset reference for {asset}; saw {count}")
     index.write_text(html, encoding="utf-8")
+    # The second browse surface has independent scripts and styles, but shares
+    # the same generated catalog snapshot. Skip when older minimal fixtures omit it.
+    situational = docs / "situational-prompts.html"
+    if situational.exists():
+        html = situational.read_text(encoding="utf-8")
+        for asset in ("styles.css", "situational-prompts.css", "situational-prompts.js", "catalog.json"):
+            digest = hashlib.sha256((docs / asset).read_bytes()).hexdigest()[:12]
+            pattern = re.escape("./" + asset) + r"(?:\?v=[0-9a-f]+)?"
+            html, count = re.subn(pattern, "./" + asset + "?v=" + digest, html)
+            if count != 1:
+                raise ValueError(f"Expected one situational asset reference for {asset}; saw {count}")
+        situational.write_text(html, encoding="utf-8")
 
 
 def main():

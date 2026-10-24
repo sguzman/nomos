@@ -1,14 +1,17 @@
 # Nomos
 
-**Nomos** is a public registry of independent normative rules, controlled categories, opt-in groups, and reusable rule-profile drafts.
+**Nomos** is a public registry of independent normative rules, controlled categories, opt-in groups, reusable rule-profile drafts, and explicitly invoked situational prompts.
 
 Use the [interactive catalog](https://sguzman.github.io/nomos/) to explore applicability, inspect potential conflicts, compose selections and export to `AGENTS.md` or ChatGPT Custom Instructions. **Nothing is automatically selected or applied.**
+
+Browse [situational prompts](https://sguzman.github.io/nomos/situational-prompts.html) separately from the rule composer. The new registry initially has no prompt texts until individual entries are approved.
 
 ## Features
 
 - **Atomic, typed rules:** independent entries with scope, predicates, provenance, version and authority metadata.
 - **Browse and compose:** search rules, understand categories and inspect conservative conflict candidates.
 - **Optional groups and profiles:** reusable selections for software development, strict C/C++/Python → Rust ports, public Tarium projects and Rust fork maintenance.
+- **Situational prompts:** a separate text species with situation triggers, exclusions, intended execution and handoff, failure-mode metadata and explicit-only copying.
 - **Auditable stages:** separate queues, processing histories and published catalog entries.
 
 ## Documentation
@@ -16,7 +19,7 @@ Use the [interactive catalog](https://sguzman.github.io/nomos/) to explore appli
 - [Project constitution](CONSTITUTION.md) and [agent contribution guidance](AGENTS.md)
 - [Rule ontology](ONTOLOGY.md), [specimen and task workflow](WORKFLOW.md) and [profile workflow](PROFILE_WORKFLOW.md)
 - [Profile review and coverage notes](profiles/REVIEW-2026-10-23.md)
-- [Rule schema](schema/rule.schema.json), [catalog site guide](docs/ABOUT.md) and [archived development notes](docs/HISTORY.md)
+- [Rule schema](schema/rule.schema.json), [situational prompt schema](schema/situational-prompt.schema.json), [catalog site guide](docs/ABOUT.md) and [archived development notes](docs/HISTORY.md)
 
 ## Local checks
 
