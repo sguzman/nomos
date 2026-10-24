@@ -36,6 +36,15 @@ const NomosSituational = (() => {
     for(const val of [p.status,p.execution.mode.replaceAll('_',' '),p.situation.code.replaceAll('_',' ')])
       tags.append(createNode('span','situational-tag',val));
     entry.append(tags);
+    // Native, keyboard-accessible accordion. All cards share a name so only
+    // the item the user chooses is expanded. No metadata opens by default.
+    const metadata=createNode('details','situational-metadata');
+    metadata.setAttribute('name','situational-prompt-metadata');
+    const summary=createNode('summary','','Show details');
+    metadata.append(summary);
+    metadata.addEventListener('toggle',()=>{
+      summary.textContent=metadata.open?'Hide details':'Show details';
+    });
     const details=createNode('dl');
     field(details,'Trigger',p.situation.trigger);
     field(details,'Operation',p.intent.operation.replaceAll('_',' '));
@@ -51,11 +60,11 @@ const NomosSituational = (() => {
     field(details,'Tradeoffs',p.failure_modes.tradeoffs);
     field(details,'Provenance',p.provenance.source_type);
     field(details,'Version / review','v'+p.version+' / '+p.governance.review_status);
-    entry.append(details);
-    const more=createNode('details');
+    metadata.append(details);
+    const more=createNode('details','situational-prompt-text');
     more.append(createNode('summary','','View prompt text'));
     more.append(createNode('pre','situational-body',p.text));
-    entry.append(more);
+    metadata.append(more);
     const copy=createNode('button','situational-copy',copyAllowed(p)?'Copy prompt':'Not approved for copying');
     copy.type='button';copy.disabled=!copyAllowed(p);
     copy.addEventListener('click',async()=>{
@@ -67,7 +76,8 @@ const NomosSituational = (() => {
         document.getElementById('situational-notice').textContent='Copy failed. You can inspect the text above.';
       }
     });
-    entry.append(copy);return entry;
+    // Copy is an independent action even when the metadata is collapsed.
+    entry.append(copy,metadata);return entry;
   }
   async function init() {
     const list=document.getElementById('situational-list');

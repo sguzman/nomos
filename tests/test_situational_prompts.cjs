@@ -56,11 +56,13 @@ test('real browser renders eight standard entries with working explicit copy',as
   class Element {
     constructor(tag='div'){
       this.tag=tag;this.children=[];this.listeners={};this.value='all';
-      this.disabled=false;this.hidden=false;this.textContent='';this.className='';
+      this.disabled=false;this.hidden=false;this.open=false;this.textContent='';this.className='';this.attrs={};
     }
     append(...nodes){this.children.push(...nodes);}
     replaceChildren(...nodes){this.children=nodes;}
     addEventListener(type,fn){this.listeners[type]=fn;}
+    setAttribute(name,value){this.attrs[name]=value;}
+    hasAttribute(name){return Object.hasOwn(this.attrs,name);}
   }
   const nodes=new Map();
   const get=id=>{
@@ -82,7 +84,27 @@ test('real browser renders eight standard entries with working explicit copy',as
   assert.equal(get('situational-count').textContent,'8 of 8 situational prompts');
   const cards=get('situational-list').children;
   assert.equal(cards.length,8);
+  // The compact cards reveal only identity, summary, tags, copy and a
+  // closed native disclosure. Metadata and prompt body are nested inside it.
   assert.ok(cards.every(c=>c.children.some(n=>n.tag==='button'&&!n.disabled)));
+  for(const card of cards){
+    const metadata=card.children.find(n=>n.tag==='details');
+    assert.ok(metadata,'each card offers a details disclosure');
+    assert.equal(metadata.open,false,'metadata must start collapsed');
+    assert.equal(metadata.attrs.name,'situational-prompt-metadata');
+    assert.ok(!card.children.some(n=>n.tag==='dl'),'no expanded metadata in card root');
+    assert.equal(metadata.children[0].tag,'summary');
+    assert.equal(metadata.children[0].textContent,'Show details');
+    assert.ok(metadata.children.some(n=>n.tag==='dl'));
+    assert.ok(metadata.children.some(n=>n.tag==='details'));
+  }
+  const chosen=cards[1].children.find(n=>n.tag==='details');
+  chosen.open=true;
+  chosen.listeners.toggle();
+  assert.equal(chosen.children[0].textContent,'Hide details');
+  chosen.open=false;
+  chosen.listeners.toggle();
+  assert.equal(chosen.children[0].textContent,'Show details');
   const firstCopy=cards[0].children.find(n=>n.tag==='button');
   await firstCopy.listeners.click();
   assert.equal(copyCalls,1);
