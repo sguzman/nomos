@@ -77,8 +77,8 @@ test('real browser wiring renders eight drafts, filters by mode and never enable
   const navigator={clipboard:{writeText:async()=>{copyCalls++;}}};
   const context={document,navigator,fetch:async()=>({ok:true,json:async()=>catalog})};
   vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../docs/situational-prompts.js'),'utf8'),context);
-  // Allow the initial fetch/json microtasks to finish.
-  for(let i=0;i<5;i++)await Promise.resolve();
+  // The VM's async fetch chain resolves on the next event-loop turn.
+  await new Promise(resolve=>setImmediate(resolve));
   assert.equal(get('situational-count').textContent,'8 of 8 situational prompts');
   const cards=get('situational-list').children;
   assert.equal(cards.length,8);
