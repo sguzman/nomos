@@ -19043,6 +19043,230 @@
         "source_candidate": "normalized_rule_analysis_situation_SITU-0022",
         "normalization": "curated_source_grounded_rule_batch_2026-10-24"
       }
+    },
+    {
+      "id": "SITU-0023",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "public_repository_publication",
+      "definition": "A change is being prepared for public repository publication.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0001",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0023",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0024",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "valuable_data_transformation",
+      "definition": "An operation transforms, copies, migrates or otherwise modifies valuable data.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0052",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0024",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0025",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "dependency_or_public_interface_change",
+      "definition": "Dependencies or externally consumed APIs, formats or behavior are changing.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0020",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0025",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0026",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "release_preparation_and_distribution",
+      "definition": "An authorized release is being prepared, packaged, signed, tagged or distributed.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0055",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0026",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0027",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "application_runtime_or_gui_qa",
+      "definition": "A runnable application's operation, interface or user workflow is being checked.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0062",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0027",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0028",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "development_progress_report",
+      "definition": "A report describes work performed and measurable completion during a development interval.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0068",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0028",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0029",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "first_verified_full_completion",
+      "definition": "A project or roadmap item first reaches verified complete state.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0071",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0029",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0030",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "previously_announced_completion",
+      "definition": "A formerly completed item was already reported and is not newly reopened.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0072",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0030",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0031",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "strict_software_port",
+      "definition": "An authorized strict software port must match a defined upstream behavior baseline.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0074",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0031",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0032",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "new_name_proposal",
+      "definition": "A new name is being proposed for a project, product, tool or other user-named entity.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0077",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0032",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0033",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "local_yaml_job_on_existing_repository",
+      "definition": "An automated YAML job is being prepared for the user's existing local Git repository.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0078",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0033",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0034",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "userscript_modification",
+      "definition": "A versioned browser userscript is changed, including local iteration.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0085",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0034",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0035",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "webextension_modification",
+      "definition": "A browser WebExtension's code, resources or metadata are changed.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0086",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0035",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0036",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "mvp_acceptance_review",
+      "definition": "A project's minimum viable baseline is being defined, reviewed or verified for acceptance.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0087",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0036",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
     }
   ],
   "intents": [
