@@ -1,12 +1,17 @@
 # Minimal ontology and rich rule metadata
 
-Nomos has five independently identified ontological kinds:
+Nomos initially had five independently identified catalog kinds. A separately authorized situational modeling extension now introduces additional formal objects:
 
 1. **Rule:** an independently versioned normative proposition.
 2. **Category:** a controlled label or applicability facet used to classify and compare rules.
 3. **Virtual rule group:** a first-class, versioned, non-normative predefined collection of atomic rules and optional child groups.
 4. **Rule profile:** a first-class, versioned, *optional* and user-reviewed preset of selected atomic rule IDs for a particular kind of work or instruction export.
 5. **Situational prompt:** a separately versioned instruction text for explicit invocation in a documented conversation situation, with applicability and failure-mode annotations, not an atomic rule or profile.
+6. **Situation:** an independently reusable trigger, event, state, or documented composition of circumstances.
+7. **Intent:** one concept of a requested outcome, method, constraint, reporting requirement, or stopping policy; the role is recorded explicitly and atomicity is not assumed for all 19 records.
+8. **Intent family / composition:** a reusable association of situations, intentions and conditions, independently identified from its prompt wordings.
+9. **Execution condition:** a reusable condition such as one blocked task, overall completion, or exhausted runtime.
+10. **Evaluation dimension / observation:** a formal target for evidence-backed measurement. Evaluation dimensions exist; observed effectiveness results require actual evidence and are not fabricated.
 
 Relationships between rules are metadata references, not additional standalone ontological kinds. Temporary compositions, use-case discussion, proposed selections, tasks, and specimens remain operational concepts; they are not automatically catalog objects.
 
@@ -15,6 +20,18 @@ Relationships between rules are metadata references, not additional standalone o
 The independent `situational-prompts/SIT-*.json` registry stores inert, explicitly invoked text. Its [JSON Schema](schema/situational-prompt.schema.json) separates independently normalized `text` from structured `situation` (code, trigger, purpose), `intent` (operation, outcome), `applicability` (appropriate and inappropriate contexts, prerequisites), `execution` (sustained execution, diagnosis, or non-executing reinforcement; handoff, evidence), `failure_modes` (hazards and tradeoffs), `interaction` (explicit invocation and target consumer), relationships, provenance, and lifecycle governance. A display label is **derived** from the situation code and execution mode: canonical records have no `title`, `source_label`, or shortcut key.
 
 A situational prompt is not a proposition with a normative polarity or predicate and must not be forced into the atomic rule schema or synthesized into a rule profile. The website has a dedicated browser; these prompts never auto-select, apply, enter a rule export, or bind keyboard shortcuts. Publication and copying are separately gated by review and explicit user action. Eight owner-authorized intake ideas have been normalized and subsequently approved for publication as regular `SIT-0001` through `SIT-0008` entries. Processing traces under [processing/situational-prompts/](processing/situational-prompts/) link each intake to its canonical identity and record the separate publication authorization. All eight are `published` and individually copyable from the website; catalog publication still never invokes a prompt. The intake retains its historical source labels, but canonical records do not. No original private message wording or launcher configuration was imported. Intake IDs never become canonical IDs.
+
+## Formal situational ontology and immutable generations
+
+The independently published formal registries live under `ontology/situations/`, `ontology/intents/`, `ontology/families/`, `ontology/conditions/`, and `ontology/evaluation-dimensions/`. Their [JSON Schema](schema/situational-formal.schema.json), [cross-reference validator](tools/validate_formal_situational_ontology.py), and [web explorer](https://sguzman.github.io/nomos/situational-ontology.html) make these entities individually inspectable without appending metadata to agent-facing prompts.
+
+Each family links to three distinct prompt generations by **family ID + semantic version**. Original v1 files at `situational-prompts/SIT-*.json` are retained unchanged; versions 2.0.0 and 3.0.0 reside independently under `situational-prompts/versions/`. The family record has `default_version: 1.0.0` and distinct `version_intent_ids` for each generation. No version replaces an earlier version, and no version becomes default merely by being newer. The public browser offers explicit version selection and copying.
+
+`SITU-0008` is a composite of `SITU-0003`, `SITU-0006` and `SITU-0007`. Possible completion is a separately classified execution state (`SITU-0005`) and a condition reference, rather than being misrepresented as a generic conversation trigger. Intents are typed by semantic role, so procedural methods, constraints and reports are not falsely asserted to be atomic goals.
+
+Evaluation dimensions specify what could be tested. `ontology/evaluations/` contains **no observed effectiveness reports**: such reports require actual executions, conditions and evidence. Publishing a prompt is never evidence that it succeeded. See [evaluation schema](schema/situational-evaluation.schema.json).
+
+All six original ontology proposals and 16 queued revisions have separate completed processing traces under `processing/situational-ontology/` and `processing/situational-prompts/revisions/`. Intake content remains provenance and is not an additional canonical prompt. Existing atomic rules, groups, profiles and exports were not modified by this processing batch.
 
 ## Rule record
 

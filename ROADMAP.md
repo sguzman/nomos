@@ -50,12 +50,16 @@ These entries are descriptive; the unchecked items are not queued tasks or autom
 Publication of the original eight prompts is complete. Runtime invocation remains explicit and never follows automatically from catalog membership.
 
 - [x] Queue v2 and v3 proposals for each of the eight existing prompt identities, retaining text, version links, and content checksums
-- [ ] Process queued revisions only after separate authorization
+- [x] Process all 16 v2/v3 revisions into distinct published artifacts without overwriting the original eight
+- [x] Expose all generations through an explicit per-family version selector and copy action
 
 ## Proposed situational instruction ontology (intake only, 2026-10-24)
 
 - [x] Queue the distinct linked concept proposals, preserving the existing v1/v2/v3 version lineage
 - [x] Validate the proposed S1–S8, I1–I19, eight families, conditions, and evaluation facets without activating them
-- [ ] Review and process these specific queued ontology proposals **only when separately authorized**
+- [x] Process all six ontology proposals into independent canonical records and processing histories
+- [x] Validate relationships and version-scoped intent associations across all three generations
+- [x] Publish an independent searchable ontology browser and evidence-based evaluation contract
+- [x] Preserve v1.0.0 as the non-upgrading default for every prompt family
 
-Queue completion is not ontology implementation. No new canonical kind or website behavior is implied.
+Engineering processing and website publication are complete. Empirical prompt effectiveness is **unmeasured**, not silently marked successful.

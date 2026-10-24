@@ -16,7 +16,6 @@ on:
       - "queues/profiles/**"
       - "queues/situational-prompts/**"
       - "queues/situational-ontology/**"
-      - "queues/situational-ontology/**"
       - "schema/**"
       - "taxonomy/**"
       - "processing/specimens/candidates/**"

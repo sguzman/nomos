@@ -52,6 +52,10 @@ The revisions directory under queues/situational-prompts/ holds independently ve
 
 `queues/situational-ontology/` holds six public-safe, linked **design proposals** about situations, atomic-intent hypotheses, compositions, prompt versions, execution conditions and evaluations. These are not six new normative kinds. Do not promote them to the canonical schema, expand or inject runtime instructions, rewrite existing SIT generations, or claim evaluation evidence without separate authorization. Preserve explicit classifications as hypotheses, especially composite situations and goals that may actually be constraints. See [queue design and boundaries](queues/situational-ontology/README.md).
 
+## Completed situational ontology and prompt generations
+
+The six original situational-ontology proposals and sixteen v2/v3 prompt revisions were separately authorized for processing. Their queue records are marked processed, with independently linked output traces. The immutable published v1 source files remain the default. Do not overwrite any existing `SIT-*` generation; new wording must use a new family+version identity. Validate with `python3 tools/validate_formal_situational_ontology.py` and `python3 tools/validate_situational_prompt_revisions.py`. Ontology annotations must never become extra instructions in copied prompt text. No observed effectiveness result exists unless an actual evaluation record with evidence is supplied.
+
 ## Profile-idea queue is intake, never processing
 
 `queues/profiles/` stores **ideas** with independent `PROFILE-IDEA-*` IDs. Creating a queue entry does not grant permission to investigate it, choose rules, instantiate a `PROFILE-*` draft, finalize, or export. The separate `profiles/` registry remains the only place for authorized profile records. No queue entry should be silently promoted, and no private wording belongs in the public queue. See [queues/profiles/README.md](queues/profiles/README.md).

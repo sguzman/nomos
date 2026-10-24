@@ -12,3 +12,11 @@ This is a fifth, independent Nomos species: **situational prompts**. An entry is
 The \`situational-prompts/\` registry, the existing \`rules/\`, \`groups/\`, and \`profiles/\` registries, and all workflow queues remain distinct. The website does not activate these texts or mix them into the rule composer. Users must explicitly choose to copy or invoke an entry.
 
 The eight situations were processed from [intake records](../queues/situational-prompts/README.md) into canonical records `SIT-0001`–`SIT-0008`, then published with owner approval recorded in the separate [processing traces](../processing/situational-prompts/). Canonical records have no manually maintained prompt name or keyboard assignment: the website derives headings from typed situation and execution metadata. All eight are **published and copyable** following owner approval, but none is invoked automatically. `progress_audit` and `scope_refocus` use `reinforcement_only` so a reminder alone never starts a new task.
+
+## Immutable version families (2026-10-24)
+
+For each `SIT-xxxx`, the original root-level `SIT-xxxx.json` is published **v1.0.0** and preserved without modification. `versions/SIT-xxxx-v2.0.0.json` and `versions/SIT-xxxx-v3.0.0.json` contain the independent later published generations, retaining the uploaded instruction text byte-for-byte as validated against the queued SHA-256 digest.
+
+The separate `FAMILY-xxxx` entry in `ontology/families/` links the family's situations, version-specific intent mappings and all three available versions. Its default remains v1.0.0. On the [public browser](https://sguzman.github.io/nomos/situational-prompts.html), select a particular version before copying; no choice executes a prompt.
+
+SIT-0006 and SIT-0007 remain **reinforcement_only** in v1 but have **sustained_execution** contracts in v2 and v3. SIT-0005 stays diagnostic-only in all three versions. These differences are version-specific, not silent mutations of the v1 ontology. Publication does not demonstrate real-world effectiveness.

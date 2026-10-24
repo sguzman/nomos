@@ -2,7 +2,7 @@
 
 Nomos is a static, zero-dependency browser for typed atomic rules, reusable virtual groups, optional rule profiles and conservative relationship explanations. Visit the [public website](https://sguzman.github.io/nomos/).
 
-A dedicated [situational prompt browser](situational-prompts.html) is independent of the ruleset composer. Its compact cards show identifying metadata, summary, and an immediate copy action; full metadata and prompt text stay behind a keyboard-accessible, initially collapsed disclosure. Only one metadata disclosure can be open at a time. Its records are not permanent rules, nor rule-profile selections; each lists an explicit invocation trigger and applicable/nonapplicable scenarios, intended work mode and handoff, provenance and hazards. Eight independently normalized records are **published standard items** with enabled individual copy actions; the original intake labels stay only in [the queued provenance](../queues/situational-prompts/README.md), not canonical prompt identities. Shortcut mappings belong to the user's launcher, not the prompt catalog.
+A dedicated [situational prompt browser](situational-prompts.html) is independent of the ruleset composer. Its compact cards show identifying metadata, summary, and an immediate copy action; full metadata and prompt text stay behind a keyboard-accessible, initially collapsed disclosure. Only one metadata disclosure can be open at a time. Its records are not permanent rules, nor rule-profile selections; each lists an explicit invocation trigger and applicable/nonapplicable scenarios, intended work mode and handoff, provenance and hazards. Eight independent families now offer **three published versions each**, individually selectable and copyable, defaulting to the preserved v1; the original intake labels stay only in [the queued provenance](../queues/situational-prompts/README.md), not canonical prompt identities. Shortcut mappings belong to the user's launcher, not the prompt catalog.
 
 ## Browser capabilities
 
@@ -45,3 +45,7 @@ Open `http://localhost:8000/`. Direct `file://` navigation may block catalog loa
 The metadata-based analyzer surfaces conservative relation candidates; it does not adjudicate the full meaning of natural-language obligations. Keep source privacy and applicability restrictions intact, and do not treat opt-in catalog rules as automatic instructions.
 
 For detailed governance and lifecycle information, consult [ONTOLOGY.md](../ONTOLOGY.md), [WORKFLOW.md](../WORKFLOW.md) and the [profile review guide](../profiles/REVIEW-2026-10-23.md).
+
+## Formal situational ontology
+
+The [ontology explorer](situational-ontology.html) displays 49 independently published concepts: eight situations, nineteen role-classified intents, eight reusable compositions, seven execution conditions, and seven evaluation dimensions. The [prompt version browser](situational-prompts.html) keeps eight compact family cards, allowing explicit v1/v2/v3 selection and copying for each family. Published family mappings describe *intended behavior*, not observed effectiveness; the evaluation registry remains empty until evidence is supplied.

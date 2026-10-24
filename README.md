@@ -4,7 +4,7 @@
 
 Use the [interactive catalog](https://sguzman.github.io/nomos/) to explore applicability, inspect potential conflicts, compose selections and export to `AGENTS.md` or ChatGPT Custom Instructions. **Nothing is automatically selected or applied.**
 
-Browse [situational prompts](https://sguzman.github.io/nomos/situational-prompts.html) separately from the rule composer. Eight situations are now [published as regular canonical entries](situational-prompts/README.md) with metadata-derived identities and independently written, public-safe text. Each can be copied directly from the website. Their original labels remain [intake provenance](queues/situational-prompts/README.md), not canonical names. [v2 and v3 revisions](queues/situational-prompts/revisions/README.md) are queued under those same eight canonical identities.
+Browse [situational prompts](https://sguzman.github.io/nomos/situational-prompts.html) separately from the rule composer. Eight situations are now [published as regular canonical entries](situational-prompts/README.md) with metadata-derived identities and independently written, public-safe text. Each can be copied directly from the website. Their original labels remain [intake provenance](queues/situational-prompts/README.md), not canonical names. v2 and v3 are now separately published under those same eight identities, with v1 preserved as the default. Browse and copy [all generations](https://sguzman.github.io/nomos/situational-prompts.html) or explore the [formal situation/intent ontology](https://sguzman.github.io/nomos/situational-ontology.html).
 
 ## Features
 
@@ -13,6 +13,8 @@ Browse [situational prompts](https://sguzman.github.io/nomos/situational-prompts
 - **Optional groups and profiles:** reusable selections for software development, strict C/C++/Python → Rust ports, public Tarium projects and Rust fork maintenance.
 - **Situational prompts:** a separate text species with situation triggers, exclusions, intended execution and handoff, failure-mode metadata and explicit-only copying.
 - **Ontology proposal intake:** [Six unprocessed proposals](queues/situational-ontology/README.md) for formal situations, intentions, compositions, prompt versions and evaluations.
+- **Formal situational ontology:** 8 situations, 19 intent records (typed by semantic role), 8 compositions, 7 conditions, and 7 evaluation dimensions.
+- **Immutable prompt generations:** 24 independently addressable prompts (v1/v2/v3 for eight families), each copyable by explicit selection; v1 remains the default.
 - **Auditable stages:** separate queues, processing histories and published catalog entries.
 
 ## Documentation

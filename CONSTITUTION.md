@@ -3,7 +3,7 @@
 ## I. Purpose and autonomy
 
 1. Nomos registers rules independently of any agent, project, prompt, compiled ruleset, or export target.
-2. Its core ontology has **independent normative rules**, **controlled categories**, explicitly approved **virtual rule groups**, separately approved **optional rule-profile presets**, and independently reviewed **situational prompts** for explicit, context-specific invocation. Groups and profiles have identities but no normative effect; a profile is a user-chosen reusable selection, not a requirement.
+2. Its original catalog kinds comprise **independent normative rules**, **controlled categories**, explicitly approved **virtual rule groups**, separately approved **optional rule-profile presets**, and independently reviewed **situational prompts**. A separately authorized situational ontology extends this with formal situations, intent concepts, reusable compositions, execution conditions, and evaluation vocabulary. Groups and profiles have identities but no normative effect; a profile is a user-chosen reusable selection, not a requirement.
 3. The project may offer searching, selecting, comparing, and exporting rules. Temporary selections and AI-suggested selections are not automatically profiles; only an explicitly approved selection may be instantiated as an optional profile draft, and finalization requires a separate explicit decision.
 4. Nomos is a standalone public repository. Membership in Tarium or any other registry requires explicit authorization and is never inferred from naming, links, or future intent.
 

@@ -1,4 +1,4 @@
-# Queued subsequent versions
+# Processed subsequent versions
 
 These are sixteen version proposals for the **same eight existing situational prompts**, not sixteen new canonical entries or an alternative ontology.
 
@@ -17,6 +17,6 @@ Every proposed v2 entry points to the published v1.0.0 record as predecessor; ev
 
 The public-safe, standalone instruction wording is preserved **verbatim**, together with a SHA-256 digest for each entry. Original local keyboard keys and arbitrary labels are excluded. Canonical SIT IDs and situation codes establish identity.
 
-**All sixteen remain queued, unprocessed and unpublished.** They neither replace the eight published v1 records nor alter the website. Reminders SIT-0006 and SIT-0007 change toward execution-seeking instructions in both later variants; the review flags preserve that material difference for explicit future evaluation. No processing or publishing is authorized by intake.
+**All sixteen were processed and published as separate v2/v3 artifacts.** No original v1 record was overwritten. The website now offers explicit generation selection, with v1 still the default. Reminders SIT-0006 and SIT-0007 change toward execution-seeking instructions in both later variants; the review flags preserve that material difference for explicit future evaluation. The later owner instruction explicitly authorized processing and downstream publication; processing traces document each revision and the changed execution semantics.
 
 Run python3 tools/validate_situational_prompt_revisions.py to verify the queue's references and exact text.

@@ -104,3 +104,9 @@ With separately explicit authorization, `SPEC-0133`–`SPEC-0140` were individua
 Six independent, public-safe [ontology intake proposals](queues/situational-ontology/README.md) capture 8 situation candidates, 19 atomic-intent hypotheses, 8 composition/family mappings, 8 version-lineage policies, 7 execution-condition candidates, and 7 evaluation facets. These records do not add new canonical ontology kinds, modify prompt wording, process v2/v3, or authorize evaluation work.
 
 A future design would distinguish reusable situations, independently defined intents, situation-intent compositions, immutable prompt implementations by version, and evidence-backed outcome evaluations. Possible conditions and non-atomic intentions are intentionally **unresolved**. Nothing here silently modifies active instructions or canonical prompt versions.
+
+## Completed situational ontology + versioned prompt processing (2026-10-24)
+
+Following the owner's explicit authorization, all six `SITO-IDEA-*` records were processed and linked to individual traces under `processing/situational-ontology/`. They generated 8 formal situation records, 19 role-classified intents, 8 intent families, 7 execution conditions, and 7 evaluation dimensions. The prompt-version proposal produced distinct v2 and v3 artifacts for each of eight existing prompt identities, with 16 completed processing traces under `processing/situational-prompts/revisions/`. All old v1 artifacts remain unchanged. Families default to 1.0.0; new versions must be selected deliberately.
+
+Each of these 22 original queue records is retained for historical provenance and has a completed status. Output publications do not activate instructions. Evaluation infrastructure and browseable metadata were completed, but there are no fabricated observed performance records; real-world evaluation would require actual separately supplied test evidence.
