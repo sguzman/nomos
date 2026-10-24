@@ -19,6 +19,16 @@ test('formal catalog has stable distinct identities and closed evidence claims',
   assert.deepEqual(catalog.situational_evaluations,[]);
   assert.equal(browser.search(all,'scope','intents').length>0,true);
 });
+test('homepage directly exposes both ontology collections and all mappings',()=>{
+  const html=fs.readFileSync(path.join(__dirname,'../docs/index.html'),'utf8');
+  assert.match(html,/href="\.\/situational-ontology\.html\?type=situations"/);
+  assert.match(html,/href="\.\/situational-ontology\.html\?type=intents"/);
+  assert.match(html,/href="\.\/rule-concepts\.html"/);
+  assert.match(html,/48 situations/);
+  assert.match(html,/72 intents/);
+  assert.match(html,/137 rule mappings/);
+});
+
 test('ontology UI renders one collapsed detail per object without executing prompts',async()=>{
   const catalog=require('../docs/catalog.json');
   class Element {
@@ -54,4 +64,29 @@ test('ontology UI renders one collapsed detail per object without executing prom
   get('ontology-query').listeners.input();
   assert.equal(get('ontology-results').children.length,0);
   assert.equal(get('ontology-empty').hidden,false);
+});
+
+test('direct ontology links open the requested collection without loading unrelated results',async()=>{
+  const catalog=require('../docs/catalog.json');
+  const source=fs.readFileSync(path.join(__dirname,'../docs/situational-ontology.js'),'utf8');
+  for(const [kind,expected] of [['situations',48],['intents',72]]){
+    class Element {
+      constructor(tag='div'){this.tag=tag;this.children=[];this.listeners={};this.value='';this.hidden=false;this.textContent='';}
+      append(...nodes){this.children.push(...nodes);}
+      replaceChildren(...nodes){this.children=nodes;}
+      addEventListener(evt,cb){this.listeners[evt]=cb;}
+    }
+    const elements=new Map(),get=id=>{
+      if(!elements.has(id))elements.set(id,new Element());
+      return elements.get(id);
+    };
+    const document={getElementById:get,createElement:tag=>new Element(tag),
+      querySelector:()=>({content:'./catalog.json'})};
+    vm.runInNewContext(source,{document,URLSearchParams,window:{location:{search:'?type='+kind}},
+      fetch:async()=>({ok:true,json:async()=>catalog})});
+    await new Promise(resolve=>setImmediate(resolve));
+    assert.equal(get('ontology-type').value,kind);
+    assert.equal(get('ontology-results').children.length,expected);
+    assert.equal(get('ontology-count').textContent,expected+' of 142 formal objects');
+  }
 });
