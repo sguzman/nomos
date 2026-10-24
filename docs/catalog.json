@@ -19267,6 +19267,198 @@
         "source_candidate": "normalized_rule_analysis_situation_SITU-0036",
         "normalization": "curated_source_grounded_rule_batch_2026-10-24"
       }
+    },
+    {
+      "id": "SITU-0037",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "inaugural_release_operation",
+      "definition": "The owner-authorized first stable version or inaugural release is being prepared or verified.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0101",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0037",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0038",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "post_mvp_maintenance",
+      "definition": "Changes to an already accepted MVP baseline are being designed or released.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0106",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0038",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0039",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "safety_question_proportionality",
+      "definition": "A response considers safety-oriented questions without concrete new risk evidence.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0114",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0039",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0040",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "tarium_membership_decision",
+      "definition": "Explicit enrollment or modification of membership of a named Tarium project is proposed.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0125",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0040",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0041",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "tarium_public_externalization",
+      "definition": "Private source work is being transformed into a reviewed, independently usable public subset.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0117",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0041",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0042",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "rust_fork_upstream_integration",
+      "definition": "An existing Rust fork is inspecting, selecting or integrating upstream changes.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0129",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0042",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0043",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "completed_work_handoff",
+      "definition": "A completed development work session or deliverable is being reported back to its owner.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0066",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0043",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0044",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "public_readme_authoring",
+      "definition": "A repository's public-facing README is being authored or substantially revised.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0136",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0044",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0045",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "comparative_progress_round",
+      "definition": "A progress report compares current measured completion to the prior reporting round.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0137",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0045",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0046",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "repository_secret_staging",
+      "definition": "Repository material may expose credentials or other nonpublic data when tracked or staged.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0051",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0046",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0047",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "rust_edition_selection",
+      "definition": "A Cargo package's Rust language edition is being selected or updated.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0012",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0047",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0048",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "preclosure_acceptance_assessment",
+      "definition": "A work item is nearing closure and requires acceptance evidence or remaining-work disclosure.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0064",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0048",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
     }
   ],
   "intents": [
