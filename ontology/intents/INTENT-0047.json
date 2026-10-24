@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0047",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "operate_on_authorized_repository",
+  "definition": "Perform local automation only on the verified intended repository and path.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0047"
+  }
+}

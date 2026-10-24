@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0040",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "trustworthy_release_artifacts",
+  "definition": "Produce verified, versioned and integrity-checkable release outputs.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0040"
+  }
+}

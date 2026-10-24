@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0065",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "maintain_agreed_scope",
+  "definition": "Keep implementation and release work within its approved purpose and acceptance contract.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0065"
+  }
+}

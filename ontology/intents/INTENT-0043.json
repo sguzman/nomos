@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0043",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "avoid_redundant_status_reporting",
+  "definition": "Prevent stale or already reported completion from dominating subsequent progress updates.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0043"
+  }
+}

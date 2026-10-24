@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0022",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "usable_adaptive_interface",
+  "definition": "Make visual user interfaces usable and consistent with supported appearance settings.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0022"
+  }
+}

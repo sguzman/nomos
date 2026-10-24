@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0031",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "reproducible_dependency_configuration",
+  "definition": "Keep dependencies and reproducible build configuration consistent.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0031"
+  }
+}

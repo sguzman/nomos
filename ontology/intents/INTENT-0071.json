@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0071",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "sustainable_project_lifecycle",
+  "definition": "Maintain consistency and support across project inception, graduation and maintenance.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0071"
+  }
+}

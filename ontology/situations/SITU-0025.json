@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0025",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "dependency_or_public_interface_change",
+  "definition": "Dependencies or externally consumed APIs, formats or behavior are changing.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_situation_SITU-0025",
+    "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0020",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "ci_failure_or_result_review",
+  "definition": "An automated CI run has completed or encountered a failure requiring verification.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_situation_SITU-0020",
+    "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+  }
+}

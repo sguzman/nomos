@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0056",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "consistent_ontology_gallery_links",
+  "definition": "Keep domain ontology, gallery, manifests and representations mutually consistent.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0056"
+  }
+}

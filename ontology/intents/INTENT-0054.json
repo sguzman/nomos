@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0054",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "independent_public_project_governance",
+  "definition": "Maintain clear project autonomy, consent and public governance responsibilities.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0054"
+  }
+}

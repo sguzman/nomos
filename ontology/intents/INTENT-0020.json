@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0020",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "protect_nonpublic_material",
+  "definition": "Keep confidential and private source material out of unauthorized public disclosure.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0020"
+  }
+}

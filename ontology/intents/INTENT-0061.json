@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0061",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "actionable_owner_handoff",
+  "definition": "Identify exactly what decisions or user actions are necessary after completed work.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0061"
+  }
+}

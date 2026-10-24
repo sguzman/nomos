@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0042",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "rust_fork_upstream_integration",
+  "definition": "An existing Rust fork is inspecting, selecting or integrating upstream changes.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_situation_SITU-0042",
+    "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+  }
+}

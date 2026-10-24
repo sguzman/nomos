@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0050",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "real_world_mvp_utility",
+  "definition": "Judge MVP readiness by actual user-facing capability and documented acceptance evidence.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0050"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0064",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "understandable_visual_progress",
+  "definition": "Express supported completion numbers with consistent visual indicators.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0064"
+  }
+}

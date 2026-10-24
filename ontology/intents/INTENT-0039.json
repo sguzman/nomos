@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0039",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "preserve_consumed_interfaces",
+  "definition": "Avoid unapproved compatibility regressions in externally consumed APIs and formats.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0039"
+  }
+}

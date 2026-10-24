@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0025",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "distinct_stable_project_identity",
+  "definition": "Make project visual identity distinguishable, stable and portable.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0025"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0045",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "comparative_progress_round",
+  "definition": "A progress report compares current measured completion to the prior reporting round.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_situation_SITU-0045",
+    "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+  }
+}

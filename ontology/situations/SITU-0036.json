@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0036",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "mvp_acceptance_review",
+  "definition": "A project's minimum viable baseline is being defined, reviewed or verified for acceptance.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_situation_SITU-0036",
+    "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+  }
+}

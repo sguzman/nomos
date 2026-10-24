@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0048",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "maintainable_automation_jobs",
+  "definition": "Keep YAML jobs short, understandable and backed by maintainable script files.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0048"
+  }
+}

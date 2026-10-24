@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0072",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "accessible_free_distribution",
+  "definition": "Provide relevant distributables through accessible, legitimately authorized channels.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0072"
+  }
+}

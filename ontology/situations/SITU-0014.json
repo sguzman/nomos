@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0014",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "project_inception",
+  "definition": "A new authorized project's initial roadmap, identity and structure are being established.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_situation_SITU-0014",
+    "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+  }
+}

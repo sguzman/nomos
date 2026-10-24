@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0036",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "current_and_accessible_documentation",
+  "definition": "Make configuration, interfaces, changes and user guidance understandable and accurate.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0036"
+  }
+}

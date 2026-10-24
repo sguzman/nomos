@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0067",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "safe_nonprivate_test_fixtures",
+  "definition": "Use test samples that are representative without exposing actual secrets or private content.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0067"
+  }
+}

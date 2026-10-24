@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0021",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "user_facing_documentation_change",
+  "definition": "A project's user-facing instructions, architecture, configuration or history documentation needs change.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_situation_SITU-0021",
+    "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+  }
+}

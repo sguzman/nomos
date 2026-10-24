@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0058",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "traceable_fork_upstream_lineage",
+  "definition": "Record authoritative upstream baselines, divergence and adoption decisions in a maintained fork.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0058"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0055",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "separate_private_and_public_resources",
+  "definition": "Prevent private workspaces or unpublished assets from leaking into public projects.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0055"
+  }
+}

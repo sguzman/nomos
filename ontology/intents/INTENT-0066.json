@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0066",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "consistent_release_version_metadata",
+  "definition": "Keep versions, release tags and published references aligned.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0066"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0026",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "auditable_project_roadmap",
+  "definition": "Make authorized work scope, planned milestones and progress traceable.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0026"
+  }
+}

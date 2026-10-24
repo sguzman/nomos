@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0028",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "verifiable_git_history",
+  "definition": "Make repository changes, branch decisions and committed results traceable and verifiable.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0028"
+  }
+}

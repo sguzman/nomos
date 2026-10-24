@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0032",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "correct_rust_toolchain_output",
+  "definition": "Ensure Rust source, editions, format and lint checks produce a valid maintainable build.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0032"
+  }
+}

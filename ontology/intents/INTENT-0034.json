@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0034",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "reliable_repeatable_test_suite",
+  "definition": "Keep automated tests meaningful, deterministic, representative and regression-sensitive.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0034"
+  }
+}

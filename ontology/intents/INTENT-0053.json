@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0053",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "proportionate_safety_responses",
+  "definition": "Avoid unsupported repetitive risk interrogation while preserving proportionate response to concrete risk.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0053"
+  }
+}

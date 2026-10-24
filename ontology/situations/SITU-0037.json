@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0037",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "inaugural_release_operation",
+  "definition": "The owner-authorized first stable version or inaugural release is being prepared or verified.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_situation_SITU-0037",
+    "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+  }
+}

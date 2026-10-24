@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0044",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "strict_port_replacement_fidelity",
+  "definition": "Keep a strict port behaviorally compatible with its agreed upstream baseline.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0044"
+  }
+}

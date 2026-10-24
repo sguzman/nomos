@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0030",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "license_compliance",
+  "definition": "Respect source licenses and preserve legally required attribution.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0030"
+  }
+}

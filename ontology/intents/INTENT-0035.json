@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0035",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "trustworthy_automated_workflows",
+  "definition": "Maintain accurate CI, quality gates, deployment triggers and verified outcomes.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0035"
+  }
+}

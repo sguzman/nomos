@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0038",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "prevent_data_loss_and_unintended_changes",
+  "definition": "Preserve valuable information against unintended destruction, corruption or modification.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0001",
+    "source_candidate": "normalized_rule_analysis_intent_INTENT-0038"
+  }
+}
