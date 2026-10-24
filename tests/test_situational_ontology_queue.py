@@ -20,11 +20,11 @@ class SituationalOntologyIntakeTests(unittest.TestCase):
         items, errors = inspect()
         self.assertEqual(errors, [])
         for item in items.values():
-            self.assertEqual(item["status"], "queued")
+            self.assertEqual(item["status"], "processed")
             self.assertEqual(item["authorization"], {
                 "intake_authorized": True,
-                "processing_authorized": False,
-                "publication_authorized": False,
+                "processing_authorized": True,
+                "publication_authorized": True,
                 "auto_apply": False,
             })
 
@@ -37,9 +37,9 @@ class SituationalOntologyIntakeTests(unittest.TestCase):
             for rev in ("02", "03"):
                 path = ROOT / "queues/situational-prompts/revisions" / f"SIT-REV-{index:04d}-{rev}.json"
                 proposal = json.loads(path.read_text())
-                self.assertEqual(proposal["status"], "queued")
-                self.assertFalse(proposal["review"]["processing_authorized"])
-                self.assertFalse(proposal["review"]["publication_authorized"])
+                self.assertEqual(proposal["status"], "processed")
+                self.assertTrue(proposal["review"]["processing_authorized"])
+                self.assertTrue(proposal["review"]["publication_authorized"])
 
     def test_diagnostics_keep_classification_uncertainty(self):
         items, errors = inspect()

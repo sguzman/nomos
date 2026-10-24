@@ -26,17 +26,22 @@ class RevisionQueueTests(unittest.TestCase):
             self.assertEqual([r["proposed_version"] for r in revisions], ["2.0.0", "3.0.0"])
             self.assertEqual(revisions[0]["predecessor_ref"], family + "@1.0.0")
             self.assertEqual(revisions[1]["predecessor_ref"], f"SIT-REV-{n:04d}-02")
-            self.assertTrue(all(r["status"] == "queued" for r in revisions))
+            self.assertTrue(all(r["status"] == "processed" for r in revisions))
             self.assertEqual(self.canonical[family]["version"], "1.0.0")
             self.assertEqual(self.canonical[family]["status"], "published")
+            for rev in revisions:
+                p=ROOT / "situational-prompts" / "versions" / f"{family}-v{rev['proposed_version']}.json"
+                artifact=__import__("json").loads(p.read_text(encoding="utf-8"))
+                self.assertEqual(artifact["text"],rev["proposed_text"])
+                self.assertEqual(artifact["status"],"published")
 
     def test_no_launcher_or_personal_labels_leak_into_metadata(self):
         for _, r in self.records:
             for forbidden in ("key", "shortcut_key", "source_label", "label", "title"):
                 self.assertNotIn(forbidden, r)
                 self.assertNotIn(forbidden, r["source"])
-            self.assertFalse(r["review"]["processing_authorized"])
-            self.assertFalse(r["review"]["publication_authorized"])
+            self.assertTrue(r["review"]["processing_authorized"])
+            self.assertTrue(r["review"]["publication_authorized"])
 
     def test_reminder_to_execution_behavioral_change_is_flagged(self):
         for _, r in self.records:
