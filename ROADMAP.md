@@ -47,4 +47,7 @@ These entries are descriptive; the unchecked items are not queued tasks or autom
 - [x] Validate one-to-one provenance and separate non-executing reinforcement from execution
 - [x] Owner-approved publication of all eight as regular situational items
 
-Publication is complete. Runtime invocation remains explicit and never follows automatically from catalog membership.
+Publication of the original eight prompts is complete. Runtime invocation remains explicit and never follows automatically from catalog membership.
+
+- [x] Queue v2 and v3 proposals for each of the eight existing prompt identities, retaining text, version links, and content checksums
+- [ ] Process queued revisions only after separate authorization

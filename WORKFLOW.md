@@ -67,6 +67,10 @@ The explicitly authorized public-safe specimens `SPEC-0115`–`SPEC-0117` were q
 
 At the owner's explicit instruction, all eight `SIT-IDEA-0001`–`0008` situations were processed independently into `SIT-0001`–`0008` situational prompts, with individual `processing/situational-prompts/PROC-SIT-IDEA-*.json` traces. The original queue labels and source configuration belong only to intake; canonical records carry stable IDs and typed situation/intent/behavior metadata, with labels derived for display rather than independently authored names. Their instruction text is freshly normalized and public-safe, never verbatim private wording. A subsequent explicit owner correction authorized publication as regular items. All eight entries are now `published`, are individually copyable, and remain inert until a user deliberately invokes one. Cross-registry linking is checked by `tools/validate_situational_processing.py`.
 
+## Queued prompt revisions (2026-10-24)
+
+The owner submitted subsequent v2 and v3 texts for each of the existing eight situational prompt families. Sixteen revision proposals are now queued with source fingerprints and explicit version lineage. The uploaded JSON version 1 is the format version, not the semantic prompt version. This intake operation does **not** authorize processing or publication, and none of the eight published canonical version 1.0.0 prompts changed. The two reminder families' behavioral shift toward execution is flagged for future review.
+
 ## Independent optional profile-idea queue (2026-10-21)
 
 `queues/profiles/` is an **intake-only operational backlog**, separate from all four specimen/task stores, the reviewed `profiles/` registry, and the four ontology kinds. Its `PROFILE-IDEA-*` IDs never reserve or become real `PROFILE-*` IDs.

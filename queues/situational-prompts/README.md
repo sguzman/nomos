@@ -22,3 +22,11 @@ Each file follows [the intake schema](../../schema/situational-prompt-idea.schem
 Shortcut keys were part of one user's launcher setup, not intrinsic properties of these prompts. Key assignments are excluded from this registry. The original user-supplied messages remain outside this public repository. The owner separately authorized publication of all eight independently authored canonical texts. Publication does not imply automatic activation.
 
 Local validation: `python3 tools/validate_situational_prompt_ideas.py`. The website's distinct situational-prompt browser intentionally reads the approved registry, **not** this intake queue.
+
+## Subsequent versions queued (2026-10-24)
+
+Sixteen revision proposals are queued under [revisions/](revisions/README.md). Each of the eight published situational prompts retains the same canonical SIT ID. Proposed version 2.0.0 follows published 1.0.0; proposed version 3.0.0 follows the queued 2.0.0. The uploaded files' version 1 is a source JSON format version, **not** a prompt version.
+
+Each proposal retains the standalone, public-safe instruction wording exactly as supplied, with a SHA-256 content checksum. No source launcher keys or personal shortcut labels enter revision metadata. The queue neither processes nor publishes nor invokes revised prompts; existing website copy actions still return published v1. Prompt families SIT-0006 and SIT-0007 require explicit behavioral review because both later variants would change a reinforcement-only reminder into an instruction to resume implementation.
+
+Validation: python3 tools/validate_situational_prompt_revisions.py.
