@@ -1,0 +1,129 @@
+{
+  "id": "SITO-IDEA-0004",
+  "kind": "situational_ontology_idea",
+  "status": "queued",
+  "topic": "prompt_versions_as_implementations",
+  "purpose": "Prompt texts are alternate linguistic implementations of the same composition, and each generation is preserved independently.",
+  "candidates": [
+    {
+      "id": "V0001",
+      "canonical_family_id": "SIT-0001",
+      "preserved_published_reference": "SIT-0001@1.0.0",
+      "queued_version_refs": [
+        "SIT-REV-0001-02",
+        "SIT-REV-0001-03"
+      ],
+      "proposed_identity_rule": "family ID + version",
+      "release_choice": "explicit_only"
+    },
+    {
+      "id": "V0002",
+      "canonical_family_id": "SIT-0002",
+      "preserved_published_reference": "SIT-0002@1.0.0",
+      "queued_version_refs": [
+        "SIT-REV-0002-02",
+        "SIT-REV-0002-03"
+      ],
+      "proposed_identity_rule": "family ID + version",
+      "release_choice": "explicit_only"
+    },
+    {
+      "id": "V0003",
+      "canonical_family_id": "SIT-0003",
+      "preserved_published_reference": "SIT-0003@1.0.0",
+      "queued_version_refs": [
+        "SIT-REV-0003-02",
+        "SIT-REV-0003-03"
+      ],
+      "proposed_identity_rule": "family ID + version",
+      "release_choice": "explicit_only"
+    },
+    {
+      "id": "V0004",
+      "canonical_family_id": "SIT-0004",
+      "preserved_published_reference": "SIT-0004@1.0.0",
+      "queued_version_refs": [
+        "SIT-REV-0004-02",
+        "SIT-REV-0004-03"
+      ],
+      "proposed_identity_rule": "family ID + version",
+      "release_choice": "explicit_only"
+    },
+    {
+      "id": "V0005",
+      "canonical_family_id": "SIT-0005",
+      "preserved_published_reference": "SIT-0005@1.0.0",
+      "queued_version_refs": [
+        "SIT-REV-0005-02",
+        "SIT-REV-0005-03"
+      ],
+      "proposed_identity_rule": "family ID + version",
+      "release_choice": "explicit_only"
+    },
+    {
+      "id": "V0006",
+      "canonical_family_id": "SIT-0006",
+      "preserved_published_reference": "SIT-0006@1.0.0",
+      "queued_version_refs": [
+        "SIT-REV-0006-02",
+        "SIT-REV-0006-03"
+      ],
+      "proposed_identity_rule": "family ID + version",
+      "release_choice": "explicit_only"
+    },
+    {
+      "id": "V0007",
+      "canonical_family_id": "SIT-0007",
+      "preserved_published_reference": "SIT-0007@1.0.0",
+      "queued_version_refs": [
+        "SIT-REV-0007-02",
+        "SIT-REV-0007-03"
+      ],
+      "proposed_identity_rule": "family ID + version",
+      "release_choice": "explicit_only"
+    },
+    {
+      "id": "V0008",
+      "canonical_family_id": "SIT-0008",
+      "preserved_published_reference": "SIT-0008@1.0.0",
+      "queued_version_refs": [
+        "SIT-REV-0008-02",
+        "SIT-REV-0008-03"
+      ],
+      "proposed_identity_rule": "family ID + version",
+      "release_choice": "explicit_only"
+    }
+  ],
+  "design_constraints": [
+    "Never overwrite, mutate in place, delete or silently replace earlier generations.",
+    "New versions do not automatically become preferred, selected, or default.",
+    "Distinguish source-file format version from prompt generation version.",
+    "Prompt instruction text stays short; taxonomy annotations must not be appended automatically.",
+    "Keep public source privacy boundary."
+  ],
+  "open_review_questions": [
+    "Should version links refer to immutable artifacts or immutable revisions within a family record?",
+    "How should a default/version selection be represented, if at all?"
+  ],
+  "context_references": [
+    "SIT-0001",
+    "SIT-0002",
+    "SIT-0003",
+    "SIT-0004",
+    "SIT-0005",
+    "SIT-0006",
+    "SIT-0007",
+    "SIT-0008"
+  ],
+  "authorization": {
+    "intake_authorized": true,
+    "processing_authorized": false,
+    "publication_authorized": false,
+    "auto_apply": false
+  },
+  "governance": {
+    "queued_on": "2026-10-24",
+    "updated_on": "2026-10-24",
+    "source_kind": "owner_requested_synthetic_summary"
+  }
+}

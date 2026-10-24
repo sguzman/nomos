@@ -1,0 +1,172 @@
+{
+  "id": "SITO-IDEA-0002",
+  "kind": "situational_ontology_idea",
+  "status": "queued",
+  "topic": "atomic_intents",
+  "purpose": "Reusable, independently addressable desired outcomes, initially 19 candidates without claiming proven atomicity.",
+  "candidates": [
+    {
+      "id": "I1",
+      "code": "acknowledge_satisfactory_progress",
+      "definition": "Acknowledge successful preceding work without causing an unnecessary handoff.",
+      "atomicity": "hypothesis_to_review",
+      "intent_vs_constraint_boundary": "unresolved"
+    },
+    {
+      "id": "I2",
+      "code": "continue_authorized_work",
+      "definition": "Resume current project work instead of initiating an unrelated objective.",
+      "atomicity": "hypothesis_to_review",
+      "intent_vs_constraint_boundary": "unresolved"
+    },
+    {
+      "id": "I3",
+      "code": "maximize_autonomous_productivity",
+      "definition": "Advance as much legitimate in-scope work as available execution permits.",
+      "atomicity": "hypothesis_to_review",
+      "intent_vs_constraint_boundary": "unresolved"
+    },
+    {
+      "id": "I4",
+      "code": "pursue_agreed_completion",
+      "definition": "Advance toward the originally defined, verifiable acceptance target.",
+      "atomicity": "hypothesis_to_review",
+      "intent_vs_constraint_boundary": "unresolved"
+    },
+    {
+      "id": "I5",
+      "code": "reconstruct_context",
+      "definition": "Recover established decisions, constraints, roadmap and known progress.",
+      "atomicity": "hypothesis_to_review",
+      "intent_vs_constraint_boundary": "unresolved"
+    },
+    {
+      "id": "I6",
+      "code": "recover_interrupted_execution",
+      "definition": "Identify and resume incomplete work after an interruption.",
+      "atomicity": "hypothesis_to_review",
+      "intent_vs_constraint_boundary": "unresolved"
+    },
+    {
+      "id": "I7",
+      "code": "verify_actual_project_state",
+      "definition": "Base decisions on available repository, test and deliverable evidence.",
+      "atomicity": "hypothesis_to_review",
+      "intent_vs_constraint_boundary": "unresolved"
+    },
+    {
+      "id": "I8",
+      "code": "diagnose_interruption",
+      "definition": "Explain what happened, what remains, and what is uncertain.",
+      "atomicity": "hypothesis_to_review",
+      "intent_vs_constraint_boundary": "unresolved"
+    },
+    {
+      "id": "I9",
+      "code": "select_unfinished_work",
+      "definition": "Identify/prioritize the next legitimate unfinished requirement.",
+      "atomicity": "hypothesis_to_review",
+      "intent_vs_constraint_boundary": "unresolved"
+    },
+    {
+      "id": "I10",
+      "code": "produce_verified_implementations",
+      "definition": "Implement, test and commit actual deliverables across execution cycles.",
+      "atomicity": "hypothesis_to_review",
+      "intent_vs_constraint_boundary": "unresolved"
+    },
+    {
+      "id": "I11",
+      "code": "avoid_repeating_completed_work",
+      "definition": "Do not duplicate finished work or assume an interrupted action succeeded.",
+      "atomicity": "hypothesis_to_review",
+      "intent_vs_constraint_boundary": "unresolved"
+    },
+    {
+      "id": "I12",
+      "code": "preserve_agreed_scope",
+      "definition": "Avoid unauthorized features, tasks or goal substitutions.",
+      "atomicity": "hypothesis_to_review",
+      "intent_vs_constraint_boundary": "unresolved"
+    },
+    {
+      "id": "I13",
+      "code": "avoid_unproductive_activity",
+      "definition": "Avoid repetitive planning, cosmetic busywork and performance theater.",
+      "atomicity": "hypothesis_to_review",
+      "intent_vs_constraint_boundary": "unresolved"
+    },
+    {
+      "id": "I14",
+      "code": "audit_progress_claims",
+      "definition": "Compare reported achievements against evidence and acceptance criteria.",
+      "atomicity": "hypothesis_to_review",
+      "intent_vs_constraint_boundary": "unresolved"
+    },
+    {
+      "id": "I15",
+      "code": "correct_unsupported_claims",
+      "definition": "Correct invented, overstated or repetitive progress assertions.",
+      "atomicity": "hypothesis_to_review",
+      "intent_vs_constraint_boundary": "unresolved"
+    },
+    {
+      "id": "I16",
+      "code": "quantify_supported_progress",
+      "definition": "Report a verifiable completion percentage and change where measurable.",
+      "atomicity": "hypothesis_to_review",
+      "intent_vs_constraint_boundary": "unresolved"
+    },
+    {
+      "id": "I17",
+      "code": "reroute_around_local_blockers",
+      "definition": "Continue other legitimate tasks when one requirement is blocked.",
+      "atomicity": "hypothesis_to_review",
+      "intent_vs_constraint_boundary": "unresolved"
+    },
+    {
+      "id": "I18",
+      "code": "apply_legitimate_stop_conditions",
+      "definition": "Avoid premature termination and stop on validated completion or true execution exhaustion.",
+      "atomicity": "hypothesis_to_review",
+      "intent_vs_constraint_boundary": "unresolved"
+    },
+    {
+      "id": "I19",
+      "code": "handoff_with_evidence",
+      "definition": "At the appropriate boundary, report tangible changes, blockers, and remaining work.",
+      "atomicity": "hypothesis_to_review",
+      "intent_vs_constraint_boundary": "unresolved"
+    }
+  ],
+  "design_constraints": [
+    "No prompt is created for each intent by queueing.",
+    "Separate goals from constraints, stop conditions, reporting requirements, and methods.",
+    "Descriptions are public-safe, neutral summaries rather than private conversation excerpts."
+  ],
+  "open_review_questions": [
+    "Which items are genuinely atomic versus procedural requirements?",
+    "Which intents are version-specific rather than shared by all generations?"
+  ],
+  "context_references": [
+    "SIT-0001",
+    "SIT-0002",
+    "SIT-0003",
+    "SIT-0004",
+    "SIT-0005",
+    "SIT-0006",
+    "SIT-0007",
+    "SIT-0008"
+  ],
+  "authorization": {
+    "intake_authorized": true,
+    "processing_authorized": false,
+    "publication_authorized": false,
+    "auto_apply": false
+  },
+  "governance": {
+    "queued_on": "2026-10-24",
+    "updated_on": "2026-10-24",
+    "source_kind": "owner_requested_synthetic_summary"
+  }
+}

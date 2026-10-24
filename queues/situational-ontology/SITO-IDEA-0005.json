@@ -1,0 +1,79 @@
+{
+  "id": "SITO-IDEA-0005",
+  "kind": "situational_ontology_idea",
+  "status": "queued",
+  "topic": "execution_constraints_and_conditions",
+  "purpose": "Methods, stopping gates, anti-busywork protections, and reporting constraints should be typed separately from atomic intentions.",
+  "candidates": [
+    {
+      "id": "C1",
+      "code": "single_task_completed",
+      "meaning": "One task finishes; this alone is not a general stop condition.",
+      "classification": "execution_condition_candidate"
+    },
+    {
+      "id": "C2",
+      "code": "checkpoint_reached",
+      "meaning": "A checkpoint is reached; its meaning depends on the requested handoff policy.",
+      "classification": "execution_condition_candidate"
+    },
+    {
+      "id": "C3",
+      "code": "isolated_requirement_blocked",
+      "meaning": "One local blocker does not imply all other authorized work is blocked.",
+      "classification": "execution_condition_candidate"
+    },
+    {
+      "id": "C4",
+      "code": "alternative_legitimate_work_available",
+      "meaning": "Other in-scope work can be advanced while a requirement is blocked.",
+      "classification": "execution_condition_candidate"
+    },
+    {
+      "id": "C5",
+      "code": "acceptance_criteria_fully_verified",
+      "meaning": "Original agreed scope is satisfied with evidence; do not invent follow-on work.",
+      "classification": "execution_condition_candidate"
+    },
+    {
+      "id": "C6",
+      "code": "no_productive_executable_work_available",
+      "meaning": "Remaining requirements cannot advance with available tools and permissions.",
+      "classification": "execution_condition_candidate"
+    },
+    {
+      "id": "C7",
+      "code": "execution_budget_exhausted",
+      "meaning": "External execution/time/tool limit prevents further work in this interaction.",
+      "classification": "execution_condition_candidate"
+    }
+  ],
+  "design_constraints": [
+    "Treat isolated blockers differently from global inability to progress.",
+    "An unavailable runtime is not proof of user-requested completion.",
+    "Verification and progress percentage depend on established measurable acceptance criteria.",
+    "Do not automatically add behavior to the prompt text from descriptive metadata.",
+    "Use proportionate process checks, minimizing instruction overload."
+  ],
+  "open_review_questions": [
+    "Which conditions are independent ontological classes versus facets of an execution contract?",
+    "How can conflicting handoff constraints be surfaced without enforcing them automatically?"
+  ],
+  "context_references": [
+    "SIT-0001",
+    "SIT-0002",
+    "SIT-0003",
+    "SIT-0004"
+  ],
+  "authorization": {
+    "intake_authorized": true,
+    "processing_authorized": false,
+    "publication_authorized": false,
+    "auto_apply": false
+  },
+  "governance": {
+    "queued_on": "2026-10-24",
+    "updated_on": "2026-10-24",
+    "source_kind": "owner_requested_synthetic_summary"
+  }
+}
