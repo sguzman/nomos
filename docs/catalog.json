@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.7",
+  "schema_version": "3.0",
   "source": "Nomos public catalog of atomic rules, virtual groups, opt-in profiles, and situational prompts",
   "rules": [
     {
@@ -16186,5 +16186,602 @@
         "description": "Maintenance, compatibility and post-release evolution"
       }
     }
-  }
+  },
+  "situations": [
+    {
+      "id": "SITU-0001",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "satisfactory_progress",
+      "definition": "A useful work checkpoint has been reported and continued work is wanted.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [
+        "SIT-0001"
+      ],
+      "provenance": {
+        "queue_id": "SITO-IDEA-0001",
+        "source_candidate": "S1",
+        "normalization": "reviewed_classification_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0002",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "execution_interruption",
+      "definition": "A conversation or work execution broke unexpectedly and unfinished work may remain.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [
+        "SIT-0002",
+        "SIT-0004"
+      ],
+      "provenance": {
+        "queue_id": "SITO-IDEA-0001",
+        "source_candidate": "S2",
+        "normalization": "reviewed_classification_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0003",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "conversation_context_exhaustion",
+      "definition": "The preceding conversation reached its length or context limit.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [
+        "SIT-0003",
+        "SIT-0008"
+      ],
+      "provenance": {
+        "queue_id": "SITO-IDEA-0001",
+        "source_candidate": "S3",
+        "normalization": "reviewed_classification_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0004",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "interruption_diagnosis_requested",
+      "definition": "An interruption happened and an explanation is wanted before further action.",
+      "classification": "composite",
+      "component_situation_ids": [
+        "SITU-0002"
+      ],
+      "related_prompt_families": [
+        "SIT-0005"
+      ],
+      "provenance": {
+        "queue_id": "SITO-IDEA-0001",
+        "source_candidate": "S4",
+        "normalization": "reviewed_classification_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0005",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "possible_project_completion",
+      "definition": "Accepted requirements may already be fully complete, requiring an evidence-based stopping decision.",
+      "classification": "execution_state",
+      "component_situation_ids": [],
+      "related_prompt_families": [
+        "SIT-0004"
+      ],
+      "provenance": {
+        "queue_id": "SITO-IDEA-0001",
+        "source_candidate": "S5",
+        "normalization": "reviewed_classification_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0006",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "suspected_stagnant_or_unsupported_progress",
+      "definition": "Reported activity or percentages may not reflect verifiable deliverables.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [
+        "SIT-0006",
+        "SIT-0008"
+      ],
+      "provenance": {
+        "queue_id": "SITO-IDEA-0001",
+        "source_candidate": "S6",
+        "normalization": "reviewed_classification_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0007",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "suspected_scope_drift",
+      "definition": "Work risks diverging from agreed requirements into unrelated or invented tasks.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [
+        "SIT-0007",
+        "SIT-0008"
+      ],
+      "provenance": {
+        "queue_id": "SITO-IDEA-0001",
+        "source_candidate": "S7",
+        "normalization": "reviewed_classification_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0008",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "context_recovery_with_accountability",
+      "definition": "A successor conversation must restore context while checking scope and progress credibility.",
+      "classification": "composite",
+      "component_situation_ids": [
+        "SITU-0003",
+        "SITU-0006",
+        "SITU-0007"
+      ],
+      "related_prompt_families": [
+        "SIT-0008"
+      ],
+      "provenance": {
+        "queue_id": "SITO-IDEA-0001",
+        "source_candidate": "S8",
+        "normalization": "reviewed_classification_2026-10-24"
+      }
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0001",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "acknowledge_satisfactory_progress",
+      "definition": "Acknowledge successful preceding work without causing an unnecessary handoff.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0002",
+        "source_candidate": "I1"
+      }
+    },
+    {
+      "id": "INTENT-0002",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "continue_authorized_work",
+      "definition": "Resume current project work instead of initiating an unrelated objective.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0002",
+        "source_candidate": "I2"
+      }
+    },
+    {
+      "id": "INTENT-0003",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "maximize_autonomous_productivity",
+      "definition": "Advance as much legitimate in-scope work as available execution permits.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0002",
+        "source_candidate": "I3"
+      }
+    },
+    {
+      "id": "INTENT-0004",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "pursue_agreed_completion",
+      "definition": "Advance toward the originally defined, verifiable acceptance target.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0002",
+        "source_candidate": "I4"
+      }
+    },
+    {
+      "id": "INTENT-0005",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "reconstruct_context",
+      "definition": "Recover established decisions, constraints, roadmap and known progress.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0002",
+        "source_candidate": "I5"
+      }
+    },
+    {
+      "id": "INTENT-0006",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "recover_interrupted_execution",
+      "definition": "Identify and resume incomplete work after an interruption.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0002",
+        "source_candidate": "I6"
+      }
+    },
+    {
+      "id": "INTENT-0007",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "verify_actual_project_state",
+      "definition": "Base decisions on available repository, test and deliverable evidence.",
+      "semantic_role": "method",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0002",
+        "source_candidate": "I7"
+      }
+    },
+    {
+      "id": "INTENT-0008",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "diagnose_interruption",
+      "definition": "Explain what happened, what remains, and what is uncertain.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0002",
+        "source_candidate": "I8"
+      }
+    },
+    {
+      "id": "INTENT-0009",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "select_unfinished_work",
+      "definition": "Identify/prioritize the next legitimate unfinished requirement.",
+      "semantic_role": "method",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0002",
+        "source_candidate": "I9"
+      }
+    },
+    {
+      "id": "INTENT-0010",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "produce_verified_implementations",
+      "definition": "Implement, test and commit actual deliverables across execution cycles.",
+      "semantic_role": "method",
+      "atomicity": "composite_method",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0002",
+        "source_candidate": "I10"
+      }
+    },
+    {
+      "id": "INTENT-0011",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "avoid_repeating_completed_work",
+      "definition": "Do not duplicate finished work or assume an interrupted action succeeded.",
+      "semantic_role": "constraint",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0002",
+        "source_candidate": "I11"
+      }
+    },
+    {
+      "id": "INTENT-0012",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "preserve_agreed_scope",
+      "definition": "Avoid unauthorized features, tasks or goal substitutions.",
+      "semantic_role": "constraint",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0002",
+        "source_candidate": "I12"
+      }
+    },
+    {
+      "id": "INTENT-0013",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "avoid_unproductive_activity",
+      "definition": "Avoid repetitive planning, cosmetic busywork and performance theater.",
+      "semantic_role": "constraint",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0002",
+        "source_candidate": "I13"
+      }
+    },
+    {
+      "id": "INTENT-0014",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "audit_progress_claims",
+      "definition": "Compare reported achievements against evidence and acceptance criteria.",
+      "semantic_role": "method",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0002",
+        "source_candidate": "I14"
+      }
+    },
+    {
+      "id": "INTENT-0015",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "correct_unsupported_claims",
+      "definition": "Correct invented, overstated or repetitive progress assertions.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0002",
+        "source_candidate": "I15"
+      }
+    },
+    {
+      "id": "INTENT-0016",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "quantify_supported_progress",
+      "definition": "Report a verifiable completion percentage and change where measurable.",
+      "semantic_role": "reporting",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0002",
+        "source_candidate": "I16"
+      }
+    },
+    {
+      "id": "INTENT-0017",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "reroute_around_local_blockers",
+      "definition": "Continue other legitimate tasks when one requirement is blocked.",
+      "semantic_role": "method",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0002",
+        "source_candidate": "I17"
+      }
+    },
+    {
+      "id": "INTENT-0018",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "apply_legitimate_stop_conditions",
+      "definition": "Avoid premature termination and stop on validated completion or true execution exhaustion.",
+      "semantic_role": "stopping_policy",
+      "atomicity": "compound_policy",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0002",
+        "source_candidate": "I18"
+      }
+    },
+    {
+      "id": "INTENT-0019",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "handoff_with_evidence",
+      "definition": "At the appropriate boundary, report tangible changes, blockers, and remaining work.",
+      "semantic_role": "reporting",
+      "atomicity": "composite_report",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0002",
+        "source_candidate": "I19"
+      }
+    }
+  ],
+  "execution_conditions": [
+    {
+      "id": "CONDITION-0001",
+      "kind": "execution_condition",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "single_task_completed",
+      "definition": "One task finishes; this alone is not a general stop condition.",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0005",
+        "source_candidate": "C1"
+      }
+    },
+    {
+      "id": "CONDITION-0002",
+      "kind": "execution_condition",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "checkpoint_reached",
+      "definition": "A checkpoint is reached; its meaning depends on the requested handoff policy.",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0005",
+        "source_candidate": "C2"
+      }
+    },
+    {
+      "id": "CONDITION-0003",
+      "kind": "execution_condition",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "isolated_requirement_blocked",
+      "definition": "One local blocker does not imply all other authorized work is blocked.",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0005",
+        "source_candidate": "C3"
+      }
+    },
+    {
+      "id": "CONDITION-0004",
+      "kind": "execution_condition",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "alternative_legitimate_work_available",
+      "definition": "Other in-scope work can be advanced while a requirement is blocked.",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0005",
+        "source_candidate": "C4"
+      }
+    },
+    {
+      "id": "CONDITION-0005",
+      "kind": "execution_condition",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "acceptance_criteria_fully_verified",
+      "definition": "Original agreed scope is satisfied with evidence; do not invent follow-on work.",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0005",
+        "source_candidate": "C5"
+      }
+    },
+    {
+      "id": "CONDITION-0006",
+      "kind": "execution_condition",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "no_productive_executable_work_available",
+      "definition": "Remaining requirements cannot advance with available tools and permissions.",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0005",
+        "source_candidate": "C6"
+      }
+    },
+    {
+      "id": "CONDITION-0007",
+      "kind": "execution_condition",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "execution_budget_exhausted",
+      "definition": "External execution/time/tool limit prevents further work in this interaction.",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0005",
+        "source_candidate": "C7"
+      }
+    }
+  ],
+  "evaluation_dimensions": [
+    {
+      "id": "EVAL-DIM-0001",
+      "kind": "evaluation_dimension",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "declared_objectives",
+      "definition": "Identify targeted intents and expected outcomes per version.",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0006",
+        "source_candidate": "E1"
+      }
+    },
+    {
+      "id": "EVAL-DIM-0002",
+      "kind": "evaluation_dimension",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "observed_result",
+      "definition": "Capture actual runtime behavior and deliverables, not assumptions.",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0006",
+        "source_candidate": "E2"
+      }
+    },
+    {
+      "id": "EVAL-DIM-0003",
+      "kind": "evaluation_dimension",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "evidence",
+      "definition": "Ground observations in available commits, test outcomes, timestamps, and acceptance data.",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0006",
+        "source_candidate": "E3"
+      }
+    },
+    {
+      "id": "EVAL-DIM-0004",
+      "kind": "evaluation_dimension",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "per_intent_assessment",
+      "definition": "Compare each independently defined goal with available observations.",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0006",
+        "source_candidate": "E4"
+      }
+    },
+    {
+      "id": "EVAL-DIM-0005",
+      "kind": "evaluation_dimension",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "failure_modes_and_tradeoffs",
+      "definition": "Record suspected hazards distinctly from demonstrated failures.",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0006",
+        "source_candidate": "E5"
+      }
+    },
+    {
+      "id": "EVAL-DIM-0006",
+      "kind": "evaluation_dimension",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "cross_version_comparison",
+      "definition": "Compare v1/v2/v3 behavior while preserving all versions and conditions.",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0006",
+        "source_candidate": "E6"
+      }
+    },
+    {
+      "id": "EVAL-DIM-0007",
+      "kind": "evaluation_dimension",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "unknown_and_untested",
+      "definition": "Retain unknown when evidence is missing; do not infer success from wording.",
+      "provenance": {
+        "queue_id": "SITO-IDEA-0006",
+        "source_candidate": "E7"
+      }
+    }
+  ],
+  "situational_evaluations": []
 }
