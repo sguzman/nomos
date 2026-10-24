@@ -125,6 +125,16 @@ def fingerprint_assets(root=ROOT):
             if count != 1:
                 raise ValueError(f"Expected one situational asset reference for {asset}; saw {count}")
         situational.write_text(html, encoding="utf-8")
+    ontology = docs / "situational-ontology.html"
+    if ontology.exists():
+        html = ontology.read_text(encoding="utf-8")
+        for asset in ("styles.css", "situational-ontology.css", "situational-ontology.js", "catalog.json"):
+            digest = hashlib.sha256((docs / asset).read_bytes()).hexdigest()[:12]
+            pattern = re.escape("./" + asset) + r"(?:\?v=[0-9a-f]+)?"
+            html, count = re.subn(pattern, "./" + asset + "?v=" + digest, html)
+            if count != 1:
+                raise ValueError(f"Expected one ontology asset reference for {asset}; saw {count}")
+        ontology.write_text(html, encoding="utf-8")
 
 
 def main():

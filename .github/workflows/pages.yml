@@ -9,15 +9,19 @@ on:
       - "groups/**"
       - "profiles/**"
       - "situational-prompts/**"
+      - "ontology/**"
       - "relationships/**"
       - "queues/specimens/**"
       - "processing/specimens/**"
       - "queues/profiles/**"
       - "queues/situational-prompts/**"
       - "queues/situational-ontology/**"
+      - "queues/situational-ontology/**"
       - "schema/**"
       - "taxonomy/**"
       - "processing/specimens/candidates/**"
+      - "processing/situational-ontology/**"
+      - "processing/situational-prompts/revisions/**"
       - "tools/**"
       - "tests/**"
       - ".github/workflows/pages.yml"
@@ -49,12 +53,15 @@ jobs:
           python3 tools/validate_situational_prompt_ideas.py
           python3 tools/validate_situational_prompt_revisions.py
           python3 tools/validate_situational_ontology_queue.py
+          python3 tools/validate_formal_situational_ontology.py
           python3 tools/validate_situational_processing.py
           python3 tools/validate_groups.py
           python3 tools/relationships.py
           python3 -m unittest discover -s tests -v
           node --check docs/app.js
           node --check docs/situational-prompts.js
+          node --check docs/situational-ontology.js
+          node --test tests/test_situational_ontology_browser.cjs
           node --test tests/test_situational_prompts.cjs
           node --check docs/rule-colors.js
           node --check docs/reasoning.js
