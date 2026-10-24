@@ -20315,6 +20315,160 @@
         "queue_id": "RIA-0135",
         "source_candidate": "normalized_rule_analysis_intent_INTENT-0061"
       }
+    },
+    {
+      "id": "INTENT-0062",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "clear_public_readme_navigation",
+      "definition": "Keep the README welcoming and concise with detailed documentation elsewhere.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0136",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0062"
+      }
+    },
+    {
+      "id": "INTENT-0063",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "evidence_based_interval_progress",
+      "definition": "Make before/after completion changes measurable in signed percentage points.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0137",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0063"
+      }
+    },
+    {
+      "id": "INTENT-0064",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "understandable_visual_progress",
+      "definition": "Express supported completion numbers with consistent visual indicators.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0069",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0064"
+      }
+    },
+    {
+      "id": "INTENT-0065",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "maintain_agreed_scope",
+      "definition": "Keep implementation and release work within its approved purpose and acceptance contract.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0014",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0065"
+      }
+    },
+    {
+      "id": "INTENT-0066",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "consistent_release_version_metadata",
+      "definition": "Keep versions, release tags and published references aligned.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0055",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0066"
+      }
+    },
+    {
+      "id": "INTENT-0067",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "safe_nonprivate_test_fixtures",
+      "definition": "Use test samples that are representative without exposing actual secrets or private content.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0031",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0067"
+      }
+    },
+    {
+      "id": "INTENT-0068",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "safe_data_persistence",
+      "definition": "Preserve the validity of stored data across read/write roundtrips.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0053",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0068"
+      }
+    },
+    {
+      "id": "INTENT-0069",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "trusted_version_upgrade",
+      "definition": "Make change versions and compatibility boundaries predictable.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0054",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0069"
+      }
+    },
+    {
+      "id": "INTENT-0070",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "evidence_backed_completion",
+      "definition": "Require concrete verification before considering work or milestones finished.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0041",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0070"
+      }
+    },
+    {
+      "id": "INTENT-0071",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "sustainable_project_lifecycle",
+      "definition": "Maintain consistency and support across project inception, graduation and maintenance.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0097",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0071"
+      }
+    },
+    {
+      "id": "INTENT-0072",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "accessible_free_distribution",
+      "definition": "Provide relevant distributables through accessible, legitimately authorized channels.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0103",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0072"
+      }
     }
   ],
   "execution_conditions": [
