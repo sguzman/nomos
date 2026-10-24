@@ -25,3 +25,7 @@ Unlike a **virtual group** (a predefined rule collection, possibly nested), a **
 Use [schema/profile.schema.json](schema/profile.schema.json), [tools/profiles.js](tools/profiles.js), and [tools/validate_profiles.cjs](tools/validate_profiles.cjs). The JavaScript functions distinguish explicit draft authorization (`draftAuthorized`), explicit selection approval (`selectionConfirmed`), separate finalization and later use. Provisional drafts must remain unconfirmed until the owner approves their member lists. A machine-readable confirmation records an authorized event; it must never be fabricated. Potential normative conflicts are reported using existing conservative analysis.
 
 Profiles are **not** stored in specimen/task queues. Those four existing stores and all their authorization boundaries remain unchanged.
+
+## Derived companions (situations and intents)
+
+Each existing, authorized rule profile can have two machine-generated [read-only companion inventories](profiles/companions/README.md) from its selected rules' source-reviewed relationships. They do not create independent selected rule profiles, confirm provisional selections, finalize drafts, or activate instructions. They preserve the source's selection review state and are audited for drift.

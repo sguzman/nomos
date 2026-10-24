@@ -79,6 +79,8 @@ jobs:
           node --check tools/profiles.js
           node --check tools/validate_profiles.cjs
           node tools/validate_profiles.cjs
+          node tools/profile_companions.cjs --check
+          node --test tests/test_profile_companions.cjs
           node --check tools/profile_ideas.cjs
           node --check tools/validate_profile_ideas.cjs
           node tools/validate_profile_ideas.cjs

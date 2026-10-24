@@ -1,0 +1,714 @@
+{
+  "id": "INTENT-PROFILE-0006",
+  "kind": "derived_intent_profile",
+  "version": "1.0.0",
+  "status": "derived_inert",
+  "title": "Independent Tarium Project - Full - intent companion",
+  "source_profile": {
+    "id": "PROFILE-0006",
+    "version": "0.1.0",
+    "status": "draft",
+    "selection_confirmed": false,
+    "source_git_blob_sha": "c4b2bb1ee1a83bcb70102d5a7718ca1fe716576f"
+  },
+  "source_rule_ids": [
+    "NOM-0001",
+    "NOM-0003",
+    "NOM-0004",
+    "NOM-0006",
+    "NOM-0007",
+    "NOM-0009",
+    "NOM-0010",
+    "NOM-0014",
+    "NOM-0015",
+    "NOM-0016",
+    "NOM-0017",
+    "NOM-0018",
+    "NOM-0019",
+    "NOM-0021",
+    "NOM-0022",
+    "NOM-0023",
+    "NOM-0034",
+    "NOM-0035",
+    "NOM-0036",
+    "NOM-0038",
+    "NOM-0039",
+    "NOM-0040",
+    "NOM-0041",
+    "NOM-0042",
+    "NOM-0043",
+    "NOM-0047",
+    "NOM-0048",
+    "NOM-0049",
+    "NOM-0050",
+    "NOM-0051",
+    "NOM-0052",
+    "NOM-0055",
+    "NOM-0056",
+    "NOM-0057",
+    "NOM-0058",
+    "NOM-0060",
+    "NOM-0061",
+    "NOM-0064",
+    "NOM-0065",
+    "NOM-0066",
+    "NOM-0067",
+    "NOM-0068",
+    "NOM-0069",
+    "NOM-0070",
+    "NOM-0071",
+    "NOM-0072",
+    "NOM-0073",
+    "NOM-0115",
+    "NOM-0116",
+    "NOM-0117",
+    "NOM-0118",
+    "NOM-0119",
+    "NOM-0120",
+    "NOM-0121",
+    "NOM-0122",
+    "NOM-0123",
+    "NOM-0124",
+    "NOM-0125",
+    "NOM-0126",
+    "NOM-0127",
+    "NOM-0128"
+  ],
+  "source_analysis_snapshot": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
+  "members": [
+    {
+      "id": "INTENT-0004",
+      "via_rules": [
+        {
+          "id": "NOM-0064",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0007",
+      "via_rules": [
+        {
+          "id": "NOM-0065",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "method",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0016",
+      "via_rules": [
+        {
+          "id": "NOM-0068",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0069",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0070",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "reporting",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0019",
+      "via_rules": [
+        {
+          "id": "NOM-0066",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0067",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "reporting",
+      "atomicity": "composite_report"
+    },
+    {
+      "id": "INTENT-0020",
+      "via_rules": [
+        {
+          "id": "NOM-0001",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0003",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0004",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0050",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0051",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0117",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0124",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0022",
+      "via_rules": [
+        {
+          "id": "NOM-0009",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0023",
+      "via_rules": [
+        {
+          "id": "NOM-0006",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0007",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0119",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0120",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0121",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0126",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0127",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0128",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0025",
+      "via_rules": [
+        {
+          "id": "NOM-0009",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0073",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0026",
+      "via_rules": [
+        {
+          "id": "NOM-0010",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0043",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0028",
+      "via_rules": [
+        {
+          "id": "NOM-0014",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0015",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0016",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0017",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0022",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0023",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0029",
+      "via_rules": [
+        {
+          "id": "NOM-0018",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0021",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0030",
+      "via_rules": [
+        {
+          "id": "NOM-0019",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0049",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0033",
+      "via_rules": [
+        {
+          "id": "NOM-0036",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0035",
+      "via_rules": [
+        {
+          "id": "NOM-0034",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0035",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0036",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0038",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0039",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0040",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0041",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0068",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0069",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0070",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0036",
+      "via_rules": [
+        {
+          "id": "NOM-0042",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0043",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0047",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0048",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0037",
+      "via_rules": [
+        {
+          "id": "NOM-0049",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0038",
+      "via_rules": [
+        {
+          "id": "NOM-0052",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0040",
+      "via_rules": [
+        {
+          "id": "NOM-0055",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0056",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0057",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0058",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0060",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0061",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0041",
+      "via_rules": [
+        {
+          "id": "NOM-0038",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0042",
+      "via_rules": [
+        {
+          "id": "NOM-0065",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0067",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0068",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0070",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0071",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0072",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0043",
+      "via_rules": [
+        {
+          "id": "NOM-0072",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0051",
+      "via_rules": [
+        {
+          "id": "NOM-0057",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0064",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0071",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0116",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0125",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0054",
+      "via_rules": [
+        {
+          "id": "NOM-0115",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0116",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0118",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0125",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0055",
+      "via_rules": [
+        {
+          "id": "NOM-0001",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0003",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0004",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0050",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0051",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0117",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0122",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0123",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0124",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0056",
+      "via_rules": [
+        {
+          "id": "NOM-0006",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0007",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0119",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0120",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0126",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0127",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0128",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0057",
+      "via_rules": [
+        {
+          "id": "NOM-0115",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0121",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0122",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0123",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0064",
+      "via_rules": [
+        {
+          "id": "NOM-0069",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0065",
+      "via_rules": [
+        {
+          "id": "NOM-0014",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0016",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0017",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0066",
+      "via_rules": [
+        {
+          "id": "NOM-0055",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0058",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0060",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0070",
+      "via_rules": [
+        {
+          "id": "NOM-0041",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0066",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    }
+  ]
+}

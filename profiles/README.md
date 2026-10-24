@@ -16,3 +16,7 @@ Do not add a real profile here until the user authorizes its initial selection.
 - [PROFILE-0002](PROFILE-0002.json) — Full (93 unique published rules): everything in Lite plus CI/CD, documentation, extended QA, safety/data integrity, MVP graduation and post-MVP practices, and stable emoji roadmaps with percent/progress bars.
 
 Both contain `NOM-0111`, `NOM-0112`, `NOM-0113`, and the public-privacy rules `NOM-0001`, `NOM-0003`, `NOM-0004`, `NOM-0050`, `NOM-0051`. Both remain **drafts**, not finalized or selected for use. Profile selections are explicit canonical atom IDs; no group expands automatically at runtime.
+
+## Derived situation and intent companions
+
+All current rule-profile drafts have two [inert companions](companions/README.md). Each lists the unique situations and intents linked by the selected rules and preserves contributor evidence. A concept's presence does not confirm it is an atomic goal or an exclusive situation where rules apply.

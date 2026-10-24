@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Inert situation or intent companion derived from a rule profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "kind",
+    "version",
+    "status",
+    "title",
+    "source_profile",
+    "source_rule_ids",
+    "source_analysis_snapshot",
+    "members"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^(SITUATION|INTENT)-PROFILE-[0-9]{4,}$"
+    },
+    "kind": {
+      "enum": [
+        "derived_situation_profile",
+        "derived_intent_profile"
+      ]
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "status": {
+      "const": "derived_inert"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version",
+        "status",
+        "selection_confirmed",
+        "source_git_blob_sha"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^PROFILE-[0-9]{4,}$"
+        },
+        "version": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "finalized",
+            "deprecated"
+          ]
+        },
+        "selection_confirmed": {
+          "type": "boolean"
+        },
+        "source_git_blob_sha": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        }
+      }
+    },
+    "source_rule_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^NOM-[0-9]{4,}$"
+      }
+    },
+    "source_analysis_snapshot": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "members": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "via_rules"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^(SITU|INTENT)-[0-9]{4,}$"
+          },
+          "via_rules": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "id",
+                "basis"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^NOM-[0-9]{4,}$"
+                },
+                "basis": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          },
+          "semantic_role": {
+            "type": "string"
+          },
+          "atomicity": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

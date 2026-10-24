@@ -74,6 +74,14 @@ def build(root=ROOT):
     # Distinct canonical v1 plus immutable v2/v3 versions; no auto-upgrade.
     if len(situational_prompts) != 8 or len(situational_prompt_versions) != 16:
         raise ValueError("Expected eight preserved v1 and sixteen additional prompt generations")
+    # Check pinned source profiles and ontology links before exporting companion views.
+    import subprocess
+    subprocess.run(["node", "tools/profile_companions.cjs", "--check"], cwd=root, check=True)
+    companions = [json.loads(path.read_text(encoding="utf-8"))
+                  for kind in ("intents", "situations")
+                  for path in sorted((root / "profiles" / "companions" / kind).glob("*.json"))]
+    if len(companions) != 2 * len(profiles):
+        raise ValueError("Expected exactly two inert companions per rule profile")
     from validate_rule_situation_intent_links import load_links
     analyzed_links, link_errors=load_links(root)
     if link_errors:
@@ -96,6 +104,7 @@ def build(root=ROOT):
     return {"schema_version": "3.0",
             "source": "Nomos public catalog of atomic rules, virtual groups, opt-in profiles, and situational prompts",
             "rules": records, "groups": groups, "profiles": profiles,
+            "profile_companions": companions,
             "rule_situation_intent_links": sorted(analyzed_links.values(),key=lambda x:x["rule_id"]),
             "situational_prompts": situational_prompts,
             "situational_prompt_versions": situational_prompt_versions,
