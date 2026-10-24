@@ -29,9 +29,24 @@ const NomosSituational = (() => {
   function field(dl,label,value) {
     dl.append(createNode('dt','',label),createNode('dd','',Array.isArray(value)?value.join('; ')||'None':value));
   }
-  function card(p){
+  function card(p, generations=[], onSelectVersion=null){
     const entry=createNode('article','situational-entry');
-    entry.append(createNode('span','situational-id',p.id),createNode('h3','',displayLabel(p)),createNode('p','',p.summary));
+    entry.id='prompt-'+p.id;
+    entry.append(createNode('span','situational-id',p.id+' · v'+p.version),createNode('h3','',displayLabel(p)),createNode('p','',p.summary));
+    if(generations.length>1){
+      const wrap=createNode('label','situational-version-label','Prompt version');
+      const chooser=createNode('select','situational-version-select');
+      for(const version of generations){
+        const option=createNode('option','', 'v'+version.version+(version.version==='1.0.0'?' · Original':''));
+        option.value=version.version;
+        chooser.append(option);
+      }
+      chooser.value=p.version;
+      chooser.setAttribute('aria-label','Version for '+p.id);
+      chooser.addEventListener('change',()=>{if(onSelectVersion)onSelectVersion(chooser.value);});
+      wrap.append(chooser);
+      entry.append(wrap);
+    }
     const tags=createNode('div','situational-tags');
     for(const val of [p.status,p.execution.mode.replaceAll('_',' '),p.situation.code.replaceAll('_',' ')])
       tags.append(createNode('span','situational-tag',val));
@@ -88,12 +103,23 @@ const NomosSituational = (() => {
       if(!response.ok)throw new Error('HTTP '+response.status);
       const catalog=await response.json();
       const records=catalog.situational_prompts;
-      if(!Array.isArray(records))throw new Error('No situational registry in this catalog version');
+      const revisions=catalog.situational_prompt_versions || [];
+      if(!Array.isArray(records)||!Array.isArray(revisions))
+        throw new Error('No complete versioned registry in this catalog');
+      const generations=new Map(records.map(p=>[p.id,[p]]));
+      for(const version of revisions){
+        if(!generations.has(version.id))throw new Error('Version has no canonical family '+version.id);
+        generations.get(version.id).push(version);
+      }
+      for(const group of generations.values())
+        group.sort((a,b)=>Number(a.version.split('.')[0])-Number(b.version.split('.')[0]));
+      const selected=new Map(); // Defaults to the preserved v1, never newest.
       const render=()=>{
-        const found=search(records,document.getElementById('situational-search').value,
+        const current=records.map(p=>generations.get(p.id).find(x=>x.version===(selected.get(p.id)||'1.0.0'))||p);
+        const found=search(current,document.getElementById('situational-search').value,
           document.getElementById('situational-mode').value,document.getElementById('situational-status').value);
-        list.replaceChildren(...found.map(card));
-        count.textContent=found.length+' of '+records.length+' situational prompts';
+        list.replaceChildren(...found.map(p=>card(p,generations.get(p.id),next=>{selected.set(p.id,next);render();})));
+        count.textContent=found.length+' of '+records.length+' situational prompt families';
         document.getElementById('situational-empty').hidden=found.length!==0;
       };
       for(const id of ['situational-search','situational-mode','situational-status']){

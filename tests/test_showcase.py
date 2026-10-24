@@ -54,8 +54,15 @@ class SiteCatalogTests(unittest.TestCase):
             self.assertEqual(len(profile["selected_rule_ids"]),len(set(profile["selected_rule_ids"])))
 
     def test_reviewable_project_relationships_and_tarium_scope(self):
-        self.assertEqual(self.data["schema_version"],"2.7")
+        self.assertEqual(self.data["schema_version"],"3.0")
         self.assertEqual(len(self.data["situational_prompts"]), 8)
+        self.assertEqual(len(self.data["situational_prompt_versions"]), 16)
+        self.assertEqual(len(self.data["situations"]), 8)
+        self.assertEqual(len(self.data["intents"]), 19)
+        self.assertEqual(len(self.data["intent_families"]), 8)
+        self.assertEqual(len(self.data["execution_conditions"]), 7)
+        self.assertEqual(len(self.data["evaluation_dimensions"]), 7)
+        self.assertEqual(self.data["situational_evaluations"], [])
         self.assertTrue(all(p["status"] == "published" and p["governance"]["review_status"] == "approved"
                             for p in self.data["situational_prompts"]))
         self.assertIn("rust_project", self.data["project_types"])

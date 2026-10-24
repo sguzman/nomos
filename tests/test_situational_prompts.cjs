@@ -81,9 +81,12 @@ test('real browser renders eight standard entries with working explicit copy',as
   vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../docs/situational-prompts.js'),'utf8'),context);
   // The VM's async fetch chain resolves on the next event-loop turn.
   await new Promise(resolve=>setImmediate(resolve));
-  assert.equal(get('situational-count').textContent,'8 of 8 situational prompts');
+  assert.equal(get('situational-count').textContent,'8 of 8 situational prompt families');
   const cards=get('situational-list').children;
   assert.equal(cards.length,8);
+  const versions=cards[0].children.find(n=>n.tag==='label').children.find(n=>n.tag==='select');
+  assert.equal(versions.value,'1.0.0');
+  assert.deepEqual(versions.children.map(n=>n.value),['1.0.0','2.0.0','3.0.0']);
   // The compact cards reveal only identity, summary, tags, copy and a
   // closed native disclosure. Metadata and prompt body are nested inside it.
   assert.ok(cards.every(c=>c.children.some(n=>n.tag==='button'&&!n.disabled)));
@@ -111,6 +114,12 @@ test('real browser renders eight standard entries with working explicit copy',as
   assert.match(get('situational-notice').textContent,/Copied SIT-0001/);
   assert.ok(cards.every(c=>c.children.some(n=>n.tag==='h3'&&!/ack work|broke what/i.test(n.textContent))));
   assert.equal(copyCalls,1);
+  versions.value='3.0.0';
+  versions.listeners.change();
+  const revised=get('situational-list').children[0];
+  assert.match(revised.children[0].textContent,/v3\.0\.0/);
+  await revised.children.find(n=>n.tag==='button').listeners.click();
+  assert.equal(copyCalls,2);
   get('situational-mode').value='reinforcement_only';
   get('situational-mode').listeners.change();
   assert.equal(get('situational-list').children.length,2);
@@ -121,5 +130,5 @@ test('real browser renders eight standard entries with working explicit copy',as
   get('situational-status').listeners.change();
   assert.equal(get('situational-list').children.length,0);
   assert.equal(get('situational-empty').hidden,false);
-  assert.equal(copyCalls,1);
+  assert.equal(copyCalls,2);
 });

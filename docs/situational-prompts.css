@@ -25,6 +25,8 @@
 .situational-entry .situational-metadata dl{margin:15px 0}
 .situational-entry .situational-prompt-text{border-top:1px solid var(--line);padding-top:12px}
 .situational-body{white-space:pre-wrap;overflow-wrap:anywhere;margin:12px 0;padding:14px;background:light-dark(#f1f4f7,#182432);border:1px solid var(--line);border-radius:8px;font-size:12px}
+ .situational-version-label{display:grid;gap:6px;font-size:12px;color:var(--muted);max-width:240px}
+.situational-version-select{max-width:100%;min-height:38px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:7px}
 .situational-copy{justify-self:start;border-radius:8px;padding:10px 15px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
 .situational-copy:disabled{opacity:.55;cursor:not-allowed}
 .situational-copy:not(:disabled):hover{border-color:var(--accent)}
