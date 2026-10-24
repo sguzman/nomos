@@ -1,0 +1,56 @@
+{
+  "id": "SIT-IDEA-0008",
+  "kind": "situational_prompt_idea",
+  "status": "queued",
+  "title": "ack context remind",
+  "summary": "Combine successor-chat recovery with scope and evidence reminders before sustained continuation.",
+  "source": {
+    "batch_version": 1,
+    "entry_index": 8,
+    "shortcut_key": "D",
+    "source_label": "ack context remind",
+    "verbatim_text_retained": false
+  },
+  "situation": {
+    "code": "context_recovery_and_audit",
+    "trigger": "A prior conversation reached its limit and the user wants the successor to retain accountability and scope."
+  },
+  "applicability": {
+    "appropriate_when": [
+      "A project is continuing in a new conversation",
+      "History recovery and progress credibility are both relevant"
+    ],
+    "not_appropriate_when": [
+      "The user only asks for a diagnostic snapshot",
+      "The prior project or its scope cannot be established"
+    ],
+    "preconditions": [
+      "Rebuild from available evidence; do not treat missing context as verified"
+    ]
+  },
+  "expected_behavior": {
+    "mode": "continuation",
+    "handoff": "continue_as_possible",
+    "purpose": "Combine successor-chat recovery with scope and evidence reminders before sustained continuation."
+  },
+  "failure_modes": {
+    "guards_against": [
+      "Context loss",
+      "Unsupported progress claims",
+      "Scope drift",
+      "Redundant replanning"
+    ],
+    "tradeoffs": [
+      "Do not overinvest in process checks at the expense of useful authorized work"
+    ]
+  },
+  "review": {
+    "content_state": "awaiting_publication_review",
+    "publication_authorized": false,
+    "linked_prompt_ids": []
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "id": "SIT-IDEA-0002",
+  "kind": "situational_prompt_idea",
+  "status": "queued",
+  "title": "broke work",
+  "summary": "Resume the established project after an interrupted chat or execution.",
+  "source": {
+    "batch_version": 1,
+    "entry_index": 2,
+    "shortcut_key": "J",
+    "source_label": "broke work",
+    "verbatim_text_retained": false
+  },
+  "situation": {
+    "code": "interrupted_execution",
+    "trigger": "A chat or execution stops unexpectedly while agreed development remains unfinished."
+  },
+  "applicability": {
+    "appropriate_when": [
+      "The previous run stopped unexpectedly",
+      "The current project is known or recoverable"
+    ],
+    "not_appropriate_when": [
+      "There is no earlier authorized project",
+      "The user only wants to learn why execution failed"
+    ],
+    "preconditions": [
+      "Check repository and last verified work before repeating changes"
+    ]
+  },
+  "expected_behavior": {
+    "mode": "continuation",
+    "handoff": "continue_as_possible",
+    "purpose": "Resume the established project after an interrupted chat or execution."
+  },
+  "failure_modes": {
+    "guards_against": [
+      "Context loss",
+      "Duplicated commits or tasks",
+      "Treating an isolated blocker as global completion"
+    ],
+    "tradeoffs": [
+      "The interruption may conceal partially applied changes"
+    ]
+  },
+  "review": {
+    "content_state": "awaiting_publication_review",
+    "publication_authorized": false,
+    "linked_prompt_ids": []
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24"
+  }
+}

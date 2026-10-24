@@ -1,0 +1,56 @@
+{
+  "id": "SIT-IDEA-0001",
+  "kind": "situational_prompt_idea",
+  "status": "queued",
+  "title": "ack work",
+  "summary": "Continue an active, already authorized project after a satisfactory work update.",
+  "source": {
+    "batch_version": 1,
+    "entry_index": 1,
+    "shortcut_key": "F",
+    "source_label": "ack work",
+    "verbatim_text_retained": false
+  },
+  "situation": {
+    "code": "normal_continuation",
+    "trigger": "The ongoing agent has reported satisfactory progress and additional agreed work remains."
+  },
+  "applicability": {
+    "appropriate_when": [
+      "A development interaction is already underway",
+      "The user wants sustained continuation, not a new project plan"
+    ],
+    "not_appropriate_when": [
+      "The user is asking only for a diagnosis",
+      "No authorized work or objective is established"
+    ],
+    "preconditions": [
+      "Recover the current roadmap and established instructions when necessary"
+    ]
+  },
+  "expected_behavior": {
+    "mode": "continuation",
+    "handoff": "continue_as_possible",
+    "purpose": "Continue an active, already authorized project after a satisfactory work update."
+  },
+  "failure_modes": {
+    "guards_against": [
+      "Premature handoff after one task",
+      "Incomplete work disguised as closure",
+      "Scope drift"
+    ],
+    "tradeoffs": [
+      "The phrase about reaching full completion does not itself establish a measurable denominator",
+      "A prompt cannot guarantee a specific execution duration"
+    ]
+  },
+  "review": {
+    "content_state": "awaiting_publication_review",
+    "publication_authorized": false,
+    "linked_prompt_ids": []
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24"
+  }
+}

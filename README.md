@@ -4,7 +4,7 @@
 
 Use the [interactive catalog](https://sguzman.github.io/nomos/) to explore applicability, inspect potential conflicts, compose selections and export to `AGENTS.md` or ChatGPT Custom Instructions. **Nothing is automatically selected or applied.**
 
-Browse [situational prompts](https://sguzman.github.io/nomos/situational-prompts.html) separately from the rule composer. The new registry initially has no prompt texts until individual entries are approved.
+Browse [situational prompts](https://sguzman.github.io/nomos/situational-prompts.html) separately from the rule composer. The approved registry initially has no prompt texts; [eight scenarios are queued as metadata-only proposals](queues/situational-prompts/README.md) pending individual wording review.
 
 ## Features
 

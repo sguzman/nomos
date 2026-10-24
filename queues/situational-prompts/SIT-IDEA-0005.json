@@ -1,0 +1,55 @@
+{
+  "id": "SIT-IDEA-0005",
+  "kind": "situational_prompt_idea",
+  "status": "queued",
+  "title": "broke what",
+  "summary": "Diagnose an interruption and state the verified project status without automatically continuing implementation.",
+  "source": {
+    "batch_version": 1,
+    "entry_index": 5,
+    "shortcut_key": "I",
+    "source_label": "broke what",
+    "verbatim_text_retained": false
+  },
+  "situation": {
+    "code": "interruption_diagnosis",
+    "trigger": "A run broke and the user asks what happened or what remains."
+  },
+  "applicability": {
+    "appropriate_when": [
+      "The user wants to understand the failure or current status",
+      "A concise audit is needed before deciding to resume"
+    ],
+    "not_appropriate_when": [
+      "The user has explicitly asked to continue executing now",
+      "There is no earlier project to inspect"
+    ],
+    "preconditions": [
+      "Use available commits, tests, logs and state; distinguish fact from uncertainty"
+    ]
+  },
+  "expected_behavior": {
+    "mode": "diagnosis",
+    "handoff": "diagnostic_answer",
+    "purpose": "Diagnose an interruption and state the verified project status without automatically continuing implementation."
+  },
+  "failure_modes": {
+    "guards_against": [
+      "Unrequested implementation",
+      "Unsupported diagnosis",
+      "Invented project completion"
+    ],
+    "tradeoffs": [
+      "A diagnostic response may not advance implementation; this is intentional"
+    ]
+  },
+  "review": {
+    "content_state": "awaiting_publication_review",
+    "publication_authorized": false,
+    "linked_prompt_ids": []
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24"
+  }
+}

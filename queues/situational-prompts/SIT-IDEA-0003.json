@@ -1,0 +1,55 @@
+{
+  "id": "SIT-IDEA-0003",
+  "kind": "situational_prompt_idea",
+  "status": "queued",
+  "title": "continue context",
+  "summary": "Reconstruct context in a new conversation and continue the established project.",
+  "source": {
+    "batch_version": 1,
+    "entry_index": 3,
+    "shortcut_key": "K",
+    "source_label": "continue context",
+    "verbatim_text_retained": false
+  },
+  "situation": {
+    "code": "conversation_limit_recovery",
+    "trigger": "The previous conversation exhausted its context or length budget."
+  },
+  "applicability": {
+    "appropriate_when": [
+      "A successor conversation is taking over an existing project",
+      "Previous decisions and project scope need reconstruction"
+    ],
+    "not_appropriate_when": [
+      "The conversation has not reached its context limit",
+      "The user explicitly wants diagnosis rather than execution"
+    ],
+    "preconditions": [
+      "Use available prior context and repository evidence; flag gaps"
+    ]
+  },
+  "expected_behavior": {
+    "mode": "continuation",
+    "handoff": "continue_as_possible",
+    "purpose": "Reconstruct context in a new conversation and continue the established project."
+  },
+  "failure_modes": {
+    "guards_against": [
+      "Fabricated reconstruction",
+      "Replanning completed work",
+      "Loss of prior constraints"
+    ],
+    "tradeoffs": [
+      "Unavailable context cannot be reconstructed as fact"
+    ]
+  },
+  "review": {
+    "content_state": "awaiting_publication_review",
+    "publication_authorized": false,
+    "linked_prompt_ids": []
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24"
+  }
+}

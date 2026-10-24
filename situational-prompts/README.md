@@ -11,4 +11,4 @@ This is a fifth, independent Nomos species: **situational prompts**. An entry is
 
 The \`situational-prompts/\` registry, the existing \`rules/\`, \`groups/\`, and \`profiles/\` registries, and all workflow queues remain distinct. The website does not activate these texts, bind shortcuts, or mix them into the rule composer. Users must explicitly choose to copy or invoke an entry.
 
-Next step after this bootstrap: individually review and authorize actual entries and wording before publication. No entry is implied by the existence of a situation code.
+The first eight proposed scenarios are captured as **metadata-only intake** in [queues/situational-prompts/](../queues/situational-prompts/README.md), with their original labels and shortcut keys. No prompt text has been released. Review and separately approve public-safe wording before instantiating a canonical entry.

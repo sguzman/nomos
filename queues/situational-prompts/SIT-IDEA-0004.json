@@ -1,0 +1,55 @@
+{
+  "id": "SIT-IDEA-0004",
+  "kind": "situational_prompt_idea",
+  "status": "queued",
+  "title": "broke work stop",
+  "summary": "Resume interrupted development but allow a genuine completed-project handoff.",
+  "source": {
+    "batch_version": 1,
+    "entry_index": 4,
+    "shortcut_key": "L",
+    "source_label": "broke work stop",
+    "verbatim_text_retained": false
+  },
+  "situation": {
+    "code": "interrupted_execution_with_completion_gate",
+    "trigger": "The chat broke and the user wants continuation unless agreed work is already complete."
+  },
+  "applicability": {
+    "appropriate_when": [
+      "The original project may have further work",
+      "The user wants work to stop if no legitimate tasks remain"
+    ],
+    "not_appropriate_when": [
+      "The user wants only a failure explanation",
+      "Project scope is unspecified and cannot be recovered"
+    ],
+    "preconditions": [
+      "Verify actual completion state before asserting that work is finished"
+    ]
+  },
+  "expected_behavior": {
+    "mode": "continuation",
+    "handoff": "continue_as_possible",
+    "purpose": "Resume interrupted development but allow a genuine completed-project handoff."
+  },
+  "failure_modes": {
+    "guards_against": [
+      "Inventing new tasks after full completion",
+      "Premature stopping",
+      "Unverified completion claims"
+    ],
+    "tradeoffs": [
+      "This is not a request to broaden the roadmap after the agreed scope is complete"
+    ]
+  },
+  "review": {
+    "content_state": "awaiting_publication_review",
+    "publication_authorized": false,
+    "linked_prompt_ids": []
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24"
+  }
+}

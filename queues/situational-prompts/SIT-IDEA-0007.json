@@ -1,0 +1,55 @@
+{
+  "id": "SIT-IDEA-0007",
+  "kind": "situational_prompt_idea",
+  "status": "queued",
+  "title": "ack remind",
+  "summary": "Reinforce the established completion goal and prevent unrelated task invention.",
+  "source": {
+    "batch_version": 1,
+    "entry_index": 7,
+    "shortcut_key": "E",
+    "source_label": "ack remind",
+    "verbatim_text_retained": false
+  },
+  "situation": {
+    "code": "scope_refocus",
+    "trigger": "The active work is at risk of drifting from its original accepted scope."
+  },
+  "applicability": {
+    "appropriate_when": [
+      "An established project objective exists",
+      "The user wants to reaffirm scope and completion targets"
+    ],
+    "not_appropriate_when": [
+      "The original objective is unknown",
+      "The user is explicitly changing the scope"
+    ],
+    "preconditions": [
+      "Use established acceptance criteria rather than inventing new ones"
+    ]
+  },
+  "expected_behavior": {
+    "mode": "reinforcement",
+    "handoff": "none_specified",
+    "purpose": "Reinforce the established completion goal and prevent unrelated task invention."
+  },
+  "failure_modes": {
+    "guards_against": [
+      "Invented busywork",
+      "Unauthorized scope expansion",
+      "Misleading completion percentages"
+    ],
+    "tradeoffs": [
+      "The source wording is a reminder, not a standalone authorization for new work"
+    ]
+  },
+  "review": {
+    "content_state": "awaiting_publication_review",
+    "publication_authorized": false,
+    "linked_prompt_ids": []
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24"
+  }
+}

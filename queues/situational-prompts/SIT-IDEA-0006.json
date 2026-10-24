@@ -1,0 +1,56 @@
+{
+  "id": "SIT-IDEA-0006",
+  "kind": "situational_prompt_idea",
+  "status": "queued",
+  "title": "ack deception",
+  "summary": "Challenge unsupported progress claims and demand accountability.",
+  "source": {
+    "batch_version": 1,
+    "entry_index": 6,
+    "shortcut_key": "U",
+    "source_label": "ack deception",
+    "verbatim_text_retained": false
+  },
+  "situation": {
+    "code": "progress_audit",
+    "trigger": "The user suspects prior progress reporting does not match delivered changes."
+  },
+  "applicability": {
+    "appropriate_when": [
+      "Earlier reports lack credible evidence",
+      "Claims of elapsed work and unchanged percentages need scrutiny"
+    ],
+    "not_appropriate_when": [
+      "No progress claim exists to assess",
+      "The user is requesting a new project rather than auditing ongoing work"
+    ],
+    "preconditions": [
+      "Compare any available claims to actual repository or test evidence"
+    ]
+  },
+  "expected_behavior": {
+    "mode": "reinforcement",
+    "handoff": "none_specified",
+    "purpose": "Challenge unsupported progress claims and demand accountability."
+  },
+  "failure_modes": {
+    "guards_against": [
+      "Inflated progress percentages",
+      "Recycled status updates presented as achievement",
+      "Unsupported claims of completed work"
+    ],
+    "tradeoffs": [
+      "The original text expresses concern; it is not itself an explicit implementation directive",
+      "Accusations must not substitute for inspecting evidence"
+    ]
+  },
+  "review": {
+    "content_state": "awaiting_publication_review",
+    "publication_authorized": false,
+    "linked_prompt_ids": []
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24"
+  }
+}

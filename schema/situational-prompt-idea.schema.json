@@ -1,0 +1,290 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/sguzman/nomos/blob/main/schema/situational-prompt-idea.schema.json",
+  "title": "Nomos situational-prompt intake idea",
+  "description": "Public-safe operational intake metadata. No prompt text, publication consent, registry promotion, or automatic invocation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "kind",
+    "status",
+    "title",
+    "summary",
+    "source",
+    "situation",
+    "applicability",
+    "expected_behavior",
+    "failure_modes",
+    "review",
+    "governance"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^SIT-IDEA-[0-9]{4,}$"
+    },
+    "kind": {
+      "const": "situational_prompt_idea"
+    },
+    "status": {
+      "enum": [
+        "queued",
+        "deferred",
+        "cancelled",
+        "instantiated"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "batch_version",
+        "entry_index",
+        "shortcut_key",
+        "source_label",
+        "verbatim_text_retained"
+      ],
+      "properties": {
+        "batch_version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "entry_index": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "shortcut_key": {
+          "type": "string",
+          "pattern": "^[A-Z]$"
+        },
+        "source_label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "verbatim_text_retained": {
+          "const": false
+        }
+      }
+    },
+    "situation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "trigger"
+      ],
+      "properties": {
+        "code": {
+          "enum": [
+            "normal_continuation",
+            "interrupted_execution",
+            "conversation_limit_recovery",
+            "interrupted_execution_with_completion_gate",
+            "interruption_diagnosis",
+            "progress_audit",
+            "scope_refocus",
+            "context_recovery_and_audit"
+          ]
+        },
+        "trigger": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "applicability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "appropriate_when",
+        "not_appropriate_when",
+        "preconditions"
+      ],
+      "properties": {
+        "appropriate_when": {
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "not_appropriate_when": {
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "preconditions": {
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 0,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "expected_behavior": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "handoff",
+        "purpose"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "continuation",
+            "diagnosis",
+            "reinforcement"
+          ]
+        },
+        "handoff": {
+          "enum": [
+            "continue_as_possible",
+            "diagnostic_answer",
+            "none_specified"
+          ]
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "failure_modes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "guards_against",
+        "tradeoffs"
+      ],
+      "properties": {
+        "guards_against": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "tradeoffs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "content_state",
+        "publication_authorized",
+        "linked_prompt_ids"
+      ],
+      "properties": {
+        "content_state": {
+          "enum": [
+            "awaiting_publication_review"
+          ]
+        },
+        "publication_authorized": {
+          "const": false
+        },
+        "linked_prompt_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^SIT-[0-9]{4,}$"
+          }
+        }
+      }
+    },
+    "governance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "created_on",
+        "updated_on"
+      ],
+      "properties": {
+        "created_on": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "updated_on": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "instantiated"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "review": {
+            "properties": {
+              "linked_prompt_ids": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "queued",
+              "deferred",
+              "cancelled"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "review": {
+            "properties": {
+              "linked_prompt_ids": {
+                "maxItems": 0
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

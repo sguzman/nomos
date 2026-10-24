@@ -13,6 +13,7 @@ on:
       - "queues/specimens/**"
       - "processing/specimens/**"
       - "queues/profiles/**"
+      - "queues/situational-prompts/**"
       - "schema/**"
       - "taxonomy/**"
       - "processing/specimens/candidates/**"
@@ -44,6 +45,7 @@ jobs:
         run: |
           python3 tools/validate.py
           python3 tools/validate_situational_prompts.py
+          python3 tools/validate_situational_prompt_ideas.py
           python3 tools/validate_groups.py
           python3 tools/relationships.py
           python3 -m unittest discover -s tests -v
