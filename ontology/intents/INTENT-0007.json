@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0007",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "verify_actual_project_state",
+  "definition": "Base decisions on available repository, test and deliverable evidence.",
+  "semantic_role": "method",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0002",
+    "source_candidate": "I7"
+  }
+}

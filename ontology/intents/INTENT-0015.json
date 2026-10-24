@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0015",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "correct_unsupported_claims",
+  "definition": "Correct invented, overstated or repetitive progress assertions.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0002",
+    "source_candidate": "I15"
+  }
+}

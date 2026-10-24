@@ -1,0 +1,12 @@
+{
+  "id": "CONDITION-0005",
+  "kind": "execution_condition",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "acceptance_criteria_fully_verified",
+  "definition": "Original agreed scope is satisfied with evidence; do not invent follow-on work.",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0005",
+    "source_candidate": "C5"
+  }
+}

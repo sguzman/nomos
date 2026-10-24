@@ -1,0 +1,12 @@
+{
+  "id": "EVAL-DIM-0006",
+  "kind": "evaluation_dimension",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "cross_version_comparison",
+  "definition": "Compare v1/v2/v3 behavior while preserving all versions and conditions.",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0006",
+    "source_candidate": "E6"
+  }
+}

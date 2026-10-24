@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0008",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "diagnose_interruption",
+  "definition": "Explain what happened, what remains, and what is uncertain.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0002",
+    "source_candidate": "I8"
+  }
+}

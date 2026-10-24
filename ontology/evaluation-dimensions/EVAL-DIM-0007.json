@@ -1,0 +1,12 @@
+{
+  "id": "EVAL-DIM-0007",
+  "kind": "evaluation_dimension",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "unknown_and_untested",
+  "definition": "Retain unknown when evidence is missing; do not infer success from wording.",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0006",
+    "source_candidate": "E7"
+  }
+}

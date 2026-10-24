@@ -1,0 +1,22 @@
+{
+  "id": "SITU-0008",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "context_recovery_with_accountability",
+  "definition": "A successor conversation must restore context while checking scope and progress credibility.",
+  "classification": "composite",
+  "component_situation_ids": [
+    "SITU-0003",
+    "SITU-0006",
+    "SITU-0007"
+  ],
+  "related_prompt_families": [
+    "SIT-0008"
+  ],
+  "provenance": {
+    "queue_id": "SITO-IDEA-0001",
+    "source_candidate": "S8",
+    "normalization": "reviewed_classification_2026-10-24"
+  }
+}

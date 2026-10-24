@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0016",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "quantify_supported_progress",
+  "definition": "Report a verifiable completion percentage and change where measurable.",
+  "semantic_role": "reporting",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0002",
+    "source_candidate": "I16"
+  }
+}

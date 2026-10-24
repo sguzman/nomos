@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0001",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "acknowledge_satisfactory_progress",
+  "definition": "Acknowledge successful preceding work without causing an unnecessary handoff.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0002",
+    "source_candidate": "I1"
+  }
+}

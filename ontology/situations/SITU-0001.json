@@ -1,0 +1,18 @@
+{
+  "id": "SITU-0001",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "satisfactory_progress",
+  "definition": "A useful work checkpoint has been reported and continued work is wanted.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [
+    "SIT-0001"
+  ],
+  "provenance": {
+    "queue_id": "SITO-IDEA-0001",
+    "source_candidate": "S1",
+    "normalization": "reviewed_classification_2026-10-24"
+  }
+}

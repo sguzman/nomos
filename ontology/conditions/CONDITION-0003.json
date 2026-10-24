@@ -1,0 +1,12 @@
+{
+  "id": "CONDITION-0003",
+  "kind": "execution_condition",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "isolated_requirement_blocked",
+  "definition": "One local blocker does not imply all other authorized work is blocked.",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0005",
+    "source_candidate": "C3"
+  }
+}

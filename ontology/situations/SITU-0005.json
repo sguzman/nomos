@@ -1,0 +1,18 @@
+{
+  "id": "SITU-0005",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "possible_project_completion",
+  "definition": "Accepted requirements may already be fully complete, requiring an evidence-based stopping decision.",
+  "classification": "execution_state",
+  "component_situation_ids": [],
+  "related_prompt_families": [
+    "SIT-0004"
+  ],
+  "provenance": {
+    "queue_id": "SITO-IDEA-0001",
+    "source_candidate": "S5",
+    "normalization": "reviewed_classification_2026-10-24"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0003",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "maximize_autonomous_productivity",
+  "definition": "Advance as much legitimate in-scope work as available execution permits.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0002",
+    "source_candidate": "I3"
+  }
+}

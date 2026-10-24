@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0018",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "apply_legitimate_stop_conditions",
+  "definition": "Avoid premature termination and stop on validated completion or true execution exhaustion.",
+  "semantic_role": "stopping_policy",
+  "atomicity": "compound_policy",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0002",
+    "source_candidate": "I18"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "id": "CONDITION-0007",
+  "kind": "execution_condition",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "execution_budget_exhausted",
+  "definition": "External execution/time/tool limit prevents further work in this interaction.",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0005",
+    "source_candidate": "C7"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0009",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "select_unfinished_work",
+  "definition": "Identify/prioritize the next legitimate unfinished requirement.",
+  "semantic_role": "method",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0002",
+    "source_candidate": "I9"
+  }
+}

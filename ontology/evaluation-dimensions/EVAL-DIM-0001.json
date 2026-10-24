@@ -1,0 +1,12 @@
+{
+  "id": "EVAL-DIM-0001",
+  "kind": "evaluation_dimension",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "declared_objectives",
+  "definition": "Identify targeted intents and expected outcomes per version.",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0006",
+    "source_candidate": "E1"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0002",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "continue_authorized_work",
+  "definition": "Resume current project work instead of initiating an unrelated objective.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0002",
+    "source_candidate": "I2"
+  }
+}

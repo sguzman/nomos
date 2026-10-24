@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0014",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "audit_progress_claims",
+  "definition": "Compare reported achievements against evidence and acceptance criteria.",
+  "semantic_role": "method",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0002",
+    "source_candidate": "I14"
+  }
+}

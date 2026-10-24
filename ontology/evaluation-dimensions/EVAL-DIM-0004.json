@@ -1,0 +1,12 @@
+{
+  "id": "EVAL-DIM-0004",
+  "kind": "evaluation_dimension",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "per_intent_assessment",
+  "definition": "Compare each independently defined goal with available observations.",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0006",
+    "source_candidate": "E4"
+  }
+}

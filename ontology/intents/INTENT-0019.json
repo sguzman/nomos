@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0019",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "handoff_with_evidence",
+  "definition": "At the appropriate boundary, report tangible changes, blockers, and remaining work.",
+  "semantic_role": "reporting",
+  "atomicity": "composite_report",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0002",
+    "source_candidate": "I19"
+  }
+}

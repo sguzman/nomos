@@ -1,0 +1,20 @@
+{
+  "id": "SITU-0004",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "interruption_diagnosis_requested",
+  "definition": "An interruption happened and an explanation is wanted before further action.",
+  "classification": "composite",
+  "component_situation_ids": [
+    "SITU-0002"
+  ],
+  "related_prompt_families": [
+    "SIT-0005"
+  ],
+  "provenance": {
+    "queue_id": "SITO-IDEA-0001",
+    "source_candidate": "S4",
+    "normalization": "reviewed_classification_2026-10-24"
+  }
+}

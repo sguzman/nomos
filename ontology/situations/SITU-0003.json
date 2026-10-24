@@ -1,0 +1,19 @@
+{
+  "id": "SITU-0003",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "conversation_context_exhaustion",
+  "definition": "The preceding conversation reached its length or context limit.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [
+    "SIT-0003",
+    "SIT-0008"
+  ],
+  "provenance": {
+    "queue_id": "SITO-IDEA-0001",
+    "source_candidate": "S3",
+    "normalization": "reviewed_classification_2026-10-24"
+  }
+}

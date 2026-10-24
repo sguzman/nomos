@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0004",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "pursue_agreed_completion",
+  "definition": "Advance toward the originally defined, verifiable acceptance target.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0002",
+    "source_candidate": "I4"
+  }
+}

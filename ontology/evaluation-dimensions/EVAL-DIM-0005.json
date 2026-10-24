@@ -1,0 +1,12 @@
+{
+  "id": "EVAL-DIM-0005",
+  "kind": "evaluation_dimension",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "failure_modes_and_tradeoffs",
+  "definition": "Record suspected hazards distinctly from demonstrated failures.",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0006",
+    "source_candidate": "E5"
+  }
+}

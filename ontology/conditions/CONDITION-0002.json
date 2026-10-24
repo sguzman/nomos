@@ -1,0 +1,12 @@
+{
+  "id": "CONDITION-0002",
+  "kind": "execution_condition",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "checkpoint_reached",
+  "definition": "A checkpoint is reached; its meaning depends on the requested handoff policy.",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0005",
+    "source_candidate": "C2"
+  }
+}

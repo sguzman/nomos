@@ -1,0 +1,12 @@
+{
+  "id": "CONDITION-0006",
+  "kind": "execution_condition",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "no_productive_executable_work_available",
+  "definition": "Remaining requirements cannot advance with available tools and permissions.",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0005",
+    "source_candidate": "C6"
+  }
+}

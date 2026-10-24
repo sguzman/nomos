@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0012",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "preserve_agreed_scope",
+  "definition": "Avoid unauthorized features, tasks or goal substitutions.",
+  "semantic_role": "constraint",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0002",
+    "source_candidate": "I12"
+  }
+}

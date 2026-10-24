@@ -1,0 +1,19 @@
+{
+  "id": "SITU-0006",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "suspected_stagnant_or_unsupported_progress",
+  "definition": "Reported activity or percentages may not reflect verifiable deliverables.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [
+    "SIT-0006",
+    "SIT-0008"
+  ],
+  "provenance": {
+    "queue_id": "SITO-IDEA-0001",
+    "source_candidate": "S6",
+    "normalization": "reviewed_classification_2026-10-24"
+  }
+}

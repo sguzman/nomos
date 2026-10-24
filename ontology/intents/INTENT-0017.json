@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0017",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "reroute_around_local_blockers",
+  "definition": "Continue other legitimate tasks when one requirement is blocked.",
+  "semantic_role": "method",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0002",
+    "source_candidate": "I17"
+  }
+}

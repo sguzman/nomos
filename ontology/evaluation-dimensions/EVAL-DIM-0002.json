@@ -1,0 +1,12 @@
+{
+  "id": "EVAL-DIM-0002",
+  "kind": "evaluation_dimension",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "observed_result",
+  "definition": "Capture actual runtime behavior and deliverables, not assumptions.",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0006",
+    "source_candidate": "E2"
+  }
+}

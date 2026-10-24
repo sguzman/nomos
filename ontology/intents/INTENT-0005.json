@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0005",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "reconstruct_context",
+  "definition": "Recover established decisions, constraints, roadmap and known progress.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0002",
+    "source_candidate": "I5"
+  }
+}

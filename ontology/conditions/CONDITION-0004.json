@@ -1,0 +1,12 @@
+{
+  "id": "CONDITION-0004",
+  "kind": "execution_condition",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "alternative_legitimate_work_available",
+  "definition": "Other in-scope work can be advanced while a requirement is blocked.",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0005",
+    "source_candidate": "C4"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "SITU-0007",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "suspected_scope_drift",
+  "definition": "Work risks diverging from agreed requirements into unrelated or invented tasks.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [
+    "SIT-0007",
+    "SIT-0008"
+  ],
+  "provenance": {
+    "queue_id": "SITO-IDEA-0001",
+    "source_candidate": "S7",
+    "normalization": "reviewed_classification_2026-10-24"
+  }
+}

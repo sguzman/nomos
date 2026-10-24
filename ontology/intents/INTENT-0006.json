@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0006",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "recover_interrupted_execution",
+  "definition": "Identify and resume incomplete work after an interruption.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0002",
+    "source_candidate": "I6"
+  }
+}

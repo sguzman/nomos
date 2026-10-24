@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0013",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "avoid_unproductive_activity",
+  "definition": "Avoid repetitive planning, cosmetic busywork and performance theater.",
+  "semantic_role": "constraint",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0002",
+    "source_candidate": "I13"
+  }
+}

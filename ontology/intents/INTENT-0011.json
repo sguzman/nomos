@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0011",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "avoid_repeating_completed_work",
+  "definition": "Do not duplicate finished work or assume an interrupted action succeeded.",
+  "semantic_role": "constraint",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0002",
+    "source_candidate": "I11"
+  }
+}
