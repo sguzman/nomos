@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/sguzman/nomos/blob/main/schema/situational-evaluation.schema.json",
+  "title": "Observed outcome of one prompt generation",
+  "description": "Only evidence-backed observations; no fabricated runs or inferred prompt success.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "kind",
+    "family_id",
+    "prompt_version",
+    "status",
+    "conditions",
+    "intent_assessments",
+    "evidence",
+    "observed_on"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^EVALUATION-[0-9]{4,}$"
+    },
+    "kind": {
+      "const": "situational_prompt_evaluation"
+    },
+    "family_id": {
+      "type": "string",
+      "pattern": "^FAMILY-[0-9]{4}$"
+    },
+    "prompt_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "status": {
+      "const": "observed"
+    },
+    "conditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "intent_assessments": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "intent_id",
+          "outcome",
+          "basis"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "intent_id": {
+            "type": "string",
+            "pattern": "^INTENT-[0-9]{4}$"
+          },
+          "outcome": {
+            "enum": [
+              "satisfied",
+              "not_satisfied",
+              "indeterminate"
+            ]
+          },
+          "basis": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "observed_on": {
+      "type": "string",
+      "format": "date"
+    }
+  }
+}
