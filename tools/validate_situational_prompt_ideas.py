@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate public-safe, non-published situational prompt intake records."""
+"""Validate public-safe situational prompt intake and publication provenance."""
 import json
 import pathlib
 import re
@@ -64,8 +64,10 @@ def validate(records):
         if expected["mode"] not in MODES or expected["handoff"]!=MODES.get(expected["mode"]):
             fail("handoff/mode mismatch")
         review=r["review"]
-        if review["content_state"]!="awaiting_publication_review" or review["publication_authorized"] is not False:
-            fail("queue is not a publication authorization")
+        states={"awaiting_publication_review":False,"publication_approved":True}
+        if (review["content_state"] not in states or
+                review["publication_authorized"] is not states.get(review["content_state"])):
+            fail("publication authorization and content state disagree")
         linked=review["linked_prompt_ids"]
         if r["status"]=="instantiated" and not linked: fail("instantiated item must link actual prompt")
         if r["status"]!="instantiated" and linked: fail("queued item cannot link a published prompt")

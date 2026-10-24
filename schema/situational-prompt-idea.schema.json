@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/sguzman/nomos/blob/main/schema/situational-prompt-idea.schema.json",
   "title": "Nomos situational-prompt intake idea",
-  "description": "Public-safe operational intake metadata. No prompt text, publication consent, registry promotion, or automatic invocation.",
+  "description": "Public-safe intake and processing provenance; separate owner approval may authorize canonical publication.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -201,11 +201,12 @@
       "properties": {
         "content_state": {
           "enum": [
-            "awaiting_publication_review"
+            "awaiting_publication_review",
+            "publication_approved"
           ]
         },
         "publication_authorized": {
-          "const": false
+          "type": "boolean"
         },
         "linked_prompt_ids": {
           "type": "array",
@@ -275,6 +276,54 @@
             "properties": {
               "linked_prompt_ids": {
                 "maxItems": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "review": {
+            "properties": {
+              "content_state": {
+                "const": "publication_approved"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "review": {
+            "properties": {
+              "publication_authorized": {
+                "const": true
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "review": {
+            "properties": {
+              "content_state": {
+                "const": "awaiting_publication_review"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "review": {
+            "properties": {
+              "publication_authorized": {
+                "const": false
               }
             }
           }

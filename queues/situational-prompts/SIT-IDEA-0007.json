@@ -43,8 +43,8 @@
     ]
   },
   "review": {
-    "content_state": "awaiting_publication_review",
-    "publication_authorized": false,
+    "content_state": "publication_approved",
+    "publication_authorized": true,
     "linked_prompt_ids": [
       "SIT-0007"
     ]
