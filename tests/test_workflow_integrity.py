@@ -13,11 +13,18 @@ def read(path):
 class ProcessingTraceTests(unittest.TestCase):
     def test_processed_and_pending_specimens_keep_separate_states(self):
         specimens = sorted((ROOT / "queues/specimens").glob("SPEC-*.json"))
-        self.assertEqual(len(specimens), 140)
+        self.assertEqual(len(specimens), 141)
         for path in specimens:
             original = json.loads(path.read_text(encoding="utf-8"))
             with self.subTest(specimen=original["id"]):
                 number=int(original["id"].split("-")[1])
+                if number == 141:
+                    self.assertEqual(original["status"], "proposed")
+                    self.assertFalse(original["intake"]["processing_authorized"])
+                    self.assertEqual(original["next_state"], "await_authorized_specimen_processing")
+                    self.assertEqual(original["scope_hints"]["topic"], "visual_progress_before_after_interval_delta")
+                    self.assertFalse((ROOT / "processing/specimens/PROC-SPEC-0141.json").exists())
+                    continue
                 if 133 <= number <= 140:
                     self.assertEqual(original["status"], "processed")
                     self.assertTrue(original["intake"]["processing_authorized"])
