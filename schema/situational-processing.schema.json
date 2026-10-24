@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/sguzman/nomos/blob/main/schema/situational-processing.schema.json",
+  "title": "Situational prompt normalization trace",
+  "description": "A processing record proves a reviewed draft was produced from explicitly authorized intake; it does not approve publication.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "kind",
+    "intake_id",
+    "output_prompt_id",
+    "authorization",
+    "disposition",
+    "publication",
+    "source_handling",
+    "governance"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^PROC-SIT-IDEA-[0-9]{4,}$"
+    },
+    "kind": {
+      "const": "situational_prompt_processing"
+    },
+    "intake_id": {
+      "type": "string",
+      "pattern": "^SIT-IDEA-[0-9]{4,}$"
+    },
+    "output_prompt_id": {
+      "type": "string",
+      "pattern": "^SIT-[0-9]{4,}$"
+    },
+    "authorization": {
+      "type": "string",
+      "minLength": 1
+    },
+    "disposition": {
+      "const": "normalized_to_reviewed_entry"
+    },
+    "publication": {
+      "enum": [
+        "awaiting_separate_owner_approval",
+        "owner_approved",
+        "rejected"
+      ]
+    },
+    "source_handling": {
+      "type": "string",
+      "minLength": 1
+    },
+    "governance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "processed_on",
+        "recorded_by"
+      ],
+      "properties": {
+        "processed_on": {
+          "type": "string",
+          "format": "date"
+        },
+        "recorded_by": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}
