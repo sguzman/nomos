@@ -1,0 +1,63 @@
+{
+  "id": "SIT-0002",
+  "kind": "situational_prompt",
+  "version": "3.0.0",
+  "status": "published",
+  "summary": "Resume unfinished work without duplicating completed changes.",
+  "text": "The chat broke. Inspect actual repository state, recover interrupted work, and continue sustained autonomous execution toward 100% completion. Complete, verify, and commit as many unfinished tasks as possible. Do not stop after recovering context, finishing one task, or encountering one isolated blocker. Return with verified completion percentage, change, deliverables, and remaining blockers only when available productive work is exhausted. Follow established rules.",
+  "situation": {
+    "code": "interrupted_execution",
+    "trigger": "A chat or execution stops unexpectedly while agreed development remains unfinished.",
+    "purpose": "Resume the established project after an interrupted chat or execution."
+  },
+  "intent": {
+    "operation": "recover_execution",
+    "outcome": "Resume unfinished work without duplicating completed changes."
+  },
+  "applicability": {
+    "appropriate_when": [
+      "The previous run stopped unexpectedly",
+      "The current project is known or recoverable"
+    ],
+    "not_appropriate_when": [
+      "There is no earlier authorized project",
+      "The user only wants to learn why execution failed"
+    ],
+    "preconditions": [
+      "Check repository and last verified work before repeating changes"
+    ]
+  },
+  "execution": {
+    "mode": "sustained_execution",
+    "objective": "Resume the established project after an interrupted chat or execution.",
+    "handoff": "after_available_work",
+    "progress_evidence": true
+  },
+  "failure_modes": {
+    "guards_against": [
+      "Context loss",
+      "Duplicated commits or tasks",
+      "Treating an isolated blocker as global completion"
+    ],
+    "tradeoffs": [
+      "The interruption may conceal partially applied changes"
+    ]
+  },
+  "interaction": {
+    "invocation": "explicit_only",
+    "target": "chatgpt"
+  },
+  "relations": {
+    "related_prompt_ids": []
+  },
+  "provenance": {
+    "source_type": "owner_authored",
+    "reference": "queues/situational-prompts/revisions/SIT-REV-0002-03.json",
+    "notes": "Verbatim text preserved from uploaded items3.json, entry 2; SHA-256 e26b9fc73422a68124e80beb19061910c1736665b3fb5f50c87348943f829e43. Distinct published generation; originals remain unchanged."
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24",
+    "review_status": "approved"
+  }
+}

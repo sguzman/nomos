@@ -1,0 +1,63 @@
+{
+  "id": "SIT-0005",
+  "kind": "situational_prompt",
+  "version": "3.0.0",
+  "status": "published",
+  "summary": "Give an evidence-based interruption diagnosis without implementation.",
+  "text": "The chat broke. Diagnose actual repository state, recent commits, test evidence, and roadmap progress. Report verified overall completion percentage, what changed, what was interrupted, remaining blockers, and the exact next task. Distinguish verified facts from uncertainty. This preset requests diagnosis only, not resumed implementation.",
+  "situation": {
+    "code": "interruption_diagnosis",
+    "trigger": "A run broke and the user asks what happened or what remains.",
+    "purpose": "Diagnose an interruption and state the verified project status without automatically continuing implementation."
+  },
+  "intent": {
+    "operation": "diagnose",
+    "outcome": "Give an evidence-based interruption diagnosis without implementation."
+  },
+  "applicability": {
+    "appropriate_when": [
+      "The user wants to understand the failure or current status",
+      "A concise audit is needed before deciding to resume"
+    ],
+    "not_appropriate_when": [
+      "The user has explicitly asked to continue executing now",
+      "There is no earlier project to inspect"
+    ],
+    "preconditions": [
+      "Use available commits, tests, logs and state; distinguish fact from uncertainty"
+    ]
+  },
+  "execution": {
+    "mode": "diagnosis_only",
+    "objective": "Diagnose an interruption and state the verified project status without automatically continuing implementation.",
+    "handoff": "diagnostic_response",
+    "progress_evidence": true
+  },
+  "failure_modes": {
+    "guards_against": [
+      "Unrequested implementation",
+      "Unsupported diagnosis",
+      "Invented project completion"
+    ],
+    "tradeoffs": [
+      "A diagnostic response may not advance implementation; this is intentional"
+    ]
+  },
+  "interaction": {
+    "invocation": "explicit_only",
+    "target": "chatgpt"
+  },
+  "relations": {
+    "related_prompt_ids": []
+  },
+  "provenance": {
+    "source_type": "owner_authored",
+    "reference": "queues/situational-prompts/revisions/SIT-REV-0005-03.json",
+    "notes": "Verbatim text preserved from uploaded items3.json, entry 5; SHA-256 18b285635df87e4bbb9f6b562a976064db3142b01b7f6234d54dc204b33f58f2. Distinct published generation; originals remain unchanged."
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24",
+    "review_status": "approved"
+  }
+}

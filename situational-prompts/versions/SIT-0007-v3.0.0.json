@@ -1,0 +1,63 @@
+{
+  "id": "SIT-0007",
+  "kind": "situational_prompt",
+  "version": "3.0.0",
+  "status": "published",
+  "summary": "Prevent scope drift and sustain productive execution across unfinished tasks.",
+  "text": "Maintain focus on 100% completion of the originally agreed scope. Eliminate unrelated work, invented requirements, redundant planning, and cosmetic busywork. Continue executing, verifying, and committing as many legitimate unfinished tasks as possible throughout the available session. A single completed task or blocked requirement is not a stopping condition. Return with verified overall completion percentage, change, and evidence only when productive execution cannot continue.",
+  "situation": {
+    "code": "scope_refocus",
+    "trigger": "The active work is at risk of drifting from its original accepted scope.",
+    "purpose": "Reinforce the established completion goal and prevent unrelated task invention."
+  },
+  "intent": {
+    "operation": "continue",
+    "outcome": "Prevent scope drift and sustain productive execution across unfinished tasks."
+  },
+  "applicability": {
+    "appropriate_when": [
+      "An established project objective exists",
+      "The user wants to reaffirm scope and completion targets"
+    ],
+    "not_appropriate_when": [
+      "The original objective is unknown",
+      "The user is explicitly changing the scope"
+    ],
+    "preconditions": [
+      "Use established acceptance criteria rather than inventing new ones"
+    ]
+  },
+  "execution": {
+    "mode": "sustained_execution",
+    "objective": "Prevent scope drift and sustain productive execution across unfinished tasks.",
+    "handoff": "after_available_work",
+    "progress_evidence": true
+  },
+  "failure_modes": {
+    "guards_against": [
+      "Invented busywork",
+      "Unauthorized scope expansion",
+      "Misleading completion percentages"
+    ],
+    "tradeoffs": [
+      "The source wording is a reminder, not a standalone authorization for new work"
+    ]
+  },
+  "interaction": {
+    "invocation": "explicit_only",
+    "target": "chatgpt"
+  },
+  "relations": {
+    "related_prompt_ids": []
+  },
+  "provenance": {
+    "source_type": "owner_authored",
+    "reference": "queues/situational-prompts/revisions/SIT-REV-0007-03.json",
+    "notes": "Verbatim text preserved from uploaded items3.json, entry 7; SHA-256 312c16bd9300004993c9ae08a2410f970dd65a290e72c208932aaae19837b558. Distinct published generation; originals remain unchanged."
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24",
+    "review_status": "approved"
+  }
+}

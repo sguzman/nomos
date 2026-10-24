@@ -1,0 +1,64 @@
+{
+  "id": "SIT-0008",
+  "kind": "situational_prompt",
+  "version": "3.0.0",
+  "status": "published",
+  "summary": "Restore context and accountability before sustained development.",
+  "text": "The previous chat reached its limit. Rebuild project context and established rules from repository evidence, then briefly audit actual progress against previous claims. Preserve the original scope and correct unsupported percentages. Continue sustained autonomous execution across as many unfinished roadmap tasks as possible, implementing, verifying, and committing repeatedly. Do not stop after context recovery, an isolated blocker, or a single deliverable. Return only when productive execution is exhausted or the session limit is reached, reporting verified overall completion percentage, change, and evidence.",
+  "situation": {
+    "code": "context_recovery_and_audit",
+    "trigger": "A prior conversation reached its limit and the user wants the successor to retain accountability and scope.",
+    "purpose": "Combine successor-chat recovery with scope and evidence reminders before sustained continuation."
+  },
+  "intent": {
+    "operation": "recover_context",
+    "outcome": "Restore context and accountability before sustained development."
+  },
+  "applicability": {
+    "appropriate_when": [
+      "A project is continuing in a new conversation",
+      "History recovery and progress credibility are both relevant"
+    ],
+    "not_appropriate_when": [
+      "The user only asks for a diagnostic snapshot",
+      "The prior project or its scope cannot be established"
+    ],
+    "preconditions": [
+      "Rebuild from available evidence; do not treat missing context as verified"
+    ]
+  },
+  "execution": {
+    "mode": "sustained_execution",
+    "objective": "Combine successor-chat recovery with scope and evidence reminders before sustained continuation.",
+    "handoff": "after_available_work",
+    "progress_evidence": true
+  },
+  "failure_modes": {
+    "guards_against": [
+      "Context loss",
+      "Unsupported progress claims",
+      "Scope drift",
+      "Redundant replanning"
+    ],
+    "tradeoffs": [
+      "Do not overinvest in process checks at the expense of useful authorized work"
+    ]
+  },
+  "interaction": {
+    "invocation": "explicit_only",
+    "target": "chatgpt"
+  },
+  "relations": {
+    "related_prompt_ids": []
+  },
+  "provenance": {
+    "source_type": "owner_authored",
+    "reference": "queues/situational-prompts/revisions/SIT-REV-0008-03.json",
+    "notes": "Verbatim text preserved from uploaded items3.json, entry 8; SHA-256 4c7050623902d2010879a89c8c008391d808cec04c60055192355da1f14ed0c9. Distinct published generation; originals remain unchanged."
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24",
+    "review_status": "approved"
+  }
+}

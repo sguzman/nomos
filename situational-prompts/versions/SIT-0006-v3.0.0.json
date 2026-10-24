@@ -1,0 +1,64 @@
+{
+  "id": "SIT-0006",
+  "kind": "situational_prompt",
+  "version": "3.0.0",
+  "status": "published",
+  "summary": "Audit claims briefly, correct unsupported reports, then sustain implementation.",
+  "text": "Audit recent claimed progress against commits, tests, deliverables, and acceptance criteria. Correct unsupported percentages and repeated claims. Keep the audit brief, then resume sustained autonomous implementation across as many unfinished in-scope tasks as possible. Do not substitute auditing or reporting for productive execution. Return with verified overall completion percentage, change, and evidence only when execution is genuinely exhausted.",
+  "situation": {
+    "code": "progress_audit",
+    "trigger": "The user suspects prior progress reporting does not match delivered changes.",
+    "purpose": "Challenge unsupported progress claims and demand accountability."
+  },
+  "intent": {
+    "operation": "continue",
+    "outcome": "Audit claims briefly, correct unsupported reports, then sustain implementation."
+  },
+  "applicability": {
+    "appropriate_when": [
+      "Earlier reports lack credible evidence",
+      "Claims of elapsed work and unchanged percentages need scrutiny"
+    ],
+    "not_appropriate_when": [
+      "No progress claim exists to assess",
+      "The user is requesting a new project rather than auditing ongoing work"
+    ],
+    "preconditions": [
+      "Compare any available claims to actual repository or test evidence"
+    ]
+  },
+  "execution": {
+    "mode": "sustained_execution",
+    "objective": "Audit claims briefly, correct unsupported reports, then sustain implementation.",
+    "handoff": "after_available_work",
+    "progress_evidence": true
+  },
+  "failure_modes": {
+    "guards_against": [
+      "Inflated progress percentages",
+      "Recycled status updates presented as achievement",
+      "Unsupported claims of completed work"
+    ],
+    "tradeoffs": [
+      "The original text expresses concern; it is not itself an explicit implementation directive",
+      "Accusations must not substitute for inspecting evidence"
+    ]
+  },
+  "interaction": {
+    "invocation": "explicit_only",
+    "target": "chatgpt"
+  },
+  "relations": {
+    "related_prompt_ids": []
+  },
+  "provenance": {
+    "source_type": "owner_authored",
+    "reference": "queues/situational-prompts/revisions/SIT-REV-0006-03.json",
+    "notes": "Verbatim text preserved from uploaded items3.json, entry 6; SHA-256 9a20a9658186d2013d56860231efd46337a8b5de62f79d4f075422fb5432f580. Distinct published generation; originals remain unchanged."
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24",
+    "review_status": "approved"
+  }
+}

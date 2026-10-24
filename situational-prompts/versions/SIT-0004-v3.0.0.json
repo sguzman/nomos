@@ -1,0 +1,63 @@
+{
+  "id": "SIT-0004",
+  "kind": "situational_prompt",
+  "version": "3.0.0",
+  "status": "published",
+  "summary": "Resume interrupted work while honoring verified completion.",
+  "text": "The chat broke. Recover actual project state and resume sustained autonomous execution toward 100% completion. Implement, verify, and commit as many remaining in-scope tasks as possible. If one task is blocked, pursue other legitimate unfinished tasks. If all agreed acceptance criteria are verified complete, stop without inventing more work. Otherwise stop only when no productive executable work remains or the execution limit is reached. Report verified overall percentage, change, and exact remaining state.",
+  "situation": {
+    "code": "interrupted_execution_with_completion_gate",
+    "trigger": "The chat broke and the user wants continuation unless agreed work is already complete.",
+    "purpose": "Resume interrupted development but allow a genuine completed-project handoff."
+  },
+  "intent": {
+    "operation": "recover_execution",
+    "outcome": "Resume interrupted work while honoring verified completion."
+  },
+  "applicability": {
+    "appropriate_when": [
+      "The original project may have further work",
+      "The user wants work to stop if no legitimate tasks remain"
+    ],
+    "not_appropriate_when": [
+      "The user wants only a failure explanation",
+      "Project scope is unspecified and cannot be recovered"
+    ],
+    "preconditions": [
+      "Verify actual completion state before asserting that work is finished"
+    ]
+  },
+  "execution": {
+    "mode": "sustained_execution",
+    "objective": "Resume interrupted development but allow a genuine completed-project handoff.",
+    "handoff": "after_available_work",
+    "progress_evidence": true
+  },
+  "failure_modes": {
+    "guards_against": [
+      "Inventing new tasks after full completion",
+      "Premature stopping",
+      "Unverified completion claims"
+    ],
+    "tradeoffs": [
+      "This is not a request to broaden the roadmap after the agreed scope is complete"
+    ]
+  },
+  "interaction": {
+    "invocation": "explicit_only",
+    "target": "chatgpt"
+  },
+  "relations": {
+    "related_prompt_ids": []
+  },
+  "provenance": {
+    "source_type": "owner_authored",
+    "reference": "queues/situational-prompts/revisions/SIT-REV-0004-03.json",
+    "notes": "Verbatim text preserved from uploaded items3.json, entry 4; SHA-256 336dc9347e3ddb0d93437939c6a6eea89300a08ddc2f137a3f8389604b0ebc93. Distinct published generation; originals remain unchanged."
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24",
+    "review_status": "approved"
+  }
+}
