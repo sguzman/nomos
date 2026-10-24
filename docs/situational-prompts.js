@@ -65,7 +65,8 @@ const NomosSituational = (() => {
     const list=document.getElementById('situational-list');
     const count=document.getElementById('situational-count');
     try {
-      const response=await fetch('./catalog.json');
+      const url=document.querySelector('meta[name="nomos-situational-catalog"]')?.content || './catalog.json';
+      const response=await fetch(url);
       if(!response.ok)throw new Error('HTTP '+response.status);
       const catalog=await response.json();
       const records=catalog.situational_prompts;
