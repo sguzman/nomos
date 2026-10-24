@@ -11,6 +11,24 @@ const sample={id:'SIT-0001',summary:'An example of a public-safe trigger',
   interaction:{invocation:'explicit_only',target:'chatgpt'},
   governance:{review_status:'pending'}};
 test('empty registry is valid and shows no results',()=>assert.deepEqual(ns.search([],''),[]));
+test('display labels are derived from situation and execution metadata',()=>{
+  assert.equal(ns.displayLabel(sample),'Normal Continuation · Sustained Execution');
+  assert.equal(ns.displayLabel({...sample,title:'Do not use me'}),'Normal Continuation · Sustained Execution');
+});
+test('eight independently normalized records omit personal names and remain read only',()=>{
+  for(let i=1;i<=8;i++){
+    const p=require('../situational-prompts/SIT-'+String(i).padStart(4,'0')+'.json');
+    assert.equal(p.status,'reviewed');
+    assert.equal(p.governance.review_status,'reviewed');
+    assert.equal(ns.copyAllowed(p),false);
+    assert.equal(Object.hasOwn(p,'title'),false);
+    assert.equal(Object.hasOwn(p,'source_label'),false);
+    assert.ok(p.intent.outcome && p.applicability.appropriate_when.length);
+  }
+  const reinforced=require('../situational-prompts/SIT-0006.json');
+  assert.equal(reinforced.execution.mode,'reinforcement_only');
+  assert.equal(reinforced.execution.handoff,'no_execution_requested');
+});
 test('search by trigger, exclusion, hazard, and mode',()=>{
   assert.equal(ns.search([sample],'operator').length,1);
   assert.equal(ns.search([sample],'Diagnostic-only').length,1);

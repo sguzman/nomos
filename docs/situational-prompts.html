@@ -21,17 +21,17 @@
     <section class="situational-intro">
       <p class="eyebrow">NOMOS / SITUATIONAL PROMPTS</p>
       <h1>Instructions for a <em>specific moment.</em></h1>
-      <p>Unlike a permanent rule or a rule-profile preset, a situational prompt is deliberately invoked for one conversation event. Browse its trigger, appropriate use, exclusions, and known hazards before copying. Nothing activates automatically.</p>
+      <p>Unlike a permanent rule or a rule-profile preset, a situational prompt is deliberately invoked for one conversation event. Browse each situation's trigger, applicability, intended behavior, and known hazards. Reviewed entries remain read-only until a separate publication approval. Nothing activates automatically.</p>
     </section>
     <section id="prompts" aria-labelledby="situational-title" class="situational-browser">
       <div class="situational-heading"><h2 id="situational-title">Situational prompt registry</h2><span id="situational-count" aria-live="polite">Loading…</span></div>
       <div class="situational-controls">
-        <label for="situational-search">Find by title, context, hazard or ID<input id="situational-search" type="search" placeholder="Search situations…" autocomplete="off"></label>
-        <label for="situational-mode">Purpose<select id="situational-mode"><option value="all">All purposes</option><option value="sustained_execution">Sustained execution</option><option value="diagnosis_only">Diagnosis only</option></select></label>
+        <label for="situational-search">Find by situation, context, hazard or ID<input id="situational-search" type="search" placeholder="Search situations…" autocomplete="off"></label>
+        <label for="situational-mode">Purpose<select id="situational-mode"><option value="all">All purposes</option><option value="sustained_execution">Sustained execution</option><option value="diagnosis_only">Diagnosis only</option><option value="reinforcement_only">Reinforcement only</option></select></label>
         <label for="situational-status">Review status<select id="situational-status"><option value="all">All statuses</option><option value="published">Published</option><option value="draft">Draft</option><option value="reviewed">Reviewed</option><option value="deprecated">Deprecated</option></select></label>
       </div>
       <div id="situational-list" class="situational-list" aria-live="polite"></div>
-      <p id="situational-empty" class="situational-empty" hidden>No entries match. This approved registry starts empty until individual prompts are reviewed and approved. <a href="https://github.com/sguzman/nomos/tree/main/queues/situational-prompts">View queued metadata proposals ↗</a></p>
+      <p id="situational-empty" class="situational-empty" hidden>No matching entries. Reviewed drafts are visible but cannot be copied until separately approved. <a href="https://github.com/sguzman/nomos/tree/main/queues/situational-prompts">View queued metadata proposals ↗</a></p>
       <p id="situational-error" class="situational-error" role="alert" hidden></p>
       <p id="situational-notice" class="sr-only" aria-live="polite"></p>
     </section>

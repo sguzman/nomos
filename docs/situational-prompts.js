@@ -1,12 +1,19 @@
 'use strict';
 /* Dedicated opt-in browser; never includes prompts in the atomic rule composer. */
 const NomosSituational = (() => {
+  // The heading is always derived from structured metadata; no custom name or
+  // launcher label is allowed to become a canonical prompt attribute.
+  function displayLabel(p){
+    const humanize=v=>String(v).replaceAll('_',' ').replace(/\b\w/g,c=>c.toUpperCase());
+    return humanize(p.situation.code)+' · '+humanize(p.execution.mode);
+  }
   function search(records, query='', mode='all', status='all') {
     const term=String(query).toLocaleLowerCase().trim();
     return records.filter(p=>{
       if(mode!=='all'&&p.execution.mode!==mode)return false;
       if(status!=='all'&&p.status!==status)return false;
-      const words=[p.id,p.title,p.summary,p.text,p.situation.code,p.situation.trigger,p.situation.purpose,
+      const words=[p.id,displayLabel(p),p.summary,p.text,p.situation.code,p.situation.trigger,p.situation.purpose,
+        p.intent.operation,p.intent.outcome,p.execution.mode,
         ...p.applicability.appropriate_when,...p.applicability.not_appropriate_when,...p.applicability.preconditions,
         p.execution.objective,...p.failure_modes.guards_against,...p.failure_modes.tradeoffs];
       return words.join(' ').toLocaleLowerCase().includes(term);
@@ -24,13 +31,15 @@ const NomosSituational = (() => {
   }
   function card(p){
     const entry=createNode('article','situational-entry');
-    entry.append(createNode('span','situational-id',p.id),createNode('h3','',p.title),createNode('p','',p.summary));
+    entry.append(createNode('span','situational-id',p.id),createNode('h3','',displayLabel(p)),createNode('p','',p.summary));
     const tags=createNode('div','situational-tags');
     for(const val of [p.status,p.execution.mode.replaceAll('_',' '),p.situation.code.replaceAll('_',' ')])
       tags.append(createNode('span','situational-tag',val));
     entry.append(tags);
     const details=createNode('dl');
     field(details,'Trigger',p.situation.trigger);
+    field(details,'Operation',p.intent.operation.replaceAll('_',' '));
+    field(details,'Intended result',p.intent.outcome);
     field(details,'Purpose',p.situation.purpose);
     field(details,'Appropriate when',p.applicability.appropriate_when);
     field(details,'Do not use when',p.applicability.not_appropriate_when);
@@ -87,7 +96,7 @@ const NomosSituational = (() => {
       warning.hidden=false;warning.textContent='Could not load the current situational catalog: '+error.message;
     }
   }
-  return Object.freeze({search,copyAllowed,init});
+  return Object.freeze({search,copyAllowed,displayLabel,init});
 })();
 if(typeof module!=='undefined'&&module.exports)module.exports=NomosSituational;
 if(typeof document!=='undefined')NomosSituational.init();
