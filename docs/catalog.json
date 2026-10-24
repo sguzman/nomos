@@ -20119,6 +20119,202 @@
         "queue_id": "RIA-0078",
         "source_candidate": "normalized_rule_analysis_intent_INTENT-0047"
       }
+    },
+    {
+      "id": "INTENT-0048",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "maintainable_automation_jobs",
+      "definition": "Keep YAML jobs short, understandable and backed by maintainable script files.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0081",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0048"
+      }
+    },
+    {
+      "id": "INTENT-0049",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "truthful_extension_version_identity",
+      "definition": "Ensure browsers can distinguish each meaningful userscript or extension revision.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0085",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0049"
+      }
+    },
+    {
+      "id": "INTENT-0050",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "real_world_mvp_utility",
+      "definition": "Judge MVP readiness by actual user-facing capability and documented acceptance evidence.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0075",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0050"
+      }
+    },
+    {
+      "id": "INTENT-0051",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "owner_controlled_release_acceptance",
+      "definition": "Respect explicit project-owner decisions and limits on launches and releases.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0057",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0051"
+      }
+    },
+    {
+      "id": "INTENT-0052",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "durable_mvp_compatibility_contract",
+      "definition": "Record and maintain an accepted MVP baseline and its ongoing compatibility promises.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0097",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0052"
+      }
+    },
+    {
+      "id": "INTENT-0053",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "proportionate_safety_responses",
+      "definition": "Avoid unsupported repetitive risk interrogation while preserving proportionate response to concrete risk.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0114",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0053"
+      }
+    },
+    {
+      "id": "INTENT-0054",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "independent_public_project_governance",
+      "definition": "Maintain clear project autonomy, consent and public governance responsibilities.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0115",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0054"
+      }
+    },
+    {
+      "id": "INTENT-0055",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "separate_private_and_public_resources",
+      "definition": "Prevent private workspaces or unpublished assets from leaking into public projects.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0001",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0055"
+      }
+    },
+    {
+      "id": "INTENT-0056",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "consistent_ontology_gallery_links",
+      "definition": "Keep domain ontology, gallery, manifests and representations mutually consistent.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0006",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0056"
+      }
+    },
+    {
+      "id": "INTENT-0057",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "reproducible_public_project_setup",
+      "definition": "Allow public projects to work independently with legitimate public inputs.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0115",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0057"
+      }
+    },
+    {
+      "id": "INTENT-0058",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "traceable_fork_upstream_lineage",
+      "definition": "Record authoritative upstream baselines, divergence and adoption decisions in a maintained fork.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0129",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0058"
+      }
+    },
+    {
+      "id": "INTENT-0059",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "preserve_local_fork_customizations",
+      "definition": "Avoid losing local fork patches or functionality through upstream synchronization.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0130",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0059"
+      }
+    },
+    {
+      "id": "INTENT-0060",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "verified_fork_integration",
+      "definition": "Validate intended fork behavior after authorized upstream integration.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0132",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0060"
+      }
+    },
+    {
+      "id": "INTENT-0061",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "actionable_owner_handoff",
+      "definition": "Identify exactly what decisions or user actions are necessary after completed work.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0135",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0061"
+      }
     }
   ],
   "execution_conditions": [
