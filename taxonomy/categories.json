@@ -175,6 +175,7 @@
       "unsafe_ffi_containment",
       "unwarranted_safety_checkin_repetition",
       "version_consistency",
+      "visual_progress_before_after_interval_delta",
       "workflow_stage",
       "yaml_error_propagation",
       "yaml_job_workflow",

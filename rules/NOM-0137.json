@@ -1,0 +1,121 @@
+{
+  "id": "NOM-0137",
+  "version": "1.0.0",
+  "title": "Show previous, current, and per-round change beside visual progress bars",
+  "summary": "Alongside a measurable visual completion bar, report the comparable previous and current percentages and their signed percentage-point change for this round; disclose unknown or incomparable baselines without guessing.",
+  "statement": "For each actively reported project or unfinished roadmap item whose completion is measurable, display the previous verified completion percentage, the current verified completion percentage beside its visual progress bar, and the signed percentage-point change during this reporting round (current minus previous). Compare the same item, scope, and acceptance-criteria denominator; otherwise explain that the estimates are not directly comparable instead of inventing a change. Show +0 pp when no verified change occurred and a negative pp when a verified correction decreases the estimate. If the previous or current percentage cannot be supported, mark it unknown and omit any unjustified numeric change or visual fill. Base reported gains on verified deliverables, not activity or repeated status messages.",
+  "rationale": "A distinct, evidence-backed comparison requirement that refines NOM-0069 visual reporting and NOM-0070 overall progress. Neither already requires the previous percentage or per-round percentage-point delta. It does not displace completion, verification or finished-item suppression rules.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "report_with",
+      "object": "verified_previous_current_and_round_percentage_point_delta",
+      "target": "visual_project_progress_report"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "Reporting measurable completion for an active project or unfinished roadmap item, including overall progress when shown.",
+      "Numerical interval delta is reported only when current and previous estimates have a verified, comparable acceptance-criteria basis."
+    ],
+    "exceptions": [
+      "If previous or current percentages are unavailable, explicitly mark them unknown and omit unsupported numerical change or filled bars.",
+      "If scope or completion criteria changed, disclose non-comparability and do not compute a misleading delta.",
+      "Continue honoring the existing suppression of already-announced completed items in routine reports."
+    ],
+    "bounds": {
+      "quantifier": "all",
+      "interpretation": "universal",
+      "frequency": "unspecified",
+      "minimum": null,
+      "maximum": null,
+      "unit": "entities",
+      "window": null,
+      "cue": "For each actively reported measurable project or unfinished roadmap item",
+      "basis": "explicit_text"
+    }
+  },
+  "categories": {
+    "domains": [
+      "project_management",
+      "agent_instructions",
+      "user_interfaces"
+    ],
+    "topics": [
+      "progress_reporting",
+      "visual_progress_before_after_interval_delta"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "project_types": [
+      "project"
+    ],
+    "preconditions": [
+      "Reporting measurable completion for an active project or unfinished roadmap item, including overall progress when shown.",
+      "Numerical interval delta is reported only when current and previous estimates have a verified, comparable acceptance-criteria basis."
+    ],
+    "exclusions": [
+      "If previous or current percentages are unavailable, explicitly mark them unknown and omit unsupported numerical change or filled bars.",
+      "If scope or completion criteria changed, disclose non-comparability and do not compute a misleading delta.",
+      "Continue honoring the existing suppression of already-announced completed items in routine reports."
+    ]
+  },
+  "authority": {
+    "source": "Explicitly reviewed public-safe specimen normalization; opt-in guidance",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [
+      "NOM-0069",
+      "NOM-0070"
+    ],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "SPEC-0141; processing/specimens/PROC-SPEC-0141.json",
+    "license": "MIT",
+    "notes": "Only generalized public-safe instruction retained; catalog publication never automatically applies it."
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ],
+  "semantic": {
+    "concept": "visual_progress_before_after_interval_delta",
+    "aliases": [
+      "session_progress_percentage_point_change",
+      "comparative_visual_progress"
+    ]
+  }
+}
