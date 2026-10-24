@@ -3,7 +3,7 @@
   "kind": "situational_prompt_revision",
   "canonical_prompt_id": "SIT-0002",
   "situation_code": "interrupted_execution",
-  "status": "queued",
+  "status": "processed",
   "proposed_version": "2.0.0",
   "base_published_version": "1.0.0",
   "predecessor_ref": "SIT-0002@1.0.0",
@@ -15,8 +15,8 @@
   },
   "proposed_text": "The previous execution was interrupted. Inspect the actual repository state, recent commits, and roadmap. Resume the next unfinished task without repeating completed work or assuming interrupted work succeeded. Implement, verify, commit, and repeat toward 100% completion. Follow established rules.",
   "review": {
-    "processing_authorized": false,
-    "publication_authorized": false,
+    "processing_authorized": true,
+    "publication_authorized": true,
     "flags": []
   },
   "governance": {

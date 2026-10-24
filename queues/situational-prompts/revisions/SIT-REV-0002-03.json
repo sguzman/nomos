@@ -3,7 +3,7 @@
   "kind": "situational_prompt_revision",
   "canonical_prompt_id": "SIT-0002",
   "situation_code": "interrupted_execution",
-  "status": "queued",
+  "status": "processed",
   "proposed_version": "3.0.0",
   "base_published_version": "1.0.0",
   "predecessor_ref": "SIT-REV-0002-02",
@@ -15,8 +15,8 @@
   },
   "proposed_text": "The chat broke. Inspect actual repository state, recover interrupted work, and continue sustained autonomous execution toward 100% completion. Complete, verify, and commit as many unfinished tasks as possible. Do not stop after recovering context, finishing one task, or encountering one isolated blocker. Return with verified completion percentage, change, deliverables, and remaining blockers only when available productive work is exhausted. Follow established rules.",
   "review": {
-    "processing_authorized": false,
-    "publication_authorized": false,
+    "processing_authorized": true,
+    "publication_authorized": true,
     "flags": []
   },
   "governance": {

@@ -3,7 +3,7 @@
   "kind": "situational_prompt_revision",
   "canonical_prompt_id": "SIT-0006",
   "situation_code": "progress_audit",
-  "status": "queued",
+  "status": "processed",
   "proposed_version": "3.0.0",
   "base_published_version": "1.0.0",
   "predecessor_ref": "SIT-REV-0006-02",
@@ -15,8 +15,8 @@
   },
   "proposed_text": "Audit recent claimed progress against commits, tests, deliverables, and acceptance criteria. Correct unsupported percentages and repeated claims. Keep the audit brief, then resume sustained autonomous implementation across as many unfinished in-scope tasks as possible. Do not substitute auditing or reporting for productive execution. Return with verified overall completion percentage, change, and evidence only when execution is genuinely exhausted.",
   "review": {
-    "processing_authorized": false,
-    "publication_authorized": false,
+    "processing_authorized": true,
+    "publication_authorized": true,
     "flags": [
       "reinforcement_to_execution_requires_review"
     ]

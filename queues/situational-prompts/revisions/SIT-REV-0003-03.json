@@ -3,7 +3,7 @@
   "kind": "situational_prompt_revision",
   "canonical_prompt_id": "SIT-0003",
   "situation_code": "conversation_limit_recovery",
-  "status": "queued",
+  "status": "processed",
   "proposed_version": "3.0.0",
   "base_published_version": "1.0.0",
   "predecessor_ref": "SIT-REV-0003-02",
@@ -15,8 +15,8 @@
   },
   "proposed_text": "The previous chat reached its limit. Reconstruct the established project state, scope, roadmap, rules, and last verified progress from available context and repository evidence. Then continue executing as many unfinished tasks as the available session permits. Implement, test, commit, and repeat without returning after the first task or checkpoint. Report verified completion percentage, change, and evidence only at the end of available execution.",
   "review": {
-    "processing_authorized": false,
-    "publication_authorized": false,
+    "processing_authorized": true,
+    "publication_authorized": true,
     "flags": []
   },
   "governance": {

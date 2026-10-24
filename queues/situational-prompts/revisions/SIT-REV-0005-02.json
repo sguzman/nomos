@@ -3,7 +3,7 @@
   "kind": "situational_prompt_revision",
   "canonical_prompt_id": "SIT-0005",
   "situation_code": "interruption_diagnosis",
-  "status": "queued",
+  "status": "processed",
   "proposed_version": "2.0.0",
   "base_published_version": "1.0.0",
   "predecessor_ref": "SIT-0005@1.0.0",
@@ -15,8 +15,8 @@
   },
   "proposed_text": "The chat broke. Diagnose the actual project state using repository status, recent commits, roadmap, and available test evidence. State what was completed, what remains unfinished, what may have been interrupted, and the next exact task. Separate verified facts from uncertainty. Do not start new work in this diagnostic response.",
   "review": {
-    "processing_authorized": false,
-    "publication_authorized": false,
+    "processing_authorized": true,
+    "publication_authorized": true,
     "flags": []
   },
   "governance": {

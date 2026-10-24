@@ -3,7 +3,7 @@
   "kind": "situational_prompt_revision",
   "canonical_prompt_id": "SIT-0001",
   "situation_code": "normal_continuation",
-  "status": "queued",
+  "status": "processed",
   "proposed_version": "3.0.0",
   "base_published_version": "1.0.0",
   "predecessor_ref": "SIT-REV-0001-02",
@@ -15,8 +15,8 @@
   },
   "proposed_text": "Continue working autonomously toward 100% completion of the established scope. Execute as many meaningful unfinished roadmap tasks as the available session permits, implementing, testing, and committing repeatedly. Never return merely because one task finished, a checkpoint was reached, or one task is blocked; move to other legitimate unfinished work when possible. Do not invent scope or waste time on redundant planning. Return only when further productive execution is genuinely unavailable or the execution limit is reached. Report the verified overall completion percentage, its change, evidence of progress, and remaining work. Follow all established rules.",
   "review": {
-    "processing_authorized": false,
-    "publication_authorized": false,
+    "processing_authorized": true,
+    "publication_authorized": true,
     "flags": []
   },
   "governance": {

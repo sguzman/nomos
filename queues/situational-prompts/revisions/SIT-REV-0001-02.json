@@ -3,7 +3,7 @@
   "kind": "situational_prompt_revision",
   "canonical_prompt_id": "SIT-0001",
   "situation_code": "normal_continuation",
-  "status": "queued",
+  "status": "processed",
   "proposed_version": "2.0.0",
   "base_published_version": "1.0.0",
   "predecessor_ref": "SIT-0001@1.0.0",
@@ -15,8 +15,8 @@
   },
   "proposed_text": "Continue executing the established roadmap toward 100% completion. Use the actual repository state as the source of truth. Identify the next unfinished task, implement it, verify it, and commit the result. Repeat this cycle for as long as possible. Do not invent tasks, expand scope, repeat planning, or substitute status reports for work. Measure progress only against verified deliverables and acceptance criteria. If no concrete progress occurred, explicitly report zero progress and explain why. Follow all established project rules.",
   "review": {
-    "processing_authorized": false,
-    "publication_authorized": false,
+    "processing_authorized": true,
+    "publication_authorized": true,
     "flags": []
   },
   "governance": {

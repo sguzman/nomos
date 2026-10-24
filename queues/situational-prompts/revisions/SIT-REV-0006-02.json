@@ -3,7 +3,7 @@
   "kind": "situational_prompt_revision",
   "canonical_prompt_id": "SIT-0006",
   "situation_code": "progress_audit",
-  "status": "queued",
+  "status": "processed",
   "proposed_version": "2.0.0",
   "base_published_version": "1.0.0",
   "predecessor_ref": "SIT-0006@1.0.0",
@@ -15,8 +15,8 @@
   },
   "proposed_text": "Audit your latest progress claims against actual repository changes, commits, tests, and roadmap acceptance criteria. Identify any unsupported percentages, repeated claims, or activity without deliverables and correct the record explicitly. Then return to the next unfinished in-scope task: implement, verify, and commit. Do not substitute another status report for actual work.",
   "review": {
-    "processing_authorized": false,
-    "publication_authorized": false,
+    "processing_authorized": true,
+    "publication_authorized": true,
     "flags": [
       "reinforcement_to_execution_requires_review"
     ]

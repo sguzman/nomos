@@ -3,7 +3,7 @@
   "kind": "situational_prompt_revision",
   "canonical_prompt_id": "SIT-0008",
   "situation_code": "context_recovery_and_audit",
-  "status": "queued",
+  "status": "processed",
   "proposed_version": "3.0.0",
   "base_published_version": "1.0.0",
   "predecessor_ref": "SIT-REV-0008-02",
@@ -15,8 +15,8 @@
   },
   "proposed_text": "The previous chat reached its limit. Rebuild project context and established rules from repository evidence, then briefly audit actual progress against previous claims. Preserve the original scope and correct unsupported percentages. Continue sustained autonomous execution across as many unfinished roadmap tasks as possible, implementing, verifying, and committing repeatedly. Do not stop after context recovery, an isolated blocker, or a single deliverable. Return only when productive execution is exhausted or the session limit is reached, reporting verified overall completion percentage, change, and evidence.",
   "review": {
-    "processing_authorized": false,
-    "publication_authorized": false,
+    "processing_authorized": true,
+    "publication_authorized": true,
     "flags": []
   },
   "governance": {

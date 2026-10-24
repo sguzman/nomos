@@ -1,0 +1,16 @@
+{
+  "id": "PROC-SIT-REV-0003-03",
+  "kind": "situational_prompt_revision_processing",
+  "source_revision_id": "SIT-REV-0003-03",
+  "canonical_prompt_id": "SIT-0003",
+  "version": "3.0.0",
+  "output_path": "situational-prompts/versions/SIT-0003-v3.0.0.json",
+  "status": "published",
+  "authorization": "User explicitly authorized processing all queued situational revisions and downstream tasks on 2026-10-24.",
+  "conclusion": "Published as an independent version; published v1 and prior version artifacts retained; no automatic default selection.",
+  "behavioral_review": "No fundamental execution-mode escalation.",
+  "governance": {
+    "processed_on": "2026-10-24",
+    "publication_authorized": true
+  }
+}

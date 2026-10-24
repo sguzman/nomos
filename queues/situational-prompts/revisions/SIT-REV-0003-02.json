@@ -3,7 +3,7 @@
   "kind": "situational_prompt_revision",
   "canonical_prompt_id": "SIT-0003",
   "situation_code": "conversation_limit_recovery",
-  "status": "queued",
+  "status": "processed",
   "proposed_version": "2.0.0",
   "base_published_version": "1.0.0",
   "predecessor_ref": "SIT-0003@1.0.0",
@@ -15,8 +15,8 @@
   },
   "proposed_text": "The previous chat reached its limit. Reconstruct the last known project state from available conversation context, repository evidence, roadmap, and commits. Distinguish verified facts from missing context. Preserve established decisions, scope, and rules. Then resume the next unfinished task and repeat implementation, verification, and commits toward 100% completion.",
   "review": {
-    "processing_authorized": false,
-    "publication_authorized": false,
+    "processing_authorized": true,
+    "publication_authorized": true,
     "flags": []
   },
   "governance": {
