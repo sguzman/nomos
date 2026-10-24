@@ -96,6 +96,23 @@ def load_links(root=ROOT):
             errors.append("unreferenced normalized concepts: "+", ".join(sorted(unreferenced)))
     if len(links)!=N:
         errors.append(f"missing full link registry: {len(links)}/{N}")
+    # Provenance must cite a rule that actually supports each newly normalized concept.
+    for folder,prefix,start,end,relation in (
+            ("situations","SITU",9,48,"situations"),
+            ("intents","INTENT",20,72,"intents")):
+        for n in range(start,end+1):
+            cid=f"{prefix}-{n:04d}"
+            try:
+                concept=read(root,Path("ontology")/folder/(cid+".json"))
+                source=concept["provenance"]["queue_id"]
+                if not source.startswith("RIA-"):
+                    errors.append(f"{cid}: missing rule-analysis intake provenance")
+                    continue
+                supporting=links.get("NOM-"+source[-4:])
+                if supporting is None or cid not in [x["id"] for x in supporting[relation]]:
+                    errors.append(f"{cid}: declared provenance {source} is not a supporting source")
+            except (OSError,ValueError,KeyError) as exc:
+                errors.append(f"{cid}: malformed or missing source provenance: {exc}")
     return links,errors
 
 def main():
