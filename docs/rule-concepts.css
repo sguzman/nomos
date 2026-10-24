@@ -1,0 +1,21 @@
+.rule-study{max-width:1200px}.study-intro{padding:54px 0 28px;border-bottom:1px solid var(--line)}
+.study-intro h1{font-size:clamp(32px,5vw,52px);line-height:1.15;letter-spacing:-.035em}
+.study-intro p:not(.eyebrow){max-width:790px;color:var(--muted);line-height:1.7}
+.rule-study section{padding:30px 0}.study-controls{display:grid;grid-template-columns:2fr 1fr 1fr 160px;gap:12px;margin:20px 0}
+.study-controls label{display:grid;gap:7px;color:var(--muted);font-size:12px}
+.study-controls input,.study-controls select{min-height:42px;width:100%;border:1px solid var(--line);border-radius:8px;padding:9px;background:var(--surface);color:var(--ink)}
+#study-count{color:var(--muted);font-size:13px}
+.study-results{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:13px;align-items:start}
+.study-rule{border:1px solid var(--line);background:var(--surface);padding:18px;border-radius:12px;min-width:0}
+.study-rule .id{color:var(--accent);font-size:12px;font-weight:700}.study-rule h3{margin:7px 0;font-size:17px;line-height:1.3}
+.study-rule p{color:var(--muted);line-height:1.55}.study-labels{display:grid;gap:8px;margin:14px 0}
+.study-labels section{padding:0}.study-labels h4{font-size:11px;color:var(--subtle);margin:0 0 5px;text-transform:uppercase;letter-spacing:.06em}
+.study-labels ul{list-style:none;padding:0;margin:0;display:flex;gap:6px;flex-wrap:wrap}
+.study-labels li{background:var(--surface2);padding:4px 8px;border-radius:6px;font-size:12px;max-width:100%;overflow-wrap:anywhere}
+.study-rule details{border-top:1px solid var(--line);padding-top:11px;margin-top:10px}
+.study-rule summary{cursor:pointer}.study-rule summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.study-rule details p{font-size:13px}.study-rule a{color:var(--accent);font-size:12px}
+.study-interpretation{border-top:1px solid var(--line);padding:26px 0 70px;max-width:950px;line-height:1.6}
+.study-interpretation p{color:var(--muted)}
+@media(max-width:860px){.study-controls{grid-template-columns:1fr 1fr}.study-intro{padding-top:35px}}
+@media(max-width:540px){.study-controls{grid-template-columns:1fr}}

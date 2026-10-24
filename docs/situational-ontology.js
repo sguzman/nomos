@@ -39,6 +39,11 @@ const NomosOntology = (() => {
     entry.append(node('span','ontology-id',item.id+' · '+item.object_label),
                  node('h3','',label(item.code||item.semantic_role||item.id)),
                  node('p','',item.definition||item.description||''));
+    if(item.kind==='situation'||item.kind==='intent'){
+      const rel=node('a','','See related rules');
+      rel.href='./rule-concepts.html?'+(item.kind==='situation'?'situation':'intent')+'='+item.id;
+      entry.append(rel);
+    }
     if(item.kind==='intent_family'){
       const link=node('a','','View all 3 prompt versions');
       link.href='./situational-prompts.html#prompt-'+item.canonical_prompt_id;

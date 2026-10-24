@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Study the situations and intended outcomes associated with every independent Nomos rule.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="nomos-catalog" content="./catalog.json">
+  <title>Rules by situation and intent · Nomos</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./rule-concepts.css">
+  <script src="./rule-concepts.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#study">Skip to rule study</a>
+  <header class="masthead"><div class="shell masthead-inner">
+    <a class="brand" href="./"><span class="brand-glyph" aria-hidden="true">N</span><span>nomos<span class="brand-period">.</span></span></a>
+    <div class="masthead-right"><a href="./">Rule catalog</a><a href="./situational-ontology.html">Ontology</a><a href="./situational-prompts.html">Prompts</a></div>
+  </div></header>
+  <main class="shell rule-study" id="study">
+    <header class="study-intro">
+      <p class="eyebrow">NOMOS / RULE SEMANTICS</p>
+      <h1>When a rule matters.<br><em>What it aims to achieve.</em></h1>
+      <p>Study the situations and intentions associated with each original rule. These links explain possible relevance and purpose; they never silently narrow the rule's actual scope or activate it.</p>
+    </header>
+    <section aria-labelledby="study-heading">
+      <h2 id="study-heading">Browse analyzed rules</h2>
+      <div class="study-controls">
+        <label>Rule text or ID <input id="study-search" type="search" placeholder="Search rules…" autocomplete="off"></label>
+        <label>Situation <select id="study-situation"><option value="">Any situation</option></select></label>
+        <label>Intent <select id="study-intent"><option value="">Any intent</option></select></label>
+        <label>Publication <select id="study-status"><option value="">All rule states</option><option value="published">Published</option><option value="draft">Draft source</option></select></label>
+      </div>
+      <p id="study-count" aria-live="polite">Loading analyses…</p>
+      <p id="study-empty" hidden>No rules match. Try another situation, intent, or search.</p>
+      <p id="study-error" role="alert" hidden></p>
+      <div id="study-results" class="study-results"></div>
+    </section>
+    <aside class="study-interpretation">
+      <h2>Reading these relationships</h2>
+      <p><strong>Situations</strong> describe contexts in which a rule may matter, not exclusive invocation gates. <strong>Intents</strong> are interpretations of its underlying outcomes, not additional commands. Check the original conditions, exceptions and normative predicate before treating a rule as applicable.</p>
+      <p>All 137 sources have a reviewable evidence trail. The source `NOM-0002` remains a draft, and its descriptive mapping does not publish it. Nothing is automatically selected for a rule profile or exported into instructions.</p>
+    </aside>
+  </main>
+</body>
+</html>
