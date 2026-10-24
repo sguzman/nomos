@@ -1,0 +1,63 @@
+{
+  "id": "SIT-0003",
+  "kind": "situational_prompt",
+  "version": "2.0.0",
+  "status": "published",
+  "summary": "Rebuild project context and resume meaningful implementation.",
+  "text": "The previous chat reached its limit. Reconstruct the last known project state from available conversation context, repository evidence, roadmap, and commits. Distinguish verified facts from missing context. Preserve established decisions, scope, and rules. Then resume the next unfinished task and repeat implementation, verification, and commits toward 100% completion.",
+  "situation": {
+    "code": "conversation_limit_recovery",
+    "trigger": "The previous conversation exhausted its context or length budget.",
+    "purpose": "Reconstruct context in a new conversation and continue the established project."
+  },
+  "intent": {
+    "operation": "recover_context",
+    "outcome": "Rebuild project context and resume meaningful implementation."
+  },
+  "applicability": {
+    "appropriate_when": [
+      "A successor conversation is taking over an existing project",
+      "Previous decisions and project scope need reconstruction"
+    ],
+    "not_appropriate_when": [
+      "The conversation has not reached its context limit",
+      "The user explicitly wants diagnosis rather than execution"
+    ],
+    "preconditions": [
+      "Use available prior context and repository evidence; flag gaps"
+    ]
+  },
+  "execution": {
+    "mode": "sustained_execution",
+    "objective": "Reconstruct context in a new conversation and continue the established project.",
+    "handoff": "after_available_work",
+    "progress_evidence": true
+  },
+  "failure_modes": {
+    "guards_against": [
+      "Fabricated reconstruction",
+      "Replanning completed work",
+      "Loss of prior constraints"
+    ],
+    "tradeoffs": [
+      "Unavailable context cannot be reconstructed as fact"
+    ]
+  },
+  "interaction": {
+    "invocation": "explicit_only",
+    "target": "chatgpt"
+  },
+  "relations": {
+    "related_prompt_ids": []
+  },
+  "provenance": {
+    "source_type": "owner_authored",
+    "reference": "queues/situational-prompts/revisions/SIT-REV-0003-02.json",
+    "notes": "Verbatim text preserved from uploaded items2.json, entry 3; SHA-256 c3291553305f59065641e1156777ffdbf797d585dd0f4472210f9699ab889d36. Distinct published generation; original 1.0.0 unchanged."
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24",
+    "review_status": "approved"
+  }
+}

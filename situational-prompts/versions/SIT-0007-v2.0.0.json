@@ -1,0 +1,63 @@
+{
+  "id": "SIT-0007",
+  "kind": "situational_prompt",
+  "version": "2.0.0",
+  "status": "published",
+  "summary": "Preserve agreed scope and resume sustained in-scope execution.",
+  "text": "The goal is 100% completion of the originally agreed scope, not activity for its own sake. Compare the current work against the established roadmap and acceptance criteria. Stop scope expansion, invented tasks, redundant planning, and cosmetic busywork. Execute the highest-priority unfinished requirement, verify it, commit it, and repeat.",
+  "situation": {
+    "code": "scope_refocus",
+    "trigger": "The active work is at risk of drifting from its original accepted scope.",
+    "purpose": "Reinforce the established completion goal and prevent unrelated task invention."
+  },
+  "intent": {
+    "operation": "continue",
+    "outcome": "Preserve agreed scope and resume sustained in-scope execution."
+  },
+  "applicability": {
+    "appropriate_when": [
+      "An established project objective exists",
+      "The user wants to reaffirm scope and completion targets"
+    ],
+    "not_appropriate_when": [
+      "The original objective is unknown",
+      "The user is explicitly changing the scope"
+    ],
+    "preconditions": [
+      "Use established acceptance criteria rather than inventing new ones"
+    ]
+  },
+  "execution": {
+    "mode": "sustained_execution",
+    "objective": "Preserve agreed scope and resume sustained in-scope execution.",
+    "handoff": "after_available_work",
+    "progress_evidence": true
+  },
+  "failure_modes": {
+    "guards_against": [
+      "Invented busywork",
+      "Unauthorized scope expansion",
+      "Misleading completion percentages"
+    ],
+    "tradeoffs": [
+      "The source wording is a reminder, not a standalone authorization for new work"
+    ]
+  },
+  "interaction": {
+    "invocation": "explicit_only",
+    "target": "chatgpt"
+  },
+  "relations": {
+    "related_prompt_ids": []
+  },
+  "provenance": {
+    "source_type": "owner_authored",
+    "reference": "queues/situational-prompts/revisions/SIT-REV-0007-02.json",
+    "notes": "Verbatim text preserved from uploaded items2.json, entry 7; SHA-256 af82f0cbf826b729ae67f9b07e2fff5b59b5f21b22abbba9578dbb88e50b0538. Distinct published generation; original 1.0.0 unchanged."
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24",
+    "review_status": "approved"
+  }
+}

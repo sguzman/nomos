@@ -1,0 +1,63 @@
+{
+  "id": "SIT-0004",
+  "kind": "situational_prompt",
+  "version": "2.0.0",
+  "status": "published",
+  "summary": "Resume interrupted work while honoring verified completion.",
+  "text": "The previous execution was interrupted. Verify the repository state and resume the next unfinished roadmap task. Implement, verify, and commit repeatedly. If the agreed scope is fully verified complete, stop and report completion. If genuinely blocked, stop and report the exact blocker and remaining work. Never invent additional tasks to keep working.",
+  "situation": {
+    "code": "interrupted_execution_with_completion_gate",
+    "trigger": "The chat broke and the user wants continuation unless agreed work is already complete.",
+    "purpose": "Resume interrupted development but allow a genuine completed-project handoff."
+  },
+  "intent": {
+    "operation": "recover_execution",
+    "outcome": "Resume interrupted work while honoring verified completion."
+  },
+  "applicability": {
+    "appropriate_when": [
+      "The original project may have further work",
+      "The user wants work to stop if no legitimate tasks remain"
+    ],
+    "not_appropriate_when": [
+      "The user wants only a failure explanation",
+      "Project scope is unspecified and cannot be recovered"
+    ],
+    "preconditions": [
+      "Verify actual completion state before asserting that work is finished"
+    ]
+  },
+  "execution": {
+    "mode": "sustained_execution",
+    "objective": "Resume interrupted development but allow a genuine completed-project handoff.",
+    "handoff": "after_available_work",
+    "progress_evidence": true
+  },
+  "failure_modes": {
+    "guards_against": [
+      "Inventing new tasks after full completion",
+      "Premature stopping",
+      "Unverified completion claims"
+    ],
+    "tradeoffs": [
+      "This is not a request to broaden the roadmap after the agreed scope is complete"
+    ]
+  },
+  "interaction": {
+    "invocation": "explicit_only",
+    "target": "chatgpt"
+  },
+  "relations": {
+    "related_prompt_ids": []
+  },
+  "provenance": {
+    "source_type": "owner_authored",
+    "reference": "queues/situational-prompts/revisions/SIT-REV-0004-02.json",
+    "notes": "Verbatim text preserved from uploaded items2.json, entry 4; SHA-256 b751becf21a16647ee7c91446c7720622f952d56252778aec3d78880da4f600b. Distinct published generation; original 1.0.0 unchanged."
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24",
+    "review_status": "approved"
+  }
+}

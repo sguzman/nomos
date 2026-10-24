@@ -1,0 +1,64 @@
+{
+  "id": "SIT-0006",
+  "kind": "situational_prompt",
+  "version": "2.0.0",
+  "status": "published",
+  "summary": "Audit recent progress, correct claims, and resume unfinished implementation.",
+  "text": "Audit your latest progress claims against actual repository changes, commits, tests, and roadmap acceptance criteria. Identify any unsupported percentages, repeated claims, or activity without deliverables and correct the record explicitly. Then return to the next unfinished in-scope task: implement, verify, and commit. Do not substitute another status report for actual work.",
+  "situation": {
+    "code": "progress_audit",
+    "trigger": "The user suspects prior progress reporting does not match delivered changes.",
+    "purpose": "Challenge unsupported progress claims and demand accountability."
+  },
+  "intent": {
+    "operation": "continue",
+    "outcome": "Audit recent progress, correct claims, and resume unfinished implementation."
+  },
+  "applicability": {
+    "appropriate_when": [
+      "Earlier reports lack credible evidence",
+      "Claims of elapsed work and unchanged percentages need scrutiny"
+    ],
+    "not_appropriate_when": [
+      "No progress claim exists to assess",
+      "The user is requesting a new project rather than auditing ongoing work"
+    ],
+    "preconditions": [
+      "Compare any available claims to actual repository or test evidence"
+    ]
+  },
+  "execution": {
+    "mode": "sustained_execution",
+    "objective": "Audit recent progress, correct claims, and resume unfinished implementation.",
+    "handoff": "after_available_work",
+    "progress_evidence": true
+  },
+  "failure_modes": {
+    "guards_against": [
+      "Inflated progress percentages",
+      "Recycled status updates presented as achievement",
+      "Unsupported claims of completed work"
+    ],
+    "tradeoffs": [
+      "The original text expresses concern; it is not itself an explicit implementation directive",
+      "Accusations must not substitute for inspecting evidence"
+    ]
+  },
+  "interaction": {
+    "invocation": "explicit_only",
+    "target": "chatgpt"
+  },
+  "relations": {
+    "related_prompt_ids": []
+  },
+  "provenance": {
+    "source_type": "owner_authored",
+    "reference": "queues/situational-prompts/revisions/SIT-REV-0006-02.json",
+    "notes": "Verbatim text preserved from uploaded items2.json, entry 6; SHA-256 cdf3e67f36aa3ca1304f41d66dcea4507f4d700a3d9cea00c171fd965e439871. Distinct published generation; original 1.0.0 unchanged."
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24",
+    "review_status": "approved"
+  }
+}

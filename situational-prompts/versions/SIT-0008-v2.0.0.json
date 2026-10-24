@@ -1,0 +1,64 @@
+{
+  "id": "SIT-0008",
+  "kind": "situational_prompt",
+  "version": "2.0.0",
+  "status": "published",
+  "summary": "Restore context and accountability before sustained development.",
+  "text": "The previous chat reached its limit. Reconstruct project state and established rules from available context and repository evidence. Audit claimed progress against commits, tests, and roadmap acceptance criteria; correct unsupported claims. Keep the original scope fixed. Resume the highest-priority unfinished task, implement, verify, commit, and repeat toward 100% completion. Do not invent work or report progress without evidence.",
+  "situation": {
+    "code": "context_recovery_and_audit",
+    "trigger": "A prior conversation reached its limit and the user wants the successor to retain accountability and scope.",
+    "purpose": "Combine successor-chat recovery with scope and evidence reminders before sustained continuation."
+  },
+  "intent": {
+    "operation": "recover_context",
+    "outcome": "Restore context and accountability before sustained development."
+  },
+  "applicability": {
+    "appropriate_when": [
+      "A project is continuing in a new conversation",
+      "History recovery and progress credibility are both relevant"
+    ],
+    "not_appropriate_when": [
+      "The user only asks for a diagnostic snapshot",
+      "The prior project or its scope cannot be established"
+    ],
+    "preconditions": [
+      "Rebuild from available evidence; do not treat missing context as verified"
+    ]
+  },
+  "execution": {
+    "mode": "sustained_execution",
+    "objective": "Combine successor-chat recovery with scope and evidence reminders before sustained continuation.",
+    "handoff": "after_available_work",
+    "progress_evidence": true
+  },
+  "failure_modes": {
+    "guards_against": [
+      "Context loss",
+      "Unsupported progress claims",
+      "Scope drift",
+      "Redundant replanning"
+    ],
+    "tradeoffs": [
+      "Do not overinvest in process checks at the expense of useful authorized work"
+    ]
+  },
+  "interaction": {
+    "invocation": "explicit_only",
+    "target": "chatgpt"
+  },
+  "relations": {
+    "related_prompt_ids": []
+  },
+  "provenance": {
+    "source_type": "owner_authored",
+    "reference": "queues/situational-prompts/revisions/SIT-REV-0008-02.json",
+    "notes": "Verbatim text preserved from uploaded items2.json, entry 8; SHA-256 5ff034cc8e28e7619e930217cc22f865fd5fddf999b9ec5f331123d0e6166782. Distinct published generation; original 1.0.0 unchanged."
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24",
+    "review_status": "approved"
+  }
+}

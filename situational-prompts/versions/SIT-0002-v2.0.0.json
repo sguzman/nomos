@@ -1,0 +1,63 @@
+{
+  "id": "SIT-0002",
+  "kind": "situational_prompt",
+  "version": "2.0.0",
+  "status": "published",
+  "summary": "Resume unfinished work without duplicating completed changes.",
+  "text": "The previous execution was interrupted. Inspect the actual repository state, recent commits, and roadmap. Resume the next unfinished task without repeating completed work or assuming interrupted work succeeded. Implement, verify, commit, and repeat toward 100% completion. Follow established rules.",
+  "situation": {
+    "code": "interrupted_execution",
+    "trigger": "A chat or execution stops unexpectedly while agreed development remains unfinished.",
+    "purpose": "Resume the established project after an interrupted chat or execution."
+  },
+  "intent": {
+    "operation": "recover_execution",
+    "outcome": "Resume unfinished work without duplicating completed changes."
+  },
+  "applicability": {
+    "appropriate_when": [
+      "The previous run stopped unexpectedly",
+      "The current project is known or recoverable"
+    ],
+    "not_appropriate_when": [
+      "There is no earlier authorized project",
+      "The user only wants to learn why execution failed"
+    ],
+    "preconditions": [
+      "Check repository and last verified work before repeating changes"
+    ]
+  },
+  "execution": {
+    "mode": "sustained_execution",
+    "objective": "Resume the established project after an interrupted chat or execution.",
+    "handoff": "after_available_work",
+    "progress_evidence": true
+  },
+  "failure_modes": {
+    "guards_against": [
+      "Context loss",
+      "Duplicated commits or tasks",
+      "Treating an isolated blocker as global completion"
+    ],
+    "tradeoffs": [
+      "The interruption may conceal partially applied changes"
+    ]
+  },
+  "interaction": {
+    "invocation": "explicit_only",
+    "target": "chatgpt"
+  },
+  "relations": {
+    "related_prompt_ids": []
+  },
+  "provenance": {
+    "source_type": "owner_authored",
+    "reference": "queues/situational-prompts/revisions/SIT-REV-0002-02.json",
+    "notes": "Verbatim text preserved from uploaded items2.json, entry 2; SHA-256 e4f0a7d2a6e241fc544f0e594f0618aa2c735816a2132b0a4341c0feb516d335. Distinct published generation; original 1.0.0 unchanged."
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24",
+    "review_status": "approved"
+  }
+}

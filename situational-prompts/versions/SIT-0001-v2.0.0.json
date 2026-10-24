@@ -1,0 +1,64 @@
+{
+  "id": "SIT-0001",
+  "kind": "situational_prompt",
+  "version": "2.0.0",
+  "status": "published",
+  "summary": "Advance as many unfinished authorized requirements as available execution permits.",
+  "text": "Continue executing the established roadmap toward 100% completion. Use the actual repository state as the source of truth. Identify the next unfinished task, implement it, verify it, and commit the result. Repeat this cycle for as long as possible. Do not invent tasks, expand scope, repeat planning, or substitute status reports for work. Measure progress only against verified deliverables and acceptance criteria. If no concrete progress occurred, explicitly report zero progress and explain why. Follow all established project rules.",
+  "situation": {
+    "code": "normal_continuation",
+    "trigger": "The ongoing agent has reported satisfactory progress and additional agreed work remains.",
+    "purpose": "Continue an active, already authorized project after a satisfactory work update."
+  },
+  "intent": {
+    "operation": "continue",
+    "outcome": "Advance as many unfinished authorized requirements as available execution permits."
+  },
+  "applicability": {
+    "appropriate_when": [
+      "A development interaction is already underway",
+      "The user wants sustained continuation, not a new project plan"
+    ],
+    "not_appropriate_when": [
+      "The user is asking only for a diagnosis",
+      "No authorized work or objective is established"
+    ],
+    "preconditions": [
+      "Recover the current roadmap and established instructions when necessary"
+    ]
+  },
+  "execution": {
+    "mode": "sustained_execution",
+    "objective": "Continue an active, already authorized project after a satisfactory work update.",
+    "handoff": "after_available_work",
+    "progress_evidence": true
+  },
+  "failure_modes": {
+    "guards_against": [
+      "Premature handoff after one task",
+      "Incomplete work disguised as closure",
+      "Scope drift"
+    ],
+    "tradeoffs": [
+      "The phrase about reaching full completion does not itself establish a measurable denominator",
+      "A prompt cannot guarantee a specific execution duration"
+    ]
+  },
+  "interaction": {
+    "invocation": "explicit_only",
+    "target": "chatgpt"
+  },
+  "relations": {
+    "related_prompt_ids": []
+  },
+  "provenance": {
+    "source_type": "owner_authored",
+    "reference": "queues/situational-prompts/revisions/SIT-REV-0001-02.json",
+    "notes": "Verbatim text preserved from uploaded items2.json, entry 1; SHA-256 e71e6daf0363ac19d9e83c2e0b58604886fd052c4c897129493aedb75cbff041. Distinct published generation; original 1.0.0 unchanged."
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24",
+    "review_status": "approved"
+  }
+}
