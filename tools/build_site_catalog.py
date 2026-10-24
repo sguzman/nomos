@@ -64,19 +64,32 @@ def build(root=ROOT):
         if profile["status"] == "finalized" and profile["review"].get("finalization_confirmed") is not True:
             raise ValueError(f"{path}: finalization was not confirmed")
         profiles.append(profile)
-    from validate_situational_prompts import load_prompts
-    situational_prompts, prompt_errors = load_prompts(root)
+    from validate_formal_situational_ontology import load_formal
+    formal, prompt_errors = load_formal(root)
     if prompt_errors:
         raise ValueError("; ".join(prompt_errors))
+    situational_prompts = sorted(formal["prompts_v1"].values(), key=lambda p: p["id"])
+    situational_prompt_versions = sorted(formal["prompt_versions"].values(),
+                                         key=lambda p: (p["id"], p["version"]))
+    # Distinct canonical v1 plus immutable v2/v3 versions; no auto-upgrade.
+    if len(situational_prompts) != 8 or len(situational_prompt_versions) != 16:
+        raise ValueError("Expected eight preserved v1 and sixteen additional prompt generations")
     from relationships import build_relationships
     relationships=build_relationships(records,root)
     from project_types import read_hierarchy
     hierarchy=read_hierarchy(root)
     domain_definitions=json.loads((root/"taxonomy/domains.json").read_text(encoding="utf-8"))
-    return {"schema_version": "2.7",
+    return {"schema_version": "3.0",
             "source": "Nomos public catalog of atomic rules, virtual groups, opt-in profiles, and situational prompts",
             "rules": records, "groups": groups, "profiles": profiles,
             "situational_prompts": situational_prompts,
+            "situational_prompt_versions": situational_prompt_versions,
+            "situations": sorted(formal["situations"].values(), key=lambda p: p["id"]),
+            "intents": sorted(formal["intents"].values(), key=lambda p: p["id"]),
+            "intent_families": sorted(formal["families"].values(), key=lambda p: p["id"]),
+            "execution_conditions": sorted(formal["conditions"].values(), key=lambda p: p["id"]),
+            "evaluation_dimensions": sorted(formal["evaluation-dimensions"].values(), key=lambda p: p["id"]),
+            "situational_evaluations": formal["evaluations"],
             "relationships": relationships,
             "project_types": [r["id"] for r in hierarchy["types"]],
             "project_hierarchy": hierarchy,
