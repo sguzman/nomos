@@ -65,6 +65,8 @@ jobs:
           node --check docs/situational-prompts.js
           node --check docs/situational-ontology.js
           node --check docs/rule-concepts.js
+          node --check docs/profile-companions.js
+          node --test tests/test_profile_companions_browser.cjs
           node --test tests/test_rule_concepts_browser.cjs
           node tools/validate_rule_situation_intent_queue.cjs
           node --test tests/test_rule_situation_intent_queue.cjs

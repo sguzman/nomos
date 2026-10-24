@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Explore the situation and intent inventories derived from Nomos rule profiles.">
+  <meta name="nomos-catalog" content="./catalog.json">
+  <title>Rule-profile companions · Nomos</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./profile-companions.css">
+  <script src="./profile-companions.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#companions">Skip to companions</a>
+  <header class="masthead"><div class="shell masthead-inner">
+    <a class="brand" href="./"><span class="brand-glyph" aria-hidden="true">N</span><span>nomos<span class="brand-period">.</span></span></a>
+    <div class="masthead-right"><a href="./">Rule catalog</a><a href="./rule-concepts.html">Rule mappings</a><a href="./situational-ontology.html?type=situations">Situations &amp; intents</a></div>
+  </div></header>
+  <main id="companions" class="shell companion-page">
+    <header class="companion-intro">
+      <p class="eyebrow">NOMOS / PROFILE COMPANIONS</p>
+      <h1>What does each rule profile <em>cover?</em></h1>
+      <p>Every existing rule profile has two source-grounded companions: situations where its selected rules may matter, and intentions they seek to serve. The original rules and profile approvals are unchanged.</p>
+      <p>These are descriptive snapshots, not active instructions or newly approved rule selections. Situation links do not restrict when a rule applies; intent links may describe methods, constraints, or composite ideas rather than atomic goals.</p>
+    </header>
+    <section aria-labelledby="companion-heading">
+      <h2 id="companion-heading">Companion inventory</h2>
+      <div class="companion-controls">
+        <label>Source rule profile <select id="companion-profile"></select></label>
+        <label>Companion type <select id="companion-type">
+          <option value="situations">Situations</option>
+          <option value="intents">Intents</option>
+        </select></label>
+        <label>Find concept <input id="companion-search" type="search" placeholder="ID, name, meaning…" autocomplete="off"></label>
+      </div>
+      <p id="companion-source" class="companion-source"></p>
+      <p id="companion-count" aria-live="polite">Loading companions…</p>
+      <p id="companion-empty" hidden>No matching concepts.</p>
+      <p id="companion-error" role="alert" hidden></p>
+      <div id="companion-results" class="companion-results"></div>
+    </section>
+    <aside class="companion-note">
+      <h2>Traceability, not automatic selection</h2>
+      <p>Each concept shows every contributing source-rule ID and its association basis. Profiles with unconfirmed member selections remain provisional. Companion records are regenerated intentionally and validated against the exact source profile and reviewed rule-to-concept mappings.</p>
+    </aside>
+  </main>
+</body>
+</html>

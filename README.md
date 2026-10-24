@@ -10,7 +10,7 @@ Browse [situational prompts](https://sguzman.github.io/nomos/situational-prompts
 
 - **Atomic, typed rules:** independent entries with scope, predicates, provenance, version and authority metadata.
 - **Browse and compose:** search rules, understand categories and inspect conservative conflict candidates.
-- **Derived companion profiles:** a situation inventory and intent inventory for every existing rule-profile selection, with reverse links to supporting rules and no automatic activation.
+- **Derived companion profiles:** [browse situation/intent companions](https://sguzman.github.io/nomos/profile-companions.html) for every existing rule-profile selection, with reverse links to supporting rules and no automatic activation.
 - **Optional groups and profiles:** reusable selections for software development, strict C/C++/Python → Rust ports, public Tarium projects and Rust fork maintenance.
 - **Situational prompts:** a separate text species with situation triggers, exclusions, intended execution and handoff, failure-mode metadata and explicit-only copying.
 - **Ontology proposal intake:** [Six processed proposals](queues/situational-ontology/README.md) for formal situations, intentions, compositions, prompt versions and evaluations.

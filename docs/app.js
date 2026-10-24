@@ -242,7 +242,10 @@ function createProfileCard(profile) {
     renderCatalog();
     $('catalog-list').scrollIntoView({behavior:'smooth',block:'start'});
   });
-  actions.append(browse);
+  const companions=element('a','details-btn','Situation & intent companions');
+  companions.href='./profile-companions.html?profile='+encodeURIComponent(profile.id);
+  companions.setAttribute('aria-label','Study situation and intent companions for '+profile.title);
+  actions.append(browse,companions);
   if(profile.status==='finalized'){
     const add=element('button','add-btn','+ Add all ('+ids.length+')');
     add.type='button';

@@ -79,9 +79,11 @@ const NomosOntology = (() => {
       const data=flatten(catalog);
       if(data.length!==142)throw Error('Expected 142 formal ontology records, found '+data.length);
       if(typeof window!=='undefined'&&window.location?.search){
-        const requested=new URLSearchParams(window.location.search).get('type');
+        const parameters=new URLSearchParams(window.location.search);
+        const requested=parameters.get('type'),query=parameters.get('q');
         if(TYPES.some(([type])=>type===requested))
           document.getElementById('ontology-type').value=requested;
+        if(query)document.getElementById('ontology-query').value=query;
       }
       const render=()=>{
         const found=search(data,document.getElementById('ontology-query').value,document.getElementById('ontology-type').value);

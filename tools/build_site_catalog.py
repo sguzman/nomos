@@ -159,6 +159,16 @@ def fingerprint_assets(root=ROOT):
             if count != 1:
                 raise ValueError(f"Expected one ontology asset reference for {asset}; saw {count}")
         ontology.write_text(html, encoding="utf-8")
+    companion = docs / "profile-companions.html"
+    if companion.exists():
+        html = companion.read_text(encoding="utf-8")
+        for asset in ("styles.css", "profile-companions.css", "profile-companions.js", "catalog.json"):
+            digest = hashlib.sha256((docs / asset).read_bytes()).hexdigest()[:12]
+            pattern = re.escape("./" + asset) + r"(?:\?v=[0-9a-f]+)?"
+            html, count = re.subn(pattern, "./" + asset + "?v=" + digest, html)
+            if count != 1:
+                raise ValueError(f"Expected one companion asset reference for {asset}; saw {count}")
+        companion.write_text(html, encoding="utf-8")
     study = docs / "rule-concepts.html"
     if study.exists():
         html = study.read_text(encoding="utf-8")
