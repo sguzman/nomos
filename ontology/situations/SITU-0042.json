@@ -9,7 +9,7 @@
   "component_situation_ids": [],
   "related_prompt_families": [],
   "provenance": {
-    "queue_id": "RIA-0001",
+    "queue_id": "RIA-0129",
     "source_candidate": "normalized_rule_analysis_situation_SITU-0042",
     "normalization": "curated_source_grounded_rule_batch_2026-10-24"
   }
