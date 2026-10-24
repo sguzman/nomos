@@ -47,3 +47,53 @@ test('public output is standalone and never modifies rule composition',()=>{
   assert.match(html,/situational-prompts.js/);
   assert.doesNotMatch(html,/id="selection-list"/);
 });
+
+test('real browser wiring renders eight drafts, filters by mode and never enables copy',async()=>{
+  const fs=require('node:fs');
+  const vm=require('node:vm');
+  const path=require('node:path');
+  const catalog=require('../docs/catalog.json');
+  class Element {
+    constructor(tag='div'){
+      this.tag=tag;this.children=[];this.listeners={};this.value='all';
+      this.disabled=false;this.hidden=false;this.textContent='';this.className='';
+    }
+    append(...nodes){this.children.push(...nodes);}
+    replaceChildren(...nodes){this.children=nodes;}
+    addEventListener(type,fn){this.listeners[type]=fn;}
+  }
+  const nodes=new Map();
+  const get=id=>{
+    if(!nodes.has(id))nodes.set(id,new Element());
+    return nodes.get(id);
+  };
+  get('situational-search').value='';
+  const document={
+    getElementById:get,
+    createElement:tag=>new Element(tag),
+    querySelector:()=>({content:'./catalog.json'})
+  };
+  let copyCalls=0;
+  const navigator={clipboard:{writeText:async()=>{copyCalls++;}}};
+  const context={document,navigator,fetch:async()=>({ok:true,json:async()=>catalog})};
+  vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../docs/situational-prompts.js'),'utf8'),context);
+  // Allow the initial fetch/json microtasks to finish.
+  for(let i=0;i<5;i++)await Promise.resolve();
+  assert.equal(get('situational-count').textContent,'8 of 8 situational prompts');
+  const cards=get('situational-list').children;
+  assert.equal(cards.length,8);
+  assert.ok(cards.every(c=>c.children.some(n=>n.tag==='button'&&n.disabled)));
+  assert.ok(cards.every(c=>c.children.some(n=>n.tag==='h3'&&!/ack work|broke what/i.test(n.textContent))));
+  assert.equal(copyCalls,0);
+  get('situational-mode').value='reinforcement_only';
+  get('situational-mode').listeners.change();
+  assert.equal(get('situational-list').children.length,2);
+  get('situational-search').value='scope_refocus';
+  get('situational-search').listeners.input();
+  assert.equal(get('situational-list').children.length,1);
+  get('situational-status').value='published';
+  get('situational-status').listeners.change();
+  assert.equal(get('situational-list').children.length,0);
+  assert.equal(get('situational-empty').hidden,false);
+  assert.equal(copyCalls,0);
+});
