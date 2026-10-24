@@ -17,8 +17,8 @@ The eight queued items are:
 
 Each file follows [the intake schema](../../schema/situational-prompt-idea.schema.json) and includes an independently reviewed trigger description, appropriateness / exclusion tests, prerequisites, behavior category, failure modes, tradeoffs and governance. These annotations are **provisional interpretations for review**, not changes to the owner's exact prompt wording.
 
-**Intake is not publication or processing.** `SIT-IDEA-*` IDs are separate from future `SIT-*` prompt IDs. Capturing an idea does not create a draft or published prompt, approve its wording, activate an instruction, or add it to rule-profile selection.
+**Intake is not publication.** `SIT-IDEA-*` IDs are separate from future `SIT-*` prompt IDs. Processing all eight items was explicitly authorized on 2026-10-24. Each queued intake now points to a reviewed `SIT-*` draft and an independent `processing/situational-prompts/` trace. None is approved for publication, copy, or automatic application.
 
-Shortcut keys were part of one user's launcher setup, not intrinsic properties of these prompts. Key assignments are excluded from this registry. The original user-supplied messages remain outside this public repository. An owner-directed publication review may decide what **public-safe** text to author as a separate prompt entry later. No bulk promotion is implied.
+Shortcut keys were part of one user's launcher setup, not intrinsic properties of these prompts. Key assignments are excluded from this registry. The original user-supplied messages remain outside this public repository. The owner may separately review the eight independently authored canonical texts for future publication. No approval or automatic activation is implied by normalization.
 
 Local validation: `python3 tools/validate_situational_prompt_ideas.py`. The website's distinct situational-prompt browser intentionally reads the approved registry, **not** this intake queue.

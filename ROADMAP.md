@@ -38,3 +38,13 @@ A roadmap candidate becomes a queued task only through an explicit separate deci
 - [ ] Add profile browsing and interactive profile editing to the website if explicitly requested
 
 These entries are descriptive; the unchecked items are not queued tasks or automatic authorizations.
+
+## Situational-prompt ontology (authorized 2026-10-24)
+
+- [x] Normalize eight queued situations into typed, name-independent canonical reviewed drafts
+- [x] Preserve queue intake and individual processing provenance separately
+- [x] Browse situational prompts with metadata-derived labels and explicit-only copy authorization
+- [x] Validate one-to-one provenance and separate non-executing reinforcement from execution
+- [ ] Owner review and separate publication approval for individual reviewed drafts
+
+The remaining approval gate is not an engineering task or an instruction to publish automatically.

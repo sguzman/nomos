@@ -73,7 +73,7 @@ def build(root=ROOT):
     from project_types import read_hierarchy
     hierarchy=read_hierarchy(root)
     domain_definitions=json.loads((root/"taxonomy/domains.json").read_text(encoding="utf-8"))
-    return {"schema_version": "2.6",
+    return {"schema_version": "2.7",
             "source": "Nomos public catalog of atomic rules, virtual groups, opt-in profiles, and situational prompts",
             "rules": records, "groups": groups, "profiles": profiles,
             "situational_prompts": situational_prompts,

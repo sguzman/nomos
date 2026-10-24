@@ -54,7 +54,7 @@ class SiteCatalogTests(unittest.TestCase):
             self.assertEqual(len(profile["selected_rule_ids"]),len(set(profile["selected_rule_ids"])))
 
     def test_reviewable_project_relationships_and_tarium_scope(self):
-        self.assertEqual(self.data["schema_version"],"2.6")
+        self.assertEqual(self.data["schema_version"],"2.7")
         self.assertEqual(len(self.data["situational_prompts"]), 8)
         self.assertIn("rust_project", self.data["project_types"])
         self.assertIn("project_hierarchy", self.data)
