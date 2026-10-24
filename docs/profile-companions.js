@@ -34,6 +34,7 @@ const NomosProfileCompanions=(()=>{
       const c=lookup.get(m.id);
       if(!c)throw Error('Dangling companion concept '+m.id);
       return [m.id,c.code,c.definition,c.classification,c.semantic_role,c.atomicity,
+        m.atomicity==='single_intent_candidate'?'atomic candidate':'',
         ...m.via_rules.map(r=>r.id)].filter(Boolean).join(' ').toLowerCase().includes(needle);
     })};
   }
