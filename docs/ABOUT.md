@@ -2,7 +2,7 @@
 
 Nomos is a static, zero-dependency browser for typed atomic rules, reusable virtual groups, optional rule profiles and conservative relationship explanations. Visit the [public website](https://sguzman.github.io/nomos/).
 
-A dedicated [situational prompt browser](situational-prompts.html) is independent of the ruleset composer. Its records are not permanent rules, nor rule-profile selections; each lists an explicit invocation trigger and applicable/nonapplicable scenarios, intended work mode and handoff, provenance and hazards. The approved registry starts empty pending reviewed text. Eight situational proposals are kept in a separate [metadata-only intake queue](../queues/situational-prompts/README.md), not copyable website content. No shortcut activates anything automatically.
+A dedicated [situational prompt browser](situational-prompts.html) is independent of the ruleset composer. Its records are not permanent rules, nor rule-profile selections; each lists an explicit invocation trigger and applicable/nonapplicable scenarios, intended work mode and handoff, provenance and hazards. The approved registry starts empty pending reviewed text. Eight situational proposals are kept in a separate [metadata-only intake queue](../queues/situational-prompts/README.md), not copyable website content. Shortcut mappings belong to the user's launcher, not the prompt catalog.
 
 ## Browser capabilities
 

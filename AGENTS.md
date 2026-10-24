@@ -42,7 +42,7 @@ Profiles are optional selections, not mandatory instructions. First discuss the 
 
 ## Situational-prompt intake is not publication
 
-`queues/situational-prompts/` holds independent `SIT-IDEA-*` metadata proposals, not `SIT-*` registry entries. Preserve the original shortcut labels and key hints, but do not copy owner-supplied chat text or private wording into public JSON, code, issues, fixtures, or the website. Queueing is never approval to publish, activate, or bind a shortcut. See [queues/situational-prompts/README.md](queues/situational-prompts/README.md).
+`queues/situational-prompts/` holds independent `SIT-IDEA-*` metadata proposals, not `SIT-*` registry entries. Preserve the scenario labels and applicability metadata, but do not copy owner-supplied chat text, private wording, or launcher keybindings into public JSON, code, issues, fixtures, or the website. Queueing is never approval to publish or activate a prompt. See [queues/situational-prompts/README.md](queues/situational-prompts/README.md).
 
 ## Profile-idea queue is intake, never processing
 

@@ -11,7 +11,7 @@
 
 1. Situational prompts are separate, versioned normative-text artifacts. They describe what to ask an agent at a specific conversational moment; they are not atomic rules, rule groups, or profiles and have no automatic authority.
 2. A situational prompt must document its trigger, purpose, appropriate and inappropriate situations, prerequisites, requested mode and handoff, guarded failure modes, tradeoffs, provenance, and review state.
-3. Publication does not invoke a prompt, bind a key, select rules, or authorize work. The user explicitly selects and invokes a prompt; storing a hotkey hint has no runtime effect.
+3. Publication does not invoke a prompt, select rules, or authorize work. The user explicitly selects and invokes a prompt. External launcher or hotkey choices are outside this ontology.
 4. Only reviewed and approved public-safe prompt text may be offered for copying on the public website. Private discussions and wording must never be imported without separate explicit publication authorization.
 
 ## II. Rule independence and application
