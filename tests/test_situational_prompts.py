@@ -18,7 +18,7 @@ class SituationalPromptTests(unittest.TestCase):
             'applicability':{'appropriate_when':['A diagnostic request'], 'not_appropriate_when':['An execution request'],'preconditions':[]},
             'execution':{'mode':'diagnosis_only','objective':'Report known state','handoff':'diagnostic_response','progress_evidence':True},
             'failure_modes':{'guards_against':['Invented test results'],'tradeoffs':[]},
-            'interaction':{'invocation':'explicit_only','target':'chatgpt','shortcut_key':None},
+            'interaction':{'invocation':'explicit_only','target':'chatgpt'},
             'relations':{'related_prompt_ids':[]},
             'provenance':{'source_type':'synthetic','reference':None,'notes':'Public-safe test fixture'},
             'governance':{'created_on':'2026-10-24','updated_on':'2026-10-24','review_status':'pending'}

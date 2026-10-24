@@ -32,7 +32,7 @@ def check_record(record, filename):
         "applicability": {"appropriate_when", "not_appropriate_when", "preconditions"},
         "execution": {"mode", "objective", "handoff", "progress_evidence"},
         "failure_modes": {"guards_against", "tradeoffs"},
-        "interaction": {"invocation", "target", "shortcut_key"},
+        "interaction": {"invocation", "target"},
         "relations": {"related_prompt_ids"},
         "provenance": {"source_type", "reference", "notes"},
         "governance": {"created_on", "updated_on", "review_status"},
@@ -63,8 +63,6 @@ def check_record(record, filename):
     interaction=record["interaction"]
     if interaction["invocation"] != "explicit_only" or interaction["target"] not in ("chatgpt", "general_agent"):
         fail("invalid invocation/target")
-    if interaction["shortcut_key"] is not None and not re.fullmatch(r"[A-Z]", str(interaction["shortcut_key"])):
-        fail("invalid shortcut key")
     for linked in record["relations"]["related_prompt_ids"]:
         if not re.fullmatch(r"SIT-[0-9]{4,}", linked) or linked == rid: fail("invalid related_prompt_ids")
     provenance=record["provenance"]
@@ -85,7 +83,7 @@ def check_record(record, filename):
 def load_prompts(root=ROOT):
     records, issues = [], []
     directory = root / "situational-prompts"
-    ids, shortcuts = set(), set()
+    ids = set()
     for path in sorted(directory.glob("SIT-*.json")):
         try: record=json.loads(path.read_text(encoding="utf-8"))
         except (OSError, ValueError) as exc:
@@ -98,10 +96,6 @@ def load_prompts(root=ROOT):
         rid=record.get("id")
         if rid in ids: issues.append(f"{path}: duplicate id {rid}")
         ids.add(rid)
-        interaction=record.get("interaction",{})
-        key=interaction.get("shortcut_key") if isinstance(interaction,dict) else None
-        if key and key in shortcuts: issues.append(f"{path}: duplicate shortcut {key}")
-        if key: shortcuts.add(key)
         records.append(record)
     for record in records:
         for target in record.get("relations",{}).get("related_prompt_ids",[]):

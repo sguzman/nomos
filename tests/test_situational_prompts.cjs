@@ -7,7 +7,7 @@ const sample={id:'SIT-0001',title:'Neutral sample',summary:'An example of a publ
   applicability:{appropriate_when:['Explicitly selected work'],not_appropriate_when:['Diagnostic-only requests'],preconditions:[]},
   execution:{mode:'sustained_execution',objective:'Perform the approved work',handoff:'after_available_work',progress_evidence:true},
   failure_modes:{guards_against:['Premature handoff'],tradeoffs:['May require extended execution']},
-  interaction:{invocation:'explicit_only',target:'chatgpt',shortcut_key:null},
+  interaction:{invocation:'explicit_only',target:'chatgpt'},
   governance:{review_status:'pending'}};
 test('empty registry is valid and shows no results',()=>assert.deepEqual(ns.search([],''),[]));
 test('search by trigger, exclusion, hazard, and mode',()=>{

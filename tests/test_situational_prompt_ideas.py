@@ -17,7 +17,7 @@ class PromptIntakeTests(unittest.TestCase):
         self.assertEqual(self.errors,[])
         self.assertEqual(len(self.records),8)
         source=[r["source"] for _,r in self.records]
-        self.assertEqual([r["shortcut_key"] for r in source],["F","J","K","L","I","U","E","D"])
+        self.assertTrue(all("shortcut_key" not in r for r in source))
         self.assertEqual([r["entry_index"] for r in source],list(range(1,9)))
         self.assertTrue(all(r["verbatim_text_retained"] is False for r in source))
     def test_each_has_distinct_intent_and_review_gate(self):
@@ -35,13 +35,12 @@ class PromptIntakeTests(unittest.TestCase):
         self.assertEqual(public["situational_prompts"],[])
         self.assertTrue(all(x.get("kind")!="situational_prompt_idea"
                             for x in public["rules"]+public["groups"]+public["profiles"]))
-    def test_rejects_unauthorized_publication_and_duplicate_key(self):
+    def test_rejects_unauthorized_publication_and_launcher_metadata(self):
         r1=json.loads(json.dumps(self.records[0][1]))
-        r2=json.loads(json.dumps(self.records[1][1]))
         r1["review"]["publication_authorized"]=True
-        r2["source"]["shortcut_key"]=r1["source"]["shortcut_key"]
         self.assertTrue(any("publication" in e for e in validate([(pathlib.Path("SIT-IDEA-0001.json"),r1)])))
-        self.assertTrue(any("duplicate shortcut" in e for e in validate([(pathlib.Path("SIT-IDEA-0001.json"),r1),
-                                                                         (pathlib.Path("SIT-IDEA-0002.json"),r2)])))
+        r1["review"]["publication_authorized"]=False
+        r1["source"]["shortcut_key"]="F"
+        self.assertTrue(any("nested metadata fields" in e for e in validate([(pathlib.Path("SIT-IDEA-0001.json"),r1)])))
 
 if __name__=="__main__":unittest.main()

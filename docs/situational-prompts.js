@@ -40,7 +40,6 @@ const NomosSituational = (() => {
     field(details,'Evidence reporting',p.execution.progress_evidence?'Required':'Not required');
     field(details,'Guards against',p.failure_modes.guards_against);
     field(details,'Tradeoffs',p.failure_modes.tradeoffs);
-    field(details,'Shortcut hint',p.interaction.shortcut_key||'None');
     field(details,'Provenance',p.provenance.source_type);
     field(details,'Version / review','v'+p.version+' / '+p.governance.review_status);
     entry.append(details);
