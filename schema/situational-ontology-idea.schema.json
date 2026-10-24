@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/sguzman/nomos/blob/main/schema/situational-ontology-idea.schema.json",
+  "title": "Situational ontology intake proposal",
+  "description": "Public-safe, intake-only ontology proposal with typed candidate concepts. Does not create or activate any canonical object.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "kind",
+    "status",
+    "topic",
+    "purpose",
+    "candidates",
+    "design_constraints",
+    "open_review_questions",
+    "context_references",
+    "authorization",
+    "governance"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^SITO-IDEA-[0-9]{4}$"
+    },
+    "kind": {
+      "const": "situational_ontology_idea"
+    },
+    "status": {
+      "const": "queued"
+    },
+    "topic": {
+      "enum": [
+        "situations",
+        "atomic_intents",
+        "intent_families_and_compositions",
+        "prompt_versions_as_implementations",
+        "execution_constraints_and_conditions",
+        "outcome_evaluations"
+      ]
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "candidates": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "design_constraints": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "open_review_questions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "context_references": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^SIT-[0-9]{4}$"
+      }
+    },
+    "authorization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "intake_authorized",
+        "processing_authorized",
+        "publication_authorized",
+        "auto_apply"
+      ],
+      "properties": {
+        "intake_authorized": {
+          "const": true
+        },
+        "processing_authorized": {
+          "const": false
+        },
+        "publication_authorized": {
+          "const": false
+        },
+        "auto_apply": {
+          "const": false
+        }
+      }
+    },
+    "governance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "queued_on",
+        "updated_on",
+        "source_kind"
+      ],
+      "properties": {
+        "queued_on": {
+          "type": "string",
+          "format": "date"
+        },
+        "updated_on": {
+          "type": "string",
+          "format": "date"
+        },
+        "source_kind": {
+          "const": "owner_requested_synthetic_summary"
+        }
+      }
+    }
+  }
+}
