@@ -1,0 +1,26 @@
+{
+  "id": "SIT-REV-0008-02",
+  "kind": "situational_prompt_revision",
+  "canonical_prompt_id": "SIT-0008",
+  "situation_code": "context_recovery_and_audit",
+  "status": "queued",
+  "proposed_version": "2.0.0",
+  "base_published_version": "1.0.0",
+  "predecessor_ref": "SIT-0008@1.0.0",
+  "source": {
+    "artifact": "items2.json",
+    "artifact_version": 1,
+    "entry_ordinal": 8,
+    "content_sha256": "5ff034cc8e28e7619e930217cc22f865fd5fddf999b9ec5f331123d0e6166782"
+  },
+  "proposed_text": "The previous chat reached its limit. Reconstruct project state and established rules from available context and repository evidence. Audit claimed progress against commits, tests, and roadmap acceptance criteria; correct unsupported claims. Keep the original scope fixed. Resume the highest-priority unfinished task, implement, verify, commit, and repeat toward 100% completion. Do not invent work or report progress without evidence.",
+  "review": {
+    "processing_authorized": false,
+    "publication_authorized": false,
+    "flags": []
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24"
+  }
+}

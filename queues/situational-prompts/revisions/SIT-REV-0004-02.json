@@ -1,0 +1,26 @@
+{
+  "id": "SIT-REV-0004-02",
+  "kind": "situational_prompt_revision",
+  "canonical_prompt_id": "SIT-0004",
+  "situation_code": "interrupted_execution_with_completion_gate",
+  "status": "queued",
+  "proposed_version": "2.0.0",
+  "base_published_version": "1.0.0",
+  "predecessor_ref": "SIT-0004@1.0.0",
+  "source": {
+    "artifact": "items2.json",
+    "artifact_version": 1,
+    "entry_ordinal": 4,
+    "content_sha256": "b751becf21a16647ee7c91446c7720622f952d56252778aec3d78880da4f600b"
+  },
+  "proposed_text": "The previous execution was interrupted. Verify the repository state and resume the next unfinished roadmap task. Implement, verify, and commit repeatedly. If the agreed scope is fully verified complete, stop and report completion. If genuinely blocked, stop and report the exact blocker and remaining work. Never invent additional tasks to keep working.",
+  "review": {
+    "processing_authorized": false,
+    "publication_authorized": false,
+    "flags": []
+  },
+  "governance": {
+    "created_on": "2026-10-24",
+    "updated_on": "2026-10-24"
+  }
+}
