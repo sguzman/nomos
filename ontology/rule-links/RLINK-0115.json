@@ -1,0 +1,67 @@
+{
+  "id": "RLINK-0115",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0115",
+  "rule_version": "1.0.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0012",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.preconditions",
+        "scope.project_types",
+        "norm.predicate"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0054",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    },
+    {
+      "id": "INTENT-0057",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
+    "source_blob_sha": "4d6bc4527658e4fac1cce51d4147424a6d026087",
+    "source_statement": "Maintain each Tarium candidate or enrolled project's implementation, ontology, gallery, datasets and research resources in its own repository; the central Tarium hub hosts only its authorized registry, governance, validation tooling and reusable templates.",
+    "source_conditions": [
+      "The task concerns an independently authorized public Tarium candidate or member project."
+    ],
+    "source_exceptions": [
+      "This rule does not authorize Tarium membership changes, private-material disclosure, or unrelated repository operations."
+    ],
+    "normalized_predicate": {
+      "action": "house",
+      "object": "member_project_resources",
+      "target": "independent_project_repository"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relationships describe relevant contexts, not exhaustive triggers or narrower rule applicability.",
+    "intent_semantics": "Intent relationships describe inferred underlying outcomes; normative authority remains with the original rule.",
+    "effective_rules": "No rule, rule profile, or execution instruction is altered by linking."
+  },
+  "provenance": {
+    "queue_id": "RIA-0115",
+    "processing_id": "PROC-RIA-0115",
+    "source_path": "rules/NOM-0115.json"
+  },
+  "reviewed_on": "2026-10-24"
+}

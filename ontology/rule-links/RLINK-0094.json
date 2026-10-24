@@ -1,0 +1,67 @@
+{
+  "id": "RLINK-0094",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0094",
+  "rule_version": "1.1.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0036",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.preconditions",
+        "scope.project_types",
+        "norm.predicate"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0050",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    },
+    {
+      "id": "INTENT-0051",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
+    "source_blob_sha": "0f05c532d8401a5e728146a3a268a583721732a5",
+    "source_statement": "Do not declare the MVP inaugurated while known defects, regressions or failed acceptance checks prevent its agreed essential purpose; accepted minor limitations must be disclosed.",
+    "source_conditions": [
+      "An authorized MVP readiness, graduation, release, or follow-up review is in progress."
+    ],
+    "source_exceptions": [
+      "Does not independently authorize a tag, release or external deployment."
+    ],
+    "normalized_predicate": {
+      "action": "avoid",
+      "object": "do_not_inaugurate_despite_purpose_defeating_defects",
+      "target": "project_mvp_lifecycle"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relationships describe relevant contexts, not exhaustive triggers or narrower rule applicability.",
+    "intent_semantics": "Intent relationships describe inferred underlying outcomes; normative authority remains with the original rule.",
+    "effective_rules": "No rule, rule profile, or execution instruction is altered by linking."
+  },
+  "provenance": {
+    "queue_id": "RIA-0094",
+    "processing_id": "PROC-RIA-0094",
+    "source_path": "rules/NOM-0094.json"
+  },
+  "reviewed_on": "2026-10-24"
+}

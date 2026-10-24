@@ -1,7 +1,7 @@
 {
   "id": "RIA-0107",
   "kind": "rule_situation_intent_analysis_intake",
-  "status": "queued",
+  "status": "processed",
   "source": {
     "rule_id": "NOM-0107",
     "path": "rules/NOM-0107.json",
@@ -28,5 +28,11 @@
   "governance": {
     "queued_on": "2026-10-24",
     "source_basis": "existing_public_canonical_rule"
+  },
+  "processing": {
+    "state": "closed",
+    "record": "processing/rule-situation-intent/PROC-RIA-0107.json",
+    "authorized_on": "2026-10-24",
+    "authorization": "owner_explicit_full_processing_request"
   }
 }

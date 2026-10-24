@@ -1,0 +1,67 @@
+{
+  "id": "RLINK-0102",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0102",
+  "rule_version": "1.1.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0037",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.preconditions",
+        "scope.project_types",
+        "norm.predicate"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0040",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    },
+    {
+      "id": "INTENT-0051",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
+    "source_blob_sha": "7dbf2e4a38a3ea244ba6af447aa0b79929062fa7",
+    "source_statement": "After explicit release authorization, create and verify the inaugural version tag and GitHub release for the exact tested and accepted commit.",
+    "source_conditions": [
+      "A user-authorized MVP review, inauguration or post-MVP maintenance operation is taking place."
+    ],
+    "source_exceptions": [
+      "No implicit authorization to publish tags, releases or deployments."
+    ],
+    "normalized_predicate": {
+      "action": "tag",
+      "object": "tag_and_release_the_exact_verified_and_accepted_commit",
+      "target": "project_mvp_lifecycle"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relationships describe relevant contexts, not exhaustive triggers or narrower rule applicability.",
+    "intent_semantics": "Intent relationships describe inferred underlying outcomes; normative authority remains with the original rule.",
+    "effective_rules": "No rule, rule profile, or execution instruction is altered by linking."
+  },
+  "provenance": {
+    "queue_id": "RIA-0102",
+    "processing_id": "PROC-RIA-0102",
+    "source_path": "rules/NOM-0102.json"
+  },
+  "reviewed_on": "2026-10-24"
+}

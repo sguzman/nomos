@@ -1,0 +1,77 @@
+{
+  "id": "RLINK-0136",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0136",
+  "rule_version": "1.0.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0044",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.preconditions",
+        "scope.project_types",
+        "norm.predicate"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    },
+    {
+      "id": "SITU-0021",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.preconditions",
+        "scope.project_types",
+        "norm.predicate"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0062",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    },
+    {
+      "id": "INTENT-0036",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
+    "source_blob_sha": "c098ca13c4335519b8ad6c345965785d33cba36c",
+    "source_statement": "Write a repository README as a professional, welcoming orientation for new visitors: briefly explain what the project is, its value, how to get started, and links to relevant resources. Do not use it as an accumulating changelog, internal progress log, or dump of implementation details. Put extensive explanations, designs, technical references, and long-form guides under docs/; where a chronological change history is useful, maintain a separate changelog file such as CHANGELOG.md and link to it. Brief release highlights in a README are permissible when helpful.",
+    "source_conditions": [
+      "When preparing a public-facing repository README."
+    ],
+    "source_exceptions": [
+      "Short release highlights are permitted; a separate changelog is needed only when chronological history is maintained."
+    ],
+    "normalized_predicate": {
+      "action": "maintain",
+      "object": "concise_visitor_friendly_readme_with_linked_detailed_docs",
+      "target": "public_repository_readme"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relationships describe relevant contexts, not exhaustive triggers or narrower rule applicability.",
+    "intent_semantics": "Intent relationships describe inferred underlying outcomes; normative authority remains with the original rule.",
+    "effective_rules": "No rule, rule profile, or execution instruction is altered by linking."
+  },
+  "provenance": {
+    "queue_id": "RIA-0136",
+    "processing_id": "PROC-RIA-0136",
+    "source_path": "rules/NOM-0136.json"
+  },
+  "reviewed_on": "2026-10-24"
+}

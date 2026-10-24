@@ -1,0 +1,67 @@
+{
+  "id": "RLINK-0135",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0135",
+  "rule_version": "1.0.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0043",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.preconditions",
+        "scope.project_types",
+        "norm.predicate"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0061",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    },
+    {
+      "id": "INTENT-0019",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
+    "source_blob_sha": "84914a24d669ff2937fff5620a1d015be98a6afc",
+    "source_statement": "When reporting a completed work session or development deliverable, end the summary with a clearly separated user-action section. State each approval, decision, choice or input genuinely needed to proceed, identifying what it unblocks. If no user action is necessary, explicitly state that nothing is required. Keep optional follow-up suggestions distinct from mandatory action, and do not imply that automatic work authorization follows from reporting a possible next step.",
+    "source_conditions": [
+      "When reporting a completed development work session or deliverable."
+    ],
+    "source_exceptions": [
+      "Not required for casual answers; never invent mandatory approvals or conflate optional follow-ups with blockers."
+    ],
+    "normalized_predicate": {
+      "action": "conclude_with",
+      "object": "explicit_required_user_action_or_none",
+      "target": "completed_work_summary"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relationships describe relevant contexts, not exhaustive triggers or narrower rule applicability.",
+    "intent_semantics": "Intent relationships describe inferred underlying outcomes; normative authority remains with the original rule.",
+    "effective_rules": "No rule, rule profile, or execution instruction is altered by linking."
+  },
+  "provenance": {
+    "queue_id": "RIA-0135",
+    "processing_id": "PROC-RIA-0135",
+    "source_path": "rules/NOM-0135.json"
+  },
+  "reviewed_on": "2026-10-24"
+}

@@ -1,0 +1,67 @@
+{
+  "id": "RLINK-0093",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0093",
+  "rule_version": "1.1.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0036",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.preconditions",
+        "scope.project_types",
+        "norm.predicate"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0050",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    },
+    {
+      "id": "INTENT-0039",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
+    "source_blob_sha": "544c684b4361014e8680cf1784a52ce5cb2216f5",
+    "source_statement": "When a project's MVP includes a reusable library or agent-facing API, confirm it works with an independent consuming application or integration before inaugurating that interface.",
+    "source_conditions": [
+      "An authorized MVP readiness, graduation, release, or follow-up review is in progress."
+    ],
+    "source_exceptions": [
+      "Does not independently authorize a tag, release or external deployment."
+    ],
+    "normalized_predicate": {
+      "action": "test",
+      "object": "test_a_public_library_api_with_an_independent_consumer",
+      "target": "project_mvp_lifecycle"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relationships describe relevant contexts, not exhaustive triggers or narrower rule applicability.",
+    "intent_semantics": "Intent relationships describe inferred underlying outcomes; normative authority remains with the original rule.",
+    "effective_rules": "No rule, rule profile, or execution instruction is altered by linking."
+  },
+  "provenance": {
+    "queue_id": "RIA-0093",
+    "processing_id": "PROC-RIA-0093",
+    "source_path": "rules/NOM-0093.json"
+  },
+  "reviewed_on": "2026-10-24"
+}

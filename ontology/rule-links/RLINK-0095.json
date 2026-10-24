@@ -1,0 +1,58 @@
+{
+  "id": "RLINK-0095",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0095",
+  "rule_version": "1.1.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0036",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.preconditions",
+        "scope.project_types",
+        "norm.predicate"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0051",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
+    "source_blob_sha": "f9dcdb4ae98e30d423a25e29b0dc351c008f6c83",
+    "source_statement": "Before changing the MVP status or publishing its inaugural release, obtain explicit owner approval of the verified acceptance evidence and acknowledged limitations.",
+    "source_conditions": [
+      "An authorized MVP readiness, graduation, release, or follow-up review is in progress."
+    ],
+    "source_exceptions": [
+      "Does not independently authorize a tag, release or external deployment."
+    ],
+    "normalized_predicate": {
+      "action": "get",
+      "object": "get_explicit_project_owner_acceptance_for_inauguration",
+      "target": "project_mvp_lifecycle"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relationships describe relevant contexts, not exhaustive triggers or narrower rule applicability.",
+    "intent_semantics": "Intent relationships describe inferred underlying outcomes; normative authority remains with the original rule.",
+    "effective_rules": "No rule, rule profile, or execution instruction is altered by linking."
+  },
+  "provenance": {
+    "queue_id": "RIA-0095",
+    "processing_id": "PROC-RIA-0095",
+    "source_path": "rules/NOM-0095.json"
+  },
+  "reviewed_on": "2026-10-24"
+}

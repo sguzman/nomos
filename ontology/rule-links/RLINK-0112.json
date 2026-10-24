@@ -1,0 +1,58 @@
+{
+  "id": "RLINK-0112",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0112",
+  "rule_version": "1.1.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0031",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.preconditions",
+        "scope.project_types",
+        "norm.predicate"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0033",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
+    "source_blob_sha": "e3df122cafacbf093db00b6e0a52580644a2ee0a",
+    "source_statement": "For each necessary unsafe Rust operation or C FFI boundary in an authorized C-to-Rust port, prefer safe Rust where feasible, isolate the boundary, document required safety and ABI invariants, and test the exposed contract.",
+    "source_conditions": [
+      "An authorized C-to-Rust port uses Rust unsafe operations or an FFI boundary."
+    ],
+    "source_exceptions": [
+      "No unsafe or FFI boundary is required when a fully safe Rust implementation can express the behavior."
+    ],
+    "normalized_predicate": {
+      "action": "contain_and_verify",
+      "object": "unsafe_and_ffi_boundaries",
+      "target": "c_to_rust_port"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relationships describe relevant contexts, not exhaustive triggers or narrower rule applicability.",
+    "intent_semantics": "Intent relationships describe inferred underlying outcomes; normative authority remains with the original rule.",
+    "effective_rules": "No rule, rule profile, or execution instruction is altered by linking."
+  },
+  "provenance": {
+    "queue_id": "RIA-0112",
+    "processing_id": "PROC-RIA-0112",
+    "source_path": "rules/NOM-0112.json"
+  },
+  "reviewed_on": "2026-10-24"
+}

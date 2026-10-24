@@ -1,0 +1,67 @@
+{
+  "id": "RLINK-0080",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0080",
+  "rule_version": "1.1.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0033",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.preconditions",
+        "scope.project_types",
+        "norm.predicate"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0047",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    },
+    {
+      "id": "INTENT-0065",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
+    "source_blob_sha": "24fbfcf1f8db4d4d01fc49a14189800d375d4dfc",
+    "source_statement": "When a YAML-specified job is intended to operate on the user's existing local repository, do not create a replacement project, repository checkout, or temporary clone as a substitute for that repository.",
+    "source_conditions": [
+      "Job targets an existing explicitly authorized local repository."
+    ],
+    "source_exceptions": [
+      "Does not authorize changing unrelated or substitute repositories."
+    ],
+    "normalized_predicate": {
+      "action": "create",
+      "object": "substitute_repository_or_temporary_checkout",
+      "target": "local_repository_yaml_job"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relationships describe relevant contexts, not exhaustive triggers or narrower rule applicability.",
+    "intent_semantics": "Intent relationships describe inferred underlying outcomes; normative authority remains with the original rule.",
+    "effective_rules": "No rule, rule profile, or execution instruction is altered by linking."
+  },
+  "provenance": {
+    "queue_id": "RIA-0080",
+    "processing_id": "PROC-RIA-0080",
+    "source_path": "rules/NOM-0080.json"
+  },
+  "reviewed_on": "2026-10-24"
+}

@@ -1,0 +1,67 @@
+{
+  "id": "RLINK-0133",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0133",
+  "rule_version": "1.0.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0042",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.preconditions",
+        "scope.project_types",
+        "norm.predicate"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0060",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    },
+    {
+      "id": "INTENT-0059",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
+    "source_blob_sha": "0c2376a3fb86f65cf9a40f9a84cf1ebfd4a05df1",
+    "source_statement": "After integrating authorized upstream changes into a Rust fork, run appropriate tests and focused compatibility or regression checks against the fork's promised interfaces, supported platforms and preserved customizations, and record any unresolved failures before describing the integration as complete.",
+    "source_conditions": [
+      "After authorized upstream integration into an existing Rust fork."
+    ],
+    "source_exceptions": [
+      "Use affected-behavior checks with the fork's established compatibility promises; untestable paths remain disclosed."
+    ],
+    "normalized_predicate": {
+      "action": "verify",
+      "object": "post_integration_fork_behavior",
+      "target": "rust_fork_sync_acceptance"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relationships describe relevant contexts, not exhaustive triggers or narrower rule applicability.",
+    "intent_semantics": "Intent relationships describe inferred underlying outcomes; normative authority remains with the original rule.",
+    "effective_rules": "No rule, rule profile, or execution instruction is altered by linking."
+  },
+  "provenance": {
+    "queue_id": "RIA-0133",
+    "processing_id": "PROC-RIA-0133",
+    "source_path": "rules/NOM-0133.json"
+  },
+  "reviewed_on": "2026-10-24"
+}

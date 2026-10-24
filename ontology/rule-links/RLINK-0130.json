@@ -1,0 +1,67 @@
+{
+  "id": "RLINK-0130",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0130",
+  "rule_version": "1.0.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0042",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.preconditions",
+        "scope.project_types",
+        "norm.predicate"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0058",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    },
+    {
+      "id": "INTENT-0059",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
+    "source_blob_sha": "d4e7ce8d21b9f34996d9f83099ddce846bcddc20",
+    "source_statement": "Before an authorized synchronization of a Rust fork, fetch the intended upstream references and compare the fork's actual upstream ancestry and incoming commits or tags. Review the change scope and proposed integration strategy before modifying maintained branches.",
+    "source_conditions": [
+      "Before changes from a verified upstream are integrated."
+    ],
+    "source_exceptions": [
+      "Fetch and compare first; merge/rebase/cherry-pick or releases require separately authorized scope."
+    ],
+    "normalized_predicate": {
+      "action": "inspect",
+      "object": "upstream_divergence_and_integration_plan",
+      "target": "rust_fork_sync_operation"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relationships describe relevant contexts, not exhaustive triggers or narrower rule applicability.",
+    "intent_semantics": "Intent relationships describe inferred underlying outcomes; normative authority remains with the original rule.",
+    "effective_rules": "No rule, rule profile, or execution instruction is altered by linking."
+  },
+  "provenance": {
+    "queue_id": "RIA-0130",
+    "processing_id": "PROC-RIA-0130",
+    "source_path": "rules/NOM-0130.json"
+  },
+  "reviewed_on": "2026-10-24"
+}

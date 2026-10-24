@@ -1,0 +1,67 @@
+{
+  "id": "RLINK-0113",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0113",
+  "rule_version": "1.1.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0031",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.preconditions",
+        "scope.project_types",
+        "norm.predicate"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0044",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    },
+    {
+      "id": "INTENT-0033",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
+    "source_blob_sha": "423a2a9188b24d9e782fdc766b817235fbd889e9",
+    "source_statement": "For each in-scope upstream C capability in an authorized C-to-Rust port, record its Rust implementation or replacement mapping, track implementation and verification status, and explicitly identify missing, incompatible or unverified behavior.",
+    "source_conditions": [
+      "An upstream baseline and the port's in-scope feature set have been identified."
+    ],
+    "source_exceptions": [
+      "Out-of-scope features and accepted deviations remain explicitly recorded and are not silently reported as implemented."
+    ],
+    "normalized_predicate": {
+      "action": "track",
+      "object": "upstream_capability_coverage",
+      "target": "c_to_rust_port"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relationships describe relevant contexts, not exhaustive triggers or narrower rule applicability.",
+    "intent_semantics": "Intent relationships describe inferred underlying outcomes; normative authority remains with the original rule.",
+    "effective_rules": "No rule, rule profile, or execution instruction is altered by linking."
+  },
+  "provenance": {
+    "queue_id": "RIA-0113",
+    "processing_id": "PROC-RIA-0113",
+    "source_path": "rules/NOM-0113.json"
+  },
+  "reviewed_on": "2026-10-24"
+}

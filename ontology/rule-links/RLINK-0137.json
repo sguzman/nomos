@@ -1,0 +1,89 @@
+{
+  "id": "RLINK-0137",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0137",
+  "rule_version": "1.0.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0045",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.preconditions",
+        "scope.project_types",
+        "norm.predicate"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    },
+    {
+      "id": "SITU-0028",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.preconditions",
+        "scope.project_types",
+        "norm.predicate"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0063",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    },
+    {
+      "id": "INTENT-0016",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    },
+    {
+      "id": "INTENT-0064",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
+    "source_blob_sha": "be025e7129b910570272bed7930a089a1c8b2c37",
+    "source_statement": "For each actively reported project or unfinished roadmap item whose completion is measurable, display the previous verified completion percentage, the current verified completion percentage beside its visual progress bar, and the signed percentage-point change during this reporting round (current minus previous). Compare the same item, scope, and acceptance-criteria denominator; otherwise explain that the estimates are not directly comparable instead of inventing a change. Show +0 pp when no verified change occurred and a negative pp when a verified correction decreases the estimate. If the previous or current percentage cannot be supported, mark it unknown and omit any unjustified numeric change or visual fill. Base reported gains on verified deliverables, not activity or repeated status messages.",
+    "source_conditions": [
+      "Reporting measurable completion for an active project or unfinished roadmap item, including overall progress when shown.",
+      "Numerical interval delta is reported only when current and previous estimates have a verified, comparable acceptance-criteria basis."
+    ],
+    "source_exceptions": [
+      "If previous or current percentages are unavailable, explicitly mark them unknown and omit unsupported numerical change or filled bars.",
+      "If scope or completion criteria changed, disclose non-comparability and do not compute a misleading delta.",
+      "Continue honoring the existing suppression of already-announced completed items in routine reports."
+    ],
+    "normalized_predicate": {
+      "action": "report_with",
+      "object": "verified_previous_current_and_round_percentage_point_delta",
+      "target": "visual_project_progress_report"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relationships describe relevant contexts, not exhaustive triggers or narrower rule applicability.",
+    "intent_semantics": "Intent relationships describe inferred underlying outcomes; normative authority remains with the original rule.",
+    "effective_rules": "No rule, rule profile, or execution instruction is altered by linking."
+  },
+  "provenance": {
+    "queue_id": "RIA-0137",
+    "processing_id": "PROC-RIA-0137",
+    "source_path": "rules/NOM-0137.json"
+  },
+  "reviewed_on": "2026-10-24"
+}

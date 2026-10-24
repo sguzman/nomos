@@ -1,0 +1,67 @@
+{
+  "id": "RLINK-0134",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0134",
+  "rule_version": "1.0.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0042",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.preconditions",
+        "scope.project_types",
+        "norm.predicate"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0058",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    },
+    {
+      "id": "INTENT-0065",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
+    "source_blob_sha": "6357bd34767a9bc9ede3cff3123443cd4276e6c4",
+    "source_statement": "Classify upstream changes as security or correctness fixes, compatibility changes, maintenance improvements or optional features, and incorporate only those permitted by the fork's approved scope and supported versions. Do not equate 'new upstream version available' with blanket authorization to import all upstream behavior or release it.",
+    "source_conditions": [
+      "When deciding which upstream changes to include in a maintained fork."
+    ],
+    "source_exceptions": [
+      "The availability of an upstream release does not authorize importing everything; compatibility exceptions require approval."
+    ],
+    "normalized_predicate": {
+      "action": "select",
+      "object": "authorized_upstream_change_set",
+      "target": "rust_fork_maintenance_scope"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relationships describe relevant contexts, not exhaustive triggers or narrower rule applicability.",
+    "intent_semantics": "Intent relationships describe inferred underlying outcomes; normative authority remains with the original rule.",
+    "effective_rules": "No rule, rule profile, or execution instruction is altered by linking."
+  },
+  "provenance": {
+    "queue_id": "RIA-0134",
+    "processing_id": "PROC-RIA-0134",
+    "source_path": "rules/NOM-0134.json"
+  },
+  "reviewed_on": "2026-10-24"
+}

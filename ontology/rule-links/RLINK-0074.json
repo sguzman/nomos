@@ -1,0 +1,67 @@
+{
+  "id": "RLINK-0074",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0074",
+  "rule_version": "1.2.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0031",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.preconditions",
+        "scope.project_types",
+        "norm.predicate"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0044",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    },
+    {
+      "id": "INTENT-0045",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
+    "source_blob_sha": "0d990481651c341cff058cd146cee4dccae9b11f",
+    "source_statement": "During a strict software port, prioritize the agreed upstream application's observable behavior over redesign and unrelated enhancements.",
+    "source_conditions": [
+      "A strict implementation port has been authorized with a defined upstream baseline."
+    ],
+    "source_exceptions": [
+      "Explicitly authorized deviations from the upstream baseline."
+    ],
+    "normalized_predicate": {
+      "action": "preserve",
+      "object": "upstream_observable_behavior",
+      "target": "strict_software_port"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relationships describe relevant contexts, not exhaustive triggers or narrower rule applicability.",
+    "intent_semantics": "Intent relationships describe inferred underlying outcomes; normative authority remains with the original rule.",
+    "effective_rules": "No rule, rule profile, or execution instruction is altered by linking."
+  },
+  "provenance": {
+    "queue_id": "RIA-0074",
+    "processing_id": "PROC-RIA-0074",
+    "source_path": "rules/NOM-0074.json"
+  },
+  "reviewed_on": "2026-10-24"
+}

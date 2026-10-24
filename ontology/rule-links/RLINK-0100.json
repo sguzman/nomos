@@ -1,0 +1,67 @@
+{
+  "id": "RLINK-0100",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0100",
+  "rule_version": "1.1.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0036",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.preconditions",
+        "scope.project_types",
+        "norm.predicate"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0036",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    },
+    {
+      "id": "INTENT-0026",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
+    "source_blob_sha": "d43876fb5eb31b5ceba66f55ec926eb336380299",
+    "source_statement": "Before the inaugural release, make README, roadmap and milestone reports accurately reflect verified MVP features and unresolved work.",
+    "source_conditions": [
+      "An authorized MVP readiness, graduation, release, or follow-up review is in progress."
+    ],
+    "source_exceptions": [
+      "Does not independently authorize a tag, release or external deployment."
+    ],
+    "normalized_predicate": {
+      "action": "reconcile",
+      "object": "reconcile_readme_roadmap_and_milestones_at_graduation",
+      "target": "project_mvp_lifecycle"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relationships describe relevant contexts, not exhaustive triggers or narrower rule applicability.",
+    "intent_semantics": "Intent relationships describe inferred underlying outcomes; normative authority remains with the original rule.",
+    "effective_rules": "No rule, rule profile, or execution instruction is altered by linking."
+  },
+  "provenance": {
+    "queue_id": "RIA-0100",
+    "processing_id": "PROC-RIA-0100",
+    "source_path": "rules/NOM-0100.json"
+  },
+  "reviewed_on": "2026-10-24"
+}

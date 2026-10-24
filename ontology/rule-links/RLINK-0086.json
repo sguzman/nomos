@@ -1,0 +1,58 @@
+{
+  "id": "RLINK-0086",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0086",
+  "rule_version": "1.1.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0035",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.preconditions",
+        "scope.project_types",
+        "norm.predicate"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0049",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
+    "source_blob_sha": "6a3b4a3ca8fd2434fd554c053e8db78042732970",
+    "source_statement": "Every time a browser extension is changed, including during local iteration, increase its manifest.json version to a strictly higher valid extension version. This applies to code, resources and metadata revisions; do not confuse the extension version with manifest_version.",
+    "source_conditions": [
+      "Every authorized script or extension modification, including local changes."
+    ],
+    "source_exceptions": [
+      "Metadata changes do not independently authorize distribution."
+    ],
+    "normalized_predicate": {
+      "action": "increment",
+      "object": "webextension_manifest_version_field",
+      "target": "modified_extension"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relationships describe relevant contexts, not exhaustive triggers or narrower rule applicability.",
+    "intent_semantics": "Intent relationships describe inferred underlying outcomes; normative authority remains with the original rule.",
+    "effective_rules": "No rule, rule profile, or execution instruction is altered by linking."
+  },
+  "provenance": {
+    "queue_id": "RIA-0086",
+    "processing_id": "PROC-RIA-0086",
+    "source_path": "rules/NOM-0086.json"
+  },
+  "reviewed_on": "2026-10-24"
+}

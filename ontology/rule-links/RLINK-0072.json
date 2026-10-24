@@ -1,0 +1,67 @@
+{
+  "id": "RLINK-0072",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0072",
+  "rule_version": "1.2.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0030",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.preconditions",
+        "scope.project_types",
+        "norm.predicate"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0043",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    },
+    {
+      "id": "INTENT-0042",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
+    "source_blob_sha": "e3004e9af21e2b48b39a09fa76703a8662fb6503",
+    "source_statement": "After the 100 percent completion of a project, phase, milestone, task or feature has been reported once, omit it from later routine progress reports while preserving the underlying roadmap and completion history.",
+    "source_conditions": [
+      "An item's 100 percent completion was already announced in an earlier report."
+    ],
+    "source_exceptions": [
+      "This does not erase archived completion data; explicitly reopened work may be reported as incomplete."
+    ],
+    "normalized_predicate": {
+      "action": "repeat",
+      "object": "already_announced_complete_item",
+      "target": "later_routine_progress_report"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relationships describe relevant contexts, not exhaustive triggers or narrower rule applicability.",
+    "intent_semantics": "Intent relationships describe inferred underlying outcomes; normative authority remains with the original rule.",
+    "effective_rules": "No rule, rule profile, or execution instruction is altered by linking."
+  },
+  "provenance": {
+    "queue_id": "RIA-0072",
+    "processing_id": "PROC-RIA-0072",
+    "source_path": "rules/NOM-0072.json"
+  },
+  "reviewed_on": "2026-10-24"
+}

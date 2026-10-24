@@ -1,0 +1,58 @@
+{
+  "id": "RLINK-0073",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0073",
+  "rule_version": "1.2.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0011",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.preconditions",
+        "scope.project_types",
+        "norm.predicate"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0025",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
+    "source_blob_sha": "3643eff94d2828f507785752cdffbc5c3c4efb9f",
+    "source_statement": "Embed a project's assigned stable, perceptually distinguishable identity color in its README using a portable rendering such as SVG or CSS when suitable.",
+    "source_conditions": [
+      "The project has an assigned color and a public-facing README."
+    ],
+    "source_exceptions": [
+      "Do not expose private project artifacts; preserve README rendering compatibility."
+    ],
+    "normalized_predicate": {
+      "action": "show",
+      "object": "stable_project_color",
+      "target": "project_readme"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relationships describe relevant contexts, not exhaustive triggers or narrower rule applicability.",
+    "intent_semantics": "Intent relationships describe inferred underlying outcomes; normative authority remains with the original rule.",
+    "effective_rules": "No rule, rule profile, or execution instruction is altered by linking."
+  },
+  "provenance": {
+    "queue_id": "RIA-0073",
+    "processing_id": "PROC-RIA-0073",
+    "source_path": "rules/NOM-0073.json"
+  },
+  "reviewed_on": "2026-10-24"
+}

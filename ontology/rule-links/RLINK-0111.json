@@ -1,0 +1,67 @@
+{
+  "id": "RLINK-0111",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0111",
+  "rule_version": "1.1.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0031",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.preconditions",
+        "scope.project_types",
+        "norm.predicate"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0044",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    },
+    {
+      "id": "INTENT-0033",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
+    "source_blob_sha": "aaa5e5f3d3a249a44cb2c4e885265b9335c2e741",
+    "source_statement": "For each agreed reproducible behavior of an authorized C-to-Rust port, run the original C baseline and Rust implementation with equivalent inputs and relevant environment, compare observable outputs, exit codes and side effects, and document any intentionally accepted differences.",
+    "source_conditions": [
+      "An authorized C-to-Rust port has an agreed upstream baseline and equivalent test cases are runnable or reference observations are available."
+    ],
+    "source_exceptions": [
+      "Documented accepted deviations and justified nondeterministic differences; missing baseline executability must be reported as a verification gap, not silently treated as a passing test."
+    ],
+    "normalized_predicate": {
+      "action": "compare",
+      "object": "upstream_and_rust_observable_results",
+      "target": "c_to_rust_port"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relationships describe relevant contexts, not exhaustive triggers or narrower rule applicability.",
+    "intent_semantics": "Intent relationships describe inferred underlying outcomes; normative authority remains with the original rule.",
+    "effective_rules": "No rule, rule profile, or execution instruction is altered by linking."
+  },
+  "provenance": {
+    "queue_id": "RIA-0111",
+    "processing_id": "PROC-RIA-0111",
+    "source_path": "rules/NOM-0111.json"
+  },
+  "reviewed_on": "2026-10-24"
+}

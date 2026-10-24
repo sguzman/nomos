@@ -1,0 +1,67 @@
+{
+  "id": "RLINK-0129",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0129",
+  "rule_version": "1.0.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0042",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.preconditions",
+        "scope.project_types",
+        "norm.predicate"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0058",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    },
+    {
+      "id": "INTENT-0037",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
+    "source_blob_sha": "b1db5eaf6f593f876d4d241ae07e67c23ce2d9a2",
+    "source_statement": "For an authorized Rust fork maintenance task, identify the intended upstream repository and remote, the branch or release being followed, and the last verified upstream commit incorporated into the fork. Do not infer upstream identity from similarly named remotes or unrelated repositories.",
+    "source_conditions": [
+      "During an authorized Rust fork baseline review."
+    ],
+    "source_exceptions": [
+      "Recording upstream refs does not permit merges or other repository operations."
+    ],
+    "normalized_predicate": {
+      "action": "record",
+      "object": "upstream_identity_and_base_revision",
+      "target": "rust_fork_maintenance_preflight"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relationships describe relevant contexts, not exhaustive triggers or narrower rule applicability.",
+    "intent_semantics": "Intent relationships describe inferred underlying outcomes; normative authority remains with the original rule.",
+    "effective_rules": "No rule, rule profile, or execution instruction is altered by linking."
+  },
+  "provenance": {
+    "queue_id": "RIA-0129",
+    "processing_id": "PROC-RIA-0129",
+    "source_path": "rules/NOM-0129.json"
+  },
+  "reviewed_on": "2026-10-24"
+}
