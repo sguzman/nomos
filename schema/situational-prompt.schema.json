@@ -186,8 +186,7 @@
       "additionalProperties": false,
       "required": [
         "invocation",
-        "target",
-        "shortcut_key"
+        "target"
       ],
       "properties": {
         "invocation": {
@@ -198,14 +197,6 @@
             "chatgpt",
             "general_agent"
           ]
-        },
-        "shortcut_key": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "pattern": "^[A-Z]$",
-          "description": "Optional local hotkey hint; does not cause automatic activation."
         }
       }
     },
