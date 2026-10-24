@@ -4,7 +4,7 @@
 
 Use the [interactive catalog](https://sguzman.github.io/nomos/) to explore applicability, inspect potential conflicts, compose selections and export to `AGENTS.md` or ChatGPT Custom Instructions. **Nothing is automatically selected or applied.**
 
-Browse [situational prompts](https://sguzman.github.io/nomos/situational-prompts.html) separately from the rule composer. Eight situations have been [normalized into reviewed canonical drafts](situational-prompts/README.md) with metadata-derived identities and independently written, public-safe text. They remain read-only pending separate owner approval. Their original labels remain [intake provenance](queues/situational-prompts/README.md), not canonical names.
+Browse [situational prompts](https://sguzman.github.io/nomos/situational-prompts.html) separately from the rule composer. Eight situations are now [published as regular canonical entries](situational-prompts/README.md) with metadata-derived identities and independently written, public-safe text. Each can be copied directly from the website. Their original labels remain [intake provenance](queues/situational-prompts/README.md), not canonical names.
 
 ## Features
 

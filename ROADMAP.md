@@ -41,10 +41,10 @@ These entries are descriptive; the unchecked items are not queued tasks or autom
 
 ## Situational-prompt ontology (authorized 2026-10-24)
 
-- [x] Normalize eight queued situations into typed, name-independent canonical reviewed drafts
+- [x] Normalize eight queued situations into typed, name-independent canonical entries
 - [x] Preserve queue intake and individual processing provenance separately
 - [x] Browse situational prompts with metadata-derived labels and explicit-only copy authorization
 - [x] Validate one-to-one provenance and separate non-executing reinforcement from execution
-- [ ] Owner review and separate publication approval for individual reviewed drafts
+- [x] Owner-approved publication of all eight as regular situational items
 
-The remaining approval gate is not an engineering task or an instruction to publish automatically.
+Publication is complete. Runtime invocation remains explicit and never follows automatically from catalog membership.
