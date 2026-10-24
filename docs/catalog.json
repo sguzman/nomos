@@ -19923,6 +19923,202 @@
         "queue_id": "RIA-0024",
         "source_candidate": "normalized_rule_analysis_intent_INTENT-0033"
       }
+    },
+    {
+      "id": "INTENT-0034",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "reliable_repeatable_test_suite",
+      "definition": "Keep automated tests meaningful, deterministic, representative and regression-sensitive.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0029",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0034"
+      }
+    },
+    {
+      "id": "INTENT-0035",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "trustworthy_automated_workflows",
+      "definition": "Maintain accurate CI, quality gates, deployment triggers and verified outcomes.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0034",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0035"
+      }
+    },
+    {
+      "id": "INTENT-0036",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "current_and_accessible_documentation",
+      "definition": "Make configuration, interfaces, changes and user guidance understandable and accurate.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0042",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0036"
+      }
+    },
+    {
+      "id": "INTENT-0037",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "traceable_source_provenance",
+      "definition": "Document origins, credits and dispositions of externally sourced contributions.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0049",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0037"
+      }
+    },
+    {
+      "id": "INTENT-0038",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "prevent_data_loss_and_unintended_changes",
+      "definition": "Preserve valuable information against unintended destruction, corruption or modification.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0052",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0038"
+      }
+    },
+    {
+      "id": "INTENT-0039",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "preserve_consumed_interfaces",
+      "definition": "Avoid unapproved compatibility regressions in externally consumed APIs and formats.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0054",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0039"
+      }
+    },
+    {
+      "id": "INTENT-0040",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "trustworthy_release_artifacts",
+      "definition": "Produce verified, versioned and integrity-checkable release outputs.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0055",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0040"
+      }
+    },
+    {
+      "id": "INTENT-0041",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "verified_user_workflows",
+      "definition": "Confirm real user interactions, installation paths and runtime scenarios work.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0038",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0041"
+      }
+    },
+    {
+      "id": "INTENT-0042",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "credible_project_progress",
+      "definition": "Communicate real acceptance progress and unfinished work from reliable evidence.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0065",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0042"
+      }
+    },
+    {
+      "id": "INTENT-0043",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "avoid_redundant_status_reporting",
+      "definition": "Prevent stale or already reported completion from dominating subsequent progress updates.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0072",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0043"
+      }
+    },
+    {
+      "id": "INTENT-0044",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "strict_port_replacement_fidelity",
+      "definition": "Keep a strict port behaviorally compatible with its agreed upstream baseline.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0074",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0044"
+      }
+    },
+    {
+      "id": "INTENT-0045",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "preserve_port_mvp_scope",
+      "definition": "Prioritize port replacement capability before unauthorized optional redesign.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0074",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0045"
+      }
+    },
+    {
+      "id": "INTENT-0046",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "honor_requested_naming_constraints",
+      "definition": "Keep generated names within the user's explicitly established naming restrictions.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0077",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0046"
+      }
+    },
+    {
+      "id": "INTENT-0047",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "operate_on_authorized_repository",
+      "definition": "Perform local automation only on the verified intended repository and path.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0078",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0047"
+      }
     }
   ],
   "execution_conditions": [
