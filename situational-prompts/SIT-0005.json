@@ -2,7 +2,7 @@
   "id": "SIT-0005",
   "kind": "situational_prompt",
   "version": "1.0.0",
-  "status": "reviewed",
+  "status": "published",
   "summary": "Give an evidence-based interruption diagnosis without implementation.",
   "text": "The previous execution was interrupted. Diagnose the current state using available commits, tests, and project records. Explain what was completed, what failed, what remains uncertain, and the next concrete task. Do not initiate implementation in this diagnostic response.",
   "situation": {
@@ -58,6 +58,6 @@
   "governance": {
     "created_on": "2026-10-24",
     "updated_on": "2026-10-24",
-    "review_status": "reviewed"
+    "review_status": "approved"
   }
 }

@@ -2,7 +2,7 @@
   "id": "SIT-0006",
   "kind": "situational_prompt",
   "version": "1.0.0",
-  "status": "reviewed",
+  "status": "published",
   "summary": "Keep progress reporting honest without creating new work.",
   "text": "Ground progress claims in verified deliverables, tests, and acceptance criteria. Correct unsupported completion percentages and avoid substituting repeated status updates for tangible work. This is an accountability reminder; it does not independently authorize new tasks.",
   "situation": {
@@ -59,6 +59,6 @@
   "governance": {
     "created_on": "2026-10-24",
     "updated_on": "2026-10-24",
-    "review_status": "reviewed"
+    "review_status": "approved"
   }
 }

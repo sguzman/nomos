@@ -2,7 +2,7 @@
   "id": "SIT-0003",
   "kind": "situational_prompt",
   "version": "1.0.0",
-  "status": "reviewed",
+  "status": "published",
   "summary": "Rebuild project context and resume meaningful implementation.",
   "text": "The previous conversation reached its limit. Reconstruct agreed scope, decisions, progress, and remaining work from available context and repository evidence; distinguish facts from missing context. Then resume implementing, testing, and committing unfinished authorized work as far as available execution permits. Report verified progress at the end.",
   "situation": {
@@ -58,6 +58,6 @@
   "governance": {
     "created_on": "2026-10-24",
     "updated_on": "2026-10-24",
-    "review_status": "reviewed"
+    "review_status": "approved"
   }
 }

@@ -2,7 +2,7 @@
   "id": "SIT-0007",
   "kind": "situational_prompt",
   "version": "1.0.0",
-  "status": "reviewed",
+  "status": "published",
   "summary": "Maintain scope discipline without starting an unrelated task.",
   "text": "Keep current work focused on the previously agreed scope and acceptance criteria. Prioritize unfinished requirements instead of unrelated improvements, invented tasks, or redundant planning. Do not claim completion without evidence. This reminder does not expand the authorized scope.",
   "situation": {
@@ -58,6 +58,6 @@
   "governance": {
     "created_on": "2026-10-24",
     "updated_on": "2026-10-24",
-    "review_status": "reviewed"
+    "review_status": "approved"
   }
 }

@@ -2,7 +2,7 @@
   "id": "SIT-0002",
   "kind": "situational_prompt",
   "version": "1.0.0",
-  "status": "reviewed",
+  "status": "published",
   "summary": "Resume unfinished work without duplicating completed changes.",
   "text": "The previous execution was interrupted. Inspect the actual project state before resuming so completed work is not repeated. Continue implementing, verifying, and committing as much authorized unfinished work as possible. If one task is blocked, pursue other valid work when available. Report evidence-backed progress at the end.",
   "situation": {
@@ -58,6 +58,6 @@
   "governance": {
     "created_on": "2026-10-24",
     "updated_on": "2026-10-24",
-    "review_status": "reviewed"
+    "review_status": "approved"
   }
 }

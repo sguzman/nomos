@@ -2,7 +2,7 @@
   "id": "SIT-0008",
   "kind": "situational_prompt",
   "version": "1.0.0",
-  "status": "reviewed",
+  "status": "published",
   "summary": "Restore context and accountability before sustained development.",
   "text": "The previous conversation reached its limit. Reconstruct established decisions, scope, and progress from available context and repository evidence; correct unsupported claims without treating unknowns as facts. Then continue completing, verifying, and committing as many unfinished authorized tasks as possible. Return with evidence-backed progress and remaining work.",
   "situation": {
@@ -59,6 +59,6 @@
   "governance": {
     "created_on": "2026-10-24",
     "updated_on": "2026-10-24",
-    "review_status": "reviewed"
+    "review_status": "approved"
   }
 }

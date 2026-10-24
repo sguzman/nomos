@@ -2,7 +2,7 @@
   "id": "SIT-0004",
   "kind": "situational_prompt",
   "version": "1.0.0",
-  "status": "reviewed",
+  "status": "published",
   "summary": "Resume interrupted work while honoring verified completion.",
   "text": "The previous execution was interrupted. Recheck current work and continue across unfinished authorized tasks. Stop without inventing new tasks if all agreed acceptance criteria are verified complete. Otherwise, work across available requirements even if one is blocked, and report the verified state when no further productive execution is available.",
   "situation": {
@@ -58,6 +58,6 @@
   "governance": {
     "created_on": "2026-10-24",
     "updated_on": "2026-10-24",
-    "review_status": "reviewed"
+    "review_status": "approved"
   }
 }
