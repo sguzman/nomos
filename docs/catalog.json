@@ -18819,6 +18819,230 @@
         "source_candidate": "S8",
         "normalization": "reviewed_classification_2026-10-24"
       }
+    },
+    {
+      "id": "SITU-0009",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "public_or_external_content_publication",
+      "definition": "A public or externally visible artifact is being prepared or disclosed.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0001",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0009",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0010",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "private_authored_content",
+      "definition": "A user is writing in an explicitly private personal context.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0002",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0010",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0011",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "graphical_interface_design",
+      "definition": "A GUI or website appearance and presentation is being designed or updated.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0005",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0011",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0012",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "public_tarium_project_stewardship",
+      "definition": "A named public Tarium candidate or member project's artifacts or governance are under review.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0006",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0012",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0013",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "software_project_design",
+      "definition": "A software project's language, architecture or core engineering conventions are being chosen.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0008",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0013",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0014",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "project_inception",
+      "definition": "A new authorized project's initial roadmap, identity and structure are being established.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0010",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0014",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0015",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "authorized_repository_operation",
+      "definition": "Existing repository work has been explicitly authorized and is being prepared or executed.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0011",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0015",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0016",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "git_commit_or_reference_update",
+      "definition": "A repository's tracked state, branch or commit/reference is about to be modified or verified.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0015",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0016",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0017",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "rust_source_modification",
+      "definition": "Rust source code or its compilation configuration is being changed.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0024",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0017",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0018",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "implementation_behavior_change",
+      "definition": "Implementation or test behavior is being added, corrected or verified.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0027",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0018",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0019",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "ci_workflow_design_or_change",
+      "definition": "Automated CI or deployment workflow definitions are being created or changed.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0034",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0019",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0020",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "ci_failure_or_result_review",
+      "definition": "An automated CI run has completed or encountered a failure requiring verification.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0041",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0020",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0021",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "user_facing_documentation_change",
+      "definition": "A project's user-facing instructions, architecture, configuration or history documentation needs change.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0042",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0021",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
+    },
+    {
+      "id": "SITU-0022",
+      "kind": "situation",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "external_source_incorporation",
+      "definition": "Externally sourced code, data or documents are being incorporated in a repository.",
+      "classification": "event",
+      "component_situation_ids": [],
+      "related_prompt_families": [],
+      "provenance": {
+        "queue_id": "RIA-0019",
+        "source_candidate": "normalized_rule_analysis_situation_SITU-0022",
+        "normalization": "curated_source_grounded_rule_batch_2026-10-24"
+      }
     }
   ],
   "intents": [
