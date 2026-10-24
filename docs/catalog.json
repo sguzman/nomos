@@ -19727,6 +19727,202 @@
         "queue_id": "SITO-IDEA-0002",
         "source_candidate": "I19"
       }
+    },
+    {
+      "id": "INTENT-0020",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "protect_nonpublic_material",
+      "definition": "Keep confidential and private source material out of unauthorized public disclosure.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0001",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0020"
+      }
+    },
+    {
+      "id": "INTENT-0021",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "support_private_expression",
+      "definition": "Preserve legitimate expression within an explicitly private writing context.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0002",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0021"
+      }
+    },
+    {
+      "id": "INTENT-0022",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "usable_adaptive_interface",
+      "definition": "Make visual user interfaces usable and consistent with supported appearance settings.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0005",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0022"
+      }
+    },
+    {
+      "id": "INTENT-0023",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "public_ontology_interoperability",
+      "definition": "Provide independently inspectable human- and machine-readable ontology resources.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0006",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0023"
+      }
+    },
+    {
+      "id": "INTENT-0024",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "consistent_implementation_language",
+      "definition": "Keep a software project's implementation language aligned with its agreed architecture.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0008",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0024"
+      }
+    },
+    {
+      "id": "INTENT-0025",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "distinct_stable_project_identity",
+      "definition": "Make project visual identity distinguishable, stable and portable.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0009",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0025"
+      }
+    },
+    {
+      "id": "INTENT-0026",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "auditable_project_roadmap",
+      "definition": "Make authorized work scope, planned milestones and progress traceable.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0010",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0026"
+      }
+    },
+    {
+      "id": "INTENT-0027",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "separated_governance_workflows",
+      "definition": "Keep intake, analysis, authorization, processing and execution from silently triggering each other.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0011",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0027"
+      }
+    },
+    {
+      "id": "INTENT-0028",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "verifiable_git_history",
+      "definition": "Make repository changes, branch decisions and committed results traceable and verifiable.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0014",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0028"
+      }
+    },
+    {
+      "id": "INTENT-0029",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "clean_repository_hygiene",
+      "definition": "Maintain coherent tracked project state without unwanted files or obsolete scaffolding.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0018",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0029"
+      }
+    },
+    {
+      "id": "INTENT-0030",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "license_compliance",
+      "definition": "Respect source licenses and preserve legally required attribution.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0019",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0030"
+      }
+    },
+    {
+      "id": "INTENT-0031",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "reproducible_dependency_configuration",
+      "definition": "Keep dependencies and reproducible build configuration consistent.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0020",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0031"
+      }
+    },
+    {
+      "id": "INTENT-0032",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "correct_rust_toolchain_output",
+      "definition": "Ensure Rust source, editions, format and lint checks produce a valid maintainable build.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0012",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0032"
+      }
+    },
+    {
+      "id": "INTENT-0033",
+      "kind": "intent",
+      "version": "1.0.0",
+      "status": "published",
+      "code": "verified_software_behavior",
+      "definition": "Ensure implementation behavior is verified against requirements, tests and supported variants.",
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate",
+      "provenance": {
+        "queue_id": "RIA-0024",
+        "source_candidate": "normalized_rule_analysis_intent_INTENT-0033"
+      }
     }
   ],
   "execution_conditions": [
