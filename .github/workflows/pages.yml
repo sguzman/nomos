@@ -14,6 +14,7 @@ on:
       - "processing/specimens/**"
       - "queues/profiles/**"
       - "queues/situational-prompts/**"
+      - "queues/situational-ontology/**"
       - "schema/**"
       - "taxonomy/**"
       - "processing/specimens/candidates/**"
@@ -47,6 +48,7 @@ jobs:
           python3 tools/validate_situational_prompts.py
           python3 tools/validate_situational_prompt_ideas.py
           python3 tools/validate_situational_prompt_revisions.py
+          python3 tools/validate_situational_ontology_queue.py
           python3 tools/validate_situational_processing.py
           python3 tools/validate_groups.py
           python3 tools/relationships.py

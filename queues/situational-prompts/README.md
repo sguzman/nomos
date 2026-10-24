@@ -30,3 +30,7 @@ Sixteen revision proposals are queued under [revisions/](revisions/README.md). E
 Each proposal retains the standalone, public-safe instruction wording exactly as supplied, with a SHA-256 content checksum. No source launcher keys or personal shortcut labels enter revision metadata. The queue neither processes nor publishes nor invokes revised prompts; existing website copy actions still return published v1. Prompt families SIT-0006 and SIT-0007 require explicit behavioral review because both later variants would change a reinforcement-only reminder into an instruction to resume implementation.
 
 Validation: python3 tools/validate_situational_prompt_revisions.py.
+
+## Separate situational ontology intake
+
+The [six proposed ontology objects and their candidate concepts](../situational-ontology/README.md) are queued **independently** of these historical prompt ideas and version proposals. They do not alter any published prompt or authorize processing later wording generations.

@@ -12,6 +12,7 @@ Browse [situational prompts](https://sguzman.github.io/nomos/situational-prompts
 - **Browse and compose:** search rules, understand categories and inspect conservative conflict candidates.
 - **Optional groups and profiles:** reusable selections for software development, strict C/C++/Python → Rust ports, public Tarium projects and Rust fork maintenance.
 - **Situational prompts:** a separate text species with situation triggers, exclusions, intended execution and handoff, failure-mode metadata and explicit-only copying.
+- **Ontology proposal intake:** [Six unprocessed proposals](queues/situational-ontology/README.md) for formal situations, intentions, compositions, prompt versions and evaluations.
 - **Auditable stages:** separate queues, processing histories and published catalog entries.
 
 ## Documentation

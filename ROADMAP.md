@@ -51,3 +51,11 @@ Publication of the original eight prompts is complete. Runtime invocation remain
 
 - [x] Queue v2 and v3 proposals for each of the eight existing prompt identities, retaining text, version links, and content checksums
 - [ ] Process queued revisions only after separate authorization
+
+## Proposed situational instruction ontology (intake only, 2026-10-24)
+
+- [x] Queue the distinct linked concept proposals, preserving the existing v1/v2/v3 version lineage
+- [x] Validate the proposed S1–S8, I1–I19, eight families, conditions, and evaluation facets without activating them
+- [ ] Review and process these specific queued ontology proposals **only when separately authorized**
+
+Queue completion is not ontology implementation. No new canonical kind or website behavior is implied.

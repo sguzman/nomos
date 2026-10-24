@@ -48,6 +48,10 @@ Profiles are optional selections, not mandatory instructions. First discuss the 
 
 The revisions directory under queues/situational-prompts/ holds independently versioned proposals for existing canonical SIT IDs. Preserve exact source-text checksums and predecessor links; do not copy local launcher keys or user-assigned labels into the metadata. Never auto-process, publish, select, or activate these proposed revisions. Pay special attention to reminders becoming execution instructions. See [queued revisions](queues/situational-prompts/revisions/README.md).
 
+## Situational ontology ideas remain queue-only
+
+`queues/situational-ontology/` holds six public-safe, linked **design proposals** about situations, atomic-intent hypotheses, compositions, prompt versions, execution conditions and evaluations. These are not six new normative kinds. Do not promote them to the canonical schema, expand or inject runtime instructions, rewrite existing SIT generations, or claim evaluation evidence without separate authorization. Preserve explicit classifications as hypotheses, especially composite situations and goals that may actually be constraints. See [queue design and boundaries](queues/situational-ontology/README.md).
+
 ## Profile-idea queue is intake, never processing
 
 `queues/profiles/` stores **ideas** with independent `PROFILE-IDEA-*` IDs. Creating a queue entry does not grant permission to investigate it, choose rules, instantiate a `PROFILE-*` draft, finalize, or export. The separate `profiles/` registry remains the only place for authorized profile records. No queue entry should be silently promoted, and no private wording belongs in the public queue. See [queues/profiles/README.md](queues/profiles/README.md).

@@ -98,3 +98,9 @@ Two separate C++-to-Rust profile ideas, `PROFILE-IDEA-0007` and `0008`, are queu
 ## Completed processing of eight remaining specimen proposals (2026-10-22)
 
 With separately explicit authorization, `SPEC-0133`–`SPEC-0140` were individually normalized into published opt-in rules `NOM-0129`–`NOM-0136`. Each source has a distinct processing disposition and retained draft candidate. Six fork-specific atoms address baseline, divergence, patch lineage, integration conflict, post-sync tests and selective upstream adoption. Two general atoms address action-required report footers and visitor-focused README organization. `TASK-0017` records verification independently. No profiles were altered or activated and no external repository maintenance was authorized by the publication.
+
+## Proposed situational instruction ontology (queued 2026-10-24)
+
+Six independent, public-safe [ontology intake proposals](queues/situational-ontology/README.md) capture 8 situation candidates, 19 atomic-intent hypotheses, 8 composition/family mappings, 8 version-lineage policies, 7 execution-condition candidates, and 7 evaluation facets. These records do not add new canonical ontology kinds, modify prompt wording, process v2/v3, or authorize evaluation work.
+
+A future design would distinguish reusable situations, independently defined intents, situation-intent compositions, immutable prompt implementations by version, and evidence-backed outcome evaluations. Possible conditions and non-atomic intentions are intentionally **unresolved**. Nothing here silently modifies active instructions or canonical prompt versions.
