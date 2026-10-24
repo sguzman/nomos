@@ -1,0 +1,18 @@
+{
+  "id": "PROC-SITO-IDEA-0003",
+  "kind": "situational_ontology_processing",
+  "intake_id": "SITO-IDEA-0003",
+  "status": "completed",
+  "topic": "intent_families_and_compositions",
+  "authorization": "Owner explicitly authorized processing all queued situational ontology concepts and downstream tasks on 2026-10-24.",
+  "disposition": "Independent formal canonical entities published without automatic activation.",
+  "output_examples": [
+    "ontology/families/FAMILY-0001.json",
+    "ontology/families/FAMILY-0008.json"
+  ],
+  "published_object_count": 8,
+  "governance": {
+    "processed_on": "2026-10-24",
+    "verified": false
+  }
+}

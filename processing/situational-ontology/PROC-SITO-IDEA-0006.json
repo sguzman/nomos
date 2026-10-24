@@ -1,0 +1,18 @@
+{
+  "id": "PROC-SITO-IDEA-0006",
+  "kind": "situational_ontology_processing",
+  "intake_id": "SITO-IDEA-0006",
+  "status": "completed",
+  "topic": "outcome_evaluations",
+  "authorization": "Owner explicitly authorized processing all queued situational ontology concepts and downstream tasks on 2026-10-24.",
+  "disposition": "Formal evaluation dimensions and empty evidence-based evaluation registry; no fictitious observations.",
+  "output_examples": [
+    "ontology/evaluation-dimensions/EVAL-DIM-0001.json",
+    "ontology/evaluation-dimensions/EVAL-DIM-0007.json"
+  ],
+  "published_object_count": 7,
+  "governance": {
+    "processed_on": "2026-10-24",
+    "verified": false
+  }
+}

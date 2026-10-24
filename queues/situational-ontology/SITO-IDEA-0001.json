@@ -1,7 +1,7 @@
 {
   "id": "SITO-IDEA-0001",
   "kind": "situational_ontology_idea",
-  "status": "queued",
+  "status": "processed",
   "topic": "situations",
   "purpose": "Independently reusable triggers or circumstances, including explicit composite/condition classifications as hypotheses.",
   "candidates": [
@@ -117,8 +117,8 @@
   ],
   "authorization": {
     "intake_authorized": true,
-    "processing_authorized": false,
-    "publication_authorized": false,
+    "processing_authorized": true,
+    "publication_authorized": true,
     "auto_apply": false
   },
   "governance": {
