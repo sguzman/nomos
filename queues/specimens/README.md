@@ -47,3 +47,7 @@ Six independent public-safe specimen proposals `SPEC-0133`–`SPEC-0138` address
 ## README presentation and documentation organization (2026-10-22)
 
 `SPEC-0140` proposes keeping READMEs concise, welcoming and useful to repository visitors, with long-form material under `docs/` and chronological changes in a separate changelog when appropriate. It overlaps documentation rules `NOM-0042`, `NOM-0047`, and `NOM-0048`. This is intake only; no new catalog rule is published or automatically applied.
+
+## Queued visual progress comparison rule (2026-10-24)
+
+`SPEC-0141` proposes pairing every applicable visual percentage progress bar with **previous verified completion**, **current verified completion**, and **change during this round in percentage points** (current minus previous). It includes comparable denominators, truthful zero or negative change, and an explicit unknown baseline when the previous percentage cannot be verified. The proposal complements existing `NOM-0068`–`NOM-0070` work-item, bar, and overall-progress rules, and existing evidence and completion-reporting conventions. It is **intake only**: no specimen processing, canonical publication, profile change, or automatic application is authorized.
