@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/sguzman/nomos/blob/main/schema/rule-situation-intent-intake.schema.json",
   "title": "Independent rule situation-and-intent analysis intake",
-  "description": "Queue-only records for later human-authorized examination of the existing Nomos canonical rules. These contain source references, not extracted ontology candidates.",
+  "description": "Historically pinned source records with independent explicit processing references; intake authorizations remain the original false values.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -12,7 +12,8 @@
     "source",
     "requested_analysis",
     "authorization",
-    "governance"
+    "governance",
+    "processing"
   ],
   "properties": {
     "id": {
@@ -23,7 +24,10 @@
       "const": "rule_situation_intent_analysis_intake"
     },
     "status": {
-      "const": "queued"
+      "enum": [
+        "queued",
+        "processed"
+      ]
     },
     "source": {
       "type": "object",
@@ -128,6 +132,32 @@
         },
         "source_basis": {
           "const": "existing_public_canonical_rule"
+        }
+      }
+    },
+    "processing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "record",
+        "authorized_on",
+        "authorization"
+      ],
+      "properties": {
+        "state": {
+          "const": "closed"
+        },
+        "record": {
+          "type": "string",
+          "pattern": "^processing/rule-situation-intent/PROC-RIA-[0-9]{4}\\.json$"
+        },
+        "authorized_on": {
+          "type": "string",
+          "format": "date"
+        },
+        "authorization": {
+          "const": "owner_explicit_full_processing_request"
         }
       }
     }

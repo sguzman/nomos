@@ -9,10 +9,10 @@ const browser=require('../docs/situational-ontology.js');
 test('formal catalog has stable distinct identities and closed evidence claims',()=>{
   const catalog=require('../docs/catalog.json');
   const all=browser.flatten(catalog);
-  assert.equal(all.length,49);
-  assert.equal(new Set(all.map(x=>x.id)).size,49);
-  assert.equal(browser.search(all,'','situations').length,8);
-  assert.equal(browser.search(all,'','intents').length,19);
+  assert.equal(all.length,142);
+  assert.equal(new Set(all.map(x=>x.id)).size,142);
+  assert.equal(browser.search(all,'','situations').length,48);
+  assert.equal(browser.search(all,'','intents').length,72);
   assert.equal(browser.search(all,'','intent_families').length,8);
   assert.equal(browser.search(all,'','execution_conditions').length,7);
   assert.equal(browser.search(all,'','evaluation_dimensions').length,7);
@@ -39,9 +39,9 @@ test('ontology UI renders one collapsed detail per object without executing prom
   vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../docs/situational-ontology.js'),'utf8'),
     {document,fetch:async()=>({ok:true,json:async()=>catalog})});
   await new Promise(resolve=>setImmediate(resolve));
-  assert.equal(get('ontology-count').textContent,'49 of 49 formal objects');
+  assert.equal(get('ontology-count').textContent,'142 of 142 formal objects');
   const entries=get('ontology-results').children;
-  assert.equal(entries.length,49);
+  assert.equal(entries.length,142);
   assert.ok(entries.every(x=>x.children.some(y=>y.tag==='details')));
   assert.match(get('ontology-evaluation-count').textContent,/No real-world effectiveness results/);
   get('ontology-type').value='intent_families';

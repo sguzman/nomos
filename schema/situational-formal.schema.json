@@ -91,7 +91,7 @@
           "properties": {
             "queue_id": {
               "type": "string",
-              "pattern": "^SITO-IDEA-000[1-6]$"
+              "pattern": "^(SITO-IDEA-000[1-6]|RIA-[0-9]{4})$"
             },
             "source_candidate": {
               "type": "string",
@@ -164,7 +164,7 @@
           "properties": {
             "queue_id": {
               "type": "string",
-              "pattern": "^SITO-IDEA-000[1-6]$"
+              "pattern": "^(SITO-IDEA-000[1-6]|RIA-[0-9]{4})$"
             },
             "source_candidate": {
               "type": "string",

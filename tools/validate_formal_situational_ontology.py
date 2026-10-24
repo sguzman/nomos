@@ -8,8 +8,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 COLLECTIONS = (
-    ("situations", "SITU", 8, "situation"),
-    ("intents", "INTENT", 19, "intent"),
+    ("situations", "SITU", 48, "situation"),
+    ("intents", "INTENT", 72, "intent"),
     ("families", "FAMILY", 8, "intent_family"),
     ("conditions", "CONDITION", 7, "execution_condition"),
     ("evaluation-dimensions", "EVAL-DIM", 7, "evaluation_dimension"),
@@ -37,7 +37,7 @@ def read_registry(root, folder, prefix, count, kind, errors):
             errors.append(f"{path}: duplicate ID")
         found[ident] = record
         source = record.get("provenance", {}).get("queue_id")
-        if source not in {f"SITO-IDEA-{i:04d}" for i in range(1, 7)}:
+        if source not in {f"SITO-IDEA-{i:04d}" for i in range(1, 7)} and not re.fullmatch(r"RIA-[0-9]{4}", source or ""):
             errors.append(f"{path}: no source provenance")
     return found
 
@@ -158,7 +158,7 @@ def main():
     data, errors = load_formal()
     for error in errors: print("ERROR:", error)
     if errors: raise SystemExit(1)
-    print("Validated 8 situations, 19 intents, 8 compositions, 7 conditions, "
+    print("Validated 48 situations, 72 intents, 8 compositions, 7 conditions, "
           "7 evaluation dimensions, 24 versioned prompts, and evidence-backed evaluations")
 
 

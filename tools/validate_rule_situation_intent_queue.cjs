@@ -22,7 +22,7 @@ const APPROVALS={
   profile_edit_authorized:false
 };
 const KEYS={
-  top:['id','kind','status','source','requested_analysis','authorization','governance'],
+  top:['id','kind','status','source','requested_analysis','authorization','governance','processing'],
   source:['rule_id','path','version','status_at_snapshot','snapshot_commit','git_blob_sha'],
   governance:['queued_on','source_basis']
 };
@@ -53,7 +53,8 @@ function verify(root=ROOT){
     const err=msg=>errors.push(name+': '+msg);
     if(!identicalKeys(record,KEYS.top)){err('unapproved or missing top-level fields');continue;}
     if(record.id!==name.slice(0,-5)||record.kind!=='rule_situation_intent_analysis_intake'
-      ||record.status!=='queued'){err('invalid queue identity or state');continue;}
+      ||record.status!=='processed'){err('invalid queue identity or state');continue;}
+    if(!record.processing || record.processing.state!=='closed' || record.processing.record!=='processing/rule-situation-intent/PROC-'+record.id+'.json' || record.processing.authorization!=='owner_explicit_full_processing_request')err('missing authorized processing reference');
     if(!identicalKeys(record.source,KEYS.source)){err('source fields mismatch');continue;}
     const src=record.source;
     const ruleId='NOM-'+record.id.slice(4);
@@ -96,6 +97,6 @@ if(require.main===module){
   const result=verify();
   for(const e of result.errors)console.error('ERROR:',e);
   if(result.errors.length)process.exitCode=1;
-  else console.log('Validated '+result.count+' queued rule-analysis records; '+result.drifted.length+' source files drifted from pinned snapshot');
+  else console.log('Validated '+result.count+' processed rule-analysis records; '+result.drifted.length+' source files drifted from pinned snapshot');
 }
 module.exports={verify,blobHash,TARGETS,APPROVALS};

@@ -9,7 +9,7 @@ const ROOT=path.resolve(__dirname,'..');
 const QUEUE=path.join(ROOT,'queues/rule-situation-intent');
 const entry=n=>JSON.parse(fs.readFileSync(path.join(QUEUE,'RIA-'+String(n).padStart(4,'0')+'.json'),'utf8'));
 
-test('all 137 canonical rule identities have one inert queue entry',()=>{
+test('all 137 canonical rule identities have one processed queue entry',()=>{
   const r=verify();
   assert.deepEqual(r.errors,[]);
   assert.equal(r.count,137);
@@ -28,10 +28,11 @@ test('source Git snapshot is pinned and includes the unapproved draft',()=>{
     assert.equal(blobHash(bytes),r.source.git_blob_sha);
   }
 });
-test('no intent or situation has been extracted or approved by queuing',()=>{
+test('completed processing leaves historical intake permissions unchanged',()=>{
   for(let i=1;i<=137;i++){
     const item=entry(i);
-    assert.equal(item.status,'queued');
+    assert.equal(item.status,'processed');
+    assert.equal(item.processing.state,'closed');
     assert.deepEqual(item.requested_analysis,TARGETS);
     assert.deepEqual(item.authorization,APPROVALS);
     assert.equal(Object.hasOwn(item,'results'),false);
