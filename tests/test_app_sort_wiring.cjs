@@ -119,8 +119,10 @@ test('profile cards browse their exact member sets and clear the member filter',
   assert.deepEqual(app.firstIds(2),['PROFILE-0001','PROFILE-0002']);
   const card=app.get('catalog-list').children[0];
   const actions=card.children.find(n=>n.className==='group-actions');
-  assert.equal(actions.children.length,2);
-  assert.equal(actions.children[1].tag,'span'); // Draft must not expose bulk activation
+  assert.equal(actions.children.length,3);
+  assert.equal(actions.children[1].tag,'a'); // Descriptive companion browsing only
+  assert.equal(actions.children[1].href,'./profile-companions.html?profile=PROFILE-0001');
+  assert.equal(actions.children[2].tag,'span'); // Draft must not expose bulk activation
   actions.children[0].listeners.click();
   assert.equal(app.get('filter-profile').value,'PROFILE-0001');
   assert.equal(app.get('filter-type').value,'rules');
