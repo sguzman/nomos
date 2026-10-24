@@ -14946,7 +14946,7 @@
       "id": "SIT-0001",
       "kind": "situational_prompt",
       "version": "1.0.0",
-      "status": "reviewed",
+      "status": "published",
       "summary": "Advance as many unfinished authorized requirements as available execution permits.",
       "text": "Continue the established project autonomously within its agreed scope. Complete, verify, and commit as much unfinished work as the available execution permits. Do not return after a single task if other productive work remains. Report verified progress and remaining work when execution ends.",
       "situation": {
@@ -15003,14 +15003,14 @@
       "governance": {
         "created_on": "2026-10-24",
         "updated_on": "2026-10-24",
-        "review_status": "reviewed"
+        "review_status": "approved"
       }
     },
     {
       "id": "SIT-0002",
       "kind": "situational_prompt",
       "version": "1.0.0",
-      "status": "reviewed",
+      "status": "published",
       "summary": "Resume unfinished work without duplicating completed changes.",
       "text": "The previous execution was interrupted. Inspect the actual project state before resuming so completed work is not repeated. Continue implementing, verifying, and committing as much authorized unfinished work as possible. If one task is blocked, pursue other valid work when available. Report evidence-backed progress at the end.",
       "situation": {
@@ -15066,14 +15066,14 @@
       "governance": {
         "created_on": "2026-10-24",
         "updated_on": "2026-10-24",
-        "review_status": "reviewed"
+        "review_status": "approved"
       }
     },
     {
       "id": "SIT-0003",
       "kind": "situational_prompt",
       "version": "1.0.0",
-      "status": "reviewed",
+      "status": "published",
       "summary": "Rebuild project context and resume meaningful implementation.",
       "text": "The previous conversation reached its limit. Reconstruct agreed scope, decisions, progress, and remaining work from available context and repository evidence; distinguish facts from missing context. Then resume implementing, testing, and committing unfinished authorized work as far as available execution permits. Report verified progress at the end.",
       "situation": {
@@ -15129,14 +15129,14 @@
       "governance": {
         "created_on": "2026-10-24",
         "updated_on": "2026-10-24",
-        "review_status": "reviewed"
+        "review_status": "approved"
       }
     },
     {
       "id": "SIT-0004",
       "kind": "situational_prompt",
       "version": "1.0.0",
-      "status": "reviewed",
+      "status": "published",
       "summary": "Resume interrupted work while honoring verified completion.",
       "text": "The previous execution was interrupted. Recheck current work and continue across unfinished authorized tasks. Stop without inventing new tasks if all agreed acceptance criteria are verified complete. Otherwise, work across available requirements even if one is blocked, and report the verified state when no further productive execution is available.",
       "situation": {
@@ -15192,14 +15192,14 @@
       "governance": {
         "created_on": "2026-10-24",
         "updated_on": "2026-10-24",
-        "review_status": "reviewed"
+        "review_status": "approved"
       }
     },
     {
       "id": "SIT-0005",
       "kind": "situational_prompt",
       "version": "1.0.0",
-      "status": "reviewed",
+      "status": "published",
       "summary": "Give an evidence-based interruption diagnosis without implementation.",
       "text": "The previous execution was interrupted. Diagnose the current state using available commits, tests, and project records. Explain what was completed, what failed, what remains uncertain, and the next concrete task. Do not initiate implementation in this diagnostic response.",
       "situation": {
@@ -15255,14 +15255,14 @@
       "governance": {
         "created_on": "2026-10-24",
         "updated_on": "2026-10-24",
-        "review_status": "reviewed"
+        "review_status": "approved"
       }
     },
     {
       "id": "SIT-0006",
       "kind": "situational_prompt",
       "version": "1.0.0",
-      "status": "reviewed",
+      "status": "published",
       "summary": "Keep progress reporting honest without creating new work.",
       "text": "Ground progress claims in verified deliverables, tests, and acceptance criteria. Correct unsupported completion percentages and avoid substituting repeated status updates for tangible work. This is an accountability reminder; it does not independently authorize new tasks.",
       "situation": {
@@ -15319,14 +15319,14 @@
       "governance": {
         "created_on": "2026-10-24",
         "updated_on": "2026-10-24",
-        "review_status": "reviewed"
+        "review_status": "approved"
       }
     },
     {
       "id": "SIT-0007",
       "kind": "situational_prompt",
       "version": "1.0.0",
-      "status": "reviewed",
+      "status": "published",
       "summary": "Maintain scope discipline without starting an unrelated task.",
       "text": "Keep current work focused on the previously agreed scope and acceptance criteria. Prioritize unfinished requirements instead of unrelated improvements, invented tasks, or redundant planning. Do not claim completion without evidence. This reminder does not expand the authorized scope.",
       "situation": {
@@ -15382,14 +15382,14 @@
       "governance": {
         "created_on": "2026-10-24",
         "updated_on": "2026-10-24",
-        "review_status": "reviewed"
+        "review_status": "approved"
       }
     },
     {
       "id": "SIT-0008",
       "kind": "situational_prompt",
       "version": "1.0.0",
-      "status": "reviewed",
+      "status": "published",
       "summary": "Restore context and accountability before sustained development.",
       "text": "The previous conversation reached its limit. Reconstruct established decisions, scope, and progress from available context and repository evidence; correct unsupported claims without treating unknowns as facts. Then continue completing, verifying, and committing as many unfinished authorized tasks as possible. Return with evidence-backed progress and remaining work.",
       "situation": {
@@ -15446,7 +15446,7 @@
       "governance": {
         "created_on": "2026-10-24",
         "updated_on": "2026-10-24",
-        "review_status": "reviewed"
+        "review_status": "approved"
       }
     }
   ],

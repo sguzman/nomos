@@ -27,21 +27,22 @@ class PromptIntakeTests(unittest.TestCase):
                          ["continuation"]*4+["diagnosis","reinforcement","reinforcement","continuation"])
         for r in records:
             self.assertEqual(r["status"],"instantiated")
-            self.assertIs(r["review"]["publication_authorized"],False)
+            self.assertIs(r["review"]["publication_authorized"],True)
+            self.assertEqual(r["review"]["content_state"],"publication_approved")
             self.assertEqual(r["review"]["linked_prompt_ids"],["SIT-"+r["id"].split("-")[-1]])
             self.assertNotIn("text",r)
     def test_queue_does_not_enter_public_copyable_catalog(self):
         public=build()
         self.assertEqual(len(public["situational_prompts"]),8)
-        self.assertTrue(all(p["status"]=="reviewed" for p in public["situational_prompts"]))
+        self.assertTrue(all(p["status"]=="published" and p["governance"]["review_status"]=="approved" for p in public["situational_prompts"]))
         self.assertTrue(all("title" not in p and "source_label" not in p for p in public["situational_prompts"]))
         self.assertTrue(all(x.get("kind")!="situational_prompt_idea"
                             for x in public["rules"]+public["groups"]+public["profiles"]))
     def test_rejects_unauthorized_publication_and_launcher_metadata(self):
         r1=json.loads(json.dumps(self.records[0][1]))
-        r1["review"]["publication_authorized"]=True
-        self.assertTrue(any("publication" in e for e in validate([(pathlib.Path("SIT-IDEA-0001.json"),r1)])))
         r1["review"]["publication_authorized"]=False
+        self.assertTrue(any("publication" in e for e in validate([(pathlib.Path("SIT-IDEA-0001.json"),r1)])))
+        r1["review"]["publication_authorized"]=True
         r1["source"]["shortcut_key"]="F"
         self.assertTrue(any("nested metadata fields" in e for e in validate([(pathlib.Path("SIT-IDEA-0001.json"),r1)])))
 

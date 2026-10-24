@@ -15,12 +15,12 @@ test('display labels are derived from situation and execution metadata',()=>{
   assert.equal(ns.displayLabel(sample),'Normal Continuation · Sustained Execution');
   assert.equal(ns.displayLabel({...sample,title:'Do not use me'}),'Normal Continuation · Sustained Execution');
 });
-test('eight independently normalized records omit personal names and remain read only',()=>{
+test('eight published prompts have metadata identities and are copyable',()=>{
   for(let i=1;i<=8;i++){
     const p=require('../situational-prompts/SIT-'+String(i).padStart(4,'0')+'.json');
-    assert.equal(p.status,'reviewed');
-    assert.equal(p.governance.review_status,'reviewed');
-    assert.equal(ns.copyAllowed(p),false);
+    assert.equal(p.status,'published');
+    assert.equal(p.governance.review_status,'approved');
+    assert.equal(ns.copyAllowed(p),true);
     assert.equal(Object.hasOwn(p,'title'),false);
     assert.equal(Object.hasOwn(p,'source_label'),false);
     assert.ok(p.intent.outcome && p.applicability.appropriate_when.length);
@@ -48,7 +48,7 @@ test('public output is standalone and never modifies rule composition',()=>{
   assert.doesNotMatch(html,/id="selection-list"/);
 });
 
-test('real browser wiring renders eight drafts, filters by mode and never enables copy',async()=>{
+test('real browser renders eight standard entries with working explicit copy',async()=>{
   const fs=require('node:fs');
   const vm=require('node:vm');
   const path=require('node:path');
@@ -82,18 +82,22 @@ test('real browser wiring renders eight drafts, filters by mode and never enable
   assert.equal(get('situational-count').textContent,'8 of 8 situational prompts');
   const cards=get('situational-list').children;
   assert.equal(cards.length,8);
-  assert.ok(cards.every(c=>c.children.some(n=>n.tag==='button'&&n.disabled)));
+  assert.ok(cards.every(c=>c.children.some(n=>n.tag==='button'&&!n.disabled)));
+  const firstCopy=cards[0].children.find(n=>n.tag==='button');
+  await firstCopy.listeners.click();
+  assert.equal(copyCalls,1);
+  assert.match(get('situational-notice').textContent,/Copied SIT-0001/);
   assert.ok(cards.every(c=>c.children.some(n=>n.tag==='h3'&&!/ack work|broke what/i.test(n.textContent))));
-  assert.equal(copyCalls,0);
+  assert.equal(copyCalls,1);
   get('situational-mode').value='reinforcement_only';
   get('situational-mode').listeners.change();
   assert.equal(get('situational-list').children.length,2);
   get('situational-search').value='scope_refocus';
   get('situational-search').listeners.input();
   assert.equal(get('situational-list').children.length,1);
-  get('situational-status').value='published';
+  get('situational-status').value='reviewed';
   get('situational-status').listeners.change();
   assert.equal(get('situational-list').children.length,0);
   assert.equal(get('situational-empty').hidden,false);
-  assert.equal(copyCalls,0);
+  assert.equal(copyCalls,1);
 });

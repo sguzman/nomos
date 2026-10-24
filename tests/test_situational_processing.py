@@ -17,6 +17,10 @@ class ProcessingTraceTests(unittest.TestCase):
         self.assertEqual(len(list(inbox.glob("SIT-IDEA-*.json"))),8)
         self.assertEqual(len(list(processed.glob("PROC-SIT-IDEA-*.json"))),8)
         self.assertEqual(len(list(published.glob("SIT-*.json"))),8)
+        for path in processed.glob("PROC-SIT-IDEA-*.json"):
+            record=json.loads(path.read_text())
+            self.assertEqual(record["publication"],"owner_approved")
+            self.assertTrue(record["publication_authorization"])
 
     def test_orphaned_output_is_detected(self):
         with tempfile.TemporaryDirectory() as temp:
