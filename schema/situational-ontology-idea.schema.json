@@ -27,7 +27,7 @@
       "const": "situational_ontology_idea"
     },
     "status": {
-      "const": "queued"
+      "const": "processed"
     },
     "topic": {
       "enum": [
@@ -98,10 +98,10 @@
           "const": true
         },
         "processing_authorized": {
-          "const": false
+          "const": true
         },
         "publication_authorized": {
-          "const": false
+          "const": true
         },
         "auto_apply": {
           "const": false

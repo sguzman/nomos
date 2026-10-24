@@ -39,7 +39,8 @@
       "enum": [
         "queued",
         "deferred",
-        "cancelled"
+        "cancelled",
+        "processed"
       ]
     },
     "proposed_version": {
@@ -96,10 +97,10 @@
       ],
       "properties": {
         "processing_authorized": {
-          "const": false
+          "type": "boolean"
         },
         "publication_authorized": {
-          "const": false
+          "type": "boolean"
         },
         "flags": {
           "type": "array",
@@ -131,5 +132,57 @@
         }
       }
     }
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "processed"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "review": {
+            "properties": {
+              "processing_authorized": {
+                "const": true
+              },
+              "publication_authorized": {
+                "const": true
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "queued",
+              "deferred",
+              "cancelled"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "review": {
+            "properties": {
+              "processing_authorized": {
+                "const": false
+              },
+              "publication_authorized": {
+                "const": false
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
 }

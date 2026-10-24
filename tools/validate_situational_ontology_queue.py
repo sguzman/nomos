@@ -49,13 +49,13 @@ def inspect(root=ROOT):
             continue
         if r.get("id") != p.stem or r.get("kind") != "situational_ontology_idea":
             errors.append(f"{p}: identity or kind mismatch")
-        if r.get("topic") != KINDS[idx - 1] or r.get("status") != "queued":
+        if r.get("topic") != KINDS[idx - 1] or r.get("status") != "processed":
             errors.append(f"{p}: wrong topic or state")
         if not isinstance(r.get("purpose"), str) or not r["purpose"].strip():
             errors.append(f"{p}: empty purpose")
         a = r.get("authorization")
-        if a != {"intake_authorized": True, "processing_authorized": False,
-                 "publication_authorized": False, "auto_apply": False}:
+        if a != {"intake_authorized": True, "processing_authorized": True,
+                 "publication_authorized": True, "auto_apply": False}:
             errors.append(f"{p}: unauthorized execution, publication, or application")
         candidates = r.get("candidates")
         if not isinstance(candidates, list) or len(candidates) != EXPECTED_COUNTS[idx - 1]:
@@ -84,6 +84,14 @@ def inspect(root=ROOT):
 
     if set(proposals) != set(range(1, 7)):
         return proposals, errors
+    for index in range(1, 7):
+        trace=root/"processing"/"situational-ontology"/f"PROC-SITO-IDEA-{index:04d}.json"
+        try:
+            detail=json.loads(trace.read_text(encoding="utf-8"))
+            if detail.get("status") != "completed" or detail.get("intake_id") != f"SITO-IDEA-{index:04d}":
+                errors.append(f"{trace}: mismatched processing trace")
+        except (OSError, ValueError) as exc:
+            errors.append(f"{trace}: {exc}")
     situations = proposals[1]["candidates"]
     intents = proposals[2]["candidates"]
     families = proposals[3]["candidates"]
@@ -141,7 +149,7 @@ def main():
     proposals, errors = inspect()
     for error in errors: print("ERROR:", error)
     if errors: raise SystemExit(1)
-    print(f"Validated {len(proposals)} queued ontology proposals, "
+    print(f"Validated {len(proposals)} processed ontology proposals, "
           f"{sum(len(x['candidates']) for x in proposals.values())} concept candidates")
 
 

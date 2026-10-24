@@ -44,8 +44,8 @@ def validate_records(records, canonical):
         seen.add(rid)
         if r["kind"] != "situational_prompt_revision": error("incorrect kind")
         if r["canonical_prompt_id"] != cid: error("not linked to its canonical family")
-        if r["status"] not in ("queued", "deferred", "cancelled"):
-            error("revision must remain in the intake queue")
+        if r["status"] not in ("queued", "processed", "deferred", "cancelled"):
+            error("invalid revision lifecycle state")
         if seq < 2 or r["proposed_version"] != f"{seq}.0.0":
             error("proposed version inconsistent with revision sequence")
         if (cid, r["proposed_version"]) in versions: error("duplicate family version")
@@ -83,8 +83,10 @@ def validate_records(records, canonical):
         if not isinstance(review, dict) or set(review) != {"processing_authorized", "publication_authorized", "flags"}:
             error("invalid review fields")
             continue
-        if review["processing_authorized"] is not False or review["publication_authorized"] is not False:
-            error("queue must not imply processing or publication authorization")
+        authorized = r["status"] == "processed"
+        if (review["processing_authorized"] is not authorized or
+                review["publication_authorized"] is not authorized):
+            error("revision authorization flags inconsistent with status")
         flags = review["flags"]
         if not isinstance(flags, list) or len(flags) != len(set(flags)) or set(flags) - FLAGS:
             error("invalid review flags")
@@ -115,7 +117,33 @@ def load_and_validate(root=ROOT):
             canonical[obj["id"]] = obj
         except (OSError, ValueError, KeyError) as exc:
             problems.append(f"{path}: {exc}")
-    return records, problems + validate_records(records, canonical)
+    problems.extend(validate_records(records, canonical))
+    for path, revision in records:
+        if revision.get("status") != "processed":
+            continue
+        cid, version = revision["canonical_prompt_id"], revision["proposed_version"]
+        published_path = root/"situational-prompts"/"versions"/f"{cid}-v{version}.json"
+        trace_path = root/"processing"/"situational-prompts"/"revisions"/f"PROC-{revision['id']}.json"
+        try:
+            published = json.loads(published_path.read_text(encoding="utf-8"))
+            trace = json.loads(trace_path.read_text(encoding="utf-8"))
+            if (published.get("id") != cid or published.get("version") != version or
+                    published.get("text") != revision["proposed_text"] or
+                    published.get("status") != "published" or
+                    published.get("governance",{}).get("review_status") != "approved"):
+                problems.append(f"{published_path}: published version/text/status mismatch")
+            if (trace.get("source_revision_id") != revision["id"] or
+                    trace.get("output_path") != str(published_path.relative_to(root)) or
+                    trace.get("status") != "published" or
+                    trace.get("governance",{}).get("publication_authorized") is not True):
+                problems.append(f"{trace_path}: missing publication provenance")
+            if cid in ("SIT-0006","SIT-0007") and published.get("execution",{}).get("mode") != "sustained_execution":
+                problems.append(f"{published_path}: escalation mode not resolved")
+            if cid == "SIT-0005" and published.get("execution",{}).get("mode") != "diagnosis_only":
+                problems.append(f"{published_path}: diagnostic-only contract violated")
+        except (OSError, ValueError, KeyError) as exc:
+            problems.append(f"{path}: missing or invalid published version: {exc}")
+    return records, problems
 
 
 def main():
@@ -124,7 +152,7 @@ def main():
         print("ERROR:", error)
     if errors:
         raise SystemExit(1)
-    print(f"Validated {len(records)} queued revisions, with canonical links and source hashes")
+    print(f"Validated {len(records)} versioned revisions, with canonical links and source hashes")
 
 
 if __name__ == "__main__":
