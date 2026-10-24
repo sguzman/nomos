@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/sguzman/nomos/blob/main/schema/rule-situation-intent-intake.schema.json",
+  "title": "Independent rule situation-and-intent analysis intake",
+  "description": "Queue-only records for later human-authorized examination of the existing Nomos canonical rules. These contain source references, not extracted ontology candidates.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "kind",
+    "status",
+    "source",
+    "requested_analysis",
+    "authorization",
+    "governance"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^RIA-[0-9]{4}$"
+    },
+    "kind": {
+      "const": "rule_situation_intent_analysis_intake"
+    },
+    "status": {
+      "const": "queued"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rule_id",
+        "path",
+        "version",
+        "status_at_snapshot",
+        "snapshot_commit",
+        "git_blob_sha"
+      ],
+      "properties": {
+        "rule_id": {
+          "type": "string",
+          "pattern": "^NOM-[0-9]{4}$"
+        },
+        "path": {
+          "type": "string",
+          "pattern": "^rules/NOM-[0-9]{4}\\.json$"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+        },
+        "status_at_snapshot": {
+          "enum": [
+            "published",
+            "draft",
+            "reviewed",
+            "deprecated"
+          ]
+        },
+        "snapshot_commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "git_blob_sha": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        }
+      }
+    },
+    "requested_analysis": {
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "enum": [
+          "applicable_situations",
+          "desired_outcomes",
+          "atomicity_and_nonintent_roles",
+          "existing_ontology_reuse",
+          "candidate_semantic_links"
+        ]
+      }
+    },
+    "authorization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "intake_authorized",
+        "processing_authorized",
+        "normalization_authorized",
+        "publication_authorized",
+        "canonical_rule_edit_authorized",
+        "profile_edit_authorized"
+      ],
+      "properties": {
+        "intake_authorized": {
+          "const": true
+        },
+        "processing_authorized": {
+          "const": false
+        },
+        "normalization_authorized": {
+          "const": false
+        },
+        "publication_authorized": {
+          "const": false
+        },
+        "canonical_rule_edit_authorized": {
+          "const": false
+        },
+        "profile_edit_authorized": {
+          "const": false
+        }
+      }
+    },
+    "governance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "queued_on",
+        "source_basis"
+      ],
+      "properties": {
+        "queued_on": {
+          "type": "string",
+          "format": "date"
+        },
+        "source_basis": {
+          "const": "existing_public_canonical_rule"
+        }
+      }
+    }
+  }
+}

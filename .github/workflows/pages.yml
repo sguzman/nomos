@@ -16,6 +16,7 @@ on:
       - "queues/profiles/**"
       - "queues/situational-prompts/**"
       - "queues/situational-ontology/**"
+      - "queues/rule-situation-intent/**"
       - "schema/**"
       - "taxonomy/**"
       - "processing/specimens/candidates/**"
@@ -60,6 +61,8 @@ jobs:
           node --check docs/app.js
           node --check docs/situational-prompts.js
           node --check docs/situational-ontology.js
+          node tools/validate_rule_situation_intent_queue.cjs
+          node --test tests/test_rule_situation_intent_queue.cjs
           node --test tests/test_situational_ontology_browser.cjs
           node --test tests/test_situational_prompts.cjs
           node --check docs/rule-colors.js
