@@ -51,8 +51,16 @@ def check_links(root=ROOT):
                 errors.append(f"{qid}: situation meaning drift")
             if record.get("provenance", {}).get("reference") != "queues/situational-prompts/" + qid + ".json":
                 errors.append(f"{qid}: missing canonical provenance link")
-            if record.get("status") == "published" and not q.get("review", {}).get("publication_authorized"):
-                errors.append(f"{qid}: publication without authorization")
+            published = record.get("status") == "published"
+            authorized = q.get("review", {}).get("publication_authorized") is True
+            approved = proc.get("publication") == "owner_approved"
+            if published != authorized or published != approved:
+                errors.append(f"{qid}: publication status, queue approval, and processing approval disagree")
+            if published:
+                if record.get("governance", {}).get("review_status") != "approved":
+                    errors.append(f"{qid}: published record lacks approved governance")
+                if not isinstance(proc.get("publication_authorization"), str) or not proc["publication_authorization"].strip():
+                    errors.append(f"{qid}: missing publication authorization provenance")
         else:
             if ids or proc:
                 errors.append(f"{qid}: uninstantiated intake cannot have output records")

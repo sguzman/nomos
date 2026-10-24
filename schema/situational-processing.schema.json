@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/sguzman/nomos/blob/main/schema/situational-processing.schema.json",
   "title": "Situational prompt normalization trace",
-  "description": "A processing record proves a reviewed draft was produced from explicitly authorized intake; it does not approve publication.",
+  "description": "Auditable intake normalization with independently authorized publication.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -14,7 +14,8 @@
     "disposition",
     "publication",
     "source_handling",
-    "governance"
+    "governance",
+    "publication_authorization"
   ],
   "properties": {
     "id": {
@@ -67,6 +68,51 @@
           "minLength": 1
         }
       }
+    },
+    "publication_authorization": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Public-safe evidence of separate owner publication authorization, null until approval."
     }
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "publication": {
+            "const": "owner_approved"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "publication_authorization": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "publication": {
+            "enum": [
+              "awaiting_separate_owner_approval",
+              "rejected"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "publication_authorization": {
+            "type": "null"
+          }
+        }
+      }
+    }
+  ]
 }
