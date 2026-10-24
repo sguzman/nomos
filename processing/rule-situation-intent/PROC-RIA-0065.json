@@ -1,0 +1,49 @@
+{
+  "id": "PROC-RIA-0065",
+  "kind": "rule_situation_intent_analysis",
+  "status": "closed",
+  "queue_id": "RIA-0065",
+  "source": {
+    "rule_id": "NOM-0065",
+    "path": "rules/NOM-0065.json",
+    "version": "1.2.0",
+    "status_at_snapshot": "published",
+    "snapshot_commit": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
+    "git_blob_sha": "0815a2de5b5335a011538a064803908acb3c7d72"
+  },
+  "authorization": {
+    "authority": "Explicit owner instruction, 2026-10-24",
+    "processing": true,
+    "normalization": true,
+    "publication": true,
+    "canonical_rule_edit": false,
+    "profile_edit": false
+  },
+  "disposition": {
+    "kind": "linked_to_formal_ontology",
+    "link_path": "ontology/rule-links/RLINK-0065.json",
+    "situation_ids": [
+      "SITU-0048"
+    ],
+    "intent_ids": [
+      "INTENT-0042",
+      "INTENT-0007"
+    ],
+    "rule_editorial_status": "published"
+  },
+  "evidence": {
+    "rule_source_fields": [
+      "statement",
+      "rationale",
+      "norm.conditions",
+      "norm.exceptions",
+      "scope",
+      "norm.predicate"
+    ],
+    "source_blob_verified_by_snapshot": true
+  },
+  "governance": {
+    "completed_on": "2026-10-24",
+    "review_status": "approved_semantic_links"
+  }
+}

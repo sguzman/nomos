@@ -1,0 +1,56 @@
+{
+  "id": "RLINK-0010",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0010",
+  "rule_version": "1.2.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0014",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.preconditions",
+        "scope.project_types",
+        "norm.predicate"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0026",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
+    "source_blob_sha": "7ba7b80649515486ca31cab5b71ce0d37fdc8f8e",
+    "source_statement": "New projects must begin with a clear roadmap of phases, milestones, subtasks, and features; give each roadmap item its own stable identifying emoji separate from status.",
+    "source_conditions": [
+      "Applies when creating a project from scratch."
+    ],
+    "source_exceptions": [],
+    "normalized_predicate": {
+      "action": "define",
+      "object": "roadmap_identity",
+      "target": "new_project"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relationships describe relevant contexts, not exhaustive triggers or narrower rule applicability.",
+    "intent_semantics": "Intent relationships describe inferred underlying outcomes; normative authority remains with the original rule.",
+    "effective_rules": "No rule, rule profile, or execution instruction is altered by linking."
+  },
+  "provenance": {
+    "queue_id": "RIA-0010",
+    "processing_id": "PROC-RIA-0010",
+    "source_path": "rules/NOM-0010.json"
+  },
+  "reviewed_on": "2026-10-24"
+}

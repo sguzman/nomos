@@ -1,0 +1,58 @@
+{
+  "id": "RLINK-0022",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0022",
+  "rule_version": "1.2.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0016",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.preconditions",
+        "scope.project_types",
+        "norm.predicate"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0028",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
+    "source_blob_sha": "5b562e4f90260e233a387a0316cd432267cef9aa",
+    "source_statement": "Verify branch identity, expected ancestry and the exact changes before updating repository references.",
+    "source_conditions": [
+      "Before commits or reference updates",
+      "Applies only when expressly selected for a matching project or authorized development workflow.",
+      "This rule does not itself authorize changes to other repositories, publication or destructive work."
+    ],
+    "source_exceptions": [],
+    "normalized_predicate": {
+      "action": "practice",
+      "object": "verify_git_branch_and_history",
+      "target": "authorized_project_work"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relationships describe relevant contexts, not exhaustive triggers or narrower rule applicability.",
+    "intent_semantics": "Intent relationships describe inferred underlying outcomes; normative authority remains with the original rule.",
+    "effective_rules": "No rule, rule profile, or execution instruction is altered by linking."
+  },
+  "provenance": {
+    "queue_id": "RIA-0022",
+    "processing_id": "PROC-RIA-0022",
+    "source_path": "rules/NOM-0022.json"
+  },
+  "reviewed_on": "2026-10-24"
+}

@@ -1,0 +1,58 @@
+{
+  "id": "RLINK-0021",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0021",
+  "rule_version": "1.2.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0015",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.preconditions",
+        "scope.project_types",
+        "norm.predicate"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0029",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
+    "source_blob_sha": "732b57efe2868fd0d7ea59c8e0e3121536702af3",
+    "source_statement": "Remove obsolete templates, dead files and stale configuration only after checking for active dependencies and preserving unrelated work.",
+    "source_conditions": [
+      "When cleanup is in scope",
+      "Applies only when expressly selected for a matching project or authorized development workflow.",
+      "This rule does not itself authorize changes to other repositories, publication or destructive work."
+    ],
+    "source_exceptions": [],
+    "normalized_predicate": {
+      "action": "practice",
+      "object": "remove_obsolete_scaffolding_safely",
+      "target": "authorized_project_work"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relationships describe relevant contexts, not exhaustive triggers or narrower rule applicability.",
+    "intent_semantics": "Intent relationships describe inferred underlying outcomes; normative authority remains with the original rule.",
+    "effective_rules": "No rule, rule profile, or execution instruction is altered by linking."
+  },
+  "provenance": {
+    "queue_id": "RIA-0021",
+    "processing_id": "PROC-RIA-0021",
+    "source_path": "rules/NOM-0021.json"
+  },
+  "reviewed_on": "2026-10-24"
+}
