@@ -17339,6 +17339,70 @@
       }
     },
     {
+      "id": "SIT-0001",
+      "kind": "situational_prompt",
+      "version": "3.0.0",
+      "status": "published",
+      "summary": "Advance as many unfinished authorized requirements as available execution permits.",
+      "text": "Continue working autonomously toward 100% completion of the established scope. Execute as many meaningful unfinished roadmap tasks as the available session permits, implementing, testing, and committing repeatedly. Never return merely because one task finished, a checkpoint was reached, or one task is blocked; move to other legitimate unfinished work when possible. Do not invent scope or waste time on redundant planning. Return only when further productive execution is genuinely unavailable or the execution limit is reached. Report the verified overall completion percentage, its change, evidence of progress, and remaining work. Follow all established rules.",
+      "situation": {
+        "code": "normal_continuation",
+        "trigger": "The ongoing agent has reported satisfactory progress and additional agreed work remains.",
+        "purpose": "Continue an active, already authorized project after a satisfactory work update."
+      },
+      "intent": {
+        "operation": "continue",
+        "outcome": "Advance as many unfinished authorized requirements as available execution permits."
+      },
+      "applicability": {
+        "appropriate_when": [
+          "A development interaction is already underway",
+          "The user wants sustained continuation, not a new project plan"
+        ],
+        "not_appropriate_when": [
+          "The user is asking only for a diagnosis",
+          "No authorized work or objective is established"
+        ],
+        "preconditions": [
+          "Recover the current roadmap and established instructions when necessary"
+        ]
+      },
+      "execution": {
+        "mode": "sustained_execution",
+        "objective": "Continue an active, already authorized project after a satisfactory work update.",
+        "handoff": "after_available_work",
+        "progress_evidence": true
+      },
+      "failure_modes": {
+        "guards_against": [
+          "Premature handoff after one task",
+          "Incomplete work disguised as closure",
+          "Scope drift"
+        ],
+        "tradeoffs": [
+          "The phrase about reaching full completion does not itself establish a measurable denominator",
+          "A prompt cannot guarantee a specific execution duration"
+        ]
+      },
+      "interaction": {
+        "invocation": "explicit_only",
+        "target": "chatgpt"
+      },
+      "relations": {
+        "related_prompt_ids": []
+      },
+      "provenance": {
+        "source_type": "owner_authored",
+        "reference": "queues/situational-prompts/revisions/SIT-REV-0001-03.json",
+        "notes": "Verbatim text preserved from uploaded items3.json, entry 1; SHA-256 092ac4df880ffd502cdfcd039ba69a557bb5885c4dce86aeb20d61a8b6b1985c. Distinct published generation; originals remain unchanged."
+      },
+      "governance": {
+        "created_on": "2026-10-24",
+        "updated_on": "2026-10-24",
+        "review_status": "approved"
+      }
+    },
+    {
       "id": "SIT-0002",
       "kind": "situational_prompt",
       "version": "2.0.0",
@@ -17394,6 +17458,69 @@
         "source_type": "owner_authored",
         "reference": "queues/situational-prompts/revisions/SIT-REV-0002-02.json",
         "notes": "Verbatim text preserved from uploaded items2.json, entry 2; SHA-256 e4f0a7d2a6e241fc544f0e594f0618aa2c735816a2132b0a4341c0feb516d335. Distinct published generation; original 1.0.0 unchanged."
+      },
+      "governance": {
+        "created_on": "2026-10-24",
+        "updated_on": "2026-10-24",
+        "review_status": "approved"
+      }
+    },
+    {
+      "id": "SIT-0002",
+      "kind": "situational_prompt",
+      "version": "3.0.0",
+      "status": "published",
+      "summary": "Resume unfinished work without duplicating completed changes.",
+      "text": "The chat broke. Inspect actual repository state, recover interrupted work, and continue sustained autonomous execution toward 100% completion. Complete, verify, and commit as many unfinished tasks as possible. Do not stop after recovering context, finishing one task, or encountering one isolated blocker. Return with verified completion percentage, change, deliverables, and remaining blockers only when available productive work is exhausted. Follow established rules.",
+      "situation": {
+        "code": "interrupted_execution",
+        "trigger": "A chat or execution stops unexpectedly while agreed development remains unfinished.",
+        "purpose": "Resume the established project after an interrupted chat or execution."
+      },
+      "intent": {
+        "operation": "recover_execution",
+        "outcome": "Resume unfinished work without duplicating completed changes."
+      },
+      "applicability": {
+        "appropriate_when": [
+          "The previous run stopped unexpectedly",
+          "The current project is known or recoverable"
+        ],
+        "not_appropriate_when": [
+          "There is no earlier authorized project",
+          "The user only wants to learn why execution failed"
+        ],
+        "preconditions": [
+          "Check repository and last verified work before repeating changes"
+        ]
+      },
+      "execution": {
+        "mode": "sustained_execution",
+        "objective": "Resume the established project after an interrupted chat or execution.",
+        "handoff": "after_available_work",
+        "progress_evidence": true
+      },
+      "failure_modes": {
+        "guards_against": [
+          "Context loss",
+          "Duplicated commits or tasks",
+          "Treating an isolated blocker as global completion"
+        ],
+        "tradeoffs": [
+          "The interruption may conceal partially applied changes"
+        ]
+      },
+      "interaction": {
+        "invocation": "explicit_only",
+        "target": "chatgpt"
+      },
+      "relations": {
+        "related_prompt_ids": []
+      },
+      "provenance": {
+        "source_type": "owner_authored",
+        "reference": "queues/situational-prompts/revisions/SIT-REV-0002-03.json",
+        "notes": "Verbatim text preserved from uploaded items3.json, entry 2; SHA-256 e26b9fc73422a68124e80beb19061910c1736665b3fb5f50c87348943f829e43. Distinct published generation; originals remain unchanged."
       },
       "governance": {
         "created_on": "2026-10-24",
@@ -17465,6 +17592,69 @@
       }
     },
     {
+      "id": "SIT-0003",
+      "kind": "situational_prompt",
+      "version": "3.0.0",
+      "status": "published",
+      "summary": "Rebuild project context and resume meaningful implementation.",
+      "text": "The previous chat reached its limit. Reconstruct the established project state, scope, roadmap, rules, and last verified progress from available context and repository evidence. Then continue executing as many unfinished tasks as the available session permits. Implement, test, commit, and repeat without returning after the first task or checkpoint. Report verified completion percentage, change, and evidence only at the end of available execution.",
+      "situation": {
+        "code": "conversation_limit_recovery",
+        "trigger": "The previous conversation exhausted its context or length budget.",
+        "purpose": "Reconstruct context in a new conversation and continue the established project."
+      },
+      "intent": {
+        "operation": "recover_context",
+        "outcome": "Rebuild project context and resume meaningful implementation."
+      },
+      "applicability": {
+        "appropriate_when": [
+          "A successor conversation is taking over an existing project",
+          "Previous decisions and project scope need reconstruction"
+        ],
+        "not_appropriate_when": [
+          "The conversation has not reached its context limit",
+          "The user explicitly wants diagnosis rather than execution"
+        ],
+        "preconditions": [
+          "Use available prior context and repository evidence; flag gaps"
+        ]
+      },
+      "execution": {
+        "mode": "sustained_execution",
+        "objective": "Reconstruct context in a new conversation and continue the established project.",
+        "handoff": "after_available_work",
+        "progress_evidence": true
+      },
+      "failure_modes": {
+        "guards_against": [
+          "Fabricated reconstruction",
+          "Replanning completed work",
+          "Loss of prior constraints"
+        ],
+        "tradeoffs": [
+          "Unavailable context cannot be reconstructed as fact"
+        ]
+      },
+      "interaction": {
+        "invocation": "explicit_only",
+        "target": "chatgpt"
+      },
+      "relations": {
+        "related_prompt_ids": []
+      },
+      "provenance": {
+        "source_type": "owner_authored",
+        "reference": "queues/situational-prompts/revisions/SIT-REV-0003-03.json",
+        "notes": "Verbatim text preserved from uploaded items3.json, entry 3; SHA-256 f3c5b0d660f96eadbac940797dc12e47d689e8c0941f09fcaff2bd0839f8472e. Distinct published generation; originals remain unchanged."
+      },
+      "governance": {
+        "created_on": "2026-10-24",
+        "updated_on": "2026-10-24",
+        "review_status": "approved"
+      }
+    },
+    {
       "id": "SIT-0004",
       "kind": "situational_prompt",
       "version": "2.0.0",
@@ -17528,6 +17718,69 @@
       }
     },
     {
+      "id": "SIT-0004",
+      "kind": "situational_prompt",
+      "version": "3.0.0",
+      "status": "published",
+      "summary": "Resume interrupted work while honoring verified completion.",
+      "text": "The chat broke. Recover actual project state and resume sustained autonomous execution toward 100% completion. Implement, verify, and commit as many remaining in-scope tasks as possible. If one task is blocked, pursue other legitimate unfinished tasks. If all agreed acceptance criteria are verified complete, stop without inventing more work. Otherwise stop only when no productive executable work remains or the execution limit is reached. Report verified overall percentage, change, and exact remaining state.",
+      "situation": {
+        "code": "interrupted_execution_with_completion_gate",
+        "trigger": "The chat broke and the user wants continuation unless agreed work is already complete.",
+        "purpose": "Resume interrupted development but allow a genuine completed-project handoff."
+      },
+      "intent": {
+        "operation": "recover_execution",
+        "outcome": "Resume interrupted work while honoring verified completion."
+      },
+      "applicability": {
+        "appropriate_when": [
+          "The original project may have further work",
+          "The user wants work to stop if no legitimate tasks remain"
+        ],
+        "not_appropriate_when": [
+          "The user wants only a failure explanation",
+          "Project scope is unspecified and cannot be recovered"
+        ],
+        "preconditions": [
+          "Verify actual completion state before asserting that work is finished"
+        ]
+      },
+      "execution": {
+        "mode": "sustained_execution",
+        "objective": "Resume interrupted development but allow a genuine completed-project handoff.",
+        "handoff": "after_available_work",
+        "progress_evidence": true
+      },
+      "failure_modes": {
+        "guards_against": [
+          "Inventing new tasks after full completion",
+          "Premature stopping",
+          "Unverified completion claims"
+        ],
+        "tradeoffs": [
+          "This is not a request to broaden the roadmap after the agreed scope is complete"
+        ]
+      },
+      "interaction": {
+        "invocation": "explicit_only",
+        "target": "chatgpt"
+      },
+      "relations": {
+        "related_prompt_ids": []
+      },
+      "provenance": {
+        "source_type": "owner_authored",
+        "reference": "queues/situational-prompts/revisions/SIT-REV-0004-03.json",
+        "notes": "Verbatim text preserved from uploaded items3.json, entry 4; SHA-256 336dc9347e3ddb0d93437939c6a6eea89300a08ddc2f137a3f8389604b0ebc93. Distinct published generation; originals remain unchanged."
+      },
+      "governance": {
+        "created_on": "2026-10-24",
+        "updated_on": "2026-10-24",
+        "review_status": "approved"
+      }
+    },
+    {
       "id": "SIT-0005",
       "kind": "situational_prompt",
       "version": "2.0.0",
@@ -17583,6 +17836,69 @@
         "source_type": "owner_authored",
         "reference": "queues/situational-prompts/revisions/SIT-REV-0005-02.json",
         "notes": "Verbatim text preserved from uploaded items2.json, entry 5; SHA-256 59b7676b5a93b074079d03fac8d37d8d706c27055cb5c3689b2fcfca3a5ad2ab. Distinct published generation; original 1.0.0 unchanged."
+      },
+      "governance": {
+        "created_on": "2026-10-24",
+        "updated_on": "2026-10-24",
+        "review_status": "approved"
+      }
+    },
+    {
+      "id": "SIT-0005",
+      "kind": "situational_prompt",
+      "version": "3.0.0",
+      "status": "published",
+      "summary": "Give an evidence-based interruption diagnosis without implementation.",
+      "text": "The chat broke. Diagnose actual repository state, recent commits, test evidence, and roadmap progress. Report verified overall completion percentage, what changed, what was interrupted, remaining blockers, and the exact next task. Distinguish verified facts from uncertainty. This preset requests diagnosis only, not resumed implementation.",
+      "situation": {
+        "code": "interruption_diagnosis",
+        "trigger": "A run broke and the user asks what happened or what remains.",
+        "purpose": "Diagnose an interruption and state the verified project status without automatically continuing implementation."
+      },
+      "intent": {
+        "operation": "diagnose",
+        "outcome": "Give an evidence-based interruption diagnosis without implementation."
+      },
+      "applicability": {
+        "appropriate_when": [
+          "The user wants to understand the failure or current status",
+          "A concise audit is needed before deciding to resume"
+        ],
+        "not_appropriate_when": [
+          "The user has explicitly asked to continue executing now",
+          "There is no earlier project to inspect"
+        ],
+        "preconditions": [
+          "Use available commits, tests, logs and state; distinguish fact from uncertainty"
+        ]
+      },
+      "execution": {
+        "mode": "diagnosis_only",
+        "objective": "Diagnose an interruption and state the verified project status without automatically continuing implementation.",
+        "handoff": "diagnostic_response",
+        "progress_evidence": true
+      },
+      "failure_modes": {
+        "guards_against": [
+          "Unrequested implementation",
+          "Unsupported diagnosis",
+          "Invented project completion"
+        ],
+        "tradeoffs": [
+          "A diagnostic response may not advance implementation; this is intentional"
+        ]
+      },
+      "interaction": {
+        "invocation": "explicit_only",
+        "target": "chatgpt"
+      },
+      "relations": {
+        "related_prompt_ids": []
+      },
+      "provenance": {
+        "source_type": "owner_authored",
+        "reference": "queues/situational-prompts/revisions/SIT-REV-0005-03.json",
+        "notes": "Verbatim text preserved from uploaded items3.json, entry 5; SHA-256 18b285635df87e4bbb9f6b562a976064db3142b01b7f6234d54dc204b33f58f2. Distinct published generation; originals remain unchanged."
       },
       "governance": {
         "created_on": "2026-10-24",
@@ -17655,6 +17971,70 @@
       }
     },
     {
+      "id": "SIT-0006",
+      "kind": "situational_prompt",
+      "version": "3.0.0",
+      "status": "published",
+      "summary": "Audit claims briefly, correct unsupported reports, then sustain implementation.",
+      "text": "Audit recent claimed progress against commits, tests, deliverables, and acceptance criteria. Correct unsupported percentages and repeated claims. Keep the audit brief, then resume sustained autonomous implementation across as many unfinished in-scope tasks as possible. Do not substitute auditing or reporting for productive execution. Return with verified overall completion percentage, change, and evidence only when execution is genuinely exhausted.",
+      "situation": {
+        "code": "progress_audit",
+        "trigger": "The user suspects prior progress reporting does not match delivered changes.",
+        "purpose": "Challenge unsupported progress claims and demand accountability."
+      },
+      "intent": {
+        "operation": "continue",
+        "outcome": "Audit claims briefly, correct unsupported reports, then sustain implementation."
+      },
+      "applicability": {
+        "appropriate_when": [
+          "Earlier reports lack credible evidence",
+          "Claims of elapsed work and unchanged percentages need scrutiny"
+        ],
+        "not_appropriate_when": [
+          "No progress claim exists to assess",
+          "The user is requesting a new project rather than auditing ongoing work"
+        ],
+        "preconditions": [
+          "Compare any available claims to actual repository or test evidence"
+        ]
+      },
+      "execution": {
+        "mode": "sustained_execution",
+        "objective": "Audit claims briefly, correct unsupported reports, then sustain implementation.",
+        "handoff": "after_available_work",
+        "progress_evidence": true
+      },
+      "failure_modes": {
+        "guards_against": [
+          "Inflated progress percentages",
+          "Recycled status updates presented as achievement",
+          "Unsupported claims of completed work"
+        ],
+        "tradeoffs": [
+          "The original text expresses concern; it is not itself an explicit implementation directive",
+          "Accusations must not substitute for inspecting evidence"
+        ]
+      },
+      "interaction": {
+        "invocation": "explicit_only",
+        "target": "chatgpt"
+      },
+      "relations": {
+        "related_prompt_ids": []
+      },
+      "provenance": {
+        "source_type": "owner_authored",
+        "reference": "queues/situational-prompts/revisions/SIT-REV-0006-03.json",
+        "notes": "Verbatim text preserved from uploaded items3.json, entry 6; SHA-256 9a20a9658186d2013d56860231efd46337a8b5de62f79d4f075422fb5432f580. Distinct published generation; originals remain unchanged."
+      },
+      "governance": {
+        "created_on": "2026-10-24",
+        "updated_on": "2026-10-24",
+        "review_status": "approved"
+      }
+    },
+    {
       "id": "SIT-0007",
       "kind": "situational_prompt",
       "version": "2.0.0",
@@ -17710,6 +18090,69 @@
         "source_type": "owner_authored",
         "reference": "queues/situational-prompts/revisions/SIT-REV-0007-02.json",
         "notes": "Verbatim text preserved from uploaded items2.json, entry 7; SHA-256 af82f0cbf826b729ae67f9b07e2fff5b59b5f21b22abbba9578dbb88e50b0538. Distinct published generation; original 1.0.0 unchanged."
+      },
+      "governance": {
+        "created_on": "2026-10-24",
+        "updated_on": "2026-10-24",
+        "review_status": "approved"
+      }
+    },
+    {
+      "id": "SIT-0007",
+      "kind": "situational_prompt",
+      "version": "3.0.0",
+      "status": "published",
+      "summary": "Prevent scope drift and sustain productive execution across unfinished tasks.",
+      "text": "Maintain focus on 100% completion of the originally agreed scope. Eliminate unrelated work, invented requirements, redundant planning, and cosmetic busywork. Continue executing, verifying, and committing as many legitimate unfinished tasks as possible throughout the available session. A single completed task or blocked requirement is not a stopping condition. Return with verified overall completion percentage, change, and evidence only when productive execution cannot continue.",
+      "situation": {
+        "code": "scope_refocus",
+        "trigger": "The active work is at risk of drifting from its original accepted scope.",
+        "purpose": "Reinforce the established completion goal and prevent unrelated task invention."
+      },
+      "intent": {
+        "operation": "continue",
+        "outcome": "Prevent scope drift and sustain productive execution across unfinished tasks."
+      },
+      "applicability": {
+        "appropriate_when": [
+          "An established project objective exists",
+          "The user wants to reaffirm scope and completion targets"
+        ],
+        "not_appropriate_when": [
+          "The original objective is unknown",
+          "The user is explicitly changing the scope"
+        ],
+        "preconditions": [
+          "Use established acceptance criteria rather than inventing new ones"
+        ]
+      },
+      "execution": {
+        "mode": "sustained_execution",
+        "objective": "Prevent scope drift and sustain productive execution across unfinished tasks.",
+        "handoff": "after_available_work",
+        "progress_evidence": true
+      },
+      "failure_modes": {
+        "guards_against": [
+          "Invented busywork",
+          "Unauthorized scope expansion",
+          "Misleading completion percentages"
+        ],
+        "tradeoffs": [
+          "The source wording is a reminder, not a standalone authorization for new work"
+        ]
+      },
+      "interaction": {
+        "invocation": "explicit_only",
+        "target": "chatgpt"
+      },
+      "relations": {
+        "related_prompt_ids": []
+      },
+      "provenance": {
+        "source_type": "owner_authored",
+        "reference": "queues/situational-prompts/revisions/SIT-REV-0007-03.json",
+        "notes": "Verbatim text preserved from uploaded items3.json, entry 7; SHA-256 312c16bd9300004993c9ae08a2410f970dd65a290e72c208932aaae19837b558. Distinct published generation; originals remain unchanged."
       },
       "governance": {
         "created_on": "2026-10-24",
@@ -17774,6 +18217,70 @@
         "source_type": "owner_authored",
         "reference": "queues/situational-prompts/revisions/SIT-REV-0008-02.json",
         "notes": "Verbatim text preserved from uploaded items2.json, entry 8; SHA-256 5ff034cc8e28e7619e930217cc22f865fd5fddf999b9ec5f331123d0e6166782. Distinct published generation; original 1.0.0 unchanged."
+      },
+      "governance": {
+        "created_on": "2026-10-24",
+        "updated_on": "2026-10-24",
+        "review_status": "approved"
+      }
+    },
+    {
+      "id": "SIT-0008",
+      "kind": "situational_prompt",
+      "version": "3.0.0",
+      "status": "published",
+      "summary": "Restore context and accountability before sustained development.",
+      "text": "The previous chat reached its limit. Rebuild project context and established rules from repository evidence, then briefly audit actual progress against previous claims. Preserve the original scope and correct unsupported percentages. Continue sustained autonomous execution across as many unfinished roadmap tasks as possible, implementing, verifying, and committing repeatedly. Do not stop after context recovery, an isolated blocker, or a single deliverable. Return only when productive execution is exhausted or the session limit is reached, reporting verified overall completion percentage, change, and evidence.",
+      "situation": {
+        "code": "context_recovery_and_audit",
+        "trigger": "A prior conversation reached its limit and the user wants the successor to retain accountability and scope.",
+        "purpose": "Combine successor-chat recovery with scope and evidence reminders before sustained continuation."
+      },
+      "intent": {
+        "operation": "recover_context",
+        "outcome": "Restore context and accountability before sustained development."
+      },
+      "applicability": {
+        "appropriate_when": [
+          "A project is continuing in a new conversation",
+          "History recovery and progress credibility are both relevant"
+        ],
+        "not_appropriate_when": [
+          "The user only asks for a diagnostic snapshot",
+          "The prior project or its scope cannot be established"
+        ],
+        "preconditions": [
+          "Rebuild from available evidence; do not treat missing context as verified"
+        ]
+      },
+      "execution": {
+        "mode": "sustained_execution",
+        "objective": "Combine successor-chat recovery with scope and evidence reminders before sustained continuation.",
+        "handoff": "after_available_work",
+        "progress_evidence": true
+      },
+      "failure_modes": {
+        "guards_against": [
+          "Context loss",
+          "Unsupported progress claims",
+          "Scope drift",
+          "Redundant replanning"
+        ],
+        "tradeoffs": [
+          "Do not overinvest in process checks at the expense of useful authorized work"
+        ]
+      },
+      "interaction": {
+        "invocation": "explicit_only",
+        "target": "chatgpt"
+      },
+      "relations": {
+        "related_prompt_ids": []
+      },
+      "provenance": {
+        "source_type": "owner_authored",
+        "reference": "queues/situational-prompts/revisions/SIT-REV-0008-03.json",
+        "notes": "Verbatim text preserved from uploaded items3.json, entry 8; SHA-256 4c7050623902d2010879a89c8c008391d808cec04c60055192355da1f14ed0c9. Distinct published generation; originals remain unchanged."
       },
       "governance": {
         "created_on": "2026-10-24",
