@@ -18,14 +18,20 @@ const NomosRuleConcepts=(()=>{
       return {rule,analysis,source};
     });
   }
-  function search(list,{text='',situation='',intent='',status=''}={}){
+  function search(list,{text='',situation='',intent='',status=''}={},lookup){
     const query=text.trim().toLowerCase();
     return list.filter(item=>{
       const rule=item.rule,a=item.analysis;
       if(status&&rule.status!==status)return false;
       if(situation&&!a.situation_ids.includes(situation))return false;
       if(intent&&!a.intent_ids.includes(intent))return false;
-      return [rule.id,rule.title,rule.statement,...rule.categories.topics].join(' ').toLowerCase().includes(query);
+      const concepts=lookup?[
+        ...a.situation_ids.map(id=>lookup.situations.get(id)),
+        ...a.intent_ids.map(id=>lookup.intents.get(id))
+      ].filter(Boolean):[];
+      const terms=[rule.id,rule.title,rule.statement,...rule.categories.topics,
+                   ...concepts.flatMap(c=>[c.id,c.code,c.definition,c.semantic_role||'',c.atomicity||''])];
+      return terms.join(' ').toLowerCase().includes(query);
     });
   }
   const node=(tag,className='',value)=>{
@@ -42,7 +48,14 @@ const NomosRuleConcepts=(()=>{
       const section=node('section'),heading=node('h4','',name),list=node('ul');
       for(const id of ids){
         const concept=byId.get(id),li=node('li','',concept?label(concept.code):id);
-        li.title=id+(concept?': '+concept.definition:'');
+        const relation=(name==='Situations'?source.situations:source.intents).find(x=>x.id===id);
+        const meta=name==='Situations'
+          ? (relation?.basis==='context_inferred_from_scope_and_predicate'
+              ? 'Inferred context' : 'Source context + interpretation')
+          : (label(concept?.semantic_role||'unclassified')+' · '+
+             (concept?.atomicity==='single_intent_candidate'?'Atomic candidate':'Composite / compound'));
+        li.append(node('small','study-concept-meta',meta));
+        li.title=id+(concept?': '+concept.definition:'')+'; '+meta;
         list.append(li);
       }
       section.append(heading,list);labels.append(section);
@@ -61,6 +74,10 @@ const NomosRuleConcepts=(()=>{
     link.href='https://github.com/sguzman/nomos/blob/main/rules/'+rule.id+'.json';
     link.rel='noopener noreferrer';
     details.append(link);
+    const evidenceLink=node('a','','View reviewed relationship evidence JSON');
+    evidenceLink.href='https://github.com/sguzman/nomos/blob/main/ontology/rule-links/'+source.id+'.json';
+    evidenceLink.rel='noopener noreferrer';
+    details.append(evidenceLink);
     entry.append(details);return entry;
   }
   function fillSelect(select,concepts){
@@ -92,7 +109,7 @@ const NomosRuleConcepts=(()=>{
         const filtered=search(data,{text:document.getElementById('study-search').value,
           situation:document.getElementById('study-situation').value,
           intent:document.getElementById('study-intent').value,
-          status:document.getElementById('study-status').value});
+          status:document.getElementById('study-status').value},lookup);
         document.getElementById('study-results').replaceChildren(...filtered.map(x=>card(x,lookup)));
         count.textContent=filtered.length+' of '+data.length+' analyzed rules';
         document.getElementById('study-empty').hidden=filtered.length>0;

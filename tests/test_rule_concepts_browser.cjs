@@ -17,6 +17,9 @@ test('all rules have coherent situation and intent links',()=>{
   assert.equal(browser.search(list,{situation:'SITU-0045'}).some(x=>x.rule.id==='NOM-0137'),true);
   assert.equal(browser.search(list,{intent:'INTENT-0063'}).some(x=>x.rule.id==='NOM-0137'),true);
   assert.equal(browser.search(list,{text:'NOM-0114'}).length,1);
+  assert.equal(browser.search(list,{text:'comparative_progress_round'},lookup).some(x=>x.rule.id==='NOM-0137'),true);
+  assert.equal(browser.search(list,{text:'evidence_based_interval_progress'},lookup).some(x=>x.rule.id==='NOM-0137'),true);
+  assert.equal(lookup.intents.get('INTENT-0063').atomicity,'single_intent_candidate');
 });
 
 test('read-only UI exposes full source context and never applies a rule',async()=>{
@@ -42,6 +45,11 @@ test('read-only UI exposes full source context and never applies a rule',async()
   assert.equal(get('study-results').children.length,137);
   const first=get('study-results').children[0];
   assert.ok(first.children.some(n=>n.tag==='details'));
+  const details=first.children.find(n=>n.tag==='details');
+  assert.ok(details.children.some(n=>n.tag==='a'&&n.href.includes('/ontology/rule-links/RLINK-0001.json')));
+  const labels=first.children.find(n=>n.tag==='div');
+  assert.ok(labels.children[0].children[1].children[0].children.some(n=>n.tag==='small'&&n.textContent.includes('context')));
+  assert.ok(labels.children[1].children[1].children[0].children.some(n=>n.tag==='small'&&n.textContent.includes('candidate')));
   get('study-situation').value='SITU-0045';
   get('study-situation').listeners.change();
   assert.equal(get('study-results').children.some(x=>x.children.some(c=>c.textContent?.includes('NOM-0137'))),true);
