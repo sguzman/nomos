@@ -114,3 +114,7 @@ Each of these 22 original queue records is retained for historical provenance an
 ## Completed SPEC-0141 comparative visual progress reporting (2026-10-24)
 
 Explicit authorization processed `SPEC-0141` into independently published `NOM-0137`, with separate `processing/specimens/candidates/NOM-0137.json` and `processing/specimens/PROC-SPEC-0141.json` records. `NOM-0137` refines the established numerical visual-bar and overall progress rules without replacing them. It requires verified previous and current percentages plus their signed interval change in percentage points. Zero, negative, unknown and non-comparable measurements are all handled explicitly. No optional profile was modified or selected, and no rule was automatically applied. The website catalog build and CI validate the newly published rule.
+
+## Authorized rule semantic analysis (2026-10-24)
+
+The owner expressly authorized processing all 137 pinned rule-analysis queue entries. Each RIA source has a closed processing trace and reviewed situation/intent evidence mapping. Historical false authorization flags describe the original intake time; later authorization appears in the distinct processing record. Original rules and profiles remain unchanged; publication of relationships never activates work.

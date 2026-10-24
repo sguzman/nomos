@@ -48,7 +48,7 @@ For detailed governance and lifecycle information, consult [ONTOLOGY.md](../ONTO
 
 ## Formal situational ontology
 
-The [ontology explorer](situational-ontology.html) displays 49 independently published concepts: eight situations, nineteen role-classified intents, eight reusable compositions, seven execution conditions, and seven evaluation dimensions. The [prompt version browser](situational-prompts.html) keeps eight compact family cards, allowing explicit v1/v2/v3 selection and copying for each family. Published family mappings describe *intended behavior*, not observed effectiveness; the evaluation registry remains empty until evidence is supplied.
+The [ontology explorer](situational-ontology.html) displays 142 independently published concepts: forty-eight situations, seventy-two role-classified intents, eight reusable compositions, seven execution conditions, and seven evaluation dimensions. The [prompt version browser](situational-prompts.html) keeps eight compact family cards, allowing explicit v1/v2/v3 selection and copying for each family. Published family mappings describe *intended behavior*, not observed effectiveness; the evaluation registry remains empty until evidence is supplied.
 
 ## Comparative progress reporting
 

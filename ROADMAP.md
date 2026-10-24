@@ -69,3 +69,11 @@ Engineering processing and website publication are complete. Empirical prompt ef
 - [x] Normalize the separately authorized progress-bar comparison specimen into independent `NOM-0137`
 - [x] Document and test comparable previous/current percentages, signed interval change, and unknown baselines
 - [x] Publish via the established catalog without silently selecting the rule in any profile
+
+## Completed semantic analysis of all 137 rules (2026-10-24)
+
+- [x] Process all 137 queue entries and retain independently linked traces
+- [x] Publish 40 additional situation objects and 53 additional intent objects
+- [x] Link all 137 rules to relevant source-grounded concepts, preserving source conditions and status
+- [x] Build searchable situation/intent browsing and provenance checks
+- [x] Preserve canonical normative rules, profiles, and source snapshot identifiers

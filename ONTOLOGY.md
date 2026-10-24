@@ -154,3 +154,7 @@ Reviewed relationships and inferential candidate edges continue to be maintained
 ## Reviewed Tarium relationship dispositions (2026-10-22)
 
 Five heuristic candidate edges concerning private/public separation, clean externalization, publication inspection, public dependencies and membership state have been examined and classified as **complements**. The reasons, former candidate labels, and distinct authorization boundaries are documented in [relationships/REVIEW-2026-10-22.md](relationships/REVIEW-2026-10-22.md). The canonical review results remain machine-readable in [relationships/reviewed.json](relationships/reviewed.json). A reviewed edge suppresses the duplicate heuristic candidate for its pair without altering the rule text or authority. No profile or membership operation was performed.
+
+## Completed rule semantic crosswalk
+
+The 137 source rules are linked through `ontology/rule-links/RLINK-*.json`, with one independently reviewed `PROC-RIA-*` processing trace each. Forty new situations and fifty-three intent concepts bring the total to 48 situations and 72 intents. Relevant situations do not narrow original normative applicability; intended outcomes are not new obligations. The source `NOM-0002` remains draft. Browse relationships in [rule concepts](https://sguzman.github.io/nomos/rule-concepts.html).
