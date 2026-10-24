@@ -49,3 +49,7 @@ For detailed governance and lifecycle information, consult [ONTOLOGY.md](../ONTO
 ## Formal situational ontology
 
 The [ontology explorer](situational-ontology.html) displays 49 independently published concepts: eight situations, nineteen role-classified intents, eight reusable compositions, seven execution conditions, and seven evaluation dimensions. The [prompt version browser](situational-prompts.html) keeps eight compact family cards, allowing explicit v1/v2/v3 selection and copying for each family. Published family mappings describe *intended behavior*, not observed effectiveness; the evaluation registry remains empty until evidence is supplied.
+
+## Comparative progress reporting
+
+[Rule NOM-0137](../rules/NOM-0137.json) adds the previous verified percentage, current verified percentage, and signed percentage-point change for each applicable visual completion bar. Values must use a comparable acceptance-criteria basis; unknown or revised denominators cannot become fabricated progress claims. This is a standalone opt-in catalog rule, not an automatic chat instruction.

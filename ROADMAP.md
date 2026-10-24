@@ -63,3 +63,9 @@ Publication of the original eight prompts is complete. Runtime invocation remain
 - [x] Preserve v1.0.0 as the non-upgrading default for every prompt family
 
 Engineering processing and website publication are complete. Empirical prompt effectiveness is **unmeasured**, not silently marked successful.
+
+## SPEC-0141 comparative visual progress rule
+
+- [x] Normalize the separately authorized progress-bar comparison specimen into independent `NOM-0137`
+- [x] Document and test comparable previous/current percentages, signed interval change, and unknown baselines
+- [x] Publish via the established catalog without silently selecting the rule in any profile

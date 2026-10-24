@@ -14,9 +14,9 @@ class SiteCatalogTests(unittest.TestCase):
 
     def test_distinct_public_entries(self):
         rules = self.data["rules"]
-        self.assertEqual(len(rules), 136)
+        self.assertEqual(len(rules), 137)
         self.assertEqual({r["id"] for r in rules},
-                         {"NOM-" + str(i).zfill(4) for i in range(1, 137)})
+                         {"NOM-" + str(i).zfill(4) for i in range(1, 138)})
 
     def test_candidates_cannot_be_mislabeled_published(self):
         candidates = [r for r in self.data["rules"] if r["registry"] == "candidate"]
@@ -25,7 +25,7 @@ class SiteCatalogTests(unittest.TestCase):
 
     def test_existing_catalog_keeps_original_statuses(self):
         catalog = [r for r in self.data["rules"] if r["registry"] == "catalog"]
-        self.assertEqual(len(catalog), 136)
+        self.assertEqual(len(catalog), 137)
         self.assertEqual({(r["id"], r["status"]) for r in catalog if r["id"] in {"NOM-0001", "NOM-0002"}},
                          {("NOM-0001", "published"), ("NOM-0002", "draft")})
 

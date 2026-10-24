@@ -19,11 +19,16 @@ class ProcessingTraceTests(unittest.TestCase):
             with self.subTest(specimen=original["id"]):
                 number=int(original["id"].split("-")[1])
                 if number == 141:
-                    self.assertEqual(original["status"], "proposed")
-                    self.assertFalse(original["intake"]["processing_authorized"])
-                    self.assertEqual(original["next_state"], "await_authorized_specimen_processing")
+                    self.assertEqual(original["status"], "processed")
+                    self.assertTrue(original["intake"]["processing_authorized"])
+                    self.assertEqual(original["next_state"], "processed_specimen_retained_as_intake_record")
                     self.assertEqual(original["scope_hints"]["topic"], "visual_progress_before_after_interval_delta")
-                    self.assertFalse((ROOT / "processing/specimens/PROC-SPEC-0141.json").exists())
+                    self.assertEqual(original["processing"]["record"], "processing/specimens/PROC-SPEC-0141.json")
+                    processing = read(original["processing"]["record"])
+                    self.assertEqual(processing["status"], "closed")
+                    self.assertEqual(processing["normalization"]["canonical_rule_id"], "NOM-0137")
+                    self.assertEqual(read("rules/NOM-0137.json")["status"], "published")
+                    self.assertEqual(read("processing/specimens/candidates/NOM-0137.json")["status"], "draft")
                     continue
                 if 133 <= number <= 140:
                     self.assertEqual(original["status"], "processed")
