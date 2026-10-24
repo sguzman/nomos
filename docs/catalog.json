@@ -13594,6 +13594,1013 @@
         ]
       },
       "registry": "catalog"
+    },
+    {
+      "id": "NOM-0129",
+      "version": "1.0.0",
+      "title": "Record the authoritative upstream source and synchronization baseline",
+      "summary": "For an authorized Rust fork maintenance task, identify the intended upstream repository and remote, the branch or release being followed, and the last verified upstream commit incorporated into the fork. Do not infer upstream identity from similarly named remotes or unrelated repositories.",
+      "statement": "For an authorized Rust fork maintenance task, identify the intended upstream repository and remote, the branch or release being followed, and the last verified upstream commit incorporated into the fork. Do not infer upstream identity from similarly named remotes or unrelated repositories.",
+      "rationale": "Independent normalization of SPEC-0133. Record exact repository, branch/tag and verified revision for every tracked upstream line. Existing overlapping general rules remain independently selectable.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "record",
+          "object": "upstream_identity_and_base_revision",
+          "target": "rust_fork_maintenance_preflight"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "During an authorized Rust fork baseline review."
+        ],
+        "exceptions": [
+          "Recording upstream refs does not permit merges or other repository operations."
+        ],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
+      },
+      "categories": {
+        "domains": [
+          "git_repository",
+          "maintenance"
+        ],
+        "topics": [
+          "rust_fork_upstream_provenance"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "project_types": [
+          "rust_fork_maintenance"
+        ],
+        "preconditions": [
+          "During an authorized Rust fork baseline review."
+        ],
+        "exclusions": [
+          "Recording upstream refs does not permit merges or other repository operations."
+        ]
+      },
+      "authority": {
+        "source": "Explicitly reviewed public-safe specimen normalization; opt-in guidance",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": [
+          "NOM-0014",
+          "NOM-0022"
+        ]
+      },
+      "provenance": {
+        "source_type": "public_document",
+        "reference": "SPEC-0133; processing/specimens/PROC-SPEC-0133.json",
+        "license": "MIT",
+        "notes": "Only generalized public-safe text retained; publication does not authorize external actions."
+      },
+      "governance": {
+        "created_on": "2026-10-22",
+        "updated_on": "2026-10-22",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "semantic": {
+        "concept": "rust_fork_upstream_provenance",
+        "aliases": []
+      },
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0130",
+      "version": "1.0.0",
+      "title": "Inspect upstream divergence before selecting incoming changes",
+      "summary": "Before an authorized synchronization of a Rust fork, fetch the intended upstream references and compare the fork's actual upstream ancestry and incoming commits or tags. Review the change scope and proposed integration strategy before modifying maintained branches.",
+      "statement": "Before an authorized synchronization of a Rust fork, fetch the intended upstream references and compare the fork's actual upstream ancestry and incoming commits or tags. Review the change scope and proposed integration strategy before modifying maintained branches.",
+      "rationale": "Independent normalization of SPEC-0134. Review incoming commits and ancestry before choosing any integration strategy. Existing overlapping general rules remain independently selectable.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "inspect",
+          "object": "upstream_divergence_and_integration_plan",
+          "target": "rust_fork_sync_operation"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "Before changes from a verified upstream are integrated."
+        ],
+        "exceptions": [
+          "Fetch and compare first; merge/rebase/cherry-pick or releases require separately authorized scope."
+        ],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
+      },
+      "categories": {
+        "domains": [
+          "git_repository",
+          "maintenance"
+        ],
+        "topics": [
+          "rust_fork_upstream_change_discovery"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "project_types": [
+          "rust_fork_maintenance"
+        ],
+        "preconditions": [
+          "Before changes from a verified upstream are integrated."
+        ],
+        "exclusions": [
+          "Fetch and compare first; merge/rebase/cherry-pick or releases require separately authorized scope."
+        ]
+      },
+      "authority": {
+        "source": "Explicitly reviewed public-safe specimen normalization; opt-in guidance",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": [
+          "NOM-0129"
+        ]
+      },
+      "provenance": {
+        "source_type": "public_document",
+        "reference": "SPEC-0134; processing/specimens/PROC-SPEC-0134.json",
+        "license": "MIT",
+        "notes": "Only generalized public-safe text retained; publication does not authorize external actions."
+      },
+      "governance": {
+        "created_on": "2026-10-22",
+        "updated_on": "2026-10-22",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "semantic": {
+        "concept": "rust_fork_upstream_change_discovery",
+        "aliases": []
+      },
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0131",
+      "version": "1.0.0",
+      "title": "Maintain provenance and disposition for fork-specific patches",
+      "summary": "Maintain a reviewable ledger linking independently maintained fork patches to their originating change, purpose, upstream issue or commit when known, and current status such as pending, upstreamed, superseded or deliberately retained; update it when patches are changed, rebased or retired.",
+      "statement": "Maintain a reviewable ledger linking independently maintained fork patches to their originating change, purpose, upstream issue or commit when known, and current status such as pending, upstreamed, superseded or deliberately retained; update it when patches are changed, rebased or retired.",
+      "rationale": "Independent normalization of SPEC-0135. Track purpose, origin, upstreaming state, retained changes and patch disposition. Existing overlapping general rules remain independently selectable.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "maintain",
+          "object": "fork_patch_lineage_and_dispositions",
+          "target": "rust_fork_patch_ledger"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When a Rust fork retains independently maintained patches."
+        ],
+        "exceptions": [
+          "The reviewable ledger can live in files, commit notes or issue metadata; no single file format is mandatory."
+        ],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
+      },
+      "categories": {
+        "domains": [
+          "git_repository",
+          "maintenance"
+        ],
+        "topics": [
+          "rust_fork_patch_provenance"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "project_types": [
+          "rust_fork_maintenance"
+        ],
+        "preconditions": [
+          "When a Rust fork retains independently maintained patches."
+        ],
+        "exclusions": [
+          "The reviewable ledger can live in files, commit notes or issue metadata; no single file format is mandatory."
+        ]
+      },
+      "authority": {
+        "source": "Explicitly reviewed public-safe specimen normalization; opt-in guidance",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": [
+          "NOM-0129"
+        ]
+      },
+      "provenance": {
+        "source_type": "public_document",
+        "reference": "SPEC-0135; processing/specimens/PROC-SPEC-0135.json",
+        "license": "MIT",
+        "notes": "Only generalized public-safe text retained; publication does not authorize external actions."
+      },
+      "governance": {
+        "created_on": "2026-10-22",
+        "updated_on": "2026-10-22",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "semantic": {
+        "concept": "rust_fork_patch_provenance",
+        "aliases": []
+      },
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0132",
+      "version": "1.0.0",
+      "title": "Resolve upstream integration conflicts without silently losing fork changes",
+      "summary": "When an authorized fork integration produces competing edits, identify the affected fork-specific patches and upstream changes, choose an explicit resolution supported by the approved task, and verify that intended behavior is preserved; never treat an automatic merge or rebase result as authorization to discard a local customization.",
+      "statement": "When an authorized fork integration produces competing edits, identify the affected fork-specific patches and upstream changes, choose an explicit resolution supported by the approved task, and verify that intended behavior is preserved; never treat an automatic merge or rebase result as authorization to discard a local customization.",
+      "rationale": "Independent normalization of SPEC-0136. Record consequential resolutions and check semantic conflicts even without textual merge markers. Existing overlapping general rules remain independently selectable.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "reconcile",
+          "object": "upstream_and_fork_patch_conflicts",
+          "target": "authorized_rust_fork_integration"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When authorized upstream integration affects local behavior or patches."
+        ],
+        "exceptions": [
+          "Behavioral changes and unresolved conflicts must be surfaced; do not invent authorization to discard customizations."
+        ],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
+      },
+      "categories": {
+        "domains": [
+          "git_repository",
+          "software_development"
+        ],
+        "topics": [
+          "rust_fork_conflict_reconciliation"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "project_types": [
+          "rust_fork_maintenance"
+        ],
+        "preconditions": [
+          "When authorized upstream integration affects local behavior or patches."
+        ],
+        "exclusions": [
+          "Behavioral changes and unresolved conflicts must be surfaced; do not invent authorization to discard customizations."
+        ]
+      },
+      "authority": {
+        "source": "Explicitly reviewed public-safe specimen normalization; opt-in guidance",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": [
+          "NOM-0130",
+          "NOM-0131"
+        ]
+      },
+      "provenance": {
+        "source_type": "public_document",
+        "reference": "SPEC-0136; processing/specimens/PROC-SPEC-0136.json",
+        "license": "MIT",
+        "notes": "Only generalized public-safe text retained; publication does not authorize external actions."
+      },
+      "governance": {
+        "created_on": "2026-10-22",
+        "updated_on": "2026-10-22",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "semantic": {
+        "concept": "rust_fork_conflict_reconciliation",
+        "aliases": []
+      },
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0133",
+      "version": "1.0.0",
+      "title": "Verify affected fork behavior after upstream integration",
+      "summary": "After integrating authorized upstream changes into a Rust fork, run appropriate tests and focused compatibility or regression checks against the fork's promised interfaces, supported platforms and preserved customizations, and record any unresolved failures before describing the integration as complete.",
+      "statement": "After integrating authorized upstream changes into a Rust fork, run appropriate tests and focused compatibility or regression checks against the fork's promised interfaces, supported platforms and preserved customizations, and record any unresolved failures before describing the integration as complete.",
+      "rationale": "Independent normalization of SPEC-0137. Verify fork customizations, affected public contracts and supported targets. Existing overlapping general rules remain independently selectable.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "verify",
+          "object": "post_integration_fork_behavior",
+          "target": "rust_fork_sync_acceptance"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "After authorized upstream integration into an existing Rust fork."
+        ],
+        "exceptions": [
+          "Use affected-behavior checks with the fork's established compatibility promises; untestable paths remain disclosed."
+        ],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
+      },
+      "categories": {
+        "domains": [
+          "qa_verification",
+          "software_testing"
+        ],
+        "topics": [
+          "rust_fork_post_sync_verification"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "project_types": [
+          "rust_fork_maintenance"
+        ],
+        "preconditions": [
+          "After authorized upstream integration into an existing Rust fork."
+        ],
+        "exclusions": [
+          "Use affected-behavior checks with the fork's established compatibility promises; untestable paths remain disclosed."
+        ]
+      },
+      "authority": {
+        "source": "Explicitly reviewed public-safe specimen normalization; opt-in guidance",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": [
+          "NOM-0132"
+        ]
+      },
+      "provenance": {
+        "source_type": "public_document",
+        "reference": "SPEC-0137; processing/specimens/PROC-SPEC-0137.json",
+        "license": "MIT",
+        "notes": "Only generalized public-safe text retained; publication does not authorize external actions."
+      },
+      "governance": {
+        "created_on": "2026-10-22",
+        "updated_on": "2026-10-22",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "semantic": {
+        "concept": "rust_fork_post_sync_verification",
+        "aliases": []
+      },
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0134",
+      "version": "1.0.0",
+      "title": "Select upstream fixes and features within authorized fork maintenance scope",
+      "summary": "Classify upstream changes as security or correctness fixes, compatibility changes, maintenance improvements or optional features, and incorporate only those permitted by the fork's approved scope and supported versions. Do not equate 'new upstream version available' with blanket authorization to import all upstream behavior or release it.",
+      "statement": "Classify upstream changes as security or correctness fixes, compatibility changes, maintenance improvements or optional features, and incorporate only those permitted by the fork's approved scope and supported versions. Do not equate 'new upstream version available' with blanket authorization to import all upstream behavior or release it.",
+      "rationale": "Independent normalization of SPEC-0138. Classify fixes versus optional features and respect the approved maintenance scope. Existing overlapping general rules remain independently selectable.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "select",
+          "object": "authorized_upstream_change_set",
+          "target": "rust_fork_maintenance_scope"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When deciding which upstream changes to include in a maintained fork."
+        ],
+        "exceptions": [
+          "The availability of an upstream release does not authorize importing everything; compatibility exceptions require approval."
+        ],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
+      },
+      "categories": {
+        "domains": [
+          "maintenance",
+          "git_repository"
+        ],
+        "topics": [
+          "rust_fork_selective_upstream_adoption"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "project_types": [
+          "rust_fork_maintenance"
+        ],
+        "preconditions": [
+          "When deciding which upstream changes to include in a maintained fork."
+        ],
+        "exclusions": [
+          "The availability of an upstream release does not authorize importing everything; compatibility exceptions require approval."
+        ]
+      },
+      "authority": {
+        "source": "Explicitly reviewed public-safe specimen normalization; opt-in guidance",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [],
+        "depends_on": [
+          "NOM-0130"
+        ]
+      },
+      "provenance": {
+        "source_type": "public_document",
+        "reference": "SPEC-0138; processing/specimens/PROC-SPEC-0138.json",
+        "license": "MIT",
+        "notes": "Only generalized public-safe text retained; publication does not authorize external actions."
+      },
+      "governance": {
+        "created_on": "2026-10-22",
+        "updated_on": "2026-10-22",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "semantic": {
+        "concept": "rust_fork_selective_upstream_adoption",
+        "aliases": []
+      },
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0135",
+      "version": "1.0.0",
+      "title": "End completed-work reports with explicit user action requirements",
+      "summary": "When reporting a completed work session or development deliverable, end the summary with a clearly separated user-action section. State each approval, decision, choice or input genuinely needed to proceed, identifying what it unblocks. If no user action is necessary, explicitly state that nothing is required. Keep optional follow-up suggestions distinct from mandatory action, and do not imply that automatic work authorization follows from reporting a possible next step.",
+      "statement": "When reporting a completed work session or development deliverable, end the summary with a clearly separated user-action section. State each approval, decision, choice or input genuinely needed to proceed, identifying what it unblocks. If no user action is necessary, explicitly state that nothing is required. Keep optional follow-up suggestions distinct from mandatory action, and do not imply that automatic work authorization follows from reporting a possible next step.",
+      "rationale": "Independent normalization of SPEC-0139. End completed-work reports with an explicit required-user-action section, or state none. Existing overlapping general rules remain independently selectable.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "conclude_with",
+          "object": "explicit_required_user_action_or_none",
+          "target": "completed_work_summary"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When reporting a completed development work session or deliverable."
+        ],
+        "exceptions": [
+          "Not required for casual answers; never invent mandatory approvals or conflate optional follow-ups with blockers."
+        ],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
+      },
+      "categories": {
+        "domains": [
+          "project_management",
+          "agent_instructions"
+        ],
+        "topics": [
+          "end_of_work_action_requirement_reporting"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "project_types": [
+          "project"
+        ],
+        "preconditions": [
+          "When reporting a completed development work session or deliverable."
+        ],
+        "exclusions": [
+          "Not required for casual answers; never invent mandatory approvals or conflate optional follow-ups with blockers."
+        ]
+      },
+      "authority": {
+        "source": "Explicitly reviewed public-safe specimen normalization; opt-in guidance",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [
+          "NOM-0066",
+          "NOM-0067"
+        ],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0139; processing/specimens/PROC-SPEC-0139.json",
+        "license": "MIT",
+        "notes": "Only generalized public-safe text retained; publication does not authorize external actions."
+      },
+      "governance": {
+        "created_on": "2026-10-22",
+        "updated_on": "2026-10-22",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "semantic": {
+        "concept": "end_of_work_action_requirement_reporting",
+        "aliases": []
+      },
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0136",
+      "version": "1.0.0",
+      "title": "Keep repository READMEs approachable and separate from change histories",
+      "summary": "Write a repository README as a professional, welcoming orientation for new visitors: briefly explain what the project is, its value, how to get started, and links to relevant resources. Do not use it as an accumulating changelog, internal progress log, or dump of implementation details. Put extensive explanations, designs, technical references, and long-form guides under docs/; where a chronological change history is useful, maintain a separate changelog file such as CHANGELOG.md and link to it. Brief release highlights in a README are permissible when helpful.",
+      "statement": "Write a repository README as a professional, welcoming orientation for new visitors: briefly explain what the project is, its value, how to get started, and links to relevant resources. Do not use it as an accumulating changelog, internal progress log, or dump of implementation details. Put extensive explanations, designs, technical references, and long-form guides under docs/; where a chronological change history is useful, maintain a separate changelog file such as CHANGELOG.md and link to it. Brief release highlights in a README are permissible when helpful.",
+      "rationale": "Independent normalization of SPEC-0140. Keep README welcoming and concise; send detailed material to docs/ and change history to separate changelog. Existing overlapping general rules remain independently selectable.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "maintain",
+          "object": "concise_visitor_friendly_readme_with_linked_detailed_docs",
+          "target": "public_repository_readme"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "When preparing a public-facing repository README."
+        ],
+        "exceptions": [
+          "Short release highlights are permitted; a separate changelog is needed only when chronological history is maintained."
+        ],
+        "bounds": {
+          "quantifier": "unspecified",
+          "interpretation": "unspecified",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "unspecified",
+          "window": null,
+          "cue": null,
+          "basis": "unresolved"
+        }
+      },
+      "categories": {
+        "domains": [
+          "documentation",
+          "publication"
+        ],
+        "topics": [
+          "readme_public_orientation_and_documentation_separation"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "public"
+          ],
+          "artifact_kind": [
+            "repository_content"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "project_types": [
+          "project"
+        ],
+        "preconditions": [
+          "When preparing a public-facing repository README."
+        ],
+        "exclusions": [
+          "Short release highlights are permitted; a separate changelog is needed only when chronological history is maintained."
+        ]
+      },
+      "authority": {
+        "source": "Explicitly reviewed public-safe specimen normalization; opt-in guidance",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [
+          "NOM-0042",
+          "NOM-0047",
+          "NOM-0048"
+        ],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0140; processing/specimens/PROC-SPEC-0140.json",
+        "license": "MIT",
+        "notes": "Only generalized public-safe text retained; publication does not authorize external actions."
+      },
+      "governance": {
+        "created_on": "2026-10-22",
+        "updated_on": "2026-10-22",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "semantic": {
+        "concept": "readme_public_orientation_and_documentation_separation",
+        "aliases": []
+      },
+      "registry": "catalog"
+    },
+    {
+      "id": "NOM-0137",
+      "version": "1.0.0",
+      "title": "Show previous, current, and per-round change beside visual progress bars",
+      "summary": "Alongside a measurable visual completion bar, report the comparable previous and current percentages and their signed percentage-point change for this round; disclose unknown or incomparable baselines without guessing.",
+      "statement": "For each actively reported project or unfinished roadmap item whose completion is measurable, display the previous verified completion percentage, the current verified completion percentage beside its visual progress bar, and the signed percentage-point change during this reporting round (current minus previous). Compare the same item, scope, and acceptance-criteria denominator; otherwise explain that the estimates are not directly comparable instead of inventing a change. Show +0 pp when no verified change occurred and a negative pp when a verified correction decreases the estimate. If the previous or current percentage cannot be supported, mark it unknown and omit any unjustified numeric change or visual fill. Base reported gains on verified deliverables, not activity or repeated status messages.",
+      "rationale": "A distinct, evidence-backed comparison requirement that refines NOM-0069 visual reporting and NOM-0070 overall progress. Neither already requires the previous percentage or per-round percentage-point delta. It does not displace completion, verification or finished-item suppression rules.",
+      "language": "en",
+      "status": "published",
+      "norm": {
+        "kind": "obligation",
+        "predicate": {
+          "action": "report_with",
+          "object": "verified_previous_current_and_round_percentage_point_delta",
+          "target": "visual_project_progress_report"
+        },
+        "permission_strength": "not_applicable",
+        "conditions": [
+          "Reporting measurable completion for an active project or unfinished roadmap item, including overall progress when shown.",
+          "Numerical interval delta is reported only when current and previous estimates have a verified, comparable acceptance-criteria basis."
+        ],
+        "exceptions": [
+          "If previous or current percentages are unavailable, explicitly mark them unknown and omit unsupported numerical change or filled bars.",
+          "If scope or completion criteria changed, disclose non-comparability and do not compute a misleading delta.",
+          "Continue honoring the existing suppression of already-announced completed items in routine reports."
+        ],
+        "bounds": {
+          "quantifier": "all",
+          "interpretation": "universal",
+          "frequency": "unspecified",
+          "minimum": null,
+          "maximum": null,
+          "unit": "entities",
+          "window": null,
+          "cue": "For each actively reported measurable project or unfinished roadmap item",
+          "basis": "explicit_text"
+        }
+      },
+      "categories": {
+        "domains": [
+          "project_management",
+          "agent_instructions",
+          "user_interfaces"
+        ],
+        "topics": [
+          "progress_reporting",
+          "visual_progress_before_after_interval_delta"
+        ],
+        "audiences": [
+          "ai_agents",
+          "human_authors",
+          "automations"
+        ]
+      },
+      "scope": {
+        "axes": {
+          "channel": [
+            "any"
+          ],
+          "visibility": [
+            "any"
+          ],
+          "artifact_kind": [
+            "any"
+          ],
+          "actor": [
+            "any"
+          ]
+        },
+        "project_types": [
+          "project"
+        ],
+        "preconditions": [
+          "Reporting measurable completion for an active project or unfinished roadmap item, including overall progress when shown.",
+          "Numerical interval delta is reported only when current and previous estimates have a verified, comparable acceptance-criteria basis."
+        ],
+        "exclusions": [
+          "If previous or current percentages are unavailable, explicitly mark them unknown and omit unsupported numerical change or filled bars.",
+          "If scope or completion criteria changed, disclose non-comparability and do not compute a misleading delta.",
+          "Continue honoring the existing suppression of already-announced completed items in routine reports."
+        ]
+      },
+      "authority": {
+        "source": "Explicitly reviewed public-safe specimen normalization; opt-in guidance",
+        "tier": "general_guidance",
+        "priority": 0,
+        "override_policy": "explicit_resolution"
+      },
+      "relations": {
+        "conflicts_with": [],
+        "exceptions_to": [],
+        "refines": [
+          "NOM-0069",
+          "NOM-0070"
+        ],
+        "depends_on": []
+      },
+      "provenance": {
+        "source_type": "authored",
+        "reference": "SPEC-0141; processing/specimens/PROC-SPEC-0141.json",
+        "license": "MIT",
+        "notes": "Only generalized public-safe instruction retained; catalog publication never automatically applies it."
+      },
+      "governance": {
+        "created_on": "2026-10-24",
+        "updated_on": "2026-10-24",
+        "review_status": "approved"
+      },
+      "export_targets": [
+        "agents_md",
+        "chatgpt_custom_instructions",
+        "plain_text"
+      ],
+      "semantic": {
+        "concept": "visual_progress_before_after_interval_delta",
+        "aliases": [
+          "session_progress_percentage_point_change",
+          "comparative_visual_progress"
+        ]
+      },
+      "registry": "catalog"
     }
   ],
   "groups": [
