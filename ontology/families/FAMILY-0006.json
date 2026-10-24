@@ -1,0 +1,56 @@
+{
+  "id": "FAMILY-0006",
+  "kind": "intent_family",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "progress_audit",
+  "description": "Challenge unsupported progress claims and demand accountability.",
+  "canonical_prompt_id": "SIT-0006",
+  "situation_ids": [
+    "SITU-0006"
+  ],
+  "condition_ids": [],
+  "intent_ids": [
+    "INTENT-0003",
+    "INTENT-0007",
+    "INTENT-0009",
+    "INTENT-0010",
+    "INTENT-0014",
+    "INTENT-0015",
+    "INTENT-0016",
+    "INTENT-0019"
+  ],
+  "version_intent_ids": {
+    "1.0.0": [
+      "INTENT-0014",
+      "INTENT-0015"
+    ],
+    "2.0.0": [
+      "INTENT-0007",
+      "INTENT-0009",
+      "INTENT-0010",
+      "INTENT-0014",
+      "INTENT-0015"
+    ],
+    "3.0.0": [
+      "INTENT-0003",
+      "INTENT-0007",
+      "INTENT-0010",
+      "INTENT-0014",
+      "INTENT-0015",
+      "INTENT-0016",
+      "INTENT-0019"
+    ]
+  },
+  "versions": [
+    "1.0.0",
+    "2.0.0",
+    "3.0.0"
+  ],
+  "default_version": "1.0.0",
+  "interpretation_note": "Version-scoped intent links are reviewed semantic annotations, not appended instructions or measured effects.",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0003",
+    "source_candidate": "F0006"
+  }
+}

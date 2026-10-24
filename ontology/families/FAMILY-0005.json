@@ -1,0 +1,50 @@
+{
+  "id": "FAMILY-0005",
+  "kind": "intent_family",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "interruption_diagnosis",
+  "description": "Diagnose an interruption and state the verified project status without automatically continuing implementation.",
+  "canonical_prompt_id": "SIT-0005",
+  "situation_ids": [
+    "SITU-0004"
+  ],
+  "condition_ids": [],
+  "intent_ids": [
+    "INTENT-0007",
+    "INTENT-0008",
+    "INTENT-0009",
+    "INTENT-0016",
+    "INTENT-0019"
+  ],
+  "version_intent_ids": {
+    "1.0.0": [
+      "INTENT-0007",
+      "INTENT-0008"
+    ],
+    "2.0.0": [
+      "INTENT-0007",
+      "INTENT-0008",
+      "INTENT-0009",
+      "INTENT-0019"
+    ],
+    "3.0.0": [
+      "INTENT-0007",
+      "INTENT-0008",
+      "INTENT-0009",
+      "INTENT-0016",
+      "INTENT-0019"
+    ]
+  },
+  "versions": [
+    "1.0.0",
+    "2.0.0",
+    "3.0.0"
+  ],
+  "default_version": "1.0.0",
+  "interpretation_note": "Version-scoped intent links are reviewed semantic annotations, not appended instructions or measured effects.",
+  "provenance": {
+    "queue_id": "SITO-IDEA-0003",
+    "source_candidate": "F0005"
+  }
+}
