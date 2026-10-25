@@ -76,7 +76,7 @@ class SiteCatalogTests(unittest.TestCase):
         self.assertIn("cpp_to_rust_port",self.data["project_types"])
         self.assertIn("python_to_rust_port",self.data["project_types"])
         rules={r["id"]:r for r in self.data["rules"]}
-        self.assertEqual(len([r for r in rules.values() if r["scope"].get("project_types")==["tarium_project"]]),16)
+        self.assertEqual(len([r for r in rules.values() if r["scope"].get("project_types")==["tarium_project"]]),20)
         links=self.data["relationships"]
         self.assertTrue(any(x["status"]=="reviewed" and x["source"]=="NOM-0119" and x["target"]=="NOM-0006" for x in links))
         self.assertTrue(all(x["source"] in rules and x["target"] in rules for x in links))
