@@ -126,7 +126,7 @@ test('profile cards browse their exact member sets and clear the member filter',
   actions.children[0].listeners.click();
   assert.equal(app.get('filter-profile').value,'PROFILE-0001');
   assert.equal(app.get('filter-type').value,'rules');
-  assert.equal(app.get('catalog-list').children.length,41);
+  assert.equal(app.get('catalog-list').children.length,61);
   assert.match(app.get('active-member-filter').textContent,/C-to-Rust Strict Port/);
   assert.equal(vm.runInContext('state.selected.length',app.ctx),0);
   app.get('active-member-filter').listeners.click();
@@ -143,7 +143,7 @@ test('profile dropdown selects a profile and resets incompatible filters',()=>{
   app.get('filter-profile').listeners.change();
   assert.equal(app.get('filter-status').value,'all');
   assert.equal(app.get('filter-type').value,'rules');
-  assert.equal(app.get('catalog-list').children.length,93);
+  assert.equal(app.get('catalog-list').children.length,121);
   assert.equal(vm.runInContext('state.selected.length',app.ctx),0);
 });
 
