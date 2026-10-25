@@ -23,7 +23,8 @@ test('review artifacts do not change or finalize unconfirmed profile or ontology
  const profile=require('../profiles/PROFILE-0012.json');
  assert.equal(profile.status,'draft');assert.equal(profile.review.selection_confirmed,false);
  assert.equal(profile.review.finalization_confirmed,false);
- assert.equal(profile.selected_rule_ids.length,90);
+ assert.equal(a.reviewed_profile.selected_rule_count,90); // Historic review baseline
+ assert.equal(profile.selected_rule_ids.length,128); // Subsequently authorized remediation
  assert.equal(a.boundaries.no_new_rule_records,true);
  assert.equal(a.boundaries.no_new_formal_situations_or_intents,true);
  assert.equal(a.boundaries.no_profile_membership_changes,true);
