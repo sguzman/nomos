@@ -34,7 +34,7 @@ function check(){
      p.review.finalization_confirmed||change.added.some(x=>!p.selected_rule_ids.includes(x)))throw Error('Draft selected rule drift '+id);
   if(p.selected_rule_ids.some(x=>recent.has(x)&&((Number(x.slice(4))>=240)!==isTarium)))throw Error('Cross-family rule leakage '+id);
  }
- for(const name of fs.readdirSync(path.join(root,'profiles')).filter(x=>/^PROFILE-\d+\.json$/.test(x)&&!Object.keys(n).some(id=>name===id+'.json')))
+ for(const name of fs.readdirSync(path.join(root,'profiles')).filter(x=>/^PROFILE-\d+\.json$/.test(x)&&!Object.keys(n).some(id=>x===id+'.json')))
   if(read('profiles/'+name).selected_rule_ids.some(id=>recent.has(id)))throw Error('Unrelated profile edited '+name);
  const fullFork=read('profiles/PROFILE-0008.json'),fullTarium=read('profiles/PROFILE-0006.json');
  if(!m.fork_reuse.every(x=>fullFork.selected_rule_ids.includes(x))||
