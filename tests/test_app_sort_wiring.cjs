@@ -193,6 +193,6 @@ test('new provisional draft card shows selection-review state and browses the ex
   const actions=candidate.children.find(n=>n.className==='group-actions');
   assert.match(JSON.stringify(candidate,(k,v)=>['listeners','style'].includes(k)?undefined:v),/Selection not reviewed/);
   actions.children[0].listeners.click();
-  assert.equal(app.get('catalog-list').children.length,35);
+  assert.equal(app.get('catalog-list').children.length,45);
   assert.equal(vm.runInContext('state.selected.length',app.ctx),0);
 });
