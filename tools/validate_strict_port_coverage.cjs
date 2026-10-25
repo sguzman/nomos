@@ -4,7 +4,7 @@ const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypt
 const root=path.resolve(__dirname,'..');
 function check(rootDir=root){
  const read=f=>JSON.parse(fs.readFileSync(path.join(rootDir,f),'utf8'));
- const ppath='profiles/PROFILE-0012.json';
+ const ppath='profiles/history/2026-10-25-rule-first/PROFILE-0012.json';
  const raw=fs.readFileSync(path.join(rootDir,ppath),'utf8'),p=JSON.parse(raw);
  const file='audits/strict-port-coverage-2026-10-25.json',a=read(file);
  const gitsha=crypto.createHash('sha1').update('blob '+Buffer.byteLength(raw)+'\0'+raw).digest('hex');
