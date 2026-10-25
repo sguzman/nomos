@@ -164,7 +164,7 @@ test('project type selector filters the real catalog without altering rule selec
   app.get('filter-project').value='tarium_project';
   app.get('filter-project').listeners.change();
   assert.deepEqual(app.firstIds(2),['NOM-0006','NOM-0007']);
-  assert.equal(app.get('catalog-list').children.length,68); // NOM-0137 adds one applicable project rule
+  assert.equal(app.get('catalog-list').children.length,72); // includes four newly scoped Tarium rules
   assert.equal(vm.runInContext('state.selected.length',app.ctx),0);
   app.get('clear-filters').listeners.click();
   assert.equal(app.get('filter-project').value,'all');
