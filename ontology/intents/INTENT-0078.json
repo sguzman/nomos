@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0078",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "compatible_replacement_cutover",
+  "definition": "Verify supported installation, invocation, upgrading and recovery behavior.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0145",
+    "source_candidate": "port_remediation_compatible_replacement_cutover"
+  }
+}

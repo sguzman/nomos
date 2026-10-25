@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0051",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "upstream_differential_comparison",
+  "definition": "The original and replacement are being compared on equivalent cases.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0141",
+    "source_candidate": "port_remediation_upstream_differential_comparison",
+    "normalization": "reviewed_source_2026_10_25"
+  }
+}

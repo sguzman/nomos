@@ -8,8 +8,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 COLLECTIONS = (
-    ("situations", "SITU", 48, "situation"),
-    ("intents", "INTENT", 72, "intent"),
+    ("situations", "SITU", 60, "situation"),
+    ("intents", "INTENT", 89, "intent"),
     ("families", "FAMILY", 8, "intent_family"),
     ("conditions", "CONDITION", 7, "execution_condition"),
     ("evaluation-dimensions", "EVAL-DIM", 7, "evaluation_dimension"),

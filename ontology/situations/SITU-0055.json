@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0055",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "python_object_model_fidelity_review",
+  "definition": "Python object identity, typing, conversion or collection behavior is part of the source contract.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0147",
+    "source_candidate": "port_remediation_python_object_model_fidelity_review",
+    "normalization": "reviewed_source_2026_10_25"
+  }
+}

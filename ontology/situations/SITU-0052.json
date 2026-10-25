@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0052",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "accepted_port_deviation_review",
+  "definition": "A source/target mismatch requires explicit disposition and acceptance review.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0142",
+    "source_candidate": "port_remediation_accepted_port_deviation_review",
+    "normalization": "reviewed_source_2026_10_25"
+  }
+}

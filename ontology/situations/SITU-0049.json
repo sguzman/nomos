@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0049",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "upstream_baseline_review",
+  "definition": "An authorized port's upstream version and comparison environment are being established.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0138",
+    "source_candidate": "port_remediation_upstream_baseline_review",
+    "normalization": "reviewed_source_2026_10_25"
+  }
+}

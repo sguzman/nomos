@@ -1,0 +1,427 @@
+{
+  "kind": "reviewed_port_remediation_crosswalk",
+  "status": "reviewed",
+  "version": "1.0.0",
+  "source_commit": "5d3f5c35137cfa1a652e0999b938afa123b087c2",
+  "authorized_on": "2026-10-25",
+  "entries": {
+    "RIA-0138": {
+      "rule_id": "NOM-0138",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0049"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0073"
+      ]
+    },
+    "RIA-0139": {
+      "rule_id": "NOM-0139",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0049"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0073"
+      ]
+    },
+    "RIA-0140": {
+      "rule_id": "NOM-0140",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0050"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0074"
+      ]
+    },
+    "RIA-0141": {
+      "rule_id": "NOM-0141",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0051"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0075"
+      ]
+    },
+    "RIA-0142": {
+      "rule_id": "NOM-0142",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0052"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0076"
+      ]
+    },
+    "RIA-0143": {
+      "rule_id": "NOM-0143",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0052"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0076"
+      ]
+    },
+    "RIA-0144": {
+      "rule_id": "NOM-0144",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0053"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0077"
+      ]
+    },
+    "RIA-0145": {
+      "rule_id": "NOM-0145",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0054"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0078"
+      ]
+    },
+    "RIA-0146": {
+      "rule_id": "NOM-0146",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0054"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0078"
+      ]
+    },
+    "RIA-0147": {
+      "rule_id": "NOM-0147",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0055"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0079"
+      ]
+    },
+    "RIA-0148": {
+      "rule_id": "NOM-0148",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0055"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0089"
+      ]
+    },
+    "RIA-0149": {
+      "rule_id": "NOM-0149",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0055"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0089"
+      ]
+    },
+    "RIA-0150": {
+      "rule_id": "NOM-0150",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0055"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0079"
+      ]
+    },
+    "RIA-0151": {
+      "rule_id": "NOM-0151",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0055"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0079"
+      ]
+    },
+    "RIA-0152": {
+      "rule_id": "NOM-0152",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0056"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0080"
+      ]
+    },
+    "RIA-0153": {
+      "rule_id": "NOM-0153",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0056"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0080"
+      ]
+    },
+    "RIA-0154": {
+      "rule_id": "NOM-0154",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0056"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0080"
+      ]
+    },
+    "RIA-0155": {
+      "rule_id": "NOM-0155",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0056"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0080"
+      ]
+    },
+    "RIA-0156": {
+      "rule_id": "NOM-0156",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0056"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0080"
+      ]
+    },
+    "RIA-0157": {
+      "rule_id": "NOM-0157",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0055"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0079"
+      ]
+    },
+    "RIA-0158": {
+      "rule_id": "NOM-0158",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0055"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0079"
+      ]
+    },
+    "RIA-0159": {
+      "rule_id": "NOM-0159",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0057"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0081"
+      ]
+    },
+    "RIA-0160": {
+      "rule_id": "NOM-0160",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0057"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0082"
+      ]
+    },
+    "RIA-0161": {
+      "rule_id": "NOM-0161",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0057"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0081"
+      ]
+    },
+    "RIA-0162": {
+      "rule_id": "NOM-0162",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0058"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0083"
+      ]
+    },
+    "RIA-0163": {
+      "rule_id": "NOM-0163",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0058"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0083"
+      ]
+    },
+    "RIA-0164": {
+      "rule_id": "NOM-0164",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0058"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0083"
+      ]
+    },
+    "RIA-0165": {
+      "rule_id": "NOM-0165",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0059"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0084"
+      ]
+    },
+    "RIA-0166": {
+      "rule_id": "NOM-0166",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0059"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0084"
+      ]
+    },
+    "RIA-0167": {
+      "rule_id": "NOM-0167",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0059"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0084"
+      ]
+    },
+    "RIA-0168": {
+      "rule_id": "NOM-0168",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0059"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0084"
+      ]
+    },
+    "RIA-0169": {
+      "rule_id": "NOM-0169",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0059"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0085"
+      ]
+    },
+    "RIA-0170": {
+      "rule_id": "NOM-0170",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0059"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0085"
+      ]
+    },
+    "RIA-0171": {
+      "rule_id": "NOM-0171",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0060"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0086"
+      ]
+    },
+    "RIA-0172": {
+      "rule_id": "NOM-0172",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0060"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0087"
+      ]
+    },
+    "RIA-0173": {
+      "rule_id": "NOM-0173",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0060"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0087"
+      ]
+    },
+    "RIA-0174": {
+      "rule_id": "NOM-0174",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0060"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0088"
+      ]
+    },
+    "RIA-0175": {
+      "rule_id": "NOM-0175",
+      "situation_ids": [
+        "SITU-0031",
+        "SITU-0060"
+      ],
+      "intent_ids": [
+        "INTENT-0044",
+        "INTENT-0088"
+      ]
+    }
+  }
+}

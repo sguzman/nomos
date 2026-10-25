@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0056",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "python_numeric_text_fidelity_review",
+  "definition": "Python numeric and Unicode or byte handling affects supported outputs.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0152",
+    "source_candidate": "port_remediation_python_numeric_text_fidelity_review",
+    "normalization": "reviewed_source_2026_10_25"
+  }
+}

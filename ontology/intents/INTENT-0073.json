@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0073",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "reproducible_port_baseline",
+  "definition": "Preserve the agreed upstream revision and target environment for independent verification.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0138",
+    "source_candidate": "port_remediation_reproducible_port_baseline"
+  }
+}

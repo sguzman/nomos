@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0053",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "unsafe_ffi_boundary_assurance",
+  "definition": "A retained unsafe or foreign-function interface requires contract verification.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0144",
+    "source_candidate": "port_remediation_unsafe_ffi_boundary_assurance",
+    "normalization": "reviewed_source_2026_10_25"
+  }
+}

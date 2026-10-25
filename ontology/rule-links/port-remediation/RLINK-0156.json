@@ -1,0 +1,73 @@
+{
+  "id": "RLINK-0156",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0156",
+  "rule_version": "1.0.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0031",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.project_types",
+        "statement"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    },
+    {
+      "id": "SITU-0056",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.project_types",
+        "statement"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0044",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    },
+    {
+      "id": "INTENT-0080",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "5d3f5c35137cfa1a652e0999b938afa123b087c2",
+    "source_blob_sha": "b619b37e295868bd6071f4faaf1bd308961c39a8",
+    "source_statement": "Verify byte/text encoding, decoding and error-policy behavior at exposed interfaces.",
+    "source_conditions": [
+      "An authorized Python-to-Rust port includes this behavior in its accepted source baseline."
+    ],
+    "normalized_predicate": {
+      "action": "verify",
+      "object": "text_py_05_1",
+      "target": "python_to_rust_port"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relevant contexts are not exhaustive triggers or narrower rule applicability.",
+    "intent_semantics": "Intent mappings describe inferred outcomes, not additional rules.",
+    "effective_rules": "Publishing does not apply any rule or activate an instruction."
+  },
+  "provenance": {
+    "queue_id": "RIA-0156",
+    "processing_id": "PROC-RIA-0156",
+    "source_path": "rules/NOM-0156.json",
+    "extension": "port_remediation"
+  },
+  "reviewed_on": "2026-10-25"
+}

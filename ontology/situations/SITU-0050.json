@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0050",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "upstream_capability_mapping",
+  "definition": "Upstream capabilities are being reconciled with a verified Rust replacement.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0140",
+    "source_candidate": "port_remediation_upstream_capability_mapping",
+    "normalization": "reviewed_source_2026_10_25"
+  }
+}

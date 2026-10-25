@@ -1,0 +1,106 @@
+{
+  "id": "NOM-0138",
+  "version": "1.0.0",
+  "title": "Record the authoritative upstream revision and supported comparison environment…",
+  "summary": "Record the authoritative upstream revision and supported comparison environment for a strict port.",
+  "statement": "Record the authoritative upstream revision and supported comparison environment for a strict port.",
+  "rationale": "Independent strict-port behavior contract derived from the reviewed PORT-01 coverage gap. Verification only concerns relevant agreed upstream behavior; unneeded Python runtime emulation is not required.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "verify",
+      "object": "execution_port_01_0",
+      "target": "software_port"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "An explicitly authorized strict software port has an agreed upstream source baseline and this concern falls within its accepted replacement behavior."
+    ],
+    "exceptions": [
+      "Unexposed or explicitly excluded upstream behavior does not require separate emulation; accepted departures must be recorded and must not be represented as verified parity."
+    ],
+    "bounds": {
+      "quantifier": "all",
+      "interpretation": "universal",
+      "frequency": "always",
+      "minimum": null,
+      "maximum": null,
+      "unit": "entities",
+      "window": "each applicable in-scope port verification",
+      "cue": "For each applicable contract",
+      "basis": "reviewed_inference"
+    }
+  },
+  "categories": {
+    "domains": [
+      "rust_development",
+      "software_porting",
+      "software_testing"
+    ],
+    "topics": [
+      "port_fidelity"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "An explicitly authorized strict software port has an agreed upstream source baseline and this concern falls within its accepted replacement behavior."
+    ],
+    "exclusions": [
+      "Unexposed or explicitly excluded upstream behavior does not require separate emulation; accepted departures must be recorded and must not be represented as verified parity."
+    ],
+    "project_types": [
+      "software_port"
+    ]
+  },
+  "authority": {
+    "source": "Owner-authorized strict-port coverage remediation; expressly selected use only",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": [
+      "NOM-0074"
+    ]
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "audits/strict-port-coverage-2026-10-25.json#PORT-01; audits/strict-port-coverage-2026-10-25.md",
+    "license": "MIT",
+    "notes": "Public-safe normative remediation of reviewed gap; no automatic profile finalization or instruction activation."
+  },
+  "governance": {
+    "created_on": "2026-10-25",
+    "updated_on": "2026-10-25",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

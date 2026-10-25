@@ -9,9 +9,9 @@ const catalog=require('../docs/catalog.json');
 
 test('all rules have coherent situation and intent links',()=>{
   const list=browser.linkedRules(catalog),lookup=browser.indexes(catalog);
-  assert.equal(list.length,137);
-  assert.equal(lookup.situations.size,48);
-  assert.equal(lookup.intents.size,72);
+  assert.equal(list.length,175);
+  assert.equal(lookup.situations.size,60);
+  assert.equal(lookup.intents.size,89);
   assert.equal(list.filter(x=>x.rule.status==='draft').length,1);
   assert.equal(browser.search(list,{status:'draft'}).length,1);
   assert.equal(browser.search(list,{situation:'SITU-0045'}).some(x=>x.rule.id==='NOM-0137'),true);
@@ -41,8 +41,8 @@ test('read-only UI exposes full source context and never applies a rule',async()
   vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../docs/rule-concepts.js'),'utf8'),
     {document:doc,fetch:async()=>({ok:true,json:async()=>catalog})});
   await new Promise(resolve=>setImmediate(resolve));
-  assert.equal(get('study-count').textContent,'137 of 137 analyzed rules');
-  assert.equal(get('study-results').children.length,137);
+  assert.equal(get('study-count').textContent,'175 of 175 analyzed rules');
+  assert.equal(get('study-results').children.length,175);
   const first=get('study-results').children[0];
   assert.ok(first.children.some(n=>n.tag==='details'));
   const details=first.children.find(n=>n.tag==='details');

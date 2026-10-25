@@ -66,8 +66,8 @@ const NomosRuleConcepts=(()=>{
     details.append(node('p','',rule.statement));
     if(source.evidence.source_conditions.length)
       details.append(node('p','', 'Source conditions: '+source.evidence.source_conditions.join('; ')));
-    if(source.evidence.source_exceptions.length)
-      details.append(node('p','', 'Source exceptions: '+source.evidence.source_exceptions.join('; ')));
+    if((source.evidence.source_exceptions||[]).length)
+      details.append(node('p','', 'Source exceptions: '+(source.evidence.source_exceptions||[]).join('; ')));
     const note=node('p','', 'These associations are descriptive, not a modification of this rule.');
     details.append(note);
     const link=node('a','','View canonical rule JSON');
@@ -75,7 +75,7 @@ const NomosRuleConcepts=(()=>{
     link.rel='noopener noreferrer';
     details.append(link);
     const evidenceLink=node('a','','View reviewed relationship evidence JSON');
-    evidenceLink.href='https://github.com/sguzman/nomos/blob/main/ontology/rule-links/'+source.id+'.json';
+    evidenceLink.href='https://github.com/sguzman/nomos/blob/main/ontology/rule-links/'+(source.provenance?.extension==='port_remediation'?'port-remediation/':'')+source.id+'.json';
     evidenceLink.rel='noopener noreferrer';
     details.append(evidenceLink);
     entry.append(details);return entry;
@@ -93,7 +93,7 @@ const NomosRuleConcepts=(()=>{
       if(!response.ok)throw Error('HTTP '+response.status);
       const catalog=await response.json();
       const data=linkedRules(catalog),lookup=indexes(catalog);
-      if(data.length!==137)throw Error('Expected 137 rule analyses, found '+data.length);
+      if(data.length!==catalog.rules.filter(x=>x.registry==='catalog').length)throw Error('Incomplete analyzed rules');
       const byCode=(a,b)=>a.id.localeCompare(b.id);
       fillSelect(document.getElementById('study-situation'),[...lookup.situations.values()].sort(byCode));
       fillSelect(document.getElementById('study-intent'),[...lookup.intents.values()].sort(byCode));

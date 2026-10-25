@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0058",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "python_module_entrypoint_plugin_review",
+  "definition": "Python modules, commands or plugins are externally consumed.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0162",
+    "source_candidate": "port_remediation_python_module_entrypoint_plugin_review",
+    "normalization": "reviewed_source_2026_10_25"
+  }
+}

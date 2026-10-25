@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0086",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "python_external_serialization_fidelity",
+  "definition": "Preserve externally consumed serialized forms and required compatibility.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0171",
+    "source_candidate": "port_remediation_python_external_serialization_fidelity"
+  }
+}

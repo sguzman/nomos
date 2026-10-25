@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0089",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "python_callable_reflection_fidelity",
+  "definition": "Preserve agreed dynamic attribute, reflection and callable-dispatch behavior.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0148",
+    "source_candidate": "port_remediation_python_callable_reflection_fidelity"
+  }
+}

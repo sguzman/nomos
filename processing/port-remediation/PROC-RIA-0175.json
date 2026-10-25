@@ -1,0 +1,43 @@
+{
+  "id": "PROC-RIA-0175",
+  "kind": "authorized_port_remediation_processing",
+  "status": "closed",
+  "queue_id": "RIA-0175",
+  "source": {
+    "rule_id": "NOM-0175",
+    "path": "rules/NOM-0175.json",
+    "version": "1.0.0",
+    "status_at_snapshot": "published",
+    "snapshot_commit": "5d3f5c35137cfa1a652e0999b938afa123b087c2",
+    "git_blob_sha": "c7edb4b02aeb87ecaa21d936bf34e882bdd11f33"
+  },
+  "authorization": {
+    "authority": "explicit_owner_request_to_finish_python_to_rust_coverage_remediation",
+    "processing": true,
+    "normalization": true,
+    "publication": true,
+    "python_draft_profile_extension": true,
+    "selection_confirmation": false,
+    "rule_activation": false
+  },
+  "disposition": {
+    "rule_path": "rules/NOM-0175.json",
+    "link_path": "ontology/rule-links/port-remediation/RLINK-0175.json",
+    "situation_ids": [
+      "SITU-0031",
+      "SITU-0060"
+    ],
+    "intent_ids": [
+      "INTENT-0044",
+      "INTENT-0088"
+    ],
+    "python_profile_extension": true
+  },
+  "evidence": {
+    "coverage_audit": "audits/strict-port-coverage-2026-10-25.json",
+    "origin_audit_key": "PY-18"
+  },
+  "governance": {
+    "completed_on": "2026-10-25"
+  }
+}

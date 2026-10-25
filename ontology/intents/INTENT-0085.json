@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0085",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "python_binding_abi_fidelity",
+  "definition": "Preserve Python-facing calling and compiled extension contracts where agreed.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0169",
+    "source_candidate": "port_remediation_python_binding_abi_fidelity"
+  }
+}

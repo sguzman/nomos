@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0077",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "audited_unsafe_ffi_contract",
+  "definition": "Verify safety and ABI invariants for necessary unsafe and foreign boundaries.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0144",
+    "source_candidate": "port_remediation_audited_unsafe_ffi_contract"
+  }
+}

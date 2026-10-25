@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0079",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "python_object_behavior_fidelity",
+  "definition": "Preserve relevant Python identity, typing, truth, conversion, hashing and collections.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0147",
+    "source_candidate": "port_remediation_python_object_behavior_fidelity"
+  }
+}

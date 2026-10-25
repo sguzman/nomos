@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0075",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "verified_upstream_differential_parity",
+  "definition": "Compare corresponding upstream and Rust observable behavior and disclose mismatches.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0141",
+    "source_candidate": "port_remediation_verified_upstream_differential_parity"
+  }
+}

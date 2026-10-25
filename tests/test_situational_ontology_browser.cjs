@@ -9,10 +9,10 @@ const browser=require('../docs/situational-ontology.js');
 test('formal catalog has stable distinct identities and closed evidence claims',()=>{
   const catalog=require('../docs/catalog.json');
   const all=browser.flatten(catalog);
-  assert.equal(all.length,142);
-  assert.equal(new Set(all.map(x=>x.id)).size,142);
-  assert.equal(browser.search(all,'','situations').length,48);
-  assert.equal(browser.search(all,'','intents').length,72);
+  assert.equal(all.length,171);
+  assert.equal(new Set(all.map(x=>x.id)).size,171);
+  assert.equal(browser.search(all,'','situations').length,60);
+  assert.equal(browser.search(all,'','intents').length,89);
   assert.equal(browser.search(all,'','intent_families').length,8);
   assert.equal(browser.search(all,'','execution_conditions').length,7);
   assert.equal(browser.search(all,'','evaluation_dimensions').length,7);
@@ -24,9 +24,9 @@ test('homepage directly exposes both ontology collections and all mappings',()=>
   assert.match(html,/href="\.\/situational-ontology\.html\?type=situations"/);
   assert.match(html,/href="\.\/situational-ontology\.html\?type=intents"/);
   assert.match(html,/href="\.\/rule-concepts\.html"/);
-  assert.match(html,/48 situations/);
-  assert.match(html,/72 intents/);
-  assert.match(html,/137 rule mappings/);
+  assert.match(html,/60 situations/);
+  assert.match(html,/89 intents/);
+  assert.match(html,/175 rule mappings/);
 });
 
 test('ontology UI renders one collapsed detail per object without executing prompts',async()=>{
@@ -49,9 +49,9 @@ test('ontology UI renders one collapsed detail per object without executing prom
   vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../docs/situational-ontology.js'),'utf8'),
     {document,fetch:async()=>({ok:true,json:async()=>catalog})});
   await new Promise(resolve=>setImmediate(resolve));
-  assert.equal(get('ontology-count').textContent,'142 of 142 formal objects');
+  assert.equal(get('ontology-count').textContent,'171 of 171 formal objects');
   const entries=get('ontology-results').children;
-  assert.equal(entries.length,142);
+  assert.equal(entries.length,171);
   assert.ok(entries.every(x=>x.children.some(y=>y.tag==='details')));
   assert.match(get('ontology-evaluation-count').textContent,/No real-world effectiveness results/);
   get('ontology-type').value='intent_families';
@@ -69,7 +69,7 @@ test('ontology UI renders one collapsed detail per object without executing prom
 test('direct ontology links open the requested collection without loading unrelated results',async()=>{
   const catalog=require('../docs/catalog.json');
   const source=fs.readFileSync(path.join(__dirname,'../docs/situational-ontology.js'),'utf8');
-  for(const [kind,expected] of [['situations',48],['intents',72]]){
+  for(const [kind,expected] of [['situations',60],['intents',89]]){
     class Element {
       constructor(tag='div'){this.tag=tag;this.children=[];this.listeners={};this.value='';this.hidden=false;this.textContent='';}
       append(...nodes){this.children.push(...nodes);}
@@ -87,6 +87,6 @@ test('direct ontology links open the requested collection without loading unrela
     await new Promise(resolve=>setImmediate(resolve));
     assert.equal(get('ontology-type').value,kind);
     assert.equal(get('ontology-results').children.length,expected);
-    assert.equal(get('ontology-count').textContent,expected+' of 142 formal objects');
+    assert.equal(get('ontology-count').textContent,expected+' of 171 formal objects');
   }
 });

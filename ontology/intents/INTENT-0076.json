@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0076",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "reviewed_port_deviations",
+  "definition": "Record authorized departures and distinguish them from unverified regressions.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0142",
+    "source_candidate": "port_remediation_reviewed_port_deviations"
+  }
+}

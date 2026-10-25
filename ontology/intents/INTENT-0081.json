@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0081",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "python_error_resource_fidelity",
+  "definition": "Preserve Python exception and resource-lifetime contracts where observable.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0159",
+    "source_candidate": "port_remediation_python_error_resource_fidelity"
+  }
+}

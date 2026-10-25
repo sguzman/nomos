@@ -1,0 +1,106 @@
+{
+  "id": "NOM-0170",
+  "version": "1.0.0",
+  "title": "Verify binary extension/embedding ABI and lifetime invariants only where compiled…",
+  "summary": "Verify binary extension/embedding ABI and lifetime invariants only where compiled interoperation is part of the accepted baseline.",
+  "statement": "Verify binary extension/embedding ABI and lifetime invariants only where compiled interoperation is part of the accepted baseline.",
+  "rationale": "Independent Python-source port behavior contract derived from the reviewed PY-14 coverage gap. Verification only concerns relevant agreed upstream behavior; unneeded Python runtime emulation is not required.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "verify",
+      "object": "interop_py_14_1",
+      "target": "python_to_rust_port"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "An explicitly authorized Python-to-Rust strict port includes this behavior in its agreed source baseline or promised public contract."
+    ],
+    "exceptions": [
+      "Unexposed or explicitly excluded upstream behavior does not require separate emulation; accepted departures must be recorded and must not be represented as verified parity."
+    ],
+    "bounds": {
+      "quantifier": "all",
+      "interpretation": "universal",
+      "frequency": "always",
+      "minimum": null,
+      "maximum": null,
+      "unit": "entities",
+      "window": "each applicable in-scope port verification",
+      "cue": "For each applicable contract",
+      "basis": "reviewed_inference"
+    }
+  },
+  "categories": {
+    "domains": [
+      "rust_development",
+      "software_porting",
+      "software_testing"
+    ],
+    "topics": [
+      "port_fidelity"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "An explicitly authorized Python-to-Rust strict port includes this behavior in its agreed source baseline or promised public contract."
+    ],
+    "exclusions": [
+      "Unexposed or explicitly excluded upstream behavior does not require separate emulation; accepted departures must be recorded and must not be represented as verified parity."
+    ],
+    "project_types": [
+      "python_to_rust_port"
+    ]
+  },
+  "authority": {
+    "source": "Owner-authorized strict-port coverage remediation; expressly selected use only",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": [
+      "NOM-0074"
+    ]
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "audits/strict-port-coverage-2026-10-25.json#PY-14; audits/strict-port-coverage-2026-10-25.md",
+    "license": "MIT",
+    "notes": "Public-safe normative remediation of reviewed gap; no automatic profile finalization or instruction activation."
+  },
+  "governance": {
+    "created_on": "2026-10-25",
+    "updated_on": "2026-10-25",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

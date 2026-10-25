@@ -113,6 +113,64 @@ def load_links(root=ROOT):
                     errors.append(f"{cid}: declared provenance {source} is not a supporting source")
             except (OSError,ValueError,KeyError) as exc:
                 errors.append(f"{cid}: malformed or missing source provenance: {exc}")
+
+    # This extension is independent of the immutable 137-rule baseline.
+    extension_dir=root/"ontology/rule-links/port-remediation"
+    extended=sorted(extension_dir.glob("RLINK-*.json"))
+    cross2=read(root,Path("ontology/rule-analysis/port-remediation-crosswalk.json"))
+    cases2=cross2.get("entries",{})
+    if len(extended)!=38 or len(cases2)!=38 or cross2.get("status")!="reviewed":
+        errors.append("expected 38 independently verified port remediation links")
+    for path in extended:
+        link=read(root,path.relative_to(root))
+        rid=link.get("rule_id","")
+        if not rid.startswith("NOM-") or not rid[4:].isdigit():
+            errors.append("malformed extension link "+str(path))
+            continue
+        qid="RIA-"+rid[-4:]
+        if rid in links or int(rid[4:]) not in range(138,176):
+            errors.append("duplicate or out-of-range port link "+rid)
+            continue
+        rule=read(root,Path("rules")/(rid+".json"))
+        queue=read(root,Path("queues/port-remediation")/(qid+".json"))
+        trace=read(root,Path("processing/port-remediation")/("PROC-"+qid+".json"))
+        source=queue.get("source",{})
+        sids=[x["id"] for x in link.get("situations",[])]
+        iids=[x["id"] for x in link.get("intents",[])]
+        match=cases2.get(qid,{})
+        if (rule.get("status")!="published" or link.get("rule_editorial_status")!="published" or
+            link.get("id")!="RLINK-"+rid[-4:] or link.get("status")!="published" or
+            link.get("rule_version")!=rule.get("version") or
+            match.get("rule_id")!=rid or match.get("situation_ids")!=sids or match.get("intent_ids")!=iids or
+            sids!=trace.get("disposition",{}).get("situation_ids") or
+            iids!=trace.get("disposition",{}).get("intent_ids") or
+            not sids or not iids or len(sids)!=len(set(sids)) or len(iids)!=len(set(iids)) or
+            not set(sids)<=situations or not set(iids)<=intents):
+            errors.append(rid+": invalid semantic extension")
+        if (source!=trace.get("source") or
+            source.get("rule_id")!=rid or source.get("path")!=f"rules/{rid}.json" or
+            git_blob((root/source["path"]).read_bytes())!=source.get("git_blob_sha") or
+            link.get("evidence",{}).get("source_blob_sha")!=source.get("git_blob_sha") or
+            link.get("evidence",{}).get("source_statement")!=rule.get("statement") or
+            link.get("evidence",{}).get("normalized_predicate")!=rule.get("norm",{}).get("predicate") or
+            link.get("provenance",{}).get("queue_id")!=qid):
+            errors.append(rid+": source provenance mismatch")
+        authorization=trace.get("authorization",{})
+        if (not authorization.get("processing") or not authorization.get("publication") or
+            authorization.get("selection_confirmation") is not False or
+            authorization.get("rule_activation") is not False or
+            queue.get("status")!="processed" or trace.get("status")!="closed"):
+            errors.append(rid+": authorization or processing status invalid")
+        links[rid]=link
+    if len(links)!=175:
+        errors.append(f"incomplete combined rule associations: {len(links)}/175")
+    for prefix,start,end,folder,relation in (("SITU",49,60,"situations","situations"),("INTENT",73,89,"intents","intents")):
+        for n in range(start,end+1):
+            cid=f"{prefix}-{n:04d}"
+            obj=read(root,Path("ontology")/folder/(cid+".json"))
+            supporting=links.get("NOM-"+obj.get("provenance",{}).get("queue_id","")[-4:])
+            if not supporting or cid not in [c["id"] for c in supporting[relation]]:
+                errors.append(cid+": missing genuine source rule")
     return links,errors
 
 def main():

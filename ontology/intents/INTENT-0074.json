@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0074",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "tracked_upstream_capability_coverage",
+  "definition": "Track in-scope upstream capabilities to verified Rust implementations and unresolved gaps.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0140",
+    "source_candidate": "port_remediation_tracked_upstream_capability_coverage"
+  }
+}

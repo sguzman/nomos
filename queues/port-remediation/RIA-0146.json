@@ -1,0 +1,36 @@
+{
+  "id": "RIA-0146",
+  "kind": "authorized_port_rule_intake",
+  "status": "processed",
+  "source": {
+    "rule_id": "NOM-0146",
+    "path": "rules/NOM-0146.json",
+    "version": "1.0.0",
+    "status_at_snapshot": "published",
+    "snapshot_commit": "5d3f5c35137cfa1a652e0999b938afa123b087c2",
+    "git_blob_sha": "ff8aace7530e5b9f8187a49b9de44e0928d55837"
+  },
+  "origin_audit_key": "PORT-07",
+  "authorization": {
+    "authority": "explicit_owner_request_to_finish_python_to_rust_coverage_remediation",
+    "processing": true,
+    "normalization": true,
+    "publication": true,
+    "python_draft_profile_extension": true,
+    "selection_confirmation": false,
+    "rule_activation": false
+  },
+  "requested_analysis": [
+    "normative_atom",
+    "situation",
+    "intent",
+    "profile_coverage"
+  ],
+  "processing": {
+    "state": "closed",
+    "record": "processing/port-remediation/PROC-RIA-0146.json"
+  },
+  "governance": {
+    "queued_on": "2026-10-25"
+  }
+}

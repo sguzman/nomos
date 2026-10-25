@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0057",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "python_exception_iterator_resource_review",
+  "definition": "Python exceptions, generators or context manager behavior is part of the source contract.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0159",
+    "source_candidate": "port_remediation_python_exception_iterator_resource_review",
+    "normalization": "reviewed_source_2026_10_25"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0059",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "python_concurrency_binding_review",
+  "definition": "Python concurrency or public bindings are in scope for the Rust replacement.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0165",
+    "source_candidate": "port_remediation_python_concurrency_binding_review",
+    "normalization": "reviewed_source_2026_10_25"
+  }
+}

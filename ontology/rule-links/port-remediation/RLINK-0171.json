@@ -1,0 +1,73 @@
+{
+  "id": "RLINK-0171",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0171",
+  "rule_version": "1.0.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0031",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.project_types",
+        "statement"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    },
+    {
+      "id": "SITU-0060",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.project_types",
+        "statement"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0044",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    },
+    {
+      "id": "INTENT-0086",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "5d3f5c35137cfa1a652e0999b938afa123b087c2",
+    "source_blob_sha": "7a64d567fd08aeed9554b907af5cd5701cebc2e7",
+    "source_statement": "Verify externally consumed serialized representations against the source contract, including exact bytes only when those bytes are contractual.",
+    "source_conditions": [
+      "An authorized Python-to-Rust port includes this behavior in its accepted source baseline."
+    ],
+    "normalized_predicate": {
+      "action": "verify",
+      "object": "data_py_15_0",
+      "target": "python_to_rust_port"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relevant contexts are not exhaustive triggers or narrower rule applicability.",
+    "intent_semantics": "Intent mappings describe inferred outcomes, not additional rules.",
+    "effective_rules": "Publishing does not apply any rule or activate an instruction."
+  },
+  "provenance": {
+    "queue_id": "RIA-0171",
+    "processing_id": "PROC-RIA-0171",
+    "source_path": "rules/NOM-0171.json",
+    "extension": "port_remediation"
+  },
+  "reviewed_on": "2026-10-25"
+}

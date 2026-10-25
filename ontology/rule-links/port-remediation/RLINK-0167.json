@@ -1,0 +1,73 @@
+{
+  "id": "RLINK-0167",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0167",
+  "rule_version": "1.0.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0031",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.project_types",
+        "statement"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    },
+    {
+      "id": "SITU-0059",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.project_types",
+        "statement"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0044",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    },
+    {
+      "id": "INTENT-0084",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "5d3f5c35137cfa1a652e0999b938afa123b087c2",
+    "source_blob_sha": "f4383324ac7485b629b6bf58194e8a728b1dbbfc",
+    "source_statement": "Verify in-scope shared-state synchronization, visibility and race-sensitive behavior.",
+    "source_conditions": [
+      "An authorized Python-to-Rust port includes this behavior in its accepted source baseline."
+    ],
+    "normalized_predicate": {
+      "action": "verify",
+      "object": "concurrency_py_13_0",
+      "target": "python_to_rust_port"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relevant contexts are not exhaustive triggers or narrower rule applicability.",
+    "intent_semantics": "Intent mappings describe inferred outcomes, not additional rules.",
+    "effective_rules": "Publishing does not apply any rule or activate an instruction."
+  },
+  "provenance": {
+    "queue_id": "RIA-0167",
+    "processing_id": "PROC-RIA-0167",
+    "source_path": "rules/NOM-0167.json",
+    "extension": "port_remediation"
+  },
+  "reviewed_on": "2026-10-25"
+}

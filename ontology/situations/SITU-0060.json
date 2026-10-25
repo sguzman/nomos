@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0060",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "python_serialization_os_migration_review",
+  "definition": "Python interchange formats, OS contracts or saved state are being replaced.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0171",
+    "source_candidate": "port_remediation_python_serialization_os_migration_review",
+    "normalization": "reviewed_source_2026_10_25"
+  }
+}

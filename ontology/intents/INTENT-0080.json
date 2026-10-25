@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0080",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "python_numeric_text_fidelity",
+  "definition": "Preserve agreed Python numeric, Unicode and byte behavior.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0152",
+    "source_candidate": "port_remediation_python_numeric_text_fidelity"
+  }
+}

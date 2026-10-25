@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0088",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "python_legacy_state_fidelity",
+  "definition": "Preserve historical Python-era persisted data and tested migration recovery.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0174",
+    "source_candidate": "port_remediation_python_legacy_state_fidelity"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "id": "RLINK-0141",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0141",
+  "rule_version": "1.0.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0031",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.project_types",
+        "statement"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    },
+    {
+      "id": "SITU-0051",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.project_types",
+        "statement"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0044",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    },
+    {
+      "id": "INTENT-0075",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "5d3f5c35137cfa1a652e0999b938afa123b087c2",
+    "source_blob_sha": "da97d5e7ffad8592bc64bd50d5b1e4191e9b6cc8",
+    "source_statement": "Compare equivalent upstream and Rust observations for each reproducible in-scope behavior and record unresolved or unavailable comparisons.",
+    "source_conditions": [
+      "An authorized strict port is replacing accepted upstream capabilities."
+    ],
+    "normalized_predicate": {
+      "action": "verify",
+      "object": "testing_port_03_0",
+      "target": "software_port"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relevant contexts are not exhaustive triggers or narrower rule applicability.",
+    "intent_semantics": "Intent mappings describe inferred outcomes, not additional rules.",
+    "effective_rules": "Publishing does not apply any rule or activate an instruction."
+  },
+  "provenance": {
+    "queue_id": "RIA-0141",
+    "processing_id": "PROC-RIA-0141",
+    "source_path": "rules/NOM-0141.json",
+    "extension": "port_remediation"
+  },
+  "reviewed_on": "2026-10-25"
+}

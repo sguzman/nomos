@@ -1,0 +1,412 @@
+{
+  "kind": "strict_port_coverage_remediation_manifest",
+  "version": "1.0.0",
+  "source_audit": "audits/strict-port-coverage-2026-10-25.json",
+  "authorized_scope": "python_to_rust_profile_coverage_remediation",
+  "owner_authorized_on": "2026-10-25",
+  "status": "normalized_published",
+  "scope_boundary": "No activation or user selection confirmation. Other profile families remain unchanged.",
+  "records": [
+    {
+      "id": "NOM-0138",
+      "key": "PORT-01",
+      "part": 0,
+      "heading": "Freeze the upstream runtime and supported behavior baseline",
+      "statement": "Record the authoritative upstream revision and supported comparison environment for a strict port.",
+      "scope": "software_port",
+      "family": "execution"
+    },
+    {
+      "id": "NOM-0139",
+      "key": "PORT-01",
+      "part": 1,
+      "heading": "Freeze the upstream runtime and supported behavior baseline",
+      "statement": "For Python source ports, identify interpreter version/build and relevant implementation features in the accepted source baseline.",
+      "scope": "python_to_rust_port",
+      "family": "execution"
+    },
+    {
+      "id": "NOM-0140",
+      "key": "PORT-02",
+      "part": 0,
+      "heading": "Track every in-scope upstream capability",
+      "statement": "For each in-scope upstream capability, maintain its Rust replacement mapping and independently verified status, explicitly accounting for gaps.",
+      "scope": "software_port",
+      "family": "baseline"
+    },
+    {
+      "id": "NOM-0141",
+      "key": "PORT-03",
+      "part": 0,
+      "heading": "Compare upstream and Rust observable results",
+      "statement": "Compare equivalent upstream and Rust observations for each reproducible in-scope behavior and record unresolved or unavailable comparisons.",
+      "scope": "software_port",
+      "family": "testing"
+    },
+    {
+      "id": "NOM-0142",
+      "key": "PORT-04",
+      "part": 0,
+      "heading": "Register and approve deviations from upstream",
+      "statement": "Link each intentional divergence to an explicit approval and affected consumer contract.",
+      "scope": "software_port",
+      "family": "governance"
+    },
+    {
+      "id": "NOM-0143",
+      "key": "PORT-04",
+      "part": 1,
+      "heading": "Register and approve deviations from upstream",
+      "statement": "Classify unresolved divergences as unverified or incompatible rather than verified parity.",
+      "scope": "software_port",
+      "family": "governance"
+    },
+    {
+      "id": "NOM-0144",
+      "key": "PORT-06",
+      "part": 0,
+      "heading": "Contain and test necessary unsafe and cross-language interfaces",
+      "statement": "For each necessary unsafe or FFI boundary, establish and verify its safety, lifetime and ABI contract, isolating the boundary where feasible.",
+      "scope": "software_port",
+      "family": "interop"
+    },
+    {
+      "id": "NOM-0145",
+      "key": "PORT-07",
+      "part": 0,
+      "heading": "Verify distribution and installation cutover",
+      "statement": "Verify supported installation, runtime dependency and launch/invocation behavior when replacing a deployed upstream distribution.",
+      "scope": "software_port",
+      "family": "deployment"
+    },
+    {
+      "id": "NOM-0146",
+      "key": "PORT-07",
+      "part": 1,
+      "heading": "Verify distribution and installation cutover",
+      "statement": "When deployment replaces existing state, verify authorized upgrade, recovery and rollback procedures against representative state.",
+      "scope": "software_port",
+      "family": "deployment"
+    },
+    {
+      "id": "NOM-0147",
+      "key": "PY-01",
+      "part": 0,
+      "heading": "Object identity, aliasing and mutation",
+      "statement": "Verify agreed identity and alias-visible mutation behavior for Python objects crossing supported interfaces.",
+      "scope": "python_to_rust_port",
+      "family": "data_model"
+    },
+    {
+      "id": "NOM-0148",
+      "key": "PY-02",
+      "part": 0,
+      "heading": "Dynamic typing and reflection",
+      "statement": "Verify externally consumed Python attribute, reflection and dynamic type behavior.",
+      "scope": "python_to_rust_port",
+      "family": "data_model"
+    },
+    {
+      "id": "NOM-0149",
+      "key": "PY-02",
+      "part": 1,
+      "heading": "Dynamic typing and reflection",
+      "statement": "Verify callable signature and invocation/dispatch compatibility at supported Python-facing boundaries.",
+      "scope": "python_to_rust_port",
+      "family": "data_model"
+    },
+    {
+      "id": "NOM-0150",
+      "key": "PY-03",
+      "part": 0,
+      "heading": "Truthiness and implicit conversion",
+      "statement": "Verify Python truth-testing outcomes at in-scope decision boundaries.",
+      "scope": "python_to_rust_port",
+      "family": "data_model"
+    },
+    {
+      "id": "NOM-0151",
+      "key": "PY-03",
+      "part": 1,
+      "heading": "Truthiness and implicit conversion",
+      "statement": "Verify Python implicit and explicit conversion outcomes at in-scope interfaces.",
+      "scope": "python_to_rust_port",
+      "family": "data_model"
+    },
+    {
+      "id": "NOM-0152",
+      "key": "PY-04",
+      "part": 0,
+      "heading": "Numeric range, precision and rounding",
+      "statement": "Verify integer range, division and overflow-equivalent behavior where source integer semantics are exposed.",
+      "scope": "python_to_rust_port",
+      "family": "numbers"
+    },
+    {
+      "id": "NOM-0153",
+      "key": "PY-04",
+      "part": 1,
+      "heading": "Numeric range, precision and rounding",
+      "statement": "Verify floating-point special values, comparison and rounding where externally consequential.",
+      "scope": "python_to_rust_port",
+      "family": "numbers"
+    },
+    {
+      "id": "NOM-0154",
+      "key": "PY-04",
+      "part": 2,
+      "heading": "Numeric range, precision and rounding",
+      "statement": "Verify Decimal precision, context and rounding where the upstream uses decimal arithmetic.",
+      "scope": "python_to_rust_port",
+      "family": "numbers"
+    },
+    {
+      "id": "NOM-0155",
+      "key": "PY-05",
+      "part": 0,
+      "heading": "Unicode, text and bytes semantics",
+      "statement": "Verify in-scope Unicode string operations and code-point semantics.",
+      "scope": "python_to_rust_port",
+      "family": "text"
+    },
+    {
+      "id": "NOM-0156",
+      "key": "PY-05",
+      "part": 1,
+      "heading": "Unicode, text and bytes semantics",
+      "statement": "Verify byte/text encoding, decoding and error-policy behavior at exposed interfaces.",
+      "scope": "python_to_rust_port",
+      "family": "text"
+    },
+    {
+      "id": "NOM-0157",
+      "key": "PY-06",
+      "part": 0,
+      "heading": "Equality, hashing and collection behavior",
+      "statement": "Verify in-scope equality, hashing and lookup-key behavior.",
+      "scope": "python_to_rust_port",
+      "family": "data_model"
+    },
+    {
+      "id": "NOM-0158",
+      "key": "PY-06",
+      "part": 1,
+      "heading": "Equality, hashing and collection behavior",
+      "statement": "Verify exposed collection iteration and ordering guarantees supported by the agreed upstream baseline.",
+      "scope": "python_to_rust_port",
+      "family": "data_model"
+    },
+    {
+      "id": "NOM-0159",
+      "key": "PY-07",
+      "part": 0,
+      "heading": "Exception, failure and cleanup contracts",
+      "statement": "Verify externally observable exception categories, propagation, failure returns and contractually exposed messages.",
+      "scope": "python_to_rust_port",
+      "family": "errors"
+    },
+    {
+      "id": "NOM-0160",
+      "key": "PY-08",
+      "part": 0,
+      "heading": "Iterator and generator protocols",
+      "statement": "Verify in-scope iterator/generator lazy yield, termination and exception propagation behavior.",
+      "scope": "python_to_rust_port",
+      "family": "protocols"
+    },
+    {
+      "id": "NOM-0161",
+      "key": "PY-09",
+      "part": 0,
+      "heading": "Context manager and resource lifetime behavior",
+      "statement": "Verify in-scope Python context-management resource lifecycle and exceptional-exit behavior.",
+      "scope": "python_to_rust_port",
+      "family": "protocols"
+    },
+    {
+      "id": "NOM-0162",
+      "key": "PY-10",
+      "part": 0,
+      "heading": "Imports, modules and dynamic discovery",
+      "statement": "Verify import/module name resolution and failure behavior where consumers rely on Python imports.",
+      "scope": "python_to_rust_port",
+      "family": "ecosystem"
+    },
+    {
+      "id": "NOM-0163",
+      "key": "PY-11",
+      "part": 0,
+      "heading": "Installed commands, package entry points and plugins",
+      "statement": "Verify distribution entry points, script commands and invocation contracts.",
+      "scope": "python_to_rust_port",
+      "family": "ecosystem"
+    },
+    {
+      "id": "NOM-0164",
+      "key": "PY-11",
+      "part": 1,
+      "heading": "Installed commands, package entry points and plugins",
+      "statement": "Verify declared plugin registration, discovery and loading contracts where supported.",
+      "scope": "python_to_rust_port",
+      "family": "ecosystem"
+    },
+    {
+      "id": "NOM-0165",
+      "key": "PY-12",
+      "part": 0,
+      "heading": "Async task lifecycle and cancellation",
+      "statement": "Verify in-scope asynchronous cancellation, timeout and failure-cleanup behavior.",
+      "scope": "python_to_rust_port",
+      "family": "concurrency"
+    },
+    {
+      "id": "NOM-0166",
+      "key": "PY-12",
+      "part": 1,
+      "heading": "Async task lifecycle and cancellation",
+      "statement": "Verify promised task ordering, concurrency-limit and backpressure outcomes under representative load.",
+      "scope": "python_to_rust_port",
+      "family": "concurrency"
+    },
+    {
+      "id": "NOM-0167",
+      "key": "PY-13",
+      "part": 0,
+      "heading": "Threads, processes and synchronization",
+      "statement": "Verify in-scope shared-state synchronization, visibility and race-sensitive behavior.",
+      "scope": "python_to_rust_port",
+      "family": "concurrency"
+    },
+    {
+      "id": "NOM-0168",
+      "key": "PY-13",
+      "part": 1,
+      "heading": "Threads, processes and synchronization",
+      "statement": "Verify interprocess communication, isolation and process lifecycle where the Python baseline uses processes.",
+      "scope": "python_to_rust_port",
+      "family": "concurrency"
+    },
+    {
+      "id": "NOM-0169",
+      "key": "PY-14",
+      "part": 0,
+      "heading": "Python API and extension compatibility",
+      "statement": "Verify supported Python-callable interface behavior using an independent consumer.",
+      "scope": "python_to_rust_port",
+      "family": "interop"
+    },
+    {
+      "id": "NOM-0170",
+      "key": "PY-14",
+      "part": 1,
+      "heading": "Python API and extension compatibility",
+      "statement": "Verify binary extension/embedding ABI and lifetime invariants only where compiled interoperation is part of the accepted baseline.",
+      "scope": "python_to_rust_port",
+      "family": "interop"
+    },
+    {
+      "id": "NOM-0171",
+      "key": "PY-15",
+      "part": 0,
+      "heading": "Serialization compatibility beyond round-trip preservation",
+      "statement": "Verify externally consumed serialized representations against the source contract, including exact bytes only when those bytes are contractual.",
+      "scope": "python_to_rust_port",
+      "family": "data"
+    },
+    {
+      "id": "NOM-0172",
+      "key": "PY-16",
+      "part": 0,
+      "heading": "Filesystem, environment and subprocess boundaries",
+      "statement": "Verify in-scope filesystem, path, permission and environment-variable contracts.",
+      "scope": "python_to_rust_port",
+      "family": "os"
+    },
+    {
+      "id": "NOM-0173",
+      "key": "PY-16",
+      "part": 1,
+      "heading": "Filesystem, environment and subprocess boundaries",
+      "statement": "Verify subprocess arguments, streams, status codes and lifecycle contracts where invoked.",
+      "scope": "python_to_rust_port",
+      "family": "os"
+    },
+    {
+      "id": "NOM-0174",
+      "key": "PY-18",
+      "part": 0,
+      "heading": "Persisted state and legacy migration compatibility",
+      "statement": "Verify accepted historical Python-era persisted files/configurations are read compatibly.",
+      "scope": "python_to_rust_port",
+      "family": "data"
+    },
+    {
+      "id": "NOM-0175",
+      "key": "PY-18",
+      "part": 1,
+      "heading": "Persisted state and legacy migration compatibility",
+      "statement": "Where migration occurs, verify transformation and available recovery/rollback against representative retained state.",
+      "scope": "python_to_rust_port",
+      "family": "data"
+    }
+  ],
+  "python_full_added_rule_ids": [
+    "NOM-0138",
+    "NOM-0139",
+    "NOM-0140",
+    "NOM-0141",
+    "NOM-0142",
+    "NOM-0143",
+    "NOM-0144",
+    "NOM-0145",
+    "NOM-0146",
+    "NOM-0147",
+    "NOM-0148",
+    "NOM-0149",
+    "NOM-0150",
+    "NOM-0151",
+    "NOM-0152",
+    "NOM-0153",
+    "NOM-0154",
+    "NOM-0155",
+    "NOM-0156",
+    "NOM-0157",
+    "NOM-0158",
+    "NOM-0159",
+    "NOM-0160",
+    "NOM-0161",
+    "NOM-0162",
+    "NOM-0163",
+    "NOM-0164",
+    "NOM-0165",
+    "NOM-0166",
+    "NOM-0167",
+    "NOM-0168",
+    "NOM-0169",
+    "NOM-0170",
+    "NOM-0171",
+    "NOM-0172",
+    "NOM-0173",
+    "NOM-0174",
+    "NOM-0175"
+  ],
+  "python_lite_added_rule_ids": [
+    "NOM-0138",
+    "NOM-0139",
+    "NOM-0140",
+    "NOM-0141",
+    "NOM-0142",
+    "NOM-0143",
+    "NOM-0147",
+    "NOM-0150",
+    "NOM-0151",
+    "NOM-0152",
+    "NOM-0153",
+    "NOM-0154",
+    "NOM-0155",
+    "NOM-0156",
+    "NOM-0159",
+    "NOM-0162",
+    "NOM-0171"
+  ]
+}

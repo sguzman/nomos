@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0082",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "python_iterator_generator_fidelity",
+  "definition": "Preserve supported Python iterator and generator protocols.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0160",
+    "source_candidate": "port_remediation_python_iterator_generator_fidelity"
+  }
+}

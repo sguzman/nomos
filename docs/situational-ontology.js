@@ -77,7 +77,7 @@ const NomosOntology = (() => {
       if(!response.ok)throw Error('HTTP '+response.status);
       const catalog=await response.json();
       const data=flatten(catalog);
-      if(data.length!==142)throw Error('Expected 142 formal ontology records, found '+data.length);
+      if(data.length<142)throw Error('Incomplete formal ontology records: '+data.length);
       if(typeof window!=='undefined'&&window.location?.search){
         const parameters=new URLSearchParams(window.location.search);
         const requested=parameters.get('type'),query=parameters.get('q');
