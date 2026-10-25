@@ -14,8 +14,8 @@ test('companion browser covers 12 sources, keeping intent and situation provenan
    assert.ok(item.members.every(m=>data[type].has(m.id)));
   }
  }
- assert.equal(browser.results(data,'PROFILE-0001','situations').members.length,17);
- assert.equal(browser.results(data,'PROFILE-0001','intents').members.length,27);
+ assert.equal(browser.results(data,'PROFILE-0001','situations').members.length,28);
+ assert.equal(browser.results(data,'PROFILE-0001','intents').members.length,42);
  assert.ok(browser.results(data,'PROFILE-0001','intents','atomic').members.length>0);
 });
 test('browser rejects profile review drift without interpreting it as owner approval',()=>{
@@ -41,7 +41,7 @@ test('profile cards link to companions and viewer supports direct source selecti
  await new Promise(resolve=>setImmediate(resolve));
  assert.equal(get('companion-profile').value,'PROFILE-0001');
  assert.equal(get('companion-type').value,'intents');
- assert.equal(get('companion-results').children.length,27);
+ assert.equal(get('companion-results').children.length,42);
  assert.match(get('companion-source').textContent,/Reviewed source rule selection/);
  get('companion-profile').value='PROFILE-0003';get('companion-profile').listeners.change();
  assert.match(get('companion-source').textContent,/Provisional source rule selection/);
