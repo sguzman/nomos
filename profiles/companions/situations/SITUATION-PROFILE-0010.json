@@ -6,10 +6,10 @@
   "title": "C++-to-Rust Strict Port - Full - situation companion",
   "source_profile": {
     "id": "PROFILE-0010",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "draft",
     "selection_confirmed": false,
-    "source_git_blob_sha": "cebd5c4729d7b4e32437a133c5f4395cf72019b9"
+    "source_git_blob_sha": "b59a3e21512c92b6eba1a21a1c3d8bf10ad2c4e2"
   },
   "source_rule_ids": [
     "NOM-0001",
@@ -101,7 +101,39 @@
     "NOM-0106",
     "NOM-0107",
     "NOM-0108",
-    "NOM-0109"
+    "NOM-0109",
+    "NOM-0138",
+    "NOM-0140",
+    "NOM-0141",
+    "NOM-0142",
+    "NOM-0143",
+    "NOM-0144",
+    "NOM-0145",
+    "NOM-0146",
+    "NOM-0176",
+    "NOM-0177",
+    "NOM-0178",
+    "NOM-0179",
+    "NOM-0180",
+    "NOM-0181",
+    "NOM-0182",
+    "NOM-0183",
+    "NOM-0184",
+    "NOM-0185",
+    "NOM-0186",
+    "NOM-0187",
+    "NOM-0188",
+    "NOM-0189",
+    "NOM-0190",
+    "NOM-0191",
+    "NOM-0192",
+    "NOM-0193",
+    "NOM-0194",
+    "NOM-0195",
+    "NOM-0196",
+    "NOM-0197",
+    "NOM-0198",
+    "NOM-0199"
   ],
   "source_analysis_snapshot": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
   "members": [
@@ -470,6 +502,134 @@
         {
           "id": "NOM-0076",
           "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0138",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0140",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0141",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0142",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0143",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0144",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0145",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0146",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0176",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0177",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0178",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0179",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0180",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0181",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0182",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0183",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0184",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0185",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0186",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0187",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0188",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0189",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0190",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0191",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0192",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0193",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0194",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0195",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0196",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0197",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0198",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0199",
+          "basis": "explicit_context_with_interpretation"
         }
       ]
     },
@@ -620,6 +780,214 @@
         },
         {
           "id": "NOM-0067",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0049",
+      "via_rules": [
+        {
+          "id": "NOM-0138",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0050",
+      "via_rules": [
+        {
+          "id": "NOM-0140",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0051",
+      "via_rules": [
+        {
+          "id": "NOM-0141",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0052",
+      "via_rules": [
+        {
+          "id": "NOM-0142",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0143",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0053",
+      "via_rules": [
+        {
+          "id": "NOM-0144",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0054",
+      "via_rules": [
+        {
+          "id": "NOM-0145",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0146",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0061",
+      "via_rules": [
+        {
+          "id": "NOM-0176",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0062",
+      "via_rules": [
+        {
+          "id": "NOM-0177",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0178",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0179",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0063",
+      "via_rules": [
+        {
+          "id": "NOM-0180",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0181",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0199",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0064",
+      "via_rules": [
+        {
+          "id": "NOM-0182",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0183",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0184",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0065",
+      "via_rules": [
+        {
+          "id": "NOM-0185",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0186",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0187",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0066",
+      "via_rules": [
+        {
+          "id": "NOM-0188",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0189",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0067",
+      "via_rules": [
+        {
+          "id": "NOM-0190",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0191",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0192",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0068",
+      "via_rules": [
+        {
+          "id": "NOM-0193",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0069",
+      "via_rules": [
+        {
+          "id": "NOM-0194",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0195",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0196",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0197",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0070",
+      "via_rules": [
+        {
+          "id": "NOM-0198",
           "basis": "explicit_context_with_interpretation"
         }
       ]

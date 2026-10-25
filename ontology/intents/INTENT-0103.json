@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0103",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "cpp_defined_behavior_scope",
+  "definition": "Avoid claiming parity for undefined C++ behavior; bound environment-specific obligations.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0198",
+    "source_candidate": "cpp_remediation_cpp_defined_behavior_scope"
+  }
+}

@@ -1,7 +1,7 @@
 {
   "id": "PROFILE-0010",
   "kind": "rule_profile",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "title": "C++-to-Rust Strict Port - Full",
   "status": "draft",
   "selected_rule_ids": [
@@ -94,7 +94,39 @@
     "NOM-0106",
     "NOM-0107",
     "NOM-0108",
-    "NOM-0109"
+    "NOM-0109",
+    "NOM-0138",
+    "NOM-0140",
+    "NOM-0141",
+    "NOM-0142",
+    "NOM-0143",
+    "NOM-0144",
+    "NOM-0145",
+    "NOM-0146",
+    "NOM-0176",
+    "NOM-0177",
+    "NOM-0178",
+    "NOM-0179",
+    "NOM-0180",
+    "NOM-0181",
+    "NOM-0182",
+    "NOM-0183",
+    "NOM-0184",
+    "NOM-0185",
+    "NOM-0186",
+    "NOM-0187",
+    "NOM-0188",
+    "NOM-0189",
+    "NOM-0190",
+    "NOM-0191",
+    "NOM-0192",
+    "NOM-0193",
+    "NOM-0194",
+    "NOM-0195",
+    "NOM-0196",
+    "NOM-0197",
+    "NOM-0198",
+    "NOM-0199"
   ],
   "export_targets": [
     "agents_md",
@@ -107,6 +139,6 @@
   },
   "governance": {
     "created_on": "2026-10-22",
-    "updated_on": "2026-10-22"
+    "updated_on": "2026-10-25"
   }
 }

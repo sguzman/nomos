@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0094",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "cpp_exception_compatibility",
+  "definition": "Preserve supported C++ error propagation and unwinding effects across Rust replacements.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0182",
+    "source_candidate": "cpp_remediation_cpp_exception_compatibility"
+  }
+}

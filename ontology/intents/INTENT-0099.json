@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0099",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "cpp_cross_language_ownership_safety",
+  "definition": "Preserve correct allocation, destruction and exception containment across C++/Rust interop.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0192",
+    "source_candidate": "cpp_remediation_cpp_cross_language_ownership_safety"
+  }
+}

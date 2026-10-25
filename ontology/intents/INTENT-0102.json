@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0102",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "cpp_static_coroutine_lifecycle_fidelity",
+  "definition": "Preserve observable static initialization and coroutine lifecycle outcomes.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0196",
+    "source_candidate": "cpp_remediation_cpp_static_coroutine_lifecycle_fidelity"
+  }
+}

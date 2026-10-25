@@ -1,0 +1,73 @@
+{
+  "id": "RLINK-0193",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0193",
+  "rule_version": "1.0.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0031",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.project_types",
+        "statement"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    },
+    {
+      "id": "SITU-0068",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.project_types",
+        "statement"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0044",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    },
+    {
+      "id": "INTENT-0100",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "50fc2ae8879e51a2a2b995f105e4193bbbcf6be5",
+    "source_blob_sha": "b7d5b8ed83522ad3f3f6d46f80fb6ac43a7fd7e1",
+    "source_statement": "Where consumers rely on C++ container/iterator contracts, verify invalidation, iteration and reference-stability behavior at exposed boundaries.",
+    "source_conditions": [
+      "An authorized C++-to-Rust port includes the C++-specific behavior in the agreed baseline or externally consumed interface."
+    ],
+    "normalized_predicate": {
+      "action": "verify",
+      "object": "cpp_container_invalidation",
+      "target": "cpp_to_rust_port"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relevant contexts do not narrow normative rule applicability.",
+    "intent_semantics": "Inferred outcomes are descriptive and not new instructions.",
+    "effective_rules": "Source rules apply only after deliberate independent selection."
+  },
+  "provenance": {
+    "queue_id": "RIA-0193",
+    "processing_id": "PROC-RIA-0193",
+    "source_path": "rules/NOM-0193.json",
+    "extension": "cpp_remediation"
+  },
+  "reviewed_on": "2026-10-25"
+}

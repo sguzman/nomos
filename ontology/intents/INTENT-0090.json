@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0090",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "cpp_baseline_reproducibility",
+  "definition": "Preserve a verifiable C++ toolchain and source behavior baseline.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0176",
+    "source_candidate": "cpp_remediation_cpp_baseline_reproducibility"
+  }
+}

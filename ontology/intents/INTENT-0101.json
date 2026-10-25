@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0101",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "cpp_atomic_thread_sync_fidelity",
+  "definition": "Preserve atomic memory ordering and thread synchronization guarantees.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0194",
+    "source_candidate": "cpp_remediation_cpp_atomic_thread_sync_fidelity"
+  }
+}

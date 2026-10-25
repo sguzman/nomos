@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0091",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "cpp_ownership_and_reference_fidelity",
+  "definition": "Preserve accepted C++ ownership, reference validity and alias behavior.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0177",
+    "source_candidate": "cpp_remediation_cpp_ownership_and_reference_fidelity"
+  }
+}

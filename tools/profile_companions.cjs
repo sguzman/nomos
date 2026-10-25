@@ -37,6 +37,10 @@ function derive(profile,links,concepts,raw,type){
 function generate(root=ROOT){
  const dir=path.join(root,'profiles'),linkDir=path.join(root,'ontology/rule-links');
  const links=new Map(names(linkDir,/^RLINK-\d+\.json$/).map(f=>{const l=read(path.join(linkDir,f));return [l.rule_id,l];}));
+ const cpp=path.join(linkDir,'cpp-remediation');
+ if(fs.existsSync(cpp))for(const f of names(cpp,/^RLINK-\d+\.json$/)){
+  const l=read(path.join(cpp,f));if(links.has(l.rule_id))throw Error('Duplicate C++ link '+l.rule_id);links.set(l.rule_id,l);
+ }
  const extension=path.join(linkDir,'port-remediation');
  if(fs.existsSync(extension))for(const f of names(extension,/^RLINK-\d+\.json$/)){
   const l=read(path.join(extension,f));if(links.has(l.rule_id))throw Error('Duplicate source '+l.rule_id);links.set(l.rule_id,l);

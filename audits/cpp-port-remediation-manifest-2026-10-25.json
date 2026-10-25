@@ -1,0 +1,491 @@
+{
+  "kind": "cpp_strict_port_coverage_remediation",
+  "version": "1.0.0",
+  "date": "2026-10-25",
+  "state": "authorized_normalized_rules",
+  "source_profile": "PROFILE-0010",
+  "source_lite": "PROFILE-0009",
+  "original_full_rule_count": 90,
+  "original_lite_rule_count": 38,
+  "shared_published_rule_ids": [
+    "NOM-0138",
+    "NOM-0140",
+    "NOM-0141",
+    "NOM-0142",
+    "NOM-0143",
+    "NOM-0144",
+    "NOM-0145",
+    "NOM-0146"
+  ],
+  "shared_lite_selected_ids": [
+    "NOM-0138",
+    "NOM-0140",
+    "NOM-0141",
+    "NOM-0143",
+    "NOM-0144"
+  ],
+  "records": [
+    {
+      "id": "NOM-0176",
+      "audit_key": "CPP-01",
+      "key": "baseline",
+      "title": "baseline",
+      "statement": "Pin the accepted C++ language dialect, compiler and standard library version, build flags, and ABI environment needed to reproduce in-scope upstream behavior.",
+      "scope": "cpp_to_rust_port",
+      "family": "baseline",
+      "comparison_ids": [
+        "NOM-0074"
+      ],
+      "lite": true,
+      "source_evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ]
+    },
+    {
+      "id": "NOM-0177",
+      "audit_key": "CPP-02",
+      "key": "ownership",
+      "title": "ownership",
+      "statement": "Verify transfer, sharing, and non-owning alias guarantees at supported C++ object interfaces before substituting Rust ownership.",
+      "scope": "cpp_to_rust_port",
+      "family": "lifetime",
+      "comparison_ids": [
+        "NOM-0074"
+      ],
+      "lite": true,
+      "source_evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ]
+    },
+    {
+      "id": "NOM-0178",
+      "audit_key": "CPP-03",
+      "key": "lifetime",
+      "title": "lifetime",
+      "statement": "Verify reference and pointer validity, temporary lifetime extension, and observable invalidation at supported C++ object boundaries.",
+      "scope": "cpp_to_rust_port",
+      "family": "lifetime",
+      "comparison_ids": [
+        "NOM-0074"
+      ],
+      "lite": true,
+      "source_evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ]
+    },
+    {
+      "id": "NOM-0179",
+      "audit_key": "CPP-04",
+      "key": "raii",
+      "title": "raii",
+      "statement": "Verify required RAII resource release, destructor side effects, and observable destruction order during normal exits.",
+      "scope": "cpp_to_rust_port",
+      "family": "lifetime",
+      "comparison_ids": [
+        "NOM-0074"
+      ],
+      "lite": true,
+      "source_evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ]
+    },
+    {
+      "id": "NOM-0180",
+      "audit_key": "CPP-05",
+      "key": "copy",
+      "title": "copy",
+      "statement": "Verify observable C++ copy-construction and copy-assignment semantics, including ownership and independence of copied state.",
+      "scope": "cpp_to_rust_port",
+      "family": "value",
+      "comparison_ids": [
+        "NOM-0074"
+      ],
+      "lite": true,
+      "source_evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ]
+    },
+    {
+      "id": "NOM-0181",
+      "audit_key": "CPP-06",
+      "key": "move",
+      "title": "move",
+      "statement": "Verify required move-construction and move-assignment results, including documented moved-from guarantees, without assuming every moved-from value is empty.",
+      "scope": "cpp_to_rust_port",
+      "family": "value",
+      "comparison_ids": [
+        "NOM-0074"
+      ],
+      "lite": true,
+      "source_evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ]
+    },
+    {
+      "id": "NOM-0182",
+      "audit_key": "CPP-07",
+      "key": "exceptions",
+      "title": "exceptions",
+      "statement": "Verify externally observable C++ exception types, propagation, and the approved translation to Rust errors at compatible interfaces.",
+      "scope": "cpp_to_rust_port",
+      "family": "errors",
+      "comparison_ids": [
+        "NOM-0074"
+      ],
+      "lite": true,
+      "source_evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ]
+    },
+    {
+      "id": "NOM-0183",
+      "audit_key": "CPP-08",
+      "key": "unwind",
+      "title": "unwind",
+      "statement": "Verify required cleanup and object destruction during exception unwinding and equivalent Rust failure paths.",
+      "scope": "cpp_to_rust_port",
+      "family": "errors",
+      "comparison_ids": [
+        "NOM-0074"
+      ],
+      "lite": true,
+      "source_evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ]
+    },
+    {
+      "id": "NOM-0184",
+      "audit_key": "CPP-09",
+      "key": "noexcept",
+      "title": "noexcept",
+      "statement": "Where noexcept or termination behavior is externally contractual, verify no-throw boundaries and required termination outcomes without allowing exceptions across unsupported FFI.",
+      "scope": "cpp_to_rust_port",
+      "family": "errors",
+      "comparison_ids": [
+        "NOM-0144"
+      ],
+      "lite": false,
+      "source_evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ]
+    },
+    {
+      "id": "NOM-0185",
+      "audit_key": "CPP-10",
+      "key": "templates",
+      "title": "templates",
+      "statement": "Verify consumed C++ template instantiation and constraint acceptance/rejection behavior for supported source/API combinations.",
+      "scope": "cpp_to_rust_port",
+      "family": "compile",
+      "comparison_ids": [
+        "NOM-0074"
+      ],
+      "lite": true,
+      "source_evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ]
+    },
+    {
+      "id": "NOM-0186",
+      "audit_key": "CPP-11",
+      "key": "overloads",
+      "title": "overloads",
+      "statement": "Verify accepted overload selection and implicit conversion effects at externally consumed C++ APIs.",
+      "scope": "cpp_to_rust_port",
+      "family": "compile",
+      "comparison_ids": [
+        "NOM-0074"
+      ],
+      "lite": false,
+      "source_evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ]
+    },
+    {
+      "id": "NOM-0187",
+      "audit_key": "CPP-12",
+      "key": "value_categories",
+      "title": "value categories",
+      "statement": "Verify relevant C++ value-category and forwarding behavior when it changes supported public API results or ownership transitions.",
+      "scope": "cpp_to_rust_port",
+      "family": "compile",
+      "comparison_ids": [
+        "NOM-0074"
+      ],
+      "lite": false,
+      "source_evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ]
+    },
+    {
+      "id": "NOM-0188",
+      "audit_key": "CPP-13",
+      "key": "virtual_dispatch",
+      "title": "virtual dispatch",
+      "statement": "Verify observable virtual override dispatch and inheritance behavior of supported polymorphic interfaces.",
+      "scope": "cpp_to_rust_port",
+      "family": "polymorphism",
+      "comparison_ids": [
+        "NOM-0074"
+      ],
+      "lite": true,
+      "source_evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ]
+    },
+    {
+      "id": "NOM-0189",
+      "audit_key": "CPP-14",
+      "key": "rtti",
+      "title": "rtti",
+      "statement": "Verify public RTTI and checked downcast behavior where consumers depend on dynamic_cast, typeid, or equivalent type discovery.",
+      "scope": "cpp_to_rust_port",
+      "family": "polymorphism",
+      "comparison_ids": [
+        "NOM-0074"
+      ],
+      "lite": false,
+      "source_evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ]
+    },
+    {
+      "id": "NOM-0190",
+      "audit_key": "CPP-15",
+      "key": "object_layout",
+      "title": "object layout",
+      "statement": "Where native object representations cross a binary boundary, verify relevant field layout, size, alignment and permitted representation assumptions against the pinned C++ ABI.",
+      "scope": "cpp_to_rust_port",
+      "family": "abi",
+      "comparison_ids": [
+        "NOM-0144"
+      ],
+      "lite": true,
+      "source_evidence_keys": [
+        "cpp_objects",
+        "cpp_guidelines"
+      ]
+    },
+    {
+      "id": "NOM-0191",
+      "audit_key": "CPP-16",
+      "key": "binary_abi",
+      "title": "binary abi",
+      "statement": "Verify required calling conventions, exposed binary symbols, and toolchain-specific name-mangling compatibility across retained C++/Rust binary interfaces.",
+      "scope": "cpp_to_rust_port",
+      "family": "abi",
+      "comparison_ids": [
+        "NOM-0144"
+      ],
+      "lite": true,
+      "source_evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ]
+    },
+    {
+      "id": "NOM-0192",
+      "audit_key": "CPP-17",
+      "key": "cross_language_allocation",
+      "title": "cross language allocation",
+      "statement": "Verify allocation and deallocation ownership, exception barriers and object lifetime across necessary C++/Rust interop boundaries.",
+      "scope": "cpp_to_rust_port",
+      "family": "abi",
+      "comparison_ids": [
+        "NOM-0144"
+      ],
+      "lite": true,
+      "source_evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ]
+    },
+    {
+      "id": "NOM-0193",
+      "audit_key": "CPP-18",
+      "key": "container_invalidation",
+      "title": "container invalidation",
+      "statement": "Where consumers rely on C++ container/iterator contracts, verify invalidation, iteration and reference-stability behavior at exposed boundaries.",
+      "scope": "cpp_to_rust_port",
+      "family": "containers",
+      "comparison_ids": [
+        "NOM-0074"
+      ],
+      "lite": false,
+      "source_evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ]
+    },
+    {
+      "id": "NOM-0194",
+      "audit_key": "CPP-19",
+      "key": "atomics",
+      "title": "atomics",
+      "statement": "Verify required atomic modification ordering, acquire/release visibility, and synchronization guarantees for in-scope concurrent behavior; do not compare unpromised scheduling order.",
+      "scope": "cpp_to_rust_port",
+      "family": "concurrency",
+      "comparison_ids": [
+        "NOM-0074"
+      ],
+      "lite": true,
+      "source_evidence_keys": [
+        "cpp_memory_order",
+        "cpp_guidelines"
+      ]
+    },
+    {
+      "id": "NOM-0195",
+      "audit_key": "CPP-20",
+      "key": "thread_sync",
+      "title": "thread sync",
+      "statement": "Verify accepted mutex, lock, condition-variable, and wakeup/predicate behavior for supported multithreaded interactions.",
+      "scope": "cpp_to_rust_port",
+      "family": "concurrency",
+      "comparison_ids": [
+        "NOM-0074"
+      ],
+      "lite": false,
+      "source_evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ]
+    },
+    {
+      "id": "NOM-0196",
+      "audit_key": "CPP-21",
+      "key": "static_lifecycle",
+      "title": "static lifecycle",
+      "statement": "Verify observable initialization and teardown ordering for supported static and thread-local objects when it affects externally visible behavior.",
+      "scope": "cpp_to_rust_port",
+      "family": "concurrency",
+      "comparison_ids": [
+        "NOM-0074"
+      ],
+      "lite": false,
+      "source_evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ]
+    },
+    {
+      "id": "NOM-0197",
+      "audit_key": "CPP-22",
+      "key": "coroutines",
+      "title": "coroutines",
+      "statement": "Where C++20 coroutines are part of the accepted upstream interface, verify resume, suspend, cancellation and destruction contracts in the Rust replacement.",
+      "scope": "cpp_to_rust_port",
+      "family": "concurrency",
+      "comparison_ids": [
+        "NOM-0074"
+      ],
+      "lite": false,
+      "source_evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ]
+    },
+    {
+      "id": "NOM-0198",
+      "audit_key": "CPP-23",
+      "key": "defined_behavior",
+      "title": "defined behavior",
+      "statement": "Distinguish specified C++ behavior from undefined, implementation-defined and unspecified behavior when setting compatibility acceptance; document environment-specific decisions rather than asserting impossible universal parity.",
+      "scope": "cpp_to_rust_port",
+      "family": "baseline",
+      "comparison_ids": [
+        "NOM-0074"
+      ],
+      "lite": true,
+      "source_evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ]
+    },
+    {
+      "id": "NOM-0199",
+      "audit_key": "CPP-24",
+      "key": "numeric",
+      "title": "numeric",
+      "statement": "Verify supported C++ integer promotions, conversion widths, signedness, floating-point and rounding outcomes wherever consumers observe them.",
+      "scope": "cpp_to_rust_port",
+      "family": "value",
+      "comparison_ids": [
+        "NOM-0074"
+      ],
+      "lite": false,
+      "source_evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ]
+    }
+  ],
+  "cpp_full_selected_new_ids": [
+    "NOM-0176",
+    "NOM-0177",
+    "NOM-0178",
+    "NOM-0179",
+    "NOM-0180",
+    "NOM-0181",
+    "NOM-0182",
+    "NOM-0183",
+    "NOM-0184",
+    "NOM-0185",
+    "NOM-0186",
+    "NOM-0187",
+    "NOM-0188",
+    "NOM-0189",
+    "NOM-0190",
+    "NOM-0191",
+    "NOM-0192",
+    "NOM-0193",
+    "NOM-0194",
+    "NOM-0195",
+    "NOM-0196",
+    "NOM-0197",
+    "NOM-0198",
+    "NOM-0199"
+  ],
+  "cpp_lite_selected_new_ids": [
+    "NOM-0176",
+    "NOM-0177",
+    "NOM-0178",
+    "NOM-0179",
+    "NOM-0180",
+    "NOM-0181",
+    "NOM-0182",
+    "NOM-0183",
+    "NOM-0185",
+    "NOM-0188",
+    "NOM-0190",
+    "NOM-0191",
+    "NOM-0192",
+    "NOM-0194",
+    "NOM-0198"
+  ],
+  "new_profiles": {
+    "full": 122,
+    "lite": 58
+  },
+  "authorization_boundaries": {
+    "profile_status": "draft",
+    "selection_confirmed": false,
+    "finalization_confirmed": false,
+    "no_activation": true,
+    "no_other_profile_changes": true
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0104",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "cpp_numeric_conversion_fidelity",
+  "definition": "Preserve exposed C++ numeric width, conversion and rounding effects.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0199",
+    "source_candidate": "cpp_remediation_cpp_numeric_conversion_fidelity"
+  }
+}

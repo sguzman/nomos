@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0100",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "cpp_container_invalidation_fidelity",
+  "definition": "Preserve relevant container iteration and invalidation promises.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0193",
+    "source_candidate": "cpp_remediation_cpp_container_invalidation_fidelity"
+  }
+}

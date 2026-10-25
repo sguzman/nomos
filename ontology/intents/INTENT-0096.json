@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0096",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "cpp_compile_time_interface_fidelity",
+  "definition": "Preserve consumed C++ template, constraint and overload interface behavior.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0185",
+    "source_candidate": "cpp_remediation_cpp_compile_time_interface_fidelity"
+  }
+}

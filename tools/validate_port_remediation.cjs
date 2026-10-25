@@ -46,7 +46,11 @@ function check(r=root){
  }
  if(manifest.python_lite_added_rule_ids.length!==17||manifest.python_full_added_rule_ids.length!==38)throw Error('Manifest drift');
  for(const name of fs.readdirSync(path.join(r,'profiles')).filter(x=>/^PROFILE-\d+\.json$/.test(x)&&!['PROFILE-0011.json','PROFILE-0012.json'].includes(x))){
-  if(get('profiles/'+name).selected_rule_ids.some(id=>seen.has(id)))throw Error('Other profile changed '+name);
+  const selected=get('profiles/'+name).selected_rule_ids;
+  const shared=new Set(manifest.records.filter(x=>x.scope==='software_port').map(x=>x.id));
+  const permitted=name==='PROFILE-0009.json'||name==='PROFILE-0010.json';
+  if(selected.some(id=>seen.has(id)&&(!permitted||!shared.has(id))))
+    throw Error('Unapproved source-language rule selection '+name);
  }
  return {new_rules:38,new_situations:12,new_intents:17,python_lite_rules:56,python_full_rules:128};
 }

@@ -171,6 +171,59 @@ def load_links(root=ROOT):
             supporting=links.get("NOM-"+obj.get("provenance",{}).get("queue_id","")[-4:])
             if not supporting or cid not in [c["id"] for c in supporting[relation]]:
                 errors.append(cid+": missing genuine source rule")
+
+    # C++-to-Rust independent extension retains both original and Python source history.
+    cppdir=root/"ontology/rule-links/cpp-remediation"
+    files=sorted(cppdir.glob("RLINK-*.json"))
+    cpp_cross=read(root,Path("ontology/rule-analysis/cpp-remediation-crosswalk.json"))
+    if cpp_cross.get("status")!="reviewed" or len(files)!=24 or len(cpp_cross.get("entries",{}))!=24:
+        errors.append("expected 24 C++-to-Rust evidence mappings")
+    for path in files:
+        link=read(root,path.relative_to(root))
+        rid=link.get("rule_id","")
+        if rid in links or not rid.startswith("NOM-") or not rid[4:].isdigit() or int(rid[4:]) not in range(176,200):
+            errors.append("invalid duplicate or out of range C++ rule link "+rid)
+            continue
+        qid="RIA-"+rid[-4:]
+        rule=read(root,Path("rules")/(rid+".json"))
+        queue=read(root,Path("queues/cpp-remediation")/(qid+".json"))
+        trace=read(root,Path("processing/cpp-remediation")/("PROC-"+qid+".json"))
+        source=queue.get("source",{})
+        situation_ids=[x["id"] for x in link.get("situations",[])]
+        intent_ids=[x["id"] for x in link.get("intents",[])]
+        expected=cpp_cross.get("entries",{}).get(qid,{})
+        if (rule.get("status")!="published" or link.get("rule_editorial_status")!="published" or
+            link.get("rule_version")!=rule.get("version") or link.get("status")!="published" or
+            expected.get("rule_id")!=rid or expected.get("situation_ids")!=situation_ids or
+            expected.get("intent_ids")!=intent_ids or not situation_ids or not intent_ids or
+            len(situation_ids)!=len(set(situation_ids)) or len(intent_ids)!=len(set(intent_ids)) or
+            not set(situation_ids)<=situations or not set(intent_ids)<=intents or
+            trace.get("disposition",{}).get("situation_ids")!=situation_ids or
+            trace.get("disposition",{}).get("intent_ids")!=intent_ids):
+            errors.append("invalid C++ rule concepts "+rid)
+        if (source!=trace.get("source") or source.get("rule_id")!=rid or
+            source.get("path")!=f"rules/{rid}.json" or
+            git_blob((root/source["path"]).read_bytes())!=source.get("git_blob_sha") or
+            link.get("evidence",{}).get("source_blob_sha")!=source.get("git_blob_sha") or
+            link.get("evidence",{}).get("source_statement")!=rule.get("statement") or
+            link.get("evidence",{}).get("normalized_predicate")!=rule.get("norm",{}).get("predicate") or
+            link.get("provenance",{}).get("queue_id")!=qid):
+            errors.append("C++ rule provenance mismatch "+rid)
+        auth=trace.get("authorization",{})
+        if (queue.get("status")!="processed" or trace.get("status")!="closed" or
+            not auth.get("processing") or not auth.get("publication") or
+            auth.get("selection_confirmation") is not False or auth.get("rule_activation") is not False):
+            errors.append("C++ processing authorization invalid "+rid)
+        links[rid]=link
+    if len(links)!=199:
+        errors.append(f"combined rule mapping count {len(links)}, expected 199")
+    for prefix,start,end,folder,relation in (("SITU",61,70,"situations","situations"),("INTENT",90,104,"intents","intents")):
+        for n in range(start,end+1):
+            cid=f"{prefix}-{n:04d}"
+            obj=read(root,Path("ontology")/folder/(cid+".json"))
+            supporting=links.get("NOM-"+obj.get("provenance",{}).get("queue_id","")[-4:])
+            if not supporting or cid not in [x["id"] for x in supporting[relation]]:
+                errors.append(cid+": missing C++ source provenance")
     return links,errors
 
 def main():

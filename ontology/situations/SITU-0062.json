@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0062",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "cpp_ownership_lifetime_and_raii",
+  "definition": "A C++ interface depends on ownership, object lifetimes, or deterministic resource cleanup.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0177",
+    "source_candidate": "cpp_remediation_cpp_ownership_lifetime_and_raii",
+    "normalization": "reviewed_cpp_port_coverage_2026_10_25"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0098",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "cpp_native_layout_abi_fidelity",
+  "definition": "Preserve native layout, symbols, and calling ABI for accepted consumers.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0190",
+    "source_candidate": "cpp_remediation_cpp_native_layout_abi_fidelity"
+  }
+}

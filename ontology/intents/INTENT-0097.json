@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0097",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "cpp_polymorphism_rtti_fidelity",
+  "definition": "Preserve required polymorphic dispatch and runtime type information.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0188",
+    "source_candidate": "cpp_remediation_cpp_polymorphism_rtti_fidelity"
+  }
+}

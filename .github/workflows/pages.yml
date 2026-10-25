@@ -26,6 +26,7 @@ on:
       - "processing/situational-prompts/revisions/**"
       - "audits/strict-port-coverage-2026-10-25.*"
       - "audits/strict-port-remediation*"
+      - "audits/cpp-port-*"
       - "tools/**"
       - "tests/**"
       - ".github/workflows/pages.yml"
@@ -89,6 +90,8 @@ jobs:
           node --test tests/test_strict_port_coverage.cjs
           node tools/validate_port_remediation.cjs
           node --test tests/test_port_remediation.cjs
+          node tools/validate_cpp_port_remediation.cjs
+          node --test tests/test_cpp_port_remediation.cjs
           node --check tools/profile_ideas.cjs
           node --check tools/validate_profile_ideas.cjs
           node tools/validate_profile_ideas.cjs

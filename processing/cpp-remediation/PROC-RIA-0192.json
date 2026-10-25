@@ -1,0 +1,43 @@
+{
+  "id": "PROC-RIA-0192",
+  "kind": "authorized_cpp_port_normalization",
+  "status": "closed",
+  "queue_id": "RIA-0192",
+  "source": {
+    "rule_id": "NOM-0192",
+    "path": "rules/NOM-0192.json",
+    "version": "1.0.0",
+    "status_at_snapshot": "published",
+    "snapshot_commit": "50fc2ae8879e51a2a2b995f105e4193bbbcf6be5",
+    "git_blob_sha": "dd4a85c8864c65031d5b8224bcd2ac3be417886b"
+  },
+  "authorization": {
+    "authority": "explicit_owner_cpp_to_rust_coverage_remediation_2026_10_25",
+    "processing": true,
+    "normalization": true,
+    "publication": true,
+    "profile_draft_extension": true,
+    "selection_confirmation": false,
+    "rule_activation": false
+  },
+  "disposition": {
+    "rule_path": "rules/NOM-0192.json",
+    "link_path": "ontology/rule-links/cpp-remediation/RLINK-0192.json",
+    "situation_ids": [
+      "SITU-0031",
+      "SITU-0067"
+    ],
+    "intent_ids": [
+      "INTENT-0044",
+      "INTENT-0099"
+    ],
+    "draft_profile_extension": true
+  },
+  "evidence": {
+    "audit": "audits/cpp-port-coverage-2026-10-25.json",
+    "origin_audit_key": "CPP-17"
+  },
+  "governance": {
+    "completed_on": "2026-10-25"
+  }
+}

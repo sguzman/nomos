@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0095",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "cpp_noexcept_termination_fidelity",
+  "definition": "Preserve contractual no-throw and termination behavior at supported boundaries.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0184",
+    "source_candidate": "cpp_remediation_cpp_noexcept_termination_fidelity"
+  }
+}

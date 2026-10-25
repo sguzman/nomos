@@ -31,7 +31,7 @@ class FormalSituationalOntologyTests(unittest.TestCase):
         self.assertEqual(self.errors,[])
         self.assertEqual([len(self.registries[x]) for x in
              ("situations","intents","families","conditions","evaluation-dimensions")],
-             [60,89,8,7,7])
+             [70,104,8,7,7])
         self.assertEqual(len(self.registries["prompt_versions"]),16)
         self.assertEqual(len(self.registries["prompts_v1"]),8)
         self.assertEqual(self.registries["evaluations"],[])

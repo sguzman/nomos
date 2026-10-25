@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0092",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "cpp_raii_cleanup_fidelity",
+  "definition": "Preserve observable C++ destructor timing and resource cleanup.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0179",
+    "source_candidate": "cpp_remediation_cpp_raii_cleanup_fidelity"
+  }
+}

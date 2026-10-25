@@ -1,0 +1,36 @@
+{
+  "id": "RIA-0196",
+  "kind": "authorized_cpp_port_rule_intake",
+  "status": "processed",
+  "source": {
+    "rule_id": "NOM-0196",
+    "path": "rules/NOM-0196.json",
+    "version": "1.0.0",
+    "status_at_snapshot": "published",
+    "snapshot_commit": "50fc2ae8879e51a2a2b995f105e4193bbbcf6be5",
+    "git_blob_sha": "ce7e45b35eba7e9a15362904c275b742f946b7a9"
+  },
+  "origin_audit_key": "CPP-21",
+  "authorization": {
+    "authority": "explicit_owner_cpp_to_rust_coverage_remediation_2026_10_25",
+    "processing": true,
+    "normalization": true,
+    "publication": true,
+    "profile_draft_extension": true,
+    "selection_confirmation": false,
+    "rule_activation": false
+  },
+  "requested_analysis": [
+    "normative_atom",
+    "situation",
+    "intent",
+    "profile_coverage"
+  ],
+  "processing": {
+    "state": "closed",
+    "record": "processing/cpp-remediation/PROC-RIA-0196.json"
+  },
+  "governance": {
+    "queued_on": "2026-10-25"
+  }
+}

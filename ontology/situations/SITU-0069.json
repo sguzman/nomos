@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0069",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "cpp_concurrency_contract",
+  "definition": "C++ atomic, threading, static lifecycle or coroutine behavior affects the supported replacement contract.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0194",
+    "source_candidate": "cpp_remediation_cpp_concurrency_contract",
+    "normalization": "reviewed_cpp_port_coverage_2026_10_25"
+  }
+}

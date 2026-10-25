@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0093",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "cpp_copy_move_fidelity",
+  "definition": "Preserve public C++ copy, move and value-category outcomes.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0180",
+    "source_candidate": "cpp_remediation_cpp_copy_move_fidelity"
+  }
+}

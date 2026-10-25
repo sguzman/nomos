@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0067",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "cpp_binary_interop_constraints",
+  "definition": "Native layout, calling convention or object allocation crosses a C++/Rust compatibility boundary.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0190",
+    "source_candidate": "cpp_remediation_cpp_binary_interop_constraints",
+    "normalization": "reviewed_cpp_port_coverage_2026_10_25"
+  }
+}

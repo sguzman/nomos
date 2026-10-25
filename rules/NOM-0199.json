@@ -1,0 +1,106 @@
+{
+  "id": "NOM-0199",
+  "version": "1.0.0",
+  "title": "numeric",
+  "summary": "Verify supported C++ integer promotions, conversion widths, signedness, floating-point and rounding outcomes wherever consumers observe them.",
+  "statement": "Verify supported C++ integer promotions, conversion widths, signedness, floating-point and rounding outcomes wherever consumers observe them.",
+  "rationale": "Source-specific, independent C++ behavioral fidelity obligation. Test only the accepted source contract; no requirement to reproduce unrelated C++ internals.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "verify",
+      "object": "cpp_numeric",
+      "target": "cpp_to_rust_port"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "An expressly authorized C++-to-Rust strict port includes this C++ behavior in its agreed upstream baseline, exposed interface, or accepted compatibility contract."
+    ],
+    "exceptions": [
+      "Excluded or unobservable behavior need not be emulated; permitted deviations must be disclosed; no parity promise is inferred for undefined behavior."
+    ],
+    "bounds": {
+      "quantifier": "all",
+      "interpretation": "universal",
+      "frequency": "always",
+      "minimum": null,
+      "maximum": null,
+      "unit": "entities",
+      "window": "each relevant C++ port verification",
+      "cue": "each applicable contract",
+      "basis": "reviewed_inference"
+    }
+  },
+  "categories": {
+    "domains": [
+      "rust_development",
+      "software_porting",
+      "software_testing"
+    ],
+    "topics": [
+      "port_fidelity"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "An expressly authorized C++-to-Rust strict port includes this C++ behavior in its agreed upstream baseline, exposed interface, or accepted compatibility contract."
+    ],
+    "exclusions": [
+      "Excluded or unobservable behavior need not be emulated; permitted deviations must be disclosed; no parity promise is inferred for undefined behavior."
+    ],
+    "project_types": [
+      "cpp_to_rust_port"
+    ]
+  },
+  "authority": {
+    "source": "Owner-authorized C++ strict-port coverage remediation; explicitly selected use only",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": [
+      "NOM-0074"
+    ]
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "audits/cpp-port-coverage-2026-10-25.json#CPP-24",
+    "license": "MIT",
+    "notes": "Public-safe, independently selected language-specific fidelity constraint. No automatic activation."
+  },
+  "governance": {
+    "created_on": "2026-10-25",
+    "updated_on": "2026-10-25",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

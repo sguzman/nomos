@@ -1,0 +1,426 @@
+{
+  "kind": "cpp_strict_port_coverage_audit",
+  "status": "owner_authorized_coverage_remediation",
+  "reviewed_on": "2026-10-25",
+  "source_full": {
+    "id": "PROFILE-0010",
+    "git_blob_sha": "cebd5c4729d7b4e32437a133c5f4395cf72019b9",
+    "original_members": 90
+  },
+  "source_lite": {
+    "id": "PROFILE-0009",
+    "git_blob_sha": "222cb6aa123b6eab5ad24c1c179ed002e587e223",
+    "original_members": 38
+  },
+  "published_reusable_shared_rules": [
+    "NOM-0138",
+    "NOM-0140",
+    "NOM-0141",
+    "NOM-0142",
+    "NOM-0143",
+    "NOM-0144",
+    "NOM-0145",
+    "NOM-0146"
+  ],
+  "comparison_of_existing_rules": {
+    "generic": [
+      "NOM-0074",
+      "NOM-0075",
+      "NOM-0076",
+      "NOM-0054",
+      "NOM-0138",
+      "NOM-0140",
+      "NOM-0141",
+      "NOM-0142",
+      "NOM-0143",
+      "NOM-0144",
+      "NOM-0145",
+      "NOM-0146"
+    ],
+    "c_only": [
+      "NOM-0111",
+      "NOM-0112",
+      "NOM-0113"
+    ],
+    "python_only": "NOM-0139 and NOM-0147..NOM-0175",
+    "reused_generic_not_duplicated": [
+      "NOM-0138",
+      "NOM-0140",
+      "NOM-0141",
+      "NOM-0142",
+      "NOM-0143",
+      "NOM-0144",
+      "NOM-0145",
+      "NOM-0146"
+    ]
+  },
+  "candidate_evidence": [
+    {
+      "id": "CPP-01",
+      "normalized_rule_id": "NOM-0176",
+      "concern": "baseline",
+      "atomic_contract": "Pin the accepted C++ language dialect, compiler and standard library version, build flags, and ABI environment needed to reproduce in-scope upstream behavior.",
+      "conditional_on_source_contract": true,
+      "existing_analogue": [
+        "NOM-0074"
+      ],
+      "evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ],
+      "disposition": "published_independent_atom"
+    },
+    {
+      "id": "CPP-02",
+      "normalized_rule_id": "NOM-0177",
+      "concern": "ownership",
+      "atomic_contract": "Verify transfer, sharing, and non-owning alias guarantees at supported C++ object interfaces before substituting Rust ownership.",
+      "conditional_on_source_contract": true,
+      "existing_analogue": [
+        "NOM-0074"
+      ],
+      "evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ],
+      "disposition": "published_independent_atom"
+    },
+    {
+      "id": "CPP-03",
+      "normalized_rule_id": "NOM-0178",
+      "concern": "lifetime",
+      "atomic_contract": "Verify reference and pointer validity, temporary lifetime extension, and observable invalidation at supported C++ object boundaries.",
+      "conditional_on_source_contract": true,
+      "existing_analogue": [
+        "NOM-0074"
+      ],
+      "evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ],
+      "disposition": "published_independent_atom"
+    },
+    {
+      "id": "CPP-04",
+      "normalized_rule_id": "NOM-0179",
+      "concern": "raii",
+      "atomic_contract": "Verify required RAII resource release, destructor side effects, and observable destruction order during normal exits.",
+      "conditional_on_source_contract": true,
+      "existing_analogue": [
+        "NOM-0074"
+      ],
+      "evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ],
+      "disposition": "published_independent_atom"
+    },
+    {
+      "id": "CPP-05",
+      "normalized_rule_id": "NOM-0180",
+      "concern": "copy",
+      "atomic_contract": "Verify observable C++ copy-construction and copy-assignment semantics, including ownership and independence of copied state.",
+      "conditional_on_source_contract": true,
+      "existing_analogue": [
+        "NOM-0074"
+      ],
+      "evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ],
+      "disposition": "published_independent_atom"
+    },
+    {
+      "id": "CPP-06",
+      "normalized_rule_id": "NOM-0181",
+      "concern": "move",
+      "atomic_contract": "Verify required move-construction and move-assignment results, including documented moved-from guarantees, without assuming every moved-from value is empty.",
+      "conditional_on_source_contract": true,
+      "existing_analogue": [
+        "NOM-0074"
+      ],
+      "evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ],
+      "disposition": "published_independent_atom"
+    },
+    {
+      "id": "CPP-07",
+      "normalized_rule_id": "NOM-0182",
+      "concern": "exceptions",
+      "atomic_contract": "Verify externally observable C++ exception types, propagation, and the approved translation to Rust errors at compatible interfaces.",
+      "conditional_on_source_contract": true,
+      "existing_analogue": [
+        "NOM-0074"
+      ],
+      "evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ],
+      "disposition": "published_independent_atom"
+    },
+    {
+      "id": "CPP-08",
+      "normalized_rule_id": "NOM-0183",
+      "concern": "unwind",
+      "atomic_contract": "Verify required cleanup and object destruction during exception unwinding and equivalent Rust failure paths.",
+      "conditional_on_source_contract": true,
+      "existing_analogue": [
+        "NOM-0074"
+      ],
+      "evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ],
+      "disposition": "published_independent_atom"
+    },
+    {
+      "id": "CPP-09",
+      "normalized_rule_id": "NOM-0184",
+      "concern": "noexcept",
+      "atomic_contract": "Where noexcept or termination behavior is externally contractual, verify no-throw boundaries and required termination outcomes without allowing exceptions across unsupported FFI.",
+      "conditional_on_source_contract": true,
+      "existing_analogue": [
+        "NOM-0144"
+      ],
+      "evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ],
+      "disposition": "published_independent_atom"
+    },
+    {
+      "id": "CPP-10",
+      "normalized_rule_id": "NOM-0185",
+      "concern": "templates",
+      "atomic_contract": "Verify consumed C++ template instantiation and constraint acceptance/rejection behavior for supported source/API combinations.",
+      "conditional_on_source_contract": true,
+      "existing_analogue": [
+        "NOM-0074"
+      ],
+      "evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ],
+      "disposition": "published_independent_atom"
+    },
+    {
+      "id": "CPP-11",
+      "normalized_rule_id": "NOM-0186",
+      "concern": "overloads",
+      "atomic_contract": "Verify accepted overload selection and implicit conversion effects at externally consumed C++ APIs.",
+      "conditional_on_source_contract": true,
+      "existing_analogue": [
+        "NOM-0074"
+      ],
+      "evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ],
+      "disposition": "published_independent_atom"
+    },
+    {
+      "id": "CPP-12",
+      "normalized_rule_id": "NOM-0187",
+      "concern": "value categories",
+      "atomic_contract": "Verify relevant C++ value-category and forwarding behavior when it changes supported public API results or ownership transitions.",
+      "conditional_on_source_contract": true,
+      "existing_analogue": [
+        "NOM-0074"
+      ],
+      "evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ],
+      "disposition": "published_independent_atom"
+    },
+    {
+      "id": "CPP-13",
+      "normalized_rule_id": "NOM-0188",
+      "concern": "virtual dispatch",
+      "atomic_contract": "Verify observable virtual override dispatch and inheritance behavior of supported polymorphic interfaces.",
+      "conditional_on_source_contract": true,
+      "existing_analogue": [
+        "NOM-0074"
+      ],
+      "evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ],
+      "disposition": "published_independent_atom"
+    },
+    {
+      "id": "CPP-14",
+      "normalized_rule_id": "NOM-0189",
+      "concern": "rtti",
+      "atomic_contract": "Verify public RTTI and checked downcast behavior where consumers depend on dynamic_cast, typeid, or equivalent type discovery.",
+      "conditional_on_source_contract": true,
+      "existing_analogue": [
+        "NOM-0074"
+      ],
+      "evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ],
+      "disposition": "published_independent_atom"
+    },
+    {
+      "id": "CPP-15",
+      "normalized_rule_id": "NOM-0190",
+      "concern": "object layout",
+      "atomic_contract": "Where native object representations cross a binary boundary, verify relevant field layout, size, alignment and permitted representation assumptions against the pinned C++ ABI.",
+      "conditional_on_source_contract": true,
+      "existing_analogue": [
+        "NOM-0144"
+      ],
+      "evidence_keys": [
+        "cpp_objects",
+        "cpp_guidelines"
+      ],
+      "disposition": "published_independent_atom"
+    },
+    {
+      "id": "CPP-16",
+      "normalized_rule_id": "NOM-0191",
+      "concern": "binary abi",
+      "atomic_contract": "Verify required calling conventions, exposed binary symbols, and toolchain-specific name-mangling compatibility across retained C++/Rust binary interfaces.",
+      "conditional_on_source_contract": true,
+      "existing_analogue": [
+        "NOM-0144"
+      ],
+      "evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ],
+      "disposition": "published_independent_atom"
+    },
+    {
+      "id": "CPP-17",
+      "normalized_rule_id": "NOM-0192",
+      "concern": "cross language allocation",
+      "atomic_contract": "Verify allocation and deallocation ownership, exception barriers and object lifetime across necessary C++/Rust interop boundaries.",
+      "conditional_on_source_contract": true,
+      "existing_analogue": [
+        "NOM-0144"
+      ],
+      "evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ],
+      "disposition": "published_independent_atom"
+    },
+    {
+      "id": "CPP-18",
+      "normalized_rule_id": "NOM-0193",
+      "concern": "container invalidation",
+      "atomic_contract": "Where consumers rely on C++ container/iterator contracts, verify invalidation, iteration and reference-stability behavior at exposed boundaries.",
+      "conditional_on_source_contract": true,
+      "existing_analogue": [
+        "NOM-0074"
+      ],
+      "evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ],
+      "disposition": "published_independent_atom"
+    },
+    {
+      "id": "CPP-19",
+      "normalized_rule_id": "NOM-0194",
+      "concern": "atomics",
+      "atomic_contract": "Verify required atomic modification ordering, acquire/release visibility, and synchronization guarantees for in-scope concurrent behavior; do not compare unpromised scheduling order.",
+      "conditional_on_source_contract": true,
+      "existing_analogue": [
+        "NOM-0074"
+      ],
+      "evidence_keys": [
+        "cpp_memory_order",
+        "cpp_guidelines"
+      ],
+      "disposition": "published_independent_atom"
+    },
+    {
+      "id": "CPP-20",
+      "normalized_rule_id": "NOM-0195",
+      "concern": "thread sync",
+      "atomic_contract": "Verify accepted mutex, lock, condition-variable, and wakeup/predicate behavior for supported multithreaded interactions.",
+      "conditional_on_source_contract": true,
+      "existing_analogue": [
+        "NOM-0074"
+      ],
+      "evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ],
+      "disposition": "published_independent_atom"
+    },
+    {
+      "id": "CPP-21",
+      "normalized_rule_id": "NOM-0196",
+      "concern": "static lifecycle",
+      "atomic_contract": "Verify observable initialization and teardown ordering for supported static and thread-local objects when it affects externally visible behavior.",
+      "conditional_on_source_contract": true,
+      "existing_analogue": [
+        "NOM-0074"
+      ],
+      "evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ],
+      "disposition": "published_independent_atom"
+    },
+    {
+      "id": "CPP-22",
+      "normalized_rule_id": "NOM-0197",
+      "concern": "coroutines",
+      "atomic_contract": "Where C++20 coroutines are part of the accepted upstream interface, verify resume, suspend, cancellation and destruction contracts in the Rust replacement.",
+      "conditional_on_source_contract": true,
+      "existing_analogue": [
+        "NOM-0074"
+      ],
+      "evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ],
+      "disposition": "published_independent_atom"
+    },
+    {
+      "id": "CPP-23",
+      "normalized_rule_id": "NOM-0198",
+      "concern": "defined behavior",
+      "atomic_contract": "Distinguish specified C++ behavior from undefined, implementation-defined and unspecified behavior when setting compatibility acceptance; document environment-specific decisions rather than asserting impossible universal parity.",
+      "conditional_on_source_contract": true,
+      "existing_analogue": [
+        "NOM-0074"
+      ],
+      "evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ],
+      "disposition": "published_independent_atom"
+    },
+    {
+      "id": "CPP-24",
+      "normalized_rule_id": "NOM-0199",
+      "concern": "numeric",
+      "atomic_contract": "Verify supported C++ integer promotions, conversion widths, signedness, floating-point and rounding outcomes wherever consumers observe them.",
+      "conditional_on_source_contract": true,
+      "existing_analogue": [
+        "NOM-0074"
+      ],
+      "evidence_keys": [
+        "cpp_guidelines",
+        "cpp_lifetime"
+      ],
+      "disposition": "published_independent_atom"
+    }
+  ],
+  "public_sources": {
+    "cpp_guidelines": "https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines",
+    "cpp_lifetime": "https://en.cppreference.com/w/cpp/language/lifetime",
+    "cpp_memory_order": "https://en.cppreference.com/w/cpp/atomic/memory_order",
+    "cpp_objects": "https://en.cppreference.com/w/cpp/language/object"
+  },
+  "no_other_profile_family_changed": true
+}
