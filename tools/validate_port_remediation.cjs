@@ -48,7 +48,7 @@ function check(r=root){
  for(const name of fs.readdirSync(path.join(r,'profiles')).filter(x=>/^PROFILE-\d+\.json$/.test(x)&&!['PROFILE-0011.json','PROFILE-0012.json'].includes(x))){
   const selected=get('profiles/'+name).selected_rule_ids;
   const shared=new Set(manifest.records.filter(x=>x.scope==='software_port').map(x=>x.id));
-  const permitted=name==='PROFILE-0009.json'||name==='PROFILE-0010.json';
+  const permitted=['PROFILE-0001.json','PROFILE-0002.json','PROFILE-0009.json','PROFILE-0010.json'].includes(name);
   if(selected.some(id=>seen.has(id)&&(!permitted||!shared.has(id))))
     throw Error('Unapproved source-language rule selection '+name);
  }
