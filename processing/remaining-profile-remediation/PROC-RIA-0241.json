@@ -1,0 +1,45 @@
+{
+  "id": "PROC-RIA-0241",
+  "kind": "authorized_remaining_profile_normalization",
+  "status": "closed",
+  "queue_id": "RIA-0241",
+  "source": {
+    "rule_id": "NOM-0241",
+    "path": "rules/NOM-0241.json",
+    "version": "1.0.0",
+    "status_at_snapshot": "published",
+    "snapshot_commit": "82c2958f14f94329c8bb6221cd675f6256295aa9",
+    "git_blob_sha": "d41596e0caabd16de0e441b9650e9fc82123aa95"
+  },
+  "authorization": {
+    "authority": "owner_explicit_remaining_fork_and_tarium_profile_remediation_2026_10_25",
+    "processing": true,
+    "normalization": true,
+    "publication": true,
+    "draft_membership_extension": true,
+    "selection_confirmation": false,
+    "finalization_confirmation": false,
+    "rule_activation": false,
+    "tarium_enrollment": false,
+    "upstream_sync": false
+  },
+  "disposition": {
+    "rule_path": "rules/NOM-0241.json",
+    "link_path": "ontology/rule-links/remaining-profile-remediation/RLINK-0241.json",
+    "situation_ids": [
+      "SITU-0012",
+      "SITU-0095"
+    ],
+    "intent_ids": [
+      "INTENT-0137"
+    ],
+    "draft_profile_extension": true
+  },
+  "evidence": {
+    "audit": "audits/remaining-profile-coverage-2026-10-25.json",
+    "source_key": "public_checkout_operability"
+  },
+  "governance": {
+    "completed_on": "2026-10-25"
+  }
+}

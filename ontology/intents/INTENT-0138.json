@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0138",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "reproduce_tarium_derived_artifacts",
+  "definition": "Preserve sufficient source and transformation lineage for reproducible public outputs.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0242",
+    "source_candidate": "remaining_profile_reproduce_tarium_derived_artifacts"
+  }
+}

@@ -332,6 +332,61 @@ def load_links(root=ROOT):
             support=links.get("NOM-"+queue_id[-4:])
             if not support or cid not in [x["id"] for x in support[relation]]:
                 errors.append(cid+": missing new Rust source evidence")
+
+    # Independent fork/Tarium extension: retain original and previous remediation crosswalks.
+    remaining=root/"ontology/rule-links/remaining-profile-remediation"
+    link_files=sorted(remaining.glob("RLINK-*.json"))
+    cross=read(root,Path("ontology/rule-analysis/remaining-profile-remediation-crosswalk.json"))
+    if len(link_files)!=8 or len(cross.get("entries",{}))!=8 or cross.get("status")!="reviewed":
+        errors.append("expected eight independently reviewed fork and Tarium mappings")
+    for path in link_files:
+        link=read(root,path.relative_to(root))
+        rid=link.get("rule_id","")
+        if rid in links or not rid.startswith("NOM-") or not rid[4:].isdigit() or int(rid[4:]) not in range(236,244):
+            errors.append("unexpected or duplicate fork/Tarium mapping "+rid)
+            continue
+        qid="RIA-"+rid[-4:]
+        rule=read(root,Path("rules")/(rid+".json"))
+        queue=read(root,Path("queues/remaining-profile-remediation")/(qid+".json"))
+        trace=read(root,Path("processing/remaining-profile-remediation")/("PROC-"+qid+".json"))
+        source=queue.get("source",{})
+        sids=[x["id"] for x in link.get("situations",[])]
+        iids=[x["id"] for x in link.get("intents",[])]
+        expected=cross.get("entries",{}).get(qid,{})
+        if (rule.get("status")!="published" or link.get("status")!="published" or
+            link.get("rule_editorial_status")!="published" or link.get("rule_version")!=rule.get("version") or
+            expected.get("rule_id")!=rid or expected.get("situation_ids")!=sids or expected.get("intent_ids")!=iids or
+            trace.get("disposition",{}).get("situation_ids")!=sids or trace.get("disposition",{}).get("intent_ids")!=iids or
+            not sids or not iids or len(sids)!=len(set(sids)) or len(iids)!=len(set(iids)) or
+            not set(sids)<=situations or not set(iids)<=intents):
+            errors.append("invalid remaining-profile concept mapping "+rid)
+        if (source!=trace.get("source") or source.get("rule_id")!=rid or
+            source.get("path")!=f"rules/{rid}.json" or
+            git_blob((root/source["path"]).read_bytes())!=source.get("git_blob_sha") or
+            link.get("evidence",{}).get("source_blob_sha")!=source.get("git_blob_sha") or
+            link.get("evidence",{}).get("source_statement")!=rule.get("statement") or
+            link.get("evidence",{}).get("normalized_predicate")!=rule.get("norm",{}).get("predicate") or
+            link.get("provenance",{}).get("queue_id")!=qid):
+            errors.append("remaining-profile source evidence mismatch "+rid)
+        auth=trace.get("authorization",{})
+        if (queue.get("status")!="processed" or trace.get("status")!="closed" or
+            not auth.get("processing") or not auth.get("publication") or
+            auth.get("selection_confirmation") is not False or
+            auth.get("finalization_confirmation") is not False or
+            auth.get("rule_activation") is not False or auth.get("tarium_enrollment") is not False or
+            auth.get("upstream_sync") is not False):
+            errors.append("remaining profile consent or operation boundary violation "+rid)
+        links[rid]=link
+    if len(links)!=243:
+        errors.append(f"incomplete combined source mappings: {len(links)}/243")
+    for prefix,start,end,folder,relation in (("SITU",90,97,"situations","situations"),("INTENT",132,139,"intents","intents")):
+        for n in range(start,end+1):
+            cid=f"{prefix}-{n:04d}"
+            concept=read(root,Path("ontology")/folder/(cid+".json"))
+            source=concept.get("provenance",{}).get("queue_id","")
+            supporting=links.get("NOM-"+source[-4:])
+            if not supporting or cid not in [x["id"] for x in supporting[relation]]:
+                errors.append(cid+": missing source-rule trace")
     return links,errors
 
 def main():

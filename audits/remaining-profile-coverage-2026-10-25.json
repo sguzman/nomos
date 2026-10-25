@@ -1,0 +1,220 @@
+{
+  "kind": "remaining_profile_families_coverage_audit",
+  "reviewed_on": "2026-10-25",
+  "scope": [
+    "PROFILE-0005",
+    "PROFILE-0006",
+    "PROFILE-0007",
+    "PROFILE-0008"
+  ],
+  "source_profiles": [
+    {
+      "id": "PROFILE-0005",
+      "blob_sha": "93af8e9d6a2b7d6b1ca26242e9fa0e3dbf92bd1d",
+      "prior_rules": 29,
+      "status": "draft",
+      "confirmed": false
+    },
+    {
+      "id": "PROFILE-0006",
+      "blob_sha": "c4b2bb1ee1a83bcb70102d5a7718ca1fe716576f",
+      "prior_rules": 61,
+      "status": "draft",
+      "confirmed": false
+    },
+    {
+      "id": "PROFILE-0007",
+      "blob_sha": "b57b58b66622cd8a43a250eca76b53321b7d37cf",
+      "prior_rules": 34,
+      "status": "draft",
+      "confirmed": false
+    },
+    {
+      "id": "PROFILE-0008",
+      "blob_sha": "3b8685d55f4271d0f0271676d63aa109e494e4c2",
+      "prior_rules": 89,
+      "status": "draft",
+      "confirmed": false
+    }
+  ],
+  "already_published_fork_specific": [
+    "NOM-0129",
+    "NOM-0130",
+    "NOM-0131",
+    "NOM-0132",
+    "NOM-0133",
+    "NOM-0134"
+  ],
+  "already_published_tarium_specific": [
+    "NOM-0115",
+    "NOM-0116",
+    "NOM-0117",
+    "NOM-0118",
+    "NOM-0119",
+    "NOM-0120",
+    "NOM-0121",
+    "NOM-0122",
+    "NOM-0123",
+    "NOM-0124",
+    "NOM-0125",
+    "NOM-0126",
+    "NOM-0127",
+    "NOM-0128"
+  ],
+  "coverage_decisions": [
+    {
+      "family": "fork",
+      "reuse": [
+        "NOM-0129",
+        "NOM-0130",
+        "NOM-0131",
+        "NOM-0132",
+        "NOM-0133",
+        "NOM-0134"
+      ],
+      "distinct_normative_gaps": [
+        "affected-advisory disposition",
+        "recoverability across state-changing upstream integration",
+        "downstream-facing release source provenance",
+        "redistributed upstream notices"
+      ],
+      "rejected_as_duplicates": [
+        "general regression testing",
+        "general upstream integration conflict resolution",
+        "general upstream patch ledger"
+      ]
+    },
+    {
+      "family": "tarium",
+      "reuse": [
+        "NOM-0027",
+        "NOM-0028",
+        "NOM-0029",
+        "NOM-0030",
+        "NOM-0032",
+        "NOM-0053",
+        "NOM-0054",
+        "NOM-0062"
+      ],
+      "distinct_normative_gaps": [
+        "source-level permission to redistribute assets",
+        "real public-only fresh-checkout operation",
+        "traceable reproduction of derived public artifacts",
+        "machine-readable schema conformance"
+      ],
+      "rejected_as_duplicates": [
+        "general publication privacy review",
+        "general gallery index link integrity",
+        "general domain ontology ownership"
+      ]
+    }
+  ],
+  "candidate_records": [
+    {
+      "id": "NOM-0236",
+      "family": "fork",
+      "key": "advisory_disposition",
+      "statement": "For each security advisory affecting the fork's supported upstream baseline or retained dependencies, determine actual applicability, record the chosen fix or mitigation, and verify its outcome before claiming the affected version is secure.",
+      "scope": "rust_fork_maintenance",
+      "lite": true,
+      "overlap_rules": [
+        "NOM-0134"
+      ],
+      "disposition": "independent_conditional_rule",
+      "approval_boundary": "no_automatic_activation_or_other_project_operation"
+    },
+    {
+      "id": "NOM-0237",
+      "family": "fork",
+      "key": "reversible_upstream_sync",
+      "statement": "Before an authorized upstream sync that changes installed state or persisted data, preserve a tested recoverable baseline and verify the relevant rollback or migration route; do not promise rollback when the state change is irreversible.",
+      "scope": "rust_fork_maintenance",
+      "lite": true,
+      "overlap_rules": [
+        "NOM-0132"
+      ],
+      "disposition": "independent_conditional_rule",
+      "approval_boundary": "no_automatic_activation_or_other_project_operation"
+    },
+    {
+      "id": "NOM-0238",
+      "family": "fork",
+      "key": "release_source_traceability",
+      "statement": "For a distributed fork release, identify the fork revision, followed upstream revision, retained deviations and materially relevant imported fixes in public release metadata so downstream users can determine exactly what was shipped.",
+      "scope": "rust_fork_maintenance",
+      "lite": false,
+      "overlap_rules": [
+        "NOM-0129"
+      ],
+      "disposition": "independent_conditional_rule",
+      "approval_boundary": "no_automatic_activation_or_other_project_operation"
+    },
+    {
+      "id": "NOM-0239",
+      "family": "fork",
+      "key": "upstream_notice_continuity",
+      "statement": "When distributing copied upstream or third-party source or compiled artifacts in a fork, verify required licenses, attribution and notices remain attached to the material actually redistributed.",
+      "scope": "rust_fork_maintenance",
+      "lite": false,
+      "overlap_rules": [
+        "NOM-0019"
+      ],
+      "disposition": "independent_conditional_rule",
+      "approval_boundary": "no_automatic_activation_or_other_project_operation"
+    },
+    {
+      "id": "NOM-0240",
+      "family": "tarium",
+      "key": "asset_redistribution_rights",
+      "statement": "Before publishing imported data or media in a Tarium project, verify source-specific redistribution rights and attribution obligations for each materially distinct dataset or resource, preserving evidence and recording excluded assets.",
+      "scope": "tarium_project",
+      "lite": true,
+      "overlap_rules": [
+        "NOM-0049"
+      ],
+      "disposition": "independent_conditional_rule",
+      "approval_boundary": "no_automatic_activation_or_other_project_operation"
+    },
+    {
+      "id": "NOM-0241",
+      "family": "tarium",
+      "key": "public_checkout_operability",
+      "statement": "From a clean public checkout or equivalent isolated public environment, exercise the project's essential documented workflow using only declared public dependencies; report inaccessible or unpublished inputs instead of silently relying on private workspaces.",
+      "scope": "tarium_project",
+      "lite": true,
+      "overlap_rules": [
+        "NOM-0121"
+      ],
+      "disposition": "independent_conditional_rule",
+      "approval_boundary": "no_automatic_activation_or_other_project_operation"
+    },
+    {
+      "id": "NOM-0242",
+      "family": "tarium",
+      "key": "derivation_reproducibility",
+      "statement": "For a Tarium project's published derived dataset, ontology specimen or gallery artifact, record the public input identities and relevant transformation versions, parameters or steps sufficient to reproduce the published result where reproduction is promised.",
+      "scope": "tarium_project",
+      "lite": false,
+      "overlap_rules": [
+        "NOM-0049"
+      ],
+      "disposition": "independent_conditional_rule",
+      "approval_boundary": "no_automatic_activation_or_other_project_operation"
+    },
+    {
+      "id": "NOM-0243",
+      "family": "tarium",
+      "key": "schema_conformance_validation",
+      "statement": "For Tarium machine-readable ontology and gallery schemas, validate required fields, stable IDs, type constraints and cross-references automatically against representative valid and invalid public fixtures when such structured schemas are declared.",
+      "scope": "tarium_project",
+      "lite": false,
+      "overlap_rules": [
+        "NOM-0127"
+      ],
+      "disposition": "independent_conditional_rule",
+      "approval_boundary": "no_automatic_activation_or_other_project_operation"
+    }
+  ],
+  "validation_guidance": "A new normative atom must be independently checkable, conditional on real work, and must not manufacture mandatory implementation of optional features.",
+  "status": "remediated_in_unconfirmed_drafts"
+}

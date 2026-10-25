@@ -6,10 +6,10 @@
   "title": "Rust Fork Maintenance - Full - situation companion",
   "source_profile": {
     "id": "PROFILE-0008",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "draft",
     "selection_confirmed": false,
-    "source_git_blob_sha": "3b8685d55f4271d0f0271676d63aa109e494e4c2"
+    "source_git_blob_sha": "78737192f208303513660e9c8b74fb9afb35b86a"
   },
   "source_rule_ids": [
     "NOM-0001",
@@ -100,7 +100,20 @@
     "NOM-0106",
     "NOM-0107",
     "NOM-0108",
-    "NOM-0109"
+    "NOM-0109",
+    "NOM-0129",
+    "NOM-0130",
+    "NOM-0131",
+    "NOM-0132",
+    "NOM-0133",
+    "NOM-0134",
+    "NOM-0135",
+    "NOM-0136",
+    "NOM-0137",
+    "NOM-0236",
+    "NOM-0237",
+    "NOM-0238",
+    "NOM-0239"
   ],
   "source_analysis_snapshot": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
   "members": [
@@ -320,6 +333,10 @@
         {
           "id": "NOM-0048",
           "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0136",
+          "basis": "explicit_context_with_interpretation"
         }
       ]
     },
@@ -446,6 +463,10 @@
         },
         {
           "id": "NOM-0070",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0137",
           "basis": "explicit_context_with_interpretation"
         }
       ]
@@ -576,10 +597,77 @@
       ]
     },
     {
+      "id": "SITU-0042",
+      "via_rules": [
+        {
+          "id": "NOM-0129",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0130",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0131",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0132",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0133",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0134",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0236",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0237",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0238",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0239",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
       "id": "SITU-0043",
       "via_rules": [
         {
           "id": "NOM-0066",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0135",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0044",
+      "via_rules": [
+        {
+          "id": "NOM-0136",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0045",
+      "via_rules": [
+        {
+          "id": "NOM-0137",
           "basis": "explicit_context_with_interpretation"
         }
       ]
@@ -615,6 +703,42 @@
         },
         {
           "id": "NOM-0067",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0090",
+      "via_rules": [
+        {
+          "id": "NOM-0236",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0091",
+      "via_rules": [
+        {
+          "id": "NOM-0237",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0092",
+      "via_rules": [
+        {
+          "id": "NOM-0238",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0093",
+      "via_rules": [
+        {
+          "id": "NOM-0239",
           "basis": "explicit_context_with_interpretation"
         }
       ]

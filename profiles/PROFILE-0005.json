@@ -1,7 +1,7 @@
 {
   "id": "PROFILE-0005",
   "kind": "rule_profile",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "title": "Independent Tarium Project - Lite",
   "status": "draft",
   "selected_rule_ids": [
@@ -17,11 +17,14 @@
     "NOM-0019",
     "NOM-0022",
     "NOM-0023",
+    "NOM-0027",
+    "NOM-0030",
     "NOM-0042",
     "NOM-0049",
     "NOM-0050",
     "NOM-0051",
     "NOM-0052",
+    "NOM-0062",
     "NOM-0064",
     "NOM-0065",
     "NOM-0066",
@@ -33,7 +36,11 @@
     "NOM-0119",
     "NOM-0120",
     "NOM-0121",
-    "NOM-0122"
+    "NOM-0122",
+    "NOM-0135",
+    "NOM-0136",
+    "NOM-0240",
+    "NOM-0241"
   ],
   "export_targets": [
     "agents_md",
@@ -46,6 +53,6 @@
   },
   "governance": {
     "created_on": "2026-10-22",
-    "updated_on": "2026-10-22"
+    "updated_on": "2026-10-25"
   }
 }

@@ -1,0 +1,64 @@
+{
+  "id": "RLINK-0242",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0242",
+  "rule_version": "1.0.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0012",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.project_types",
+        "statement"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    },
+    {
+      "id": "SITU-0096",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.project_types",
+        "statement"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0138",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "82c2958f14f94329c8bb6221cd675f6256295aa9",
+    "source_blob_sha": "2bf220e48d3a610348d176432d483c4a6153f9ce",
+    "source_statement": "For a Tarium project's published derived dataset, ontology specimen or gallery artifact, record the public input identities and relevant transformation versions, parameters or steps sufficient to reproduce the published result where reproduction is promised.",
+    "source_conditions": [
+      "This published requirement is applicable only to the expressly authorized independent Tarium project and its declared source or public contract."
+    ],
+    "normalized_predicate": {
+      "action": "verify",
+      "object": "tarium_derivation_reproducibility",
+      "target": "tarium_project"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Situations are not exhaustive triggers and do not narrow normative applicability.",
+    "intent_semantics": "Intents describe inferred outcomes; mappings do not create new normative obligations.",
+    "effective_rules": "Publication never activates a profile, enrolls a project, or authorizes an upstream integration."
+  },
+  "provenance": {
+    "queue_id": "RIA-0242",
+    "processing_id": "PROC-RIA-0242",
+    "source_path": "rules/NOM-0242.json",
+    "extension": "remaining_profile_remediation"
+  },
+  "reviewed_on": "2026-10-25"
+}

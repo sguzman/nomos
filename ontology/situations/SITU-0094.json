@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0094",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "tarium_public_asset_rights_review",
+  "definition": "A public Tarium project proposes importing an external dataset or media asset for redistribution.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0240",
+    "source_candidate": "remaining_profile_tarium_public_asset_rights_review",
+    "normalization": "source_grounded_remaining_profile_remediation"
+  }
+}

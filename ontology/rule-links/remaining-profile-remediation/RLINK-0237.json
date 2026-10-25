@@ -1,0 +1,64 @@
+{
+  "id": "RLINK-0237",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0237",
+  "rule_version": "1.0.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0042",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.project_types",
+        "statement"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    },
+    {
+      "id": "SITU-0091",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.project_types",
+        "statement"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0133",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "82c2958f14f94329c8bb6221cd675f6256295aa9",
+    "source_blob_sha": "a1010105333cd882563d6d2b3a5e9174010e1bae",
+    "source_statement": "Before an authorized upstream sync that changes installed state or persisted data, preserve a tested recoverable baseline and verify the relevant rollback or migration route; do not promise rollback when the state change is irreversible.",
+    "source_conditions": [
+      "This published requirement is applicable only to the expressly authorized Rust fork maintenance and its declared source or public contract."
+    ],
+    "normalized_predicate": {
+      "action": "verify",
+      "object": "fork_reversible_upstream_sync",
+      "target": "rust_fork_maintenance"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Situations are not exhaustive triggers and do not narrow normative applicability.",
+    "intent_semantics": "Intents describe inferred outcomes; mappings do not create new normative obligations.",
+    "effective_rules": "Publication never activates a profile, enrolls a project, or authorizes an upstream integration."
+  },
+  "provenance": {
+    "queue_id": "RIA-0237",
+    "processing_id": "PROC-RIA-0237",
+    "source_path": "rules/NOM-0237.json",
+    "extension": "remaining_profile_remediation"
+  },
+  "reviewed_on": "2026-10-25"
+}

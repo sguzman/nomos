@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0096",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "tarium_derived_artifact_lineage",
+  "definition": "A Tarium project publishes derived public artifacts with promised reproducibility.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0242",
+    "source_candidate": "remaining_profile_tarium_derived_artifact_lineage",
+    "normalization": "source_grounded_remaining_profile_remediation"
+  }
+}

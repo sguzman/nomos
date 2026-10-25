@@ -1,0 +1,191 @@
+{
+  "kind": "rust_fork_and_tarium_profile_remediation_manifest",
+  "version": "1.0.0",
+  "date": "2026-10-25",
+  "records": [
+    {
+      "id": "NOM-0236",
+      "family": "fork",
+      "key": "advisory_disposition",
+      "statement": "For each security advisory affecting the fork's supported upstream baseline or retained dependencies, determine actual applicability, record the chosen fix or mitigation, and verify its outcome before claiming the affected version is secure.",
+      "scope": "rust_fork_maintenance",
+      "lite": true,
+      "overlap_rules": [
+        "NOM-0134"
+      ]
+    },
+    {
+      "id": "NOM-0237",
+      "family": "fork",
+      "key": "reversible_upstream_sync",
+      "statement": "Before an authorized upstream sync that changes installed state or persisted data, preserve a tested recoverable baseline and verify the relevant rollback or migration route; do not promise rollback when the state change is irreversible.",
+      "scope": "rust_fork_maintenance",
+      "lite": true,
+      "overlap_rules": [
+        "NOM-0132"
+      ]
+    },
+    {
+      "id": "NOM-0238",
+      "family": "fork",
+      "key": "release_source_traceability",
+      "statement": "For a distributed fork release, identify the fork revision, followed upstream revision, retained deviations and materially relevant imported fixes in public release metadata so downstream users can determine exactly what was shipped.",
+      "scope": "rust_fork_maintenance",
+      "lite": false,
+      "overlap_rules": [
+        "NOM-0129"
+      ]
+    },
+    {
+      "id": "NOM-0239",
+      "family": "fork",
+      "key": "upstream_notice_continuity",
+      "statement": "When distributing copied upstream or third-party source or compiled artifacts in a fork, verify required licenses, attribution and notices remain attached to the material actually redistributed.",
+      "scope": "rust_fork_maintenance",
+      "lite": false,
+      "overlap_rules": [
+        "NOM-0019"
+      ]
+    },
+    {
+      "id": "NOM-0240",
+      "family": "tarium",
+      "key": "asset_redistribution_rights",
+      "statement": "Before publishing imported data or media in a Tarium project, verify source-specific redistribution rights and attribution obligations for each materially distinct dataset or resource, preserving evidence and recording excluded assets.",
+      "scope": "tarium_project",
+      "lite": true,
+      "overlap_rules": [
+        "NOM-0049"
+      ]
+    },
+    {
+      "id": "NOM-0241",
+      "family": "tarium",
+      "key": "public_checkout_operability",
+      "statement": "From a clean public checkout or equivalent isolated public environment, exercise the project's essential documented workflow using only declared public dependencies; report inaccessible or unpublished inputs instead of silently relying on private workspaces.",
+      "scope": "tarium_project",
+      "lite": true,
+      "overlap_rules": [
+        "NOM-0121"
+      ]
+    },
+    {
+      "id": "NOM-0242",
+      "family": "tarium",
+      "key": "derivation_reproducibility",
+      "statement": "For a Tarium project's published derived dataset, ontology specimen or gallery artifact, record the public input identities and relevant transformation versions, parameters or steps sufficient to reproduce the published result where reproduction is promised.",
+      "scope": "tarium_project",
+      "lite": false,
+      "overlap_rules": [
+        "NOM-0049"
+      ]
+    },
+    {
+      "id": "NOM-0243",
+      "family": "tarium",
+      "key": "schema_conformance_validation",
+      "statement": "For Tarium machine-readable ontology and gallery schemas, validate required fields, stable IDs, type constraints and cross-references automatically against representative valid and invalid public fixtures when such structured schemas are declared.",
+      "scope": "tarium_project",
+      "lite": false,
+      "overlap_rules": [
+        "NOM-0127"
+      ]
+    }
+  ],
+  "changes": {
+    "PROFILE-0005": {
+      "before": 29,
+      "after": 36,
+      "added": [
+        "NOM-0027",
+        "NOM-0030",
+        "NOM-0062",
+        "NOM-0135",
+        "NOM-0136",
+        "NOM-0240",
+        "NOM-0241"
+      ]
+    },
+    "PROFILE-0006": {
+      "before": 61,
+      "after": 76,
+      "added": [
+        "NOM-0027",
+        "NOM-0028",
+        "NOM-0029",
+        "NOM-0030",
+        "NOM-0032",
+        "NOM-0053",
+        "NOM-0054",
+        "NOM-0062",
+        "NOM-0135",
+        "NOM-0136",
+        "NOM-0137",
+        "NOM-0240",
+        "NOM-0241",
+        "NOM-0242",
+        "NOM-0243"
+      ]
+    },
+    "PROFILE-0007": {
+      "before": 34,
+      "after": 43,
+      "added": [
+        "NOM-0129",
+        "NOM-0130",
+        "NOM-0132",
+        "NOM-0133",
+        "NOM-0134",
+        "NOM-0135",
+        "NOM-0136",
+        "NOM-0236",
+        "NOM-0237"
+      ]
+    },
+    "PROFILE-0008": {
+      "before": 89,
+      "after": 102,
+      "added": [
+        "NOM-0129",
+        "NOM-0130",
+        "NOM-0131",
+        "NOM-0132",
+        "NOM-0133",
+        "NOM-0134",
+        "NOM-0135",
+        "NOM-0136",
+        "NOM-0137",
+        "NOM-0236",
+        "NOM-0237",
+        "NOM-0238",
+        "NOM-0239"
+      ]
+    }
+  },
+  "original_rule_count": 235,
+  "expected_rule_count": 243,
+  "fork_reuse": [
+    "NOM-0129",
+    "NOM-0130",
+    "NOM-0131",
+    "NOM-0132",
+    "NOM-0133",
+    "NOM-0134"
+  ],
+  "tarium_quality_reuse": [
+    "NOM-0027",
+    "NOM-0028",
+    "NOM-0029",
+    "NOM-0030",
+    "NOM-0032",
+    "NOM-0053",
+    "NOM-0054",
+    "NOM-0062"
+  ],
+  "consent": {
+    "selection_confirmed": false,
+    "finalization_confirmed": false,
+    "auto_application": false,
+    "no_other_profiles_changed": true
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0136",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "verify_tarium_asset_reuse_rights",
+  "definition": "Keep per-source publication rights and attributed asset reuse evidence reviewable.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0240",
+    "source_candidate": "remaining_profile_verify_tarium_asset_reuse_rights"
+  }
+}

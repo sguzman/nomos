@@ -1,0 +1,106 @@
+{
+  "id": "NOM-0240",
+  "version": "1.0.0",
+  "title": "asset redistribution rights",
+  "summary": "Before publishing imported data or media in a Tarium project, verify source-specific redistribution rights and attribution obligations for each materially distinct dataset or resource, preserving evidence and recording excluded assets.",
+  "statement": "Before publishing imported data or media in a Tarium project, verify source-specific redistribution rights and attribution obligations for each materially distinct dataset or resource, preserving evidence and recording excluded assets.",
+  "rationale": "Independent, checkable coverage of an identified public Tarium resource concern not fully specified by previously selected obligations. General requirements remain in place and are not duplicated.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "verify",
+      "object": "tarium_asset_redistribution_rights",
+      "target": "tarium_project"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "An owner-authorized independent public Tarium project uses or publishes the relevant dataset, ontology, artifact or workflow."
+    ],
+    "exceptions": [
+      "No new data collection or external publication is authorized merely by this obligation; excluded resources need no invented substitute."
+    ],
+    "bounds": {
+      "quantifier": "all",
+      "interpretation": "universal",
+      "frequency": "always",
+      "minimum": null,
+      "maximum": null,
+      "unit": "entities",
+      "window": "each authorized applicable project acceptance",
+      "cue": "where the specified context is applicable",
+      "basis": "reviewed_inference"
+    }
+  },
+  "categories": {
+    "domains": [
+      "publication",
+      "data_integrity",
+      "governance"
+    ],
+    "topics": [
+      "source_provenance"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "An owner-authorized independent public Tarium project uses or publishes the relevant dataset, ontology, artifact or workflow."
+    ],
+    "exclusions": [
+      "No new data collection or external publication is authorized merely by this obligation; excluded resources need no invented substitute."
+    ],
+    "project_types": [
+      "tarium_project"
+    ]
+  },
+  "authority": {
+    "source": "Owner-authorized Nomos tarium coverage remediation; opt-in only",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": [
+      "NOM-0049"
+    ]
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "audits/remaining-profile-coverage-2026-10-25.json#NOM-0240",
+    "license": "MIT",
+    "notes": "Public-safe profile-coverage concern; no enrollment, project publication, upstream sync, or profile activation implied."
+  },
+  "governance": {
+    "created_on": "2026-10-25",
+    "updated_on": "2026-10-25",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

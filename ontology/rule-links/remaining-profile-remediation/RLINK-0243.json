@@ -1,0 +1,64 @@
+{
+  "id": "RLINK-0243",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0243",
+  "rule_version": "1.0.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0012",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.project_types",
+        "statement"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    },
+    {
+      "id": "SITU-0097",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.project_types",
+        "statement"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0139",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "82c2958f14f94329c8bb6221cd675f6256295aa9",
+    "source_blob_sha": "e7fa164c14d8f65d1e67f5c6d6a33df040034223",
+    "source_statement": "For Tarium machine-readable ontology and gallery schemas, validate required fields, stable IDs, type constraints and cross-references automatically against representative valid and invalid public fixtures when such structured schemas are declared.",
+    "source_conditions": [
+      "This published requirement is applicable only to the expressly authorized independent Tarium project and its declared source or public contract."
+    ],
+    "normalized_predicate": {
+      "action": "verify",
+      "object": "tarium_schema_conformance_validation",
+      "target": "tarium_project"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Situations are not exhaustive triggers and do not narrow normative applicability.",
+    "intent_semantics": "Intents describe inferred outcomes; mappings do not create new normative obligations.",
+    "effective_rules": "Publication never activates a profile, enrolls a project, or authorizes an upstream integration."
+  },
+  "provenance": {
+    "queue_id": "RIA-0243",
+    "processing_id": "PROC-RIA-0243",
+    "source_path": "rules/NOM-0243.json",
+    "extension": "remaining_profile_remediation"
+  },
+  "reviewed_on": "2026-10-25"
+}

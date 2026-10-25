@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0095",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "tarium_public_only_reproduction",
+  "definition": "A Tarium project's documented essential workflow is being verified without unpublished or private dependencies.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0241",
+    "source_candidate": "remaining_profile_tarium_public_only_reproduction",
+    "normalization": "source_grounded_remaining_profile_remediation"
+  }
+}

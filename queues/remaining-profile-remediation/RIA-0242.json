@@ -1,0 +1,39 @@
+{
+  "id": "RIA-0242",
+  "kind": "authorized_remaining_profile_rule_intake",
+  "status": "processed",
+  "source": {
+    "rule_id": "NOM-0242",
+    "path": "rules/NOM-0242.json",
+    "version": "1.0.0",
+    "status_at_snapshot": "published",
+    "snapshot_commit": "82c2958f14f94329c8bb6221cd675f6256295aa9",
+    "git_blob_sha": "2bf220e48d3a610348d176432d483c4a6153f9ce"
+  },
+  "origin_audit_key": "derivation_reproducibility",
+  "authorization": {
+    "authority": "owner_explicit_remaining_fork_and_tarium_profile_remediation_2026_10_25",
+    "processing": true,
+    "normalization": true,
+    "publication": true,
+    "draft_membership_extension": true,
+    "selection_confirmation": false,
+    "finalization_confirmation": false,
+    "rule_activation": false,
+    "tarium_enrollment": false,
+    "upstream_sync": false
+  },
+  "requested_analysis": [
+    "atomicity",
+    "relevant_situation",
+    "underlying_intent",
+    "profile_coverage"
+  ],
+  "processing": {
+    "state": "closed",
+    "record": "processing/remaining-profile-remediation/PROC-RIA-0242.json"
+  },
+  "governance": {
+    "queued_on": "2026-10-25"
+  }
+}

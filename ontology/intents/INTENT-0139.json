@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0139",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "validate_tarium_structured_schema",
+  "definition": "Detect malformed records and broken declared machine-readable schema constraints automatically.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0243",
+    "source_candidate": "remaining_profile_validate_tarium_structured_schema"
+  }
+}

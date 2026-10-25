@@ -1,0 +1,89 @@
+{
+  "kind": "reviewed_remaining_profile_remediation_crosswalk",
+  "status": "reviewed",
+  "version": "1.0.0",
+  "source_commit": "82c2958f14f94329c8bb6221cd675f6256295aa9",
+  "authorized_on": "2026-10-25",
+  "entries": {
+    "RIA-0236": {
+      "rule_id": "NOM-0236",
+      "situation_ids": [
+        "SITU-0042",
+        "SITU-0090"
+      ],
+      "intent_ids": [
+        "INTENT-0132"
+      ]
+    },
+    "RIA-0237": {
+      "rule_id": "NOM-0237",
+      "situation_ids": [
+        "SITU-0042",
+        "SITU-0091"
+      ],
+      "intent_ids": [
+        "INTENT-0133"
+      ]
+    },
+    "RIA-0238": {
+      "rule_id": "NOM-0238",
+      "situation_ids": [
+        "SITU-0042",
+        "SITU-0092"
+      ],
+      "intent_ids": [
+        "INTENT-0134"
+      ]
+    },
+    "RIA-0239": {
+      "rule_id": "NOM-0239",
+      "situation_ids": [
+        "SITU-0042",
+        "SITU-0093"
+      ],
+      "intent_ids": [
+        "INTENT-0135"
+      ]
+    },
+    "RIA-0240": {
+      "rule_id": "NOM-0240",
+      "situation_ids": [
+        "SITU-0012",
+        "SITU-0094"
+      ],
+      "intent_ids": [
+        "INTENT-0136"
+      ]
+    },
+    "RIA-0241": {
+      "rule_id": "NOM-0241",
+      "situation_ids": [
+        "SITU-0012",
+        "SITU-0095"
+      ],
+      "intent_ids": [
+        "INTENT-0137"
+      ]
+    },
+    "RIA-0242": {
+      "rule_id": "NOM-0242",
+      "situation_ids": [
+        "SITU-0012",
+        "SITU-0096"
+      ],
+      "intent_ids": [
+        "INTENT-0138"
+      ]
+    },
+    "RIA-0243": {
+      "rule_id": "NOM-0243",
+      "situation_ids": [
+        "SITU-0012",
+        "SITU-0097"
+      ],
+      "intent_ids": [
+        "INTENT-0139"
+      ]
+    }
+  }
+}

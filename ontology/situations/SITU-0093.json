@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0093",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "fork_redistributed_license_notices",
+  "definition": "Redistributed fork source or binaries carry upstream and third-party attribution obligations.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0239",
+    "source_candidate": "remaining_profile_fork_redistributed_license_notices",
+    "normalization": "source_grounded_remaining_profile_remediation"
+  }
+}

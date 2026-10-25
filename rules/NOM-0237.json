@@ -1,0 +1,106 @@
+{
+  "id": "NOM-0237",
+  "version": "1.0.0",
+  "title": "reversible upstream sync",
+  "summary": "Before an authorized upstream sync that changes installed state or persisted data, preserve a tested recoverable baseline and verify the relevant rollback or migration route; do not promise rollback when the state change is irreversible.",
+  "statement": "Before an authorized upstream sync that changes installed state or persisted data, preserve a tested recoverable baseline and verify the relevant rollback or migration route; do not promise rollback when the state change is irreversible.",
+  "rationale": "Independent, checkable coverage of an identified upstream-fork maintenance concern not fully specified by previously selected obligations. General requirements remain in place and are not duplicated.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "verify",
+      "object": "fork_reversible_upstream_sync",
+      "target": "rust_fork_maintenance"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "An owner-authorized Rust fork maintenance task has an accepted upstream baseline, and this concern falls within the maintained fork's supported contracts."
+    ],
+    "exceptions": [
+      "Unpublished or unsupported upstream behavior is not automatically incorporated; approved scope and documented exceptions still govern."
+    ],
+    "bounds": {
+      "quantifier": "all",
+      "interpretation": "universal",
+      "frequency": "always",
+      "minimum": null,
+      "maximum": null,
+      "unit": "entities",
+      "window": "each authorized applicable project acceptance",
+      "cue": "where the specified context is applicable",
+      "basis": "reviewed_inference"
+    }
+  },
+  "categories": {
+    "domains": [
+      "maintenance",
+      "data_integrity",
+      "qa_verification"
+    ],
+    "topics": [
+      "rust_fork_conflict_reconciliation"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "An owner-authorized Rust fork maintenance task has an accepted upstream baseline, and this concern falls within the maintained fork's supported contracts."
+    ],
+    "exclusions": [
+      "Unpublished or unsupported upstream behavior is not automatically incorporated; approved scope and documented exceptions still govern."
+    ],
+    "project_types": [
+      "rust_fork_maintenance"
+    ]
+  },
+  "authority": {
+    "source": "Owner-authorized Nomos fork coverage remediation; opt-in only",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": [
+      "NOM-0132"
+    ]
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "audits/remaining-profile-coverage-2026-10-25.json#NOM-0237",
+    "license": "MIT",
+    "notes": "Public-safe profile-coverage concern; no enrollment, project publication, upstream sync, or profile activation implied."
+  },
+  "governance": {
+    "created_on": "2026-10-25",
+    "updated_on": "2026-10-25",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

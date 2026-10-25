@@ -6,10 +6,10 @@
   "title": "Independent Tarium Project - Full - situation companion",
   "source_profile": {
     "id": "PROFILE-0006",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "draft",
     "selection_confirmed": false,
-    "source_git_blob_sha": "c4b2bb1ee1a83bcb70102d5a7718ca1fe716576f"
+    "source_git_blob_sha": "e7115a4c7f14bc83632befa206aa24029b0fc3b3"
   },
   "source_rule_ids": [
     "NOM-0001",
@@ -28,6 +28,11 @@
     "NOM-0021",
     "NOM-0022",
     "NOM-0023",
+    "NOM-0027",
+    "NOM-0028",
+    "NOM-0029",
+    "NOM-0030",
+    "NOM-0032",
     "NOM-0034",
     "NOM-0035",
     "NOM-0036",
@@ -43,12 +48,15 @@
     "NOM-0050",
     "NOM-0051",
     "NOM-0052",
+    "NOM-0053",
+    "NOM-0054",
     "NOM-0055",
     "NOM-0056",
     "NOM-0057",
     "NOM-0058",
     "NOM-0060",
     "NOM-0061",
+    "NOM-0062",
     "NOM-0064",
     "NOM-0065",
     "NOM-0066",
@@ -72,7 +80,14 @@
     "NOM-0125",
     "NOM-0126",
     "NOM-0127",
-    "NOM-0128"
+    "NOM-0128",
+    "NOM-0135",
+    "NOM-0136",
+    "NOM-0137",
+    "NOM-0240",
+    "NOM-0241",
+    "NOM-0242",
+    "NOM-0243"
   ],
   "source_analysis_snapshot": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
   "members": [
@@ -165,6 +180,22 @@
         {
           "id": "NOM-0128",
           "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0240",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0241",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0242",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0243",
+          "basis": "explicit_context_with_interpretation"
         }
       ]
     },
@@ -215,6 +246,31 @@
         },
         {
           "id": "NOM-0023",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0018",
+      "via_rules": [
+        {
+          "id": "NOM-0027",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0028",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0029",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0030",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0032",
           "basis": "explicit_context_with_interpretation"
         }
       ]
@@ -275,6 +331,10 @@
         {
           "id": "NOM-0048",
           "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0136",
+          "basis": "explicit_context_with_interpretation"
         }
       ]
     },
@@ -322,6 +382,19 @@
         {
           "id": "NOM-0052",
           "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0053",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0025",
+      "via_rules": [
+        {
+          "id": "NOM-0054",
+          "basis": "explicit_context_with_interpretation"
         }
       ]
     },
@@ -355,6 +428,15 @@
       ]
     },
     {
+      "id": "SITU-0027",
+      "via_rules": [
+        {
+          "id": "NOM-0062",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
       "id": "SITU-0028",
       "via_rules": [
         {
@@ -367,6 +449,10 @@
         },
         {
           "id": "NOM-0070",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0137",
           "basis": "explicit_context_with_interpretation"
         }
       ]
@@ -425,6 +511,28 @@
         {
           "id": "NOM-0066",
           "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0135",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0044",
+      "via_rules": [
+        {
+          "id": "NOM-0136",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0045",
+      "via_rules": [
+        {
+          "id": "NOM-0137",
+          "basis": "explicit_context_with_interpretation"
         }
       ]
     },
@@ -450,6 +558,42 @@
         },
         {
           "id": "NOM-0067",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0094",
+      "via_rules": [
+        {
+          "id": "NOM-0240",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0095",
+      "via_rules": [
+        {
+          "id": "NOM-0241",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0096",
+      "via_rules": [
+        {
+          "id": "NOM-0242",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0097",
+      "via_rules": [
+        {
+          "id": "NOM-0243",
           "basis": "explicit_context_with_interpretation"
         }
       ]

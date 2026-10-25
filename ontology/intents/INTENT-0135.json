@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0135",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "preserve_upstream_redistribution_notices",
+  "definition": "Maintain legally required licenses and attribution for material redistributed by a fork.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0239",
+    "source_candidate": "remaining_profile_preserve_upstream_redistribution_notices"
+  }
+}

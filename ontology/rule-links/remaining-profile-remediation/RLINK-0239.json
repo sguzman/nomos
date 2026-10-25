@@ -1,0 +1,64 @@
+{
+  "id": "RLINK-0239",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0239",
+  "rule_version": "1.0.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0042",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.project_types",
+        "statement"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    },
+    {
+      "id": "SITU-0093",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.project_types",
+        "statement"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0135",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "82c2958f14f94329c8bb6221cd675f6256295aa9",
+    "source_blob_sha": "5c52f55230df581695bb721fbb893540d42c5878",
+    "source_statement": "When distributing copied upstream or third-party source or compiled artifacts in a fork, verify required licenses, attribution and notices remain attached to the material actually redistributed.",
+    "source_conditions": [
+      "This published requirement is applicable only to the expressly authorized Rust fork maintenance and its declared source or public contract."
+    ],
+    "normalized_predicate": {
+      "action": "verify",
+      "object": "fork_upstream_notice_continuity",
+      "target": "rust_fork_maintenance"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Situations are not exhaustive triggers and do not narrow normative applicability.",
+    "intent_semantics": "Intents describe inferred outcomes; mappings do not create new normative obligations.",
+    "effective_rules": "Publication never activates a profile, enrolls a project, or authorizes an upstream integration."
+  },
+  "provenance": {
+    "queue_id": "RIA-0239",
+    "processing_id": "PROC-RIA-0239",
+    "source_path": "rules/NOM-0239.json",
+    "extension": "remaining_profile_remediation"
+  },
+  "reviewed_on": "2026-10-25"
+}

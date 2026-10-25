@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0137",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "reproduce_public_tarium_checkout",
+  "definition": "Demonstrate the documented public workflow without privileged or unpublished inputs.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0241",
+    "source_candidate": "remaining_profile_reproduce_public_tarium_checkout"
+  }
+}

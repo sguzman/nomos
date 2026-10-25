@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0090",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "fork_security_advisory_triage",
+  "definition": "A maintained Rust fork has potentially applicable security advisories in upstream code or dependencies.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0236",
+    "source_candidate": "remaining_profile_fork_security_advisory_triage",
+    "normalization": "source_grounded_remaining_profile_remediation"
+  }
+}

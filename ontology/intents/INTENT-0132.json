@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0132",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "address_applicable_fork_advisories",
+  "definition": "Record and verify relevant upstream security fixes or mitigations instead of assuming unaffected releases.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0236",
+    "source_candidate": "remaining_profile_address_applicable_fork_advisories"
+  }
+}

@@ -116,7 +116,7 @@ test('schema status and confirmation constraints agree with runtime rules',()=>{
 test('six explicitly authorized provisional drafts preserve unconfirmed selections',()=>{
   const paths=Array.from({length:6},(_,i)=>path.resolve(__dirname,'../profiles/PROFILE-'+String(i+3).padStart(4,'0')+'.json'));
   const drafts=paths.map(p=>JSON.parse(fs.readFileSync(p,'utf8')));
-  const expected=[45,106,29,61,34,89];
+  const expected=[45,106,36,76,43,102];
   assert.deepEqual(drafts.map(p=>p.selected_rule_ids.length),expected);
   for(const p of drafts){
     assert.equal(p.status,'draft');

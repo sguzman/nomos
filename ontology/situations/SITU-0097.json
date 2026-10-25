@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0097",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "tarium_machine_schema_validation",
+  "definition": "A Tarium project declares structured public ontology/gallery schemas requiring conformance tests.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0243",
+    "source_candidate": "remaining_profile_tarium_machine_schema_validation",
+    "normalization": "source_grounded_remaining_profile_remediation"
+  }
+}

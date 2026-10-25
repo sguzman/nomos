@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0092",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "fork_release_upstream_provenance",
+  "definition": "A Rust fork publishes a release whose upstream integration and deviations must be identifiable.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0238",
+    "source_candidate": "remaining_profile_fork_release_upstream_provenance",
+    "normalization": "source_grounded_remaining_profile_remediation"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0133",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "recover_stateful_fork_integrations",
+  "definition": "Preserve verified recovery or disclosed irreversible-state limits for authorized upstream integrations.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0237",
+    "source_candidate": "remaining_profile_recover_stateful_fork_integrations"
+  }
+}

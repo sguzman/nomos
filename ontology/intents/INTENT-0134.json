@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0134",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "trace_fork_release_source_lineage",
+  "definition": "Expose the exact supported fork revision and upstream baseline in release metadata.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0238",
+    "source_candidate": "remaining_profile_trace_fork_release_source_lineage"
+  }
+}

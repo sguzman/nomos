@@ -8,8 +8,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 COLLECTIONS = (
-    ("situations", "SITU", 89, "situation"),
-    ("intents", "INTENT", 131, "intent"),
+    ("situations", "SITU", 97, "situation"),
+    ("intents", "INTENT", 139, "intent"),
     ("families", "FAMILY", 8, "intent_family"),
     ("conditions", "CONDITION", 7, "execution_condition"),
     ("evaluation-dimensions", "EVAL-DIM", 7, "evaluation_dimension"),
@@ -158,7 +158,7 @@ def main():
     data, errors = load_formal()
     for error in errors: print("ERROR:", error)
     if errors: raise SystemExit(1)
-    print("Validated 89 situations, 131 intents, 8 compositions, 7 conditions, "
+    print("Validated 97 situations, 139 intents, 8 compositions, 7 conditions, "
           "7 evaluation dimensions, 24 versioned prompts, and evidence-backed evaluations")
 
 

@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0091",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "fork_stateful_integration_recovery",
+  "definition": "An authorized upstream integration changes supported persisted state or installed state requiring recovery planning.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0237",
+    "source_candidate": "remaining_profile_fork_stateful_integration_recovery",
+    "normalization": "source_grounded_remaining_profile_remediation"
+  }
+}
