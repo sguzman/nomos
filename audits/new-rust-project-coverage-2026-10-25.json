@@ -1,0 +1,265 @@
+{
+  "kind": "new_rust_project_from_scratch_coverage_audit",
+  "date": "2026-10-25",
+  "status": "owner_authorized_normalization",
+  "source_profiles": [
+    {
+      "id": "PROFILE-0003",
+      "source_blob_sha": "8f07ad81e55a2579914ce8fb1919f91a26e34d28",
+      "before": 35,
+      "selection_confirmed": false
+    },
+    {
+      "id": "PROFILE-0004",
+      "source_blob_sha": "495f341f96e612e92b5025fce28ad4a3dd02e58b",
+      "before": 90,
+      "selection_confirmed": false
+    }
+  ],
+  "existing_sufficient_obligations": {
+    "repository_setup": [
+      "NOM-0014",
+      "NOM-0015",
+      "NOM-0017",
+      "NOM-0018"
+    ],
+    "rust_quality": [
+      "NOM-0012",
+      "NOM-0024",
+      "NOM-0025",
+      "NOM-0026",
+      "NOM-0027",
+      "NOM-0028",
+      "NOM-0029",
+      "NOM-0030",
+      "NOM-0032",
+      "NOM-0033"
+    ],
+    "ci_and_qa": [
+      "NOM-0034",
+      "NOM-0036",
+      "NOM-0039",
+      "NOM-0041",
+      "NOM-0062",
+      "NOM-0063"
+    ],
+    "mvp_and_release": [
+      "NOM-0087",
+      "NOM-0088",
+      "NOM-0089",
+      "NOM-0091",
+      "NOM-0092",
+      "NOM-0095",
+      "NOM-0098",
+      "NOM-0107"
+    ]
+  },
+  "reused_already_published_not_duplicated": {
+    "lite": [
+      "NOM-0135",
+      "NOM-0136"
+    ],
+    "full": [
+      "NOM-0135",
+      "NOM-0136",
+      "NOM-0137"
+    ]
+  },
+  "reviewed_candidates": [
+    {
+      "id": "NOM-0223",
+      "key": "inception_contract",
+      "description": "Before major implementation, record the new Rust project's intended users, essential behavior, first runnable deliverable, supported environment, and explicit non-goals; keep this contract consistent with later MVP acceptance.",
+      "conditional_on_project_contract": true,
+      "overlap_rule_ids": [
+        "NOM-0088"
+      ],
+      "reference_keys": [
+        "rust_testing",
+        "rust_api_guidelines"
+      ],
+      "disposition": "approved_independent_new_project_atom"
+    },
+    {
+      "id": "NOM-0224",
+      "key": "architecture_boundaries",
+      "description": "For an authorized new Rust project, choose and document executable/library boundaries, ownership of persistent state and public interfaces before those decisions become expensive to change; avoid architecture unsupported by its real requirements.",
+      "conditional_on_project_contract": true,
+      "overlap_rule_ids": [
+        "NOM-0044"
+      ],
+      "reference_keys": [
+        "rust_testing",
+        "rust_api_guidelines"
+      ],
+      "disposition": "approved_independent_new_project_atom"
+    },
+    {
+      "id": "NOM-0225",
+      "key": "rust_toolchain",
+      "description": "Record and verify a reproducible Rust toolchain and applicable Cargo package/target metadata, including the chosen edition, required compiler compatibility and supported targets; do not imply support for untested targets.",
+      "conditional_on_project_contract": true,
+      "overlap_rule_ids": [
+        "NOM-0012"
+      ],
+      "reference_keys": [
+        "cargo_manifest",
+        "rust_toolchain"
+      ],
+      "disposition": "approved_independent_new_project_atom"
+    },
+    {
+      "id": "NOM-0226",
+      "key": "dependency_risk",
+      "description": "Before introducing a new external crate, review its necessity, license compatibility, maintenance/security posture and operational cost; record exceptions relevant to the project's authorized scope.",
+      "conditional_on_project_contract": true,
+      "overlap_rule_ids": [
+        "NOM-0019"
+      ],
+      "reference_keys": [
+        "rust_testing",
+        "rust_api_guidelines"
+      ],
+      "disposition": "approved_independent_new_project_atom"
+    },
+    {
+      "id": "NOM-0227",
+      "key": "recoverable_errors",
+      "description": "Where failures can be handled or reported, propagate recoverable Rust errors through stable result boundaries with actionable user-facing diagnostics; reserve panics for genuine invariant violations rather than routine external failures.",
+      "conditional_on_project_contract": true,
+      "overlap_rule_ids": [
+        "NOM-0030"
+      ],
+      "reference_keys": [
+        "rust_errors"
+      ],
+      "disposition": "approved_independent_new_project_atom"
+    },
+    {
+      "id": "NOM-0228",
+      "key": "configuration_semantics",
+      "description": "When the project accepts runtime configuration, verify each exposed key's precedence, defaults, validation, rejected values and resulting failure behavior against the documented contract.",
+      "conditional_on_project_contract": true,
+      "overlap_rule_ids": [
+        "NOM-0045"
+      ],
+      "reference_keys": [
+        "rust_testing",
+        "rust_api_guidelines"
+      ],
+      "disposition": "approved_independent_new_project_atom"
+    },
+    {
+      "id": "NOM-0229",
+      "key": "durable_writes",
+      "description": "When the application persists valuable mutable state, verify its write/replace operations cannot silently corrupt prior valid state on interruption and that recovery of interrupted writes is supported or limitations disclosed.",
+      "conditional_on_project_contract": true,
+      "overlap_rule_ids": [
+        "NOM-0053"
+      ],
+      "reference_keys": [
+        "rust_testing",
+        "rust_api_guidelines"
+      ],
+      "disposition": "approved_independent_new_project_atom"
+    },
+    {
+      "id": "NOM-0230",
+      "key": "untrusted_input",
+      "description": "Where input crosses an external trust boundary, enforce documented parsing, size/resource limits and authorization checks before side effects, with representative invalid and adversarial cases.",
+      "conditional_on_project_contract": true,
+      "overlap_rule_ids": [
+        "NOM-0030"
+      ],
+      "reference_keys": [
+        "owasp_input"
+      ],
+      "disposition": "approved_independent_new_project_atom"
+    },
+    {
+      "id": "NOM-0231",
+      "key": "shutdown_lifecycle",
+      "description": "For long-running processes or stateful CLI/GUI applications, verify required termination, cancellation, resource release and preservation of pending valuable work on normal exit and relevant interruption paths.",
+      "conditional_on_project_contract": true,
+      "overlap_rule_ids": [
+        "NOM-0062"
+      ],
+      "reference_keys": [
+        "rust_testing",
+        "rust_api_guidelines"
+      ],
+      "disposition": "approved_independent_new_project_atom"
+    },
+    {
+      "id": "NOM-0232",
+      "key": "performance_acceptance",
+      "description": "When startup, latency, memory use, throughput or power is part of the project's accepted usefulness contract, define representative measurement conditions and check those budgets before claiming completion.",
+      "conditional_on_project_contract": true,
+      "overlap_rule_ids": [
+        "NOM-0088"
+      ],
+      "reference_keys": [
+        "rust_testing",
+        "rust_api_guidelines"
+      ],
+      "disposition": "approved_independent_new_project_atom"
+    },
+    {
+      "id": "NOM-0233",
+      "key": "concurrency_lifecycle",
+      "description": "When the application uses background tasks or concurrent workers, verify task ownership, cancellation, error propagation and shutdown behavior under representative races; do not require a scheduler order the contract does not promise.",
+      "conditional_on_project_contract": true,
+      "overlap_rule_ids": [
+        "NOM-0032"
+      ],
+      "reference_keys": [
+        "rust_async"
+      ],
+      "disposition": "approved_independent_new_project_atom"
+    },
+    {
+      "id": "NOM-0234",
+      "key": "gui_keyboard_access",
+      "description": "For a project exposing a GUI, verify its agreed primary operations remain operable by keyboard, with visible focus, readable labels and accessible error/feedback paths on supported platforms.",
+      "conditional_on_project_contract": true,
+      "overlap_rule_ids": [
+        "NOM-0063"
+      ],
+      "reference_keys": [
+        "rust_testing",
+        "rust_api_guidelines"
+      ],
+      "disposition": "approved_independent_new_project_atom"
+    },
+    {
+      "id": "NOM-0235",
+      "key": "privacy_safe_diagnostics",
+      "description": "For applications producing logs, traces or crash reports, verify useful failure context is captured without inadvertently recording credentials or private user data; document opt-in collection where applicable.",
+      "conditional_on_project_contract": true,
+      "overlap_rule_ids": [
+        "NOM-0051"
+      ],
+      "reference_keys": [
+        "rust_testing",
+        "rust_api_guidelines"
+      ],
+      "disposition": "approved_independent_new_project_atom"
+    }
+  ],
+  "public_references": {
+    "cargo_manifest": "https://doc.rust-lang.org/cargo/reference/manifest.html",
+    "rust_toolchain": "https://rust-lang.github.io/rustup/overrides.html",
+    "rust_errors": "https://doc.rust-lang.org/book/ch09-00-error-handling.html",
+    "rust_testing": "https://doc.rust-lang.org/book/ch11-00-testing.html",
+    "rust_async": "https://rust-lang.github.io/async-book/",
+    "owasp_input": "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html",
+    "rust_api_guidelines": "https://rust-lang.github.io/api-guidelines/"
+  },
+  "boundaries": {
+    "no_profile_finalization": true,
+    "no_activation": true,
+    "no_unrelated_profiles_changed": true,
+    "no_generic_required_gui_or_service": true
+  },
+  "interpretation": "General rules for CI, testing, MVP and release already exist. Specializations describe separately verifiable source-applicable behavior and must not be construed as mandatory work for every kind of project."
+}

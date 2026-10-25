@@ -1,0 +1,64 @@
+{
+  "id": "RLINK-0231",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0231",
+  "rule_version": "1.0.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0018",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.project_types",
+        "statement"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    },
+    {
+      "id": "SITU-0087",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.project_types",
+        "statement"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0127",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "f129b2e477f05a794b1c402b646f8ac9afae94a9",
+    "source_blob_sha": "59444e75de7959f50ed90a39382264af216dbb57",
+    "source_statement": "For long-running processes or stateful CLI/GUI applications, verify required termination, cancellation, resource release and preservation of pending valuable work on normal exit and relevant interruption paths.",
+    "source_conditions": [
+      "An authorized Rust project is being created from scratch and the specified concern is part of its accepted purpose or supported user contract."
+    ],
+    "normalized_predicate": {
+      "action": "verify",
+      "object": "new_rust_shutdown_lifecycle",
+      "target": "rust_project_from_scratch"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Situations are not exhaustive triggers and do not narrow normative rule applicability.",
+    "intent_semantics": "Intents describe inferred objectives, not additional obligations.",
+    "effective_rules": "The source rule is not activated merely by publishing its mapping."
+  },
+  "provenance": {
+    "queue_id": "RIA-0231",
+    "processing_id": "PROC-RIA-0231",
+    "source_path": "rules/NOM-0231.json",
+    "extension": "new_rust_remediation"
+  },
+  "reviewed_on": "2026-10-25"
+}

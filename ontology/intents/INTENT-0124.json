@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0124",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "predictable_runtime_configuration",
+  "definition": "Ensure runtime configuration defaults, precedence and invalid inputs behave as promised.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0228",
+    "source_candidate": "new_rust_predictable_runtime_configuration"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0119",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "early_new_rust_acceptance_contract",
+  "definition": "Establish a verifiable initial purpose and scope for a newly created Rust project.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0223",
+    "source_candidate": "new_rust_early_new_rust_acceptance_contract"
+  }
+}

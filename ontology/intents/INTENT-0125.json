@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0125",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "resilient_persisted_state_updates",
+  "definition": "Preserve valuable persisted state across interrupted writes and disclosed recovery limits.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0229",
+    "source_candidate": "new_rust_resilient_persisted_state_updates"
+  }
+}

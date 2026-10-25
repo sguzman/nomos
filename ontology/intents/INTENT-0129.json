@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0129",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "safe_concurrent_task_lifecycle",
+  "definition": "Maintain correct background-task ownership, error propagation, cancellation and shutdown.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0233",
+    "source_candidate": "new_rust_safe_concurrent_task_lifecycle"
+  }
+}

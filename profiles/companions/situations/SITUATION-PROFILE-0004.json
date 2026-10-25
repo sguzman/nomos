@@ -6,10 +6,10 @@
   "title": "New Rust Project from Scratch - Full - situation companion",
   "source_profile": {
     "id": "PROFILE-0004",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "status": "draft",
     "selection_confirmed": false,
-    "source_git_blob_sha": "495f341f96e612e92b5025fce28ad4a3dd02e58b"
+    "source_git_blob_sha": "24861a93e7d3f35331c098e3aec3dcd9804bf59e"
   },
   "source_rule_ids": [
     "NOM-0001",
@@ -101,7 +101,23 @@
     "NOM-0106",
     "NOM-0107",
     "NOM-0108",
-    "NOM-0109"
+    "NOM-0109",
+    "NOM-0135",
+    "NOM-0136",
+    "NOM-0137",
+    "NOM-0223",
+    "NOM-0224",
+    "NOM-0225",
+    "NOM-0226",
+    "NOM-0227",
+    "NOM-0228",
+    "NOM-0229",
+    "NOM-0230",
+    "NOM-0231",
+    "NOM-0232",
+    "NOM-0233",
+    "NOM-0234",
+    "NOM-0235"
   ],
   "source_analysis_snapshot": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
   "members": [
@@ -162,6 +178,22 @@
       "via_rules": [
         {
           "id": "NOM-0010",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0223",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0224",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0225",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0226",
           "basis": "explicit_context_with_interpretation"
         }
       ]
@@ -255,6 +287,42 @@
         {
           "id": "NOM-0033",
           "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0227",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0228",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0229",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0230",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0231",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0232",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0233",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0234",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0235",
+          "basis": "explicit_context_with_interpretation"
         }
       ]
     },
@@ -329,6 +397,10 @@
         },
         {
           "id": "NOM-0048",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0136",
           "basis": "explicit_context_with_interpretation"
         }
       ]
@@ -456,6 +528,10 @@
         },
         {
           "id": "NOM-0070",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0137",
           "basis": "explicit_context_with_interpretation"
         }
       ]
@@ -591,6 +667,28 @@
         {
           "id": "NOM-0066",
           "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0135",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0044",
+      "via_rules": [
+        {
+          "id": "NOM-0136",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0045",
+      "via_rules": [
+        {
+          "id": "NOM-0137",
+          "basis": "explicit_context_with_interpretation"
         }
       ]
     },
@@ -625,6 +723,103 @@
         },
         {
           "id": "NOM-0067",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0081",
+      "via_rules": [
+        {
+          "id": "NOM-0223",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0082",
+      "via_rules": [
+        {
+          "id": "NOM-0224",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0083",
+      "via_rules": [
+        {
+          "id": "NOM-0225",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0226",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0084",
+      "via_rules": [
+        {
+          "id": "NOM-0227",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0228",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0085",
+      "via_rules": [
+        {
+          "id": "NOM-0229",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0086",
+      "via_rules": [
+        {
+          "id": "NOM-0230",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0087",
+      "via_rules": [
+        {
+          "id": "NOM-0231",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0233",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0088",
+      "via_rules": [
+        {
+          "id": "NOM-0232",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0234",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0089",
+      "via_rules": [
+        {
+          "id": "NOM-0235",
           "basis": "explicit_context_with_interpretation"
         }
       ]

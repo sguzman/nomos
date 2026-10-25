@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0121",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "reproducible_rust_toolchain_target",
+  "definition": "Keep supported Rust compiler, edition and target assumptions reproducible.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0225",
+    "source_candidate": "new_rust_reproducible_rust_toolchain_target"
+  }
+}

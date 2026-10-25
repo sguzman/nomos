@@ -1,0 +1,106 @@
+{
+  "id": "NOM-0225",
+  "version": "1.0.0",
+  "title": "rust toolchain",
+  "summary": "Record and verify a reproducible Rust toolchain and applicable Cargo package/target metadata, including the chosen edition, required compiler compatibility and supported targets; do not imply support for untested targets.",
+  "statement": "Record and verify a reproducible Rust toolchain and applicable Cargo package/target metadata, including the chosen edition, required compiler compatibility and supported targets; do not imply support for untested targets.",
+  "rationale": "Independent new-Rust-project toolchain obligation identified by the scoped coverage audit. Generic build, CI and MVP rules remain authoritative and are not duplicated here.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "verify",
+      "object": "new_rust_rust_toolchain",
+      "target": "rust_project_from_scratch"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "An expressly authorized Rust project is being created from scratch, and the specified behavior or decision is relevant to its approved purpose."
+    ],
+    "exceptions": [
+      "Excluded or inapplicable capabilities do not require invented implementation tasks; verified deviations and untested paths must remain disclosed."
+    ],
+    "bounds": {
+      "quantifier": "all",
+      "interpretation": "universal",
+      "frequency": "always",
+      "minimum": null,
+      "maximum": null,
+      "unit": "entities",
+      "window": "each applicable authorized project development and acceptance cycle",
+      "cue": "Where this contract applies",
+      "basis": "reviewed_inference"
+    }
+  },
+  "categories": {
+    "domains": [
+      "rust_development",
+      "software_development",
+      "software_testing"
+    ],
+    "topics": [
+      "new_rust_project"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "An expressly authorized Rust project is being created from scratch, and the specified behavior or decision is relevant to its approved purpose."
+    ],
+    "exclusions": [
+      "Excluded or inapplicable capabilities do not require invented implementation tasks; verified deviations and untested paths must remain disclosed."
+    ],
+    "project_types": [
+      "rust_project_from_scratch"
+    ]
+  },
+  "authority": {
+    "source": "Owner-authorized new Rust project coverage remediation; selected use only",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": [
+      "NOM-0012"
+    ]
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "audits/new-rust-project-coverage-2026-10-25.json#rust_toolchain",
+    "license": "MIT",
+    "notes": "Public-safe independent bootstrap correctness requirement. Rule publication does not activate a profile."
+  },
+  "governance": {
+    "created_on": "2026-10-25",
+    "updated_on": "2026-10-25",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

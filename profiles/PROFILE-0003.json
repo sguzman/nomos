@@ -1,7 +1,7 @@
 {
   "id": "PROFILE-0003",
   "kind": "rule_profile",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "title": "New Rust Project from Scratch - Lite",
   "status": "draft",
   "selected_rule_ids": [
@@ -39,7 +39,17 @@
     "NOM-0064",
     "NOM-0065",
     "NOM-0066",
-    "NOM-0067"
+    "NOM-0067",
+    "NOM-0135",
+    "NOM-0136",
+    "NOM-0223",
+    "NOM-0224",
+    "NOM-0225",
+    "NOM-0226",
+    "NOM-0227",
+    "NOM-0228",
+    "NOM-0229",
+    "NOM-0230"
   ],
   "export_targets": [
     "agents_md",
@@ -52,6 +62,6 @@
   },
   "governance": {
     "created_on": "2026-10-22",
-    "updated_on": "2026-10-22"
+    "updated_on": "2026-10-25"
   }
 }

@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0128",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "evidence_based_resource_acceptance",
+  "definition": "Verify accepted startup, latency, memory, throughput or energy constraints in realistic conditions.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0232",
+    "source_candidate": "new_rust_evidence_based_resource_acceptance"
+  }
+}

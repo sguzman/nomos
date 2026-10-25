@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0120",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "maintainable_rust_architecture_boundaries",
+  "definition": "Keep Rust component and state ownership boundaries tied to real approved requirements.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0224",
+    "source_candidate": "new_rust_maintainable_rust_architecture_boundaries"
+  }
+}

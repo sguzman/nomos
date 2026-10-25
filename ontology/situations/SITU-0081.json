@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0081",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "new_rust_project_contract",
+  "definition": "A new Rust project's intended behavior, first useful deliverable and exclusions are being established.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0223",
+    "source_candidate": "new_rust_new_rust_project_contract",
+    "normalization": "reviewed_new_rust_project_2026_10_25"
+  }
+}

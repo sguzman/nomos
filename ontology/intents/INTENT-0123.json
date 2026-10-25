@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0123",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "recoverable_application_failures",
+  "definition": "Make routine application failures recoverable and actionable rather than panicking unpredictably.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0227",
+    "source_candidate": "new_rust_recoverable_application_failures"
+  }
+}

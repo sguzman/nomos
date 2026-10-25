@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0126",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "safe_external_input_handling",
+  "definition": "Keep untrusted input from causing unauthorized operations or uncontrolled resource consumption.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0230",
+    "source_candidate": "new_rust_safe_external_input_handling"
+  }
+}

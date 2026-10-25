@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0127",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "controlled_application_shutdown",
+  "definition": "Preserve required work and resource correctness on application shutdown or interruption.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0231",
+    "source_candidate": "new_rust_controlled_application_shutdown"
+  }
+}

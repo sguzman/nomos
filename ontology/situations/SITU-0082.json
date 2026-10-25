@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0082",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "new_rust_architecture_boundary",
+  "definition": "A new Rust project's executable/library boundaries and state or interface ownership are being selected.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0224",
+    "source_candidate": "new_rust_new_rust_architecture_boundary",
+    "normalization": "reviewed_new_rust_project_2026_10_25"
+  }
+}

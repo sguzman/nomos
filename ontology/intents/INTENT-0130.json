@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0130",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "keyboard_accessible_rust_gui",
+  "definition": "Keep agreed graphical workflows available through keyboard and accessible feedback.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0234",
+    "source_candidate": "new_rust_keyboard_accessible_rust_gui"
+  }
+}

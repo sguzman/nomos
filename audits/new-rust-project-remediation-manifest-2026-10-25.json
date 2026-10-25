@@ -1,0 +1,244 @@
+{
+  "kind": "new_rust_project_coverage_remediation_manifest",
+  "version": "1.0.0",
+  "date": "2026-10-25",
+  "reviewed_audit": "audits/new-rust-project-coverage-2026-10-25.json",
+  "records": [
+    {
+      "id": "NOM-0223",
+      "key": "inception_contract",
+      "statement": "Before major implementation, record the new Rust project's intended users, essential behavior, first runnable deliverable, supported environment, and explicit non-goals; keep this contract consistent with later MVP acceptance.",
+      "scope": "rust_project_from_scratch",
+      "family": "inception",
+      "lite": true,
+      "existing_overlap": [
+        "NOM-0088"
+      ],
+      "evidence_keys": [
+        "rust_testing",
+        "rust_api_guidelines"
+      ]
+    },
+    {
+      "id": "NOM-0224",
+      "key": "architecture_boundaries",
+      "statement": "For an authorized new Rust project, choose and document executable/library boundaries, ownership of persistent state and public interfaces before those decisions become expensive to change; avoid architecture unsupported by its real requirements.",
+      "scope": "rust_project_from_scratch",
+      "family": "inception",
+      "lite": true,
+      "existing_overlap": [
+        "NOM-0044"
+      ],
+      "evidence_keys": [
+        "rust_testing",
+        "rust_api_guidelines"
+      ]
+    },
+    {
+      "id": "NOM-0225",
+      "key": "rust_toolchain",
+      "statement": "Record and verify a reproducible Rust toolchain and applicable Cargo package/target metadata, including the chosen edition, required compiler compatibility and supported targets; do not imply support for untested targets.",
+      "scope": "rust_project_from_scratch",
+      "family": "toolchain",
+      "lite": true,
+      "existing_overlap": [
+        "NOM-0012"
+      ],
+      "evidence_keys": [
+        "cargo_manifest",
+        "rust_toolchain"
+      ]
+    },
+    {
+      "id": "NOM-0226",
+      "key": "dependency_risk",
+      "statement": "Before introducing a new external crate, review its necessity, license compatibility, maintenance/security posture and operational cost; record exceptions relevant to the project's authorized scope.",
+      "scope": "rust_project_from_scratch",
+      "family": "dependencies",
+      "lite": true,
+      "existing_overlap": [
+        "NOM-0019"
+      ],
+      "evidence_keys": [
+        "rust_testing",
+        "rust_api_guidelines"
+      ]
+    },
+    {
+      "id": "NOM-0227",
+      "key": "recoverable_errors",
+      "statement": "Where failures can be handled or reported, propagate recoverable Rust errors through stable result boundaries with actionable user-facing diagnostics; reserve panics for genuine invariant violations rather than routine external failures.",
+      "scope": "rust_project_from_scratch",
+      "family": "runtime",
+      "lite": true,
+      "existing_overlap": [
+        "NOM-0030"
+      ],
+      "evidence_keys": [
+        "rust_errors"
+      ]
+    },
+    {
+      "id": "NOM-0228",
+      "key": "configuration_semantics",
+      "statement": "When the project accepts runtime configuration, verify each exposed key's precedence, defaults, validation, rejected values and resulting failure behavior against the documented contract.",
+      "scope": "rust_project_from_scratch",
+      "family": "runtime",
+      "lite": true,
+      "existing_overlap": [
+        "NOM-0045"
+      ],
+      "evidence_keys": [
+        "rust_testing",
+        "rust_api_guidelines"
+      ]
+    },
+    {
+      "id": "NOM-0229",
+      "key": "durable_writes",
+      "statement": "When the application persists valuable mutable state, verify its write/replace operations cannot silently corrupt prior valid state on interruption and that recovery of interrupted writes is supported or limitations disclosed.",
+      "scope": "rust_project_from_scratch",
+      "family": "state",
+      "lite": true,
+      "existing_overlap": [
+        "NOM-0053"
+      ],
+      "evidence_keys": [
+        "rust_testing",
+        "rust_api_guidelines"
+      ]
+    },
+    {
+      "id": "NOM-0230",
+      "key": "untrusted_input",
+      "statement": "Where input crosses an external trust boundary, enforce documented parsing, size/resource limits and authorization checks before side effects, with representative invalid and adversarial cases.",
+      "scope": "rust_project_from_scratch",
+      "family": "security",
+      "lite": true,
+      "existing_overlap": [
+        "NOM-0030"
+      ],
+      "evidence_keys": [
+        "owasp_input"
+      ]
+    },
+    {
+      "id": "NOM-0231",
+      "key": "shutdown_lifecycle",
+      "statement": "For long-running processes or stateful CLI/GUI applications, verify required termination, cancellation, resource release and preservation of pending valuable work on normal exit and relevant interruption paths.",
+      "scope": "rust_project_from_scratch",
+      "family": "runtime",
+      "lite": false,
+      "existing_overlap": [
+        "NOM-0062"
+      ],
+      "evidence_keys": [
+        "rust_testing",
+        "rust_api_guidelines"
+      ]
+    },
+    {
+      "id": "NOM-0232",
+      "key": "performance_acceptance",
+      "statement": "When startup, latency, memory use, throughput or power is part of the project's accepted usefulness contract, define representative measurement conditions and check those budgets before claiming completion.",
+      "scope": "rust_project_from_scratch",
+      "family": "performance",
+      "lite": false,
+      "existing_overlap": [
+        "NOM-0088"
+      ],
+      "evidence_keys": [
+        "rust_testing",
+        "rust_api_guidelines"
+      ]
+    },
+    {
+      "id": "NOM-0233",
+      "key": "concurrency_lifecycle",
+      "statement": "When the application uses background tasks or concurrent workers, verify task ownership, cancellation, error propagation and shutdown behavior under representative races; do not require a scheduler order the contract does not promise.",
+      "scope": "rust_project_from_scratch",
+      "family": "concurrency",
+      "lite": false,
+      "existing_overlap": [
+        "NOM-0032"
+      ],
+      "evidence_keys": [
+        "rust_async"
+      ]
+    },
+    {
+      "id": "NOM-0234",
+      "key": "gui_keyboard_access",
+      "statement": "For a project exposing a GUI, verify its agreed primary operations remain operable by keyboard, with visible focus, readable labels and accessible error/feedback paths on supported platforms.",
+      "scope": "rust_project_from_scratch",
+      "family": "interface",
+      "lite": false,
+      "existing_overlap": [
+        "NOM-0063"
+      ],
+      "evidence_keys": [
+        "rust_testing",
+        "rust_api_guidelines"
+      ]
+    },
+    {
+      "id": "NOM-0235",
+      "key": "privacy_safe_diagnostics",
+      "statement": "For applications producing logs, traces or crash reports, verify useful failure context is captured without inadvertently recording credentials or private user data; document opt-in collection where applicable.",
+      "scope": "rust_project_from_scratch",
+      "family": "operations",
+      "lite": false,
+      "existing_overlap": [
+        "NOM-0051"
+      ],
+      "evidence_keys": [
+        "rust_testing",
+        "rust_api_guidelines"
+      ]
+    }
+  ],
+  "lite_added_rules": [
+    "NOM-0223",
+    "NOM-0224",
+    "NOM-0225",
+    "NOM-0226",
+    "NOM-0227",
+    "NOM-0228",
+    "NOM-0229",
+    "NOM-0230",
+    "NOM-0135",
+    "NOM-0136"
+  ],
+  "full_added_rules": [
+    "NOM-0223",
+    "NOM-0224",
+    "NOM-0225",
+    "NOM-0226",
+    "NOM-0227",
+    "NOM-0228",
+    "NOM-0229",
+    "NOM-0230",
+    "NOM-0231",
+    "NOM-0232",
+    "NOM-0233",
+    "NOM-0234",
+    "NOM-0235",
+    "NOM-0135",
+    "NOM-0136",
+    "NOM-0137"
+  ],
+  "before": {
+    "lite": 35,
+    "full": 90
+  },
+  "after": {
+    "lite": 45,
+    "full": 106
+  },
+  "consent": {
+    "unconfirmed_draft": true,
+    "finalized": false,
+    "activated": false
+  },
+  "status": "reviewed_rule_remediation"
+}

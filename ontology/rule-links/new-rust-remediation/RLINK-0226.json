@@ -1,0 +1,64 @@
+{
+  "id": "RLINK-0226",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0226",
+  "rule_version": "1.0.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0014",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.project_types",
+        "statement"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    },
+    {
+      "id": "SITU-0083",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.project_types",
+        "statement"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0122",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "f129b2e477f05a794b1c402b646f8ac9afae94a9",
+    "source_blob_sha": "b46e755bcfd98a18142fd3b47459a49f44ac442a",
+    "source_statement": "Before introducing a new external crate, review its necessity, license compatibility, maintenance/security posture and operational cost; record exceptions relevant to the project's authorized scope.",
+    "source_conditions": [
+      "An authorized Rust project is being created from scratch and the specified concern is part of its accepted purpose or supported user contract."
+    ],
+    "normalized_predicate": {
+      "action": "verify",
+      "object": "new_rust_dependency_risk",
+      "target": "rust_project_from_scratch"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Situations are not exhaustive triggers and do not narrow normative rule applicability.",
+    "intent_semantics": "Intents describe inferred objectives, not additional obligations.",
+    "effective_rules": "The source rule is not activated merely by publishing its mapping."
+  },
+  "provenance": {
+    "queue_id": "RIA-0226",
+    "processing_id": "PROC-RIA-0226",
+    "source_path": "rules/NOM-0226.json",
+    "extension": "new_rust_remediation"
+  },
+  "reviewed_on": "2026-10-25"
+}

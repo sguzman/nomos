@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0122",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "reviewed_new_rust_dependencies",
+  "definition": "Use necessary, compatible and suitably maintained dependencies in a new Rust project.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0226",
+    "source_candidate": "new_rust_reviewed_new_rust_dependencies"
+  }
+}

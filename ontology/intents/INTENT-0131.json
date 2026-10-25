@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0131",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "privacy_preserving_diagnostics",
+  "definition": "Report meaningful faults without exposing user secrets or private content.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0235",
+    "source_candidate": "new_rust_privacy_preserving_diagnostics"
+  }
+}

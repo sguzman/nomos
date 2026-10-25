@@ -279,6 +279,59 @@ def load_links(root=ROOT):
             supporting=links.get("NOM-"+source[-4:])
             if not supporting or cid not in [x["id"] for x in supporting[relation]]:
                 errors.append(cid+": incorrect C source provenance")
+
+    # Independent new-Rust-project profile extension: preserve original and strict-port history.
+    scratch=root/"ontology/rule-links/new-rust-remediation"
+    files=sorted(scratch.glob("RLINK-*.json"))
+    scross=read(root,Path("ontology/rule-analysis/new-rust-remediation-crosswalk.json"))
+    if len(files)!=13 or len(scross.get("entries",{}))!=13 or scross.get("status")!="reviewed":
+        errors.append("expected 13 reviewed new-Rust-project rule mappings")
+    for path in files:
+        link=read(root,path.relative_to(root))
+        rid=link.get("rule_id","")
+        if rid in links or not rid.startswith("NOM-") or not rid[4:].isdigit() or int(rid[4:]) not in range(223,236):
+            errors.append("invalid new Rust source link "+rid)
+            continue
+        qid="RIA-"+rid[-4:]
+        rule=read(root,Path("rules")/(rid+".json"))
+        queue=read(root,Path("queues/new-rust-remediation")/(qid+".json"))
+        trace=read(root,Path("processing/new-rust-remediation")/("PROC-"+qid+".json"))
+        source=queue.get("source",{})
+        sids=[x["id"] for x in link.get("situations",[])]
+        iids=[x["id"] for x in link.get("intents",[])]
+        expected=scross.get("entries",{}).get(qid,{})
+        if (rule.get("status")!="published" or link.get("status")!="published" or
+            link.get("rule_editorial_status")!="published" or link.get("rule_version")!=rule.get("version") or
+            expected.get("rule_id")!=rid or expected.get("situation_ids")!=sids or expected.get("intent_ids")!=iids or
+            trace.get("disposition",{}).get("situation_ids")!=sids or trace.get("disposition",{}).get("intent_ids")!=iids or
+            not sids or not iids or len(sids)!=len(set(sids)) or len(iids)!=len(set(iids)) or
+            not set(sids)<=situations or not set(iids)<=intents):
+            errors.append("invalid new Rust source concepts "+rid)
+        if (source!=trace.get("source") or source.get("rule_id")!=rid or
+            source.get("path")!=f"rules/{rid}.json" or
+            git_blob((root/source["path"]).read_bytes())!=source.get("git_blob_sha") or
+            link.get("evidence",{}).get("source_blob_sha")!=source.get("git_blob_sha") or
+            link.get("evidence",{}).get("source_statement")!=rule.get("statement") or
+            link.get("evidence",{}).get("normalized_predicate")!=rule.get("norm",{}).get("predicate") or
+            link.get("provenance",{}).get("queue_id")!=qid):
+            errors.append("new Rust source provenance mismatch "+rid)
+        auth=trace.get("authorization",{})
+        if (queue.get("status")!="processed" or trace.get("status")!="closed" or
+            not auth.get("publication") or not auth.get("processing") or
+            auth.get("profile_selection_confirmation") is not False or auth.get("profile_finalization") is not False or
+            auth.get("rule_activation") is not False):
+            errors.append("new Rust authorization violation "+rid)
+        links[rid]=link
+    if len(links)!=235:
+        errors.append(f"combined rule-link registry {len(links)}, expected 235")
+    for prefix,start,end,folder,relation in (("SITU",81,89,"situations","situations"),("INTENT",119,131,"intents","intents")):
+        for n in range(start,end+1):
+            cid=f"{prefix}-{n:04d}"
+            obj=read(root,Path("ontology")/folder/(cid+".json"))
+            queue_id=obj.get("provenance",{}).get("queue_id","")
+            support=links.get("NOM-"+queue_id[-4:])
+            if not support or cid not in [x["id"] for x in support[relation]]:
+                errors.append(cid+": missing new Rust source evidence")
     return links,errors
 
 def main():

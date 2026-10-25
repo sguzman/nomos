@@ -1,0 +1,64 @@
+{
+  "id": "RLINK-0233",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0233",
+  "rule_version": "1.0.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0018",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.project_types",
+        "statement"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    },
+    {
+      "id": "SITU-0087",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.project_types",
+        "statement"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0129",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "f129b2e477f05a794b1c402b646f8ac9afae94a9",
+    "source_blob_sha": "76bcc0320f30233d8aa3469083acf91f1f7ca0aa",
+    "source_statement": "When the application uses background tasks or concurrent workers, verify task ownership, cancellation, error propagation and shutdown behavior under representative races; do not require a scheduler order the contract does not promise.",
+    "source_conditions": [
+      "An authorized Rust project is being created from scratch and the specified concern is part of its accepted purpose or supported user contract."
+    ],
+    "normalized_predicate": {
+      "action": "verify",
+      "object": "new_rust_concurrency_lifecycle",
+      "target": "rust_project_from_scratch"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Situations are not exhaustive triggers and do not narrow normative rule applicability.",
+    "intent_semantics": "Intents describe inferred objectives, not additional obligations.",
+    "effective_rules": "The source rule is not activated merely by publishing its mapping."
+  },
+  "provenance": {
+    "queue_id": "RIA-0233",
+    "processing_id": "PROC-RIA-0233",
+    "source_path": "rules/NOM-0233.json",
+    "extension": "new_rust_remediation"
+  },
+  "reviewed_on": "2026-10-25"
+}
