@@ -1,0 +1,743 @@
+{
+  "schema_version": 1,
+  "id": "STRICT-PORT-COVERAGE-2026-10-25",
+  "kind": "non_normative_coverage_study",
+  "status": "analytical_review_only",
+  "reviewed_profile": {
+    "id": "PROFILE-0012",
+    "source_git_blob_sha": "e441f5a64a97081b66d966647966217c34531983",
+    "version": "0.1.0",
+    "selected_rule_count": 90,
+    "review_status": "draft_selection_unconfirmed"
+  },
+  "pinned_baseline": {
+    "catalog_rule_ids": 137,
+    "derived_situations": 27,
+    "derived_intents": 37,
+    "selected_rules_with_situation_links": 90,
+    "selected_rules_with_intent_links": 90
+  },
+  "boundaries": {
+    "no_new_rule_records": true,
+    "no_new_formal_situations_or_intents": true,
+    "no_profile_membership_changes": true,
+    "no_user_approval_implied": true,
+    "no_external_port_executed": true,
+    "note": "Coverage judgments are candidate interpretations of documented obligations, not approval of any proposed rule. Applicability requires an actual source baseline and inspection."
+  },
+  "shared_analogues": [
+    {
+      "role": "C-language differential verification",
+      "id": "NOM-0111",
+      "scope": "c_to_rust_port",
+      "disposition": "not_directly_applicable_to_python"
+    },
+    {
+      "role": "C-language unsafe and FFI",
+      "id": "NOM-0112",
+      "scope": "c_to_rust_port",
+      "disposition": "not_directly_applicable_to_python"
+    },
+    {
+      "role": "C-language capability coverage",
+      "id": "NOM-0113",
+      "scope": "c_to_rust_port",
+      "disposition": "not_directly_applicable_to_python"
+    }
+  ],
+  "existing_rule_review": [
+    {
+      "id": "NOM-0008",
+      "disposition": "review_for_possible_inclusion",
+      "reason": "Rust implementation-language discipline; overlaps approved architecture choices."
+    },
+    {
+      "id": "NOM-0135",
+      "disposition": "review_for_possible_inclusion",
+      "reason": "Explicit owner-action footer for handoffs."
+    },
+    {
+      "id": "NOM-0136",
+      "disposition": "review_for_possible_inclusion",
+      "reason": "Reader-focused README separate from detailed docs and changelog."
+    },
+    {
+      "id": "NOM-0137",
+      "disposition": "review_for_possible_inclusion",
+      "reason": "Previous/current/delta reporting; not needed unless per-round percent bars are used."
+    }
+  ],
+  "sources": {
+    "python_data_model": "https://docs.python.org/3/reference/datamodel.html",
+    "python_execution": "https://docs.python.org/3/reference/executionmodel.html",
+    "python_import": "https://docs.python.org/3/reference/import.html",
+    "python_async": "https://docs.python.org/3/library/asyncio-task.html",
+    "python_threading": "https://docs.python.org/3/library/threading.html",
+    "python_free_threading": "https://docs.python.org/3/howto/free-threading-python.html",
+    "python_decimal": "https://docs.python.org/3/library/decimal.html",
+    "python_unicode": "https://docs.python.org/3/library/unicodedata.html",
+    "python_subprocess": "https://docs.python.org/3/library/subprocess.html",
+    "python_iterators": "https://docs.python.org/3/library/stdtypes.html",
+    "python_context": "https://docs.python.org/3/reference/compound_stmts.html",
+    "python_c_api": "https://docs.python.org/3/c-api/index.html",
+    "python_entrypoints": "https://packaging.python.org/en/latest/specifications/entry-points/",
+    "rust_errors": "https://doc.rust-lang.org/book/ch09-00-error-handling.html"
+  },
+  "candidates": [
+    {
+      "id": "PORT-01",
+      "heading": "Freeze the upstream runtime and supported behavior baseline",
+      "atomic_proposal": "For an authorized strict port, identify the exact upstream revision, Python interpreter/version/build and target environment before claiming behavioral equivalence.",
+      "applicability_scope": "software_port",
+      "disposition": "partially_covered_by_existing_rules",
+      "existing_support_ids": [
+        "NOM-0074",
+        "NOM-0075",
+        "NOM-0098"
+      ],
+      "language_specific_analogues": [],
+      "priority": "critical",
+      "source_applicability": "all",
+      "family": "execution",
+      "reference_keys": [
+        "python_execution"
+      ],
+      "transfer_to_profiles": [
+        "PROFILE-0001",
+        "PROFILE-0002",
+        "PROFILE-0009",
+        "PROFILE-0010",
+        "PROFILE-0011",
+        "PROFILE-0012"
+      ],
+      "applicability_note": "General strict-port study candidate, not active until separately adopted."
+    },
+    {
+      "id": "PORT-02",
+      "heading": "Track every in-scope upstream capability",
+      "atomic_proposal": "For each agreed upstream capability, record its Rust implementation or replacement, independent verification status and any missing or incompatible behavior.",
+      "applicability_scope": "software_port",
+      "disposition": "unrepresented_as_atomic_rule",
+      "existing_support_ids": [
+        "NOM-0074",
+        "NOM-0075",
+        "NOM-0064"
+      ],
+      "language_specific_analogues": [
+        "NOM-0113"
+      ],
+      "priority": "critical",
+      "source_applicability": "all",
+      "family": "baseline",
+      "reference_keys": [
+        "python_execution"
+      ],
+      "transfer_to_profiles": [
+        "PROFILE-0001",
+        "PROFILE-0002",
+        "PROFILE-0009",
+        "PROFILE-0010",
+        "PROFILE-0011",
+        "PROFILE-0012"
+      ],
+      "applicability_note": "General strict-port study candidate, not active until separately adopted."
+    },
+    {
+      "id": "PORT-03",
+      "heading": "Compare upstream and Rust observable results",
+      "atomic_proposal": "For each reproducible in-scope case, run both implementations under equivalent inputs and relevant environment, compare outputs, exit status and side effects, and report untestable cases.",
+      "applicability_scope": "software_port",
+      "disposition": "unrepresented_as_atomic_rule",
+      "existing_support_ids": [
+        "NOM-0029",
+        "NOM-0033",
+        "NOM-0074"
+      ],
+      "language_specific_analogues": [
+        "NOM-0111"
+      ],
+      "priority": "critical",
+      "source_applicability": "all",
+      "family": "testing",
+      "reference_keys": [
+        "python_subprocess",
+        "python_execution"
+      ],
+      "transfer_to_profiles": [
+        "PROFILE-0001",
+        "PROFILE-0002",
+        "PROFILE-0009",
+        "PROFILE-0010",
+        "PROFILE-0011",
+        "PROFILE-0012"
+      ],
+      "applicability_note": "General strict-port study candidate, not active until separately adopted."
+    },
+    {
+      "id": "PORT-04",
+      "heading": "Register and approve deviations from upstream",
+      "atomic_proposal": "Record each intentional behavior deviation, supporting authorization, affected consumers, and regression cases; do not count unresolved discrepancies as compatibility.",
+      "applicability_scope": "software_port",
+      "disposition": "partially_covered_by_existing_rules",
+      "existing_support_ids": [
+        "NOM-0064",
+        "NOM-0074",
+        "NOM-0098"
+      ],
+      "language_specific_analogues": [
+        "NOM-0111",
+        "NOM-0113"
+      ],
+      "priority": "high",
+      "source_applicability": "all",
+      "family": "governance",
+      "reference_keys": [
+        "python_execution"
+      ],
+      "transfer_to_profiles": [
+        "PROFILE-0001",
+        "PROFILE-0002",
+        "PROFILE-0009",
+        "PROFILE-0010",
+        "PROFILE-0011",
+        "PROFILE-0012"
+      ],
+      "applicability_note": "General strict-port study candidate, not active until separately adopted."
+    },
+    {
+      "id": "PORT-05",
+      "heading": "Establish executable replacement acceptance",
+      "atomic_proposal": "Before accepting strict-port completion, require evidence of in-scope feature coverage, downstream integration and deployment behavior, with explicit unverified gaps.",
+      "applicability_scope": "software_port",
+      "disposition": "partially_covered_by_existing_rules",
+      "existing_support_ids": [
+        "NOM-0075",
+        "NOM-0090",
+        "NOM-0093",
+        "NOM-0098"
+      ],
+      "language_specific_analogues": [
+        "NOM-0113"
+      ],
+      "priority": "critical",
+      "source_applicability": "all",
+      "family": "acceptance",
+      "reference_keys": [
+        "python_subprocess"
+      ],
+      "transfer_to_profiles": [
+        "PROFILE-0001",
+        "PROFILE-0002",
+        "PROFILE-0009",
+        "PROFILE-0010",
+        "PROFILE-0011",
+        "PROFILE-0012"
+      ],
+      "applicability_note": "General strict-port study candidate, not active until separately adopted."
+    },
+    {
+      "id": "PORT-06",
+      "heading": "Contain and test necessary unsafe and cross-language interfaces",
+      "atomic_proposal": "Where a Rust port retains unsafe or foreign-function boundaries, isolate them, document safety and ABI assumptions, and verify exposed behavior.",
+      "applicability_scope": "software_port",
+      "disposition": "partially_covered_by_existing_rules",
+      "existing_support_ids": [
+        "NOM-0033",
+        "NOM-0041"
+      ],
+      "language_specific_analogues": [
+        "NOM-0112"
+      ],
+      "priority": "conditional",
+      "source_applicability": "all",
+      "family": "interop",
+      "reference_keys": [
+        "python_c_api"
+      ],
+      "transfer_to_profiles": [
+        "PROFILE-0001",
+        "PROFILE-0002",
+        "PROFILE-0009",
+        "PROFILE-0010",
+        "PROFILE-0011",
+        "PROFILE-0012"
+      ],
+      "applicability_note": "General strict-port study candidate, not active until separately adopted."
+    },
+    {
+      "id": "PORT-07",
+      "heading": "Verify distribution and installation cutover",
+      "atomic_proposal": "When replacing an installed upstream program, verify launch commands, runtime dependencies, installation/upgrading and return to a known-good state where recovery is required.",
+      "applicability_scope": "software_port",
+      "disposition": "partially_covered_by_existing_rules",
+      "existing_support_ids": [
+        "NOM-0040",
+        "NOM-0041",
+        "NOM-0053",
+        "NOM-0098"
+      ],
+      "language_specific_analogues": [],
+      "priority": "high",
+      "source_applicability": "all",
+      "family": "deployment",
+      "reference_keys": [
+        "python_entrypoints"
+      ],
+      "transfer_to_profiles": [
+        "PROFILE-0001",
+        "PROFILE-0002",
+        "PROFILE-0009",
+        "PROFILE-0010",
+        "PROFILE-0011",
+        "PROFILE-0012"
+      ],
+      "applicability_note": "General strict-port study candidate, not active until separately adopted."
+    },
+    {
+      "id": "PY-01",
+      "heading": "Object identity, aliasing and mutation",
+      "atomic_proposal": "Where externally observable, preserve Python identity-versus-equality, shared-reference mutation and copy behavior in Rust.",
+      "applicability_scope": "python_to_rust_port",
+      "disposition": "unrepresented_as_atomic_rule",
+      "existing_support_ids": [
+        "NOM-0033",
+        "NOM-0074"
+      ],
+      "language_specific_analogues": [],
+      "priority": "high",
+      "source_applicability": "conditional",
+      "family": "data_model",
+      "reference_keys": [
+        "python_data_model"
+      ],
+      "transfer_to_profiles": [
+        "PROFILE-0011",
+        "PROFILE-0012"
+      ],
+      "applicability_note": "Requires confirmation that this feature or behavior is in the agreed upstream replacement contract."
+    },
+    {
+      "id": "PY-02",
+      "heading": "Dynamic typing and reflection",
+      "atomic_proposal": "When used by supported consumers, preserve dynamic attribute access, callable signatures, reflection or runtime dispatch behavior.",
+      "applicability_scope": "python_to_rust_port",
+      "disposition": "unrepresented_as_atomic_rule",
+      "existing_support_ids": [
+        "NOM-0033",
+        "NOM-0054"
+      ],
+      "language_specific_analogues": [],
+      "priority": "high",
+      "source_applicability": "conditional",
+      "family": "data_model",
+      "reference_keys": [
+        "python_data_model"
+      ],
+      "transfer_to_profiles": [
+        "PROFILE-0011",
+        "PROFILE-0012"
+      ],
+      "applicability_note": "Requires confirmation that this feature or behavior is in the agreed upstream replacement contract."
+    },
+    {
+      "id": "PY-03",
+      "heading": "Truthiness and implicit conversion",
+      "atomic_proposal": "For each in-scope branch or interface using Python truth testing or conversion, compare behavior for relevant false-like, empty, custom and mixed-type values.",
+      "applicability_scope": "python_to_rust_port",
+      "disposition": "unrepresented_as_atomic_rule",
+      "existing_support_ids": [
+        "NOM-0033"
+      ],
+      "language_specific_analogues": [],
+      "priority": "high",
+      "source_applicability": "conditional",
+      "family": "data_model",
+      "reference_keys": [
+        "python_data_model"
+      ],
+      "transfer_to_profiles": [
+        "PROFILE-0011",
+        "PROFILE-0012"
+      ],
+      "applicability_note": "Requires confirmation that this feature or behavior is in the agreed upstream replacement contract."
+    },
+    {
+      "id": "PY-04",
+      "heading": "Numeric range, precision and rounding",
+      "atomic_proposal": "Where numerical behavior matters, test integer range, division, float special values, decimal contexts, rounding and overflow against the source baseline.",
+      "applicability_scope": "python_to_rust_port",
+      "disposition": "unrepresented_as_atomic_rule",
+      "existing_support_ids": [
+        "NOM-0029",
+        "NOM-0033"
+      ],
+      "language_specific_analogues": [],
+      "priority": "high",
+      "source_applicability": "conditional",
+      "family": "numbers",
+      "reference_keys": [
+        "python_data_model",
+        "python_decimal"
+      ],
+      "transfer_to_profiles": [
+        "PROFILE-0011",
+        "PROFILE-0012"
+      ],
+      "applicability_note": "Requires confirmation that this feature or behavior is in the agreed upstream replacement contract."
+    },
+    {
+      "id": "PY-05",
+      "heading": "Unicode, text and bytes semantics",
+      "atomic_proposal": "For in-scope text boundaries, verify encoding/decoding, Unicode operations, normalization when expected, byte handling and error policy.",
+      "applicability_scope": "python_to_rust_port",
+      "disposition": "unrepresented_as_atomic_rule",
+      "existing_support_ids": [
+        "NOM-0033",
+        "NOM-0053"
+      ],
+      "language_specific_analogues": [],
+      "priority": "high",
+      "source_applicability": "conditional",
+      "family": "text",
+      "reference_keys": [
+        "python_unicode",
+        "python_data_model"
+      ],
+      "transfer_to_profiles": [
+        "PROFILE-0011",
+        "PROFILE-0012"
+      ],
+      "applicability_note": "Requires confirmation that this feature or behavior is in the agreed upstream replacement contract."
+    },
+    {
+      "id": "PY-06",
+      "heading": "Equality, hashing and collection behavior",
+      "atomic_proposal": "For exposed data structures, verify Python equality, key hashing, insertion order where guaranteed, and iteration-dependent behavior.",
+      "applicability_scope": "python_to_rust_port",
+      "disposition": "unrepresented_as_atomic_rule",
+      "existing_support_ids": [
+        "NOM-0033",
+        "NOM-0054"
+      ],
+      "language_specific_analogues": [],
+      "priority": "high",
+      "source_applicability": "conditional",
+      "family": "data_model",
+      "reference_keys": [
+        "python_data_model"
+      ],
+      "transfer_to_profiles": [
+        "PROFILE-0011",
+        "PROFILE-0012"
+      ],
+      "applicability_note": "Requires confirmation that this feature or behavior is in the agreed upstream replacement contract."
+    },
+    {
+      "id": "PY-07",
+      "heading": "Exception, failure and cleanup contracts",
+      "atomic_proposal": "Where observable, preserve error categories, messages when contractual, exit behavior, exception propagation and cleanup side effects.",
+      "applicability_scope": "python_to_rust_port",
+      "disposition": "unrepresented_as_atomic_rule",
+      "existing_support_ids": [
+        "NOM-0033",
+        "NOM-0054"
+      ],
+      "language_specific_analogues": [],
+      "priority": "high",
+      "source_applicability": "conditional",
+      "family": "errors",
+      "reference_keys": [
+        "python_execution",
+        "rust_errors"
+      ],
+      "transfer_to_profiles": [
+        "PROFILE-0011",
+        "PROFILE-0012"
+      ],
+      "applicability_note": "Requires confirmation that this feature or behavior is in the agreed upstream replacement contract."
+    },
+    {
+      "id": "PY-08",
+      "heading": "Iterator and generator protocols",
+      "atomic_proposal": "For consumed iterators/generators, verify laziness, yielded sequence, termination, exception propagation and finalization behavior.",
+      "applicability_scope": "python_to_rust_port",
+      "disposition": "unrepresented_as_atomic_rule",
+      "existing_support_ids": [
+        "NOM-0033"
+      ],
+      "language_specific_analogues": [],
+      "priority": "high",
+      "source_applicability": "conditional",
+      "family": "protocols",
+      "reference_keys": [
+        "python_data_model"
+      ],
+      "transfer_to_profiles": [
+        "PROFILE-0011",
+        "PROFILE-0012"
+      ],
+      "applicability_note": "Requires confirmation that this feature or behavior is in the agreed upstream replacement contract."
+    },
+    {
+      "id": "PY-09",
+      "heading": "Context manager and resource lifetime behavior",
+      "atomic_proposal": "For code using with/async-with or equivalent contracts, verify acquisition, release, exception handling and early-exit behavior.",
+      "applicability_scope": "python_to_rust_port",
+      "disposition": "unrepresented_as_atomic_rule",
+      "existing_support_ids": [
+        "NOM-0033",
+        "NOM-0038"
+      ],
+      "language_specific_analogues": [],
+      "priority": "high",
+      "source_applicability": "conditional",
+      "family": "protocols",
+      "reference_keys": [
+        "python_context"
+      ],
+      "transfer_to_profiles": [
+        "PROFILE-0011",
+        "PROFILE-0012"
+      ],
+      "applicability_note": "Requires confirmation that this feature or behavior is in the agreed upstream replacement contract."
+    },
+    {
+      "id": "PY-10",
+      "heading": "Imports, modules and dynamic discovery",
+      "atomic_proposal": "When modules or dynamic imports are consumed externally, preserve agreed import names, loading/discovery behavior and failure contracts.",
+      "applicability_scope": "python_to_rust_port",
+      "disposition": "unrepresented_as_atomic_rule",
+      "existing_support_ids": [
+        "NOM-0054",
+        "NOM-0093"
+      ],
+      "language_specific_analogues": [],
+      "priority": "high",
+      "source_applicability": "conditional",
+      "family": "ecosystem",
+      "reference_keys": [
+        "python_import"
+      ],
+      "transfer_to_profiles": [
+        "PROFILE-0011",
+        "PROFILE-0012"
+      ],
+      "applicability_note": "Requires confirmation that this feature or behavior is in the agreed upstream replacement contract."
+    },
+    {
+      "id": "PY-11",
+      "heading": "Installed commands, package entry points and plugins",
+      "atomic_proposal": "Where the Python distribution exposes console entry points or plugins, verify that Rust replacement preserves agreed discovery and invocation interfaces.",
+      "applicability_scope": "python_to_rust_port",
+      "disposition": "partially_covered_by_existing_rules",
+      "existing_support_ids": [
+        "NOM-0054",
+        "NOM-0093",
+        "NOM-0098"
+      ],
+      "language_specific_analogues": [],
+      "priority": "high",
+      "source_applicability": "conditional",
+      "family": "ecosystem",
+      "reference_keys": [
+        "python_entrypoints"
+      ],
+      "transfer_to_profiles": [
+        "PROFILE-0011",
+        "PROFILE-0012"
+      ],
+      "applicability_note": "Requires confirmation that this feature or behavior is in the agreed upstream replacement contract."
+    },
+    {
+      "id": "PY-12",
+      "heading": "Async task lifecycle and cancellation",
+      "atomic_proposal": "For asyncio-dependent behavior, compare task ordering where observable, cancellation, timeouts, cleanup and backpressure under representative load.",
+      "applicability_scope": "python_to_rust_port",
+      "disposition": "unrepresented_as_atomic_rule",
+      "existing_support_ids": [
+        "NOM-0029",
+        "NOM-0033"
+      ],
+      "language_specific_analogues": [],
+      "priority": "high",
+      "source_applicability": "conditional",
+      "family": "concurrency",
+      "reference_keys": [
+        "python_async"
+      ],
+      "transfer_to_profiles": [
+        "PROFILE-0011",
+        "PROFILE-0012"
+      ],
+      "applicability_note": "Requires confirmation that this feature or behavior is in the agreed upstream replacement contract."
+    },
+    {
+      "id": "PY-13",
+      "heading": "Threads, processes and synchronization",
+      "atomic_proposal": "For concurrency-dependent behavior, verify ordering guarantees, shared state, race freedom, process isolation and relevant interpreter-build assumptions.",
+      "applicability_scope": "python_to_rust_port",
+      "disposition": "unrepresented_as_atomic_rule",
+      "existing_support_ids": [
+        "NOM-0033",
+        "NOM-0034"
+      ],
+      "language_specific_analogues": [],
+      "priority": "high",
+      "source_applicability": "conditional",
+      "family": "concurrency",
+      "reference_keys": [
+        "python_threading",
+        "python_free_threading"
+      ],
+      "transfer_to_profiles": [
+        "PROFILE-0011",
+        "PROFILE-0012"
+      ],
+      "applicability_note": "Requires confirmation that this feature or behavior is in the agreed upstream replacement contract."
+    },
+    {
+      "id": "PY-14",
+      "heading": "Python API and extension compatibility",
+      "atomic_proposal": "Where Python callers or compiled extensions must continue to work, exercise the public binding/extension interface with an independent consumer.",
+      "applicability_scope": "python_to_rust_port",
+      "disposition": "partially_covered_by_existing_rules",
+      "existing_support_ids": [
+        "NOM-0054",
+        "NOM-0093"
+      ],
+      "language_specific_analogues": [],
+      "priority": "high",
+      "source_applicability": "conditional",
+      "family": "interop",
+      "reference_keys": [
+        "python_c_api"
+      ],
+      "transfer_to_profiles": [
+        "PROFILE-0011",
+        "PROFILE-0012"
+      ],
+      "applicability_note": "Requires confirmation that this feature or behavior is in the agreed upstream replacement contract."
+    },
+    {
+      "id": "PY-15",
+      "heading": "Serialization compatibility beyond round-trip preservation",
+      "atomic_proposal": "Where a Python-produced interchange format is consumed externally, compare field types, ordering when contractual, null/missing distinctions and canonical bytes if required.",
+      "applicability_scope": "python_to_rust_port",
+      "disposition": "partially_covered_by_existing_rules",
+      "existing_support_ids": [
+        "NOM-0053",
+        "NOM-0054"
+      ],
+      "language_specific_analogues": [],
+      "priority": "high",
+      "source_applicability": "conditional",
+      "family": "data",
+      "reference_keys": [
+        "python_data_model"
+      ],
+      "transfer_to_profiles": [
+        "PROFILE-0011",
+        "PROFILE-0012"
+      ],
+      "applicability_note": "Requires confirmation that this feature or behavior is in the agreed upstream replacement contract."
+    },
+    {
+      "id": "PY-16",
+      "heading": "Filesystem, environment and subprocess boundaries",
+      "atomic_proposal": "When upstream behavior invokes subprocesses or interacts with OS paths and environment, verify argument parsing, standard streams, exit codes, paths and permissions.",
+      "applicability_scope": "python_to_rust_port",
+      "disposition": "partially_covered_by_existing_rules",
+      "existing_support_ids": [
+        "NOM-0033",
+        "NOM-0054"
+      ],
+      "language_specific_analogues": [],
+      "priority": "high",
+      "source_applicability": "conditional",
+      "family": "os",
+      "reference_keys": [
+        "python_subprocess"
+      ],
+      "transfer_to_profiles": [
+        "PROFILE-0011",
+        "PROFILE-0012"
+      ],
+      "applicability_note": "Requires confirmation that this feature or behavior is in the agreed upstream replacement contract."
+    },
+    {
+      "id": "PY-17",
+      "heading": "Regression corpus for Python edge behavior",
+      "atomic_proposal": "For each relevant Python-specific semantic boundary, maintain representative baseline cases including error paths and counterexamples, tied to source behavior evidence.",
+      "applicability_scope": "python_to_rust_port",
+      "disposition": "partially_covered_by_existing_rules",
+      "existing_support_ids": [
+        "NOM-0029",
+        "NOM-0030",
+        "NOM-0034"
+      ],
+      "language_specific_analogues": [],
+      "priority": "high",
+      "source_applicability": "conditional",
+      "family": "testing",
+      "reference_keys": [
+        "python_data_model"
+      ],
+      "transfer_to_profiles": [
+        "PROFILE-0011",
+        "PROFILE-0012"
+      ],
+      "applicability_note": "Requires confirmation that this feature or behavior is in the agreed upstream replacement contract."
+    },
+    {
+      "id": "PY-18",
+      "heading": "Persisted state and legacy migration compatibility",
+      "atomic_proposal": "Where the replacement reads or upgrades Python-era data/configuration, verify historical input compatibility and migration/recovery outcomes against accepted baselines.",
+      "applicability_scope": "python_to_rust_port",
+      "disposition": "partially_covered_by_existing_rules",
+      "existing_support_ids": [
+        "NOM-0052",
+        "NOM-0053",
+        "NOM-0098"
+      ],
+      "language_specific_analogues": [],
+      "priority": "high",
+      "source_applicability": "conditional",
+      "family": "data",
+      "reference_keys": [
+        "python_data_model"
+      ],
+      "transfer_to_profiles": [
+        "PROFILE-0011",
+        "PROFILE-0012"
+      ],
+      "applicability_note": "Requires confirmation that this feature or behavior is in the agreed upstream replacement contract."
+    }
+  ],
+  "other_profiles": {
+    "strict_port_reuse": [
+      "PROFILE-0001",
+      "PROFILE-0002",
+      "PROFILE-0009",
+      "PROFILE-0010",
+      "PROFILE-0011",
+      "PROFILE-0012"
+    ],
+    "python_specific": [
+      "PROFILE-0011",
+      "PROFILE-0012"
+    ],
+    "cxx_specific_followup": [
+      "PROFILE-0009",
+      "PROFILE-0010"
+    ],
+    "cannot_assume_same_applicability": [
+      "PROFILE-0003",
+      "PROFILE-0004",
+      "PROFILE-0005",
+      "PROFILE-0006",
+      "PROFILE-0007",
+      "PROFILE-0008"
+    ],
+    "rationale": "Re-apply the same method independently; normal Rust projects, Tarium projects and maintained forks have different baseline and scope conditions."
+  }
+}

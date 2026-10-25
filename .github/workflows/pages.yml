@@ -24,6 +24,7 @@ on:
       - "processing/specimens/candidates/**"
       - "processing/situational-ontology/**"
       - "processing/situational-prompts/revisions/**"
+      - "audits/strict-port-coverage-2026-10-25.*"
       - "tools/**"
       - "tests/**"
       - ".github/workflows/pages.yml"
@@ -83,6 +84,8 @@ jobs:
           node tools/validate_profiles.cjs
           node tools/profile_companions.cjs --check
           node --test tests/test_profile_companions.cjs
+          node tools/validate_strict_port_coverage.cjs
+          node --test tests/test_strict_port_coverage.cjs
           node --check tools/profile_ideas.cjs
           node --check tools/validate_profile_ideas.cjs
           node tools/validate_profile_ideas.cjs
