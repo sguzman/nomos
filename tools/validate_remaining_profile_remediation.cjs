@@ -28,7 +28,7 @@ function check(){
  }
  const n={'PROFILE-0005':36,'PROFILE-0006':76,'PROFILE-0007':43,'PROFILE-0008':102};
  for(const [id,count] of Object.entries(n)){
-  const p=read('profiles/'+id+'.json'),change=m.changes[id],isTarium=['PROFILE-0005','PROFILE-0006'].includes(id);
+  const p=read('profiles/history/2026-10-25-rule-first/'+id+'.json'),change=m.changes[id],isTarium=['PROFILE-0005','PROFILE-0006'].includes(id);
   if(!change||change.after!==count||p.selected_rule_ids.length!==count||
      new Set(p.selected_rule_ids).size!==count||p.status!=='draft'||p.review.selection_confirmed||
      p.review.finalization_confirmed||change.added.some(x=>!p.selected_rule_ids.includes(x)))throw Error('Draft selected rule drift '+id);
