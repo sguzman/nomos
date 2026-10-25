@@ -38,6 +38,7 @@ function check(root=ROOT){
     p.version!==aEntry.new_version||p.selected_rule_ids.length!==aEntry.new_rules||
     JSON.stringify(p.selected_rule_ids)!==JSON.stringify(expected)||p.status!=='draft'||
     p.review.selection_confirmed||p.review.finalization_confirmed||
+    (selected.has('NOM-0012')&&selected.has('NOM-0013'))||
     p.selected_rule_ids.some(r=>!links.has(r))||
     [...prior].some(r=>!selected.has(r)))throw Error('Unreviewed revision or mutated baseline '+id);
   matrix[id]={};const metric={id,previous_rules:prior.size,rules:selected.size};

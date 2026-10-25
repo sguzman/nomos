@@ -34,8 +34,8 @@ test('authorized C-to-Rust profiles are independently editable drafts with priva
     for(const id of ['NOM-0111','NOM-0112','NOM-0113','NOM-0001','NOM-0003','NOM-0004','NOM-0050','NOM-0051']) assert.ok(profile.selected_rule_ids.includes(id),id);
     assert.throws(()=>profiles.selectForUse(profile,published,{userSelected:true}),/finalized/);
   }
-  assert.equal(lite.selected_rule_ids.length,65);
-  assert.equal(full.selected_rule_ids.length,126);
+  assert.equal(lite.selected_rule_ids.length,64);
+  assert.equal(full.selected_rule_ids.length,125);
   assert.ok(lite.selected_rule_ids.every(id=>full.selected_rule_ids.includes(id)));
   for(const id of ['NOM-0010','NOM-0068','NOM-0069','NOM-0070','NOM-0071','NOM-0072']) assert.ok(full.selected_rule_ids.includes(id),id);
 });
@@ -116,7 +116,7 @@ test('schema status and confirmation constraints agree with runtime rules',()=>{
 test('six explicitly authorized provisional drafts preserve unconfirmed selections',()=>{
   const paths=Array.from({length:6},(_,i)=>path.resolve(__dirname,'../profiles/PROFILE-'+String(i+3).padStart(4,'0')+'.json'));
   const drafts=paths.map(p=>JSON.parse(fs.readFileSync(p,'utf8')));
-  const expected=[46,107,36,76,45,104];
+  const expected=[45,106,36,76,44,103];
   assert.deepEqual(drafts.map(p=>p.selected_rule_ids.length),expected);
   for(const p of drafts){
     assert.equal(p.status,'draft');

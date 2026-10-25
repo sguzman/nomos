@@ -13,7 +13,6 @@
   "interpretation": "Every catalog situation and intent is considered in the live exhaustive reverse-coverage matrix. A semantic match is descriptive, not a reason to add an unrelated normative rule. Unlinked conversation workflow concepts remain in the ontology but outside rule-derived companions.",
   "added_existing_rule_rationales": {
     "NOM-0008": "Rust implementation preference applies when the preset directs application code in Rust.",
-    "NOM-0013": "Cargo edition selection is a Rust-specific build decision; this norm applies only if a package edition is being selected.",
     "NOM-0135": "Actionable owner handoffs help complete complex porting work without vague dependency loops.",
     "NOM-0136": "Usable README documentation improves discoverability for distributed port projects.",
     "NOM-0137": "Full port profiles use verified previous/current/delta progress reporting for longer migration work."
@@ -26,10 +25,9 @@
       "prior_version": "1.1.0",
       "new_version": "1.2.0",
       "old_rules": 61,
-      "new_rules": 65,
+      "new_rules": 64,
       "added_existing_rules": [
         "NOM-0008",
-        "NOM-0013",
         "NOM-0135",
         "NOM-0136"
       ],
@@ -44,10 +42,9 @@
       "prior_version": "1.1.0",
       "new_version": "1.2.0",
       "old_rules": 121,
-      "new_rules": 126,
+      "new_rules": 125,
       "added_existing_rules": [
         "NOM-0008",
-        "NOM-0013",
         "NOM-0135",
         "NOM-0136",
         "NOM-0137"
@@ -63,10 +60,8 @@
       "prior_version": "0.2.0",
       "new_version": "0.3.0",
       "old_rules": 45,
-      "new_rules": 46,
-      "added_existing_rules": [
-        "NOM-0013"
-      ],
+      "new_rules": 45,
+      "added_existing_rules": [],
       "new_derived_situations": 25,
       "new_derived_intents": 33,
       "new_selection_confirmed": false
@@ -78,10 +73,8 @@
       "prior_version": "0.2.0",
       "new_version": "0.3.0",
       "old_rules": 106,
-      "new_rules": 107,
-      "added_existing_rules": [
-        "NOM-0013"
-      ],
+      "new_rules": 106,
+      "added_existing_rules": [],
       "new_derived_situations": 39,
       "new_derived_intents": 55,
       "new_selection_confirmed": false
@@ -119,10 +112,9 @@
       "prior_version": "0.2.0",
       "new_version": "0.3.0",
       "old_rules": 43,
-      "new_rules": 45,
+      "new_rules": 44,
       "added_existing_rules": [
-        "NOM-0008",
-        "NOM-0013"
+        "NOM-0008"
       ],
       "new_derived_situations": 21,
       "new_derived_intents": 30,
@@ -135,10 +127,9 @@
       "prior_version": "0.2.0",
       "new_version": "0.3.0",
       "old_rules": 102,
-      "new_rules": 104,
+      "new_rules": 103,
       "added_existing_rules": [
-        "NOM-0008",
-        "NOM-0013"
+        "NOM-0008"
       ],
       "new_derived_situations": 35,
       "new_derived_intents": 49,
@@ -151,10 +142,9 @@
       "prior_version": "0.2.0",
       "new_version": "0.3.0",
       "old_rules": 58,
-      "new_rules": 62,
+      "new_rules": 61,
       "added_existing_rules": [
         "NOM-0008",
-        "NOM-0013",
         "NOM-0135",
         "NOM-0136"
       ],
@@ -169,10 +159,9 @@
       "prior_version": "0.2.0",
       "new_version": "0.3.0",
       "old_rules": 122,
-      "new_rules": 127,
+      "new_rules": 126,
       "added_existing_rules": [
         "NOM-0008",
-        "NOM-0013",
         "NOM-0135",
         "NOM-0136",
         "NOM-0137"
@@ -188,10 +177,9 @@
       "prior_version": "0.2.0",
       "new_version": "0.3.0",
       "old_rules": 56,
-      "new_rules": 60,
+      "new_rules": 59,
       "added_existing_rules": [
         "NOM-0008",
-        "NOM-0013",
         "NOM-0135",
         "NOM-0136"
       ],
@@ -206,10 +194,9 @@
       "prior_version": "0.2.0",
       "new_version": "0.3.0",
       "old_rules": 128,
-      "new_rules": 133,
+      "new_rules": 132,
       "added_existing_rules": [
         "NOM-0008",
-        "NOM-0013",
         "NOM-0135",
         "NOM-0136",
         "NOM-0137"
@@ -249,5 +236,14 @@
     "The reverse matrix distinguishes source-linked selection from available but unselected concepts; it does not make those unselected concepts applicable to every project.",
     "Actual project needs may justify later changes through separate authorized review.",
     "The two previously confirmed C source profiles retain their approved historical snapshots; newly edited memberships are unconfirmed drafts."
-  ]
+  ],
+  "rejected_competing_rule": {
+    "id": "NOM-0013",
+    "reason": "It fixes edition 2024 and competes with existing NOM-0012, which requires newest stable edition supported by toolchain and compatibility. Every applicable revised Rust project already selects NOM-0012; do not select both.",
+    "disposition": "not_selected",
+    "evidence": [
+      "NOM-0012",
+      "NOM-0013"
+    ]
+  }
 }

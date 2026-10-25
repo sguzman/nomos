@@ -9,7 +9,7 @@
     "version": "0.3.0",
     "status": "draft",
     "selection_confirmed": false,
-    "source_git_blob_sha": "dd3e1ade968f6d40613a23a37526c8e06cb7d124"
+    "source_git_blob_sha": "5accfbee8d27a18297ff51f8c78a08d15f30105f"
   },
   "source_rule_ids": [
     "NOM-0001",
@@ -17,7 +17,6 @@
     "NOM-0004",
     "NOM-0008",
     "NOM-0012",
-    "NOM-0013",
     "NOM-0014",
     "NOM-0015",
     "NOM-0016",
@@ -212,10 +211,6 @@
       "via_rules": [
         {
           "id": "NOM-0012",
-          "basis": "interpretive_objective_not_new_normative_rule"
-        },
-        {
-          "id": "NOM-0013",
           "basis": "interpretive_objective_not_new_normative_rule"
         },
         {
