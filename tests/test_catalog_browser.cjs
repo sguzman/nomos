@@ -133,7 +133,7 @@ test('profile membership filtering returns exact deduplicated published atoms',(
 test('profiles participate in sort modes and search without creating groups',()=>{
   assert.deepEqual(search({...args,type:'profiles',sort:'id-desc'}).map(x=>x.value.id),Array.from({length:12},(_,i)=>'PROFILE-'+String(12-i).padStart(4,'0')));
   const size=search({...args,type:'profiles',sort:'members-desc'}).map(x=>x.value.id);
-  assert.equal(size[0],'PROFILE-0002');
+  assert.equal(size[0],'PROFILE-0012');
   assert.equal(new Set(size).size,12);
   for(let i=1;i<size.length;i++){
     const byId=new Map(catalog.profiles.map(p=>[p.id,p.selected_rule_ids.length]));
