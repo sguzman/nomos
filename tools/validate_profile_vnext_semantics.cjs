@@ -17,7 +17,7 @@ function check(root=ROOT){
  const inverse={},matrix={};
  for(const [kind,all] of Object.entries({situations:seq('SITU',97),intents:seq('INTENT',139)})){
   inverse[kind]=new Map(all.map(x=>[x,[]]));
-  for(const link of links.values())for(const cid of link[kind]){
+  for(const link of links.values())for(const cid of link[kind==='situations'?'situation_ids':'intent_ids']){
    if(!inverse[kind].has(cid))throw Error('Invalid catalog concept '+cid);
    inverse[kind].get(cid).push(link.rule_id);
   }
@@ -46,7 +46,7 @@ function check(root=ROOT){
     companion=get('profiles/companions/'+kind+'/'+(kind==='situations'?'SITUATION':'INTENT')+'-'+id+'.json',root),
     map=new Map(companion.members.map(x=>[x.id,x])),
     selectedConcepts=new Set();
-   for(const rid of selected)for(const cid of links.get(rid)[kind])selectedConcepts.add(cid);
+   for(const rid of selected)for(const cid of links.get(rid)[kind==='situations'?'situation_ids':'intent_ids'])selectedConcepts.add(cid);
    if(companion.source_rule_ids.join()!==p.selected_rule_ids.join()||
       companion.source_profile.source_git_blob_sha!==sha(fs.readFileSync(path.join(root,'profiles',id+'.json'),'utf8'))||
       companion.source_profile.version!==p.version||
