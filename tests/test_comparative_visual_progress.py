@@ -54,8 +54,14 @@ class ComparativeVisualProgressTests(unittest.TestCase):
         for rid in ("NOM-0066","NOM-0067","NOM-0068","NOM-0069","NOM-0070","NOM-0071","NOM-0072"):
             self.assertEqual(load(f"rules/{rid}.json")["status"],"published")
         for path in (ROOT/"profiles").glob("PROFILE-*.json"):
-            self.assertNotIn("NOM-0137",load(path.relative_to(ROOT)).get("selected_rule_ids",[]),
-                             path.name)
+            profile=load(path.relative_to(ROOT))
+            if path.name=="PROFILE-0004.json":
+                self.assertIn("NOM-0137",profile["selected_rule_ids"])
+                self.assertEqual(profile["status"],"draft")
+                self.assertFalse(profile["review"]["selection_confirmed"])
+                self.assertFalse(profile["review"]["finalization_confirmed"])
+            else:
+                self.assertNotIn("NOM-0137",profile.get("selected_rule_ids",[]),path.name)
 
 if __name__=="__main__":
     unittest.main()
