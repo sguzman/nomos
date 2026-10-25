@@ -36,6 +36,16 @@ function check(rootDir=root){
  for(const x of a.existing_rule_review){
   if(!allIds.has(x.id)||selected.has(x.id)||!x.reason)fail('bad proposed selection '+x.id);
  }
+  if(!a.atomicity_review||a.atomicity_review.status!=='analytical_disposition_only'||a.atomicity_review.entries.length!==25)fail('missing atomicity review');
+  const reviewIds=new Set(),reviewDispositions=new Set(['single_candidate','decompose','reuse_existing']);
+  for(const x of a.atomicity_review.entries){
+    if(reviewIds.has(x.id)||!keys.has(x.id)||!reviewDispositions.has(x.disposition))fail('invalid atomicity disposition '+x.id);
+    reviewIds.add(x.id);
+    if(!x.rationale||x.status!=='proposed_not_authorized_to_publish'||!Array.isArray(x.normalized_parts)||!Array.isArray(x.comparison_rules))fail('incomplete review '+x.id);
+    if(x.disposition==='reuse_existing'&&x.normalized_parts.length!==0)fail('duplicate-rule recommendation '+x.id);
+    if(x.disposition!=='reuse_existing'&&x.normalized_parts.length===0)fail('missing proposed normalization '+x.id);
+    if(x.comparison_rules.some(id=>!allIds.has(id)))fail('unknown comparison rule '+x.id);
+  }
  for(const x of a.shared_analogues){
   const rule=read('rules/'+x.id+'.json');
   if(rule.status!=='published'||rule.scope.project_types.length!==1||

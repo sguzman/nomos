@@ -739,5 +739,355 @@
       "PROFILE-0008"
     ],
     "rationale": "Re-apply the same method independently; normal Rust projects, Tarium projects and maintained forks have different baseline and scope conditions."
+  },
+  "atomicity_review": {
+    "reviewed_on": "2026-10-25",
+    "status": "analytical_disposition_only",
+    "criteria": "A proposed normative atom expresses one independently actionable, evidence-checkable contract with an explicit context. Examples within one contract do not automatically make it composite; distinct triggers, consumers and approvals normally do.",
+    "dispositions": {
+      "single_candidate": "Focused enough for a later rule specimen review; not a published or approved rule.",
+      "decompose": "Original item spans separable contracts or overlaps another candidate; suggested parts require later semantic normalization and duplicate review.",
+      "reuse_existing": "No distinct new atom established by this audit; rely on existing published obligations under their conditions."
+    },
+    "entries": [
+      {
+        "id": "PORT-01",
+        "disposition": "decompose",
+        "rationale": "NOM-0074 assumes a defined baseline but does not prescribe an auditable baseline record. Python interpreter specificity is misplaced in a language-neutral proposal.",
+        "normalized_parts": [
+          "Record the authoritative upstream revision and supported comparison environment for a strict port.",
+          "For Python source ports, identify interpreter version/build and relevant implementation features in the accepted source baseline."
+        ],
+        "comparison_rules": [
+          "NOM-0074",
+          "NOM-0098"
+        ],
+        "status": "proposed_not_authorized_to_publish"
+      },
+      {
+        "id": "PORT-02",
+        "disposition": "single_candidate",
+        "rationale": "NOM-0075 is an acceptance goal, not per-feature coverage accounting. NOM-0113 is a direct C-only analogue; avoid publishing a duplicate scoped C rule.",
+        "normalized_parts": [
+          "For each in-scope upstream capability, maintain its Rust replacement mapping and independently verified status, explicitly accounting for gaps."
+        ],
+        "comparison_rules": [
+          "NOM-0075",
+          "NOM-0113"
+        ],
+        "status": "proposed_not_authorized_to_publish"
+      },
+      {
+        "id": "PORT-03",
+        "disposition": "single_candidate",
+        "rationale": "NOM-0029 covers bug regression, not running an upstream oracle; NOM-0111 supplies the C-only precedent.",
+        "normalized_parts": [
+          "Compare equivalent upstream and Rust observations for each reproducible in-scope behavior and record unresolved or unavailable comparisons."
+        ],
+        "comparison_rules": [
+          "NOM-0074",
+          "NOM-0111"
+        ],
+        "status": "proposed_not_authorized_to_publish"
+      },
+      {
+        "id": "PORT-04",
+        "disposition": "decompose",
+        "rationale": "NOM-0064 already requires deviations to be recorded, but an agreed deviation decision and its effect on parity claims are different checks.",
+        "normalized_parts": [
+          "Link each intentional divergence to an explicit approval and affected consumer contract.",
+          "Classify unresolved divergences as unverified or incompatible rather than verified parity."
+        ],
+        "comparison_rules": [
+          "NOM-0064",
+          "NOM-0074",
+          "NOM-0098"
+        ],
+        "status": "proposed_not_authorized_to_publish"
+      },
+      {
+        "id": "PORT-05",
+        "disposition": "reuse_existing",
+        "rationale": "The proposed readiness test combines NOM-0075 replacement-capability MVP, NOM-0090 validation, NOM-0093 consumer testing where applicable, and NOM-0098 accepted limitations. A new duplicate umbrella gate is not justified by this audit.",
+        "normalized_parts": [],
+        "comparison_rules": [
+          "NOM-0075",
+          "NOM-0090",
+          "NOM-0093",
+          "NOM-0098"
+        ],
+        "status": "proposed_not_authorized_to_publish"
+      },
+      {
+        "id": "PORT-06",
+        "disposition": "single_candidate",
+        "rationale": "Necessary unsafe/FFI boundary assurance is a coherent conditional concern, directly analogous to C-only NOM-0112. Previous citations to NOM-0033 and NOM-0041 are not substantive FFI-safety coverage.",
+        "normalized_parts": [
+          "For each necessary unsafe or FFI boundary, establish and verify its safety, lifetime and ABI contract, isolating the boundary where feasible."
+        ],
+        "comparison_rules": [
+          "NOM-0112"
+        ],
+        "status": "proposed_not_authorized_to_publish"
+      },
+      {
+        "id": "PORT-07",
+        "disposition": "decompose",
+        "rationale": "Installation/invocation compatibility and recovery after replacement have independent applicability; general CI workflow rules are not evidence of safe cutover.",
+        "normalized_parts": [
+          "Verify supported installation, runtime dependency and launch/invocation behavior when replacing a deployed upstream distribution.",
+          "When deployment replaces existing state, verify authorized upgrade, recovery and rollback procedures against representative state."
+        ],
+        "comparison_rules": [
+          "NOM-0053",
+          "NOM-0054",
+          "NOM-0057",
+          "NOM-0098"
+        ],
+        "status": "proposed_not_authorized_to_publish"
+      },
+      {
+        "id": "PY-01",
+        "disposition": "single_candidate",
+        "rationale": "Python reference identity and alias-visible mutation form one coherent externally observable object-reference contract. Do not require preserving nonobservable internals.",
+        "normalized_parts": [
+          "Verify agreed identity and alias-visible mutation behavior for Python objects crossing supported interfaces."
+        ],
+        "comparison_rules": [
+          "NOM-0074",
+          "NOM-0054"
+        ],
+        "status": "proposed_not_authorized_to_publish"
+      },
+      {
+        "id": "PY-02",
+        "disposition": "decompose",
+        "rationale": "Dynamic attributes/reflection and callable signature/dispatch are separately observable contracts and need not both occur in a source project.",
+        "normalized_parts": [
+          "Verify externally consumed Python attribute, reflection and dynamic type behavior.",
+          "Verify callable signature and invocation/dispatch compatibility at supported Python-facing boundaries."
+        ],
+        "comparison_rules": [
+          "NOM-0054"
+        ],
+        "status": "proposed_not_authorized_to_publish"
+      },
+      {
+        "id": "PY-03",
+        "disposition": "decompose",
+        "rationale": "Truth-testing and implicit conversion are independent Python protocols with different trigger conditions and test cases.",
+        "normalized_parts": [
+          "Verify Python truth-testing outcomes at in-scope decision boundaries.",
+          "Verify Python implicit and explicit conversion outcomes at in-scope interfaces."
+        ],
+        "comparison_rules": [
+          "NOM-0074"
+        ],
+        "status": "proposed_not_authorized_to_publish"
+      },
+      {
+        "id": "PY-04",
+        "disposition": "decompose",
+        "rationale": "Arbitrary-precision integer, binary floating-point and decimal-context semantics can fail independently; one blanket numeric rule obscures target contracts.",
+        "normalized_parts": [
+          "Verify integer range, division and overflow-equivalent behavior where source integer semantics are exposed.",
+          "Verify floating-point special values, comparison and rounding where externally consequential.",
+          "Verify Decimal precision, context and rounding where the upstream uses decimal arithmetic."
+        ],
+        "comparison_rules": [
+          "NOM-0028",
+          "NOM-0074"
+        ],
+        "status": "proposed_not_authorized_to_publish"
+      },
+      {
+        "id": "PY-05",
+        "disposition": "decompose",
+        "rationale": "Unicode/text operations and encoding/decoding of byte streams have different observables. Normalization is conditional; Python does not universally normalize strings.",
+        "normalized_parts": [
+          "Verify in-scope Unicode string operations and code-point semantics.",
+          "Verify byte/text encoding, decoding and error-policy behavior at exposed interfaces."
+        ],
+        "comparison_rules": [
+          "NOM-0053",
+          "NOM-0054"
+        ],
+        "status": "proposed_not_authorized_to_publish"
+      },
+      {
+        "id": "PY-06",
+        "disposition": "decompose",
+        "rationale": "Equality/hash compatibility and collection order/iteration guarantees are distinguishable contracts. Do not imply all sets or mappings have the same ordering guarantees.",
+        "normalized_parts": [
+          "Verify in-scope equality, hashing and lookup-key behavior.",
+          "Verify exposed collection iteration and ordering guarantees supported by the agreed upstream baseline."
+        ],
+        "comparison_rules": [
+          "NOM-0054"
+        ],
+        "status": "proposed_not_authorized_to_publish"
+      },
+      {
+        "id": "PY-07",
+        "disposition": "decompose",
+        "rationale": "Error categories/propagation and resource cleanup are separate. Cleanup belongs to context/resource behavior under PY-09, avoiding duplicate obligations.",
+        "normalized_parts": [
+          "Verify externally observable exception categories, propagation, failure returns and contractually exposed messages.",
+          "Assign cleanup-on-failure verification to PY-09 rather than duplicating a second independent cleanup rule here."
+        ],
+        "comparison_rules": [
+          "NOM-0054"
+        ],
+        "status": "proposed_not_authorized_to_publish"
+      },
+      {
+        "id": "PY-08",
+        "disposition": "single_candidate",
+        "rationale": "Generator and iterator protocol fidelity can be expressed as one focused conditional protocol check. Resource cleanup is covered by PY-09.",
+        "normalized_parts": [
+          "Verify in-scope iterator/generator lazy yield, termination and exception propagation behavior."
+        ],
+        "comparison_rules": [
+          "NOM-0028",
+          "NOM-0074"
+        ],
+        "status": "proposed_not_authorized_to_publish"
+      },
+      {
+        "id": "PY-09",
+        "disposition": "single_candidate",
+        "rationale": "Resource acquisition/release and exceptional exit form one context-manager lifecycle contract, including exception-suppression behavior when externally observable.",
+        "normalized_parts": [
+          "Verify in-scope Python context-management resource lifecycle and exceptional-exit behavior."
+        ],
+        "comparison_rules": [
+          "NOM-0028"
+        ],
+        "status": "proposed_not_authorized_to_publish"
+      },
+      {
+        "id": "PY-10",
+        "disposition": "decompose",
+        "rationale": "Python module import resolution and independently discovered plugins are distinct. Consolidate plugin discovery with PY-11 rather than generating two similar rules.",
+        "normalized_parts": [
+          "Verify import/module name resolution and failure behavior where consumers rely on Python imports.",
+          "Move plugin discovery compatibility into PY-11 for de-duplication."
+        ],
+        "comparison_rules": [
+          "NOM-0054"
+        ],
+        "status": "proposed_not_authorized_to_publish"
+      },
+      {
+        "id": "PY-11",
+        "disposition": "decompose",
+        "rationale": "Installed console/script entry points and third-party plugin discovery are separately consumed contracts. The plugin concern is shared with PY-10 and should be represented once.",
+        "normalized_parts": [
+          "Verify distribution entry points, script commands and invocation contracts.",
+          "Verify declared plugin registration, discovery and loading contracts where supported."
+        ],
+        "comparison_rules": [
+          "NOM-0054",
+          "NOM-0093"
+        ],
+        "status": "proposed_not_authorized_to_publish"
+      },
+      {
+        "id": "PY-12",
+        "disposition": "decompose",
+        "rationale": "Cancellation/timeouts and observable task ordering/backpressure are independently testable async contracts; implementation scheduler identity need not match.",
+        "normalized_parts": [
+          "Verify in-scope asynchronous cancellation, timeout and failure-cleanup behavior.",
+          "Verify promised task ordering, concurrency-limit and backpressure outcomes under representative load."
+        ],
+        "comparison_rules": [
+          "NOM-0028",
+          "NOM-0032"
+        ],
+        "status": "proposed_not_authorized_to_publish"
+      },
+      {
+        "id": "PY-13",
+        "disposition": "decompose",
+        "rationale": "Shared-memory concurrency and cross-process coordination have different contracts. GIL behavior must be tied to a documented interpreter build, not assumed globally.",
+        "normalized_parts": [
+          "Verify in-scope shared-state synchronization, visibility and race-sensitive behavior.",
+          "Verify interprocess communication, isolation and process lifecycle where the Python baseline uses processes."
+        ],
+        "comparison_rules": [
+          "NOM-0028",
+          "NOM-0032"
+        ],
+        "status": "proposed_not_authorized_to_publish"
+      },
+      {
+        "id": "PY-14",
+        "disposition": "decompose",
+        "rationale": "Python-level calling contract and compiled extension/ABI compatibility have separate consumers. Neither is required if no Python-facing API is promised.",
+        "normalized_parts": [
+          "Verify supported Python-callable interface behavior using an independent consumer.",
+          "Verify binary extension/embedding ABI and lifetime invariants only where compiled interoperation is part of the accepted baseline."
+        ],
+        "comparison_rules": [
+          "NOM-0054",
+          "NOM-0093"
+        ],
+        "status": "proposed_not_authorized_to_publish"
+      },
+      {
+        "id": "PY-15",
+        "disposition": "single_candidate",
+        "rationale": "NOM-0053 tests data round trips but not external wire-format agreement. One serialized interchange contract can cover documented bytes/types/field shapes conditional on downstream consumers.",
+        "normalized_parts": [
+          "Verify externally consumed serialized representations against the source contract, including exact bytes only when those bytes are contractual."
+        ],
+        "comparison_rules": [
+          "NOM-0053",
+          "NOM-0054"
+        ],
+        "status": "proposed_not_authorized_to_publish"
+      },
+      {
+        "id": "PY-16",
+        "disposition": "decompose",
+        "rationale": "Filesystem/environment conventions and child-process interaction are independently observable. The general feature-target rule NOM-0033 is not a replacement for OS parity.",
+        "normalized_parts": [
+          "Verify in-scope filesystem, path, permission and environment-variable contracts.",
+          "Verify subprocess arguments, streams, status codes and lifecycle contracts where invoked."
+        ],
+        "comparison_rules": [
+          "NOM-0054"
+        ],
+        "status": "proposed_not_authorized_to_publish"
+      },
+      {
+        "id": "PY-17",
+        "disposition": "reuse_existing",
+        "rationale": "NOM-0027/0029/0030/0032 already cover unit, regression, edge-case and deterministic tests. Source-oracle comparison is PORT-03; a duplicate Python regression-corpus rule would not add an independent norm.",
+        "normalized_parts": [],
+        "comparison_rules": [
+          "NOM-0027",
+          "NOM-0029",
+          "NOM-0030",
+          "NOM-0032"
+        ],
+        "status": "proposed_not_authorized_to_publish"
+      },
+      {
+        "id": "PY-18",
+        "disposition": "decompose",
+        "rationale": "Legacy data-read compatibility and upgrading persisted state are separate. General non-destructive and round-trip rules support them but do not establish a Python-era migration contract.",
+        "normalized_parts": [
+          "Verify accepted historical Python-era persisted files/configurations are read compatibly.",
+          "Where migration occurs, verify transformation and available recovery/rollback against representative retained state."
+        ],
+        "comparison_rules": [
+          "NOM-0052",
+          "NOM-0053",
+          "NOM-0054"
+        ],
+        "status": "proposed_not_authorized_to_publish"
+      }
+    ]
   }
 }

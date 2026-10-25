@@ -28,3 +28,15 @@ test('review artifacts do not change or finalize unconfirmed profile or ontology
  assert.equal(a.boundaries.no_new_formal_situations_or_intents,true);
  assert.equal(a.boundaries.no_profile_membership_changes,true);
 });
+
+test('atomicity review covers every original candidate without publishing duplicate rules',()=>{
+ const items=a.atomicity_review.entries;
+ assert.equal(items.length,25);
+ assert.equal(new Set(items.map(x=>x.id)).size,25);
+ const counts={single_candidate:7,decompose:16,reuse_existing:2};
+ for(const [kind,n] of Object.entries(counts))assert.equal(items.filter(x=>x.disposition===kind).length,n);
+ assert.equal(items.find(x=>x.id==='PORT-05').disposition,'reuse_existing');
+ assert.equal(items.find(x=>x.id==='PY-17').disposition,'reuse_existing');
+ assert.ok(items.find(x=>x.id==='PORT-01').normalized_parts.some(p=>p.includes('Python')));
+ assert.ok(items.every(x=>x.status==='proposed_not_authorized_to_publish'));
+});
