@@ -17,11 +17,11 @@ A draft profile is reviewable, not selectable for bulk activation. Finalization,
 
 ## Current ontology and catalog
 
-The independently authored catalog contains **136 rules**, including historical draft examples. Its **14 virtual groups** remain optional. The **12 profile records** comprise existing C-to-Rust drafts plus Lite/Full proposals for new Rust projects, independent Tarium projects, Rust fork maintenance, C++-to-Rust ports and Python-to-Rust ports. No profile is automatically activated.
+The independently authored catalog contains **243 rule records**, including one draft. Its **14 virtual groups** remain optional. The **12 profile records** comprise existing C-to-Rust drafts plus Lite/Full proposals for new Rust projects, independent Tarium projects, Rust fork maintenance, C++-to-Rust ports and Python-to-Rust ports. No profile is automatically activated.
 
 Project applicability is a controlled, overlapping hierarchy. Rust forks, C/C++/Python ports and Tarium projects can share more general project rules without making source-language-specific requirements interchangeable. A relationship suggestion is not proof of conflict, an override or authorization to act.
 
-Six newly published fork-maintenance rules (`NOM-0129`–`NOM-0134`) are available separately from existing fork-profile selections. Two additional rules address required-user-action reporting and README organization. All eight preserve independent intake and processing history.
+The [twelve situation-first and intent-first profile revisions](../profiles/README.md) are provisional selections with independently preserved historical baselines. No rule selection or concept link activates, applies or exports instructions automatically.
 
 ## Local preview and verification
 
@@ -33,6 +33,7 @@ python3 tools/validate.py
 python3 -m unittest discover -s tests -v
 node tools/validate_profiles.cjs
 node tools/validate_profile_ideas.cjs
+node tools/validate_profile_vnext_semantics.cjs
 python3 -m http.server 8000 -d docs
 ```
 
@@ -44,11 +45,11 @@ Open `http://localhost:8000/`. Direct `file://` navigation may block catalog loa
 
 The metadata-based analyzer surfaces conservative relation candidates; it does not adjudicate the full meaning of natural-language obligations. Keep source privacy and applicability restrictions intact, and do not treat opt-in catalog rules as automatic instructions.
 
-For detailed governance and lifecycle information, consult [ONTOLOGY.md](../ONTOLOGY.md), [WORKFLOW.md](../WORKFLOW.md) and the [profile review guide](../profiles/REVIEW-2026-10-23.md).
+For detailed governance and lifecycle information, consult [ONTOLOGY.md](../ONTOLOGY.md), [WORKFLOW.md](../WORKFLOW.md) and the [current profile inventory](../profiles/README.md).
 
 ## Formal situational ontology
 
-The [ontology explorer](situational-ontology.html) displays 142 independently published concepts: forty-eight situations, seventy-two role-classified intents, eight reusable compositions, seven execution conditions, and seven evaluation dimensions. The [prompt version browser](situational-prompts.html) keeps eight compact family cards, allowing explicit v1/v2/v3 selection and copying for each family. Published family mappings describe *intended behavior*, not observed effectiveness; the evaluation registry remains empty until evidence is supplied.
+The [ontology explorer](situational-ontology.html) displays 258 formal records: 97 situations, 139 role-classified intents, eight reusable compositions, seven execution conditions, and seven evaluation dimensions. The [prompt version browser](situational-prompts.html) keeps eight compact family cards, allowing explicit v1/v2/v3 selection and copying for each family. Published family mappings describe *intended behavior*, not observed effectiveness; the evaluation registry remains empty until evidence is supplied.
 
 ## Comparative progress reporting
 
@@ -56,4 +57,4 @@ The [ontology explorer](situational-ontology.html) displays 142 independently pu
 
 ## Rule situations and intentions (2026-10-24)
 
-The [rule semantics browser](rule-concepts.html) connects 137 source rules to independently reusable situations and intended outcomes. All links cite the original source rule text and preserve the original source identity and status; the unapproved rule `NOM-0002` stays draft. Search, filter by situation and intent, and open original rule and condition evidence. The new relationships do not narrow applicability, add normative authority, select any rule or profile, or represent empirical success.
+The [rule semantics browser](rule-concepts.html) connects 243 catalog rule records to independently reusable situations and intended outcomes. All links cite the original source rule text and preserve the original source identity and status; the unapproved rule `NOM-0002` stays draft. Search, filter by situation and intent, and open original rule and condition evidence. The new relationships do not narrow applicability, add normative authority, select any rule or profile, or represent empirical success.
