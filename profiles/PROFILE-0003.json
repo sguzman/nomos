@@ -1,7 +1,7 @@
 {
   "id": "PROFILE-0003",
   "kind": "rule_profile",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "title": "New Rust Project from Scratch - Lite",
   "status": "draft",
   "selected_rule_ids": [
@@ -10,6 +10,7 @@
     "NOM-0004",
     "NOM-0008",
     "NOM-0012",
+    "NOM-0013",
     "NOM-0014",
     "NOM-0015",
     "NOM-0016",

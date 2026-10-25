@@ -6,10 +6,10 @@
   "title": "New Rust Project from Scratch - Full - situation companion",
   "source_profile": {
     "id": "PROFILE-0004",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "status": "draft",
     "selection_confirmed": false,
-    "source_git_blob_sha": "24861a93e7d3f35331c098e3aec3dcd9804bf59e"
+    "source_git_blob_sha": "44b641b940f18cac48f099e77906ced2bd075d10"
   },
   "source_rule_ids": [
     "NOM-0001",
@@ -19,6 +19,7 @@
     "NOM-0009",
     "NOM-0010",
     "NOM-0012",
+    "NOM-0013",
     "NOM-0014",
     "NOM-0015",
     "NOM-0016",
@@ -706,6 +707,10 @@
       "via_rules": [
         {
           "id": "NOM-0012",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0013",
           "basis": "explicit_context_with_interpretation"
         }
       ]

@@ -6,17 +6,19 @@
   "title": "Python-to-Rust Strict Port - Full - situation companion",
   "source_profile": {
     "id": "PROFILE-0012",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "status": "draft",
     "selection_confirmed": false,
-    "source_git_blob_sha": "f08baa758a2ed0242e38d6dff3eb2ef2e72a5d8d"
+    "source_git_blob_sha": "a061c56e612f158a11b735d0ce9e7437e319c5cb"
   },
   "source_rule_ids": [
     "NOM-0001",
     "NOM-0003",
     "NOM-0004",
+    "NOM-0008",
     "NOM-0010",
     "NOM-0012",
+    "NOM-0013",
     "NOM-0014",
     "NOM-0015",
     "NOM-0016",
@@ -102,6 +104,9 @@
     "NOM-0107",
     "NOM-0108",
     "NOM-0109",
+    "NOM-0135",
+    "NOM-0136",
+    "NOM-0137",
     "NOM-0138",
     "NOM-0139",
     "NOM-0140",
@@ -169,6 +174,15 @@
         },
         {
           "id": "NOM-0004",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0013",
+      "via_rules": [
+        {
+          "id": "NOM-0008",
           "basis": "explicit_context_with_interpretation"
         }
       ]
@@ -346,6 +360,10 @@
         {
           "id": "NOM-0048",
           "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0136",
+          "basis": "explicit_context_with_interpretation"
         }
       ]
     },
@@ -472,6 +490,10 @@
         },
         {
           "id": "NOM-0070",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0137",
           "basis": "explicit_context_with_interpretation"
         }
       ]
@@ -776,6 +798,28 @@
         {
           "id": "NOM-0066",
           "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0135",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0044",
+      "via_rules": [
+        {
+          "id": "NOM-0136",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0045",
+      "via_rules": [
+        {
+          "id": "NOM-0137",
+          "basis": "explicit_context_with_interpretation"
         }
       ]
     },
@@ -793,6 +837,10 @@
       "via_rules": [
         {
           "id": "NOM-0012",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0013",
           "basis": "explicit_context_with_interpretation"
         }
       ]

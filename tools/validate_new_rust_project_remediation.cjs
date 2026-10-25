@@ -43,7 +43,7 @@ function check(root=ROOT){
   for(const iid of iids)if(!fs.existsSync(path.join(root,'ontology/intents',iid+'.json')))throw Error('Missing intent '+iid);
   used.add(id);
  }
- const lite=read('profiles/PROFILE-0003.json',root),full=read('profiles/PROFILE-0004.json',root);
+ const lite=read('profiles/history/2026-10-25-rule-first/PROFILE-0003.json',root),full=read('profiles/history/2026-10-25-rule-first/PROFILE-0004.json',root);
  for(const [p,n,add] of [[lite,45,m.lite_added_rules],[full,106,m.full_added_rules]]){
   if(p.selected_rule_ids.length!==n||new Set(p.selected_rule_ids).size!==n||p.status!=='draft'||
      p.review.selection_confirmed||p.review.finalization_confirmed||

@@ -6,16 +6,18 @@
   "title": "Rust Fork Maintenance - Lite - situation companion",
   "source_profile": {
     "id": "PROFILE-0007",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "status": "draft",
     "selection_confirmed": false,
-    "source_git_blob_sha": "b19d1b908385da3e7064038182e9d76787399440"
+    "source_git_blob_sha": "dd3e1ade968f6d40613a23a37526c8e06cb7d124"
   },
   "source_rule_ids": [
     "NOM-0001",
     "NOM-0003",
     "NOM-0004",
+    "NOM-0008",
     "NOM-0012",
+    "NOM-0013",
     "NOM-0014",
     "NOM-0015",
     "NOM-0016",
@@ -80,6 +82,15 @@
         },
         {
           "id": "NOM-0004",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0013",
+      "via_rules": [
+        {
+          "id": "NOM-0008",
           "basis": "explicit_context_with_interpretation"
         }
       ]
@@ -323,6 +334,10 @@
       "via_rules": [
         {
           "id": "NOM-0012",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0013",
           "basis": "explicit_context_with_interpretation"
         }
       ]

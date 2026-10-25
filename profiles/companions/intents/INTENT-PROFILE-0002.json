@@ -6,17 +6,19 @@
   "title": "C-to-Rust Strict Port - Full - intent companion",
   "source_profile": {
     "id": "PROFILE-0002",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "status": "draft",
-    "selection_confirmed": true,
-    "source_git_blob_sha": "796011b9fee304610159b92464b7dfacd61e0ae5"
+    "selection_confirmed": false,
+    "source_git_blob_sha": "42bb54e593df48d2bacd7120f2b9cdacc474cc81"
   },
   "source_rule_ids": [
     "NOM-0001",
     "NOM-0003",
     "NOM-0004",
+    "NOM-0008",
     "NOM-0010",
     "NOM-0012",
+    "NOM-0013",
     "NOM-0014",
     "NOM-0015",
     "NOM-0016",
@@ -105,6 +107,9 @@
     "NOM-0111",
     "NOM-0112",
     "NOM-0113",
+    "NOM-0135",
+    "NOM-0136",
+    "NOM-0137",
     "NOM-0138",
     "NOM-0142",
     "NOM-0143",
@@ -172,6 +177,10 @@
         {
           "id": "NOM-0070",
           "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0137",
+          "basis": "interpretive_objective_not_new_normative_rule"
         }
       ],
       "semantic_role": "reporting",
@@ -186,6 +195,10 @@
         },
         {
           "id": "NOM-0067",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0135",
           "basis": "interpretive_objective_not_new_normative_rule"
         }
       ],
@@ -213,6 +226,17 @@
         },
         {
           "id": "NOM-0051",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0024",
+      "via_rules": [
+        {
+          "id": "NOM-0008",
           "basis": "interpretive_objective_not_new_normative_rule"
         }
       ],
@@ -319,6 +343,10 @@
       "via_rules": [
         {
           "id": "NOM-0012",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0013",
           "basis": "interpretive_objective_not_new_normative_rule"
         },
         {
@@ -503,6 +531,10 @@
         },
         {
           "id": "NOM-0100",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0136",
           "basis": "interpretive_objective_not_new_normative_rule"
         }
       ],
@@ -993,10 +1025,47 @@
       "atomicity": "single_intent_candidate"
     },
     {
+      "id": "INTENT-0061",
+      "via_rules": [
+        {
+          "id": "NOM-0135",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0062",
+      "via_rules": [
+        {
+          "id": "NOM-0136",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    },
+    {
+      "id": "INTENT-0063",
+      "via_rules": [
+        {
+          "id": "NOM-0137",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        }
+      ],
+      "semantic_role": "goal",
+      "atomicity": "single_intent_candidate"
+    },
+    {
       "id": "INTENT-0064",
       "via_rules": [
         {
           "id": "NOM-0069",
+          "basis": "interpretive_objective_not_new_normative_rule"
+        },
+        {
+          "id": "NOM-0137",
           "basis": "interpretive_objective_not_new_normative_rule"
         }
       ],

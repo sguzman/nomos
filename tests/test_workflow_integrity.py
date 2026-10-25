@@ -80,7 +80,7 @@ class ProcessingTraceTests(unittest.TestCase):
             self.assertEqual(rule["categories"]["topics"],[specimen["scope_hints"]["topic"]])
             self.assertFalse(specimen["source"]["material_retained"])
         self.assertEqual([len(read("profiles/PROFILE-0007.json")["selected_rule_ids"]),
-                          len(read("profiles/PROFILE-0008.json")["selected_rule_ids"])],[43,102])
+                          len(read("profiles/PROFILE-0008.json")["selected_rule_ids"])],[45,104])
 
     def test_group_proposals_have_separate_records(self):
         proposals = sorted((ROOT / "queues/specimens/groups").glob("GROUP-*.json"))

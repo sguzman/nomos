@@ -36,7 +36,7 @@ function check(){
  }
  for(const name of fs.readdirSync(path.join(root,'profiles')).filter(x=>/^PROFILE-\d+\.json$/.test(x)&&!Object.keys(n).some(id=>x===id+'.json')))
   if(read('profiles/'+name).selected_rule_ids.some(id=>recent.has(id)))throw Error('Unrelated profile edited '+name);
- const fullFork=read('profiles/PROFILE-0008.json'),fullTarium=read('profiles/PROFILE-0006.json');
+ const fullFork=read('profiles/history/2026-10-25-rule-first/PROFILE-0008.json'),fullTarium=read('profiles/history/2026-10-25-rule-first/PROFILE-0006.json');
  if(!m.fork_reuse.every(x=>fullFork.selected_rule_ids.includes(x))||
     !Array.from({length:14},(_,i)=>'NOM-'+String(115+i).padStart(4,'0')).every(x=>fullTarium.selected_rule_ids.includes(x)))
   throw Error('Lost preexisting family obligations');

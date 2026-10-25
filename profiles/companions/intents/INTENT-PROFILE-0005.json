@@ -6,10 +6,10 @@
   "title": "Independent Tarium Project - Lite - intent companion",
   "source_profile": {
     "id": "PROFILE-0005",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "status": "draft",
     "selection_confirmed": false,
-    "source_git_blob_sha": "359b946a95bc9eddfabf38c409de2845b95820d0"
+    "source_git_blob_sha": "a7859ce906b435a147c124c966d1463a9b45109b"
   },
   "source_rule_ids": [
     "NOM-0001",

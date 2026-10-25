@@ -1,0 +1,253 @@
+{
+  "kind": "semantic_first_profile_revision",
+  "date": "2026-10-25",
+  "baseline_commit": "8e484945e5d72ad1c0f2ecf0307a48a63b96a158",
+  "status": "provisional_vnext",
+  "global_ontology": {
+    "rules": 243,
+    "situations": 97,
+    "intents": 139,
+    "rule_linked_situations": 90,
+    "rule_linked_intents": 124
+  },
+  "interpretation": "Every catalog situation and intent is considered in the live exhaustive reverse-coverage matrix. A semantic match is descriptive, not a reason to add an unrelated normative rule. Unlinked conversation workflow concepts remain in the ontology but outside rule-derived companions.",
+  "added_existing_rule_rationales": {
+    "NOM-0008": "Rust implementation preference applies when the preset directs application code in Rust.",
+    "NOM-0013": "Cargo edition selection is a Rust-specific build decision; this norm applies only if a package edition is being selected.",
+    "NOM-0135": "Actionable owner handoffs help complete complex porting work without vague dependency loops.",
+    "NOM-0136": "Usable README documentation improves discoverability for distributed port projects.",
+    "NOM-0137": "Full port profiles use verified previous/current/delta progress reporting for longer migration work."
+  },
+  "profiles": [
+    {
+      "id": "PROFILE-0001",
+      "source_blob_sha": "90569f00d04f7db641d6c93a79cfef51b1e5dc64",
+      "archived": "profiles/history/2026-10-25-rule-first/PROFILE-0001.json",
+      "prior_version": "1.1.0",
+      "new_version": "1.2.0",
+      "old_rules": 61,
+      "new_rules": 65,
+      "added_existing_rules": [
+        "NOM-0008",
+        "NOM-0013",
+        "NOM-0135",
+        "NOM-0136"
+      ],
+      "new_derived_situations": 30,
+      "new_derived_intents": 45,
+      "new_selection_confirmed": false
+    },
+    {
+      "id": "PROFILE-0002",
+      "source_blob_sha": "796011b9fee304610159b92464b7dfacd61e0ae5",
+      "archived": "profiles/history/2026-10-25-rule-first/PROFILE-0002.json",
+      "prior_version": "1.1.0",
+      "new_version": "1.2.0",
+      "old_rules": 121,
+      "new_rules": 126,
+      "added_existing_rules": [
+        "NOM-0008",
+        "NOM-0013",
+        "NOM-0135",
+        "NOM-0136",
+        "NOM-0137"
+      ],
+      "new_derived_situations": 43,
+      "new_derived_intents": 58,
+      "new_selection_confirmed": false
+    },
+    {
+      "id": "PROFILE-0003",
+      "source_blob_sha": "bdb2308a987e411732151a697f51bfacec5bc60e",
+      "archived": "profiles/history/2026-10-25-rule-first/PROFILE-0003.json",
+      "prior_version": "0.2.0",
+      "new_version": "0.3.0",
+      "old_rules": 45,
+      "new_rules": 46,
+      "added_existing_rules": [
+        "NOM-0013"
+      ],
+      "new_derived_situations": 25,
+      "new_derived_intents": 33,
+      "new_selection_confirmed": false
+    },
+    {
+      "id": "PROFILE-0004",
+      "source_blob_sha": "24861a93e7d3f35331c098e3aec3dcd9804bf59e",
+      "archived": "profiles/history/2026-10-25-rule-first/PROFILE-0004.json",
+      "prior_version": "0.2.0",
+      "new_version": "0.3.0",
+      "old_rules": 106,
+      "new_rules": 107,
+      "added_existing_rules": [
+        "NOM-0013"
+      ],
+      "new_derived_situations": 39,
+      "new_derived_intents": 55,
+      "new_selection_confirmed": false
+    },
+    {
+      "id": "PROFILE-0005",
+      "source_blob_sha": "359b946a95bc9eddfabf38c409de2845b95820d0",
+      "archived": "profiles/history/2026-10-25-rule-first/PROFILE-0005.json",
+      "prior_version": "0.2.0",
+      "new_version": "0.3.0",
+      "old_rules": 36,
+      "new_rules": 36,
+      "added_existing_rules": [],
+      "new_derived_situations": 18,
+      "new_derived_intents": 25,
+      "new_selection_confirmed": false
+    },
+    {
+      "id": "PROFILE-0006",
+      "source_blob_sha": "e7115a4c7f14bc83632befa206aa24029b0fc3b3",
+      "archived": "profiles/history/2026-10-25-rule-first/PROFILE-0006.json",
+      "prior_version": "0.2.0",
+      "new_version": "0.3.0",
+      "old_rules": 76,
+      "new_rules": 76,
+      "added_existing_rules": [],
+      "new_derived_situations": 31,
+      "new_derived_intents": 41,
+      "new_selection_confirmed": false
+    },
+    {
+      "id": "PROFILE-0007",
+      "source_blob_sha": "b19d1b908385da3e7064038182e9d76787399440",
+      "archived": "profiles/history/2026-10-25-rule-first/PROFILE-0007.json",
+      "prior_version": "0.2.0",
+      "new_version": "0.3.0",
+      "old_rules": 43,
+      "new_rules": 45,
+      "added_existing_rules": [
+        "NOM-0008",
+        "NOM-0013"
+      ],
+      "new_derived_situations": 21,
+      "new_derived_intents": 30,
+      "new_selection_confirmed": false
+    },
+    {
+      "id": "PROFILE-0008",
+      "source_blob_sha": "78737192f208303513660e9c8b74fb9afb35b86a",
+      "archived": "profiles/history/2026-10-25-rule-first/PROFILE-0008.json",
+      "prior_version": "0.2.0",
+      "new_version": "0.3.0",
+      "old_rules": 102,
+      "new_rules": 104,
+      "added_existing_rules": [
+        "NOM-0008",
+        "NOM-0013"
+      ],
+      "new_derived_situations": 35,
+      "new_derived_intents": 49,
+      "new_selection_confirmed": false
+    },
+    {
+      "id": "PROFILE-0009",
+      "source_blob_sha": "7a0baedd1c781613b2a05185e0bf0cd31d045c91",
+      "archived": "profiles/history/2026-10-25-rule-first/PROFILE-0009.json",
+      "prior_version": "0.2.0",
+      "new_version": "0.3.0",
+      "old_rules": 58,
+      "new_rules": 62,
+      "added_existing_rules": [
+        "NOM-0008",
+        "NOM-0013",
+        "NOM-0135",
+        "NOM-0136"
+      ],
+      "new_derived_situations": 33,
+      "new_derived_intents": 46,
+      "new_selection_confirmed": false
+    },
+    {
+      "id": "PROFILE-0010",
+      "source_blob_sha": "b59a3e21512c92b6eba1a21a1c3d8bf10ad2c4e2",
+      "archived": "profiles/history/2026-10-25-rule-first/PROFILE-0010.json",
+      "prior_version": "0.2.0",
+      "new_version": "0.3.0",
+      "old_rules": 122,
+      "new_rules": 127,
+      "added_existing_rules": [
+        "NOM-0008",
+        "NOM-0013",
+        "NOM-0135",
+        "NOM-0136",
+        "NOM-0137"
+      ],
+      "new_derived_situations": 46,
+      "new_derived_intents": 62,
+      "new_selection_confirmed": false
+    },
+    {
+      "id": "PROFILE-0011",
+      "source_blob_sha": "3e20fba2a298f4f116b8e05ec543e8af69c73ecd",
+      "archived": "profiles/history/2026-10-25-rule-first/PROFILE-0011.json",
+      "prior_version": "0.2.0",
+      "new_version": "0.3.0",
+      "old_rules": 56,
+      "new_rules": 60,
+      "added_existing_rules": [
+        "NOM-0008",
+        "NOM-0013",
+        "NOM-0135",
+        "NOM-0136"
+      ],
+      "new_derived_situations": 28,
+      "new_derived_intents": 39,
+      "new_selection_confirmed": false
+    },
+    {
+      "id": "PROFILE-0012",
+      "source_blob_sha": "f08baa758a2ed0242e38d6dff3eb2ef2e72a5d8d",
+      "archived": "profiles/history/2026-10-25-rule-first/PROFILE-0012.json",
+      "prior_version": "0.2.0",
+      "new_version": "0.3.0",
+      "old_rules": 128,
+      "new_rules": 133,
+      "added_existing_rules": [
+        "NOM-0008",
+        "NOM-0013",
+        "NOM-0135",
+        "NOM-0136",
+        "NOM-0137"
+      ],
+      "new_derived_situations": 42,
+      "new_derived_intents": 58,
+      "new_selection_confirmed": false
+    }
+  ],
+  "unlinked_contextual_situations": [
+    "SITU-0001",
+    "SITU-0002",
+    "SITU-0003",
+    "SITU-0004",
+    "SITU-0006",
+    "SITU-0007",
+    "SITU-0008"
+  ],
+  "unlinked_contextual_intents": [
+    "INTENT-0001",
+    "INTENT-0002",
+    "INTENT-0003",
+    "INTENT-0005",
+    "INTENT-0006",
+    "INTENT-0008",
+    "INTENT-0009",
+    "INTENT-0010",
+    "INTENT-0011",
+    "INTENT-0012",
+    "INTENT-0013",
+    "INTENT-0014",
+    "INTENT-0015",
+    "INTENT-0017",
+    "INTENT-0018"
+  ],
+  "limits": [
+    "The reverse matrix distinguishes source-linked selection from available but unselected concepts; it does not make those unselected concepts applicable to every project.",
+    "Actual project needs may justify later changes through separate authorized review.",
+    "The two previously confirmed C source profiles retain their approved historical snapshots; newly edited memberships are unconfirmed drafts."
+  ]
+}

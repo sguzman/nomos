@@ -6,16 +6,18 @@
   "title": "Python-to-Rust Strict Port - Lite - situation companion",
   "source_profile": {
     "id": "PROFILE-0011",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "status": "draft",
     "selection_confirmed": false,
-    "source_git_blob_sha": "3e20fba2a298f4f116b8e05ec543e8af69c73ecd"
+    "source_git_blob_sha": "3a43b17f50b7ff3ca3df80d7e7b2d452e7cca988"
   },
   "source_rule_ids": [
     "NOM-0001",
     "NOM-0003",
     "NOM-0004",
+    "NOM-0008",
     "NOM-0012",
+    "NOM-0013",
     "NOM-0014",
     "NOM-0015",
     "NOM-0016",
@@ -51,6 +53,8 @@
     "NOM-0074",
     "NOM-0075",
     "NOM-0076",
+    "NOM-0135",
+    "NOM-0136",
     "NOM-0138",
     "NOM-0139",
     "NOM-0140",
@@ -93,6 +97,15 @@
         },
         {
           "id": "NOM-0004",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0013",
+      "via_rules": [
+        {
+          "id": "NOM-0008",
           "basis": "explicit_context_with_interpretation"
         }
       ]
@@ -194,6 +207,10 @@
       "via_rules": [
         {
           "id": "NOM-0044",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0136",
           "basis": "explicit_context_with_interpretation"
         }
       ]
@@ -362,6 +379,19 @@
         {
           "id": "NOM-0066",
           "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0135",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0044",
+      "via_rules": [
+        {
+          "id": "NOM-0136",
+          "basis": "explicit_context_with_interpretation"
         }
       ]
     },
@@ -379,6 +409,10 @@
       "via_rules": [
         {
           "id": "NOM-0012",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0013",
           "basis": "explicit_context_with_interpretation"
         }
       ]

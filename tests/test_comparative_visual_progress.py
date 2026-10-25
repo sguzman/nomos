@@ -55,7 +55,7 @@ class ComparativeVisualProgressTests(unittest.TestCase):
             self.assertEqual(load(f"rules/{rid}.json")["status"],"published")
         for path in (ROOT/"profiles").glob("PROFILE-*.json"):
             profile=load(path.relative_to(ROOT))
-            if path.name in {"PROFILE-0004.json","PROFILE-0006.json","PROFILE-0008.json"}:
+            if path.name in {"PROFILE-0002.json","PROFILE-0004.json","PROFILE-0006.json","PROFILE-0008.json","PROFILE-0010.json","PROFILE-0012.json"}:
                 self.assertIn("NOM-0137",profile["selected_rule_ids"])
                 self.assertEqual(profile["status"],"draft")
                 self.assertFalse(profile["review"]["selection_confirmed"])

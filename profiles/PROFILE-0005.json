@@ -1,7 +1,7 @@
 {
   "id": "PROFILE-0005",
   "kind": "rule_profile",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "title": "Independent Tarium Project - Lite",
   "status": "draft",
   "selected_rule_ids": [

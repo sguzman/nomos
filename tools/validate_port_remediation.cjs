@@ -36,7 +36,7 @@ function check(r=root){
   for(const x of ints)if(!fs.existsSync(path.join(r,'ontology/intents',x+'.json')))throw Error('Unknown intent '+x);
   seen.add(id);
  }
- const lite=get('profiles/PROFILE-0011.json'),full=get('profiles/PROFILE-0012.json');
+ const lite=get('profiles/history/2026-10-25-rule-first/PROFILE-0011.json'),full=get('profiles/history/2026-10-25-rule-first/PROFILE-0012.json');
  if(lite.selected_rule_ids.length!==56||full.selected_rule_ids.length!==128)throw Error('Incomplete profile remediation');
  for(const [p,ids] of [[lite,manifest.python_lite_added_rule_ids],[full,manifest.python_full_added_rule_ids]]){
   if(p.status!=='draft'||p.review.selection_confirmed||p.review.finalization_confirmed)

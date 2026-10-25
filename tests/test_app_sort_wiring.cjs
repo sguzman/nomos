@@ -126,7 +126,7 @@ test('profile cards browse their exact member sets and clear the member filter',
   actions.children[0].listeners.click();
   assert.equal(app.get('filter-profile').value,'PROFILE-0001');
   assert.equal(app.get('filter-type').value,'rules');
-  assert.equal(app.get('catalog-list').children.length,61);
+  assert.equal(app.get('catalog-list').children.length,65);
   assert.match(app.get('active-member-filter').textContent,/C-to-Rust Strict Port/);
   assert.equal(vm.runInContext('state.selected.length',app.ctx),0);
   app.get('active-member-filter').listeners.click();
@@ -143,7 +143,7 @@ test('profile dropdown selects a profile and resets incompatible filters',()=>{
   app.get('filter-profile').listeners.change();
   assert.equal(app.get('filter-status').value,'all');
   assert.equal(app.get('filter-type').value,'rules');
-  assert.equal(app.get('catalog-list').children.length,121);
+  assert.equal(app.get('catalog-list').children.length,126);
   assert.equal(vm.runInContext('state.selected.length',app.ctx),0);
 });
 
@@ -193,6 +193,6 @@ test('new provisional draft card shows selection-review state and browses the ex
   const actions=candidate.children.find(n=>n.className==='group-actions');
   assert.match(JSON.stringify(candidate,(k,v)=>['listeners','style'].includes(k)?undefined:v),/Selection not reviewed/);
   actions.children[0].listeners.click();
-  assert.equal(app.get('catalog-list').children.length,45);
+  assert.equal(app.get('catalog-list').children.length,46);
   assert.equal(vm.runInContext('state.selected.length',app.ctx),0);
 });

@@ -6,10 +6,10 @@
   "title": "Independent Tarium Project - Full - intent companion",
   "source_profile": {
     "id": "PROFILE-0006",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "status": "draft",
     "selection_confirmed": false,
-    "source_git_blob_sha": "e7115a4c7f14bc83632befa206aa24029b0fc3b3"
+    "source_git_blob_sha": "5339a190b7f432ae7d0e010f4b4b50c8635c4a11"
   },
   "source_rule_ids": [
     "NOM-0001",

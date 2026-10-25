@@ -82,7 +82,7 @@ class RetrospectiveClassificationTests(unittest.TestCase):
 
     def test_legacy_profiles_preserved_and_new_ideas_explicitly_instantiated(self):
         profiles=[load("profiles/PROFILE-"+str(i).zfill(4)+".json") for i in (1,2)]
-        self.assertEqual([(p["status"],len(p["selected_rule_ids"])) for p in profiles],[("draft",61),("draft",121)])
+        self.assertEqual([(p["status"],len(p["selected_rule_ids"])) for p in profiles],[("draft",65),("draft",126)])
         ideas=list((ROOT/"queues/profiles").glob("PROFILE-IDEA-*.json"))
         self.assertEqual(len(ideas),10)
         originals=[load("queues/profiles/PROFILE-IDEA-"+str(i).zfill(4)+".json") for i in range(1,7)]
