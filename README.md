@@ -14,7 +14,7 @@ Browse [situational prompts](https://sguzman.github.io/nomos/situational-prompts
 - **Optional groups and profiles:** reusable selections for software development, strict C/C++/Python → Rust ports, public Tarium projects and Rust fork maintenance.
 - **Situational prompts:** a separate text species with situation triggers, exclusions, intended execution and handoff, failure-mode metadata and explicit-only copying.
 - **Ontology proposal intake:** [Six processed proposals](queues/situational-ontology/README.md) for formal situations, intentions, compositions, prompt versions and evaluations.
-- **Formal situational ontology:** 48 situations, 72 intent records (typed by semantic role), 8 compositions, 7 conditions, and 7 evaluation dimensions.
+- **Formal situational ontology:** 97 situations, 139 role-classified intent records, 8 compositions, 7 conditions, and 7 evaluation dimensions.
 - **Immutable prompt generations:** 24 independently addressable prompts (v1/v2/v3 for eight families), each copyable by explicit selection; v1 remains the default.
 - **Auditable stages:** separate queues, processing histories and published catalog entries.
 
@@ -22,7 +22,7 @@ Browse [situational prompts](https://sguzman.github.io/nomos/situational-prompts
 
 - [Project constitution](CONSTITUTION.md) and [agent contribution guidance](AGENTS.md)
 - [Rule ontology](ONTOLOGY.md), [specimen and task workflow](WORKFLOW.md) and [profile workflow](PROFILE_WORKFLOW.md)
-- [Profile review and coverage notes](profiles/REVIEW-2026-10-23.md)
+- [Twelve revised profile versions](profiles/README.md) and [semantic-first review](audits/profile-vnext-situation-intent-review-2026-10-25.md)
 - [Rule schema](schema/rule.schema.json), [situational prompt schema](schema/situational-prompt.schema.json), [catalog site guide](docs/ABOUT.md) and [archived development notes](docs/HISTORY.md)
 
 ## Local checks
@@ -34,6 +34,7 @@ python3 tools/validate.py
 python3 -m unittest discover -s tests -v
 node tools/validate_profiles.cjs
 node tools/validate_profile_ideas.cjs
+node tools/validate_profile_vnext_semantics.cjs
 ```
 
 The conflict analysis is deliberately conservative and is not a proof of natural-language consistency.
@@ -46,4 +47,4 @@ Nomos is an independent, explicitly enrolled public [Tarium](https://github.com/
 
 ## Studying rule situations and intentions
 
-Explore the [137 completed rule studies](https://sguzman.github.io/nomos/rule-concepts.html). Each canonical rule has source-grounded situation and intent links; no rule or profile was silently modified. One source rule remains draft.
+Explore [source-grounded rule/situation/intent links](https://sguzman.github.io/nomos/rule-concepts.html) for all 243 catalog rule records, one of which remains draft. The [twelve authorized provisional profile revisions](profiles/README.md) are still unconfirmed; no profile is activated merely by being present.
