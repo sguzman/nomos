@@ -1,0 +1,106 @@
+{
+  "id": "NOM-0219",
+  "version": "1.0.0",
+  "title": "signals",
+  "summary": "Verify signal-handler constraints and observable signal-related behavior where source and target integrations rely on defined signal handling.",
+  "statement": "Verify signal-handler constraints and observable signal-related behavior where source and target integrations rely on defined signal handling.",
+  "rationale": "Independent C-language control strict-port fidelity obligation. Its applicability is conditional on the source environment and the observable accepted replacement contract; no irrelevant C runtime emulation is required.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "verify",
+      "object": "c_signals",
+      "target": "c_to_rust_port"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "An explicitly authorized C-to-Rust strict port includes this behavior in its pinned C upstream baseline or externally consumed contract."
+    ],
+    "exceptions": [
+      "Behavior not present or not promised in the agreed source baseline requires no separate emulation; unapproved or undefined behavior is never silently recorded as verified parity."
+    ],
+    "bounds": {
+      "quantifier": "all",
+      "interpretation": "universal",
+      "frequency": "always",
+      "minimum": null,
+      "maximum": null,
+      "unit": "entities",
+      "window": "each relevant authorized C port comparison",
+      "cue": "For each applicable accepted contract",
+      "basis": "reviewed_inference"
+    }
+  },
+  "categories": {
+    "domains": [
+      "rust_development",
+      "software_porting",
+      "software_testing"
+    ],
+    "topics": [
+      "port_fidelity"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "preconditions": [
+      "An explicitly authorized C-to-Rust strict port includes this behavior in its pinned C upstream baseline or externally consumed contract."
+    ],
+    "exclusions": [
+      "Behavior not present or not promised in the agreed source baseline requires no separate emulation; unapproved or undefined behavior is never silently recorded as verified parity."
+    ],
+    "project_types": [
+      "c_to_rust_port"
+    ]
+  },
+  "authority": {
+    "source": "Owner-authorized C strict-port coverage remediation; opt-in rules only",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": [
+      "NOM-0074"
+    ]
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "audits/c-port-coverage-2026-10-25.json#signals",
+    "license": "MIT",
+    "notes": "Source-grounded language-specific behavior requirement; publication is not profile activation."
+  },
+  "governance": {
+    "created_on": "2026-10-25",
+    "updated_on": "2026-10-25",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ]
+}

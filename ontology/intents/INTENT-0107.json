@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0107",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "c_character_string_fidelity",
+  "definition": "Preserve accepted C byte/string and character encoding behavior.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0203",
+    "source_candidate": "c_remediation_c_character_string_fidelity"
+  }
+}

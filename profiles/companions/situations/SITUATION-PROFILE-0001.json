@@ -6,10 +6,10 @@
   "title": "C-to-Rust Strict Port - Lite - situation companion",
   "source_profile": {
     "id": "PROFILE-0001",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "status": "draft",
     "selection_confirmed": true,
-    "source_git_blob_sha": "797c6a211acf64dbebabc6be043b5c1828504d93"
+    "source_git_blob_sha": "90569f00d04f7db641d6c93a79cfef51b1e5dc64"
   },
   "source_rule_ids": [
     "NOM-0001",
@@ -52,7 +52,27 @@
     "NOM-0076",
     "NOM-0111",
     "NOM-0112",
-    "NOM-0113"
+    "NOM-0113",
+    "NOM-0138",
+    "NOM-0142",
+    "NOM-0143",
+    "NOM-0145",
+    "NOM-0146",
+    "NOM-0200",
+    "NOM-0201",
+    "NOM-0203",
+    "NOM-0204",
+    "NOM-0205",
+    "NOM-0207",
+    "NOM-0208",
+    "NOM-0209",
+    "NOM-0211",
+    "NOM-0212",
+    "NOM-0213",
+    "NOM-0214",
+    "NOM-0216",
+    "NOM-0221",
+    "NOM-0222"
   ],
   "source_analysis_snapshot": "ab9b06e947284dab83fe19519be21dc1b0ad5051",
   "members": [
@@ -278,6 +298,86 @@
         {
           "id": "NOM-0113",
           "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0138",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0142",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0143",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0145",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0146",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0200",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0201",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0203",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0204",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0205",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0207",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0208",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0209",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0211",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0212",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0213",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0214",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0216",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0221",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0222",
+          "basis": "explicit_context_with_interpretation"
         }
       ]
     },
@@ -321,6 +421,141 @@
         },
         {
           "id": "NOM-0067",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0049",
+      "via_rules": [
+        {
+          "id": "NOM-0138",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0052",
+      "via_rules": [
+        {
+          "id": "NOM-0142",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0143",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0054",
+      "via_rules": [
+        {
+          "id": "NOM-0145",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0146",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0071",
+      "via_rules": [
+        {
+          "id": "NOM-0200",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0072",
+      "via_rules": [
+        {
+          "id": "NOM-0201",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0203",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0073",
+      "via_rules": [
+        {
+          "id": "NOM-0204",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0205",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0207",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0208",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0074",
+      "via_rules": [
+        {
+          "id": "NOM-0209",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0222",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0075",
+      "via_rules": [
+        {
+          "id": "NOM-0211",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0212",
+          "basis": "explicit_context_with_interpretation"
+        },
+        {
+          "id": "NOM-0213",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0076",
+      "via_rules": [
+        {
+          "id": "NOM-0214",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0077",
+      "via_rules": [
+        {
+          "id": "NOM-0216",
+          "basis": "explicit_context_with_interpretation"
+        }
+      ]
+    },
+    {
+      "id": "SITU-0080",
+      "via_rules": [
+        {
+          "id": "NOM-0221",
           "basis": "explicit_context_with_interpretation"
         }
       ]

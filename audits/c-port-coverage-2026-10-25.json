@@ -1,0 +1,374 @@
+{
+  "kind": "c_strict_port_coverage_audit",
+  "status": "authorized_normalization",
+  "date": "2026-10-25",
+  "original_profiles": [
+    {
+      "id": "PROFILE-0001",
+      "sha": "797c6a211acf64dbebabc6be043b5c1828504d93",
+      "rules": 41,
+      "prior_selection_confirmed": true
+    },
+    {
+      "id": "PROFILE-0002",
+      "sha": "59cf5a45303903e159dd0cc0c0710bb20584bf35",
+      "rules": 93,
+      "prior_selection_confirmed": true
+    }
+  ],
+  "existing_c_rules": [
+    "NOM-0111",
+    "NOM-0112",
+    "NOM-0113"
+  ],
+  "shared_existing_reused": [
+    "NOM-0138",
+    "NOM-0142",
+    "NOM-0143",
+    "NOM-0145",
+    "NOM-0146"
+  ],
+  "shared_with_c_analogues_rejected_as_duplicates": [
+    "NOM-0140",
+    "NOM-0141",
+    "NOM-0144"
+  ],
+  "existing_general_overlap": [
+    "NOM-0074",
+    "NOM-0075",
+    "NOM-0076",
+    "NOM-0053",
+    "NOM-0054"
+  ],
+  "candidates": [
+    {
+      "id": "NOM-0200",
+      "key": "preprocessing",
+      "atomic_contract": "Verify externally consumed C macro expansion, preprocessor conditionals and feature-test selections for each supported source build configuration.",
+      "comparison_rules": [
+        "NOM-0138"
+      ],
+      "conditional_on_actual_source_baseline": true,
+      "disposition": "reviewed_source_specific_atomic_rule",
+      "reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0201",
+      "key": "integer",
+      "atomic_contract": "Verify C integer promotions, usual arithmetic conversions, signedness, widths, truncation and division or overflow behavior wherever the accepted baseline makes results observable.",
+      "comparison_rules": [
+        "NOM-0074"
+      ],
+      "conditional_on_actual_source_baseline": true,
+      "disposition": "reviewed_source_specific_atomic_rule",
+      "reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0202",
+      "key": "floating",
+      "atomic_contract": "Verify source-contractual C floating-point precision, exceptional values, environment flags and rounding behavior on each supported target.",
+      "comparison_rules": [
+        "NOM-0074"
+      ],
+      "conditional_on_actual_source_baseline": true,
+      "disposition": "reviewed_source_specific_atomic_rule",
+      "reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0203",
+      "key": "characters",
+      "atomic_contract": "Verify C character signedness, multibyte-to-byte conversions and exposed null-terminated string/byte semantics against the pinned source environment.",
+      "comparison_rules": [
+        "NOM-0054"
+      ],
+      "conditional_on_actual_source_baseline": true,
+      "disposition": "reviewed_source_specific_atomic_rule",
+      "reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0204",
+      "key": "pointer_arithmetic",
+      "atomic_contract": "Verify C pointer arithmetic, one-past bounds, null treatment and reference validity at supported data and API boundaries.",
+      "comparison_rules": [
+        "NOM-0074"
+      ],
+      "conditional_on_actual_source_baseline": true,
+      "disposition": "reviewed_source_specific_atomic_rule",
+      "reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0205",
+      "key": "effective_type",
+      "atomic_contract": "Verify C effective-type and permitted aliasing guarantees for in-scope typed object accesses; avoid treating undefined aliasing as a parity target.",
+      "comparison_rules": [
+        "NOM-0074"
+      ],
+      "conditional_on_actual_source_baseline": true,
+      "disposition": "reviewed_source_specific_atomic_rule",
+      "reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0206",
+      "key": "restrict",
+      "atomic_contract": "Verify consumed C restrict-qualified pointer contracts and equivalent nonaliasing assumptions without introducing unpromised aliasing guarantees.",
+      "comparison_rules": [
+        "NOM-0112"
+      ],
+      "conditional_on_actual_source_baseline": true,
+      "disposition": "reviewed_source_specific_atomic_rule",
+      "reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0207",
+      "key": "storage_lifetime",
+      "atomic_contract": "Verify C automatic, static, thread-local and compound-literal storage lifetimes where callers observe object validity or cleanup timing.",
+      "comparison_rules": [
+        "NOM-0074"
+      ],
+      "conditional_on_actual_source_baseline": true,
+      "disposition": "reviewed_source_specific_atomic_rule",
+      "reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0208",
+      "key": "allocation",
+      "atomic_contract": "Verify required malloc/calloc/realloc/free allocation, reallocation, ownership and failure semantics wherever existing callers or retained C APIs depend on them.",
+      "comparison_rules": [
+        "NOM-0112"
+      ],
+      "conditional_on_actual_source_baseline": true,
+      "disposition": "reviewed_source_specific_atomic_rule",
+      "reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0209",
+      "key": "aggregate_layout",
+      "atomic_contract": "Verify C structure, union and bit-field layout, alignment and representation assumptions where consumed across a binary boundary.",
+      "comparison_rules": [
+        "NOM-0112"
+      ],
+      "conditional_on_actual_source_baseline": true,
+      "disposition": "reviewed_source_specific_atomic_rule",
+      "reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0210",
+      "key": "flexible_arrays",
+      "atomic_contract": "Verify flexible-array-member sizes, alignment and valid access contracts, including variable-length array behavior where source interfaces require it.",
+      "comparison_rules": [
+        "NOM-0054"
+      ],
+      "conditional_on_actual_source_baseline": true,
+      "disposition": "reviewed_source_specific_atomic_rule",
+      "reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0211",
+      "key": "variadics",
+      "atomic_contract": "Verify C variadic function calling conventions, default argument promotions and va_list handling for agreed source or retained ABI interfaces.",
+      "comparison_rules": [
+        "NOM-0112"
+      ],
+      "conditional_on_actual_source_baseline": true,
+      "disposition": "reviewed_source_specific_atomic_rule",
+      "reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0212",
+      "key": "callbacks",
+      "atomic_contract": "Verify C function-pointer and callback signatures, calling conventions, context lifetimes and permitted invocation behavior at the Rust boundary.",
+      "comparison_rules": [
+        "NOM-0112"
+      ],
+      "conditional_on_actual_source_baseline": true,
+      "disposition": "reviewed_source_specific_atomic_rule",
+      "reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0213",
+      "key": "linkage",
+      "atomic_contract": "Verify externally consumed C header declarations, linkage, exported symbol visibility and public calling-interface compatibility.",
+      "comparison_rules": [
+        "NOM-0054"
+      ],
+      "conditional_on_actual_source_baseline": true,
+      "disposition": "reviewed_source_specific_atomic_rule",
+      "reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0214",
+      "key": "errno",
+      "atomic_contract": "Verify documented C/POSIX error-status and errno propagation when part of the accepted consumer contract; do not assume errno is universal.",
+      "comparison_rules": [
+        "NOM-0054"
+      ],
+      "conditional_on_actual_source_baseline": true,
+      "disposition": "reviewed_source_specific_atomic_rule",
+      "reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0215",
+      "key": "locale_io",
+      "atomic_contract": "Verify exposed C formatted input/output and locale-sensitive conversion results only where the original program promises those behaviors.",
+      "comparison_rules": [
+        "NOM-0054"
+      ],
+      "conditional_on_actual_source_baseline": true,
+      "disposition": "reviewed_source_specific_atomic_rule",
+      "reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0216",
+      "key": "atomics",
+      "atomic_contract": "Verify applicable C11-or-later atomic modification ordering, visibility and synchronization guarantees without assuming unspecified execution order.",
+      "comparison_rules": [
+        "NOM-0074"
+      ],
+      "conditional_on_actual_source_baseline": true,
+      "disposition": "reviewed_source_specific_atomic_rule",
+      "reference_keys": [
+        "c_atomics",
+        "c_object"
+      ]
+    },
+    {
+      "id": "NOM-0217",
+      "key": "volatile_io",
+      "atomic_contract": "Where volatile-qualified or memory-mapped I/O is required, verify observable access ordering and side effects while preserving the distinction between volatile and synchronization.",
+      "comparison_rules": [
+        "NOM-0112"
+      ],
+      "conditional_on_actual_source_baseline": true,
+      "disposition": "reviewed_source_specific_atomic_rule",
+      "reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0218",
+      "key": "nonlocal_jumps",
+      "atomic_contract": "Verify accepted setjmp/longjmp nonlocal control-flow and resource lifetime requirements where they are used; exclude undefined jumps from parity claims.",
+      "comparison_rules": [
+        "NOM-0074"
+      ],
+      "conditional_on_actual_source_baseline": true,
+      "disposition": "reviewed_source_specific_atomic_rule",
+      "reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0219",
+      "key": "signals",
+      "atomic_contract": "Verify signal-handler constraints and observable signal-related behavior where source and target integrations rely on defined signal handling.",
+      "comparison_rules": [
+        "NOM-0074"
+      ],
+      "conditional_on_actual_source_baseline": true,
+      "disposition": "reviewed_source_specific_atomic_rule",
+      "reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0220",
+      "key": "threads",
+      "atomic_contract": "Verify in-scope C thread synchronization, mutex/condition behavior and thread-local state visibility for supported concurrent consumers.",
+      "comparison_rules": [
+        "NOM-0074"
+      ],
+      "conditional_on_actual_source_baseline": true,
+      "disposition": "reviewed_source_specific_atomic_rule",
+      "reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0221",
+      "key": "defined_behavior",
+      "atomic_contract": "Classify undefined, unspecified and implementation-defined C behavior before setting the Rust compatibility target; pin platform-specific accepted outcomes and do not claim universal parity.",
+      "comparison_rules": [
+        "NOM-0138"
+      ],
+      "conditional_on_actual_source_baseline": true,
+      "disposition": "reviewed_source_specific_atomic_rule",
+      "reference_keys": [
+        "c_standard",
+        "c_object"
+      ]
+    },
+    {
+      "id": "NOM-0222",
+      "key": "binary_bytes",
+      "atomic_contract": "Verify contractual C object-byte representation, endianness and padding assumptions for externally consumed binary files, packets and buffers.",
+      "comparison_rules": [
+        "NOM-0053"
+      ],
+      "conditional_on_actual_source_baseline": true,
+      "disposition": "reviewed_source_specific_atomic_rule",
+      "reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    }
+  ],
+  "sources": {
+    "c_standard": "https://www.open-std.org/jtc1/sc22/wg14/www/docs/n3220.pdf",
+    "c_object": "https://en.cppreference.com/w/c/language/object",
+    "c_atomics": "https://en.cppreference.com/w/c/atomic/memory_order"
+  },
+  "scoped_exceptions": "Do not require parity for undefined behavior, unsupported toolchains or features outside accepted upstream behavior.",
+  "note": "Existing selection_confirmed=true was expressly approved for the previous 41/93-member profiles. Owner's instruction authorizes extending their rule set, but it does not finalize the drafts or activate rules."
+}

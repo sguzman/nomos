@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0111",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "c_aggregate_binary_fidelity",
+  "definition": "Preserve required C aggregate layout, alignment and external byte representations.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0209",
+    "source_candidate": "c_remediation_c_aggregate_binary_fidelity"
+  }
+}

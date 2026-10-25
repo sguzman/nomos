@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0077",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "c_atomic_thread_contract",
+  "definition": "C atomics or threads have required visibility or synchronization guarantees.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0216",
+    "source_candidate": "c_remediation_c_atomic_thread_contract",
+    "normalization": "reviewed_c_port_coverage_2026_10_25"
+  }
+}

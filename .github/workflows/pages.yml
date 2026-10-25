@@ -27,6 +27,7 @@ on:
       - "audits/strict-port-coverage-2026-10-25.*"
       - "audits/strict-port-remediation*"
       - "audits/cpp-port-*"
+      - "audits/c-port-*"
       - "tools/**"
       - "tests/**"
       - ".github/workflows/pages.yml"
@@ -92,6 +93,8 @@ jobs:
           node --test tests/test_port_remediation.cjs
           node tools/validate_cpp_port_remediation.cjs
           node --test tests/test_cpp_port_remediation.cjs
+          node tools/validate_c_port_remediation.cjs
+          node --test tests/test_c_port_remediation.cjs
           node --check tools/profile_ideas.cjs
           node --check tools/validate_profile_ideas.cjs
           node tools/validate_profile_ideas.cjs

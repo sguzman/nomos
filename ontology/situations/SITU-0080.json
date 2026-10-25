@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0080",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "c_defined_behavior_review",
+  "definition": "C defined/undefined or implementation-specific behavior must be classified before parity is claimed.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0221",
+    "source_candidate": "c_remediation_c_defined_behavior_review",
+    "normalization": "reviewed_c_port_coverage_2026_10_25"
+  }
+}

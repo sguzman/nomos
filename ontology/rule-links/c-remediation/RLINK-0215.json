@@ -1,0 +1,73 @@
+{
+  "id": "RLINK-0215",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0215",
+  "rule_version": "1.0.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0031",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.project_types",
+        "statement"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    },
+    {
+      "id": "SITU-0076",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.project_types",
+        "statement"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0044",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    },
+    {
+      "id": "INTENT-0114",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "8c6ae15b347bf8ad28e86173e5dc20bcb68c4273",
+    "source_blob_sha": "e6496b4f52e31028e92b12d97b2488789dd2c336",
+    "source_statement": "Verify exposed C formatted input/output and locale-sensitive conversion results only where the original program promises those behaviors.",
+    "source_conditions": [
+      "An authorized C-to-Rust strict port includes this source behavior in its accepted baseline or external interface."
+    ],
+    "normalized_predicate": {
+      "action": "verify",
+      "object": "c_locale_io",
+      "target": "c_to_rust_port"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relevant contexts are not exhaustive triggers and do not narrow normative rule applicability.",
+    "intent_semantics": "Links describe inferred outcomes, not additional obligations.",
+    "effective_rules": "Publishing concept links does not activate or finalize a rule."
+  },
+  "provenance": {
+    "queue_id": "RIA-0215",
+    "processing_id": "PROC-RIA-0215",
+    "source_path": "rules/NOM-0215.json",
+    "extension": "c_remediation"
+  },
+  "reviewed_on": "2026-10-25"
+}

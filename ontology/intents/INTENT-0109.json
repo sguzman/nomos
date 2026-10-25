@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0109",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "c_effective_alias_fidelity",
+  "definition": "Preserve legitimate C effective-type and restrict aliasing promises without emulating undefined behavior.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0205",
+    "source_candidate": "c_remediation_c_effective_alias_fidelity"
+  }
+}

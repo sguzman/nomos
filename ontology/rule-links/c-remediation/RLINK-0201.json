@@ -1,0 +1,73 @@
+{
+  "id": "RLINK-0201",
+  "kind": "rule_situation_intent_link",
+  "status": "published",
+  "rule_id": "NOM-0201",
+  "rule_version": "1.0.0",
+  "rule_editorial_status": "published",
+  "situations": [
+    {
+      "id": "SITU-0031",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.project_types",
+        "statement"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    },
+    {
+      "id": "SITU-0072",
+      "evidence_fields": [
+        "norm.conditions",
+        "scope.project_types",
+        "statement"
+      ],
+      "basis": "explicit_context_with_interpretation"
+    }
+  ],
+  "intents": [
+    {
+      "id": "INTENT-0044",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    },
+    {
+      "id": "INTENT-0106",
+      "evidence_fields": [
+        "statement",
+        "rationale",
+        "norm.predicate"
+      ],
+      "basis": "interpretive_objective_not_new_normative_rule"
+    }
+  ],
+  "evidence": {
+    "source_snapshot_commit": "8c6ae15b347bf8ad28e86173e5dc20bcb68c4273",
+    "source_blob_sha": "a6e0611790fbcbc95199f15b1e1015a9ad9dc364",
+    "source_statement": "Verify C integer promotions, usual arithmetic conversions, signedness, widths, truncation and division or overflow behavior wherever the accepted baseline makes results observable.",
+    "source_conditions": [
+      "An authorized C-to-Rust strict port includes this source behavior in its accepted baseline or external interface."
+    ],
+    "normalized_predicate": {
+      "action": "verify",
+      "object": "c_integer",
+      "target": "c_to_rust_port"
+    }
+  },
+  "interpretation": {
+    "situation_scope": "Relevant contexts are not exhaustive triggers and do not narrow normative rule applicability.",
+    "intent_semantics": "Links describe inferred outcomes, not additional obligations.",
+    "effective_rules": "Publishing concept links does not activate or finalize a rule."
+  },
+  "provenance": {
+    "queue_id": "RIA-0201",
+    "processing_id": "PROC-RIA-0201",
+    "source_path": "rules/NOM-0201.json",
+    "extension": "c_remediation"
+  },
+  "reviewed_on": "2026-10-25"
+}

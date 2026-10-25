@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0105",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "c_preprocessor_interface_fidelity",
+  "definition": "Preserve required preprocessing variants and source-level macro interface behavior.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0200",
+    "source_candidate": "c_remediation_c_preprocessor_interface_fidelity"
+  }
+}

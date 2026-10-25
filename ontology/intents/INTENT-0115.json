@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0115",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "c_atomic_thread_fidelity",
+  "definition": "Preserve C atomic and thread synchronization obligations where relevant.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0216",
+    "source_candidate": "c_remediation_c_atomic_thread_fidelity"
+  }
+}

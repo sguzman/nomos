@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0112",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "c_callback_variadic_abi_fidelity",
+  "definition": "Preserve externally consumed C variadic and callback calling contracts.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0211",
+    "source_candidate": "c_remediation_c_callback_variadic_abi_fidelity"
+  }
+}

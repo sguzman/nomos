@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0108",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "c_pointer_validity_fidelity",
+  "definition": "Preserve supported C pointer validity, arithmetic and bounds assumptions.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0204",
+    "source_candidate": "c_remediation_c_pointer_validity_fidelity"
+  }
+}

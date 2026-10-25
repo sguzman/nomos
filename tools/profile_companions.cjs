@@ -41,6 +41,10 @@ function generate(root=ROOT){
  if(fs.existsSync(cpp))for(const f of names(cpp,/^RLINK-\d+\.json$/)){
   const l=read(path.join(cpp,f));if(links.has(l.rule_id))throw Error('Duplicate C++ link '+l.rule_id);links.set(l.rule_id,l);
  }
+ const cPort=path.join(linkDir,'c-remediation');
+ if(fs.existsSync(cPort))for(const f of names(cPort,/^RLINK-\d+\.json$/)){
+  const l=read(path.join(cPort,f));if(links.has(l.rule_id))throw Error('Duplicate C source '+l.rule_id);links.set(l.rule_id,l);
+ }
  const extension=path.join(linkDir,'port-remediation');
  if(fs.existsSync(extension))for(const f of names(extension,/^RLINK-\d+\.json$/)){
   const l=read(path.join(extension,f));if(links.has(l.rule_id))throw Error('Duplicate source '+l.rule_id);links.set(l.rule_id,l);

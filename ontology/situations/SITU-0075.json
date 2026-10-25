@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0075",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "c_binary_calling_interface",
+  "definition": "C variadics, callbacks, linkage or calling conventions are consumed by an external interface.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0211",
+    "source_candidate": "c_remediation_c_binary_calling_interface",
+    "normalization": "reviewed_c_port_coverage_2026_10_25"
+  }
+}

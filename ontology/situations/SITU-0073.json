@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0073",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "c_pointer_memory_contract",
+  "definition": "C pointers, alias rules, storage duration or allocation behavior affect supported callers.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0204",
+    "source_candidate": "c_remediation_c_pointer_memory_contract",
+    "normalization": "reviewed_c_port_coverage_2026_10_25"
+  }
+}

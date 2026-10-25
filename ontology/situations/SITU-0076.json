@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0076",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "c_library_environment",
+  "definition": "C error reporting or locale-sensitive library behavior is part of the accepted observable contract.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0214",
+    "source_candidate": "c_remediation_c_library_environment",
+    "normalization": "reviewed_c_port_coverage_2026_10_25"
+  }
+}

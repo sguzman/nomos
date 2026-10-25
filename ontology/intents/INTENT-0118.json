@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0118",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "c_defined_behavior_scope",
+  "definition": "Limit parity claims to defined and explicitly accepted environment-dependent C behavior.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0221",
+    "source_candidate": "c_remediation_c_defined_behavior_scope"
+  }
+}

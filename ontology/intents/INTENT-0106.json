@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0106",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "c_numeric_arithmetic_fidelity",
+  "definition": "Preserve accepted C integer, floating-point and conversion outcomes.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0201",
+    "source_candidate": "c_remediation_c_numeric_arithmetic_fidelity"
+  }
+}

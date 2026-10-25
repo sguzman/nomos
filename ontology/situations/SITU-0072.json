@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0072",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "c_arithmetic_encoding_parity",
+  "definition": "C numeric conversion, character representation and text boundaries affect required source results.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0201",
+    "source_candidate": "c_remediation_c_arithmetic_encoding_parity",
+    "normalization": "reviewed_c_port_coverage_2026_10_25"
+  }
+}

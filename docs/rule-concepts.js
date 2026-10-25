@@ -75,7 +75,7 @@ const NomosRuleConcepts=(()=>{
     link.rel='noopener noreferrer';
     details.append(link);
     const evidenceLink=node('a','','View reviewed relationship evidence JSON');
-    evidenceLink.href='https://github.com/sguzman/nomos/blob/main/ontology/rule-links/'+(source.provenance?.extension==='port_remediation'?'port-remediation/':source.provenance?.extension==='cpp_remediation'?'cpp-remediation/':'')+source.id+'.json';
+    evidenceLink.href='https://github.com/sguzman/nomos/blob/main/ontology/rule-links/'+(source.provenance?.extension==='port_remediation'?'port-remediation/':source.provenance?.extension==='cpp_remediation'?'cpp-remediation/':source.provenance?.extension==='c_remediation'?'c-remediation/':'')+source.id+'.json';
     evidenceLink.rel='noopener noreferrer';
     details.append(evidenceLink);
     entry.append(details);return entry;

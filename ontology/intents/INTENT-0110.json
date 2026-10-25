@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0110",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "c_memory_ownership_lifetime_fidelity",
+  "definition": "Preserve supported C storage duration, allocation, reallocation and ownership behavior.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0207",
+    "source_candidate": "c_remediation_c_memory_ownership_lifetime_fidelity"
+  }
+}

@@ -14,7 +14,7 @@ class RuleConceptLinks(unittest.TestCase):
         cls.links,cls.errors=load_links()
     def test_complete_verified_processing(self):
         self.assertEqual(self.errors,[])
-        self.assertEqual(len(self.links),199)
+        self.assertEqual(len(self.links),222)
     def test_draft_rule_never_published_by_semantic_mapping(self):
         draft=self.links["NOM-0002"]
         self.assertEqual(draft["status"],"reviewed_draft_source")

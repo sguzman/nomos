@@ -14,9 +14,9 @@ class SiteCatalogTests(unittest.TestCase):
 
     def test_distinct_public_entries(self):
         rules = self.data["rules"]
-        self.assertEqual(len(rules), 199)
+        self.assertEqual(len(rules), 222)
         self.assertEqual({r["id"] for r in rules},
-                         {"NOM-" + str(i).zfill(4) for i in range(1, 200)})
+                         {"NOM-" + str(i).zfill(4) for i in range(1, 223)})
 
     def test_candidates_cannot_be_mislabeled_published(self):
         candidates = [r for r in self.data["rules"] if r["registry"] == "candidate"]
@@ -25,7 +25,7 @@ class SiteCatalogTests(unittest.TestCase):
 
     def test_existing_catalog_keeps_original_statuses(self):
         catalog = [r for r in self.data["rules"] if r["registry"] == "catalog"]
-        self.assertEqual(len(catalog), 199)
+        self.assertEqual(len(catalog), 222)
         self.assertEqual({(r["id"], r["status"]) for r in catalog if r["id"] in {"NOM-0001", "NOM-0002"}},
                          {("NOM-0001", "published"), ("NOM-0002", "draft")})
 
@@ -46,7 +46,7 @@ class SiteCatalogTests(unittest.TestCase):
     def test_optional_profiles_are_in_public_catalog_but_not_activated(self):
         profiles=self.data["profiles"]
         self.assertEqual([p["id"] for p in profiles], ["PROFILE-"+str(i).zfill(4) for i in range(1,13)])
-        self.assertEqual([len(p["selected_rule_ids"]) for p in profiles], [41,93,35,90,29,61,34,89,58,122,56,128])
+        self.assertEqual([len(p["selected_rule_ids"]) for p in profiles], [61,121,35,90,29,61,34,89,58,122,56,128])
         for profile in profiles:
             self.assertEqual(profile["status"],"draft")
             self.assertEqual(profile["review"]["selection_confirmed"], int(profile["id"].split("-")[1])<=2)
@@ -57,11 +57,11 @@ class SiteCatalogTests(unittest.TestCase):
         self.assertEqual(self.data["schema_version"],"3.0")
         self.assertEqual(len(self.data["situational_prompts"]), 8)
         self.assertEqual(len(self.data["situational_prompt_versions"]), 16)
-        self.assertEqual(len(self.data["situations"]), 70)
-        self.assertEqual(len(self.data["rule_situation_intent_links"]),199)
+        self.assertEqual(len(self.data["situations"]), 80)
+        self.assertEqual(len(self.data["rule_situation_intent_links"]),222)
         self.assertEqual(sum(1 for x in self.data["rule_situation_intent_links"] if x["status"]=="reviewed_draft_source"),1)
-        self.assertEqual(len([x for x in self.data["rules"] if x["situational_analysis"]["situation_ids"]]),199)
-        self.assertEqual(len(self.data["intents"]), 104)
+        self.assertEqual(len([x for x in self.data["rules"] if x["situational_analysis"]["situation_ids"]]),222)
+        self.assertEqual(len(self.data["intents"]), 118)
         self.assertEqual(len(self.data["intent_families"]), 8)
         self.assertEqual(len(self.data["execution_conditions"]), 7)
         self.assertEqual(len(self.data["evaluation_dimensions"]), 7)

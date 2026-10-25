@@ -1,7 +1,7 @@
 {
   "id": "PROFILE-0001",
   "kind": "rule_profile",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "title": "C-to-Rust Strict Port - Lite",
   "status": "draft",
   "selected_rule_ids": [
@@ -45,7 +45,27 @@
     "NOM-0076",
     "NOM-0111",
     "NOM-0112",
-    "NOM-0113"
+    "NOM-0113",
+    "NOM-0138",
+    "NOM-0142",
+    "NOM-0143",
+    "NOM-0145",
+    "NOM-0146",
+    "NOM-0200",
+    "NOM-0201",
+    "NOM-0203",
+    "NOM-0204",
+    "NOM-0205",
+    "NOM-0207",
+    "NOM-0208",
+    "NOM-0209",
+    "NOM-0211",
+    "NOM-0212",
+    "NOM-0213",
+    "NOM-0214",
+    "NOM-0216",
+    "NOM-0221",
+    "NOM-0222"
   ],
   "export_targets": [
     "agents_md",
@@ -58,6 +78,6 @@
   },
   "governance": {
     "created_on": "2026-10-21",
-    "updated_on": "2026-10-21"
+    "updated_on": "2026-10-25"
   }
 }

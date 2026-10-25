@@ -224,6 +224,61 @@ def load_links(root=ROOT):
             supporting=links.get("NOM-"+obj.get("provenance",{}).get("queue_id","")[-4:])
             if not supporting or cid not in [x["id"] for x in supporting[relation]]:
                 errors.append(cid+": missing C++ source provenance")
+
+    # Independent C source analysis; the 137-rule source corpus and later port history remain immutable.
+    cdir=root/"ontology/rule-links/c-remediation"
+    cs=sorted(cdir.glob("RLINK-*.json"))
+    ccross=read(root,Path("ontology/rule-analysis/c-remediation-crosswalk.json"))
+    if len(cs)!=23 or len(ccross.get("entries",{}))!=23 or ccross.get("status")!="reviewed":
+        errors.append("expected 23 independent C-specific source mappings")
+    for path in cs:
+        link=read(root,path.relative_to(root))
+        rid=link.get("rule_id","")
+        if rid in links or not rid.startswith("NOM-") or not rid[4:].isdigit() or int(rid[4:]) not in range(200,223):
+            errors.append("unexpected or duplicate C-specific rule mapping "+rid)
+            continue
+        qid="RIA-"+rid[-4:]
+        rule=read(root,Path("rules")/(rid+".json"))
+        queue=read(root,Path("queues/c-remediation")/(qid+".json"))
+        trace=read(root,Path("processing/c-remediation")/("PROC-"+qid+".json"))
+        source=queue.get("source",{})
+        sids=[x["id"] for x in link.get("situations",[])]
+        iids=[x["id"] for x in link.get("intents",[])]
+        expected=ccross.get("entries",{}).get(qid,{})
+        if (rule.get("status")!="published" or
+            link.get("status")!="published" or link.get("rule_editorial_status")!="published" or
+            link.get("rule_version")!=rule.get("version") or
+            expected.get("rule_id")!=rid or expected.get("situation_ids")!=sids or expected.get("intent_ids")!=iids or
+            trace.get("disposition",{}).get("situation_ids")!=sids or
+            trace.get("disposition",{}).get("intent_ids")!=iids or
+            not sids or not iids or len(sids)!=len(set(sids)) or len(iids)!=len(set(iids)) or
+            not set(sids)<=situations or not set(iids)<=intents):
+            errors.append("invalid C port rule concepts "+rid)
+        if (source!=trace.get("source") or
+            source.get("rule_id")!=rid or source.get("path")!=f"rules/{rid}.json" or
+            git_blob((root/source["path"]).read_bytes())!=source.get("git_blob_sha") or
+            link.get("evidence",{}).get("source_blob_sha")!=source.get("git_blob_sha") or
+            link.get("evidence",{}).get("source_statement")!=rule.get("statement") or
+            link.get("evidence",{}).get("normalized_predicate")!=rule.get("norm",{}).get("predicate") or
+            link.get("provenance",{}).get("queue_id")!=qid):
+            errors.append("C-specific source provenance mismatch "+rid)
+        auth=trace.get("authorization",{})
+        if (queue.get("status")!="processed" or trace.get("status")!="closed" or
+            not auth.get("processing") or not auth.get("publication") or
+            auth.get("profile_finalization") is not False or
+            auth.get("rule_activation") is not False):
+            errors.append("invalid source publication authorization "+rid)
+        links[rid]=link
+    if len(links)!=222:
+        errors.append(f"combined source-link registry is {len(links)}, expected 222")
+    for prefix,start,end,folder,relation in (("SITU",71,80,"situations","situations"),("INTENT",105,118,"intents","intents")):
+        for n in range(start,end+1):
+            cid=f"{prefix}-{n:04d}"
+            concept=read(root,Path("ontology")/folder/(cid+".json"))
+            source=concept.get("provenance",{}).get("queue_id","")
+            supporting=links.get("NOM-"+source[-4:])
+            if not supporting or cid not in [x["id"] for x in supporting[relation]]:
+                errors.append(cid+": incorrect C source provenance")
     return links,errors
 
 def main():

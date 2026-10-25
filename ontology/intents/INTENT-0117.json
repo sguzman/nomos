@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0117",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "c_nonlocal_signal_fidelity",
+  "definition": "Preserve defined nonlocal control transfer and signal-related behavior where promised.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0218",
+    "source_candidate": "c_remediation_c_nonlocal_signal_fidelity"
+  }
+}

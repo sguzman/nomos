@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0116",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "c_volatile_side_effect_fidelity",
+  "definition": "Preserve required volatile and memory-mapped I/O observable side effects.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0217",
+    "source_candidate": "c_remediation_c_volatile_side_effect_fidelity"
+  }
+}

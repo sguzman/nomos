@@ -1,0 +1,14 @@
+{
+  "id": "INTENT-0114",
+  "kind": "intent",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "c_library_error_locale_fidelity",
+  "definition": "Preserve contractual C error reporting and locale-sensitive library outcomes.",
+  "semantic_role": "goal",
+  "atomicity": "single_intent_candidate",
+  "provenance": {
+    "queue_id": "RIA-0214",
+    "source_candidate": "c_remediation_c_library_error_locale_fidelity"
+  }
+}

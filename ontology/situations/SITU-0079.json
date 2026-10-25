@@ -1,0 +1,16 @@
+{
+  "id": "SITU-0079",
+  "kind": "situation",
+  "version": "1.0.0",
+  "status": "published",
+  "code": "c_nonlocal_signal_control",
+  "definition": "C nonlocal jumps or signal-handler constraints are part of supported source behavior.",
+  "classification": "event",
+  "component_situation_ids": [],
+  "related_prompt_families": [],
+  "provenance": {
+    "queue_id": "RIA-0218",
+    "source_candidate": "c_remediation_c_nonlocal_signal_control",
+    "normalization": "reviewed_c_port_coverage_2026_10_25"
+  }
+}

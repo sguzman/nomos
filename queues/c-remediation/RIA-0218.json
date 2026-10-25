@@ -1,0 +1,37 @@
+{
+  "id": "RIA-0218",
+  "kind": "authorized_c_port_rule_intake",
+  "status": "processed",
+  "source": {
+    "rule_id": "NOM-0218",
+    "path": "rules/NOM-0218.json",
+    "version": "1.0.0",
+    "status_at_snapshot": "published",
+    "snapshot_commit": "8c6ae15b347bf8ad28e86173e5dc20bcb68c4273",
+    "git_blob_sha": "2cbafc7883962da99171814aa7ecc90f8a07ee8d"
+  },
+  "origin_audit_key": "nonlocal_jumps",
+  "authorization": {
+    "authority": "explicit_owner_request_for_c_to_rust_profile_coverage_remediation_2026_10_25",
+    "processing": true,
+    "normalization": true,
+    "publication": true,
+    "profile_extension": true,
+    "original_profile_selection_confirmed": true,
+    "profile_finalization": false,
+    "rule_activation": false
+  },
+  "requested_analysis": [
+    "normative_atom",
+    "situations",
+    "intents",
+    "profile_coverage"
+  ],
+  "processing": {
+    "state": "closed",
+    "record": "processing/c-remediation/PROC-RIA-0218.json"
+  },
+  "governance": {
+    "queued_on": "2026-10-25"
+  }
+}

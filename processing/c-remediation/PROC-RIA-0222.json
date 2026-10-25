@@ -1,0 +1,44 @@
+{
+  "id": "PROC-RIA-0222",
+  "kind": "authorized_c_port_normalization",
+  "status": "closed",
+  "queue_id": "RIA-0222",
+  "source": {
+    "rule_id": "NOM-0222",
+    "path": "rules/NOM-0222.json",
+    "version": "1.0.0",
+    "status_at_snapshot": "published",
+    "snapshot_commit": "8c6ae15b347bf8ad28e86173e5dc20bcb68c4273",
+    "git_blob_sha": "b6c62db3f4dababbba8b5fc8e53e3e6ae2ef6c4a"
+  },
+  "authorization": {
+    "authority": "explicit_owner_request_for_c_to_rust_profile_coverage_remediation_2026_10_25",
+    "processing": true,
+    "normalization": true,
+    "publication": true,
+    "profile_extension": true,
+    "original_profile_selection_confirmed": true,
+    "profile_finalization": false,
+    "rule_activation": false
+  },
+  "disposition": {
+    "rule_path": "rules/NOM-0222.json",
+    "link_path": "ontology/rule-links/c-remediation/RLINK-0222.json",
+    "situation_ids": [
+      "SITU-0031",
+      "SITU-0074"
+    ],
+    "intent_ids": [
+      "INTENT-0044",
+      "INTENT-0111"
+    ],
+    "profile_extension": true
+  },
+  "evidence": {
+    "audit": "audits/c-port-coverage-2026-10-25.json",
+    "audit_key": "binary_bytes"
+  },
+  "governance": {
+    "completed_on": "2026-10-25"
+  }
+}

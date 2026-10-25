@@ -34,8 +34,8 @@ test('authorized C-to-Rust profiles are independently editable drafts with priva
     for(const id of ['NOM-0111','NOM-0112','NOM-0113','NOM-0001','NOM-0003','NOM-0004','NOM-0050','NOM-0051']) assert.ok(profile.selected_rule_ids.includes(id),id);
     assert.throws(()=>profiles.selectForUse(profile,published,{userSelected:true}),/finalized/);
   }
-  assert.equal(lite.selected_rule_ids.length,41);
-  assert.equal(full.selected_rule_ids.length,93);
+  assert.equal(lite.selected_rule_ids.length,61);
+  assert.equal(full.selected_rule_ids.length,121);
   assert.ok(lite.selected_rule_ids.every(id=>full.selected_rule_ids.includes(id)));
   for(const id of ['NOM-0010','NOM-0068','NOM-0069','NOM-0070','NOM-0071','NOM-0072']) assert.ok(full.selected_rule_ids.includes(id),id);
 });

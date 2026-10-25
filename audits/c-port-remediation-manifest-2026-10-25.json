@@ -1,0 +1,428 @@
+{
+  "kind": "c_strict_port_remediation_manifest",
+  "version": "1.0.0",
+  "date": "2026-10-25",
+  "source_audit": "audits/c-port-coverage-2026-10-25.json",
+  "scope": "C-to-Rust Lite and Full only",
+  "shared_rule_ids": [
+    "NOM-0138",
+    "NOM-0142",
+    "NOM-0143",
+    "NOM-0145",
+    "NOM-0146"
+  ],
+  "c_specific_records": [
+    {
+      "id": "NOM-0200",
+      "key": "preprocessing",
+      "statement": "Verify externally consumed C macro expansion, preprocessor conditionals and feature-test selections for each supported source build configuration.",
+      "lite": true,
+      "scope": "c_to_rust_port",
+      "family": "headers",
+      "overlap_rules": [
+        "NOM-0138"
+      ],
+      "source_reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0201",
+      "key": "integer",
+      "statement": "Verify C integer promotions, usual arithmetic conversions, signedness, widths, truncation and division or overflow behavior wherever the accepted baseline makes results observable.",
+      "lite": true,
+      "scope": "c_to_rust_port",
+      "family": "numeric",
+      "overlap_rules": [
+        "NOM-0074"
+      ],
+      "source_reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0202",
+      "key": "floating",
+      "statement": "Verify source-contractual C floating-point precision, exceptional values, environment flags and rounding behavior on each supported target.",
+      "lite": false,
+      "scope": "c_to_rust_port",
+      "family": "numeric",
+      "overlap_rules": [
+        "NOM-0074"
+      ],
+      "source_reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0203",
+      "key": "characters",
+      "statement": "Verify C character signedness, multibyte-to-byte conversions and exposed null-terminated string/byte semantics against the pinned source environment.",
+      "lite": true,
+      "scope": "c_to_rust_port",
+      "family": "text",
+      "overlap_rules": [
+        "NOM-0054"
+      ],
+      "source_reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0204",
+      "key": "pointer_arithmetic",
+      "statement": "Verify C pointer arithmetic, one-past bounds, null treatment and reference validity at supported data and API boundaries.",
+      "lite": true,
+      "scope": "c_to_rust_port",
+      "family": "memory",
+      "overlap_rules": [
+        "NOM-0074"
+      ],
+      "source_reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0205",
+      "key": "effective_type",
+      "statement": "Verify C effective-type and permitted aliasing guarantees for in-scope typed object accesses; avoid treating undefined aliasing as a parity target.",
+      "lite": true,
+      "scope": "c_to_rust_port",
+      "family": "memory",
+      "overlap_rules": [
+        "NOM-0074"
+      ],
+      "source_reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0206",
+      "key": "restrict",
+      "statement": "Verify consumed C restrict-qualified pointer contracts and equivalent nonaliasing assumptions without introducing unpromised aliasing guarantees.",
+      "lite": false,
+      "scope": "c_to_rust_port",
+      "family": "memory",
+      "overlap_rules": [
+        "NOM-0112"
+      ],
+      "source_reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0207",
+      "key": "storage_lifetime",
+      "statement": "Verify C automatic, static, thread-local and compound-literal storage lifetimes where callers observe object validity or cleanup timing.",
+      "lite": true,
+      "scope": "c_to_rust_port",
+      "family": "memory",
+      "overlap_rules": [
+        "NOM-0074"
+      ],
+      "source_reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0208",
+      "key": "allocation",
+      "statement": "Verify required malloc/calloc/realloc/free allocation, reallocation, ownership and failure semantics wherever existing callers or retained C APIs depend on them.",
+      "lite": true,
+      "scope": "c_to_rust_port",
+      "family": "memory",
+      "overlap_rules": [
+        "NOM-0112"
+      ],
+      "source_reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0209",
+      "key": "aggregate_layout",
+      "statement": "Verify C structure, union and bit-field layout, alignment and representation assumptions where consumed across a binary boundary.",
+      "lite": true,
+      "scope": "c_to_rust_port",
+      "family": "binary",
+      "overlap_rules": [
+        "NOM-0112"
+      ],
+      "source_reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0210",
+      "key": "flexible_arrays",
+      "statement": "Verify flexible-array-member sizes, alignment and valid access contracts, including variable-length array behavior where source interfaces require it.",
+      "lite": false,
+      "scope": "c_to_rust_port",
+      "family": "binary",
+      "overlap_rules": [
+        "NOM-0054"
+      ],
+      "source_reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0211",
+      "key": "variadics",
+      "statement": "Verify C variadic function calling conventions, default argument promotions and va_list handling for agreed source or retained ABI interfaces.",
+      "lite": true,
+      "scope": "c_to_rust_port",
+      "family": "binary",
+      "overlap_rules": [
+        "NOM-0112"
+      ],
+      "source_reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0212",
+      "key": "callbacks",
+      "statement": "Verify C function-pointer and callback signatures, calling conventions, context lifetimes and permitted invocation behavior at the Rust boundary.",
+      "lite": true,
+      "scope": "c_to_rust_port",
+      "family": "binary",
+      "overlap_rules": [
+        "NOM-0112"
+      ],
+      "source_reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0213",
+      "key": "linkage",
+      "statement": "Verify externally consumed C header declarations, linkage, exported symbol visibility and public calling-interface compatibility.",
+      "lite": true,
+      "scope": "c_to_rust_port",
+      "family": "headers",
+      "overlap_rules": [
+        "NOM-0054"
+      ],
+      "source_reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0214",
+      "key": "errno",
+      "statement": "Verify documented C/POSIX error-status and errno propagation when part of the accepted consumer contract; do not assume errno is universal.",
+      "lite": true,
+      "scope": "c_to_rust_port",
+      "family": "library",
+      "overlap_rules": [
+        "NOM-0054"
+      ],
+      "source_reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0215",
+      "key": "locale_io",
+      "statement": "Verify exposed C formatted input/output and locale-sensitive conversion results only where the original program promises those behaviors.",
+      "lite": false,
+      "scope": "c_to_rust_port",
+      "family": "library",
+      "overlap_rules": [
+        "NOM-0054"
+      ],
+      "source_reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0216",
+      "key": "atomics",
+      "statement": "Verify applicable C11-or-later atomic modification ordering, visibility and synchronization guarantees without assuming unspecified execution order.",
+      "lite": true,
+      "scope": "c_to_rust_port",
+      "family": "concurrency",
+      "overlap_rules": [
+        "NOM-0074"
+      ],
+      "source_reference_keys": [
+        "c_atomics",
+        "c_object"
+      ]
+    },
+    {
+      "id": "NOM-0217",
+      "key": "volatile_io",
+      "statement": "Where volatile-qualified or memory-mapped I/O is required, verify observable access ordering and side effects while preserving the distinction between volatile and synchronization.",
+      "lite": false,
+      "scope": "c_to_rust_port",
+      "family": "concurrency",
+      "overlap_rules": [
+        "NOM-0112"
+      ],
+      "source_reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0218",
+      "key": "nonlocal_jumps",
+      "statement": "Verify accepted setjmp/longjmp nonlocal control-flow and resource lifetime requirements where they are used; exclude undefined jumps from parity claims.",
+      "lite": false,
+      "scope": "c_to_rust_port",
+      "family": "control",
+      "overlap_rules": [
+        "NOM-0074"
+      ],
+      "source_reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0219",
+      "key": "signals",
+      "statement": "Verify signal-handler constraints and observable signal-related behavior where source and target integrations rely on defined signal handling.",
+      "lite": false,
+      "scope": "c_to_rust_port",
+      "family": "control",
+      "overlap_rules": [
+        "NOM-0074"
+      ],
+      "source_reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0220",
+      "key": "threads",
+      "statement": "Verify in-scope C thread synchronization, mutex/condition behavior and thread-local state visibility for supported concurrent consumers.",
+      "lite": false,
+      "scope": "c_to_rust_port",
+      "family": "concurrency",
+      "overlap_rules": [
+        "NOM-0074"
+      ],
+      "source_reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    },
+    {
+      "id": "NOM-0221",
+      "key": "defined_behavior",
+      "statement": "Classify undefined, unspecified and implementation-defined C behavior before setting the Rust compatibility target; pin platform-specific accepted outcomes and do not claim universal parity.",
+      "lite": true,
+      "scope": "c_to_rust_port",
+      "family": "baseline",
+      "overlap_rules": [
+        "NOM-0138"
+      ],
+      "source_reference_keys": [
+        "c_standard",
+        "c_object"
+      ]
+    },
+    {
+      "id": "NOM-0222",
+      "key": "binary_bytes",
+      "statement": "Verify contractual C object-byte representation, endianness and padding assumptions for externally consumed binary files, packets and buffers.",
+      "lite": true,
+      "scope": "c_to_rust_port",
+      "family": "binary",
+      "overlap_rules": [
+        "NOM-0053"
+      ],
+      "source_reference_keys": [
+        "c_object",
+        "c_standard"
+      ]
+    }
+  ],
+  "full_profile_additions": [
+    "NOM-0138",
+    "NOM-0142",
+    "NOM-0143",
+    "NOM-0145",
+    "NOM-0146",
+    "NOM-0200",
+    "NOM-0201",
+    "NOM-0202",
+    "NOM-0203",
+    "NOM-0204",
+    "NOM-0205",
+    "NOM-0206",
+    "NOM-0207",
+    "NOM-0208",
+    "NOM-0209",
+    "NOM-0210",
+    "NOM-0211",
+    "NOM-0212",
+    "NOM-0213",
+    "NOM-0214",
+    "NOM-0215",
+    "NOM-0216",
+    "NOM-0217",
+    "NOM-0218",
+    "NOM-0219",
+    "NOM-0220",
+    "NOM-0221",
+    "NOM-0222"
+  ],
+  "lite_profile_additions": [
+    "NOM-0138",
+    "NOM-0142",
+    "NOM-0143",
+    "NOM-0145",
+    "NOM-0146",
+    "NOM-0200",
+    "NOM-0201",
+    "NOM-0203",
+    "NOM-0204",
+    "NOM-0205",
+    "NOM-0207",
+    "NOM-0208",
+    "NOM-0209",
+    "NOM-0211",
+    "NOM-0212",
+    "NOM-0213",
+    "NOM-0214",
+    "NOM-0216",
+    "NOM-0221",
+    "NOM-0222"
+  ],
+  "profiles": {
+    "lite": {
+      "before": 41,
+      "after": 61
+    },
+    "full": {
+      "before": 93,
+      "after": 121
+    }
+  },
+  "consent": {
+    "original_selections_confirmed": true,
+    "profile_finalization_confirmed": false,
+    "rules_activated": false
+  }
+}
