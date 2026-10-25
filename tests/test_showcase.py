@@ -16,7 +16,7 @@ class SiteCatalogTests(unittest.TestCase):
         rules = self.data["rules"]
         self.assertEqual(len(rules), 199)
         self.assertEqual({r["id"] for r in rules},
-                         {"NOM-" + str(i).zfill(4) for i in range(1, 176)})
+                         {"NOM-" + str(i).zfill(4) for i in range(1, 200)})
 
     def test_candidates_cannot_be_mislabeled_published(self):
         candidates = [r for r in self.data["rules"] if r["registry"] == "candidate"]

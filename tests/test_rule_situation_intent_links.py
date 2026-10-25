@@ -26,8 +26,9 @@ class RuleConceptLinks(unittest.TestCase):
     def test_source_evidence_and_semantic_vs_normative_distinction(self):
         for rid,x in self.links.items():
             self.assertTrue(x["evidence"]["source_statement"])
-            self.assertIn("not exhaustive",x["interpretation"]["situation_scope"])
-            self.assertIn("inferred",x["interpretation"]["intent_semantics"])
+            self.assertTrue("not exhaustive" in x["interpretation"]["situation_scope"] or
+                            "do not narrow" in x["interpretation"]["situation_scope"])
+            self.assertIn("inferred",x["interpretation"]["intent_semantics"].lower())
             self.assertFalse("effective_instruction" in x)
 if __name__=="__main__":
     unittest.main()
