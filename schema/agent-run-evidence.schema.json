@@ -1,0 +1,233 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/sguzman/nomos/blob/main/schema/agent-run-evidence.schema.json",
+  "title": "Nomos observed agent run evidence",
+  "description": "Tool-trace metadata for independent behavioral evaluation. A structurally valid record is not an agent-compliance verdict. Do not persist private transcript content.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "kind",
+    "schema_version",
+    "projection_sha256",
+    "registry_revision_sha256",
+    "agent_target",
+    "expected_phases",
+    "events",
+    "rule_assessments"
+  ],
+  "properties": {
+    "kind": {
+      "const": "nomos_agent_run_evidence"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "projection_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "registry_revision_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "agent_target": {
+      "enum": [
+        "codex",
+        "generic"
+      ]
+    },
+    "expected_phases": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "planning",
+          "implementation",
+          "review",
+          "testing",
+          "ci",
+          "release",
+          "shutdown",
+          "maintenance"
+        ]
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "kind",
+          "source",
+          "exit_code",
+          "output_sha256"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]{1,64}$"
+          },
+          "kind": {
+            "enum": [
+              "module_read",
+              "build",
+              "test",
+              "ci",
+              "commit",
+              "review"
+            ]
+          },
+          "source": {
+            "const": "tool_trace"
+          },
+          "exit_code": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "output_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "receipt": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind",
+              "schema_version",
+              "phase",
+              "projection_sha256",
+              "registry_revision_sha256",
+              "agent_target",
+              "package_verified",
+              "verified_files",
+              "modules"
+            ],
+            "properties": {
+              "kind": {
+                "const": "nomos_phase_read_receipt"
+              },
+              "schema_version": {
+                "const": 1
+              },
+              "phase": {
+                "type": "string",
+                "enum": [
+                  "planning",
+                  "implementation",
+                  "review",
+                  "testing",
+                  "ci",
+                  "release",
+                  "shutdown",
+                  "maintenance"
+                ]
+              },
+              "projection_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "registry_revision_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "agent_target": {
+                "enum": [
+                  "generic",
+                  "codex"
+                ]
+              },
+              "package_verified": {
+                "const": true
+              },
+              "verified_files": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "modules": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "relative_path",
+                    "sha256",
+                    "bytes"
+                  ],
+                  "properties": {
+                    "relative_path": {
+                      "type": "string",
+                      "pattern": "^\\.nomos/rules/[a-z0-9_-]+\\.md$"
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    },
+                    "bytes": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "kind": {
+                  "const": "module_read"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "receipt"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "rule_assessments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "rule_id",
+          "disposition",
+          "evidence_event_ids"
+        ],
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "pattern": "^NOM-[0-9]{4,}$"
+          },
+          "disposition": {
+            "enum": [
+              "satisfied",
+              "violated",
+              "not_applicable",
+              "unobserved"
+            ]
+          },
+          "evidence_event_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9_-]{1,64}$"
+            }
+          }
+        }
+      }
+    }
+  }
+}
