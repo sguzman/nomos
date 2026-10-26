@@ -1,6 +1,8 @@
 'use strict';
 /* Browser/Node pure guided intake: proposals are inert and never agent instructions. */
 const NomosBuilder=(()=>{
+  const reasoning=typeof NomosReasoning!=='undefined' ? NomosReasoning :
+    (typeof module!=='undefined' ? require('./reasoning.js') : null);
   const ANSWERS=new Set(['yes','no','unknown','not_applicable']);
   const QUESTIONS=[
     {id:'public_release',question:'Will the repository or deliverables be public?',
@@ -49,7 +51,7 @@ const NomosBuilder=(()=>{
     for(const [id,value] of Object.entries(answers))
       if(!known.has(id)||!ANSWERS.has(value))throw new Error('Unsupported answer or private-text field');
   }
-  function preview(profile,rules,answers) {
+  function preview(profile,rules,answers,analysisContext={}) {
     assertProfile(profile,rules);validateAnswers(answers);
     const byId=new Map(rules.map(r=>[r.id,r]));
     const relevantQuestions=relevant(profile);
@@ -74,10 +76,15 @@ const NomosBuilder=(()=>{
     });
     const counts={proposed:0,relevant_candidate:0,excluded_candidate:0,unresolved_candidate:0};
     for(const d of decisions)counts[d.status]++;
-    return {decisions,counts};
+    const analysis=reasoning ? reasoning.analyze(
+      profile.selected_rule_ids.map(id=>byId.get(id)),
+      {project_hierarchy:analysisContext.project_hierarchy||null},
+      analysisContext.relationships||[]) : {conflicts:[],conditional:[]};
+    return {decisions,counts,conflict_candidates:analysis.conflicts,
+      conditional_interactions:analysis.conditional};
   }
-  function draft(profile,rules,answers,review={}) {
-    const result=preview(profile,rules,answers);
+  function draft(profile,rules,answers,review={},analysisContext={}) {
+    const result=preview(profile,rules,answers,analysisContext);
     if(Object.keys(review).some(key=>key!=='veto_ids'))
       throw new Error('Unsupported review decision');
     const vetoIds=review.veto_ids||[];
@@ -99,6 +106,9 @@ const NomosBuilder=(()=>{
       proposed_rule_ids:[...profile.selected_rule_ids],
       proposed_veto_rule_ids:[...vetoIds].sort(),
       decision_preview:result.decisions,
+      conflict_candidates:result.conflict_candidates,
+      conditional_interactions:result.conditional_interactions,
+      conflicts_reviewed:false,
       explicit_selection_confirmed:false,projection_approved:false,export_authorized:false,
       warning:'This is an unapproved intake preview, not an agent package, finalized profile or rule activation.'
     };
