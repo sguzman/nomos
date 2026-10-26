@@ -118,6 +118,7 @@ jobs:
           node --check tools/agent_package_verify.cjs
           node --check tools/export_agent_package.cjs
           node --test tests/test_agent_package.cjs
+          node --test tests/test_agent_consumption_cases.cjs
           node --check docs/builder-logic.js
           node --check docs/rule-builder.js
           node --test tests/test_rule_builder.cjs
