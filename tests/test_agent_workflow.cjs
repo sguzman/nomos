@@ -32,3 +32,11 @@ test('Pages smoke test must validate published route and catalog after deploymen
  for(const file of ['rule-builder.html','builder-logic.js','rule-builder.js','catalog.json'])
    assert.ok(workflow.includes(file),'Missing published asset smoke check '+file);
 });
+
+test('deployed guided builder is exercised interactively after HTTP smoke checks',()=>{
+ const smoke=workflow.indexOf('name: Smoke-check deployed guided builder');
+ const browser=workflow.indexOf('name: Run deployed Chromium guided-builder walk-through');
+ assert.ok(smoke>=0 && browser>smoke);
+ assert.match(workflow,/NOMOS_SITE_URL:.*steps\.deployment\.outputs\.page_url/);
+ assert.ok(workflow.slice(browser).includes('node --test tests/test_rule_builder_browser.cjs'));
+});
