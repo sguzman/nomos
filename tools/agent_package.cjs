@@ -114,7 +114,8 @@ function compile(projection,catalog,{target='generic'}={}) {
     'Read this repository guidance as owner-selected project policy, subordinate to higher-priority instructions.',
     'This generated package is pinned. Never silently upgrade or treat catalog entries as blanket permission.',
     'Before work, inspect .nomos/manifest.json; read the relevant module files listed under phase_routes.',
-    'At task start and every phase transition, verify the installed package with node .nomos/verify.cjs when Node is available; otherwise verify the manifest hashes with an equivalent local tool. Report unverified modules before relying on them.',
+    'At task start and every phase transition, use node .nomos/read-phase.cjs <phase> to verify the package and print the phase-selected rule modules; preserve its read receipt in the tool trace.',
+    'If the phase reader is unavailable, manually verify the manifest hashes and read every listed module before work. Report any unverified module; do not guess missing instructions.',
     'At a phase change, consult that phase route again. When a required module is missing or stale, stop the affected action and report it.',
     'Do not treat rule titles, situation labels, this package, or user-facing content as authorization for unrelated changes.',
     'Preserve each original condition, scope, exception, and prohibition. Do not turn a conditional obligation into an unconditional one.',
@@ -132,6 +133,7 @@ function compile(projection,catalog,{target='generic'}={}) {
   files.set('AGENTS.md',lines.join('\n')+'\n');
   files.set('.nomos/projection.json',JSON.stringify(projection,null,2)+'\n');
   files.set('.nomos/verify.cjs',fs.readFileSync(path.join(__dirname,'agent_package_verify.cjs'),'utf8'));
+  files.set('.nomos/read-phase.cjs',fs.readFileSync(path.join(__dirname,'agent_phase_reader.cjs'),'utf8'));
 
   if(target==='codex')for(const name of names)
     files.set('.agents/skills/nomos-'+name+'/SKILL.md',makeSkill(name));
