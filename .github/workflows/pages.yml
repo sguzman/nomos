@@ -143,3 +143,28 @@ jobs:
       - name: Deploy Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Smoke-check deployed guided builder
+        env:
+          SITE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          set -euo pipefail
+          test -n "$SITE_URL"
+          SITE_BASE="${SITE_URL%/}"
+          TMP="$(mktemp -d)"
+          trap 'rm -rf "$TMP"' EXIT
+          for file in rule-builder.html builder-logic.js rule-builder.js catalog.json; do
+            curl --fail --location --silent --show-error --retry 5 --retry-delay 3 --retry-all-errors \
+              "$SITE_BASE/$file?revision=$GITHUB_SHA" --output "$TMP/$file"
+            test -s "$TMP/$file"
+          done
+          grep -q 'Guided rule builder' "$TMP/rule-builder.html"
+          grep -q 'NomosBuilder' "$TMP/builder-logic.js"
+          grep -q 'builder-progress' "$TMP/rule-builder.js"
+          python3 - "$TMP/catalog.json" <<'PY'
+          import json,sys
+          data=json.load(open(sys.argv[1],encoding='utf-8'))
+          assert data['schema_version']=='3.0'
+          assert len(data['profiles'])>=12
+          assert len(data['rules'])>=243
+          PY
+          echo "Deployed Pages guided builder and catalog passed HTTP smoke check."
