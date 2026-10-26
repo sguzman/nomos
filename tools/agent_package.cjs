@@ -157,6 +157,14 @@ function verifyPackage({files,manifest,projection}) {
   return true;
 }
 function install(bundle,destination,{write=false,confirmedExport=false}={}) {
+  // No disk access until the complete in-memory bundle has passed integrity checks.
+  guard(bundle?.files instanceof Map,'Package files must be a Map');
+  const projectionText=bundle.files.get('.nomos/projection.json');
+  guard(typeof projectionText==='string','Missing packaged projection');
+  let projection;
+  try {projection=JSON.parse(projectionText);}
+  catch(_) {throw new Error('Malformed packaged projection');}
+  verifyPackage({...bundle,projection});
   guard(typeof destination==='string'&&destination.length>0,'Explicit destination required');
   const root=path.resolve(destination);
   guard(fs.existsSync(root)&&fs.statSync(root).isDirectory(),'Existing destination directory required');
@@ -172,7 +180,7 @@ function install(bundle,destination,{write=false,confirmedExport=false}={}) {
         fs.lstatSync(walk).isDirectory(),'Refusing symlink or non-directory ancestor');
       walk=path.dirname(walk);
     }
-    guard(!fs.existsSync(full)&&!fs.existsSync(path.dirname(full+'/anything')),
+    guard(!fs.lstatSync(full,{throwIfNoEntry:false}),
       'Refusing existing file or invalid package path: '+relative);
   }
   if(!write)return {dry_run:true,destination:root,files:paths};
