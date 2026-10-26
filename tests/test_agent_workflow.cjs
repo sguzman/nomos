@@ -23,3 +23,12 @@ test('release readiness includes provenance, compiler, browser, evidence and pri
  ])assert.ok(workflow.includes(term),'Release check absent: '+term);
  assert.match(workflow,/actions\/deploy-pages@/);
 });
+
+test('Pages smoke test must validate published route and catalog after deployment',()=>{
+ const deploy=workflow.indexOf('uses: actions/deploy-pages@v4');
+ const smoke=workflow.indexOf('name: Smoke-check deployed guided builder');
+ assert.ok(deploy>=0&&smoke>deploy);
+ assert.match(workflow,/SITE_URL:.*steps\.deployment\.outputs\.page_url/);
+ for(const file of ['rule-builder.html','builder-logic.js','rule-builder.js','catalog.json'])
+   assert.ok(workflow.includes(file),'Missing published asset smoke check '+file);
+});
