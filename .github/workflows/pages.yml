@@ -125,6 +125,7 @@ jobs:
           node --test tests/test_agent_phase_reader.cjs
           node --check tools/validate_agent_run_evidence.cjs
           node --test tests/test_agent_run_evidence.cjs
+          node --test tests/test_agent_workflow.cjs
           node --test tests/test_agent_consumption_cases.cjs
           node --test tests/test_agent_adversarial.cjs
           node --check tools/agent_package_diff.cjs
