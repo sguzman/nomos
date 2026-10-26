@@ -17,7 +17,9 @@ test('percentages are computed, not narrated',()=>{
   assert.equal(percent(69,69),100);
 });
 test('rejects missing evidence for claimed completion',()=>{
-  const data=load(); const c=data.checkpoints.find(x=>x.status==='planned'); c.status='done';
+  const data=load(); const c=data.checkpoints.find(x=>x.status!=='done');
+  assert.ok(c,'The missing-evidence negative test requires an incomplete checkpoint');
+  c.status='done'; c.evidence=[];
   data.baseline.completed+=1; data.baseline.progress_percent=percent(data.baseline.completed,69);
   data.baseline.delta_percentage_points=Math.round(10*(data.baseline.progress_percent-data.baseline.previous_percent))/10;
   assert.match(validate(data,md()).join('\n'),/Done requires nonempty/);
