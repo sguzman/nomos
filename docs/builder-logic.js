@@ -47,6 +47,28 @@ const NomosBuilder=(()=>{
     return QUESTIONS.filter(q=>q.rule_ids.some(id=>selected.has(id)||
       (profile.id==='PROFILE-0003'&&/^NOM-02(2[89]|3[02345])$/.test(id))));
   }
+  function approvalStages(profile) {
+    if(!profile||profile.kind!=='rule_profile')throw new Error('Known source profile required');
+    const confirmed=profile.review?.selection_confirmed===true;
+    const finalized=confirmed&&profile.status==='finalized'&&
+      profile.review?.finalization_confirmed===true;
+    return [
+      {id:'preview',title:'Context preview',state:'current',
+        explanation:'Answers and rule suggestions stay local and inert.'},
+      {id:'selection',title:'Confirm exact rule selection',
+        state:confirmed?'recorded':'requires_owner_decision',
+        explanation:'A separate owner review of the exact source rule IDs is required.'},
+      {id:'profile',title:'Finalize the profile',
+        state:finalized?'recorded':'requires_owner_decision',
+        explanation:'Profile finalization is a distinct recorded authorization.'},
+      {id:'projection',title:'Confirm project projection',state:'not_available_here',
+        explanation:'Resolve scoped conditions and conflicts, then explicitly approve the derived projection.'},
+      {id:'package',title:'Review generated agent package',state:'not_available_here',
+        explanation:'Inspect the manifest, instructions and destination before export.'},
+      {id:'export',title:'Authorize export and agent use',state:'not_available_here',
+        explanation:'Actual installation and subsequent agent evaluation require independent choices.'}
+    ];
+  }
   function validateAnswers(answers) {
     if(!answers||typeof answers!=='object'||Array.isArray(answers))
       throw new Error('Typed answer map required');
@@ -133,6 +155,6 @@ const NomosBuilder=(()=>{
       warning:'This is an unapproved intake preview, not an agent package, finalized profile or rule activation.'
     };
   }
-  return Object.freeze({QUESTIONS,relevant,preview,draft,validateAnswers});
+  return Object.freeze({QUESTIONS,relevant,preview,draft,validateAnswers,approvalStages});
 })();
 if(typeof module!=='undefined'&&module.exports)module.exports=NomosBuilder;
