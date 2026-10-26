@@ -3,6 +3,7 @@ name: Nomos showcase
 on:
   push:
     branches: [main]
+    tags: ['v*']
     paths:
       - "docs/**"
       - "rules/**"
@@ -34,6 +35,8 @@ on:
       - "tools/**"
       - "tests/**"
       - ".github/workflows/pages.yml"
+  release:
+    types: [published]
   workflow_dispatch:
 
 permissions:
