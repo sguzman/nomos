@@ -4,7 +4,7 @@
   const $=id=>document.getElementById(id);
   const area=$('builder-body'),bar=$('builder-progress'),status=$('builder-status');
   const controls=$('builder-controls'),back=$('builder-back'),next=$('builder-next');
-  const state={catalog:null,profileId:null,answers:{},step:0};
+  const state={catalog:null,profileId:null,answers:{},vetoIds:new Set(),step:0};
   const node=(name,text,className)=>{
     const n=document.createElement(name);
     if(text!==undefined)n.textContent=text;
@@ -27,7 +27,7 @@
       const radio=document.createElement('input');
       radio.type='radio';radio.name='builder-answer';radio.value=value;
       radio.checked=(state.answers[question.id]||'')===value;
-      radio.addEventListener('change',()=>{state.answers[question.id]=value;render();});
+      radio.addEventListener('change',()=>{state.answers[question.id]=value;state.vetoIds.clear();render();});
       label.append(radio,node('span',text));wrap.append(label);
     }
     return wrap;
@@ -48,7 +48,7 @@
     }
     select.value=state.profileId||'';
     select.addEventListener('change',()=>{
-      state.profileId=select.value||null;state.answers={};state.step=0;render();
+      state.profileId=select.value||null;state.answers={};state.vetoIds.clear();state.step=0;render();
     });
     field.append(select);area.append(field);
     if(currentProfile()) {
@@ -91,10 +91,30 @@
       list.append(row);
     }
     details.append(list);area.append(details);
+    const candidates=view.decisions.filter(item=>item.status==='excluded_candidate' &&
+      state.catalog.rules.find(rule=>rule.id===item.rule_id)?.norm?.kind!=='prohibition');
+    if(candidates.length){
+      const review=node('fieldset',undefined,'builder-answers');
+      review.append(node('legend','Optional veto suggestions for later owner review'));
+      review.append(node('p','These checkboxes only record proposed exclusions in the unapproved draft. They do not alter the source profile.','builder-note'));
+      for(const item of candidates){
+        const label=node('label',undefined,'builder-answer');
+        const input=document.createElement('input');
+        input.type='checkbox';input.value=item.rule_id;
+        input.checked=state.vetoIds.has(item.rule_id);
+        input.addEventListener('change',()=>{
+          if(input.checked)state.vetoIds.add(item.rule_id);
+          else state.vetoIds.delete(item.rule_id);
+        });
+        label.append(input,node('span','Propose excluding '+item.rule_id+' from this project context'));
+        review.append(label);
+      }
+      area.append(review);
+    }
     const download=node('button','Download unapproved draft configuration','builder-download');
     download.type='button';
     download.addEventListener('click',()=>{
-      const output=NomosBuilder.draft(p,state.catalog.rules,state.answers);
+      const output=NomosBuilder.draft(p,state.catalog.rules,state.answers,{veto_ids:[...state.vetoIds]});
       const blob=new Blob([JSON.stringify(output,null,2)+'\n'],{type:'application/json'});
       const url=URL.createObjectURL(blob);
       const a=document.createElement('a');
