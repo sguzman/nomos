@@ -76,14 +76,28 @@ const NomosBuilder=(()=>{
     for(const d of decisions)counts[d.status]++;
     return {decisions,counts};
   }
-  function draft(profile,rules,answers) {
+  function draft(profile,rules,answers,review={}) {
     const result=preview(profile,rules,answers);
+    if(Object.keys(review).some(key=>key!=='veto_ids'))
+      throw new Error('Unsupported review decision');
+    const vetoIds=review.veto_ids||[];
+    if(!Array.isArray(vetoIds)||new Set(vetoIds).size!==vetoIds.length)
+      throw new Error('Review veto list must contain unique source rule IDs');
+    const decisionById=new Map(result.decisions.map(d=>[d.rule_id,d]));
+    const ruleById=new Map(rules.map(rule=>[rule.id,rule]));
+    for(const id of vetoIds) {
+      const decision=decisionById.get(id);
+      if(!decision||decision.status!=='excluded_candidate'||
+        ruleById.get(id)?.norm?.kind==='prohibition')
+        throw new Error('Only an inapplicable, nonprohibited source rule can be proposed for veto');
+    }
     return {
       kind:'nomos_builder_draft',schema_version:1,status:'unapproved',
       source_profile:{id:profile.id,version:profile.version,status:profile.status,
         selection_confirmed:profile.review?.selection_confirmed===true},
       answers:Object.fromEntries(Object.entries(answers).sort(([a],[b])=>a.localeCompare(b))),
       proposed_rule_ids:[...profile.selected_rule_ids],
+      proposed_veto_rule_ids:[...vetoIds].sort(),
       decision_preview:result.decisions,
       explicit_selection_confirmed:false,projection_approved:false,export_authorized:false,
       warning:'This is an unapproved intake preview, not an agent package, finalized profile or rule activation.'
