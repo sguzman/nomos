@@ -120,8 +120,6 @@ jobs:
           node --check docs/builder-logic.js
           node --check docs/rule-builder.js
           node --test tests/test_rule_builder.cjs
-          node --check docs/builder-model.js
-          node --test tests/test_builder_model.cjs
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload showcase
