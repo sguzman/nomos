@@ -66,12 +66,16 @@ test('real headless browser: guided Rust interview, source-backed veto, keyboard
   const browser=locateBrowser();
   const dir=fs.mkdtempSync(path.join(os.tmpdir(),'nomos-chrome-'));
   const requests=[];
+  let failCatalogOnce=false;
   const server=http.createServer((req,res)=>{
     const url=new URL(req.url,'http://127.0.0.1');
     const name=decodeURIComponent(url.pathname).replace(/^\/+/,'');
     requests.push({method:req.method,name});
     if(req.method!=='GET'||!assetNames.has(name)){
       res.writeHead(404);res.end();return;
+    }
+    if(name==='catalog.json' && failCatalogOnce){
+      failCatalogOnce=false;res.writeHead(503);res.end('Temporary unavailable');return;
     }
     const mime=name.endsWith('.js')?'text/javascript':name.endsWith('.json')?'application/json':
       name.endsWith('.css')?'text/css':'text/html';
@@ -137,6 +141,8 @@ test('real headless browser: guided Rust interview, source-backed veto, keyboard
       windowsVirtualKeyCode:13,nativeVirtualKeyCode:13});
     await waitUntil(()=>evaluate("document.querySelector('#builder-body h2').textContent!=='Review your proposed rules'"),
       {message:'Keyboard Back did not work'});
+    assert.equal(await evaluate("Boolean(document.querySelector('input[name=\\\"builder-answer\\\"]:checked'))"),true,
+      'Returning to a question must preserve the selected answer');
     await evaluate("document.querySelector('#builder-next').click();true");
     await send('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});
     await sleep(100);
@@ -146,6 +152,20 @@ test('real headless browser: guided Rust interview, source-backed veto, keyboard
     assert.equal(await evaluate("document.querySelector('input[type=\"checkbox\"]').getAttribute('aria-label')"),null);
     // Label wraps input, so the accessible name is inherited from its visible text.
     assert.equal(await evaluate("document.querySelector('input[type=\"checkbox\"]').closest('label')?.textContent.includes('NOM-0234')"),true);
+    assert.equal(await evaluate("Boolean(document.querySelector('.skip-link'))"),true);
+    assert.equal(await evaluate("document.querySelector('progress').getAttribute('aria-label')"),'Interview progress');
+    // Simulate transient catalog failure, then retry via a fresh page load.
+    failCatalogOnce=true;
+    await send('Page.navigate',{url:origin+'/rule-builder.html'});
+    await waitUntil(()=>evaluate("document.querySelector('#builder-loading')?.textContent.includes('Unable to load the public Nomos catalog')"),
+      {timeout:15000,message:'Catalog failure was not reported'});
+    assert.equal(await evaluate("document.querySelector('#builder-controls').hidden"),true,
+      'Failure should not expose stale approval or navigation controls');
+    await send('Page.navigate',{url:origin+'/rule-builder.html'});
+    await waitUntil(()=>evaluate("document.querySelector('#builder-loading')?.hidden===true"),
+      {timeout:15000,message:'Builder did not recover after retry'});
+    assert.equal(await evaluate("document.querySelector('#builder-controls').hidden"),false);
+    assert.equal(await evaluate("document.querySelector('#builder-body').textContent.includes('What kind of project')"),true);
   }finally{
     if(ws)ws.close();
     if(chrome && chrome.exitCode===null)chrome.kill('SIGTERM');
