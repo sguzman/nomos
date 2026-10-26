@@ -140,7 +140,13 @@ function safeRelative(p) {
 }
 function verifyPackage({files,manifest,projection}) {
   guard(manifest?.projection_sha256===sha(projection),'Manifest projection fingerprint mismatch');
+  guard(manifest?.source_digest_sha256===projection?.source?.digest_sha256,
+    'Manifest source selection fingerprint mismatch');
+  guard(manifest?.registry_revision_sha256===projection?.source?.registry_revision_sha256,
+    'Manifest registry revision fingerprint mismatch');
   guard(files instanceof Map,'Package files must be a Map');
+  guard(files.get('.nomos/manifest.json')===JSON.stringify(manifest,null,2)+'\n',
+    'Manifest file differs from its checked in-memory representation');
   // Reject every untrusted bundle pathname before comparing manifest membership.
   for(const file of files.keys())safeRelative(file);
   for(const [file,hash] of Object.entries(manifest.files)) {
