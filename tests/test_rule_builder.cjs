@@ -51,3 +51,12 @@ test('preview determinism and source title match are independent of UI rendering
                   NomosBuilder.draft(p,catalog.rules,{persistence:'no',gui:'yes'}));
  assert.ok(NomosBuilder.preview(p,catalog.rules,{}).decisions.every(d=>typeof d.title==='string'&&d.title.length>0));
 });
+
+test('private repository answer never excludes the secret-protection rule',()=>{
+ const p=profile('PROFILE-0004');
+ const out=NomosBuilder.preview(p,catalog.rules,{public_release:'no'});
+ const secret=out.decisions.find(x=>x.rule_id==='NOM-0051');
+ assert.ok(secret,'Expected general secret rule within this source profile');
+ assert.equal(secret.status,'proposed');
+ assert.equal(out.decisions.find(x=>x.rule_id==='NOM-0001').status,'excluded_candidate');
+});
