@@ -186,3 +186,14 @@ test('projection veto explanations are controlled codes, not private owner prose
     context:base(),overrides:[{rule_id:'NOM-0008',decision:'exclude',
       reason:'personal owner note must never be persisted'}]}),/Invalid/);
 });
+
+test('projection JSON schema follows the emitted controls and exact top-level fields',()=>{
+ const schema=require('../schema/rule-projection.schema.json');
+ const p=preview();
+ assert.equal(schema.additionalProperties,false);
+ assert.ok(schema.required.includes('controls'));
+ assert.deepEqual(Object.keys(schema.properties).sort(),Object.keys(p).sort());
+ assert.deepEqual(Object.keys(schema.properties.controls.properties).sort(),
+   Object.keys(p.controls).sort());
+ assert.equal(schema.properties.controls.additionalProperties,false);
+});
