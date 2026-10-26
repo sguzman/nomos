@@ -127,3 +127,21 @@ test('package checksum includes complete source-projection version and context',
   assert.notEqual(bundle.manifest.projection_sha256,require('../tools/projections.cjs').sha(clone));
   assert.throws(()=>verifyPackage({...bundle,projection:clone}),/fingerprint/);
 });
+
+test('installation rejects modified bundles before creating destination artifacts',()=>{
+ const root=fs.mkdtempSync(path.join(os.tmpdir(),'nomos-integrity-'));
+ try {
+  const bundle=compile(approved(),catalog);
+  bundle.files.set('AGENTS.md',bundle.files.get('AGENTS.md')+'not authorized');
+  assert.throws(()=>install(bundle,root,{write:true,confirmedExport:true}),/checksum/);
+  assert.deepEqual(fs.readdirSync(root),[]);
+ } finally {fs.rmSync(root,{recursive:true,force:true});}
+});
+test('dangling symlink destination cannot masquerade as an absent target',()=>{
+ const root=fs.mkdtempSync(path.join(os.tmpdir(),'nomos-dangling-'));
+ try {
+  fs.symlinkSync('nonexistent-target',path.join(root,'AGENTS.md'));
+  assert.throws(()=>install(compile(approved(),catalog),root),/existing file/);
+  assert.equal(fs.lstatSync(path.join(root,'AGENTS.md')).isSymbolicLink(),true);
+ } finally {fs.rmSync(root,{recursive:true,force:true});}
+});
