@@ -7,7 +7,7 @@ const fileSha=body=>createHash('sha256').update(body,'utf8').digest('hex');
 const {decide,verifyProjection,sha,sourceFingerprint}=require('./projections.cjs');
 const hierarchy=require('../taxonomy/project-types.json');
 const CORE=new Set(['NOM-0001','NOM-0003','NOM-0004','NOM-0050','NOM-0051','NOM-0052']);
-const PHASES=['planning','implementation','testing','release','maintenance'];
+const PHASES=['planning','implementation','review','testing','ci','release','shutdown','maintenance'];
 function guard(ok,message) {if(!ok)throw new Error(message);}
 function moduleOf(rule) {
   const domains=rule.categories?.domains||[];
@@ -45,8 +45,11 @@ function routes(moduleNames) {
   const byPhase={
     planning:['architecture','dependencies','engineering','documentation','governance'],
     implementation:['engineering','architecture','interface','dependencies','documentation'],
+    review:['testing','engineering','architecture','documentation','interface','dependencies'],
     testing:['testing','ci','engineering','interface','privacy'],
+    ci:['ci','testing','dependencies','engineering','release'],
     release:['release','ci','testing','documentation','governance','privacy'],
+    shutdown:['release','testing','engineering','architecture','governance','privacy'],
     maintenance:['release','testing','engineering','architecture','governance','dependencies']
   };
   const always=new Set(['privacy','governance']);
