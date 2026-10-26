@@ -60,3 +60,19 @@ test('private repository answer never excludes the secret-protection rule',()=>{
  assert.equal(secret.status,'proposed');
  assert.equal(out.decisions.find(x=>x.rule_id==='NOM-0001').status,'excluded_candidate');
 });
+
+test('question semantic links are source-reviewed rather than inferred from display labels',()=>{
+ const full=profile('PROFILE-0004');
+ const questions=NomosBuilder.relevant(full);
+ for(const q of questions){
+  if(!q.semantic_intent_id)continue;
+  for(const id of q.rule_ids){
+   const rule=catalog.rules.find(r=>r.id===id);
+   assert.ok(rule.situational_analysis.intent_ids.includes(q.semantic_intent_id),id);
+  }
+ }
+ const changed=structuredClone(catalog.rules);
+ const target=changed.find(r=>r.id==='NOM-0234');
+ target.situational_analysis.intent_ids=[];
+ assert.throws(()=>NomosBuilder.preview(full,changed,{gui:'yes'}),/Question intent evidence changed/);
+});
