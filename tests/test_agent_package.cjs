@@ -156,3 +156,36 @@ test('manifest bytes and registry revision cannot be detached from approved proj
   corrupted.files.set('.nomos/manifest.json','{}');
   assert.throws(()=>verifyPackage({...corrupted,projection:p}),/Manifest file differs/);
 });
+
+
+test('Codex Skills references and phase routes resolve to packaged files',()=>{
+ const bundle=compile(approved(),catalog,{target:'codex'});
+ for(const files of Object.values(bundle.manifest.phase_routes))
+   for(const file of files)assert.ok(bundle.files.has(file),'Missing phase route: '+file);
+ for(const [file,body] of bundle.files){
+   if(!file.endsWith('/SKILL.md'))continue;
+   const match=body.match(/Read the local rule module at (\.\.\/[^\s]+\.md)/);
+   assert.ok(match,'Missing module reference '+file);
+   const resolved=path.posix.normalize(path.posix.join(path.posix.dirname(file),match[1]));
+   assert.ok(bundle.files.has(resolved),'Broken reference: '+resolved);
+ }
+});
+test('synthetic approved ad hoc selection from full 106-rule New Rust proposal covers all applicable members',()=>{
+ // This is synthetic QA authorization, not approval/finalization of the actual PROFILE-0004 draft.
+ const ids=catalog.profiles.find(p=>p.id==='PROFILE-0004').selected_rule_ids;
+ const c=JSON.parse(JSON.stringify(context));
+ c.axes={channel:'git_repository',visibility:'public',artifact_kind:'repository_content',actor:'ai_agent'};
+ const selection={type:'rules',rule_ids:ids};
+ const p=decide({catalog,hierarchy,selection,context:c});
+ assert.equal(p.decisions.length,106);
+ assert.equal(p.source.rule_ids.length,106);
+ const blockers=p.blockers;
+ assert.deepEqual(blockers,[],'Unexpected unresolved scope/conflict: '+blockers.join('; '));
+ const a=decide({catalog,hierarchy,selection,context:c,approval:approvals});
+ const compiled=compile(a,catalog,{target:'codex'});
+ assert.ok(compiled.files.get('AGENTS.md').length<12000);
+ const applicable=a.decisions.filter(x=>['include','conditional'].includes(x.decision));
+ assert.equal(Object.keys(compiled.manifest.rules).length,applicable.length);
+ assert.ok(compiled.files.has('.nomos/manifest.json'));
+ assert.equal(verifyPackage({...compiled,projection:a}),true);
+});
