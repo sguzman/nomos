@@ -6,6 +6,8 @@
 
 The runner `tools/run_luna_acceptance.cjs` prepares three public-safe Rust exercises aligned with the agent-consumption acceptance matrix: `RUST-CLI` for normalizing command-line input, `RUST-PERSIST` for durable journal state, and `RUST-MIXED` for overlapping Tarium/Rust project facets and untrusted input. They deliberately use a *synthetic, disposable, ad-hoc selection* of the 106 published source rules referenced by the **unconfirmed** Rust Full draft. No actual profile is finalized, selected for a real project, or published.
 
+For all three scenarios without repeated manual setup, `node tools/run_luna_acceptance_suite.cjs` previews them together. `node tools/run_luna_acceptance_suite.cjs --model MODEL --execute` explicitly invokes an already authenticated Codex CLI for the three isolated scenarios; it still leaves independent acceptance pending, even if all Cargo tests succeed.
+
 The default command is a harmless planning preflight:
 
 `node tools/run_luna_acceptance.cjs --case RUST-CLI`
