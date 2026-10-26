@@ -127,3 +127,25 @@ test('Lite source rule additions remain proposed until separately approved',()=>
  assert.equal(draft.export_authorized,false);
  assert.equal(p.selected_rule_ids.includes('NOM-0235'),false);
 });
+
+test('distinct approval gates do not arise from answering builder questions',()=>{
+ const p=profile('PROFILE-0004');
+ const gates=NomosBuilder.approvalStages(p);
+ assert.deepEqual(gates.map(x=>x.id),
+  ['preview','selection','profile','projection','package','export']);
+ assert.equal(gates[0].state,'current');
+ assert.ok(gates.slice(1).every(x=>x.state!=='recorded'));
+ NomosBuilder.draft(p,catalog.rules,{gui:'yes',persistence:'no'});
+ assert.deepEqual(NomosBuilder.approvalStages(p),gates);
+});
+test('recorded confirmation and profile finalization remain separate stages',()=>{
+ const p=structuredClone(profile('PROFILE-0004'));
+ p.review.selection_confirmed=true;
+ assert.equal(NomosBuilder.approvalStages(p)[1].state,'recorded');
+ assert.equal(NomosBuilder.approvalStages(p)[2].state,'requires_owner_decision');
+ p.status='finalized';p.review.finalization_confirmed=true;
+ const gates=NomosBuilder.approvalStages(p);
+ assert.equal(gates[1].state,'recorded');
+ assert.equal(gates[2].state,'recorded');
+ assert.ok(gates.slice(3).every(x=>x.state==='not_available_here'));
+});
