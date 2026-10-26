@@ -145,3 +145,14 @@ test('dangling symlink destination cannot masquerade as an absent target',()=>{
   assert.equal(fs.lstatSync(path.join(root,'AGENTS.md')).isSymbolicLink(),true);
  } finally {fs.rmSync(root,{recursive:true,force:true});}
 });
+
+test('manifest bytes and registry revision cannot be detached from approved projection',()=>{
+  const p=approved(),bundle=compile(p,catalog);
+  assert.equal(bundle.manifest.registry_revision_sha256,p.source.registry_revision_sha256);
+  const forged=compile(p,catalog);
+  forged.manifest.registry_revision_sha256='0'.repeat(64);
+  assert.throws(()=>verifyPackage({...forged,projection:p}),/registry revision/);
+  const corrupted=compile(p,catalog);
+  corrupted.files.set('.nomos/manifest.json','{}');
+  assert.throws(()=>verifyPackage({...corrupted,projection:p}),/Manifest file differs/);
+});
