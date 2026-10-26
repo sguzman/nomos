@@ -189,3 +189,16 @@ test('synthetic approved ad hoc selection from full 106-rule New Rust proposal c
  assert.ok(compiled.files.has('.nomos/manifest.json'));
  assert.equal(verifyPackage({...compiled,projection:a}),true);
 });
+
+test('privacy and governance modules are routed through every phase',()=>{
+ const {routes}=require('../tools/agent_package.cjs');
+ const paths=['.nomos/rules/privacy.md','.nomos/rules/governance.md',
+   '.nomos/rules/testing.md'];
+ const route=routes(paths);
+ for(const selected of Object.values(route)){
+  assert.ok(selected.includes('.nomos/rules/privacy.md'));
+  assert.ok(selected.includes('.nomos/rules/governance.md'));
+ }
+ assert.ok(route.testing.includes('.nomos/rules/testing.md'));
+ assert.throws(()=>routes(['.nomos/rules/unmapped_module.md']),/no phase route/);
+});
