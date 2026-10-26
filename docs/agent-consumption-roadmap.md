@@ -29,20 +29,20 @@
 
 ## Measured progress
 
-**Implementation:** **8/69 verified checkpoints = 11.6%**. **Previous:** 0.0% (new scope). **Current:** 11.6%. **Delta:** +11.6 percentage points. 🧭 ARC is complete and its contract plus tests passed CI [run 40390836598](https://github.com/sguzman/nomos/actions/runs/40390836598). This measures implementation, not roadmap authoring. Reviewable plans are not counted as delivered runtime features.
+**Implementation:** **28/69 verified checkpoints = 40.6%**. **Previous:** 11.6%. **Current:** 40.6%. **Delta:** +29.0 percentage points. 🧭 ARC and 🧬 PRJ are complete; 📦 PKG has one remaining golden-file/round-trip acceptance item. Resolver, package, security and roadmap tests passed [GitHub Actions 40393615140](https://github.com/sguzman/nomos/actions/runs/40393615140).
 
 `completion_percent = 100 × done_checkpoints / 69`; phase progress uses its own exact denominator. Use unrounded fractions as the source for arithmetic, display one decimal place, and compare only the same roadmap revision and acceptance denominator. A changed denominator must be disclosed and prior/current percentages marked non-comparable until rebased. Every change to `done` needs a concrete evidence link (file, commit, CI run, test fixture, or witnessed agent run); moving `done` back to `planned` is valid when evidence fails.
 
 | Phase | Outcome | Checkpoints | Done | Progress | Dependencies |
 |---|---|---:|---:|---:|---|
 | 🧭 ARC | Consumption architecture and governance | 8 | 8 | 100% | None |
-| 🧬 PRJ | Projection ontology and resolver | 11 | 0 | 0% | ARC |
-| 📦 PKG | Deterministic agent-package compiler | 10 | 0 | 0% | PRJ |
+| 🧬 PRJ | Projection ontology and resolver | 11 | 11 | 100% | ARC |
+| 📦 PKG | Deterministic agent-package compiler | 10 | 9 | 90% | PRJ |
 | 🗣️ BLD | Guided website rule builder | 12 | 0 | 0% | PRJ, PKG |
 | 🔌 RUN | Agent integration and contextual retrieval | 8 | 0 | 0% | PKG |
 | 🧪 EVAL | Behavioral evaluation and production gates | 12 | 0 | 0% | BLD, RUN |
 | 🚀 REL | Delivery, documentation and maintenance | 8 | 0 | 0% | BLD, RUN, EVAL |
-| **Total** | **All gates must pass** | **69** | **8** | **11.6%** | |
+| **Total** | **All gates must pass** | **69** | **28** | **40.6%** | |
 
 ## 🧭 ARC · Consumption architecture and governance
 
@@ -65,17 +65,17 @@
 
 **Completion gate:** Fixtures prove the same source snapshot and answers produce identical decisions; unknowns/conflicts cannot silently become active obligations.
 
-- [ ] **PRJ-01 — Projection JSON Schema.** Define a strictly validated, versioned nonnormative projection record with context, decisions, provenance and export state.
-- [ ] **PRJ-02 — Project-context answer schema.** Model project type, work modes, audience, distribution, interface, persistence, concurrency, and unknown or not-applicable answers without presuming features.
-- [ ] **PRJ-03 — Pinned source provenance.** Bind each selected rule to stable ID, version, status, source hash, and registry revision.
-- [ ] **PRJ-04 — Explicit selection prerequisite.** Reject silent profile instantiation, automatic selection, unpublished rules, and unconfirmed draft activation.
-- [ ] **PRJ-05 — Applicability evaluator.** Combine existing project-type hierarchy and per-rule scope/predicate data with actual project answers.
-- [ ] **PRJ-06 — Situation and intent alignment.** Use reviewed situation/intent links as contextual evidence, not as extra instructions or automatic new rules.
-- [ ] **PRJ-07 — Decision and explanation matrix.** Produce stable selected, excluded, conditional, blocked and unresolved records with per-rule rationale and source IDs.
-- [ ] **PRJ-08 — Conditional obligation policy.** Keep feature-specific obligations dormant until supported by affirmative applicable facts; handle unknown answers explicitly.
-- [ ] **PRJ-09 — Conflict and precedence review.** Reuse the conservative reasoning engine; distinguish candidate conflicts, disjointness, exceptions and unresolved collisions.
-- [ ] **PRJ-10 — Override and recomposition semantics.** Support explicit owner edits, vetoes, answer changes, deterministic diffs and no hidden rule insertion.
-- [ ] **PRJ-11 — Resolver fixtures and adversarial tests.** Verify privacy, draft gating, empty inputs, contradictory answers, unsupported scope, stable ordering, and unknowns.
+- [x] **PRJ-01 — Projection JSON Schema.** Define a strictly validated, versioned nonnormative projection record with context, decisions, provenance and export state.
+- [x] **PRJ-02 — Project-context answer schema.** Model project type, work modes, audience, distribution, interface, persistence, concurrency, and unknown or not-applicable answers without presuming features.
+- [x] **PRJ-03 — Pinned source provenance.** Bind each selected rule to stable ID, version, status, source hash, and registry revision.
+- [x] **PRJ-04 — Explicit selection prerequisite.** Reject silent profile instantiation, automatic selection, unpublished rules, and unconfirmed draft activation.
+- [x] **PRJ-05 — Applicability evaluator.** Combine existing project-type hierarchy and per-rule scope/predicate data with actual project answers.
+- [x] **PRJ-06 — Situation and intent alignment.** Use reviewed situation/intent links as contextual evidence, not as extra instructions or automatic new rules.
+- [x] **PRJ-07 — Decision and explanation matrix.** Produce stable selected, excluded, conditional, blocked and unresolved records with per-rule rationale and source IDs.
+- [x] **PRJ-08 — Conditional obligation policy.** Keep feature-specific obligations dormant until supported by affirmative applicable facts; handle unknown answers explicitly.
+- [x] **PRJ-09 — Conflict and precedence review.** Reuse the conservative reasoning engine; distinguish candidate conflicts, disjointness, exceptions and unresolved collisions.
+- [x] **PRJ-10 — Override and recomposition semantics.** Support explicit owner edits, vetoes, answer changes, deterministic diffs and no hidden rule insertion.
+- [x] **PRJ-11 — Resolver fixtures and adversarial tests.** Verify privacy, draft gating, empty inputs, contradictory answers, unsupported scope, stable ordering, and unknowns.
 
 ## 📦 PKG · Deterministic agent-package compiler
 
@@ -83,15 +83,15 @@
 
 **Completion gate:** Two exports of the same approved projection are byte-identical; a validator proves complete applicable-rule coverage and no hidden activation.
 
-- [ ] **PKG-01 — Compiler API and offline command.** Provide a documented local compiler consuming an approved projection and an explicit target variant.
-- [ ] **PKG-02 — Compact AGENTS.md template.** Keep always-on safety, authority, phase triggers, compliance duties and reference instructions short and unambiguous.
-- [ ] **PKG-03 — Rule module partitioning.** Generate context-scoped engineering, testing, CI, data, GUI, release and governance modules without dropping source IDs.
-- [ ] **PKG-04 — Manifest and activation map.** Emit machine-readable paths, hashes, rule IDs, phase triggers, source versions and mandatory-versus-conditional flags.
-- [ ] **PKG-05 — Complete coverage verifier.** Prove every applicable selected rule is represented once, with unresolved rules identified rather than silently omitted.
-- [ ] **PKG-06 — Codex Skill adapters.** Generate valid task-oriented SKILL.md wrappers and supporting references only for supported agent targets.
-- [ ] **PKG-07 — Generic agent fallback.** Generate standalone Markdown modules when agent-specific skill loading is unavailable.
-- [ ] **PKG-08 — Read-on-demand behavior contract.** Define when the entrypoint must load a module, how it confirms loading, and what to do if the reference is missing.
-- [ ] **PKG-09 — Safe filesystem export.** Use dry-run previews, explicit destination choice, deterministic names, and non-destructive refusal on collisions or unrelated AGENTS.md content.
+- [x] **PKG-01 — Compiler API and offline command.** Provide a documented local compiler consuming an approved projection and an explicit target variant.
+- [x] **PKG-02 — Compact AGENTS.md template.** Keep always-on safety, authority, phase triggers, compliance duties and reference instructions short and unambiguous.
+- [x] **PKG-03 — Rule module partitioning.** Generate context-scoped engineering, testing, CI, data, GUI, release and governance modules without dropping source IDs.
+- [x] **PKG-04 — Manifest and activation map.** Emit machine-readable paths, hashes, rule IDs, phase triggers, source versions and mandatory-versus-conditional flags.
+- [x] **PKG-05 — Complete coverage verifier.** Prove every applicable selected rule is represented once, with unresolved rules identified rather than silently omitted.
+- [x] **PKG-06 — Codex Skill adapters.** Generate valid task-oriented SKILL.md wrappers and supporting references only for supported agent targets.
+- [x] **PKG-07 — Generic agent fallback.** Generate standalone Markdown modules when agent-specific skill loading is unavailable.
+- [x] **PKG-08 — Read-on-demand behavior contract.** Define when the entrypoint must load a module, how it confirms loading, and what to do if the reference is missing.
+- [x] **PKG-09 — Safe filesystem export.** Use dry-run previews, explicit destination choice, deterministic names, and non-destructive refusal on collisions or unrelated AGENTS.md content.
 - [ ] **PKG-10 — Golden file and round-trip tests.** Test stable output bytes, link validity, normalized paths, fingerprint drift, Unicode, and no private metadata leakage.
 
 ## 🗣️ BLD · Guided website rule builder

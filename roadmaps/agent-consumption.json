@@ -7,11 +7,11 @@
   "updated_on": "2026-10-26",
   "scope": "Project-context projections, guided website rule builder, deterministic agent packages, context-aware reference loading, end-to-end agent acceptance and release.",
   "baseline": {
-    "completed": 8,
+    "completed": 28,
     "total": 69,
-    "progress_percent": 11.6,
-    "previous_percent": 0,
-    "delta_percentage_points": 11.6,
+    "progress_percent": 40.6,
+    "previous_percent": 11.6,
+    "delta_percentage_points": 29,
     "measurement": "Equal-weight completed checkpoints divided by total checkpoints. A checkpoint becomes done only after its acceptance and evidence are verified."
   },
   "governance": {
@@ -281,160 +281,280 @@
       "phase": "PRJ",
       "title": "Projection JSON Schema",
       "acceptance": "Define a strictly validated, versioned nonnormative projection record with context, decisions, provenance and export state.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
     },
     {
       "id": "PRJ-02",
       "phase": "PRJ",
       "title": "Project-context answer schema",
       "acceptance": "Model project type, work modes, audience, distribution, interface, persistence, concurrency, and unknown or not-applicable answers without presuming features.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
     },
     {
       "id": "PRJ-03",
       "phase": "PRJ",
       "title": "Pinned source provenance",
       "acceptance": "Bind each selected rule to stable ID, version, status, source hash, and registry revision.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
     },
     {
       "id": "PRJ-04",
       "phase": "PRJ",
       "title": "Explicit selection prerequisite",
       "acceptance": "Reject silent profile instantiation, automatic selection, unpublished rules, and unconfirmed draft activation.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
     },
     {
       "id": "PRJ-05",
       "phase": "PRJ",
       "title": "Applicability evaluator",
       "acceptance": "Combine existing project-type hierarchy and per-rule scope/predicate data with actual project answers.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
     },
     {
       "id": "PRJ-06",
       "phase": "PRJ",
       "title": "Situation and intent alignment",
       "acceptance": "Use reviewed situation/intent links as contextual evidence, not as extra instructions or automatic new rules.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
     },
     {
       "id": "PRJ-07",
       "phase": "PRJ",
       "title": "Decision and explanation matrix",
       "acceptance": "Produce stable selected, excluded, conditional, blocked and unresolved records with per-rule rationale and source IDs.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
     },
     {
       "id": "PRJ-08",
       "phase": "PRJ",
       "title": "Conditional obligation policy",
       "acceptance": "Keep feature-specific obligations dormant until supported by affirmative applicable facts; handle unknown answers explicitly.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
     },
     {
       "id": "PRJ-09",
       "phase": "PRJ",
       "title": "Conflict and precedence review",
       "acceptance": "Reuse the conservative reasoning engine; distinguish candidate conflicts, disjointness, exceptions and unresolved collisions.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
     },
     {
       "id": "PRJ-10",
       "phase": "PRJ",
       "title": "Override and recomposition semantics",
       "acceptance": "Support explicit owner edits, vetoes, answer changes, deterministic diffs and no hidden rule insertion.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
     },
     {
       "id": "PRJ-11",
       "phase": "PRJ",
       "title": "Resolver fixtures and adversarial tests",
       "acceptance": "Verify privacy, draft gating, empty inputs, contradictory answers, unsupported scope, stable ordering, and unknowns.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
     },
     {
       "id": "PKG-01",
       "phase": "PKG",
       "title": "Compiler API and offline command",
       "acceptance": "Provide a documented local compiler consuming an approved projection and an explicit target variant.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
     },
     {
       "id": "PKG-02",
       "phase": "PKG",
       "title": "Compact AGENTS.md template",
       "acceptance": "Keep always-on safety, authority, phase triggers, compliance duties and reference instructions short and unambiguous.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
     },
     {
       "id": "PKG-03",
       "phase": "PKG",
       "title": "Rule module partitioning",
       "acceptance": "Generate context-scoped engineering, testing, CI, data, GUI, release and governance modules without dropping source IDs.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
     },
     {
       "id": "PKG-04",
       "phase": "PKG",
       "title": "Manifest and activation map",
       "acceptance": "Emit machine-readable paths, hashes, rule IDs, phase triggers, source versions and mandatory-versus-conditional flags.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
     },
     {
       "id": "PKG-05",
       "phase": "PKG",
       "title": "Complete coverage verifier",
       "acceptance": "Prove every applicable selected rule is represented once, with unresolved rules identified rather than silently omitted.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
     },
     {
       "id": "PKG-06",
       "phase": "PKG",
       "title": "Codex Skill adapters",
       "acceptance": "Generate valid task-oriented SKILL.md wrappers and supporting references only for supported agent targets.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
     },
     {
       "id": "PKG-07",
       "phase": "PKG",
       "title": "Generic agent fallback",
       "acceptance": "Generate standalone Markdown modules when agent-specific skill loading is unavailable.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
     },
     {
       "id": "PKG-08",
       "phase": "PKG",
       "title": "Read-on-demand behavior contract",
       "acceptance": "Define when the entrypoint must load a module, how it confirms loading, and what to do if the reference is missing.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
     },
     {
       "id": "PKG-09",
       "phase": "PKG",
       "title": "Safe filesystem export",
       "acceptance": "Use dry-run previews, explicit destination choice, deterministic names, and non-destructive refusal on collisions or unrelated AGENTS.md content.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
     },
     {
       "id": "PKG-10",
