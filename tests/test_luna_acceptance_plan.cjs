@@ -42,3 +42,33 @@ test('synthetic plans never mutate actual public draft profile',()=>{
  assert.equal(output.bundle.manifest.agent_target,'codex');
  assert.ok(output.bundle.files.has('.nomos/read-phase.cjs'));
 });
+
+test('mocked execution proves disposable workspace and private evidence artifacts without contacting a model',()=>{
+ const fs=require('node:fs'),original=cp.spawnSync;
+ const seen=[];
+ try{
+  cp.spawnSync=(exe,args,opts)=>{
+   seen.push([exe,...args]);
+   return {status:0,signal:null,error:null,stdout:'',stderr:''};
+  };
+  const report=runner.run(['--case','RUST-CLI','--execute','--model','test-only']);
+  try{
+   assert.equal(report.agent_invoked,true);
+   assert.equal(report.production_accepted,false);
+   assert.equal(report.independent_reviewer_accepted,false);
+   assert.equal(report.rule_assessments_complete,false);
+   assert.match(report.workspace,/nomos-luna-case-/);
+   assert.match(report.private_evidence,/nomos-luna-evidence-/);
+   assert.ok(fs.existsSync(require('node:path').join(report.workspace,'AGENTS.md')));
+   assert.ok(fs.existsSync(require('node:path').join(report.private_evidence,'report.json')));
+   const codex=seen.find(c=>c[0]==='codex'&&c[1]==='exec');
+   assert.ok(codex,'Expected subprocess-shaped evaluation call');
+   assert.ok(codex.includes('workspace-write'));
+   assert.ok(codex.includes('--ephemeral'));
+   assert.ok(!codex.includes('--yolo'));
+  }finally{
+   fs.rmSync(report.workspace,{recursive:true,force:true});
+   fs.rmSync(report.private_evidence,{recursive:true,force:true});
+  }
+ }finally{cp.spawnSync=original;}
+});
