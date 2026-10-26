@@ -154,6 +154,13 @@ function safeRelative(p) {
     !p.split('/').some(x=>!x||x==='.'||x==='..'),'Unsafe generated package path: '+p);
 }
 function verifyPackage({files,manifest,projection}) {
+  guard(projection?.kind==='rule_projection'&&projection.schema_version===1&&
+    projection.status==='approved'&&projection.context?.kind==='project_context'&&
+    projection.context.version==='1.0.0',
+    'Unsupported packaged projection or context version');
+  guard(manifest?.kind==='nomos_agent_package'&&manifest.schema_version===1&&
+    ['codex','generic'].includes(manifest.agent_target),
+    'Unsupported agent package manifest format or target');
   guard(manifest?.projection_sha256===sha(projection),'Manifest projection fingerprint mismatch');
   guard(manifest?.source_digest_sha256===projection?.source?.digest_sha256,
     'Manifest source selection fingerprint mismatch');
