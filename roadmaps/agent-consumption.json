@@ -1,0 +1,736 @@
+{
+  "schema_version": 1,
+  "kind": "engineering_roadmap",
+  "id": "nomos-agent-consumption-v1",
+  "title": "Guided Agent Consumption and Rule Projections",
+  "created_on": "2026-10-26",
+  "updated_on": "2026-10-26",
+  "scope": "Project-context projections, guided website rule builder, deterministic agent packages, context-aware reference loading, end-to-end agent acceptance and release.",
+  "baseline": {
+    "completed": 0,
+    "total": 69,
+    "progress_percent": 0,
+    "previous_percent": 0,
+    "delta_percentage_points": 0,
+    "measurement": "Equal-weight completed checkpoints divided by total checkpoints. A checkpoint becomes done only after its acceptance and evidence are verified."
+  },
+  "governance": {
+    "roadmap_not_task_queue": true,
+    "implementation_not_auto_authorized": true,
+    "never_auto_finalize_profiles": true,
+    "never_auto_activate_rules": true,
+    "public_safe_synthetic_fixtures_only": true,
+    "permission_boundary": "A roadmap checkpoint does not grant task-processing authorization. Any actual profile confirmation, finalization, export, or external project mutation requires explicit separate approval."
+  },
+  "phases": [
+    {
+      "id": "ARC",
+      "emoji": "🧭",
+      "title": "Consumption architecture and governance",
+      "depends_on": [],
+      "outcome": "A stable, reviewable contract separates the registry, approved selections, derived projections, execution packages, and evaluations.",
+      "acceptance_gate": "The contract names every transition and approval boundary; static examples show how a Rust project reaches an inert projection without activating a draft.",
+      "checkpoints": [
+        "ARC-01",
+        "ARC-02",
+        "ARC-03",
+        "ARC-04",
+        "ARC-05",
+        "ARC-06",
+        "ARC-07",
+        "ARC-08"
+      ]
+    },
+    {
+      "id": "PRJ",
+      "emoji": "🧬",
+      "title": "Projection ontology and resolver",
+      "depends_on": [
+        "ARC"
+      ],
+      "outcome": "A deterministic, reviewable semantic projection resolves an explicitly selected profile or rule set against project context.",
+      "acceptance_gate": "Fixtures prove the same source snapshot and answers produce identical decisions; unknowns/conflicts cannot silently become active obligations.",
+      "checkpoints": [
+        "PRJ-01",
+        "PRJ-02",
+        "PRJ-03",
+        "PRJ-04",
+        "PRJ-05",
+        "PRJ-06",
+        "PRJ-07",
+        "PRJ-08",
+        "PRJ-09",
+        "PRJ-10",
+        "PRJ-11"
+      ]
+    },
+    {
+      "id": "PKG",
+      "emoji": "📦",
+      "title": "Deterministic agent-package compiler",
+      "depends_on": [
+        "PRJ"
+      ],
+      "outcome": "An approved projection becomes a small core contract plus inspectable conditional modules and a manifest.",
+      "acceptance_gate": "Two exports of the same approved projection are byte-identical; a validator proves complete applicable-rule coverage and no hidden activation.",
+      "checkpoints": [
+        "PKG-01",
+        "PKG-02",
+        "PKG-03",
+        "PKG-04",
+        "PKG-05",
+        "PKG-06",
+        "PKG-07",
+        "PKG-08",
+        "PKG-09",
+        "PKG-10"
+      ]
+    },
+    {
+      "id": "BLD",
+      "emoji": "🗣️",
+      "title": "Guided website rule builder",
+      "depends_on": [
+        "PRJ",
+        "PKG"
+      ],
+      "outcome": "Someone unfamiliar with canonical rule IDs can configure an agent through a short, adaptive, accessible interview.",
+      "acceptance_gate": "A first-time user can finish a New Rust Project projection without browsing 106 rules; no action silently confirms a draft or exports to a repo.",
+      "checkpoints": [
+        "BLD-01",
+        "BLD-02",
+        "BLD-03",
+        "BLD-04",
+        "BLD-05",
+        "BLD-06",
+        "BLD-07",
+        "BLD-08",
+        "BLD-09",
+        "BLD-10",
+        "BLD-11",
+        "BLD-12"
+      ]
+    },
+    {
+      "id": "RUN",
+      "emoji": "🔌",
+      "title": "Agent integration and contextual retrieval",
+      "depends_on": [
+        "PKG"
+      ],
+      "outcome": "An agent can locate authoritative modules at task boundaries and recover safely when context or references change.",
+      "acceptance_gate": "Harness tests demonstrate critical rules were consulted at the intended points or the run explicitly reports a blocking gap.",
+      "checkpoints": [
+        "RUN-01",
+        "RUN-02",
+        "RUN-03",
+        "RUN-04",
+        "RUN-05",
+        "RUN-06",
+        "RUN-07",
+        "RUN-08"
+      ]
+    },
+    {
+      "id": "EVAL",
+      "emoji": "🧪",
+      "title": "Behavioral evaluation and production gates",
+      "depends_on": [
+        "BLD",
+        "RUN"
+      ],
+      "outcome": "Behavioral claims are backed by actual observable agent work rather than structural coverage or CI alone.",
+      "acceptance_gate": "Three distinct recorded real agent runs plus independent evaluation satisfy all mandatory criteria; failures are corrected and re-tested without hiding them.",
+      "checkpoints": [
+        "EVAL-01",
+        "EVAL-02",
+        "EVAL-03",
+        "EVAL-04",
+        "EVAL-05",
+        "EVAL-06",
+        "EVAL-07",
+        "EVAL-08",
+        "EVAL-09",
+        "EVAL-10",
+        "EVAL-11",
+        "EVAL-12"
+      ]
+    },
+    {
+      "id": "REL",
+      "emoji": "🚀",
+      "title": "Delivery, documentation and maintenance",
+      "depends_on": [
+        "BLD",
+        "RUN",
+        "EVAL"
+      ],
+      "outcome": "A versioned, tested builder and exporter can be adopted without browsing hundreds of rules or relying on live hosted services.",
+      "acceptance_gate": "A documented release is reproducible; onboarding reaches a working package, CI is green and limitations remain visible.",
+      "checkpoints": [
+        "REL-01",
+        "REL-02",
+        "REL-03",
+        "REL-04",
+        "REL-05",
+        "REL-06",
+        "REL-07",
+        "REL-08"
+      ]
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "ARC-01",
+      "phase": "ARC",
+      "title": "Vocabulary and artifact boundaries",
+      "acceptance": "Define catalog rule, profile, builder session, projection, agent package, module, and evaluation distinctly.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "ARC-02",
+      "phase": "ARC",
+      "title": "Projection lifecycle",
+      "acceptance": "Specify proposed, reviewed, compiled, exported, superseded and invalid states without giving projections independent normative authority.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "ARC-03",
+      "phase": "ARC",
+      "title": "Existing approval integration",
+      "acceptance": "Map profile draft, selection confirmation, finalization, and explicit export to the current PROFILE_WORKFLOW without bypasses.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "ARC-04",
+      "phase": "ARC",
+      "title": "Threat and trust boundaries",
+      "acceptance": "Specify trusted rule sources, untrusted project files, privacy boundaries, and authority precedence.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "ARC-05",
+      "phase": "ARC",
+      "title": "Target capability matrix",
+      "acceptance": "Describe Codex AGENTS.md, optional Skills, and fallback plain agent targets as explicit capability variants.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "ARC-06",
+      "phase": "ARC",
+      "title": "Offline consumption contract",
+      "acceptance": "Specify reproducible local output from pinned public catalog inputs without paid services, accounts, or runtime network requirements.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "ARC-07",
+      "phase": "ARC",
+      "title": "Roadmap ledger integrity",
+      "acceptance": "Validate checkpoint IDs, statuses, evidence links, gate rules, and reproducible completion percentages.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "ARC-08",
+      "phase": "ARC",
+      "title": "Baseline corpus and success criteria",
+      "acceptance": "Record the existing 12 profiles, published-versus-draft status, source mapping inventory, and no-empirical-evidence baseline.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "PRJ-01",
+      "phase": "PRJ",
+      "title": "Projection JSON Schema",
+      "acceptance": "Define a strictly validated, versioned nonnormative projection record with context, decisions, provenance and export state.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "PRJ-02",
+      "phase": "PRJ",
+      "title": "Project-context answer schema",
+      "acceptance": "Model project type, work modes, audience, distribution, interface, persistence, concurrency, and unknown or not-applicable answers without presuming features.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "PRJ-03",
+      "phase": "PRJ",
+      "title": "Pinned source provenance",
+      "acceptance": "Bind each selected rule to stable ID, version, status, source hash, and registry revision.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "PRJ-04",
+      "phase": "PRJ",
+      "title": "Explicit selection prerequisite",
+      "acceptance": "Reject silent profile instantiation, automatic selection, unpublished rules, and unconfirmed draft activation.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "PRJ-05",
+      "phase": "PRJ",
+      "title": "Applicability evaluator",
+      "acceptance": "Combine existing project-type hierarchy and per-rule scope/predicate data with actual project answers.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "PRJ-06",
+      "phase": "PRJ",
+      "title": "Situation and intent alignment",
+      "acceptance": "Use reviewed situation/intent links as contextual evidence, not as extra instructions or automatic new rules.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "PRJ-07",
+      "phase": "PRJ",
+      "title": "Decision and explanation matrix",
+      "acceptance": "Produce stable selected, excluded, conditional, blocked and unresolved records with per-rule rationale and source IDs.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "PRJ-08",
+      "phase": "PRJ",
+      "title": "Conditional obligation policy",
+      "acceptance": "Keep feature-specific obligations dormant until supported by affirmative applicable facts; handle unknown answers explicitly.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "PRJ-09",
+      "phase": "PRJ",
+      "title": "Conflict and precedence review",
+      "acceptance": "Reuse the conservative reasoning engine; distinguish candidate conflicts, disjointness, exceptions and unresolved collisions.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "PRJ-10",
+      "phase": "PRJ",
+      "title": "Override and recomposition semantics",
+      "acceptance": "Support explicit owner edits, vetoes, answer changes, deterministic diffs and no hidden rule insertion.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "PRJ-11",
+      "phase": "PRJ",
+      "title": "Resolver fixtures and adversarial tests",
+      "acceptance": "Verify privacy, draft gating, empty inputs, contradictory answers, unsupported scope, stable ordering, and unknowns.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "PKG-01",
+      "phase": "PKG",
+      "title": "Compiler API and offline command",
+      "acceptance": "Provide a documented local compiler consuming an approved projection and an explicit target variant.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "PKG-02",
+      "phase": "PKG",
+      "title": "Compact AGENTS.md template",
+      "acceptance": "Keep always-on safety, authority, phase triggers, compliance duties and reference instructions short and unambiguous.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "PKG-03",
+      "phase": "PKG",
+      "title": "Rule module partitioning",
+      "acceptance": "Generate context-scoped engineering, testing, CI, data, GUI, release and governance modules without dropping source IDs.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "PKG-04",
+      "phase": "PKG",
+      "title": "Manifest and activation map",
+      "acceptance": "Emit machine-readable paths, hashes, rule IDs, phase triggers, source versions and mandatory-versus-conditional flags.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "PKG-05",
+      "phase": "PKG",
+      "title": "Complete coverage verifier",
+      "acceptance": "Prove every applicable selected rule is represented once, with unresolved rules identified rather than silently omitted.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "PKG-06",
+      "phase": "PKG",
+      "title": "Codex Skill adapters",
+      "acceptance": "Generate valid task-oriented SKILL.md wrappers and supporting references only for supported agent targets.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "PKG-07",
+      "phase": "PKG",
+      "title": "Generic agent fallback",
+      "acceptance": "Generate standalone Markdown modules when agent-specific skill loading is unavailable.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "PKG-08",
+      "phase": "PKG",
+      "title": "Read-on-demand behavior contract",
+      "acceptance": "Define when the entrypoint must load a module, how it confirms loading, and what to do if the reference is missing.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "PKG-09",
+      "phase": "PKG",
+      "title": "Safe filesystem export",
+      "acceptance": "Use dry-run previews, explicit destination choice, deterministic names, and non-destructive refusal on collisions or unrelated AGENTS.md content.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "PKG-10",
+      "phase": "PKG",
+      "title": "Golden file and round-trip tests",
+      "acceptance": "Test stable output bytes, link validity, normalized paths, fingerprint drift, Unicode, and no private metadata leakage.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "BLD-01",
+      "phase": "BLD",
+      "title": "Builder navigation and start state",
+      "acceptance": "Add a clear guided entry distinct from the advanced raw-rule catalog.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "BLD-02",
+      "phase": "BLD",
+      "title": "Intent and project-type intake",
+      "acceptance": "Ask what the user is making and whether they start, port, or maintain; avoid assuming a specific project kind.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "BLD-03",
+      "phase": "BLD",
+      "title": "Question-definition model",
+      "acceptance": "Represent prompts, descriptions, answer choices, dependencies, source mappings, and explainability in structured data.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "BLD-04",
+      "phase": "BLD",
+      "title": "Situation-driven question generation",
+      "acceptance": "Derive relevant questions from reviewed project scope and situation/intent mappings; allow authored disambiguation only when necessary.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "BLD-05",
+      "phase": "BLD",
+      "title": "Adaptive branching and skipping",
+      "acceptance": "Ask only questions that can change applicable-rule decisions and show why a branch was skipped.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "BLD-06",
+      "phase": "BLD",
+      "title": "Yes, no, unsure and not-applicable states",
+      "acceptance": "Retain unanswered and unknown facts without coercing affirmative selections.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "BLD-07",
+      "phase": "BLD",
+      "title": "Selection rationale preview",
+      "acceptance": "Show included, excluded, conditional and blocked rules with source IDs and plain-language explanations.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "BLD-08",
+      "phase": "BLD",
+      "title": "Review, override and veto controls",
+      "acceptance": "Let users adjust optional selections, supply project facts, and inspect changes before confirmation.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "BLD-09",
+      "phase": "BLD",
+      "title": "Conflict-resolution dialogue",
+      "acceptance": "Present opposing norms and material uncertainty without silent priority-based resolution.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "BLD-10",
+      "phase": "BLD",
+      "title": "Explicit approval transitions",
+      "acceptance": "Distinguish preview, proposal, owner-confirmed selection, profile finalization, projection confirmation and export.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "BLD-11",
+      "phase": "BLD",
+      "title": "Accessible responsive flow",
+      "acceptance": "Test keyboard-only navigation, visible focus, readable labels, mobile layout, error recovery and progress/resume within session.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "BLD-12",
+      "phase": "BLD",
+      "title": "Private static export and browser QA",
+      "acceptance": "Build without accounts or hidden persistence; test real browsers and downloaded agent package validation.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "RUN-01",
+      "phase": "RUN",
+      "title": "Agent bootstrap verification",
+      "acceptance": "Document exactly which entrypoint files are automatically read versus only referenced for each target.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "RUN-02",
+      "phase": "RUN",
+      "title": "Phase-triggered module routing",
+      "acceptance": "Map planning, implementation, review, CI, release and shutdown events to required reference modules.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "RUN-03",
+      "phase": "RUN",
+      "title": "Mandatory instruction preservation",
+      "acceptance": "Ensure always-on constraints, especially privacy and permission boundaries, do not depend on optional contextual skill discovery.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "RUN-04",
+      "phase": "RUN",
+      "title": "Rule-refresh protocol",
+      "acceptance": "Specify explicit reload or recheck on phase transition and stale hashes rather than assuming model memory refresh.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "RUN-05",
+      "phase": "RUN",
+      "title": "Missing or inaccessible module policy",
+      "acceptance": "Fail clearly, request authorized recovery or restrict the affected action rather than improvise instructions.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "RUN-06",
+      "phase": "RUN",
+      "title": "Existing repository coexistence",
+      "acceptance": "Do not clobber preexisting project instructions; surface actual scope or hierarchy conflicts for review.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "RUN-07",
+      "phase": "RUN",
+      "title": "Version pinning and updates",
+      "acceptance": "Make upgrades explicit and produce inspectable old-versus-new module and rule diffs.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "RUN-08",
+      "phase": "RUN",
+      "title": "Target compatibility probes",
+      "acceptance": "Test the supported Codex configuration and a generic fallback against observable file-loading traces.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "EVAL-01",
+      "phase": "EVAL",
+      "title": "Evaluation rubric and severity",
+      "acceptance": "Separate mandatory invariant violations from minor formatting differences and assign clear pass/fail conditions.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "EVAL-02",
+      "phase": "EVAL",
+      "title": "Golden projection fixture suite",
+      "acceptance": "Cover CLI-only, GUI/persistence and mixed-scope Rust scenarios, including deliberate no/unsure answers.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "EVAL-03",
+      "phase": "EVAL",
+      "title": "Negative and adversarial scenarios",
+      "acceptance": "Test unapproved draft, unsupported agent, conflicting rule, prompt injection, stale reference, and path-collision failure.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "EVAL-04",
+      "phase": "EVAL",
+      "title": "Mechanical compilation gate",
+      "acceptance": "Run schema, hashes, full coverage, exported link and deterministic-byte validation on every relevant change.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "EVAL-05",
+      "phase": "EVAL",
+      "title": "Browser builder interaction suite",
+      "acceptance": "Automate adaptive branching, undo, keyboard, responsive layout, conflict handling and explicit approval transitions.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "EVAL-06",
+      "phase": "EVAL",
+      "title": "Offline installation and round trip",
+      "acceptance": "Export the package to a disposable target and prove it remains usable without the Nomos website.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "EVAL-07",
+      "phase": "EVAL",
+      "title": "Agent-read evidence harness",
+      "acceptance": "Capture module reads, applicable trigger fulfillment and tool outputs without treating text claims as evidence.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "EVAL-08",
+      "phase": "EVAL",
+      "title": "Rust task end-to-end case",
+      "acceptance": "Run a new Rust implementation with builds, automated tests, CI configuration, commits and verifiable handoff.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "EVAL-09",
+      "phase": "EVAL",
+      "title": "Alternate lifecycle case",
+      "acceptance": "Run a different Rust workflow that exercises persistence or GUI, regression recovery and release preparation.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "EVAL-10",
+      "phase": "EVAL",
+      "title": "Independent conformance review",
+      "acceptance": "Score actual repo diffs and execution traces against expected source-rule obligations.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "EVAL-11",
+      "phase": "EVAL",
+      "title": "Repeated Luna evaluation",
+      "acceptance": "Perform at least three recorded runs across distinct scopes with no uncorrected mandatory violations and disclose variance.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "EVAL-12",
+      "phase": "EVAL",
+      "title": "Production acceptance decision",
+      "acceptance": "Publish evidence-backed pass/fail, residual limits, re-test after fixes and explicit readiness classification.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "REL-01",
+      "phase": "REL",
+      "title": "Public-facing quickstart",
+      "acceptance": "Explain the guided interview and local-agent installation without requiring readers to understand the ontology first.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "REL-02",
+      "phase": "REL",
+      "title": "Advanced reference documentation",
+      "acceptance": "Document projection schema, provenance, trust boundaries, module routing, approval policy and compatibility.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "REL-03",
+      "phase": "REL",
+      "title": "Builder deployment checks",
+      "acceptance": "Verify GitHub Pages build, downloadable assets, cache/fingerprint behavior and a deployed end-user walkthrough.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "REL-04",
+      "phase": "REL",
+      "title": "Validation and release CI",
+      "acceptance": "Run projection, compiler, site, compatibility and privacy tests on pushes and before a release.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "REL-05",
+      "phase": "REL",
+      "title": "Backward-compatibility policy",
+      "acceptance": "Specify projection/package schema versioning, migration and safe refusal for unsupported versions.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "REL-06",
+      "phase": "REL",
+      "title": "Change and rollback documentation",
+      "acceptance": "Preserve generated package identity, update diffs, rollback steps and reproducible source snapshots.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "REL-07",
+      "phase": "REL",
+      "title": "Release notes and evidence ledger",
+      "acceptance": "Publish tests, supported agent variants, known limitations and real-run evidence without overstating QA.",
+      "status": "planned",
+      "evidence": []
+    },
+    {
+      "id": "REL-08",
+      "phase": "REL",
+      "title": "Final 100-percent closure audit",
+      "acceptance": "Confirm every checkpoint has linked evidence and all milestone gates hold; correct any unjustified completion claims.",
+      "status": "planned",
+      "evidence": []
+    }
+  ]
+}

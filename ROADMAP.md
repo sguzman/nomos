@@ -77,3 +77,12 @@ Engineering processing and website publication are complete. Empirical prompt ef
 - [x] Link all 137 rules to relevant source-grounded concepts, preserving source conditions and status
 - [x] Build searchable situation/intent browsing and provenance checks
 - [x] Preserve canonical normative rules, profiles, and source snapshot identifiers
+
+## 🧩 Agent consumption and guided rule builder (planned 2026-10-26)
+
+The [full emoji-milestone roadmap](docs/agent-consumption-roadmap.md) defines 69 auditable checkpoints across 7 milestones for projection semantics, a compact `AGENTS.md` + contextual rule-module exporter, an adaptive website questionnaire, contextual agent consumption, independent behavioral evaluation, and supported release workflows.
+
+- [x] Record a complete, evidence-addressable implementation roadmap with baseline metrics.
+- [ ] Complete the source-linked consumption system and independently verify an actual agent run before claiming production readiness.
+
+**Feature baseline:** 0/69 verified checkpoints (0.0%; previous baseline 0.0%; delta +0.0 pp). The [JSON ledger](roadmaps/agent-consumption.json) is the machine-readable checkpoint source; updating a roadmap is not permission to execute tasks, select profiles or export rules. Existing draft profiles remain unapproved and inert.
