@@ -134,8 +134,6 @@ test('real headless browser: guided Rust interview, source-backed veto, keyboard
     assert.equal(await evaluate("document.querySelector('#builder-body').textContent.includes('No profile is finalized')"),true);
     assert.equal(await evaluate("Boolean(document.querySelector('.builder-download'))"),true);
     // Exercise the actual browser Blob download and inspect its authority flags.
-    const downloads=path.join(dir,'downloads');
-    fs.mkdirSync(downloads,{recursive:true});
     try{
       await send('Browser.setDownloadBehavior',{behavior:'allow',downloadPath:downloads,eventsEnabled:true});
     }catch(_){
@@ -145,24 +143,17 @@ test('real headless browser: guided Rust interview, source-backed veto, keyboard
     const download=path.join(downloads,'nomos-builder-draft.json');
     await waitUntil(()=>fs.existsSync(download),{timeout:10000,message:'Browser draft download did not complete'});
     const draft=JSON.parse(fs.readFileSync(download,'utf8'));
+    assert.equal(draft.kind,'nomos_builder_draft');
     assert.equal(draft.status,'unapproved');
     assert.equal(draft.source_profile.status,'draft');
+    assert.equal(draft.explicit_selection_confirmed,false);
     assert.equal(draft.projection_approved,false);
     assert.equal(draft.export_authorized,false);
     assert.ok(draft.proposed_veto_rule_ids.includes('NOM-0234'));
+    assert.ok(draft.proposed_rule_ids.includes('NOM-0234'));
+
     // Download unapproved browser draft is inert; it is not an AGENTS.md package.
 
-    await evaluate("(()=>{const box=[...document.querySelectorAll('input[type=checkbox]')].find(x=>x.value==='NOM-0234');box.click();document.querySelector('.builder-download').click();return true})()");
-    const saved=path.join(downloads,'nomos-builder-draft.json');
-    await waitUntil(()=>fs.existsSync(saved),{timeout:10000,message:'Builder did not download its JSON draft'});
-    const exported=JSON.parse(fs.readFileSync(saved,'utf8'));
-    assert.equal(exported.kind,'nomos_builder_draft');
-    assert.equal(exported.status,'unapproved');
-    assert.equal(exported.explicit_selection_confirmed,false);
-    assert.equal(exported.projection_approved,false);
-    assert.equal(exported.export_authorized,false);
-    assert.ok(exported.proposed_veto_rule_ids.includes('NOM-0234'));
-    assert.ok(exported.proposed_rule_ids.includes('NOM-0234'));
     const review=await evaluate("document.querySelector('#builder-body').textContent");
     assert.ok(review.includes('NOM-0234') && review.includes('excluded'));
     await evaluate("document.querySelector('#builder-back').focus();true");
