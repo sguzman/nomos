@@ -76,3 +76,24 @@ test('question semantic links are source-reviewed rather than inferred from disp
  target.situational_analysis.intent_ids=[];
  assert.throws(()=>NomosBuilder.preview(full,changed,{gui:'yes'}),/Question intent evidence changed/);
 });
+
+test('opt-in veto review never changes the profile or authorizes export',()=>{
+ const p=profile('PROFILE-0004'),original=[...p.selected_rule_ids];
+ const proposed=NomosBuilder.draft(p,catalog.rules,{gui:'no'},
+   {veto_ids:['NOM-0234']});
+ assert.deepEqual(proposed.proposed_veto_rule_ids,['NOM-0234']);
+ assert.equal(proposed.export_authorized,false);
+ assert.equal(proposed.projection_approved,false);
+ assert.deepEqual(p.selected_rule_ids,original);
+});
+test('veto review rejects unsupported rule removals and absent scope evidence',()=>{
+ const p=profile('PROFILE-0004');
+ assert.throws(()=>NomosBuilder.draft(p,catalog.rules,{gui:'yes'},
+   {veto_ids:['NOM-0234']}),/Only an inapplicable/);
+ assert.throws(()=>NomosBuilder.draft(p,catalog.rules,{public_release:'no'},
+   {veto_ids:['NOM-0001']}),/nonprohibited/);
+ assert.throws(()=>NomosBuilder.draft(p,catalog.rules,{gui:'no'},
+   {veto_ids:['NOM-0234','NOM-0234']}),/unique/);
+ assert.throws(()=>NomosBuilder.draft(p,catalog.rules,{gui:'no'},
+   {veto_ids:['NOM-9999']}),/Only an inapplicable/);
+});
