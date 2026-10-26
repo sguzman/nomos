@@ -234,3 +234,11 @@ test('runtime verifier refuses missing and symlinked reference modules',()=>{
   assert.throws(()=>verify(root),/Symlink is forbidden/);
  } finally {fs.rmSync(root,{recursive:true,force:true});}
 });
+
+test('packaged file digests hash actual UTF-8 bytes, not JSON-encoded strings',()=>{
+ const bundle=compile(approved(),catalog);
+ const {createHash}=require('node:crypto');
+ for(const [name,expected] of Object.entries(bundle.manifest.files)){
+  assert.equal(expected,createHash('sha256').update(bundle.files.get(name),'utf8').digest('hex'),name);
+ }
+});
