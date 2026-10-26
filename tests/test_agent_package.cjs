@@ -93,3 +93,37 @@ test('tampered module content fails manifest verification',()=>{
  bundle.files.set('AGENTS.md',bundle.files.get('AGENTS.md')+'tampered');
  assert.throws(()=>verifyPackage({...bundle,projection:p}),/checksum/);
 });
+
+test('refuses parent traversal even when bundle metadata is tampered',()=>{
+  const bundle=compile(approved(),catalog),root=fs.mkdtempSync(path.join(os.tmpdir(),'nomos-traversal-'));
+  try {
+    bundle.files.set('../escape','unsafe');
+    assert.throws(()=>install(bundle,root),/Unsafe generated package path/);
+    assert.equal(fs.readdirSync(root).length,0);
+  } finally {fs.rmSync(root,{recursive:true,force:true});}
+});
+test('Unicode source text is preserved in deterministic package modules',()=>{
+  const fake=JSON.parse(JSON.stringify(catalog));
+  const rule=fake.rules.find(x=>x.id==='NOM-0008');
+  rule.statement+=' — 文章';
+  const p=decide({catalog:fake,hierarchy,selection:{type:'rules',rule_ids:['NOM-0008']},
+    context,approval:approvals});
+  const bundle=compile(p,fake);
+  const location=bundle.manifest.rules['NOM-0008'].path;
+  assert.ok(bundle.files.get(location).includes('— 文章'));
+  assert.equal(verifyPackage({...bundle,projection:p}),true);
+});
+test('manifest never fabricates hidden unselected catalog rule references',()=>{
+  const p=approved(),bundle=compile(p,catalog);
+  const projected=new Set(p.decisions.filter(d=>['include','conditional'].includes(d.decision)).map(d=>d.rule_id));
+  assert.deepEqual(new Set(Object.keys(bundle.manifest.rules)),projected);
+  for(const id of Object.keys(bundle.manifest.rules))
+    assert.ok(p.source.rule_ids.includes(id));
+});
+test('package checksum includes complete source-projection version and context',()=>{
+  const p=approved(),bundle=compile(p,catalog);
+  const clone=JSON.parse(JSON.stringify(p));
+  clone.context.features.gui='yes';
+  assert.notEqual(bundle.manifest.projection_sha256,require('../tools/projections.cjs').sha(clone));
+  assert.throws(()=>verifyPackage({...bundle,projection:clone}),/fingerprint/);
+});

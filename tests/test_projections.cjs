@@ -128,3 +128,44 @@ test('a typed binding and projection veto survive deterministic provenance verif
   assert.equal(verifyProjection(p,catalog,hierarchy),true);
   assert.equal(p.decisions[0].decision,'exclude');
 });
+
+test('an actual conflicting normative pair blocks approval instead of sorting by numeric priority',()=>{
+  const baseRule=JSON.parse(JSON.stringify(catalog.rules.find(x=>x.id==='NOM-0008')));
+  const conflict={...baseRule,id:'NOM-9001',title:'Synthetic conflicting prohibition',
+    norm:{...baseRule.norm,kind:'prohibition',conditions:[],exceptions:[]},
+    registry:'catalog',status:'published'};
+  const fake={...catalog,rules:[...catalog.rules,conflict]};
+  const selection={type:'rules',rule_ids:['NOM-0008','NOM-9001']};
+  const p=decide({catalog:fake,hierarchy,selection,context:base()});
+  assert.ok(p.conflicts.length>0);
+  assert.ok(p.blockers.length>0);
+  assert.throws(()=>decide({catalog:fake,hierarchy,selection,context:base(),
+    approval:approved}),/approval blocked/);
+});
+test('an explicit selected-rule veto is logged, not silently erased from provenance',()=>{
+  const p=decide({catalog,hierarchy,selection:{type:'rules',rule_ids:['NOM-0008','NOM-0015']},
+    context:base(),approval:approved,
+    overrides:[{rule_id:'NOM-0015',decision:'exclude',reason:'not needed in this selected workflow'}]});
+  assert.equal(p.status,'approved');
+  assert.equal(p.decisions.find(d=>d.rule_id==='NOM-0015').decision,'exclude');
+  assert.equal(p.source.rule_ids.length,2);
+  assert.equal(verifyProjection(p,catalog,hierarchy),true);
+});
+test('explicit nonapplicable answers suppress reviewed optional feature requirements',()=>{
+  const rule=catalog.rules.find(x=>x.id==='NOM-0234');
+  const binding={'NOM-0234':{reviewed:true,source_sha256:sourceFingerprint(rule),
+    features:[{key:'gui',required:'yes'}],covers_all_clauses:true}};
+  const c=base();c.features.gui='not_applicable';
+  const p=decide({catalog,hierarchy,selection:{type:'rules',rule_ids:['NOM-0234']},
+    context:c,bindings:binding});
+  assert.equal(p.decisions[0].decision,'exclude');
+});
+test('schema names and required fields retain the approval and completeness guards',()=>{
+  const context=require('../schema/project-context.schema.json');
+  const projection=require('../schema/rule-projection.schema.json');
+  assert.ok(context.required.includes('types_exhaustive'));
+  assert.ok(context.required.includes('features'));
+  assert.ok(projection.required.includes('controls'));
+  assert.ok(projection.required.includes('approval'));
+  assert.equal(projection.properties.status.enum.includes('approved'),true);
+});

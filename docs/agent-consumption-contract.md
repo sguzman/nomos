@@ -96,3 +96,17 @@ This sequence is an acceptance scenario, not an owner selection of PROFILE-0004,
 ## Canonical-source fingerprinting
 
 The initial resolver uses a SHA-256 digest of the canonical rule's parsed JSON object, with website-only `registry` and `situational_analysis` projections excluded. Thus adding navigation metadata does not silently change the normative source identity. This is **not** a signature proving who approved a rule, nor a raw Git blob hash; both are distinct provenance concepts. The source selection digest sorts exact rule IDs and fingerprints. Later export modules must verify these hashes against the local pinned source before writing anything.
+
+## Implemented local compiler (first engineering slice)
+
+Source-backed projection resolution lives in `tools/projections.cjs` and can produce preview or approved *data*. The caller remains responsible for authenticating the review action; booleans embedded in an untrusted file do not establish a human's consent.
+
+`tools/agent_package.cjs` compiles only approved, deterministic, source-reverified projections into a generic package or optional `codex` adapter, and `tools/export_agent_package.cjs` provides an offline command-line adapter. It does not provide an automatic approved New Rust Project Full profile: all current presets remain drafts.
+
+The CLI needs a locally prepared and genuinely approved projection JSON plus the matching pinned catalog. A read-only dry run takes the form:
+
+    node tools/export_agent_package.cjs --projection /path/to/approved-projection.json --catalog docs/catalog.json --destination /existing/empty/project
+
+To write, the user must add **both** `--write` and `--confirm-export` following inspection of dry-run paths; the directory must exist and generated output cannot replace an existing file. `--target codex` additionally emits task-scoped Skills. Do not claim those Skills were actually loaded by a live agent until separately observed. This manual CLI entrypoint is a foundation for the later graphical builder, not the final onboarding flow.
+
+The manifest binds included or conditional rules to exactly one source-backed file; excluded rules remain in the projection decisions for audit rather than being exported as instructions. Runtime context loading and actual Luna compliance remain unverified.
