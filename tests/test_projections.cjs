@@ -79,7 +79,8 @@ test('reject partial owner approval flags and unreviewed applicability mapping',
     context:base(),approval:{source_selection_confirmed:true}}),/Partial/);
   const r=catalog.rules.find(x=>x.id==='NOM-0234');
   assert.throws(()=>decide({catalog,hierarchy,selection:{type:'rules',rule_ids:['NOM-0234']},
-    context:base(),bindings:{'NOM-0234':{reviewed:false,source_sha256:sourceFingerprint(r)}}}),/Unreviewed/);
+    context:base(),bindings:{'NOM-0234':{reviewed:false,source_sha256:sourceFingerprint(r),
+      features:[{key:'gui',required:'yes'}],covers_all_clauses:true}}}),/Unreviewed/);
 });
 test('projection veto cannot silently remove a prohibition',()=>{
   const p=decide({catalog,hierarchy,selection:{type:'rules',rule_ids:['NOM-0001']},context:base(),
