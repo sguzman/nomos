@@ -38,8 +38,13 @@ function verify(root){
  const projection=JSON.parse(fs.readFileSync(projectionPath,'utf8'));
  check(manifest?.kind==='nomos_agent_package'&&manifest.schema_version===1,
    'Unsupported package manifest');
- check(projection?.kind==='rule_projection'&&projection.status==='approved',
-   'Package projection is not approved');
+ check(projection?.kind==='rule_projection'&&projection.schema_version===1&&
+   projection.status==='approved',
+   'Unsupported or unapproved package projection');
+ check(projection.context?.kind==='project_context'&&projection.context.version==='1.0.0',
+   'Unsupported packaged project-context version');
+ check(['generic','codex'].includes(manifest.agent_target),
+   'Unsupported packaged agent target');
  check(manifest.projection_sha256===digest(JSON.stringify(projection)),
    'Projection content fingerprint mismatch');
  check(manifest.source_digest_sha256===projection.source?.digest_sha256,
