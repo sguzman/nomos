@@ -170,6 +170,12 @@
 
 Report a short progress table or bars for affected phases and the whole initiative: **previous verified % → current verified % (signed delta in percentage points)**, exact completed/total counts, new evidence links, failed/blocked gates, changed denominator if any, and genuine owner decisions required to proceed. Status labels distinguish **planned, authored, committed, statically validated, CI-verified, browser-verified, live-agent-verified and accepted**; only evidence-backed accepted checkpoints count as done. Do not inflate progress for discussion, activity, or repeated reporting.
 
+## Empirical gate status (2026-10-26)
+
+**62/69 = 89.9%** remains unchanged. Seven checkpoints are still open, and none is eligible for acceptance without additional evidence. `RUN-08`, `EVAL-08`, `EVAL-09`, and `EVAL-10` are **implementing**: a safe, disposable three-scenario runner and a JSONL phase-read observer now exist, but have only been exercised with synthetic/mock events and plan-only CI. `EVAL-11`, `EVAL-12`, and `REL-08` are **blocked** pending actual Codex/Luna execution, independent behavioral review, and all milestone gates.
+
+Do **not** record a synthetic fixture, mocked Codex invocation, file-hash check, generated Skills, or successful Pages deployment as a genuine autonomous Rust implementation run. No completed live Luna acceptance case has been witnessed through the available tools. The acceptance runner is opt-in, keeps evidence private, and never finalizes the underlying provisional profile. See [the runner protocol](agent-luna-acceptance-runner.md) and [current evidence status](agent-consumption-release-status.md).
+
 ## Approval and ownership boundary
 
 This is a public, source-neutral design roadmap authorized for planning. The existing four stores (`queues/specimens`, `processing/specimens`, `queues/tasks`, `processing/tasks`) and the profile opt-in lifecycle remain separate. Roadmap publication is not task-queue enrollment and cannot be used by an agent to grant itself additional authority. No existing profile is approved, finalized, selected, exported or applied by this roadmap.

@@ -816,8 +816,13 @@
       "phase": "RUN",
       "title": "Target compatibility probes",
       "acceptance": "Test the supported Codex configuration and a generic fallback against observable file-loading traces.",
-      "status": "planned",
-      "evidence": []
+      "status": "implementing",
+      "evidence": [
+        "tools/agent_phase_reader.cjs",
+        "tools/codex_trace_observer.cjs",
+        "tools/run_luna_acceptance.cjs",
+        "tests/test_codex_trace_observer.cjs"
+      ]
     },
     {
       "id": "EVAL-01",
@@ -908,40 +913,56 @@
       "phase": "EVAL",
       "title": "Rust task end-to-end case",
       "acceptance": "Run a new Rust implementation with builds, automated tests, CI configuration, commits and verifiable handoff.",
-      "status": "planned",
-      "evidence": []
+      "status": "implementing",
+      "evidence": [
+        "tools/run_luna_acceptance.cjs",
+        "tools/run_luna_acceptance_suite.cjs",
+        "tests/test_luna_acceptance_plan.cjs"
+      ]
     },
     {
       "id": "EVAL-09",
       "phase": "EVAL",
       "title": "Alternate lifecycle case",
       "acceptance": "Run a different Rust workflow that exercises persistence or GUI, regression recovery and release preparation.",
-      "status": "planned",
-      "evidence": []
+      "status": "implementing",
+      "evidence": [
+        "tools/run_luna_acceptance.cjs",
+        "tools/run_luna_acceptance_suite.cjs",
+        "docs/agent-luna-acceptance-runner.md"
+      ]
     },
     {
       "id": "EVAL-10",
       "phase": "EVAL",
       "title": "Independent conformance review",
       "acceptance": "Score actual repo diffs and execution traces against expected source-rule obligations.",
-      "status": "planned",
-      "evidence": []
+      "status": "implementing",
+      "evidence": [
+        "tools/validate_agent_run_evidence.cjs",
+        "tools/codex_trace_observer.cjs",
+        "tests/test_codex_trace_observer.cjs"
+      ]
     },
     {
       "id": "EVAL-11",
       "phase": "EVAL",
       "title": "Repeated Luna evaluation",
       "acceptance": "Perform at least three recorded runs across distinct scopes with no uncorrected mandatory violations and disclose variance.",
-      "status": "planned",
-      "evidence": []
+      "status": "blocked",
+      "evidence": [
+        "docs/agent-consumption-release-status.md"
+      ]
     },
     {
       "id": "EVAL-12",
       "phase": "EVAL",
       "title": "Production acceptance decision",
       "acceptance": "Publish evidence-backed pass/fail, residual limits, re-test after fixes and explicit readiness classification.",
-      "status": "planned",
-      "evidence": []
+      "status": "blocked",
+      "evidence": [
+        "docs/agent-consumption-release-status.md"
+      ]
     },
     {
       "id": "REL-01",
@@ -1036,8 +1057,10 @@
       "phase": "REL",
       "title": "Final 100-percent closure audit",
       "acceptance": "Confirm every checkpoint has linked evidence and all milestone gates hold; correct any unjustified completion claims.",
-      "status": "planned",
-      "evidence": []
+      "status": "blocked",
+      "evidence": [
+        "docs/agent-consumption-release-status.md"
+      ]
     }
   ]
 }
