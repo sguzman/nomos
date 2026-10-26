@@ -130,6 +130,10 @@ test('real headless browser: guided Rust interview, source-backed veto, keyboard
     }
     assert.equal(sawGui,true,'Rust GUI question was skipped unexpectedly');
     assert.equal(await evaluate("document.querySelector('#builder-body h2').textContent"),'Review your proposed rules');
+    assert.equal(await evaluate("document.querySelectorAll('.builder-stage').length"),6);
+    assert.equal(await evaluate("document.querySelector('.builder-approval-stages').getAttribute('aria-label')"),'Approval and deployment stages');
+    assert.equal(await evaluate("[...document.querySelectorAll('.builder-stage-state')].filter(x=>x.textContent==='recorded').length"),0);
+
     assert.equal(await evaluate("Boolean([...document.querySelectorAll('input[type=\"checkbox\"]')].find(x=>x.value==='NOM-0234'))"),true);
     assert.equal(await evaluate("document.querySelector('#builder-body').textContent.includes('No profile is finalized')"),true);
     assert.equal(await evaluate("Boolean(document.querySelector('.builder-download'))"),true);
