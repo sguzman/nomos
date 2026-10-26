@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "kind": "agent_consumption_synthetic_acceptance_cases",
+  "notice": "All cases are public-safe synthetic, preview-only. They are not owner approvals or live agent observations.",
+  "selection": [
+    "NOM-0008",
+    "NOM-0228",
+    "NOM-0229",
+    "NOM-0230",
+    "NOM-0233",
+    "NOM-0234",
+    "NOM-0235"
+  ],
+  "feature_bindings": {
+    "NOM-0228": "configuration",
+    "NOM-0229": "persistence",
+    "NOM-0230": "external_input",
+    "NOM-0233": "background_workers",
+    "NOM-0234": "gui",
+    "NOM-0235": "diagnostics"
+  },
+  "cases": [
+    {
+      "id": "RUST-CLI",
+      "description": "Synthetic CLI-first Rust project without GUI, workers or external data",
+      "context": {
+        "kind": "project_context",
+        "version": "1.0.0",
+        "project_types": [
+          "rust_project_from_scratch"
+        ],
+        "types_exhaustive": true,
+        "phase": "implementation",
+        "axes": {
+          "actor": "ai_agent",
+          "channel": "local_workspace",
+          "visibility": "private"
+        },
+        "features": {
+          "gui": "no",
+          "persistence": "unknown",
+          "background_workers": "no",
+          "external_input": "no",
+          "diagnostics": "no",
+          "configuration": "yes"
+        }
+      },
+      "expected_decisions": {
+        "NOM-0008": "conditional",
+        "NOM-0228": "conditional",
+        "NOM-0229": "conditional",
+        "NOM-0230": "exclude",
+        "NOM-0233": "exclude",
+        "NOM-0234": "exclude",
+        "NOM-0235": "exclude"
+      }
+    },
+    {
+      "id": "RUST-GUI",
+      "description": "Synthetic GUI Rust project with persistent state and logs",
+      "context": {
+        "kind": "project_context",
+        "version": "1.0.0",
+        "project_types": [
+          "rust_project_from_scratch"
+        ],
+        "types_exhaustive": true,
+        "phase": "testing",
+        "axes": {
+          "actor": "ai_agent",
+          "channel": "local_workspace",
+          "visibility": "private"
+        },
+        "features": {
+          "gui": "yes",
+          "persistence": "yes",
+          "background_workers": "unknown",
+          "external_input": "yes",
+          "diagnostics": "yes",
+          "configuration": "yes"
+        }
+      },
+      "expected_decisions": {
+        "NOM-0008": "conditional",
+        "NOM-0228": "conditional",
+        "NOM-0229": "conditional",
+        "NOM-0230": "conditional",
+        "NOM-0233": "conditional",
+        "NOM-0234": "conditional",
+        "NOM-0235": "conditional"
+      }
+    },
+    {
+      "id": "RUST-MIXED",
+      "description": "Synthetic overlapping Rust and independently-governed project facets",
+      "context": {
+        "kind": "project_context",
+        "version": "1.0.0",
+        "project_types": [
+          "rust_project_from_scratch",
+          "tarium_project"
+        ],
+        "types_exhaustive": true,
+        "phase": "release",
+        "axes": {
+          "actor": "ai_agent",
+          "channel": "git_repository",
+          "visibility": "public"
+        },
+        "features": {
+          "gui": "no",
+          "persistence": "no",
+          "background_workers": "yes",
+          "external_input": "yes",
+          "diagnostics": "unknown",
+          "configuration": "yes"
+        }
+      },
+      "expected_decisions": {
+        "NOM-0008": "conditional",
+        "NOM-0228": "conditional",
+        "NOM-0229": "exclude",
+        "NOM-0230": "conditional",
+        "NOM-0233": "conditional",
+        "NOM-0234": "exclude",
+        "NOM-0235": "conditional"
+      }
+    },
+    {
+      "id": "RUST-UNKNOWN",
+      "description": "Synthetic incomplete project classification must not guess source applicability",
+      "context": {
+        "kind": "project_context",
+        "version": "1.0.0",
+        "project_types": [
+          "rust_project"
+        ],
+        "types_exhaustive": false,
+        "phase": "unspecified",
+        "axes": {
+          "actor": "ai_agent"
+        },
+        "features": {
+          "gui": "unknown"
+        }
+      },
+      "selection": [
+        "NOM-0234"
+      ],
+      "expected_decisions": {
+        "NOM-0234": "unresolved"
+      }
+    }
+  ]
+}
