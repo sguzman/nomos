@@ -54,4 +54,4 @@ This establishes an **observable tool read**, not proof that a model understood 
 - Real-world end-to-end Rust task, GUI, build, release and independent conformance evaluations are not yet complete.
 - The repository's static checks and GitHub Actions results do not establish production behavior.
 
-Track [the evidence-weighted roadmap](agent-consumption-roadmap.md) and [evaluation rubric](agent-consumption-evaluation.md). The goal is production-level confidence **without requiring the owner to manually QA every rule**; until the empirical gates pass, treat agent packages as an engineering preview rather than a production guarantee.
+Track [the evidence-weighted roadmap](agent-consumption-roadmap.md), [evaluation rubric](agent-consumption-evaluation.md), and [current readiness/evidence status](agent-consumption-release-status.md). The goal is production-level confidence **without requiring the owner to manually QA every rule**; until the empirical gates pass, treat agent packages as an engineering preview rather than a production guarantee.
