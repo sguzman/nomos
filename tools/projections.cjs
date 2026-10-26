@@ -178,7 +178,9 @@ function decide({catalog,hierarchy,selection,context,bindings={},overrides=[],ap
     schema_version:1,kind:'rule_projection',status:'preview',
     source:{
       type:selection.type,profile_id:profile?.id||null,profile_version:profile?.version||null,
-      rule_ids:ruleIds,digest_sha256:sha(ruleIds.map(id=>({id,hash:sourceFingerprint(byId.get(id))})))
+      rule_ids:ruleIds,digest_sha256:sha(ruleIds.map(id=>({id,hash:sourceFingerprint(byId.get(id))}))),
+      registry_revision_sha256:sha(catalog.rules.map(rule=>({id:rule.id,version:rule.version,
+        status:rule.status,hash:sourceFingerprint(rule)})).sort((a,b)=>a.id.localeCompare(b.id)))
     },
     context:JSON.parse(JSON.stringify(context)),
     approval:approvals,
