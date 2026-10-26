@@ -198,3 +198,18 @@ test('projection JSON schema follows the emitted controls and exact top-level fi
    Object.keys(p.controls).sort());
  assert.equal(schema.properties.controls.additionalProperties,false);
 });
+
+test('registry revision is pinned independent of selected rules',()=>{
+  const p=preview();
+  assert.match(p.source.registry_revision_sha256,/^[a-f0-9]{64}$/);
+  const revised=JSON.parse(JSON.stringify(catalog));
+  const unselected=revised.rules.find(r=>r.id==='NOM-0234');
+  unselected.statement+=' synthetic revision';
+  const alt=decide({catalog:revised,hierarchy,
+    selection:{type:'rules',rule_ids:['NOM-0008']},context:base()});
+  const orig=decide({catalog,hierarchy,
+    selection:{type:'rules',rule_ids:['NOM-0008']},context:base()});
+  assert.equal(alt.source.digest_sha256,orig.source.digest_sha256);
+  assert.notEqual(alt.source.registry_revision_sha256,orig.source.registry_revision_sha256);
+  assert.throws(()=>verifyProjection(orig,revised,hierarchy),/differs/);
+});
