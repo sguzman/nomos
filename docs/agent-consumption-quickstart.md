@@ -40,6 +40,12 @@ A successfully compiled package (for a separately approved selection) contains a
 
 The entrypoint says when to consult rules and how to detect changed references. Merely providing a file path does **not** prove an agent opened it. Actual compliance requires tool trace evidence and independent acceptance of the work.
 
+### Deterministic phase reading
+
+An installed, separately approved package also includes `.nomos/read-phase.cjs`. From the destination repository's root, the target agent can execute `node .nomos/read-phase.cjs implementation` (or `planning`, `review`, `testing`, `ci`, `release`, `shutdown`, or `maintenance`). It verifies the complete installed package first, prints the exact source-backed phase modules, and emits a `NOMOS_PHASE_READ` receipt with hashes and module paths. If any module or manifest has changed, it refuses the operation.
+
+This establishes an **observable tool read**, not proof that a model understood or followed the instruction. `tools/validate_agent_run_evidence.cjs` can cross-check such receipts against recorded tool actions and all applicable rule IDs, then classify the record as incomplete, requiring remediation, or ready for **independent** review. It cannot itself declare Luna production-accepted. The associated public-safe schema is `schema/agent-run-evidence.schema.json`; do not publish raw private logs, paths, conversations, or credentials.
+
 ## 4. What is not ready yet
 
 - No existing draft profile is finalized or automatically applied.
