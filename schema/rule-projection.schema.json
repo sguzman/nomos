@@ -38,7 +38,8 @@
         "profile_id",
         "profile_version",
         "rule_ids",
-        "digest_sha256"
+        "digest_sha256",
+        "registry_revision_sha256"
       ],
       "properties": {
         "type": {
@@ -70,6 +71,11 @@
         "digest_sha256": {
           "type": "string",
           "pattern": "^[a-f0-9]{64}$"
+        },
+        "registry_revision_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$",
+          "description": "Hash of all canonical registry identities, versions, publication states and source fingerprints; distinguishes registry revisions without requiring online Git access."
         }
       }
     },
