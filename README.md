@@ -10,6 +10,7 @@ Browse [situational prompts](https://sguzman.github.io/nomos/situational-prompts
 
 - **Atomic, typed rules:** independent entries with scope, predicates, provenance, version and authority metadata.
 - **Browse and compose:** search rules, understand categories and inspect conservative conflict candidates.
+- **Guided agent builder (preview):** [answer project questions](https://sguzman.github.io/nomos/rule-builder.html) to inspect source-linked rule suggestions and export an **unapproved review draft**. No profile approval, agent deployment or Luna reliability is implied.
 - **Derived companion profiles:** [browse situation/intent companions](https://sguzman.github.io/nomos/profile-companions.html) for every existing rule-profile selection, with reverse links to supporting rules and no automatic activation.
 - **Optional groups and profiles:** reusable selections for software development, strict C/C++/Python → Rust ports, public Tarium projects and Rust fork maintenance.
 - **Situational prompts:** a separate text species with situation triggers, exclusions, intended execution and handoff, failure-mode metadata and explicit-only copying.
@@ -24,6 +25,7 @@ Browse [situational prompts](https://sguzman.github.io/nomos/situational-prompts
 - [Rule ontology](ONTOLOGY.md), [specimen and task workflow](WORKFLOW.md) and [profile workflow](PROFILE_WORKFLOW.md)
 - [Twelve revised profile versions](profiles/README.md) and [semantic-first review](audits/profile-vnext-situation-intent-review-2026-10-25.md)
 - [Rule schema](schema/rule.schema.json), [situational prompt schema](schema/situational-prompt.schema.json), [catalog site guide](docs/ABOUT.md) and [archived development notes](docs/HISTORY.md)
+- [Agent-consumption quickstart](docs/agent-consumption-quickstart.md), [target-loading contract](docs/agent-target-loading.md), [compatibility/rollback](docs/agent-package-compatibility.md) and [evidence-backed readiness status](docs/agent-consumption-release-evidence.md)
 
 ## Local checks
 
