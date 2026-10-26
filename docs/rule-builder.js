@@ -82,6 +82,19 @@
       card.append(node('strong',String(count)),node('span',label));summary.append(card);
     }
     area.append(summary);
+    const stages=node('section',undefined,'builder-approval-stages');
+    stages.setAttribute('aria-label','Approval and deployment stages');
+    stages.append(node('h3','Approval path: no automatic activation'));
+    const steps=node('ol',undefined,'builder-stage-list');
+    for(const item of NomosBuilder.approvalStages(p)){
+      const li=node('li',undefined,'builder-stage');
+      const title=node('strong',item.title);
+      const state=node('span',item.state.replaceAll('_',' '),'builder-stage-state');
+      const desc=node('p',item.explanation,'builder-secondary');
+      li.append(title,state,desc);steps.append(li);
+    }
+    stages.append(steps);
+    area.append(stages);
     if(view.suggested_additions.length){
       const suggestions=node('div',undefined,'builder-detail');
       suggestions.append(node('strong',view.suggested_additions.length+' optional rule addition(s) to review'));
