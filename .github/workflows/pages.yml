@@ -127,6 +127,8 @@ jobs:
           node --test tests/test_agent_run_evidence.cjs
           node --check tools/run_luna_acceptance.cjs
           node --test tests/test_luna_acceptance_plan.cjs
+          node --check tools/codex_trace_observer.cjs
+          node --test tests/test_codex_trace_observer.cjs
           node --test tests/test_agent_workflow.cjs
           node --test tests/test_agent_consumption_cases.cjs
           node --test tests/test_agent_adversarial.cjs
