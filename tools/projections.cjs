@@ -4,8 +4,20 @@ const {createHash}=require('node:crypto');
 const reasoning=require('../docs/reasoning.js');
 const OUTCOMES=new Set(['include','exclude','conditional','blocked','unresolved']);
 const FEATURES=new Set(['yes','no','unknown','not_applicable']);
+const FEATURE_KEYS=new Set(['gui','persistence','background_workers','external_input','cli','network','public_release','diagnostics','configuration','ci','performance','release_artifacts']);
 const PHASES=new Set(['planning','implementation','testing','release','maintenance','unspecified']);
 const AXES=['channel','visibility','artifact_kind','actor'];
+const AXIS_VALUES={
+  channel:['git_repository','local_workspace','chat','website'],
+  visibility:['public','private','internal'],
+  artifact_kind:['cargo_manifest','diary','document','gui','instructions','ontology','project_roadmap','repository_content','website'],
+  actor:['ai_agent','human','automation']
+};
+const OVERRIDE_REASONS={
+  out_of_scope:'owner-reviewed project-specific exclusion',
+  explicitly_deferred:'owner-reviewed deferral',
+  already_satisfied:'owner-reviewed existing implementation covers this selected obligation'
+};
 function sha(value) {return createHash('sha256').update(JSON.stringify(value)).digest('hex');}
 function sourceFingerprint(rule) {
   // The site adds registry and reverse-link projections; neither changes the canonical rule.
@@ -15,15 +27,17 @@ function sourceFingerprint(rule) {
 function guard(cond,msg) {if(!cond)throw new Error(msg);}
 function validateContext(context,hierarchy) {
   guard(context?.kind==='project_context'&&context.version==='1.0.0','Invalid context kind/version');
+  guard(Object.keys(context).sort().join(',')==='axes,features,kind,phase,project_types,types_exhaustive,version',
+    'Unexpected fields in public-safe typed context');
   guard(Array.isArray(context.project_types)&&context.project_types.length>0&&
     new Set(context.project_types).size===context.project_types.length,'Missing or duplicate project type');
   guard(typeof context.types_exhaustive==='boolean','Project-type completeness must be explicit');
   guard(PHASES.has(context.phase),'Invalid work phase');
   guard(context.axes && typeof context.axes==='object'&&!Array.isArray(context.axes) &&
-    Object.keys(context.axes).every(k=>AXES.includes(k)&&typeof context.axes[k]==='string'),
+    Object.keys(context.axes).every(k=>AXES.includes(k)&&AXIS_VALUES[k].includes(context.axes[k])),
     'Invalid scope axes');
   guard(context.features && typeof context.features==='object'&&!Array.isArray(context.features) &&
-    Object.entries(context.features).every(([k,v])=>/^[a-z][a-z0-9_]*$/.test(k)&&FEATURES.has(v)),
+    Object.entries(context.features).every(([k,v])=>FEATURE_KEYS.has(k)&&FEATURES.has(v)),
     'Invalid project feature answers');
   const known=new Set((hierarchy?.types||[]).map(x=>x.id));
   guard(context.project_types.every(t=>known.has(t)),'Unknown project type in context');
@@ -69,12 +83,15 @@ function applicability(rule,ctx,hierarchy,bindings,hash) {
     rule.scope?.preconditions?.length||rule.scope?.exclusions?.length);
   const binding=bindings[rule.id];
   if(binding) {
+    guard(Object.keys(binding).sort().join(',')==='covers_all_clauses,features,reviewed,source_sha256',
+      'Unexpected binding fields for '+rule.id);
     guard(binding.reviewed===true,'Unreviewed applicability binding for '+rule.id);
     guard(binding.source_sha256===hash,'Stale applicability binding for '+rule.id);
     guard(Array.isArray(binding.features) && binding.features.length,
       'Missing typed gates for '+rule.id);
     const answers=binding.features.map(f=>{
-      guard(typeof f.key==='string'&&FEATURES.has(f.required),'Invalid binding feature for '+rule.id);
+      guard(Object.keys(f).sort().join(',')==='key,required'&&FEATURE_KEYS.has(f.key)&&
+        FEATURES.has(f.required),'Invalid binding feature for '+rule.id);
       return [f,ctx.features[f.key]||'unknown'];
     });
     if(answers.some(([f,v])=>(v==='no'||v==='not_applicable')&&f.required==='yes'))
@@ -126,8 +143,9 @@ function decide({catalog,hierarchy,selection,context,bindings={},overrides=[],ap
   guard(Array.isArray(overrides),'Overrides must be a reviewed list');
   const overrideById=new Map();
   for(const ov of overrides) {
-    guard(ids.includes(ov.rule_id)&&ov.decision==='exclude'&&
-      typeof ov.reason==='string'&&ov.reason.trim().length>=8&&!overrideById.has(ov.rule_id),
+    guard(Object.keys(ov).sort().join(',')==='decision,reason_code,rule_id'&&
+      ids.includes(ov.rule_id)&&ov.decision==='exclude'&&
+      Object.hasOwn(OVERRIDE_REASONS,ov.reason_code)&&!overrideById.has(ov.rule_id),
       'Invalid, additional or duplicated projection override');
     overrideById.set(ov.rule_id,ov);
   }
@@ -140,7 +158,7 @@ function decide({catalog,hierarchy,selection,context,bindings={},overrides=[],ap
       decision:rule.norm.kind==='prohibition' ? 'blocked' : 'exclude',
       reason:rule.norm.kind==='prohibition' ?
         'Prohibition cannot be silently vetoed by a projection-level override' :
-        'Explicit project-specific selection veto: '+override.reason
+        'Explicit project-specific selection veto: '+OVERRIDE_REASONS[override.reason_code]
     }:base;
     guard(OUTCOMES.has(overridden.decision),'Unknown applicability decision');
     return {

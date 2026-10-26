@@ -7,7 +7,7 @@ const {decide,verifyProjection,sha,sourceFingerprint}=require('../tools/projecti
 const base=()=>({
   kind:'project_context',version:'1.0.0',
   project_types:['rust_project_from_scratch'],types_exhaustive:true,
-  phase:'implementation',axes:{actor:'ai_agents'},features:{gui:'no',persistence:'unknown'}
+  phase:'implementation',axes:{actor:'ai_agent'},features:{gui:'no',persistence:'unknown'}
 });
 const preview=()=>decide({catalog,hierarchy,selection:{type:'profile',profile_id:'PROFILE-0004'},context:base()});
 const approved={source_selection_confirmed:true,project_context_reviewed:true,projection_confirmed:true};
@@ -83,11 +83,11 @@ test('reject partial owner approval flags and unreviewed applicability mapping',
 });
 test('projection veto cannot silently remove a prohibition',()=>{
   const p=decide({catalog,hierarchy,selection:{type:'rules',rule_ids:['NOM-0001']},context:base(),
-    overrides:[{rule_id:'NOM-0001',decision:'exclude',reason:'explicit opt-out'}]});
+    overrides:[{rule_id:'NOM-0001',decision:'exclude',reason_code:'out_of_scope'}]});
   assert.equal(p.decisions[0].decision,'blocked');
   assert.throws(()=>decide({catalog,hierarchy,selection:{type:'rules',rule_ids:['NOM-0001']},
     context:base(),approval:approved,overrides:[{rule_id:'NOM-0001',decision:'exclude',
-      reason:'explicit opt-out'}]}),/blocked/);
+      reason_code:'out_of_scope'}]}),/blocked/);
 });
 test('resolver never mutates canonical catalog or profile data',()=>{
   const before=JSON.stringify(catalog.profiles.find(x=>x.id==='PROFILE-0004'));
@@ -145,7 +145,7 @@ test('an actual conflicting normative pair blocks approval instead of sorting by
 test('an explicit selected-rule veto is logged, not silently erased from provenance',()=>{
   const p=decide({catalog,hierarchy,selection:{type:'rules',rule_ids:['NOM-0008','NOM-0015']},
     context:base(),approval:approved,
-    overrides:[{rule_id:'NOM-0015',decision:'exclude',reason:'not needed in this selected workflow'}]});
+    overrides:[{rule_id:'NOM-0015',decision:'exclude',reason_code:'out_of_scope'}]});
   assert.equal(p.status,'approved');
   assert.equal(p.decisions.find(d=>d.rule_id==='NOM-0015').decision,'exclude');
   assert.equal(p.source.rule_ids.length,2);
@@ -168,4 +168,21 @@ test('schema names and required fields retain the approval and completeness guar
   assert.ok(projection.required.includes('controls'));
   assert.ok(projection.required.includes('approval'));
   assert.equal(projection.properties.status.enum.includes('approved'),true);
+});
+
+test('projection context rejects nonpublic free-text fields and uncontrolled vocabulary',()=>{
+  const leaked=base();leaked.private_notes='example message not for a public repository';
+  assert.throws(()=>decide({catalog,hierarchy,selection:{type:'rules',rule_ids:['NOM-0008']},
+    context:leaked}),/Unexpected fields/);
+  const unknown=base();unknown.features.internal_secret='yes';
+  assert.throws(()=>decide({catalog,hierarchy,selection:{type:'rules',rule_ids:['NOM-0008']},
+    context:unknown}),/feature answers/);
+  const badAxis=base();badAxis.axes.actor='fake-actor-name';
+  assert.throws(()=>decide({catalog,hierarchy,selection:{type:'rules',rule_ids:['NOM-0008']},
+    context:badAxis}),/scope axes/);
+});
+test('projection veto explanations are controlled codes, not private owner prose',()=>{
+  assert.throws(()=>decide({catalog,hierarchy,selection:{type:'rules',rule_ids:['NOM-0008']},
+    context:base(),overrides:[{rule_id:'NOM-0008',decision:'exclude',
+      reason:'personal owner note must never be persisted'}]}),/Invalid/);
 });

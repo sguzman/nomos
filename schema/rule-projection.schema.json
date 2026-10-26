@@ -230,7 +230,7 @@
             "required": [
               "rule_id",
               "decision",
-              "reason"
+              "reason_code"
             ],
             "properties": {
               "rule_id": {
@@ -240,9 +240,12 @@
               "decision": {
                 "const": "exclude"
               },
-              "reason": {
-                "type": "string",
-                "minLength": 8
+              "reason_code": {
+                "enum": [
+                  "out_of_scope",
+                  "explicitly_deferred",
+                  "already_satisfied"
+                ]
               }
             }
           }

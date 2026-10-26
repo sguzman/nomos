@@ -10,7 +10,7 @@ const {decide}=require('../tools/projections.cjs');
 const {compile,verifyPackage,install}=require('../tools/agent_package.cjs');
 const context={kind:'project_context',version:'1.0.0',
  project_types:['rust_project_from_scratch'],types_exhaustive:true,
- phase:'implementation',axes:{actor:'ai_agents',channel:'git_repository',visibility:'public'},features:{gui:'unknown'}};
+ phase:'implementation',axes:{actor:'ai_agent',channel:'git_repository',visibility:'public'},features:{gui:'unknown'}};
 const approvals={source_selection_confirmed:true,project_context_reviewed:true,projection_confirmed:true};
 function approved() {
  return decide({catalog,hierarchy,selection:{type:'rules',

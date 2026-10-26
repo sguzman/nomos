@@ -49,35 +49,142 @@
       "additionalProperties": false,
       "properties": {
         "channel": {
-          "type": "string",
-          "minLength": 1
+          "enum": [
+            "git_repository",
+            "local_workspace",
+            "chat",
+            "website"
+          ]
         },
         "visibility": {
-          "type": "string",
-          "minLength": 1
+          "enum": [
+            "public",
+            "private",
+            "internal"
+          ]
         },
         "artifact_kind": {
-          "type": "string",
-          "minLength": 1
+          "enum": [
+            "cargo_manifest",
+            "diary",
+            "document",
+            "gui",
+            "instructions",
+            "ontology",
+            "project_roadmap",
+            "repository_content",
+            "website"
+          ]
         },
         "actor": {
-          "type": "string",
-          "minLength": 1
+          "enum": [
+            "ai_agent",
+            "human",
+            "automation"
+          ]
         }
       }
     },
     "features": {
       "type": "object",
-      "propertyNames": {
-        "pattern": "^[a-z][a-z0-9_]*$"
-      },
-      "additionalProperties": {
-        "enum": [
-          "yes",
-          "no",
-          "unknown",
-          "not_applicable"
-        ]
+      "additionalProperties": false,
+      "properties": {
+        "gui": {
+          "enum": [
+            "yes",
+            "no",
+            "unknown",
+            "not_applicable"
+          ]
+        },
+        "persistence": {
+          "enum": [
+            "yes",
+            "no",
+            "unknown",
+            "not_applicable"
+          ]
+        },
+        "background_workers": {
+          "enum": [
+            "yes",
+            "no",
+            "unknown",
+            "not_applicable"
+          ]
+        },
+        "external_input": {
+          "enum": [
+            "yes",
+            "no",
+            "unknown",
+            "not_applicable"
+          ]
+        },
+        "cli": {
+          "enum": [
+            "yes",
+            "no",
+            "unknown",
+            "not_applicable"
+          ]
+        },
+        "network": {
+          "enum": [
+            "yes",
+            "no",
+            "unknown",
+            "not_applicable"
+          ]
+        },
+        "public_release": {
+          "enum": [
+            "yes",
+            "no",
+            "unknown",
+            "not_applicable"
+          ]
+        },
+        "diagnostics": {
+          "enum": [
+            "yes",
+            "no",
+            "unknown",
+            "not_applicable"
+          ]
+        },
+        "configuration": {
+          "enum": [
+            "yes",
+            "no",
+            "unknown",
+            "not_applicable"
+          ]
+        },
+        "ci": {
+          "enum": [
+            "yes",
+            "no",
+            "unknown",
+            "not_applicable"
+          ]
+        },
+        "performance": {
+          "enum": [
+            "yes",
+            "no",
+            "unknown",
+            "not_applicable"
+          ]
+        },
+        "release_artifacts": {
+          "enum": [
+            "yes",
+            "no",
+            "unknown",
+            "not_applicable"
+          ]
+        }
       }
     }
   }
