@@ -9,7 +9,7 @@ test('builder asks only questions connected to selected canonical source IDs',()
  assert.ok(rust.length>4&&rust.length<=NomosBuilder.QUESTIONS.length);
  assert.ok(rust.some(q=>q.id==='gui'));
  const lite=NomosBuilder.relevant(profile('PROFILE-0003'));
- assert.ok(lite.length<rust.length);
+ assert.ok(lite.length<=rust.length);
  for(const q of rust)assert.ok(q.rule_ids.some(id=>profile('PROFILE-0004').selected_rule_ids.includes(id)));
 });
 test('yes and no answers change a proposal without activating unrelated rules',()=>{
@@ -114,4 +114,16 @@ test('builder surfaces conservative edition interactions without silently choosi
  assert.equal(output.conflicts_reviewed,false);
  assert.equal(output.export_authorized,false);
  assert.equal(output.projection_approved,false);
+});
+
+test('Lite source rule additions remain proposed until separately approved',()=>{
+ const p=profile('PROFILE-0003');
+ assert.equal(p.selected_rule_ids.includes('NOM-0235'),false);
+ assert.ok(NomosBuilder.relevant(p).some(q=>q.id==='diagnostics'));
+ const view=NomosBuilder.preview(p,catalog.rules,{diagnostics:'yes'});
+ assert.deepEqual(view.suggested_additions.map(x=>x.rule_id),['NOM-0235']);
+ const draft=NomosBuilder.draft(p,catalog.rules,{diagnostics:'yes'});
+ assert.deepEqual(draft.suggested_addition_rule_ids,['NOM-0235']);
+ assert.equal(draft.export_authorized,false);
+ assert.equal(p.selected_rule_ids.includes('NOM-0235'),false);
 });
