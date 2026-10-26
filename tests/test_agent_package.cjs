@@ -257,3 +257,20 @@ test('review CI and shutdown phases route relevant modules',()=>{
  for(const phase of Object.keys(map))for(const name of ['privacy','governance'])
    assert.ok(map[phase].includes('.nomos/rules/'+name+'.md'),phase);
 });
+
+test('unknown projection or package schema is refused before installation',()=>{
+ const base=compile(approved(),catalog);
+ const p=approved();
+ const bad=structuredClone(p);bad.schema_version=2;
+ assert.throws(()=>verifyPackage({files:base.files,manifest:base.manifest,projection:bad}),
+   /Unsupported packaged projection/);
+ const badContext=structuredClone(p);badContext.context.version='9.0.0';
+ assert.throws(()=>verifyPackage({files:base.files,manifest:base.manifest,projection:badContext}),
+   /Unsupported packaged projection/);
+ const altered=structuredClone(base.manifest);altered.schema_version=3;
+ assert.throws(()=>verifyPackage({files:base.files,manifest:altered,projection:p}),
+   /Unsupported agent package/);
+ const target=structuredClone(base.manifest);target.agent_target='unknown';
+ assert.throws(()=>verifyPackage({files:base.files,manifest:target,projection:p}),
+   /Unsupported agent package/);
+});
