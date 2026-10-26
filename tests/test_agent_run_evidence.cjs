@@ -75,3 +75,14 @@ test('duplicate rule assessments and missing evidence references fail closed',()
  assert.throws(()=>validate(r2,manifest),/Unbacked evidence/);
 });
 
+
+test('schema fields track observed evidence validator and prohibit arbitrary transcript prose',()=>{
+ const schema=require('../schema/agent-run-evidence.schema.json');
+ const candidate=report();
+ assert.deepEqual(Object.keys(schema.properties).sort(),Object.keys(candidate).sort());
+ assert.equal(schema.additionalProperties,false);
+ assert.equal(schema.properties.events.items.additionalProperties,false);
+ assert.equal(schema.properties.events.items.allOf[0].then.required[0],'receipt');
+ assert.equal(schema.properties.rule_assessments.items.additionalProperties,false);
+ assert.equal(schema.properties.events.items.properties.source.const,'tool_trace');
+});
