@@ -129,8 +129,12 @@ test('real headless browser: guided Rust interview, source-backed veto, keyboard
     const review=await evaluate("document.querySelector('#builder-body').textContent");
     assert.ok(review.includes('NOM-0234') && review.includes('excluded'));
     await evaluate("document.querySelector('#builder-back').focus();true");
-    await send('Input.dispatchKeyEvent',{type:'rawKeyDown',key:'Enter',code:'Enter',windowsVirtualKeyCode:13});
-    await send('Input.dispatchKeyEvent',{type:'keyUp',key:'Enter',code:'Enter',windowsVirtualKeyCode:13});
+    await send('Input.dispatchKeyEvent',{type:'keyDown',key:'Enter',code:'Enter',
+      windowsVirtualKeyCode:13,nativeVirtualKeyCode:13});
+    await send('Input.dispatchKeyEvent',{type:'char',text:'\r',unmodifiedText:'\r',key:'Enter',
+      code:'Enter',windowsVirtualKeyCode:13,nativeVirtualKeyCode:13});
+    await send('Input.dispatchKeyEvent',{type:'keyUp',key:'Enter',code:'Enter',
+      windowsVirtualKeyCode:13,nativeVirtualKeyCode:13});
     await waitUntil(()=>evaluate("document.querySelector('#builder-body h2').textContent!=='Review your proposed rules'"),
       {message:'Keyboard Back did not work'});
     await evaluate("document.querySelector('#builder-next').click();true");
