@@ -6,19 +6,19 @@ const NomosBuilder=(()=>{
     {id:'public_release',question:'Will the repository or deliverables be public?',
       explanation:'Publication choices influence privacy and disclosure review.',rule_ids:['NOM-0001','NOM-0050']},
     {id:'gui',question:'Will the application have a graphical interface?',
-      explanation:'A graphical interface may need keyboard and feedback verification.',rule_ids:['NOM-0234']},
+      explanation:'A graphical interface may need keyboard and feedback verification.',rule_ids:['NOM-0234'],semantic_intent_id:'INTENT-0130'},
     {id:'configuration',question:'Will it accept runtime configuration?',
-      explanation:'Configuration adds key precedence, validation and failure-path requirements.',rule_ids:['NOM-0228']},
+      explanation:'Configuration adds key precedence, validation and failure-path requirements.',rule_ids:['NOM-0228'],semantic_intent_id:'INTENT-0124'},
     {id:'persistence',question:'Will it persist valuable mutable user data?',
-      explanation:'Persistent state adds interrupted-write and recovery requirements.',rule_ids:['NOM-0229']},
+      explanation:'Persistent state adds interrupted-write and recovery requirements.',rule_ids:['NOM-0229'],semantic_intent_id:'INTENT-0125'},
     {id:'external_input',question:'Will it accept data across an external trust boundary?',
-      explanation:'External inputs can require parsing, size limits and security checks.',rule_ids:['NOM-0230']},
+      explanation:'External inputs can require parsing, size limits and security checks.',rule_ids:['NOM-0230'],semantic_intent_id:'INTENT-0126'},
     {id:'background_workers',question:'Will it use background tasks or concurrent workers?',
-      explanation:'Concurrent tasks require explicit ownership and shutdown semantics.',rule_ids:['NOM-0233']},
+      explanation:'Concurrent tasks require explicit ownership and shutdown semantics.',rule_ids:['NOM-0233'],semantic_intent_id:'INTENT-0129'},
     {id:'performance',question:'Do accepted requirements contain measurable runtime or resource budgets?',
-      explanation:'Only agreed targets warrant performance measurements and budget enforcement.',rule_ids:['NOM-0232']},
+      explanation:'Only agreed targets warrant performance measurements and budget enforcement.',rule_ids:['NOM-0232'],semantic_intent_id:'INTENT-0128'},
     {id:'diagnostics',question:'Will the application produce logs, traces or crash reports?',
-      explanation:'Diagnostics must remain useful without inadvertently exposing private data.',rule_ids:['NOM-0235']}
+      explanation:'Diagnostics must remain useful without inadvertently exposing private data.',rule_ids:['NOM-0235'],semantic_intent_id:'INTENT-0131'}
   ];
   function assertProfile(profile,rules) {
     if(!profile||profile.kind!=='rule_profile'||!Array.isArray(profile.selected_rule_ids))
@@ -27,6 +27,15 @@ const NomosBuilder=(()=>{
     const byId=new Map(rules.map(r=>[r.id,r]));
     if(profile.selected_rule_ids.some(id=>byId.get(id)?.status!=='published'))
       throw new Error('Source proposal contains unpublished rules');
+    // Human-readable questions are grounded in reviewed rule-to-intent relationships.
+    for(const question of QUESTIONS){
+      if(!question.semantic_intent_id)continue;
+      for(const id of question.rule_ids)if(profile.selected_rule_ids.includes(id)){
+        const ids=byId.get(id)?.situational_analysis?.intent_ids||[];
+        if(!ids.includes(question.semantic_intent_id))
+          throw new Error('Question intent evidence changed for '+id);
+      }
+    }
   }
   function relevant(profile) {
     if(!profile?.selected_rule_ids)return[];
