@@ -114,6 +114,9 @@ jobs:
           node --test tests/test_agent_consumption_roadmap.cjs
           node --check tools/projections.cjs
           node --test tests/test_projections.cjs
+          node --check tools/agent_package.cjs
+          node --check tools/export_agent_package.cjs
+          node --test tests/test_agent_package.cjs
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload showcase

@@ -12,6 +12,7 @@
     "source",
     "context",
     "approval",
+    "controls",
     "decisions",
     "conflicts",
     "blockers"
@@ -160,6 +161,92 @@
       "type": "array",
       "items": {
         "type": "string"
+      }
+    },
+    "controls": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "bindings",
+        "overrides"
+      ],
+      "properties": {
+        "bindings": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": [
+              "reviewed",
+              "source_sha256",
+              "features",
+              "covers_all_clauses"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "reviewed": {
+                "const": true
+              },
+              "source_sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "features": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "key",
+                    "required"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "key": {
+                      "type": "string",
+                      "pattern": "^[a-z][a-z0-9_]*$"
+                    },
+                    "required": {
+                      "enum": [
+                        "yes",
+                        "no",
+                        "unknown",
+                        "not_applicable"
+                      ]
+                    }
+                  }
+                }
+              },
+              "covers_all_clauses": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        "overrides": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "rule_id",
+              "decision",
+              "reason"
+            ],
+            "properties": {
+              "rule_id": {
+                "type": "string",
+                "pattern": "^NOM-[0-9]{4,}$"
+              },
+              "decision": {
+                "const": "exclude"
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 8
+              }
+            }
+          }
+        }
       }
     }
   }

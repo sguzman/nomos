@@ -3,7 +3,7 @@ const {test}=require('node:test');
 const assert=require('node:assert/strict');
 const catalog=require('../docs/catalog.json');
 const hierarchy=require('../taxonomy/project-types.json');
-const {decide,sha,sourceFingerprint}=require('../tools/projections.cjs');
+const {decide,verifyProjection,sha,sourceFingerprint}=require('../tools/projections.cjs');
 const base=()=>({
   kind:'project_context',version:'1.0.0',
   project_types:['rust_project_from_scratch'],types_exhaustive:true,
@@ -110,4 +110,21 @@ test('unknown fields and unrecognized project types do not become implicit permi
   const malformed=base();malformed.features.gui='maybe';
   assert.throws(()=>decide({catalog,hierarchy,selection:{type:'rules',rule_ids:['NOM-0008']},
     context:malformed}),/feature answers/);
+});
+
+test('approved projections can be rechecked and reject injected rule decisions',()=>{
+  const p=decide({catalog,hierarchy,selection:{type:'rules',rule_ids:['NOM-0008']},
+    context:base(),approval:approved});
+  assert.equal(verifyProjection(p,catalog,hierarchy),true);
+  const tampered=JSON.parse(JSON.stringify(p));
+  tampered.decisions[0].reason='arbitrary new instructions';
+  assert.throws(()=>verifyProjection(tampered,catalog,hierarchy),/differs/);
+});
+test('a typed binding and projection veto survive deterministic provenance verification',()=>{
+  const r=catalog.rules.find(x=>x.id==='NOM-0234');
+  const p=decide({catalog,hierarchy,selection:{type:'rules',rule_ids:['NOM-0234']},
+    context:base(),bindings:{'NOM-0234':{reviewed:true,source_sha256:sourceFingerprint(r),
+      features:[{key:'gui',required:'yes'}],covers_all_clauses:true}}});
+  assert.equal(verifyProjection(p,catalog,hierarchy),true);
+  assert.equal(p.decisions[0].decision,'exclude');
 });

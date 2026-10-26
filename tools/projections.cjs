@@ -163,7 +163,9 @@ function decide({catalog,hierarchy,selection,context,bindings={},overrides=[],ap
       rule_ids:ruleIds,digest_sha256:sha(ruleIds.map(id=>({id,hash:sourceFingerprint(byId.get(id))})))
     },
     context:JSON.parse(JSON.stringify(context)),
-    approval:approvals,decisions,
+    approval:approvals,
+    controls:{bindings:JSON.parse(JSON.stringify(bindings)),overrides:JSON.parse(JSON.stringify(overrides))},
+    decisions,
     conflicts:[...analysis.conflicts,...analysis.conditional],blockers
   };
   if(approvedRequest) {
@@ -172,4 +174,18 @@ function decide({catalog,hierarchy,selection,context,bindings={},overrides=[],ap
   }
   return p;
 }
-module.exports={decide,sha,sourceFingerprint,validateContext,ancestry,projectScope,applicability};
+function verifyProjection(projection,catalog,hierarchy) {
+  guard(projection && projection.kind==='rule_projection' && projection.schema_version===1,
+    'Unknown projection kind/schema version');
+  const source=projection.source;
+  const selection=source.type==='profile' ?
+    {type:'profile',profile_id:source.profile_id} :
+    {type:'rules',rule_ids:source.rule_ids};
+  const recomputed=decide({catalog,hierarchy,selection,context:projection.context,
+    bindings:projection.controls?.bindings||{},overrides:projection.controls?.overrides||[],
+    approval:projection.approval});
+  guard(JSON.stringify(recomputed)===JSON.stringify(projection),
+    'Projection differs from source-backed deterministic resolver output');
+  return true;
+}
+module.exports={decide,verifyProjection,sha,sourceFingerprint,validateContext,ancestry,projectScope,applicability};
