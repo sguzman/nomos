@@ -63,7 +63,7 @@
     area.append(node('p',question.explanation,'builder-secondary'));
     area.append(choice(question));
     const ids=question.rule_ids.filter(id=>currentProfile().selected_rule_ids.includes(id));
-    area.append(node('p','Relevant candidate rules: '+ids.join(', ')+'. Answers narrow the proposal; they never add unrelated rules.','builder-note'));
+    area.append(node('p',(ids.length?'Current profile members: '+ids.join(', '):'Potential optional source-rule addition for later review')+'. Answers provide context but never silently add or activate rules.','builder-note'));
   }
   function renderReview() {
     const p=currentProfile();
@@ -82,6 +82,18 @@
       card.append(node('strong',String(count)),node('span',label));summary.append(card);
     }
     area.append(summary);
+    if(view.suggested_additions.length){
+      const suggestions=node('div',undefined,'builder-detail');
+      suggestions.append(node('strong',view.suggested_additions.length+' optional rule addition(s) to review'));
+      const list=node('ul',undefined,'builder-rule-list');
+      for(const item of view.suggested_additions){
+        const row=node('li');
+        row.append(node('strong',item.rule_id+' — '+item.title),
+          node('span','Suggested only; source profile membership remains unchanged'));
+        list.append(row);
+      }
+      suggestions.append(list);area.append(suggestions);
+    }
     const details=node('details',undefined,'builder-detail');
     details.append(node('summary','Inspect all '+view.decisions.length+' source-rule decisions'));
     const list=node('ul',undefined,'builder-rule-list');
