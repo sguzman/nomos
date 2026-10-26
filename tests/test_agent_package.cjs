@@ -202,3 +202,35 @@ test('privacy and governance modules are routed through every phase',()=>{
  assert.ok(route.testing.includes('.nomos/rules/testing.md'));
  assert.throws(()=>routes(['.nomos/rules/unmapped_module.md']),/no phase route/);
 });
+
+test('installed packages detect phase-refresh drift with the bundled offline verifier',()=>{
+ const root=fs.mkdtempSync(path.join(os.tmpdir(),'nomos-verify-'));
+ try {
+  const p=approved(),bundle=compile(p,catalog,{target:'generic'});
+  assert.ok(bundle.files.has('.nomos/verify.cjs'));
+  install(bundle,root,{write:true,confirmedExport:true});
+  const {verify}=require('../tools/agent_package_verify.cjs');
+  const valid=verify(root);
+  assert.equal(valid.verified_rules,Object.keys(bundle.manifest.rules).length);
+  const cli=require('node:child_process').execFileSync(process.execPath,
+    [path.join(root,'.nomos/verify.cjs'),root],{encoding:'utf8'});
+  assert.match(cli,/Nomos package verified/);
+  const member=Object.values(bundle.manifest.rules).find(ref=>ref.path!=='AGENTS.md');
+  assert.ok(member);
+  fs.appendFileSync(path.join(root,member.path),'\nchanged outside package\n');
+  assert.throws(()=>verify(root),/changed or stale/);
+ } finally {fs.rmSync(root,{recursive:true,force:true});}
+});
+test('runtime verifier refuses missing and symlinked reference modules',()=>{
+ const root=fs.mkdtempSync(path.join(os.tmpdir(),'nomos-verify-link-'));
+ try {
+  const bundle=compile(approved(),catalog);
+  install(bundle,root,{write:true,confirmedExport:true});
+  const {verify}=require('../tools/agent_package_verify.cjs');
+  const target=Object.values(bundle.manifest.rules).find(ref=>ref.path!=='AGENTS.md').path;
+  fs.rmSync(path.join(root,target));
+  assert.throws(()=>verify(root),/Missing packaged file/);
+  fs.symlinkSync(path.join(root,'AGENTS.md'),path.join(root,target));
+  assert.throws(()=>verify(root),/Symlink is forbidden/);
+ } finally {fs.rmSync(root,{recursive:true,force:true});}
+});
