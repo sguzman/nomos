@@ -47,8 +47,15 @@ function routes(moduleNames) {
     release:['release','ci','testing','documentation','governance','privacy'],
     maintenance:['release','testing','engineering','architecture','governance','dependencies']
   };
-  return Object.fromEntries(PHASES.map(phase=>[phase,
-    all.filter(p=>byPhase[phase].includes(p.split('/').pop().replace('.md','')))]));
+  const always=new Set(['privacy','governance']);
+  const mapping=Object.fromEntries(PHASES.map(phase=>[phase,
+    all.filter(p=>{
+      const name=p.split('/').pop().replace('.md','');
+      return always.has(name)||byPhase[phase].includes(name);
+    })]));
+  const reached=new Set(Object.values(mapping).flat());
+  guard(all.every(file=>reached.has(file)),'A selected rule module has no phase route');
+  return mapping;
 }
 function makeSkill(name) {
   const slug='nomos-'+name;
