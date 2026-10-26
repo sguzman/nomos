@@ -242,3 +242,18 @@ test('packaged file digests hash actual UTF-8 bytes, not JSON-encoded strings',(
   assert.equal(expected,createHash('sha256').update(bundle.files.get(name),'utf8').digest('hex'),name);
  }
 });
+
+test('review CI and shutdown phases route relevant modules',()=>{
+ const {routes}=require('../tools/agent_package.cjs');
+ const paths=['.nomos/rules/privacy.md','.nomos/rules/governance.md',
+   '.nomos/rules/ci.md','.nomos/rules/testing.md',
+   '.nomos/rules/release.md','.nomos/rules/engineering.md'];
+ const map=routes(paths);
+ assert.deepEqual(Object.keys(map).sort(),
+   ['planning','implementation','review','testing','ci','release','shutdown','maintenance'].sort());
+ assert.ok(map.review.includes('.nomos/rules/testing.md'));
+ assert.ok(map.ci.includes('.nomos/rules/ci.md'));
+ assert.ok(map.shutdown.includes('.nomos/rules/release.md'));
+ for(const phase of Object.keys(map))for(const name of ['privacy','governance'])
+   assert.ok(map[phase].includes('.nomos/rules/'+name+'.md'),phase);
+});
