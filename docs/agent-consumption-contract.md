@@ -83,3 +83,12 @@ The compiler must be deterministic for identical inputs, use offline pinned depe
 Use the JSON roadmap ledger for verified checkpoint state; distinguish files written, committed, checked in CI, browser-operated, observed during agent runs, and accepted. Changes to the checkpoint denominator or acceptance criteria must be disclosed and rebased; never fabricate a delta percentage. Version schemas and exported bundles, preserve source revisions, and show human-reviewable diffs before package upgrades. Rollback must not rely on fetching the latest remote registry.
 
 This document is an architecture contract, not a claimed implementation of its future interfaces.
+
+## Static Rust-project authorization example
+
+1. An owner investigates a new Rust CLI project and opens PROFILE-0004 (106 proposed rules). Because that profile is a **draft** with unconfirmed rule selection, the system may produce a **non-exportable preview** and ask project-specific questions. It cannot create an approved projection from the draft.
+2. Facts such as `project_types=["rust_project_from_scratch"]`, `gui=no`, `persistence=unknown`, and `background_workers=no` can narrow applicability. `unknown` does **not** become `yes`; natural-language conditions without reviewed typed bindings stay conditional or unresolved.
+3. A separately confirmed **finalized profile**, or an independently authorized ad-hoc selection of exact canonical published rule IDs, is needed to proceed. Only after a separately recorded project-context and projection confirmation can an approved projection exist.
+4. Even that approved projection is an inert derived artifact. A further explicit export/install choice would create a package and must show affected destination files before writing.
+
+This sequence is an acceptance scenario, not an owner selection of PROFILE-0004, not evidence of an actual agent execution, and not permission to mutate an external repository.

@@ -85,4 +85,4 @@ The [full emoji-milestone roadmap](docs/agent-consumption-roadmap.md) defines 69
 - [x] Record a complete, evidence-addressable implementation roadmap with baseline metrics.
 - [ ] Complete the source-linked consumption system and independently verify an actual agent run before claiming production readiness.
 
-**Feature baseline:** 0/69 verified checkpoints (0.0%; previous baseline 0.0%; delta +0.0 pp). The [JSON ledger](roadmaps/agent-consumption.json) is the machine-readable checkpoint source; updating a roadmap is not permission to execute tasks, select profiles or export rules. Existing draft profiles remain unapproved and inert.
+**Verified implementation:** 8/69 checkpoints (11.6%; previous 0.0%; delta +11.6 pp). The [JSON ledger](roadmaps/agent-consumption.json) is the machine-readable checkpoint source; updating a roadmap is not permission to execute tasks, select profiles or export rules. Existing draft profiles remain unapproved and inert.

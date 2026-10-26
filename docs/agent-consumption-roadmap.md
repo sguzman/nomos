@@ -29,20 +29,20 @@
 
 ## Measured progress
 
-**Implementation baseline:** **0/69 verified checkpoints = 0.0%**. **Previous:** 0.0% (new scope). **Current:** 0.0%. **Delta:** +0.0 percentage points. This measures implementation, not roadmap authoring. Reviewable plans are not counted as delivered runtime features.
+**Implementation:** **8/69 verified checkpoints = 11.6%**. **Previous:** 0.0% (new scope). **Current:** 11.6%. **Delta:** +11.6 percentage points. 🧭 ARC is complete and its contract plus tests passed CI [run 40390836598](https://github.com/sguzman/nomos/actions/runs/40390836598). This measures implementation, not roadmap authoring. Reviewable plans are not counted as delivered runtime features.
 
 `completion_percent = 100 × done_checkpoints / 69`; phase progress uses its own exact denominator. Use unrounded fractions as the source for arithmetic, display one decimal place, and compare only the same roadmap revision and acceptance denominator. A changed denominator must be disclosed and prior/current percentages marked non-comparable until rebased. Every change to `done` needs a concrete evidence link (file, commit, CI run, test fixture, or witnessed agent run); moving `done` back to `planned` is valid when evidence fails.
 
 | Phase | Outcome | Checkpoints | Done | Progress | Dependencies |
 |---|---|---:|---:|---:|---|
-| 🧭 ARC | Consumption architecture and governance | 8 | 0 | 0% | None |
+| 🧭 ARC | Consumption architecture and governance | 8 | 8 | 100% | None |
 | 🧬 PRJ | Projection ontology and resolver | 11 | 0 | 0% | ARC |
 | 📦 PKG | Deterministic agent-package compiler | 10 | 0 | 0% | PRJ |
 | 🗣️ BLD | Guided website rule builder | 12 | 0 | 0% | PRJ, PKG |
 | 🔌 RUN | Agent integration and contextual retrieval | 8 | 0 | 0% | PKG |
 | 🧪 EVAL | Behavioral evaluation and production gates | 12 | 0 | 0% | BLD, RUN |
 | 🚀 REL | Delivery, documentation and maintenance | 8 | 0 | 0% | BLD, RUN, EVAL |
-| **Total** | **All gates must pass** | **69** | **0** | **0.0%** | |
+| **Total** | **All gates must pass** | **69** | **8** | **11.6%** | |
 
 ## 🧭 ARC · Consumption architecture and governance
 
@@ -50,14 +50,14 @@
 
 **Completion gate:** The contract names every transition and approval boundary; static examples show how a Rust project reaches an inert projection without activating a draft.
 
-- [ ] **ARC-01 — Vocabulary and artifact boundaries.** Define catalog rule, profile, builder session, projection, agent package, module, and evaluation distinctly.
-- [ ] **ARC-02 — Projection lifecycle.** Specify proposed, reviewed, compiled, exported, superseded and invalid states without giving projections independent normative authority.
-- [ ] **ARC-03 — Existing approval integration.** Map profile draft, selection confirmation, finalization, and explicit export to the current PROFILE_WORKFLOW without bypasses.
-- [ ] **ARC-04 — Threat and trust boundaries.** Specify trusted rule sources, untrusted project files, privacy boundaries, and authority precedence.
-- [ ] **ARC-05 — Target capability matrix.** Describe Codex AGENTS.md, optional Skills, and fallback plain agent targets as explicit capability variants.
-- [ ] **ARC-06 — Offline consumption contract.** Specify reproducible local output from pinned public catalog inputs without paid services, accounts, or runtime network requirements.
-- [ ] **ARC-07 — Roadmap ledger integrity.** Validate checkpoint IDs, statuses, evidence links, gate rules, and reproducible completion percentages.
-- [ ] **ARC-08 — Baseline corpus and success criteria.** Record the existing 12 profiles, published-versus-draft status, source mapping inventory, and no-empirical-evidence baseline.
+- [x] **ARC-01 — Vocabulary and artifact boundaries.** Define catalog rule, profile, builder session, projection, agent package, module, and evaluation distinctly.
+- [x] **ARC-02 — Projection lifecycle.** Specify proposed, reviewed, compiled, exported, superseded and invalid states without giving projections independent normative authority.
+- [x] **ARC-03 — Existing approval integration.** Map profile draft, selection confirmation, finalization, and explicit export to the current PROFILE_WORKFLOW without bypasses.
+- [x] **ARC-04 — Threat and trust boundaries.** Specify trusted rule sources, untrusted project files, privacy boundaries, and authority precedence.
+- [x] **ARC-05 — Target capability matrix.** Describe Codex AGENTS.md, optional Skills, and fallback plain agent targets as explicit capability variants.
+- [x] **ARC-06 — Offline consumption contract.** Specify reproducible local output from pinned public catalog inputs without paid services, accounts, or runtime network requirements.
+- [x] **ARC-07 — Roadmap ledger integrity.** Validate checkpoint IDs, statuses, evidence links, gate rules, and reproducible completion percentages.
+- [x] **ARC-08 — Baseline corpus and success criteria.** Record the existing 12 profiles, published-versus-draft status, source mapping inventory, and no-empirical-evidence baseline.
 
 ## 🧬 PRJ · Projection ontology and resolver
 

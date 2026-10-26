@@ -7,11 +7,11 @@
   "updated_on": "2026-10-26",
   "scope": "Project-context projections, guided website rule builder, deterministic agent packages, context-aware reference loading, end-to-end agent acceptance and release.",
   "baseline": {
-    "completed": 0,
+    "completed": 8,
     "total": 69,
-    "progress_percent": 0,
+    "progress_percent": 11.6,
     "previous_percent": 0,
-    "delta_percentage_points": 0,
+    "delta_percentage_points": 11.6,
     "measurement": "Equal-weight completed checkpoints divided by total checkpoints. A checkpoint becomes done only after its acceptance and evidence are verified."
   },
   "governance": {
@@ -185,64 +185,96 @@
       "phase": "ARC",
       "title": "Vocabulary and artifact boundaries",
       "acceptance": "Define catalog rule, profile, builder session, projection, agent package, module, and evaluation distinctly.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "docs/agent-consumption-contract.md",
+        "https://github.com/sguzman/nomos/commit/68c3764661e760d962ae98da897417c96c8887e1",
+        "https://github.com/sguzman/nomos/actions/runs/40390836598"
+      ]
     },
     {
       "id": "ARC-02",
       "phase": "ARC",
       "title": "Projection lifecycle",
       "acceptance": "Specify proposed, reviewed, compiled, exported, superseded and invalid states without giving projections independent normative authority.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "docs/agent-consumption-contract.md",
+        "https://github.com/sguzman/nomos/commit/68c3764661e760d962ae98da897417c96c8887e1",
+        "https://github.com/sguzman/nomos/actions/runs/40390836598"
+      ]
     },
     {
       "id": "ARC-03",
       "phase": "ARC",
       "title": "Existing approval integration",
       "acceptance": "Map profile draft, selection confirmation, finalization, and explicit export to the current PROFILE_WORKFLOW without bypasses.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "docs/agent-consumption-contract.md",
+        "https://github.com/sguzman/nomos/commit/68c3764661e760d962ae98da897417c96c8887e1",
+        "https://github.com/sguzman/nomos/actions/runs/40390836598"
+      ]
     },
     {
       "id": "ARC-04",
       "phase": "ARC",
       "title": "Threat and trust boundaries",
       "acceptance": "Specify trusted rule sources, untrusted project files, privacy boundaries, and authority precedence.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "docs/agent-consumption-contract.md",
+        "https://github.com/sguzman/nomos/commit/68c3764661e760d962ae98da897417c96c8887e1",
+        "https://github.com/sguzman/nomos/actions/runs/40390836598"
+      ]
     },
     {
       "id": "ARC-05",
       "phase": "ARC",
       "title": "Target capability matrix",
       "acceptance": "Describe Codex AGENTS.md, optional Skills, and fallback plain agent targets as explicit capability variants.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "docs/agent-consumption-contract.md",
+        "https://github.com/sguzman/nomos/commit/68c3764661e760d962ae98da897417c96c8887e1",
+        "https://github.com/sguzman/nomos/actions/runs/40390836598"
+      ]
     },
     {
       "id": "ARC-06",
       "phase": "ARC",
       "title": "Offline consumption contract",
       "acceptance": "Specify reproducible local output from pinned public catalog inputs without paid services, accounts, or runtime network requirements.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "docs/agent-consumption-contract.md",
+        "https://github.com/sguzman/nomos/commit/68c3764661e760d962ae98da897417c96c8887e1",
+        "https://github.com/sguzman/nomos/actions/runs/40390836598"
+      ]
     },
     {
       "id": "ARC-07",
       "phase": "ARC",
       "title": "Roadmap ledger integrity",
       "acceptance": "Validate checkpoint IDs, statuses, evidence links, gate rules, and reproducible completion percentages.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "docs/agent-consumption-contract.md",
+        "https://github.com/sguzman/nomos/commit/68c3764661e760d962ae98da897417c96c8887e1",
+        "https://github.com/sguzman/nomos/actions/runs/40390836598"
+      ]
     },
     {
       "id": "ARC-08",
       "phase": "ARC",
       "title": "Baseline corpus and success criteria",
       "acceptance": "Record the existing 12 profiles, published-versus-draft status, source mapping inventory, and no-empirical-evidence baseline.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "docs/agent-consumption-contract.md",
+        "https://github.com/sguzman/nomos/commit/68c3764661e760d962ae98da897417c96c8887e1",
+        "https://github.com/sguzman/nomos/actions/runs/40390836598"
+      ]
     },
     {
       "id": "PRJ-01",
