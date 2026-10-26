@@ -168,3 +168,10 @@ jobs:
           assert len(data['rules'])>=243
           PY
           echo "Deployed Pages guided builder and catalog passed HTTP smoke check."
+      - name: Run deployed Chromium guided-builder walk-through
+        env:
+          NOMOS_SITE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          set -euo pipefail
+          test -n "$NOMOS_SITE_URL"
+          node --test tests/test_rule_builder_browser.cjs
