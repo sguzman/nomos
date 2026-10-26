@@ -115,6 +115,7 @@ jobs:
           node --check tools/projections.cjs
           node --test tests/test_projections.cjs
           node --check tools/agent_package.cjs
+          node --check tools/agent_package_verify.cjs
           node --check tools/export_agent_package.cjs
           node --test tests/test_agent_package.cjs
           node --check docs/builder-logic.js
