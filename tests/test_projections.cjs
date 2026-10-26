@@ -32,7 +32,10 @@ test('ad hoc approved selection uses only exact canonical published IDs',()=>{
     context:base(),approval:approved});
   assert.equal(p.status,'approved');
   assert.deepEqual(p.decisions.map(d=>d.rule_id),['NOM-0008','NOM-0015']);
-  assert.equal(p.decisions.some(d=>d.decision==='include'),true);
+  assert.ok(p.decisions.every(d=>['include','conditional'].includes(d.decision)));
+  // Approval of a chosen selection is not proof every original condition is true.
+  assert.ok(p.decisions.some(d=>d.decision==='conditional'));
+  assert.equal(p.blockers.length,0);
 });
 test('unpublished and unknown rules can never enter a projection',()=>{
   for(const ids of [['NOM-0002'],['NOM-9999'],['NOM-0008','NOM-0008']]) {
