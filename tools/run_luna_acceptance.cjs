@@ -10,6 +10,7 @@ const hierarchy=require('../taxonomy/project-types.json');
 const {decide}=require('./projections.cjs');
 const {compile,install}=require('./agent_package.cjs');
 const {verify}=require('./agent_package_verify.cjs');
+const {observe}=require('./codex_trace_observer.cjs');
 const CASES=Object.freeze({
  'RUST-CLI':{types:['rust_project_from_scratch'],features:{gui:'no',persistence:'no',external_input:'yes'},task:'Implement a dependency-free Rust CLI which normalizes Unicode input (trim and collapse repeated ASCII spaces), validates empty input, reports errors correctly, and has meaningful unit and integration tests.'},
  'RUST-PERSIST':{types:['rust_project_from_scratch'],features:{gui:'no',persistence:'yes',external_input:'yes'},task:'Implement a dependency-free Rust local journal CLI supporting append and list, an explicitly provided file path, temp-file and atomic-rename persistence, recovery from invalid input, and automated tests.'},
@@ -96,10 +97,20 @@ function run(argv){
  const metadata=command('cargo',['metadata','--no-deps','--offline','--format-version','1'],root);
  const gitLog=command('git',['log','--format=%H %s','-4'],root);
  const gitStatus=command('git',['status','--porcelain=v1'],root);
+ let observation=null,observationError=null;
+ try {
+  observation=observe(result.stdout,p.bundle.manifest,
+   ['planning','implementation','testing','shutdown']);
+  privateFile(evidence,'machine-observation.json',JSON.stringify(observation,null,2)+'\n');
+ }catch(error){observationError=error.message;}
+
  const report={...p.snapshot,status:'awaiting_independent_review',agent_invoked:true,
   agent_versions:versions,workspace:root,private_evidence:evidence,installed_rules:installed.verified_rules,
   evidence_summary:{codex:status(result),cargo_test:status(cargoTest),cargo_metadata:status(metadata),
    git_log:status(gitLog),git_status:status(gitStatus)},
+  observed_phase_reads:observation?.parser_summary?.observed_module_reads||0,
+  observation_status:observation?.review?.status||'invalid_or_missing_trace',
+  observation_error:observationError,
   phase_tool_reads_independently_verified:false,rule_assessments_complete:false,
   independent_reviewer_accepted:false,production_accepted:false};
  privateFile(evidence,'report.json',JSON.stringify(report,null,2)+'\n');
