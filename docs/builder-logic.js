@@ -42,7 +42,10 @@ const NomosBuilder=(()=>{
   function relevant(profile) {
     if(!profile?.selected_rule_ids)return[];
     const selected=new Set(profile.selected_rule_ids);
-    return QUESTIONS.filter(q=>q.rule_ids.some(id=>selected.has(id)));
+    // New Rust Lite may need Full-only feature obligations; show them as review suggestions,
+    // never insert them into the source profile automatically.
+    return QUESTIONS.filter(q=>q.rule_ids.some(id=>selected.has(id)||
+      (profile.id==='PROFILE-0003'&&/^NOM-02(2[89]|3[02345])$/.test(id))));
   }
   function validateAnswers(answers) {
     if(!answers||typeof answers!=='object'||Array.isArray(answers))
@@ -74,13 +77,29 @@ const NomosBuilder=(()=>{
       }
       return {rule_id:id,title:rule.title,question_id:question?.id||null,status,reason};
     });
+    const suggested_additions=[];
+    if(profile.id==='PROFILE-0003'){
+      for(const question of relevantQuestions){
+        if(answers[question.id]!=='yes')continue;
+        for(const id of question.rule_ids){
+          if(profile.selected_rule_ids.includes(id))continue;
+          const rule=byId.get(id);
+          if(!rule||rule.status!=='published'||
+            !rule.scope?.project_types?.includes('rust_project_from_scratch')||
+            (question.semantic_intent_id&&!rule.situational_analysis?.intent_ids?.includes(question.semantic_intent_id)))
+            throw new Error('Unreviewed feature candidate: '+id);
+          suggested_additions.push({rule_id:id,title:rule.title,question_id:question.id,
+            reason:'Optional addition for separate source-selection review only'});
+        }
+      }
+    }
     const counts={proposed:0,relevant_candidate:0,excluded_candidate:0,unresolved_candidate:0};
     for(const d of decisions)counts[d.status]++;
     const analysis=reasoning ? reasoning.analyze(
       profile.selected_rule_ids.map(id=>byId.get(id)),
       {project_hierarchy:analysisContext.project_hierarchy||null},
       analysisContext.relationships||[]) : {conflicts:[],conditional:[]};
-    return {decisions,counts,conflict_candidates:analysis.conflicts,
+    return {decisions,counts,suggested_additions,conflict_candidates:analysis.conflicts,
       conditional_interactions:analysis.conditional};
   }
   function draft(profile,rules,answers,review={},analysisContext={}) {
@@ -104,6 +123,7 @@ const NomosBuilder=(()=>{
         selection_confirmed:profile.review?.selection_confirmed===true},
       answers:Object.fromEntries(Object.entries(answers).sort(([a],[b])=>a.localeCompare(b))),
       proposed_rule_ids:[...profile.selected_rule_ids],
+      suggested_addition_rule_ids:result.suggested_additions.map(x=>x.rule_id).sort(),
       proposed_veto_rule_ids:[...vetoIds].sort(),
       decision_preview:result.decisions,
       conflict_candidates:result.conflict_candidates,
