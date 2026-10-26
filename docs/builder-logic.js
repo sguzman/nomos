@@ -4,7 +4,7 @@ const NomosBuilder=(()=>{
   const ANSWERS=new Set(['yes','no','unknown','not_applicable']);
   const QUESTIONS=[
     {id:'public_release',question:'Will the repository or deliverables be public?',
-      explanation:'Publication choices influence privacy and disclosure review.',rule_ids:['NOM-0001','NOM-0050','NOM-0051']},
+      explanation:'Publication choices influence privacy and disclosure review.',rule_ids:['NOM-0001','NOM-0050']},
     {id:'gui',question:'Will the application have a graphical interface?',
       explanation:'A graphical interface may need keyboard and feedback verification.',rule_ids:['NOM-0234']},
     {id:'configuration',question:'Will it accept runtime configuration?',
