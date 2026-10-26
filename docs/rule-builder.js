@@ -67,7 +67,8 @@
   }
   function renderReview() {
     const p=currentProfile();
-    const view=NomosBuilder.preview(p,state.catalog.rules,state.answers);
+    const view=NomosBuilder.preview(p,state.catalog.rules,state.answers,
+      {project_hierarchy:state.catalog.project_hierarchy,relationships:state.catalog.relationships});
     area.append(node('h2','Review your proposed rules'));
     area.append(node('p','This is a preview of how project answers affect a proposed profile. No profile is finalized and no instructions are activated.','builder-secondary'));
     const summary=node('div',undefined,'builder-summary');
@@ -91,6 +92,19 @@
       list.append(row);
     }
     details.append(list);area.append(details);
+    const interactions=[...view.conflict_candidates.map(message=>({type:'Potential conflict',message})),
+      ...view.conditional_interactions.map(message=>({type:'Conditional interaction',message}))];
+    if(interactions.length){
+      const review=node('details',undefined,'builder-detail');
+      review.append(node('summary','Review '+interactions.length+' possible normative interactions'));
+      const risks=node('ul',undefined,'builder-rule-list');
+      for(const item of interactions){
+        const line=node('li');
+        line.append(node('strong',item.type),node('span',item.message));risks.append(line);
+      }
+      review.append(risks);area.append(review);
+      area.append(node('p','Candidate relationships do not establish final legal or logical consistency. Opposing rules require a separate explicit resolution before agent export.','builder-note'));
+    }
     const candidates=view.decisions.filter(item=>item.status==='excluded_candidate' &&
       state.catalog.rules.find(rule=>rule.id===item.rule_id)?.norm?.kind!=='prohibition');
     if(candidates.length){
@@ -114,7 +128,8 @@
     const download=node('button','Download unapproved draft configuration','builder-download');
     download.type='button';
     download.addEventListener('click',()=>{
-      const output=NomosBuilder.draft(p,state.catalog.rules,state.answers,{veto_ids:[...state.vetoIds]});
+      const output=NomosBuilder.draft(p,state.catalog.rules,state.answers,{veto_ids:[...state.vetoIds]},
+        {project_hierarchy:state.catalog.project_hierarchy,relationships:state.catalog.relationships});
       const blob=new Blob([JSON.stringify(output,null,2)+'\n'],{type:'application/json'});
       const url=URL.createObjectURL(blob);
       const a=document.createElement('a');
