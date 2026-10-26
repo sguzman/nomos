@@ -64,6 +64,13 @@ function protocol(ws){
 }
 test('real headless browser: guided Rust interview, source-backed veto, keyboard navigation and mobile layout', {timeout:90000},async()=>{
   const browser=locateBrowser();
+  const remote=process.env.NOMOS_SITE_URL||null;
+  if(remote){
+    const target=new URL(remote);
+    assert.equal(target.protocol,'https:','Remote browser QA must use HTTPS');
+    assert.equal(target.hostname,'sguzman.github.io','Remote browser QA is limited to Nomos Pages');
+    assert.ok(target.pathname.startsWith('/nomos'),'Unexpected remote Pages path');
+  }
   const dir=fs.mkdtempSync(path.join(os.tmpdir(),'nomos-chrome-'));
   const downloads=path.join(dir,'downloads');
   fs.mkdirSync(downloads,{recursive:true});
@@ -118,7 +125,7 @@ test('real headless browser: guided Rust interview, source-backed veto, keyboard
       if(r.exceptionDetails)throw new Error('Browser exception: '+r.exceptionDetails.text);
       return r.result?.value;
     };
-    const origin='http://127.0.0.1:'+server.address().port;
+    const origin=remote?remote.replace(/\/+$/,''):'http://127.0.0.1:'+server.address().port;
     await send('Page.navigate',{url:origin+'/rule-builder.html'});
     await waitUntil(()=>evaluate("document.readyState==='complete' && document.querySelector('#builder-loading')?.hidden===true"),
       {timeout:20000,message:'Builder did not initialize in the real browser'});
@@ -190,6 +197,7 @@ test('real headless browser: guided Rust interview, source-backed veto, keyboard
     assert.equal(await evaluate("document.querySelector('input[type=\"checkbox\"]').closest('label')?.textContent.includes('NOM-0234')"),true);
     assert.equal(await evaluate("Boolean(document.querySelector('.skip-link'))"),true);
     assert.equal(await evaluate("document.querySelector('progress').getAttribute('aria-label')"),'Interview progress');
+    if(!remote){
     // Simulate transient catalog failure, then retry via a fresh page load.
     failCatalogOnce=true;
     await send('Page.navigate',{url:origin+'/rule-builder.html'});
@@ -208,6 +216,7 @@ test('real headless browser: guided Rust interview, source-backed veto, keyboard
     assert.equal(await evaluate("[...document.querySelectorAll('details summary')].some(x=>x.textContent.includes('possible normative interactions'))"),true,
       'Conflict candidates must be shown for explicit review, never silently ranked');
     assert.equal(await evaluate("document.querySelector('.builder-download')?.textContent.includes('unapproved')"),true);
+    }
   }finally{
     if(ws)ws.close();
     if(chrome && chrome.exitCode===null)chrome.kill('SIGTERM');
