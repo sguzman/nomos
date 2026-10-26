@@ -7,11 +7,11 @@
   "updated_on": "2026-10-26",
   "scope": "Project-context projections, guided website rule builder, deterministic agent packages, context-aware reference loading, end-to-end agent acceptance and release.",
   "baseline": {
-    "completed": 34,
+    "completed": 37,
     "total": 69,
-    "progress_percent": 49.3,
-    "previous_percent": 40.6,
-    "delta_percentage_points": 8.7,
+    "progress_percent": 53.6,
+    "previous_percent": 49.3,
+    "delta_percentage_points": 4.3,
     "measurement": "Equal-weight completed checkpoints divided by total checkpoints. A checkpoint becomes done only after its acceptance and evidence are verified."
   },
   "governance": {
@@ -561,8 +561,11 @@
       "phase": "PKG",
       "title": "Golden file and round-trip tests",
       "acceptance": "Test stable output bytes, link validity, normalized paths, fingerprint drift, Unicode, and no private metadata leakage.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40395325292",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
     },
     {
       "id": "BLD-01",
@@ -611,8 +614,12 @@
       "phase": "BLD",
       "title": "Situation-driven question generation",
       "acceptance": "Derive relevant questions from reviewed project scope and situation/intent mappings; allow authored disambiguation only when necessary.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40395356843",
+        "https://github.com/sguzman/nomos/blob/main/docs/builder-logic.js",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_rule_builder.cjs"
+      ]
     },
     {
       "id": "BLD-05",
@@ -717,8 +724,11 @@
       "phase": "RUN",
       "title": "Mandatory instruction preservation",
       "acceptance": "Ensure always-on constraints, especially privacy and permission boundaries, do not depend on optional contextual skill discovery.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40395325292",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs"
+      ]
     },
     {
       "id": "RUN-04",

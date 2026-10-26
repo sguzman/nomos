@@ -29,7 +29,7 @@
 
 ## Measured progress
 
-**Implementation:** **34/69 verified checkpoints = 49.3%**. **Previous:** 40.6%. **Current:** 49.3%. **Delta:** +8.7 percentage points. 🧭 ARC and 🧬 PRJ are complete, 📦 PKG has one remaining acceptance item, and the 🗣️ guided builder has six tested initial interaction checkpoints. [GitHub Actions 40394820808](https://github.com/sguzman/nomos/actions/runs/40394820808) passed; actual browser QA and approved agent-package export remain open.
+**Implementation:** **37/69 verified checkpoints = 53.6%**. **Previous:** 49.3%. **Current:** 53.6%. **Delta:** +4.3 percentage points. 📦 PKG is complete, 🗣️ BLD has seven verified checkpoints, and 🔌 RUN has its always-on entrypoint safeguard. [CI 40395325292](https://github.com/sguzman/nomos/actions/runs/40395325292) and [CI 40395356843](https://github.com/sguzman/nomos/actions/runs/40395356843) passed; live agent QA remains open.
 
 `completion_percent = 100 × done_checkpoints / 69`; phase progress uses its own exact denominator. Use unrounded fractions as the source for arithmetic, display one decimal place, and compare only the same roadmap revision and acceptance denominator. A changed denominator must be disclosed and prior/current percentages marked non-comparable until rebased. Every change to `done` needs a concrete evidence link (file, commit, CI run, test fixture, or witnessed agent run); moving `done` back to `planned` is valid when evidence fails.
 
@@ -37,12 +37,12 @@
 |---|---|---:|---:|---:|---|
 | 🧭 ARC | Consumption architecture and governance | 8 | 8 | 100% | None |
 | 🧬 PRJ | Projection ontology and resolver | 11 | 11 | 100% | ARC |
-| 📦 PKG | Deterministic agent-package compiler | 10 | 9 | 90% | PRJ |
-| 🗣️ BLD | Guided website rule builder | 12 | 6 | 50% | PRJ, PKG |
-| 🔌 RUN | Agent integration and contextual retrieval | 8 | 0 | 0% | PKG |
+| 📦 PKG | Deterministic agent-package compiler | 10 | 10 | 100% | PRJ |
+| 🗣️ BLD | Guided website rule builder | 12 | 7 | 58.3% | PRJ, PKG |
+| 🔌 RUN | Agent integration and contextual retrieval | 8 | 1 | 12.5% | PKG |
 | 🧪 EVAL | Behavioral evaluation and production gates | 12 | 0 | 0% | BLD, RUN |
 | 🚀 REL | Delivery, documentation and maintenance | 8 | 0 | 0% | BLD, RUN, EVAL |
-| **Total** | **All gates must pass** | **69** | **34** | **49.3%** | |
+| **Total** | **All gates must pass** | **69** | **37** | **53.6%** | |
 
 ## 🧭 ARC · Consumption architecture and governance
 
@@ -92,7 +92,7 @@
 - [x] **PKG-07 — Generic agent fallback.** Generate standalone Markdown modules when agent-specific skill loading is unavailable.
 - [x] **PKG-08 — Read-on-demand behavior contract.** Define when the entrypoint must load a module, how it confirms loading, and what to do if the reference is missing.
 - [x] **PKG-09 — Safe filesystem export.** Use dry-run previews, explicit destination choice, deterministic names, and non-destructive refusal on collisions or unrelated AGENTS.md content.
-- [ ] **PKG-10 — Golden file and round-trip tests.** Test stable output bytes, link validity, normalized paths, fingerprint drift, Unicode, and no private metadata leakage.
+- [x] **PKG-10 — Golden file and round-trip tests.** Test stable output bytes, link validity, normalized paths, fingerprint drift, Unicode, and no private metadata leakage.
 
 ## 🗣️ BLD · Guided website rule builder
 
@@ -103,7 +103,7 @@
 - [x] **BLD-01 — Builder navigation and start state.** Add a clear guided entry distinct from the advanced raw-rule catalog.
 - [x] **BLD-02 — Intent and project-type intake.** Ask what the user is making and whether they start, port, or maintain; avoid assuming a specific project kind.
 - [x] **BLD-03 — Question-definition model.** Represent prompts, descriptions, answer choices, dependencies, source mappings, and explainability in structured data.
-- [ ] **BLD-04 — Situation-driven question generation.** Derive relevant questions from reviewed project scope and situation/intent mappings; allow authored disambiguation only when necessary.
+- [x] **BLD-04 — Situation-driven question generation.** Derive relevant questions from reviewed project scope and situation/intent mappings; allow authored disambiguation only when necessary.
 - [x] **BLD-05 — Adaptive branching and skipping.** Ask only questions that can change applicable-rule decisions and show why a branch was skipped.
 - [x] **BLD-06 — Yes, no, unsure and not-applicable states.** Retain unanswered and unknown facts without coercing affirmative selections.
 - [x] **BLD-07 — Selection rationale preview.** Show included, excluded, conditional and blocked rules with source IDs and plain-language explanations.
@@ -121,7 +121,7 @@
 
 - [ ] **RUN-01 — Agent bootstrap verification.** Document exactly which entrypoint files are automatically read versus only referenced for each target.
 - [ ] **RUN-02 — Phase-triggered module routing.** Map planning, implementation, review, CI, release and shutdown events to required reference modules.
-- [ ] **RUN-03 — Mandatory instruction preservation.** Ensure always-on constraints, especially privacy and permission boundaries, do not depend on optional contextual skill discovery.
+- [x] **RUN-03 — Mandatory instruction preservation.** Ensure always-on constraints, especially privacy and permission boundaries, do not depend on optional contextual skill discovery.
 - [ ] **RUN-04 — Rule-refresh protocol.** Specify explicit reload or recheck on phase transition and stale hashes rather than assuming model memory refresh.
 - [ ] **RUN-05 — Missing or inaccessible module policy.** Fail clearly, request authorized recovery or restrict the affected action rather than improvise instructions.
 - [ ] **RUN-06 — Existing repository coexistence.** Do not clobber preexisting project instructions; surface actual scope or hierarchy conflicts for review.
