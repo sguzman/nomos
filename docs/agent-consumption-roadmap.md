@@ -29,7 +29,7 @@
 
 ## Measured progress
 
-**Implementation:** **28/69 verified checkpoints = 40.6%**. **Previous:** 11.6%. **Current:** 40.6%. **Delta:** +29.0 percentage points. 🧭 ARC and 🧬 PRJ are complete; 📦 PKG has one remaining golden-file/round-trip acceptance item. Resolver, package, security and roadmap tests passed [GitHub Actions 40393615140](https://github.com/sguzman/nomos/actions/runs/40393615140).
+**Implementation:** **34/69 verified checkpoints = 49.3%**. **Previous:** 40.6%. **Current:** 49.3%. **Delta:** +8.7 percentage points. 🧭 ARC and 🧬 PRJ are complete, 📦 PKG has one remaining acceptance item, and the 🗣️ guided builder has six tested initial interaction checkpoints. [GitHub Actions 40394820808](https://github.com/sguzman/nomos/actions/runs/40394820808) passed; actual browser QA and approved agent-package export remain open.
 
 `completion_percent = 100 × done_checkpoints / 69`; phase progress uses its own exact denominator. Use unrounded fractions as the source for arithmetic, display one decimal place, and compare only the same roadmap revision and acceptance denominator. A changed denominator must be disclosed and prior/current percentages marked non-comparable until rebased. Every change to `done` needs a concrete evidence link (file, commit, CI run, test fixture, or witnessed agent run); moving `done` back to `planned` is valid when evidence fails.
 
@@ -38,11 +38,11 @@
 | 🧭 ARC | Consumption architecture and governance | 8 | 8 | 100% | None |
 | 🧬 PRJ | Projection ontology and resolver | 11 | 11 | 100% | ARC |
 | 📦 PKG | Deterministic agent-package compiler | 10 | 9 | 90% | PRJ |
-| 🗣️ BLD | Guided website rule builder | 12 | 0 | 0% | PRJ, PKG |
+| 🗣️ BLD | Guided website rule builder | 12 | 6 | 50% | PRJ, PKG |
 | 🔌 RUN | Agent integration and contextual retrieval | 8 | 0 | 0% | PKG |
 | 🧪 EVAL | Behavioral evaluation and production gates | 12 | 0 | 0% | BLD, RUN |
 | 🚀 REL | Delivery, documentation and maintenance | 8 | 0 | 0% | BLD, RUN, EVAL |
-| **Total** | **All gates must pass** | **69** | **28** | **40.6%** | |
+| **Total** | **All gates must pass** | **69** | **34** | **49.3%** | |
 
 ## 🧭 ARC · Consumption architecture and governance
 
@@ -100,13 +100,13 @@
 
 **Completion gate:** A first-time user can finish a New Rust Project projection without browsing 106 rules; no action silently confirms a draft or exports to a repo.
 
-- [ ] **BLD-01 — Builder navigation and start state.** Add a clear guided entry distinct from the advanced raw-rule catalog.
-- [ ] **BLD-02 — Intent and project-type intake.** Ask what the user is making and whether they start, port, or maintain; avoid assuming a specific project kind.
-- [ ] **BLD-03 — Question-definition model.** Represent prompts, descriptions, answer choices, dependencies, source mappings, and explainability in structured data.
+- [x] **BLD-01 — Builder navigation and start state.** Add a clear guided entry distinct from the advanced raw-rule catalog.
+- [x] **BLD-02 — Intent and project-type intake.** Ask what the user is making and whether they start, port, or maintain; avoid assuming a specific project kind.
+- [x] **BLD-03 — Question-definition model.** Represent prompts, descriptions, answer choices, dependencies, source mappings, and explainability in structured data.
 - [ ] **BLD-04 — Situation-driven question generation.** Derive relevant questions from reviewed project scope and situation/intent mappings; allow authored disambiguation only when necessary.
-- [ ] **BLD-05 — Adaptive branching and skipping.** Ask only questions that can change applicable-rule decisions and show why a branch was skipped.
-- [ ] **BLD-06 — Yes, no, unsure and not-applicable states.** Retain unanswered and unknown facts without coercing affirmative selections.
-- [ ] **BLD-07 — Selection rationale preview.** Show included, excluded, conditional and blocked rules with source IDs and plain-language explanations.
+- [x] **BLD-05 — Adaptive branching and skipping.** Ask only questions that can change applicable-rule decisions and show why a branch was skipped.
+- [x] **BLD-06 — Yes, no, unsure and not-applicable states.** Retain unanswered and unknown facts without coercing affirmative selections.
+- [x] **BLD-07 — Selection rationale preview.** Show included, excluded, conditional and blocked rules with source IDs and plain-language explanations.
 - [ ] **BLD-08 — Review, override and veto controls.** Let users adjust optional selections, supply project facts, and inspect changes before confirmation.
 - [ ] **BLD-09 — Conflict-resolution dialogue.** Present opposing norms and material uncertainty without silent priority-based resolution.
 - [ ] **BLD-10 — Explicit approval transitions.** Distinguish preview, proposal, owner-confirmed selection, profile finalization, projection confirmation and export.

@@ -7,11 +7,11 @@
   "updated_on": "2026-10-26",
   "scope": "Project-context projections, guided website rule builder, deterministic agent packages, context-aware reference loading, end-to-end agent acceptance and release.",
   "baseline": {
-    "completed": 28,
+    "completed": 34,
     "total": 69,
-    "progress_percent": 40.6,
-    "previous_percent": 11.6,
-    "delta_percentage_points": 29,
+    "progress_percent": 49.3,
+    "previous_percent": 40.6,
+    "delta_percentage_points": 8.7,
     "measurement": "Equal-weight completed checkpoints divided by total checkpoints. A checkpoint becomes done only after its acceptance and evidence are verified."
   },
   "governance": {
@@ -569,24 +569,42 @@
       "phase": "BLD",
       "title": "Builder navigation and start state",
       "acceptance": "Add a clear guided entry distinct from the advanced raw-rule catalog.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/commit/4fe03e66b301206fd31d766967402b4d6bc84bc8",
+        "https://github.com/sguzman/nomos/actions/runs/40394820808",
+        "https://github.com/sguzman/nomos/blob/main/docs/rule-builder.html",
+        "https://github.com/sguzman/nomos/blob/main/docs/builder-logic.js",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_rule_builder.cjs"
+      ]
     },
     {
       "id": "BLD-02",
       "phase": "BLD",
       "title": "Intent and project-type intake",
       "acceptance": "Ask what the user is making and whether they start, port, or maintain; avoid assuming a specific project kind.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/commit/4fe03e66b301206fd31d766967402b4d6bc84bc8",
+        "https://github.com/sguzman/nomos/actions/runs/40394820808",
+        "https://github.com/sguzman/nomos/blob/main/docs/rule-builder.html",
+        "https://github.com/sguzman/nomos/blob/main/docs/builder-logic.js",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_rule_builder.cjs"
+      ]
     },
     {
       "id": "BLD-03",
       "phase": "BLD",
       "title": "Question-definition model",
       "acceptance": "Represent prompts, descriptions, answer choices, dependencies, source mappings, and explainability in structured data.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/commit/4fe03e66b301206fd31d766967402b4d6bc84bc8",
+        "https://github.com/sguzman/nomos/actions/runs/40394820808",
+        "https://github.com/sguzman/nomos/blob/main/docs/rule-builder.html",
+        "https://github.com/sguzman/nomos/blob/main/docs/builder-logic.js",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_rule_builder.cjs"
+      ]
     },
     {
       "id": "BLD-04",
@@ -601,24 +619,42 @@
       "phase": "BLD",
       "title": "Adaptive branching and skipping",
       "acceptance": "Ask only questions that can change applicable-rule decisions and show why a branch was skipped.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/commit/4fe03e66b301206fd31d766967402b4d6bc84bc8",
+        "https://github.com/sguzman/nomos/actions/runs/40394820808",
+        "https://github.com/sguzman/nomos/blob/main/docs/rule-builder.html",
+        "https://github.com/sguzman/nomos/blob/main/docs/builder-logic.js",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_rule_builder.cjs"
+      ]
     },
     {
       "id": "BLD-06",
       "phase": "BLD",
       "title": "Yes, no, unsure and not-applicable states",
       "acceptance": "Retain unanswered and unknown facts without coercing affirmative selections.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/commit/4fe03e66b301206fd31d766967402b4d6bc84bc8",
+        "https://github.com/sguzman/nomos/actions/runs/40394820808",
+        "https://github.com/sguzman/nomos/blob/main/docs/rule-builder.html",
+        "https://github.com/sguzman/nomos/blob/main/docs/builder-logic.js",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_rule_builder.cjs"
+      ]
     },
     {
       "id": "BLD-07",
       "phase": "BLD",
       "title": "Selection rationale preview",
       "acceptance": "Show included, excluded, conditional and blocked rules with source IDs and plain-language explanations.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/commit/4fe03e66b301206fd31d766967402b4d6bc84bc8",
+        "https://github.com/sguzman/nomos/actions/runs/40394820808",
+        "https://github.com/sguzman/nomos/blob/main/docs/rule-builder.html",
+        "https://github.com/sguzman/nomos/blob/main/docs/builder-logic.js",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_rule_builder.cjs"
+      ]
     },
     {
       "id": "BLD-08",
