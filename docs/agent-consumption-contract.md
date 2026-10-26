@@ -92,3 +92,7 @@ This document is an architecture contract, not a claimed implementation of its f
 4. Even that approved projection is an inert derived artifact. A further explicit export/install choice would create a package and must show affected destination files before writing.
 
 This sequence is an acceptance scenario, not an owner selection of PROFILE-0004, not evidence of an actual agent execution, and not permission to mutate an external repository.
+
+## Canonical-source fingerprinting
+
+The initial resolver uses a SHA-256 digest of the canonical rule's parsed JSON object, with website-only `registry` and `situational_analysis` projections excluded. Thus adding navigation metadata does not silently change the normative source identity. This is **not** a signature proving who approved a rule, nor a raw Git blob hash; both are distinct provenance concepts. The source selection digest sorts exact rule IDs and fingerprints. Later export modules must verify these hashes against the local pinned source before writing anything.

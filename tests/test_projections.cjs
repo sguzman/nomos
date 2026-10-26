@@ -3,7 +3,7 @@ const {test}=require('node:test');
 const assert=require('node:assert/strict');
 const catalog=require('../docs/catalog.json');
 const hierarchy=require('../taxonomy/project-types.json');
-const {decide,sha}=require('../tools/projections.cjs');
+const {decide,sha,sourceFingerprint}=require('../tools/projections.cjs');
 const base=()=>({
   kind:'project_context',version:'1.0.0',
   project_types:['rust_project_from_scratch'],types_exhaustive:true,
@@ -50,7 +50,7 @@ test('unmapped natural-language conditions remain conditional and cannot be infe
 });
 test('reviewed typed feature mapping respects negative and unknown answers',()=>{
   const rule=catalog.rules.find(x=>x.id==='NOM-0234');
-  const bindings={'NOM-0234':{reviewed:true,source_sha256:sha(rule),
+  const bindings={'NOM-0234':{reviewed:true,source_sha256:sourceFingerprint(rule),
     features:[{key:'gui',required:'yes'}],covers_all_clauses:true}};
   const f=ctx=>decide({catalog,hierarchy,selection:{type:'rules',rule_ids:['NOM-0234']},
     context:ctx,bindings}).decisions[0].decision;
@@ -79,7 +79,7 @@ test('reject partial owner approval flags and unreviewed applicability mapping',
     context:base(),approval:{source_selection_confirmed:true}}),/Partial/);
   const r=catalog.rules.find(x=>x.id==='NOM-0234');
   assert.throws(()=>decide({catalog,hierarchy,selection:{type:'rules',rule_ids:['NOM-0234']},
-    context:base(),bindings:{'NOM-0234':{reviewed:false,source_sha256:sha(r)}}}),/Unreviewed/);
+    context:base(),bindings:{'NOM-0234':{reviewed:false,source_sha256:sourceFingerprint(r)}}}),/Unreviewed/);
 });
 test('projection veto cannot silently remove a prohibition',()=>{
   const p=decide({catalog,hierarchy,selection:{type:'rules',rule_ids:['NOM-0001']},context:base(),
@@ -93,4 +93,21 @@ test('resolver never mutates canonical catalog or profile data',()=>{
   const before=JSON.stringify(catalog.profiles.find(x=>x.id==='PROFILE-0004'));
   preview();
   assert.equal(JSON.stringify(catalog.profiles.find(x=>x.id==='PROFILE-0004')),before);
+});
+
+test('canonical fingerprint ignores website-only annotations but captures rule mutations',()=>{
+  const r=catalog.rules.find(x=>x.id==='NOM-0008');
+  const canonical=JSON.parse(JSON.stringify(r));
+  delete canonical.registry; delete canonical.situational_analysis;
+  assert.equal(sourceFingerprint(r),sha(canonical));
+  assert.equal(sourceFingerprint({...r,situational_analysis:{changed:true}}),sourceFingerprint(r));
+  assert.notEqual(sourceFingerprint({...r,statement:r.statement+' altered'}),sourceFingerprint(r));
+});
+test('unknown fields and unrecognized project types do not become implicit permissions',()=>{
+  const context=base();context.project_types=['future_unknown_type'];
+  assert.throws(()=>decide({catalog,hierarchy,selection:{type:'rules',rule_ids:['NOM-0008']},
+    context}),/Unknown project type/);
+  const malformed=base();malformed.features.gui='maybe';
+  assert.throws(()=>decide({catalog,hierarchy,selection:{type:'rules',rule_ids:['NOM-0008']},
+    context:malformed}),/feature answers/);
 });

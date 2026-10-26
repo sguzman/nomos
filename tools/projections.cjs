@@ -7,6 +7,11 @@ const FEATURES=new Set(['yes','no','unknown','not_applicable']);
 const PHASES=new Set(['planning','implementation','testing','release','maintenance','unspecified']);
 const AXES=['channel','visibility','artifact_kind','actor'];
 function sha(value) {return createHash('sha256').update(JSON.stringify(value)).digest('hex');}
+function sourceFingerprint(rule) {
+  // The site adds registry and reverse-link projections; neither changes the canonical rule.
+  const {registry, situational_analysis, ...canonical}=rule;
+  return sha(canonical);
+}
 function guard(cond,msg) {if(!cond)throw new Error(msg);}
 function validateContext(context,hierarchy) {
   guard(context?.kind==='project_context'&&context.version==='1.0.0','Invalid context kind/version');
@@ -128,7 +133,7 @@ function decide({catalog,hierarchy,selection,context,bindings={},overrides=[],ap
   }
   const ruleIds=[...ids].sort();
   const decisions=ruleIds.map(id=>{
-    const rule=byId.get(id), hash=sha(rule);
+    const rule=byId.get(id), hash=sourceFingerprint(rule);
     const base=applicability(rule,context,hierarchy,bindings,hash);
     const override=overrideById.get(id);
     const overridden=override ? {
@@ -155,7 +160,7 @@ function decide({catalog,hierarchy,selection,context,bindings={},overrides=[],ap
     schema_version:1,kind:'rule_projection',status:'preview',
     source:{
       type:selection.type,profile_id:profile?.id||null,profile_version:profile?.version||null,
-      rule_ids:ruleIds,digest_sha256:sha(ruleIds.map(id=>byId.get(id)))
+      rule_ids:ruleIds,digest_sha256:sha(ruleIds.map(id=>({id,hash:sourceFingerprint(byId.get(id))})))
     },
     context:JSON.parse(JSON.stringify(context)),
     approval:approvals,decisions,
@@ -167,4 +172,4 @@ function decide({catalog,hierarchy,selection,context,bindings={},overrides=[],ap
   }
   return p;
 }
-module.exports={decide,sha,validateContext,ancestry,projectScope,applicability};
+module.exports={decide,sha,sourceFingerprint,validateContext,ancestry,projectScope,applicability};
