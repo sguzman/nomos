@@ -7,11 +7,11 @@
   "updated_on": "2026-10-26",
   "scope": "Project-context projections, guided website rule builder, deterministic agent packages, context-aware reference loading, end-to-end agent acceptance and release.",
   "baseline": {
-    "completed": 56,
+    "completed": 62,
     "total": 69,
-    "progress_percent": 81.2,
-    "previous_percent": 71,
-    "delta_percentage_points": 10.2,
+    "progress_percent": 89.9,
+    "previous_percent": 81.2,
+    "delta_percentage_points": 8.7,
     "measurement": "Equal-weight completed checkpoints divided by total checkpoints. A checkpoint becomes done only after its acceptance and evidence are verified."
   },
   "governance": {
@@ -694,8 +694,14 @@
       "phase": "BLD",
       "title": "Explicit approval transitions",
       "acceptance": "Distinguish preview, proposal, owner-confirmed selection, profile finalization, projection confirmation and export.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "docs/builder-logic.js",
+        "docs/rule-builder.js",
+        "tests/test_rule_builder.cjs",
+        "tests/test_rule_builder_browser.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40403137785"
+      ]
     },
     {
       "id": "BLD-11",
@@ -726,8 +732,13 @@
       "phase": "RUN",
       "title": "Agent bootstrap verification",
       "acceptance": "Document exactly which entrypoint files are automatically read versus only referenced for each target.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "docs/agent-target-loading.md",
+        "docs/agent-consumption-contract.md",
+        "tools/agent_phase_reader.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40402245897"
+      ]
     },
     {
       "id": "RUN-02",
@@ -860,8 +871,12 @@
       "phase": "EVAL",
       "title": "Browser builder interaction suite",
       "acceptance": "Automate adaptive branching, undo, keyboard, responsive layout, conflict handling and explicit approval transitions.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "tests/test_rule_builder_browser.cjs",
+        "tests/test_rule_builder.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40403137785"
+      ]
     },
     {
       "id": "EVAL-06",
@@ -957,16 +972,26 @@
       "phase": "REL",
       "title": "Builder deployment checks",
       "acceptance": "Verify GitHub Pages build, downloadable assets, cache/fingerprint behavior and a deployed end-user walkthrough.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        ".github/workflows/pages.yml",
+        "tests/test_agent_workflow.cjs",
+        "tests/test_rule_builder_browser.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40403137785"
+      ]
     },
     {
       "id": "REL-04",
       "phase": "REL",
       "title": "Validation and release CI",
       "acceptance": "Run projection, compiler, site, compatibility and privacy tests on pushes and before a release.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        ".github/workflows/pages.yml",
+        "tests/test_agent_workflow.cjs",
+        "tests/test_agent_run_evidence.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40403137785"
+      ]
     },
     {
       "id": "REL-05",
@@ -999,8 +1024,12 @@
       "phase": "REL",
       "title": "Release notes and evidence ledger",
       "acceptance": "Publish tests, supported agent variants, known limitations and real-run evidence without overstating QA.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "docs/agent-consumption-release-status.md",
+        "docs/agent-consumption-quickstart.md",
+        "https://github.com/sguzman/nomos/actions/runs/40403137785"
+      ]
     },
     {
       "id": "REL-08",

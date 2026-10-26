@@ -29,7 +29,7 @@
 
 ## Measured progress
 
-**Implementation:** **56/69 verified checkpoints = 81.2%**. **Previous:** 71.0%. **Current:** 81.2%. **Delta:** +10.2 percentage points. Verified browser review/downloads, non-destructive installation, full mechanical CI coverage, trace-evidence tooling, and schema/rollback compatibility are documented by [CI 40401360614](https://github.com/sguzman/nomos/actions/runs/40401360614). Actual Luna coding behavior remains unmeasured.
+**Implementation:** **62/69 verified checkpoints = 89.9%**. **Previous:** 81.2%. **Current:** 89.9%. **Delta:** +8.7 percentage points. Six additional checkpoint gates are documented by the successful [deployed Chrome + Pages run 40403137785](https://github.com/sguzman/nomos/actions/runs/40403137785), which includes interactive hosted-site QA, approval-stage inspection, release validation and documented readiness limits. Actual Luna coding behavior remains unmeasured.
 
 `completion_percent = 100 × done_checkpoints / 69`; phase progress uses its own exact denominator. Use unrounded fractions as the source for arithmetic, display one decimal place, and compare only the same roadmap revision and acceptance denominator. A changed denominator must be disclosed and prior/current percentages marked non-comparable until rebased. Every change to `done` needs a concrete evidence link (file, commit, CI run, test fixture, or witnessed agent run); moving `done` back to `planned` is valid when evidence fails.
 
@@ -38,11 +38,11 @@
 | 🧭 ARC | Consumption architecture and governance | 8 | 8 | 100.0% | None |
 | 🧬 PRJ | Projection ontology and resolver | 11 | 11 | 100.0% | ARC |
 | 📦 PKG | Deterministic agent-package compiler | 10 | 10 | 100.0% | PRJ |
-| 🗣️ BLD | Guided website rule builder | 12 | 11 | 91.7% | PRJ, PKG |
-| 🔌 RUN | Agent integration and contextual retrieval | 8 | 6 | 75.0% | PKG |
-| 🧪 EVAL | Behavioral evaluation and production gates | 12 | 6 | 50.0% | BLD, RUN |
-| 🚀 REL | Delivery, documentation and maintenance | 8 | 4 | 50.0% | BLD, RUN, EVAL |
-| **Total** | **All gates must pass** | **69** | **56** | **81.2%** | |
+| 🗣️ BLD | Guided website rule builder | 12 | 12 | 100.0% | PRJ, PKG |
+| 🔌 RUN | Agent integration and contextual retrieval | 8 | 7 | 87.5% | PKG |
+| 🧪 EVAL | Behavioral evaluation and production gates | 12 | 7 | 58.3% | BLD, RUN |
+| 🚀 REL | Delivery, documentation and maintenance | 8 | 7 | 87.5% | BLD, RUN, EVAL |
+| **Total** | **All gates must pass** | **69** | **62** | **89.9%** | |
 
 ## 🧭 ARC · Consumption architecture and governance
 
@@ -109,7 +109,7 @@
 - [x] **BLD-07 — Selection rationale preview.** Show included, excluded, conditional and blocked rules with source IDs and plain-language explanations.
 - [x] **BLD-08 — Review, override and veto controls.** Let users adjust optional selections, supply project facts, and inspect changes before confirmation.
 - [x] **BLD-09 — Conflict-resolution dialogue.** Present opposing norms and material uncertainty without silent priority-based resolution.
-- [ ] **BLD-10 — Explicit approval transitions.** Distinguish preview, proposal, owner-confirmed selection, profile finalization, projection confirmation and export.
+- [x] **BLD-10 — Explicit approval transitions.** Distinguish preview, proposal, owner-confirmed selection, profile finalization, projection confirmation and export.
 - [x] **BLD-11 — Accessible responsive flow.** Test keyboard-only navigation, visible focus, readable labels, mobile layout, error recovery and progress/resume within session.
 - [x] **BLD-12 — Private static export and browser QA.** Build without accounts or hidden persistence; test real browsers and downloaded agent package validation.
 
@@ -119,7 +119,7 @@
 
 **Completion gate:** Harness tests demonstrate critical rules were consulted at the intended points or the run explicitly reports a blocking gap.
 
-- [ ] **RUN-01 — Agent bootstrap verification.** Document exactly which entrypoint files are automatically read versus only referenced for each target.
+- [x] **RUN-01 — Agent bootstrap verification.** Document exactly which entrypoint files are automatically read versus only referenced for each target.
 - [x] **RUN-02 — Phase-triggered module routing.** Map planning, implementation, review, CI, release and shutdown events to required reference modules.
 - [x] **RUN-03 — Mandatory instruction preservation.** Ensure always-on constraints, especially privacy and permission boundaries, do not depend on optional contextual skill discovery.
 - [x] **RUN-04 — Rule-refresh protocol.** Specify explicit reload or recheck on phase transition and stale hashes rather than assuming model memory refresh.
@@ -138,7 +138,7 @@
 - [x] **EVAL-02 — Golden projection fixture suite.** Cover CLI-only, GUI/persistence and mixed-scope Rust scenarios, including deliberate no/unsure answers.
 - [x] **EVAL-03 — Negative and adversarial scenarios.** Test unapproved draft, unsupported agent, conflicting rule, prompt injection, stale reference, and path-collision failure.
 - [x] **EVAL-04 — Mechanical compilation gate.** Run schema, hashes, full coverage, exported link and deterministic-byte validation on every relevant change.
-- [ ] **EVAL-05 — Browser builder interaction suite.** Automate adaptive branching, undo, keyboard, responsive layout, conflict handling and explicit approval transitions.
+- [x] **EVAL-05 — Browser builder interaction suite.** Automate adaptive branching, undo, keyboard, responsive layout, conflict handling and explicit approval transitions.
 - [x] **EVAL-06 — Offline installation and round trip.** Export the package to a disposable target and prove it remains usable without the Nomos website.
 - [x] **EVAL-07 — Agent-read evidence harness.** Capture module reads, applicable trigger fulfillment and tool outputs without treating text claims as evidence.
 - [ ] **EVAL-08 — Rust task end-to-end case.** Run a new Rust implementation with builds, automated tests, CI configuration, commits and verifiable handoff.
@@ -155,11 +155,11 @@
 
 - [x] **REL-01 — Public-facing quickstart.** Explain the guided interview and local-agent installation without requiring readers to understand the ontology first.
 - [x] **REL-02 — Advanced reference documentation.** Document projection schema, provenance, trust boundaries, module routing, approval policy and compatibility.
-- [ ] **REL-03 — Builder deployment checks.** Verify GitHub Pages build, downloadable assets, cache/fingerprint behavior and a deployed end-user walkthrough.
-- [ ] **REL-04 — Validation and release CI.** Run projection, compiler, site, compatibility and privacy tests on pushes and before a release.
+- [x] **REL-03 — Builder deployment checks.** Verify GitHub Pages build, downloadable assets, cache/fingerprint behavior and a deployed end-user walkthrough.
+- [x] **REL-04 — Validation and release CI.** Run projection, compiler, site, compatibility and privacy tests on pushes and before a release.
 - [x] **REL-05 — Backward-compatibility policy.** Specify projection/package schema versioning, migration and safe refusal for unsupported versions.
 - [x] **REL-06 — Change and rollback documentation.** Preserve generated package identity, update diffs, rollback steps and reproducible source snapshots.
-- [ ] **REL-07 — Release notes and evidence ledger.** Publish tests, supported agent variants, known limitations and real-run evidence without overstating QA.
+- [x] **REL-07 — Release notes and evidence ledger.** Publish tests, supported agent variants, known limitations and real-run evidence without overstating QA.
 - [ ] **REL-08 — Final 100-percent closure audit.** Confirm every checkpoint has linked evidence and all milestone gates hold; correct any unjustified completion claims.
 
 ## Dependency and acceptance sequence
