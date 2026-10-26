@@ -112,6 +112,8 @@ jobs:
           node --check tools/validate_agent_consumption_roadmap.cjs
           node tools/validate_agent_consumption_roadmap.cjs
           node --test tests/test_agent_consumption_roadmap.cjs
+          node --check tools/projections.cjs
+          node --test tests/test_projections.cjs
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload showcase

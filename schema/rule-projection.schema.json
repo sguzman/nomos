@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/sguzman/nomos/blob/main/schema/rule-projection.schema.json",
+  "title": "Nomos derived agent-consumption projection",
+  "description": "An inert, reproducible, nonnormative description of an explicitly chosen source selection evaluated against typed project facts.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "status",
+    "source",
+    "context",
+    "approval",
+    "decisions",
+    "conflicts",
+    "blockers"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "kind": {
+      "const": "rule_projection"
+    },
+    "status": {
+      "enum": [
+        "preview",
+        "approved"
+      ]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "profile_id",
+        "profile_version",
+        "rule_ids",
+        "digest_sha256"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "profile",
+            "rules"
+          ]
+        },
+        "profile_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "profile_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rule_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^NOM-[0-9]{4,}$"
+          }
+        },
+        "digest_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "context": {
+      "$ref": "project-context.schema.json"
+    },
+    "approval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_selection_confirmed",
+        "project_context_reviewed",
+        "projection_confirmed"
+      ],
+      "properties": {
+        "source_selection_confirmed": {
+          "type": "boolean"
+        },
+        "project_context_reviewed": {
+          "type": "boolean"
+        },
+        "projection_confirmed": {
+          "type": "boolean"
+        }
+      }
+    },
+    "decisions": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "rule_id",
+          "rule_version",
+          "source_sha256",
+          "decision",
+          "reason",
+          "situation_ids",
+          "intent_ids"
+        ],
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "pattern": "^NOM-[0-9]{4,}$"
+          },
+          "rule_version": {
+            "type": "string"
+          },
+          "source_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "decision": {
+            "enum": [
+              "include",
+              "exclude",
+              "conditional",
+              "blocked",
+              "unresolved"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "situation_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "intent_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "conflicts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

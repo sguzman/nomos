@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/sguzman/nomos/blob/main/schema/project-context.schema.json",
+  "title": "Nomos project facts for a derived rule projection",
+  "description": "Only explicit typed facts. Missing and unknown are not affirmative. This is not a permission record.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "kind",
+    "version",
+    "project_types",
+    "types_exhaustive",
+    "phase",
+    "axes",
+    "features"
+  ],
+  "properties": {
+    "kind": {
+      "const": "project_context"
+    },
+    "version": {
+      "const": "1.0.0"
+    },
+    "project_types": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_]*$"
+      }
+    },
+    "types_exhaustive": {
+      "type": "boolean",
+      "description": "True only if the owner has explicitly answered all relevant overlapping project-type facets."
+    },
+    "phase": {
+      "enum": [
+        "planning",
+        "implementation",
+        "testing",
+        "release",
+        "maintenance",
+        "unspecified"
+      ]
+    },
+    "axes": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "channel": {
+          "type": "string",
+          "minLength": 1
+        },
+        "visibility": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_kind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "actor": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "features": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_]*$"
+      },
+      "additionalProperties": {
+        "enum": [
+          "yes",
+          "no",
+          "unknown",
+          "not_applicable"
+        ]
+      }
+    }
+  }
+}
