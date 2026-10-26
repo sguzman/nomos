@@ -7,11 +7,11 @@
   "updated_on": "2026-10-26",
   "scope": "Project-context projections, guided website rule builder, deterministic agent packages, context-aware reference loading, end-to-end agent acceptance and release.",
   "baseline": {
-    "completed": 49,
+    "completed": 56,
     "total": 69,
-    "progress_percent": 71,
-    "previous_percent": 53.6,
-    "delta_percentage_points": 17.4,
+    "progress_percent": 81.2,
+    "previous_percent": 71,
+    "delta_percentage_points": 10.2,
     "measurement": "Equal-weight completed checkpoints divided by total checkpoints. A checkpoint becomes done only after its acceptance and evidence are verified."
   },
   "governance": {
@@ -681,8 +681,13 @@
       "phase": "BLD",
       "title": "Conflict-resolution dialogue",
       "acceptance": "Present opposing norms and material uncertainty without silent priority-based resolution.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "docs/builder-logic.js",
+        "docs/rule-builder.js",
+        "tests/test_rule_builder.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40399342237"
+      ]
     },
     {
       "id": "BLD-10",
@@ -709,8 +714,12 @@
       "phase": "BLD",
       "title": "Private static export and browser QA",
       "acceptance": "Build without accounts or hidden persistence; test real browsers and downloaded agent package validation.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "tests/test_rule_builder_browser.cjs",
+        "tests/test_agent_package.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40401360614"
+      ]
     },
     {
       "id": "RUN-01",
@@ -772,8 +781,12 @@
       "phase": "RUN",
       "title": "Existing repository coexistence",
       "acceptance": "Do not clobber preexisting project instructions; surface actual scope or hierarchy conflicts for review.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "tools/agent_package.cjs",
+        "tests/test_agent_package.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40401165989"
+      ]
     },
     {
       "id": "RUN-07",
@@ -835,8 +848,12 @@
       "phase": "EVAL",
       "title": "Mechanical compilation gate",
       "acceptance": "Run schema, hashes, full coverage, exported link and deterministic-byte validation on every relevant change.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        ".github/workflows/pages.yml",
+        "tests/test_agent_run_evidence.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40401360614"
+      ]
     },
     {
       "id": "EVAL-05",
@@ -863,8 +880,13 @@
       "phase": "EVAL",
       "title": "Agent-read evidence harness",
       "acceptance": "Capture module reads, applicable trigger fulfillment and tool outputs without treating text claims as evidence.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "tools/agent_phase_reader.cjs",
+        "tools/validate_agent_run_evidence.cjs",
+        "schema/agent-run-evidence.schema.json",
+        "https://github.com/sguzman/nomos/actions/runs/40401360614"
+      ]
     },
     {
       "id": "EVAL-08",
@@ -951,16 +973,26 @@
       "phase": "REL",
       "title": "Backward-compatibility policy",
       "acceptance": "Specify projection/package schema versioning, migration and safe refusal for unsupported versions.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "docs/agent-package-compatibility.md",
+        "tools/agent_package_verify.cjs",
+        "tests/test_agent_package.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40401165989"
+      ]
     },
     {
       "id": "REL-06",
       "phase": "REL",
       "title": "Change and rollback documentation",
       "acceptance": "Preserve generated package identity, update diffs, rollback steps and reproducible source snapshots.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "tools/agent_package_diff.cjs",
+        "docs/agent-package-compatibility.md",
+        "tests/test_agent_package_diff.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40401165989"
+      ]
     },
     {
       "id": "REL-07",
