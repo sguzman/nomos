@@ -82,7 +82,15 @@ test('real headless browser: guided Rust interview, source-backed veto, keyboard
     const mime=name.endsWith('.js')?'text/javascript':name.endsWith('.json')?'application/json':
       name.endsWith('.css')?'text/css':'text/html';
     res.writeHead(200,{'Content-Type':mime+'; charset=utf-8','Cache-Control':'no-store'});
-    res.end(fs.readFileSync(path.join(ROOT,name)));
+    if(name==='catalog.json'){
+      const publicCatalog=JSON.parse(fs.readFileSync(path.join(ROOT,name),'utf8'));
+      publicCatalog.profiles.push({
+        id:'PROFILE-9999',kind:'rule_profile',version:'1.0.0',title:'Synthetic conflict QA fixture',
+        status:'draft',selected_rule_ids:['NOM-0012','NOM-0013'],
+        review:{selection_confirmed:false,finalization_confirmed:false}
+      });
+      res.end(JSON.stringify(publicCatalog));
+    }else res.end(fs.readFileSync(path.join(ROOT,name)));
   });
   let chrome=null,ws=null;
   try{
@@ -116,6 +124,12 @@ test('real headless browser: guided Rust interview, source-backed veto, keyboard
       {timeout:20000,message:'Builder did not initialize in the real browser'});
     assert.equal(await evaluate("document.querySelector('#builder-controls').hidden"),false);
     assert.equal(await evaluate("document.querySelector('#builder-body').textContent.includes('What kind of project')"),true);
+    // Synthetic public-safe conflict profile exercises the rendered review dialogue.
+    await evaluate("(()=>{const s=document.querySelector('select');s.value='PROFILE-9999';s.dispatchEvent(new Event('change',{bubbles:true}));document.querySelector('#builder-next').click();return true})()");
+    assert.equal(await evaluate("document.querySelector('#builder-body h2').textContent"),'Review your proposed rules');
+    assert.equal(await evaluate("[...document.querySelectorAll('details summary')].some(x=>x.textContent.includes('possible normative interactions'))"),true,
+      'Conflict candidates must be shown for explicit review, never silently ranked');
+    assert.equal(await evaluate("document.querySelector('.builder-download')?.textContent.includes('unapproved')"),true);
     await evaluate("(()=>{const s=document.querySelector('select');s.value='PROFILE-0004';s.dispatchEvent(new Event('change',{bubbles:true}));return true})()");
     assert.equal(await evaluate("document.querySelector('#builder-body').textContent.includes('DRAFT')"),true);
     await evaluate("document.querySelector('#builder-next').click();true");
