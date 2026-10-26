@@ -140,6 +140,8 @@ function safeRelative(p) {
 function verifyPackage({files,manifest,projection}) {
   guard(manifest?.projection_sha256===sha(projection),'Manifest projection fingerprint mismatch');
   guard(files instanceof Map,'Package files must be a Map');
+  // Reject every untrusted bundle pathname before comparing manifest membership.
+  for(const file of files.keys())safeRelative(file);
   for(const [file,hash] of Object.entries(manifest.files)) {
     safeRelative(file);
     guard(files.has(file)&&sha(files.get(file))===hash,'Manifest file checksum mismatch: '+file);
