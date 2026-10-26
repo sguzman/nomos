@@ -9,6 +9,7 @@ function run(argv){
  if(rest.length){
   if(rest.length!==2||rest[0]!=='--model')throw new Error('Usage: node tools/run_luna_acceptance_suite.cjs [--model MODEL] [--execute]');
   model=rest[1];
+  if(!/^[a-zA-Z0-9._-]{1,80}$/.test(model))throw new Error('Invalid model selector');
  }
  const results=[];
  for(const case_id of CASES){
