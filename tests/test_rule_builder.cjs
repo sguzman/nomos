@@ -97,3 +97,21 @@ test('veto review rejects unsupported rule removals and absent scope evidence',(
  assert.throws(()=>NomosBuilder.draft(p,catalog.rules,{gui:'no'},
    {veto_ids:['NOM-9999']}),/Only an inapplicable/);
 });
+
+test('builder surfaces conservative edition interactions without silently choosing precedence',()=>{
+ const hypothetical={
+  id:'PROFILE-9999',kind:'rule_profile',version:'1.0.0',
+  status:'draft',review:{selection_confirmed:false},
+  selected_rule_ids:['NOM-0012','NOM-0013']
+ };
+ const analysis=NomosBuilder.preview(hypothetical,catalog.rules,{},{
+  project_hierarchy:catalog.project_hierarchy,relationships:catalog.relationships
+ });
+ assert.ok(analysis.conflict_candidates.length+analysis.conditional_interactions.length>0);
+ const output=NomosBuilder.draft(hypothetical,catalog.rules,{},{
+  veto_ids:[]
+ },{project_hierarchy:catalog.project_hierarchy,relationships:catalog.relationships});
+ assert.equal(output.conflicts_reviewed,false);
+ assert.equal(output.export_authorized,false);
+ assert.equal(output.projection_approved,false);
+});
