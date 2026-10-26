@@ -2,6 +2,8 @@
 /* Deterministic, offline export of explicitly approved, re-verifiable projections. */
 const fs=require('node:fs');
 const path=require('node:path');
+const {createHash}=require('node:crypto');
+const fileSha=body=>createHash('sha256').update(body,'utf8').digest('hex');
 const {decide,verifyProjection,sha,sourceFingerprint}=require('./projections.cjs');
 const hierarchy=require('../taxonomy/project-types.json');
 const CORE=new Set(['NOM-0001','NOM-0003','NOM-0004','NOM-0050','NOM-0051','NOM-0052']);
@@ -138,7 +140,7 @@ function compile(projection,catalog,{target='generic'}={}) {
     rules:Object.fromEntries(Object.keys(assigned).sort().map(id=>
       [id,{path:assigned[id],decision:projection.decisions.find(d=>d.rule_id===id).decision,
         source_sha256:projection.decisions.find(d=>d.rule_id===id).source_sha256}])),
-    files:Object.fromEntries([...files.entries()].sort(([a],[b])=>a.localeCompare(b)).map(([file,body])=>[file,sha(body)]))
+    files:Object.fromEntries([...files.entries()].sort(([a],[b])=>a.localeCompare(b)).map(([file,body])=>[file,fileSha(body)]))
   };
   files.set('.nomos/manifest.json',JSON.stringify(manifest,null,2)+'\n');
   verifyPackage({files,manifest,projection});
@@ -161,7 +163,7 @@ function verifyPackage({files,manifest,projection}) {
   for(const file of files.keys())safeRelative(file);
   for(const [file,hash] of Object.entries(manifest.files)) {
     safeRelative(file);
-    guard(files.has(file)&&sha(files.get(file))===hash,'Manifest file checksum mismatch: '+file);
+    guard(files.has(file)&&fileSha(files.get(file))===hash,'Manifest file checksum mismatch: '+file);
   }
   for(const [id,ref] of Object.entries(manifest.rules)) {
     safeRelative(ref.path);
