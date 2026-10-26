@@ -120,7 +120,7 @@
       const a=document.createElement('a');
       a.href=url;a.download='nomos-builder-draft.json';
       document.body.append(a);a.click();a.remove();
-      URL.revokeObjectURL(url);
+      setTimeout(()=>URL.revokeObjectURL(url),3000);
     });
     area.append(download,node('p','This JSON is not AGENTS.md and cannot activate or install a rule package. Approval and actual agent export are separate future steps.','builder-note'));
   }
