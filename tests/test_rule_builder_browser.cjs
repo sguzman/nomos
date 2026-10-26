@@ -124,12 +124,6 @@ test('real headless browser: guided Rust interview, source-backed veto, keyboard
       {timeout:20000,message:'Builder did not initialize in the real browser'});
     assert.equal(await evaluate("document.querySelector('#builder-controls').hidden"),false);
     assert.equal(await evaluate("document.querySelector('#builder-body').textContent.includes('What kind of project')"),true);
-    // Synthetic public-safe conflict profile exercises the rendered review dialogue.
-    await evaluate("(()=>{const s=document.querySelector('select');s.value='PROFILE-9999';s.dispatchEvent(new Event('change',{bubbles:true}));document.querySelector('#builder-next').click();return true})()");
-    assert.equal(await evaluate("document.querySelector('#builder-body h2').textContent"),'Review your proposed rules');
-    assert.equal(await evaluate("[...document.querySelectorAll('details summary')].some(x=>x.textContent.includes('possible normative interactions'))"),true,
-      'Conflict candidates must be shown for explicit review, never silently ranked');
-    assert.equal(await evaluate("document.querySelector('.builder-download')?.textContent.includes('unapproved')"),true);
     await evaluate("(()=>{const s=document.querySelector('select');s.value='PROFILE-0004';s.dispatchEvent(new Event('change',{bubbles:true}));return true})()");
     assert.equal(await evaluate("document.querySelector('#builder-body').textContent.includes('DRAFT')"),true);
     await evaluate("document.querySelector('#builder-next').click();true");
@@ -208,6 +202,12 @@ test('real headless browser: guided Rust interview, source-backed veto, keyboard
       {timeout:15000,message:'Builder did not recover after retry'});
     assert.equal(await evaluate("document.querySelector('#builder-controls').hidden"),false);
     assert.equal(await evaluate("document.querySelector('#builder-body').textContent.includes('What kind of project')"),true);
+    // Synthetic public-safe conflict profile exercises the rendered review dialogue.
+    await evaluate("(()=>{const s=document.querySelector('select');s.value='PROFILE-9999';s.dispatchEvent(new Event('change',{bubbles:true}));document.querySelector('#builder-next').click();return true})()");
+    assert.equal(await evaluate("document.querySelector('#builder-body h2').textContent"),'Review your proposed rules');
+    assert.equal(await evaluate("[...document.querySelectorAll('details summary')].some(x=>x.textContent.includes('possible normative interactions'))"),true,
+      'Conflict candidates must be shown for explicit review, never silently ranked');
+    assert.equal(await evaluate("document.querySelector('.builder-download')?.textContent.includes('unapproved')"),true);
   }finally{
     if(ws)ws.close();
     if(chrome && chrome.exitCode===null)chrome.kill('SIGTERM');
