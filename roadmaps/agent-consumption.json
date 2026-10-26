@@ -7,11 +7,11 @@
   "updated_on": "2026-10-26",
   "scope": "Project-context projections, guided website rule builder, deterministic agent packages, context-aware reference loading, end-to-end agent acceptance and release.",
   "baseline": {
-    "completed": 37,
+    "completed": 49,
     "total": 69,
-    "progress_percent": 53.6,
-    "previous_percent": 49.3,
-    "delta_percentage_points": 4.3,
+    "progress_percent": 71,
+    "previous_percent": 53.6,
+    "delta_percentage_points": 17.4,
     "measurement": "Equal-weight completed checkpoints divided by total checkpoints. A checkpoint becomes done only after its acceptance and evidence are verified."
   },
   "governance": {
@@ -668,8 +668,13 @@
       "phase": "BLD",
       "title": "Review, override and veto controls",
       "acceptance": "Let users adjust optional selections, supply project facts, and inspect changes before confirmation.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/blob/main/docs/builder-logic.js",
+        "https://github.com/sguzman/nomos/blob/main/docs/rule-builder.js",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_rule_builder.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40399342237"
+      ]
     },
     {
       "id": "BLD-09",
@@ -692,8 +697,12 @@
       "phase": "BLD",
       "title": "Accessible responsive flow",
       "acceptance": "Test keyboard-only navigation, visible focus, readable labels, mobile layout, error recovery and progress/resume within session.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/blob/main/docs/rule-builder.css",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_rule_builder_browser.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40399342237"
+      ]
     },
     {
       "id": "BLD-12",
@@ -716,8 +725,12 @@
       "phase": "RUN",
       "title": "Phase-triggered module routing",
       "acceptance": "Map planning, implementation, review, CI, release and shutdown events to required reference modules.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40398607871"
+      ]
     },
     {
       "id": "RUN-03",
@@ -735,16 +748,24 @@
       "phase": "RUN",
       "title": "Rule-refresh protocol",
       "acceptance": "Specify explicit reload or recheck on phase transition and stale hashes rather than assuming model memory refresh.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package_verify.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40398607871"
+      ]
     },
     {
       "id": "RUN-05",
       "phase": "RUN",
       "title": "Missing or inaccessible module policy",
       "acceptance": "Fail clearly, request authorized recovery or restrict the affected action rather than improvise instructions.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package_verify.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40398607871"
+      ]
     },
     {
       "id": "RUN-06",
@@ -759,8 +780,12 @@
       "phase": "RUN",
       "title": "Version pinning and updates",
       "acceptance": "Make upgrades explicit and produce inspectable old-versus-new module and rule diffs.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package_diff.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package_diff.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40398607871"
+      ]
     },
     {
       "id": "RUN-08",
@@ -775,24 +800,35 @@
       "phase": "EVAL",
       "title": "Evaluation rubric and severity",
       "acceptance": "Separate mandatory invariant violations from minor formatting differences and assign clear pass/fail conditions.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/blob/main/docs/agent-consumption-evaluation.md",
+        "https://github.com/sguzman/nomos/actions/runs/40398607871"
+      ]
     },
     {
       "id": "EVAL-02",
       "phase": "EVAL",
       "title": "Golden projection fixture suite",
       "acceptance": "Cover CLI-only, GUI/persistence and mixed-scope Rust scenarios, including deliberate no/unsure answers.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/blob/main/tests/fixtures/agent-consumption-cases.json",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_consumption_cases.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40398607871"
+      ]
     },
     {
       "id": "EVAL-03",
       "phase": "EVAL",
       "title": "Negative and adversarial scenarios",
       "acceptance": "Test unapproved draft, unsupported agent, conflicting rule, prompt injection, stale reference, and path-collision failure.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_adversarial.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40398607871"
+      ]
     },
     {
       "id": "EVAL-04",
@@ -815,8 +851,12 @@
       "phase": "EVAL",
       "title": "Offline installation and round trip",
       "acceptance": "Export the package to a disposable target and prove it remains usable without the Nomos website.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package_verify.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40398607871"
+      ]
     },
     {
       "id": "EVAL-07",
@@ -871,16 +911,24 @@
       "phase": "REL",
       "title": "Public-facing quickstart",
       "acceptance": "Explain the guided interview and local-agent installation without requiring readers to understand the ontology first.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/blob/main/docs/agent-consumption-quickstart.md",
+        "https://github.com/sguzman/nomos/actions/runs/40398607871"
+      ]
     },
     {
       "id": "REL-02",
       "phase": "REL",
       "title": "Advanced reference documentation",
       "acceptance": "Document projection schema, provenance, trust boundaries, module routing, approval policy and compatibility.",
-      "status": "planned",
-      "evidence": []
+      "status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/blob/main/docs/agent-consumption-contract.md",
+        "https://github.com/sguzman/nomos/blob/main/docs/agent-consumption-evaluation.md",
+        "https://github.com/sguzman/nomos/blob/main/docs/agent-consumption-quickstart.md",
+        "https://github.com/sguzman/nomos/actions/runs/40398607871"
+      ]
     },
     {
       "id": "REL-03",
