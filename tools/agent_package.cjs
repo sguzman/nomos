@@ -123,6 +123,7 @@ function compile(projection,catalog,{target='generic'}={}) {
   const manifest={
     schema_version:1,kind:'nomos_agent_package',agent_target:target,
     projection_sha256:sha(projection),source_digest_sha256:projection.source.digest_sha256,
+    registry_revision_sha256:projection.source.registry_revision_sha256,
     phase_routes:routeMap,
     rules:Object.fromEntries(Object.keys(assigned).sort().map(id=>
       [id,{path:assigned[id],decision:projection.decisions.find(d=>d.rule_id===id).decision,
