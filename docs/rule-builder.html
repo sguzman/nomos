@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Answer a few questions to explore relevant Nomos rules without browsing hundreds of entries.">
+  <meta name="color-scheme" content="light dark">
+  <title>Nomos · Guided rule builder</title>
+  <link rel="stylesheet" href="./rule-builder.css">
+  <script src="./builder-logic.js" defer></script>
+  <script src="./rule-builder.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#builder-body">Skip to questions</a>
+  <header class="builder-header">
+    <a href="./" class="brand" aria-label="Nomos home">nomos<span class="brand-dot">.</span></a>
+    <nav aria-label="Main navigation"><a href="./">Full rule catalog</a><a href="./profile-companions.html">Profile companions</a></nav>
+  </header>
+  <main class="builder-shell">
+    <p class="builder-kicker">GUIDED / PROVISIONAL RULE SELECTION</p>
+    <h1>Build from the situation, not a wall of rules.</h1>
+    <p class="builder-lead">Describe the project in a few short answers. Nomos will show which proposed rules may be relevant, excluded or unresolved. Nothing is selected, approved, installed or activated automatically.</p>
+    <section class="builder-panel" aria-label="Guided project interview">
+      <div class="builder-topline">
+        <span id="builder-status" aria-live="polite">Loading</span>
+        <span>Private to this browser session</span>
+      </div>
+      <progress id="builder-progress" value="0" max="1" aria-label="Interview progress"></progress>
+      <p id="builder-loading" role="status">Loading the rule catalog…</p>
+      <div id="builder-body"></div>
+      <div id="builder-controls" class="builder-controls" hidden>
+        <button id="builder-back" type="button" class="builder-back">Back</button>
+        <button id="builder-next" type="button" class="builder-next">Continue</button>
+      </div>
+    </section>
+    <p class="builder-footer">This first builder version produces an inert review draft. Full projection approval, installation, and agent-use validation are separate engineering milestones.</p>
+  </main>
+</body>
+</html>
