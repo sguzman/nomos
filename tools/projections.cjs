@@ -174,6 +174,8 @@ function decide({catalog,hierarchy,selection,context,bindings={},overrides=[],ap
   const blockers=decisions.filter(d=>d.decision==='blocked'||d.decision==='unresolved')
     .map(d=>d.rule_id+': '+d.reason);
   blockers.push(...analysis.conflicts);
+  // Material conditional edition interactions are unresolved until explicit review.
+  blockers.push(...analysis.conditional);
   const p={
     schema_version:1,kind:'rule_projection',status:'preview',
     source:{
