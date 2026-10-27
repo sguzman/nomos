@@ -572,6 +572,20 @@ if(verb==='list'&&args.length===2){
   assert.equal(success.ok,true,JSON.stringify(success));
   assert.equal(success.command_count,10);
   assert.equal(Object.keys(success.checks).length,10);
+  assert.equal(success.checks.durable_on_disk_roundtrip,true);
+  assert.equal(Object.hasOwn(success.checks,'durable_hex_records'),false);
+  // The exercise requires durable data, not a particular storage encoding.
+  // An equally correct base64 journal must pass the same external smoke.
+  const base64=fake
+   .replace("if(!/^(?:[0-9a-f]{2})+$/i.test(line))return [];",
+    "if(!/^[A-Za-z0-9+/]+={0,2}$/.test(line)||line.length%4!==0)return [];")
+   .replace("Buffer.from(line,'hex')","Buffer.from(line,'base64')")
+   .replace("Buffer.from(x).toString('hex')","Buffer.from(x).toString('base64')");
+  assert.notEqual(base64,fake);
+  fs.writeFileSync(binary,base64,{mode:0o700});
+  const alternate=verifyPersistenceCli(root,{binaryPath:binary,skipBuild:true});
+  assert.equal(alternate.ok,true,JSON.stringify(alternate));
+  assert.equal(alternate.checks.durable_on_disk_roundtrip,true);
   // Broken public list CLI must fail independent smoke regardless of unit test claims.
   fs.writeFileSync(binary,"#!/usr/bin/env node\nif(process.argv[2]==='list'){console.log('broken')}\n");
   const bad=verifyPersistenceCli(root,{binaryPath:binary,skipBuild:true});
