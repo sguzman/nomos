@@ -32,6 +32,12 @@ For **explicitly invoked disposable** Rust acceptance runs only, the runner inst
 
 The hook does **not** get installed in user projects, global Git configuration, or normal Nomos package exports; only the opt-in synthetic test creates it. It does not edit a missing roadmap, trigger another model attempt automatically, or grant permission to process any queued task. This is a targeted regression guard for repeated observed omissions, not a general solution to agent-rule compliance.
 
+## Conditional handoff-progress preflight
+
+The independent Rust review also found that an otherwise fully working implementation can omit **selected reporting obligations**. The disposable test prompt therefore requires reviewing `NOM-0068` through `NOM-0072` before the final agent message: progress for touched roadmap phases and items; an overall project summary; and percentages with matching visual bars only where evidence supports quantification. First-time 100% notices are reported once, without manufacturing percentages for unknown work. The committed roadmap must also remain truthful after the final Git action: an in-progress milestone is disclosed as incomplete or reconciled in a verified follow-up commit where appropriate.
+
+The runner separately examines the final completed Codex agent message and reports a bounded `handoff_progress_preflight` recording whether an overall progress cue, numerical percentage and visual bar were observed. When selected rules apply and a final message is available but those signals are absent, the runner lists the corresponding `handoff_missing_* ` gaps and refuses to present the run as ready for independent review. This is only a **presentation-shape signal**: it cannot validate denominator accuracy, rule applicability, item coverage, semantic correctness or a genuine first-time completion event. Missing raw final-message evidence remains unobserved, never silently successful. Independent rule-by-rule review remains mandatory.
+
 ## Observable evidence
 
 `tools/codex_trace_observer.cjs` parses Codex's `item.completed` command-execution JSONL events and identifies successful `node .nomos/read-phase.cjs <phase>` commands with matching `NOMOS_PHASE_READ` receipts. It validates those receipts against the package's pinned manifest and records actual command statuses. It does **not** treat an agent's natural-language claim as a tool event and it never marks applicable rules `satisfied` automatically.
