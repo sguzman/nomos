@@ -1,6 +1,6 @@
 # Nomos agent-consumption conformance evaluation
 
-**Status:** Specification and reproducible acceptance harness, plus four user-executed Codex CLI Rust experiments (2026-10-26 to 2026-10-27). The last two passed the mechanical code/test/commit gate, but their independent reviews found substantive rule omissions. **All four remain unaccepted.** No passing independent live-agent run is claimed. This document is nonnormative evaluation methodology; it does not activate a profile, approve a projection, or instruct an agent to act in another repository.
+**Status:** Specification and reproducible acceptance harness, plus six user-executed Codex CLI Rust experiments (2026-10-26 to 2026-10-27). The last four passed the mechanical code/test/commit gate, but none passed independent source-rule conformance. In the sixth run the roadmap was present but lacked source-required structure and per-item emoji identities. **All six remain unaccepted.** No passing independent live-agent run is claimed. This document is nonnormative evaluation methodology; it does not activate a profile, approve a projection, or instruct an agent to act in another repository.
 
 ## Evidence hierarchy
 
