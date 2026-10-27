@@ -48,21 +48,34 @@ function status(result){return {exit_code:result.status,error:result.error||null
  * standard workspace sandbox, reopening Git metadata within this test root.
  * No global Codex configuration, host Git configuration or other repo is changed.
  * Never substitute danger-full-access/yolo when this profile is unsupported. */
-function codexArgs(root,model=null,help=false){
- const config=[
+function codexConfig(){
+ return [
   'default_permissions="nomos_disposable_git"',
   'permissions.nomos_disposable_git.extends=":workspace"',
   'permissions.nomos_disposable_git.filesystem.":workspace_roots"={".git"="write"}',
   'permissions.nomos_disposable_git.network.enabled=false'
  ];
+}
+function codexArgs(root,model=null,help=false){
  const args=['--ask-for-approval','never'];
- for(const value of config)args.push('-c',value);
+ for(const value of codexConfig())args.push('-c',value);
  args.push('exec');
  if(help){args.push('--help');return args;}
  args.push('--ephemeral','--json','--cd',root);
  if(model)args.push('--model',model);
  args.push('-');
  return args;
+}
+function probeDisposableGitSandbox(root){
+ guard(process.platform==='linux','The disposable Codex Git-write sandbox probe currently requires Linux');
+ const args=['sandbox','linux','--cd',root,'--permission-profile','nomos_disposable_git'];
+ for(const value of codexConfig())args.push('-c',value);
+ args.push('--','/bin/sh','-c',
+  'f=.git/nomos-write-permission-probe; (umask 077; : > "$f") && rm -- "$f"');
+ const output=command('codex',args,root,{timeout:15000});
+ guard(output.status===0,'Disposable Git metadata still not writable by Codex sandbox; no model launched. '+
+  (output.stderr.trim()||output.stdout.trim()||output.error||'sandbox probe exit '+output.status).slice(0,500));
+ return true;
 }
 function preflight(){
  const versions={};
@@ -112,6 +125,8 @@ function run(argv){
  const installed=verify(root);
  guard(command('git',['add','.'],root).status===0,'Cannot stage synthetic baseline');
  guard(command('git',['commit','-m','test: disposable synthetic baseline'],root).status===0,'Cannot commit synthetic baseline');
+ // Actual Linux sandbox check, not a mocked JSONL assertion or expensive model turn.
+ probeDisposableGitSandbox(root);
  const prompt=[
   'Implement this disposable Rust acceptance exercise:',p.task,
   'Before changing code, execute node .nomos/read-phase.cjs planning.',
@@ -169,4 +184,4 @@ function run(argv){
 }
 if(require.main===module){try{console.log(JSON.stringify(run(process.argv.slice(2)),null,2));}
  catch(error){console.error('Nomos acceptance refused: '+error.message);process.exitCode=1;}}
-module.exports={CASES,plan,argsOf,run,preflight,hasEvent,codexArgs};
+module.exports={CASES,plan,argsOf,run,preflight,hasEvent,codexArgs,codexConfig,probeDisposableGitSandbox};
