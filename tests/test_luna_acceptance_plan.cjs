@@ -166,6 +166,68 @@ test('Linux sandbox Git-write probe is model-free, narrow and stops on denial',(
   assert.throws(()=>runner.probeDisposableGitSandbox(root),/no model launched.*Read-only file system/);
  }finally{cp.spawnSync=original;fs.rmSync(root,{recursive:true,force:true});}
 });
+test('post-run reviewer facts distinguish documentation, CI and lint gaps from an agent-turn success',()=>{
+ const fs=require('node:fs'),cp=require('node:child_process'),original=cp.spawnSync;
+ try{
+  cp.spawnSync=(exe,args)=>{
+   if(exe==='git'&&args[0]==='rev-list')return {status:0,stdout:'2\n',stderr:''};
+   if(exe==='cargo'&&args[0]==='fmt')return {status:1,stdout:'',stderr:'would reformat'};
+   if(exe==='cargo'&&args[0]==='clippy')return {status:1,stdout:'',stderr:'component not available'};
+   if(exe==='codex'&&args.includes('--json'))return {status:0,stdout:'{"type":"thread.started"}\n{"type":"turn.completed"}\n',stderr:''};
+   return {status:0,stdout:'',stderr:''};
+  };
+  const report=runner.run(['--case','RUST-CLI','--execute']);
+  try{
+   assert.equal(report.agent_turn_completed,true);
+   assert.equal(report.code_test_commit_gate_met,true);
+   assert.deepEqual(report.repository_artifact_observations,{
+    readme_present:false,roadmap_present:false,ci_workflow_present:false
+   });
+   assert.deepEqual(report.independent_review_gaps,[
+    'missing_readme','missing_roadmap','missing_ci_workflow',
+    'cargo_fmt_not_verified','cargo_clippy_not_verified'
+   ]);
+   assert.equal(report.evidence_summary.cargo_fmt.exit_code,1);
+   assert.equal(report.evidence_summary.cargo_clippy.exit_code,1);
+   assert.equal(report.independent_reviewer_accepted,false);
+  }finally{fs.rmSync(report.workspace,{recursive:true,force:true});fs.rmSync(report.private_evidence,{recursive:true,force:true});}
+ }finally{cp.spawnSync=original;}
+});
+
+test('review artifact detection observes populated disposable project without granting conformance',()=>{
+ const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_process'),original=cp.spawnSync;
+ try{
+  cp.spawnSync=(exe,args)=>{
+   if(exe==='git'&&args[0]==='rev-list')return {status:0,stdout:'2\n',stderr:''};
+   if(exe==='codex'&&args.includes('--json')){
+    const root=args[args.indexOf('--cd')+1];
+    fs.writeFileSync(path.join(root,'README.md'),'# Synthetic test\n');
+    fs.writeFileSync(path.join(root,'ROADMAP.md'),'# Test roadmap\n');
+    fs.mkdirSync(path.join(root,'.github','workflows'),{recursive:true});
+    fs.writeFileSync(path.join(root,'.github','workflows','rust.yml'),'name: CI\n');
+    return {status:0,stdout:'{"type":"thread.started"}\n{"type":"turn.completed"}\n',stderr:''};
+   }
+   return {status:0,stdout:'',stderr:''};
+  };
+  const report=runner.run(['--case','RUST-CLI','--execute']);
+  try{
+   assert.deepEqual(report.repository_artifact_observations,{
+    readme_present:true,roadmap_present:true,ci_workflow_present:true
+   });
+   assert.deepEqual(report.independent_review_gaps,[]);
+   assert.equal(report.independent_reviewer_accepted,false);
+   assert.equal(report.production_accepted,false);
+  }finally{fs.rmSync(report.workspace,{recursive:true,force:true});fs.rmSync(report.private_evidence,{recursive:true,force:true});}
+ }finally{cp.spawnSync=original;}
+});
+
+test('Rust CLI acceptance scenario requires a real CI workflow to satisfy EVAL-08',()=>{
+ const task=runner.CASES['RUST-CLI'].task;
+ assert.match(task,/GitHub Actions CI workflow/);
+ assert.match(task,/formatting/);
+ assert.match(task,/Clippy/);
+});
+
 test('parser failure is launch_failed and cannot claim a live or accepted agent',()=>{
  const fs=require('node:fs'),path=require('node:path'),original=cp.spawnSync,seen=[];
  try{
