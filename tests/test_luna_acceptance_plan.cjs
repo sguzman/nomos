@@ -570,8 +570,8 @@ if(verb==='list'&&args.length===2){
   const {verifyPersistenceCli}=require('../tools/verify_persistence_cli.cjs');
   const success=verifyPersistenceCli(root,{binaryPath:binary,skipBuild:true});
   assert.equal(success.ok,true,JSON.stringify(success));
-  assert.equal(success.command_count,10);
-  assert.equal(Object.keys(success.checks).length,10);
+  assert.equal(success.command_count,12);
+  assert.equal(Object.keys(success.checks).length,11);
   assert.equal(success.checks.durable_on_disk_roundtrip,true);
   assert.equal(Object.hasOwn(success.checks,'durable_hex_records'),false);
   // The exercise requires durable data, not a particular storage encoding.
@@ -586,6 +586,22 @@ if(verb==='list'&&args.length===2){
   const alternate=verifyPersistenceCli(root,{binaryPath:binary,skipBuild:true});
   assert.equal(alternate.ok,true,JSON.stringify(alternate));
   assert.equal(alternate.checks.durable_on_disk_roundtrip,true);
+  // A format-header implementation that treats a damaged header as an
+  // empty journal and overwrites its entries must fail, even though its
+  // ordinary append/list tests pass.
+  const headered=fake
+   .replace("const decode=data=>data.toString('utf8').split('\\n').filter(Boolean).flatMap(line=>{",
+    "const decode=data=>{const lines=data.toString('utf8').split('\\n');if(lines.shift()!=='LOCAL-JOURNAL\\t1')return [];return lines.filter(Boolean).flatMap(line=>{")
+   .replace("});\\nif(verb==='list'", "});};\\nif(verb==='list'")
+   .replace("fs.writeFileSync(temp,items.map(x=>Buffer.from(x).toString('hex')).join('\\n')+'\\n');",
+    "fs.writeFileSync(temp,'LOCAL-JOURNAL\\t1\\n'+items.map(x=>Buffer.from(x).toString('hex')).join('\\n')+'\\n');");
+  // Use explicit newlines because the source of fake is a raw template literal.
+  const badHeader=headered.replace("});\nif(verb==='list'","});};\nif(verb==='list'");
+  assert.notEqual(badHeader,fake);
+  fs.writeFileSync(binary,badHeader,{mode:0o700});
+  const destructive=verifyPersistenceCli(root,{binaryPath:binary,skipBuild:true});
+  assert.equal(destructive.ok,false);
+  assert.deepEqual(destructive.failed,['corrupted_prefix_preserves_valid_entries_or_refuses']);
   // Broken public list CLI must fail independent smoke regardless of unit test claims.
   fs.writeFileSync(binary,"#!/usr/bin/env node\nif(process.argv[2]==='list'){console.log('broken')}\n");
   const bad=verifyPersistenceCli(root,{binaryPath:binary,skipBuild:true});
