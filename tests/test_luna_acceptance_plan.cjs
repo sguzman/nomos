@@ -519,3 +519,18 @@ test('visual progress bars are checked only when quantified and recognizably pai
  assert.deepEqual(checked.mismatched_visual_progress_lines,[1]);
  assert.equal(checked.quantifiability,'reported_quantification');
 });
+
+
+test('persistence acceptance task requires a genuine alternate lifecycle without unauthorized release',()=>{
+ const task=runner.CASES['RUST-PERSIST'].task;
+ assert.match(task,/atomic-rename persistence/);
+ assert.match(task,/recovery from malformed input without losing valid prior entries/);
+ assert.match(task,/regression test for malformed journal data/);
+ assert.match(task,/GitHub Actions workflow/);
+ assert.match(task,/release-readiness checklist/);
+ assert.match(task,/do not publish, tag, deploy or claim hosted CI ran/);
+ const scope=runner.plan('RUST-PERSIST');
+ assert.equal(scope.context.features.persistence,'yes');
+ assert.equal(scope.context.features.gui,'no');
+ assert.equal(scope.snapshot.production_export_authorized,false);
+});
