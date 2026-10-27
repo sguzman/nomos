@@ -1,6 +1,6 @@
 # Agent consumption v1: evidence and readiness record
 
-**Recorded:** 2026-10-26  
+**Recorded:** 2026-10-27  
 **Current classification:** **Engineering preview; not production-accepted for autonomous Luna/Codex use.**  
 **Scope:** projection resolver, guided website intake, deterministic package compilation, contextual rule references, and evaluation evidence. This is a project-status document, not authorization to finalize a profile or deploy an agent.
 
@@ -10,19 +10,19 @@
 | --- | --- | --- | --- |
 | Canonical source / projection | `tools/projections.cjs`, pinned registry and rule fingerprints, JSON Schemas | Automated deterministic and adversarial tests | Approval provenance still requires a distinct owner action |
 | Guided interview | `docs/rule-builder.html`, `docs/builder-logic.js` | Node unit tests and real headless Chromium interaction | Browser exports an **unapproved** draft, not installable instructions |
-| Target instruction package | `tools/agent_package.cjs`, `AGENTS.md`, local source modules, `.nomos/manifest.json` | Byte-integrity tests and seven observed Codex CLI attempts, five mechanically complete | No independently accepted Codex run; generic-agent target remains unverified live |
+| Target instruction package | `tools/agent_package.cjs`, `AGENTS.md`, local source modules, `.nomos/manifest.json` | Byte-integrity tests and eight observed Codex CLI attempts, six mechanically complete | One independently accepted Rust CLI trial; generic-agent target remains unverified live |
 | Contextual reading | `tools/agent_phase_reader.cjs`, bundled `.nomos/read-phase.cjs` | Synthetic CLI tests plus six phase-reader receipts in the mechanically complete Rust probe | Verified reading is not proof of obeying the selected rules; generic fallback not observed |
 | Model compatibility | Codex-targeted optional Skills plus a generic Markdown fallback | Generated files and phase-routing validated with Node integration tests | Skill discovery / model understanding / autonomous project behavior not empirically established |
-| Evaluation | `tools/validate_agent_run_evidence.cjs`, disposable Rust runner, conformance rubric | Seven genuine `RUST-CLI` attempts; first two lacked commits; later five passed the mechanical gate, but none passed independent conformance | **0 independently accepted end-to-end runs** |
+| Evaluation | `tools/validate_agent_run_evidence.cjs`, disposable Rust runner, conformance rubric | Eight real `RUST-CLI` attempts; first two lacked commits, later six passed mechanics, and the eighth passed independent 89-rule review | **1 of 3 distinct accepted scenarios** |
 | Public website | GitHub Pages with site/catalog smoke checks and interactive Chromium workflow | CI evidence as linked in roadmap; deploy status must be checked per revision | Static-site usability is not evidence of agent reliability |
 
 ## Actual evidence versus required production evidence
 
-**Available:** source hashes; selected-rule manifests; deterministic generation checks; opt-in export refusal tests; filesystem/symlink checks; browser clicks, keyboard and responsive behavior in CI; local CLI module read receipts; and coverage validation for synthetic Rust profiles.
+**Available:** source hashes; selected-rule manifests; deterministic generation checks; opt-in export refusal tests; filesystem/symlink checks; browser clicks, keyboard and responsive behavior in CI; local CLI module read receipts; coverage validation for synthetic Rust profiles; and **one independently accepted, real Codex Rust CLI build/test/commit/handoff trial** with 89 scoped rule dispositions.
 
-**Missing:** a complete, independently accepted Luna/Codex run with actual agent-created Git commits, clean worktree, verified end-to-end instructions compliance and full per-rule review; an alternate GUI/persistence run; a third distinct run; and independent assessment of the recorded code and tool traces.
+**Missing:** independently accepted alternate persistence/GUI and distinct mixed-scope agent trials, confirmed generic fallback target behavior, the full three-distinct-runs reliability evidence, and production/release closure. An actual hosted GitHub Actions execution was not part of the disposable Rust CLI run; CI was configured and local equivalents ran.
 
-The existing acceptance requirement is **three independently recorded, distinct real-agent runs**, zero unresolved critical/major rule violations, supported tool/read traces, and verified target behavior. A textual description, hypothetical transcript, synthetic fixture or green Nomos Pages build must not count as a live run. No such run has been accepted.
+The existing acceptance requirement is **three independently recorded, distinct real-agent runs**, zero unresolved critical/major rule violations, supported tool/read traces, and verified target behavior. A textual description, hypothetical transcript, synthetic fixture or green Nomos Pages build must not count as a live run. **One Rust CLI scenario has been independently accepted; two other distinct accepted scenarios are still required.**
 
 ## First observed live Rust CLI probe (2026-10-26, not accepted)
 
@@ -79,6 +79,16 @@ This time the **roadmap structural gate worked as intended**: source `NOM-0010` 
 **Independent source-rule verdict: still rejected.** The [public-safe per-rule review](../audits/agent-consumption-rust-cli-ded9fc9-review.json) classifies **38 supported, 5 violated and 46 not applicable** under this bounded scenario. The remaining deviations concern `NOM-0043` (post-commit roadmap status not reconciled) and `NOM-0068`–`NOM-0071` (final project progress handoff omits required touched-item details, supported percentages with visual bars, overall progress and first-completion notice). These are *not* Rust code failures. They remain relevant selected obligations, so file/CI/test success cannot imply independently accepted agent behavior. Raw logs and machine paths stay private.
 
 The disposable runner now explicitly requests a post-commit roadmap-state reconciliation and condition-aware progress reporting, and saves a **model-free presentation preflight** to flag absent numeric, bar and overall progress evidence. These preflights are conservative indicators, not independent acceptance or authorization to claim numerical progress where no objective denominator exists. The measured engineering progress is **63/69 (91.3%)**, unchanged. No live-agent run is independently accepted; later GUI/persistence, mixed-scope, generic fallback and final release gates remain open.
+
+## Eighth Rust CLI probe: independently accepted for the scoped Rust CLI scenario (2026-10-27)
+
+The latest Codex CLI 0.163.0 run generated a dependency-free Unicode/ASCII-space-normalizing Rust CLI with explicit error exits, a user-facing README, a structured 22-item roadmap, a GitHub Actions workflow, and three passing unit plus four passing integration tests. Independently reviewed source, tool logs and final handoff confirm offline formatting, compilation, Clippy and tests; five verified phase-reader receipts (planning, implementation, testing, review, shutdown); two distinct local agent Git commits (`e15f045` implementation and `110018b003be450df57b545d8cc16934fe30b315` post-commit roadmap reconciliation); and a clean worktree. The supplied private archive checksum is recorded in the public-safe review.
+
+The local Git rule gate rejected a staged roadmap with incomplete structure, and the agent repaired it without bypassing the gate. Final roadmap status accurately shows the implementation and local verification completed while **hosted GitHub Actions has not run**; the final agent report provides evidence-backed progress percentages and matching bars for completed tasks, distinct disclosure of delivery still in progress, actual commit IDs and the outstanding hosted-CI result. The source and trace are consistent with the required behavior of this *configured-CI* acceptance case, not a hosted-CI execution claim.
+
+**Independent verdict: accepted within this one synthetic CLI scenario.** The [public-safe 89-rule review](../audits/agent-consumption-rust-cli-110018b-accepted-review.json) records **43 satisfied, 46 not applicable, zero violated and zero unobserved**, after examining the actual private source archive, patch and tool events; rule conditions and scoped inapplicability were assessed, not assumed from the mechanical observer's default `incomplete` statuses. The original runner's `independent_reviewer_accepted: false` is correctly unchanged: it never self-accepts. The separate independent-review record supplies the final human evidence-based verdict. This is not a generic target result, a second distinct scenario, an approved profile, a production release or a claim that Codex is universally reliable.
+
+**Checkpoint `EVAL-08` is now done:** **64/69 = 92.8%**, previously 63/69 = 91.3%, delta **+1.5 percentage points**. Remaining open checkpoints: `RUN-08`, `EVAL-09`, `EVAL-11`, `EVAL-12`, and `REL-08`. The next live scenario should exercise a different scope (the persistence case) rather than repeat the accepted CLI case.
 
 ## Profile and deployment controls
 
