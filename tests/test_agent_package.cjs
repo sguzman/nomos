@@ -23,7 +23,11 @@ test('approved projections compile into compact entrypoint plus scoped rule modu
  assert.ok(bundle.files.has('.nomos/manifest.json'));
  assert.ok(bundle.files.has('.nomos/projection.json'));
  assert.ok([...bundle.files.keys()].some(x=>x.startsWith('.nomos/rules/')));
- assert.ok(bundle.files.get('AGENTS.md').length<10000);
+ const entrypoint=bundle.files.get('AGENTS.md');
+ assert.ok(entrypoint.length<10000);
+ assert.match(entrypoint,/identify selected conditional rules activated/);
+ assert.match(entrypoint,/check every activated project-bootstrap, documentation, code-quality, CI and Git rule/);
+ assert.match(entrypoint,/report any gap as unfinished/);
  assert.equal(verifyPackage({...bundle,projection}),true);
  assert.equal(Object.keys(bundle.manifest.rules).length,
    projection.decisions.filter(d=>['include','conditional'].includes(d.decision)).length);
