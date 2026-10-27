@@ -161,6 +161,20 @@ function progressBarPairMismatches(text){
  return mismatched;
 }
 
+/* Conservative NOM-0069 check: a numbered/bulleted item explicitly called
+ * Complete is quantifiable. A shared bar in the introduction does not pair
+ * the percentage and visual bar with each individual reported work item. */
+function completedItemProgressGaps(text){
+ const gaps=[];
+ for(const [i,line] of String(text||'').split(/\r?\n/).entries()){
+  if(!/^\s*(?:\d+[.)]|[-*+])\s+/.test(line)||!/(?:\bcomplete\b|\bcompleted\b|\bdone\b)/i.test(line))continue;
+  const percent=/\b100(?:\.0+)?\s*%/.test(line);
+  const bar=/[█▰▮]{2,}|\[[#=]{2,}[-. ]*\]/u.test(line);
+  if(!percent||!bar)gaps.push({line:i+1,percent_present:percent,bar_present:bar});
+ }
+ return gaps;
+}
+
 function handoffProgressPreflight(jsonl,manifest){
  const selected=['NOM-0068','NOM-0069','NOM-0070','NOM-0071']
   .filter(id=>Object.hasOwn(manifest?.rules||{},id));
@@ -177,12 +191,15 @@ function handoffProgressPreflight(jsonl,manifest){
  const visualBarPresent=/[█▓▒░▰▱▮▯]|\[[#=]+[-. ]*\]/u.test(finalText);
  const mismatchedBarLines=selected.includes('NOM-0069')?
   progressBarPairMismatches(finalText):[];
+ const completedItems=selected.includes('NOM-0069')?
+  completedItemProgressGaps(finalText):[];
  // NOM-0069 is conditional on quantifiable work. A missing percentage and bar
  // cannot itself establish a violation; inventing precision is prohibited.
  return {inspected:true,selected_rules:selected,
   percentage_present:percentagePresent,
   visual_bar_present:visualBarPresent,
   mismatched_visual_progress_lines:mismatchedBarLines,
+  completed_item_progress_gaps:completedItems,
   overall_progress_present:/\b(?:overall|project progress|total progress)\b/i.test(finalText),
   quantifiability:percentagePresent||visualBarPresent?'reported_quantification':'requires_independent_review',
   item_coverage:'requires_independent_review',first_completion:'requires_independent_review'};
@@ -286,6 +303,7 @@ function run(argv){
   'The disposable Git repository has a selected-rule artifact gate. Do not bypass it. If a commit fails, inspect and satisfy the identified source-rule obligation before retrying.',
   'Before your final handoff, reconcile ROADMAP.md status text against the actual committed HEAD. A milestone that is still in progress must be reported as unfinished; if a formerly in-progress action is already completed and this is within scope, make a final coherent follow-up commit and verify it, or explicitly disclose the discrepancy. Never mark an unexecuted hosted CI run complete.',
   'Your final report MUST inventory every touched roadmap phase, milestone, feature AND subtask separately (including tasks nested beneath a feature). Use the item titles or stable emoji IDs from ROADMAP.md, report actual evidence-based status and numeric/bar progress only when quantifiable. Do not silently omit a completed subtask just because its parent feature appears in the report.',
+  'For every quantifiably complete phase/milestone/feature/subtask in your final progress report, put 100% AND a matching visual progress bar on the item\'s OWN line. Do not substitute one shared 100% and bar in the group heading for the required per-item pairing.',
   'Your final reply is a project development progress report. Apply the selected NOM-0068 through NOM-0072 conditions: report the progress of touched phases, milestones, tasks and features, plus overall project progress. Give each work item a number and matching visual progress bar only when evidence supports a percentage; do not invent numerical precision. Announce 100% for newly completed items once and do not repeat already announced completion events.',
   'Report only actual tool execution; do not fake source-rule compliance or a release.'
  ].join('\n');
@@ -373,6 +391,8 @@ function run(argv){
       !handoffProgress.percentage_present?['handoff_progress_bar_missing_percent']:[]),
   ...(handoffProgress.inspected&&handoffProgress.mismatched_visual_progress_lines?.length?
    ['handoff_numeric_visual_progress_disagree']:[]),
+  ...(handoffProgress.inspected&&handoffProgress.completed_item_progress_gaps?.length?
+   ['handoff_completed_items_missing_individual_progress_bars']:[]),
   ...(handoffProgress.inspected&&handoffProgress.selected_rules.includes('NOM-0070')&&
       !handoffProgress.overall_progress_present?['handoff_missing_overall_progress']:[])
  ];
@@ -435,4 +455,4 @@ function run(argv){
 }
 if(require.main===module){try{console.log(JSON.stringify(run(process.argv.slice(2)),null,2));}
  catch(error){console.error('Nomos acceptance refused: '+error.message);process.exitCode=1;}}
-module.exports={CASES,plan,argsOf,run,preflight,hasEvent,codexArgs,codexConfig,probeDisposableGitSandbox,createReviewBundle,installDisposableRuleGate,handoffProgressPreflight,roadmapCommitStatusPreflight,progressBarPairMismatches};
+module.exports={CASES,plan,argsOf,run,preflight,hasEvent,codexArgs,codexConfig,probeDisposableGitSandbox,createReviewBundle,installDisposableRuleGate,handoffProgressPreflight,roadmapCommitStatusPreflight,progressBarPairMismatches,completedItemProgressGaps};
