@@ -6,8 +6,9 @@ const digest=s=>crypto.createHash('sha256').update(s,'utf8').digest('hex');
 const valid=(yes,message)=>{if(!yes)throw new Error(message);};
 function observe(jsonl,manifest,requiredPhases=['planning','implementation','testing','shutdown']){
  valid(typeof jsonl==='string','Raw JSONL stream required');
- valid(manifest?.kind==='nomos_agent_package'&&manifest.agent_target==='codex',
-  'Expected actual Codex-targeted package manifest');
+ valid(manifest?.kind==='nomos_agent_package'&&manifest.schema_version===1&&
+  ['codex','generic'].includes(manifest.agent_target),
+  'Expected a supported Codex-traced package manifest (codex or generic)');
  const events=[];
  for(const [i,line] of jsonl.split(/\r?\n/).entries()){
   if(!line.trim())continue;
@@ -44,7 +45,9 @@ function observe(jsonl,manifest,requiredPhases=['planning','implementation','tes
  const report={kind:'nomos_agent_run_evidence',schema_version:1,
   projection_sha256:manifest.projection_sha256,
   registry_revision_sha256:manifest.registry_revision_sha256,
-  agent_target:'codex',expected_phases:[...requiredPhases],events,
+  // Transport/executor is Codex JSONL; the selected instruction-package target
+  // can be generic Markdown. Preserve the latter for receipt and source checks.
+  agent_target:manifest.agent_target,expected_phases:[...requiredPhases],events,
   rule_assessments:Object.keys(manifest.rules).sort().map(rule_id=>({
     rule_id,disposition:'unobserved',evidence_event_ids:[]
   }))};
