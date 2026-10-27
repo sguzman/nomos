@@ -29,7 +29,7 @@
 
 ## Measured progress
 
-**Implementation:** **62/69 verified checkpoints = 89.9%**. **Previous:** 81.2%. **Current:** 89.9%. **Delta:** +8.7 percentage points. Six additional checkpoint gates are documented by the successful [deployed Chrome + Pages run 40403137785](https://github.com/sguzman/nomos/actions/runs/40403137785), which includes interactive hosted-site QA, approval-stage inspection, release validation and documented readiness limits. Actual Luna coding behavior remains unmeasured.
+**Implementation:** **62/69 verified checkpoints = 89.9%**. **Previous:** 81.2%. **Current:** 89.9%. **Delta:** +8.7 percentage points. Six additional checkpoint gates are documented by the successful [deployed Chrome + Pages run 40403137785](https://github.com/sguzman/nomos/actions/runs/40403137785), which includes interactive hosted-site QA, approval-stage inspection, release validation and documented readiness limits. A real Codex CLI 0.163.0 Rust CLI run passed its mechanical code/test/commit gate but failed limited independent conformance review; zero runs are independently accepted.
 
 `completion_percent = 100 × done_checkpoints / 69`; phase progress uses its own exact denominator. Use unrounded fractions as the source for arithmetic, display one decimal place, and compare only the same roadmap revision and acceptance denominator. A changed denominator must be disclosed and prior/current percentages marked non-comparable until rebased. Every change to `done` needs a concrete evidence link (file, commit, CI run, test fixture, or witnessed agent run); moving `done` back to `planned` is valid when evidence fails.
 
