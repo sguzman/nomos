@@ -11,7 +11,7 @@ test('all three Rust acceptance scenarios produce inert full-profile synthetic p
   assert.equal(p.profile_finalized,false);
   assert.equal(p.production_export_authorized,false);
   assert.equal(p.synthetic_ad_hoc_selection,true);
-  assert.equal(p.selected_rules,106);
+  assert.equal(p.selected_rules,90);
   assert.match(p.projection_sha256,/^[0-9a-f]{64}$/);
   assert.equal(p.agent_invoked,false);
   assert.equal(p.status,'planning_only');
@@ -49,11 +49,13 @@ test('mocked execution proves disposable workspace and private evidence artifact
  try{
   cp.spawnSync=(exe,args,opts)=>{
    seen.push([exe,...args]);
+   if(exe==='codex'&&args.includes('--json'))return {status:0,signal:null,error:null,stdout:'{"type":"thread.started","thread_id":"synthetic-test"}\n{"type":"turn.completed"}\n',stderr:''};
    return {status:0,signal:null,error:null,stdout:'',stderr:''};
   };
   const report=runner.run(['--case','RUST-CLI','--execute','--model','test-only']);
   try{
    assert.equal(report.agent_invoked,true);
+   assert.equal(report.agent_turn_completed,true);
    assert.equal(report.production_accepted,false);
    assert.equal(report.independent_reviewer_accepted,false);
    assert.equal(report.rule_assessments_complete,false);
@@ -61,8 +63,9 @@ test('mocked execution proves disposable workspace and private evidence artifact
    assert.match(report.private_evidence,/nomos-luna-evidence-/);
    assert.ok(fs.existsSync(require('node:path').join(report.workspace,'AGENTS.md')));
    assert.ok(fs.existsSync(require('node:path').join(report.private_evidence,'report.json')));
-   const codex=seen.find(c=>c[0]==='codex'&&c[1]==='exec');
+   const codex=seen.find(c=>c[0]==='codex'&&c.includes('--json'));
    assert.ok(codex,'Expected subprocess-shaped evaluation call');
+   assert.deepEqual(codex.slice(1,4),['--ask-for-approval','never','exec']);
    assert.ok(codex.includes('workspace-write'));
    assert.ok(codex.includes('--ephemeral'));
    assert.ok(!codex.includes('--yolo'));
@@ -70,5 +73,57 @@ test('mocked execution proves disposable workspace and private evidence artifact
    fs.rmSync(report.workspace,{recursive:true,force:true});
    fs.rmSync(report.private_evidence,{recursive:true,force:true});
   }
+ }finally{cp.spawnSync=original;}
+});
+
+test('parser failure is launch_failed and cannot claim a live or accepted agent',()=>{
+ const fs=require('node:fs'),path=require('node:path'),original=cp.spawnSync,seen=[];
+ try{
+  cp.spawnSync=(exe,args)=>{
+   seen.push([exe,...args]);
+   if(exe==='codex'&&args.includes('--json'))return {status:2,signal:null,error:null,stdout:'',stderr:"error: unexpected argument '--ask-for-approval' found"};
+   return {status:0,signal:null,error:null,stdout:'ok',stderr:''};
+  };
+  const report=runner.run(['--case','RUST-CLI','--execute']);
+  try{
+   assert.equal(report.status,'launch_failed');
+   assert.equal(report.invocation_attempted,true);
+   assert.equal(report.session_started,false);
+   assert.equal(report.agent_invoked,false);
+   assert.equal(report.agent_turn_completed,false);
+   assert.equal(report.independent_reviewer_accepted,false);
+   assert.equal(report.production_accepted,false);
+   assert.equal(report.observed_phase_reads,0);
+   const codex=seen.find(c=>c[0]==='codex'&&c.includes('--json'));
+   assert.deepEqual(codex.slice(1,4),['--ask-for-approval','never','exec']);
+   assert.equal(fs.readFileSync(path.join(report.private_evidence,'agent-events.jsonl'),'utf8'),'');
+  }finally{fs.rmSync(report.workspace,{recursive:true,force:true});fs.rmSync(report.private_evidence,{recursive:true,force:true});}
+ }finally{cp.spawnSync=original;}
+});
+
+test('incompatible CLI parser fails before any temporary workspace is created',()=>{
+ const original=cp.spawnSync,seen=[];
+ try{
+  cp.spawnSync=(exe,args)=>{seen.push([exe,...args]);
+   if(exe==='codex'&&args[0]==='--ask-for-approval')return {status:2,signal:null,error:null,stdout:'',stderr:'unsupported approval option'};
+   return {status:0,signal:null,error:null,stdout:'tool 1.0',stderr:''};};
+  assert.throws(()=>runner.run(['--case','RUST-CLI','--execute']),/Codex CLI is incompatible.*unsupported approval option/);
+  assert.ok(seen.some(c=>c[0]==='codex'&&c.slice(1).join(' ')==='--ask-for-approval never exec --help'));
+  assert.ok(!seen.some(c=>c[0]==='git'&&c.includes('init')));
+ }finally{cp.spawnSync=original;}
+});
+
+test('started session without turn.completed is not a completed agent turn',()=>{
+ const fs=require('node:fs'),cp=require('node:child_process'),original=cp.spawnSync;
+ try{
+  cp.spawnSync=(exe,args)=>({status:0,signal:null,error:null,
+   stdout:exe==='codex'&&args.includes('--json')?'{"type":"thread.started","thread_id":"incomplete"}\n':'ok',stderr:''});
+  const report=runner.run(['--case','RUST-CLI','--execute']);
+  try{
+   assert.equal(report.session_started,true);
+   assert.equal(report.agent_turn_completed,false);
+   assert.equal(report.status,'agent_turn_failed');
+   assert.equal(report.production_accepted,false);
+  }finally{fs.rmSync(report.workspace,{recursive:true,force:true});fs.rmSync(report.private_evidence,{recursive:true,force:true});}
  }finally{cp.spawnSync=original;}
 });

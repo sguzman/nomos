@@ -14,11 +14,11 @@ The default command is a harmless planning preflight:
 
 It computes the pinned projection/package and prints a public-safe plan. It does not call Codex, Cargo, Git, an external API, or any live project. CI tests this planning behavior without agent authentication.
 
-Actual unattended execution is **separately opt-in**, with an already installed and authenticated Codex CLI:
+Actual unattended execution is **separately opt-in**, with an already installed and authenticated Codex CLI. Before allocating either temporary directory, the runner checks the local parser with `codex --ask-for-approval never exec --help`. A parser error stops the run clearly and is not reported as an agent trial.
 
 `node tools/run_luna_acceptance.cjs --case RUST-CLI --model MODEL --execute`
 
-The model flag is optional and must be chosen from those available in the authenticated account; the runner does not invent model availability. It uses the documented Codex CLI noninteractive `codex exec --json --sandbox workspace-write --ask-for-approval never --ephemeral` interface. It does not use npm, `--yolo`, paid external development tools, or extra GitHub permissions. It makes no claim that this interface works with every historical Codex version.
+The model flag is optional and must be chosen from those available in the authenticated account; the runner does not invent model availability. It uses `codex --ask-for-approval never exec --sandbox workspace-write --ephemeral --json --cd <temp-repo> -`; the prompt is still sent on stdin. This ordering supports Codex CLI 0.163.0, where placing the approval flag after `exec` fails parsing. It does not use npm, `--yolo`, `--danger-full-access`, paid external development tools, or extra GitHub permissions.
 
 When explicitly executed, it creates a new temporary Git repository and Cargo project under OS-managed temporary directories, installs a separate synthetic test package there, and invokes Codex only against that test directory. It then runs `cargo test --offline` and `cargo metadata --offline`, queries Git status and history, and saves raw JSONL tool events and stderr to a separate private temporary evidence directory with restricted permissions. It never points at an actual user project, uploads raw logs, approves a real profile, or pushes commits to a remote.
 
@@ -26,7 +26,9 @@ When explicitly executed, it creates a new temporary Git repository and Cargo pr
 
 `tools/codex_trace_observer.cjs` parses Codex's `item.completed` command-execution JSONL events and identifies successful `node .nomos/read-phase.cjs <phase>` commands with matching `NOMOS_PHASE_READ` receipts. It validates those receipts against the package's pinned manifest and records actual command statuses. It does **not** treat an agent's natural-language claim as a tool event and it never marks applicable rules `satisfied` automatically.
 
-The runner leaves its output as `awaiting_independent_review`, with `production_accepted: false` and `rule_assessments_complete: false`, even if Cargo tests pass. A separate reviewer must inspect the original tool traces, project diffs, phase transitions, applicable conditions, builds, tests and any missing work. The existing conformance rubric requires three independent, distinct, accepted real-agent runs before a scoped production claim.
+The report distinguishes `invocation_attempted`, `session_started` (a JSONL `thread.started` event), and `agent_turn_completed` (a genuine `turn.completed` event plus zero CLI exit and no `turn.failed`). A parser exit with no session event is `launch_failed`, never `awaiting_independent_review`. A started, successfully completed turn remains `awaiting_independent_review`; Cargo success on the untouched synthetic baseline is not agent work. `production_accepted: false` and `independent_reviewer_accepted: false` remain fixed. A separate reviewer must inspect actual agent-created commits and changes separately from the baseline, original tool traces, phase transitions, applicable conditions, builds, tests and any missing work. The existing conformance rubric requires three independent, distinct, accepted real-agent runs before a scoped production claim.
+
+Minimal RUST-CLI rerun: `node tools/run_luna_acceptance.cjs --case RUST-CLI --execute`. Keep the generated evidence directory private. A run without `thread.started` is a launch failure; a real session remains pending independent review.
 
 ## Known limitations
 

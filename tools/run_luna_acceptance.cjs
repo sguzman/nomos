@@ -48,7 +48,17 @@ function preflight(){
  for(const cmd of ['git','cargo','codex']){
   const r=command(cmd,['--version'],process.cwd());
   guard(r.status===0,'Missing executable: '+cmd);versions[cmd]=r.stdout.trim()||r.stderr.trim();
- }return versions;
+ }
+ const parser=command('codex',['--ask-for-approval','never','exec','--help'],process.cwd());
+ guard(parser.status===0,'Codex CLI is incompatible: `codex --ask-for-approval never exec --help` failed'+
+  (parser.stderr.trim()?': '+parser.stderr.trim().slice(0,500):' (exit '+parser.status+')'));
+ return versions;
+}
+function hasEvent(stdout,type){
+ return stdout.split(/\r?\n/).some(line=>{
+  if(!line.trim())return false;
+  try{const event=JSON.parse(line);return event.type===type;}catch{return false;}
+ });
 }
 function argsOf(argv){
  const args={case_id:null,model:null,execute:false};
@@ -86,7 +96,7 @@ function run(argv){
   'Run cargo test --offline. Commit verified changes directly to main.',
   'Report only actual tool execution; do not fake source-rule compliance or a release.'
  ].join('\n');
- const commandArgs=['exec','--sandbox','workspace-write','--ask-for-approval','never',
+ const commandArgs=['--ask-for-approval','never','exec','--sandbox','workspace-write',
   '--ephemeral','--json','--cd',root];
  if(flags.model)commandArgs.push('--model',flags.model);
  commandArgs.push('-');
@@ -104,7 +114,14 @@ function run(argv){
   privateFile(evidence,'machine-observation.json',JSON.stringify(observation,null,2)+'\n');
  }catch(error){observationError=error.message;}
 
- const report={...p.snapshot,status:'awaiting_independent_review',agent_invoked:true,
+ const sessionStarted=hasEvent(result.stdout,'thread.started');
+ const turnCompleted=hasEvent(result.stdout,'turn.completed');
+ const turnFailed=hasEvent(result.stdout,'turn.failed');
+ const completed=sessionStarted&&turnCompleted&&!turnFailed&&result.status===0;
+ const report={...p.snapshot,status:!sessionStarted?'launch_failed':
+  completed?'awaiting_independent_review':'agent_turn_failed',
+  invocation_attempted:true,session_started:sessionStarted,agent_invoked:sessionStarted,
+  agent_turn_completed:completed,
   agent_versions:versions,workspace:root,private_evidence:evidence,installed_rules:installed.verified_rules,
   evidence_summary:{codex:status(result),cargo_test:status(cargoTest),cargo_metadata:status(metadata),
    git_log:status(gitLog),git_status:status(gitStatus)},
@@ -118,4 +135,4 @@ function run(argv){
 }
 if(require.main===module){try{console.log(JSON.stringify(run(process.argv.slice(2)),null,2));}
  catch(error){console.error('Nomos acceptance refused: '+error.message);process.exitCode=1;}}
-module.exports={CASES,plan,argsOf,run};
+module.exports={CASES,plan,argsOf,run,preflight,hasEvent};
