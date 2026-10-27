@@ -660,6 +660,14 @@ if(verb==='list'&&args.length===2){
 });
 
 
+test('NOM-0069 does not demand 100 percent of an accurately quantified unfinished parent',()=>{
+ const f=runner.completedItemProgressGaps;
+ const line='17. **Phase — Verify and commit:** 75% `███████░░░` — local verification and commit are complete; hosted CI is pending.';
+ assert.deepEqual(f(line),[]);
+ assert.deepEqual(runner.progressBarPairMismatches(line),[]);
+ const complete='17. **Phase — Verify and commit:** Complete `██████████`';
+ assert.deepEqual(f(complete).map(x=>x.line),[1]);
+});
 test('source NOM-0069 requires each completed item to pair its own percent and bar',()=>{
  const {completedItemProgressGaps}=runner;
  const shared='Each below 100% ██████████\n1. 🧭 **Phase** — Complete\n2. 🧪 **Tests** — Complete';
