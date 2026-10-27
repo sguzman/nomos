@@ -217,6 +217,8 @@ function run(argv){
   'Read relevant rules at implementation, testing, review and shutdown as phases change.',
   'Run cargo test --offline. Commit verified changes directly to main.',
   'The disposable Git repository has a selected-rule artifact gate. Do not bypass it. If a commit fails, inspect and satisfy the identified source-rule obligation before retrying.',
+  'Before your final handoff, reconcile ROADMAP.md status text against the actual committed HEAD. A milestone that is still in progress must be reported as unfinished; if a formerly in-progress action is already completed and this is within scope, make a final coherent follow-up commit and verify it, or explicitly disclose the discrepancy. Never mark an unexecuted hosted CI run complete.',
+  'Your final reply is a project development progress report. Apply the selected NOM-0068 through NOM-0072 conditions: report the progress of touched phases, milestones, tasks and features, plus overall project progress. Give each work item a number and matching visual progress bar only when evidence supports a percentage; do not invent numerical precision. Announce 100% for newly completed items once and do not repeat already announced completion events.',
   'Report only actual tool execution; do not fake source-rule compliance or a release.'
  ].join('\n');
  const commandArgs=codexArgs(root,flags.model);
