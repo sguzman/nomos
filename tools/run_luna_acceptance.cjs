@@ -200,7 +200,7 @@ function handoffProgressPreflight(jsonl,manifest){
   visual_bar_present:visualBarPresent,
   mismatched_visual_progress_lines:mismatchedBarLines,
   completed_item_progress_gaps:completedItems,
-  overall_progress_present:/\b(?:overall|project progress|total progress)\b/i.test(finalText),
+  overall_progress_present:/\b(?:overall|project progress|total progress|requested implementation scope|requested scope|entire implementation scope)\b/i.test(finalText),
   quantifiability:percentagePresent||visualBarPresent?'reported_quantification':'requires_independent_review',
   item_coverage:'requires_independent_review',first_completion:'requires_independent_review'};
 }
