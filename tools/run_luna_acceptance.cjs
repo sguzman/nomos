@@ -140,6 +140,26 @@ function hasEvent(stdout,type){
 }
 /* A narrow reporting-shape preflight for selected progress rules. This is not a
  * semantic compliance verdict: applicability and reported values require review. */
+/* Only count reliably shaped numeric+bar pairs; never infer a completion
+ * percentage from prose, status emojis, or unverifiable roadmap status. */
+function progressBarPairMismatches(text){
+ const mismatched=[];
+ const pair=/(\d{1,3}(?:\.\d+)?)\s*%\s*([█▰▮░▱▯]{2,})/u;
+ const filled=/[█▰▮]/gu;
+ const empty=/[░▱▯]/gu;
+ for(const [index,line] of String(text).split(/\r?\n/).entries()){
+  const match=line.match(pair);
+  if(!match)continue;
+  const numeric=Number(match[1]),bar=match[2];
+  const observed=(bar.match(filled)||[]).length,unfilled=(bar.match(empty)||[]).length;
+  if(!Number.isFinite(numeric)||numeric>100||observed+unfilled!==[...bar].length)continue;
+  const inferred=100*observed/(observed+unfilled);
+  // Accept ordinary rounding to whole bar segments; reject material divergence.
+  if(Math.abs(numeric-inferred)>50/(observed+unfilled)+2)mismatched.push(index+1);
+ }
+ return mismatched;
+}
+
 function handoffProgressPreflight(jsonl,manifest){
  const selected=['NOM-0068','NOM-0069','NOM-0070','NOM-0071']
   .filter(id=>Object.hasOwn(manifest?.rules||{},id));
@@ -154,11 +174,14 @@ function handoffProgressPreflight(jsonl,manifest){
   quantifiability:'unobserved',item_coverage:'unobserved',first_completion:'unobserved'};
  const percentagePresent=/\b(?:100|\d{1,2})(?:\.\d+)?\s*%/.test(finalText);
  const visualBarPresent=/[█▓▒░▰▱▮▯]|\[[#=]+[-. ]*\]/u.test(finalText);
+ const mismatchedBarLines=selected.includes('NOM-0069')?
+  progressBarPairMismatches(finalText):[];
  // NOM-0069 is conditional on quantifiable work. A missing percentage and bar
  // cannot itself establish a violation; inventing precision is prohibited.
  return {inspected:true,selected_rules:selected,
   percentage_present:percentagePresent,
   visual_bar_present:visualBarPresent,
+  mismatched_visual_progress_lines:mismatchedBarLines,
   overall_progress_present:/\b(?:overall|project progress|total progress)\b/i.test(finalText),
   quantifiability:percentagePresent||visualBarPresent?'reported_quantification':'requires_independent_review',
   item_coverage:'requires_independent_review',first_completion:'requires_independent_review'};
@@ -341,6 +364,8 @@ function run(argv){
       !handoffProgress.visual_bar_present?['handoff_quantified_progress_missing_bar']:[]),
   ...(handoffProgress.inspected&&handoffProgress.visual_bar_present&&
       !handoffProgress.percentage_present?['handoff_progress_bar_missing_percent']:[]),
+  ...(handoffProgress.inspected&&handoffProgress.mismatched_visual_progress_lines?.length?
+   ['handoff_numeric_visual_progress_disagree']:[]),
   ...(handoffProgress.inspected&&handoffProgress.selected_rules.includes('NOM-0070')&&
       !handoffProgress.overall_progress_present?['handoff_missing_overall_progress']:[])
  ];
@@ -402,4 +427,4 @@ function run(argv){
 }
 if(require.main===module){try{console.log(JSON.stringify(run(process.argv.slice(2)),null,2));}
  catch(error){console.error('Nomos acceptance refused: '+error.message);process.exitCode=1;}}
-module.exports={CASES,plan,argsOf,run,preflight,hasEvent,codexArgs,codexConfig,probeDisposableGitSandbox,createReviewBundle,installDisposableRuleGate,handoffProgressPreflight,roadmapCommitStatusPreflight};
+module.exports={CASES,plan,argsOf,run,preflight,hasEvent,codexArgs,codexConfig,probeDisposableGitSandbox,createReviewBundle,installDisposableRuleGate,handoffProgressPreflight,roadmapCommitStatusPreflight,progressBarPairMismatches};
