@@ -20,9 +20,10 @@ const CASES=Object.freeze({
 });
 const guard=(ok,message)=>{if(!ok)throw new Error(message);};
 const hash=text=>crypto.createHash('sha256').update(text).digest('hex');
-function plan(caseId,model=null){
+function plan(caseId,model=null,target='codex'){
  guard(Object.hasOwn(CASES,caseId),'Unknown synthetic Rust case');
  guard(model===null||(/^[a-zA-Z0-9._-]{1,80}$/.test(model)),'Invalid model selector');
+ guard(target==='codex'||target==='generic','Unsupported synthetic agent package target');
  const scenario=CASES[caseId],profile=catalog.profiles.find(x=>x.id==='PROFILE-0004');
  guard(profile?.status==='draft'&&profile.review?.selection_confirmed===false,'Source profile status unexpectedly changed');
  const context={kind:'project_context',version:'1.0.0',project_types:scenario.types,types_exhaustive:true,
@@ -31,11 +32,11 @@ function plan(caseId,model=null){
  const approval={source_selection_confirmed:true,project_context_reviewed:true,projection_confirmed:true};
  const projection=decide({catalog,hierarchy,selection,context,approval});
  guard(projection.status==='approved','Synthetic scenario has blocked or unresolved normative constraints');
- const bundle=compile(projection,catalog,{target:'codex'});
+ const bundle=compile(projection,catalog,{target});
  return {case_id:caseId,model,context,task:scenario.task,bundle,
   snapshot:{kind:'nomos_synthetic_agent_probe',schema_version:1,case_id:caseId,
     source_profile_id:profile.id,profile_finalized:false,production_export_authorized:false,
-    synthetic_ad_hoc_selection:true,model,selected_rules:selection.rule_ids.length,
+    synthetic_ad_hoc_selection:true,model,agent_target:target,selected_rules:selection.rule_ids.length,
     projection_sha256:bundle.manifest.projection_sha256,
     registry_revision_sha256:bundle.manifest.registry_revision_sha256}};
 }
@@ -223,17 +224,18 @@ function roadmapCommitStatusPreflight(markdown,{agent_created_commits,worktree_c
 }
 
 function argsOf(argv){
- const args={case_id:null,model:null,execute:false,probe_sandbox:false};
+ const args={case_id:null,model:null,target:'codex',execute:false,probe_sandbox:false};
  for(let i=0;i<argv.length;i++){
   if(argv[i]==='--execute'){args.execute=true;continue;}
   if(argv[i]==='--probe-sandbox'){args.probe_sandbox=true;continue;}
-  if(argv[i]==='--case'||argv[i]==='--model'){
-   const key=argv[i]==='--case'?'case_id':'model';
+  if(argv[i]==='--case'||argv[i]==='--model'||argv[i]==='--target'){
+   const key=argv[i]==='--case'?'case_id':argv[i]==='--model'?'model':'target';
    guard(argv[i+1]&&!argv[i+1].startsWith('--'),'Missing value for '+argv[i]);
    args[key]=argv[++i];continue;
   }throw new Error('Unknown argument '+argv[i]);
  }
  guard(args.case_id,'Required: --case RUST-CLI|RUST-PERSIST|RUST-MIXED');
+ guard(['codex','generic'].includes(args.target),'Invalid agent package target');
  guard(!(args.execute&&args.probe_sandbox),'--probe-sandbox cannot combine with --execute');
  return args;
 }
@@ -260,7 +262,7 @@ function createReviewBundle(root,evidence,out=path.join(evidence,'review-bundle.
   bytes:fs.statSync(out).size};
 }
 function run(argv){
- const flags=argsOf(argv),p=plan(flags.case_id,flags.model);
+ const flags=argsOf(argv),p=plan(flags.case_id,flags.model,flags.target);
  if(!flags.execute&&!flags.probe_sandbox)return {...p.snapshot,status:'planning_only',agent_invoked:false,
   note:'No user project, paid model, or authentication was touched. Execute only after explicit authorization.'};
  const versions=preflight();
@@ -296,6 +298,7 @@ function run(argv){
  const prompt=[
   'Implement this disposable Rust acceptance exercise:',p.task,
   'Pinned project fact: this is a new project being created from scratch. The Cargo.toml and src/main.rs files at startup are temporary cargo-init scaffolding supplied by the acceptance harness, not evidence of an existing mature project. Evaluate source-rule conditions using the pinned project context in .nomos/projection.json.',
+  ...(flags.target==='generic'?["This is the generic Markdown package, with no agent Skills wrappers. Explicitly execute `cat AGENTS.md` as your first project-file read, and inspect the generated contract's `Agent target: generic` declaration. The caller supplies AGENTS.md as the generic entrypoint; do not assume it was automatically discovered. Then use the same verified phase-reader contract."]:[]),
   'Before changing code, execute node .nomos/read-phase.cjs planning.',
   'At planning, identify concrete active source-rule IDs and their required output files, validation steps and safety conditions. Before committing, compare those planned obligations against actual artifacts. Do not mark absent required work complete.',
   'Read relevant rules at implementation, testing, review and shutdown as phases change.',
@@ -366,6 +369,15 @@ function run(argv){
   privateFile(evidence,'machine-observation.json',JSON.stringify(observation,null,2)+'\n');
  }catch(error){observationError=error.message;}
 
+ const genericFallbackRead=flags.target==='generic'?
+  result.stdout.split(/\r?\n/).some(line=>{
+   let event;try{event=JSON.parse(line);}catch{return false;}
+   const item=event.item||{};
+   return event.type==='item.completed'&&item.type==='command_execution'&&
+    item.exit_code===0&&/\bcat\s+AGENTS\.md\b/.test(item.command||'')&&
+    /# Generated Nomos agent contract/.test(item.aggregated_output||'')&&
+    /Agent target: generic/.test(item.aggregated_output||'');
+  }):null;
  const sessionStarted=hasEvent(result.stdout,'thread.started');
  const turnCompleted=hasEvent(result.stdout,'turn.completed');
  const turnFailed=hasEvent(result.stdout,'turn.failed');
@@ -381,6 +393,7 @@ function run(argv){
   ...(roadmapCommitStatus.stale_commit_milestone_lines.length?
    ['roadmap_committed_git_milestone_still_in_progress']:[]),
   ...(persistenceSmoke.inspected&&!persistenceSmoke.ok?['persistence_cli_smoke_failed']:[]),
+  ...(flags.target==='generic'&&!genericFallbackRead?['generic_entrypoint_read_not_observed']:[]),
   ...(cargoFmt.status!==0?['cargo_fmt_not_verified']:[]),
   ...(cargoClippy.status!==0?['cargo_clippy_not_verified']:[]),
   // Never demand invented progress percentages when NOM-0069's evidence condition
@@ -414,6 +427,8 @@ function run(argv){
   handoff_progress_preflight:handoffProgress,
   roadmap_commit_status_preflight:roadmapCommitStatus,
   persistence_cli_smoke:persistenceSmoke,
+  generic_fallback_entrypoint:{target:flags.target,explicit_read_verified:genericFallbackRead,
+   skills_wrappers_present:[...p.bundle.files.keys()].some(x=>x.startsWith('.agents/skills/'))},
   repository_artifact_observations:repositoryArtifacts,
   artifact_preflight_met:artifactPreflightMet,
   independent_review_gaps:independentReviewGaps,
