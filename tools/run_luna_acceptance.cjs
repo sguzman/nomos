@@ -163,7 +163,8 @@ function run(argv){
  const metadata=command('cargo',['metadata','--no-deps','--offline','--format-version','1'],root,{env:rustEnv});
  const repositoryArtifacts={
   readme_present:['README.md','README.MD','README'].some(name=>fs.existsSync(path.join(root,name))),
-  roadmap_present:['ROADMAP.md','roadmap.md','roadmaps/README.md'].some(name=>fs.existsSync(path.join(root,name))),
+  roadmap_present:['ROADMAP.md','roadmap.md','roadmaps/README.md','docs/ROADMAP.md',
+   'docs/roadmap.md','docs/roadmaps/README.md'].some(name=>fs.existsSync(path.join(root,name))),
   ci_workflow_present:fs.existsSync(path.join(root,'.github/workflows'))&&
    fs.readdirSync(path.join(root,'.github/workflows'),{withFileTypes:true})
     .some(entry=>entry.isFile()&&/\.ya?ml$/.test(entry.name))
