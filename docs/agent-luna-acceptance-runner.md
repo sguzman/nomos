@@ -14,6 +14,10 @@ The default command is a harmless planning preflight:
 
 It computes the pinned projection/package and prints a public-safe plan. It does not call Codex, Cargo, Git, an external API, or any live project. CI tests this planning behavior without agent authentication.
 
+## No-model sandbox permission check
+
+On Linux, first run `node tools/run_luna_acceptance.cjs --case RUST-CLI --probe-sandbox`. This executes Codex's own **sandbox helper only**, not a coding agent or paid model. It creates a temporary Git directory, tests writing and removing a file inside `.git` under the proposed limited profile, then deletes the disposable directory. A successful check is only evidence that the current local sandbox permits Git writes; it does not imply any Codex behavioral compliance. A failed check does not launch an agent and must not be overridden with unrestricted sandbox flags.
+
 Actual unattended execution is **separately opt-in**, with an already installed and authenticated Codex CLI. First the runner checks the local CLI parser with the restricted Git-write profile and `exec --help`. After creating its disposable baseline but **before any model invocation**, it calls `codex sandbox linux --permission-profile nomos_disposable_git` with the same scoped configuration to create and remove one temporary `.git` probe file. A failed permission probe stops before contacting a model. This test runs on Linux; it neither pushes commits nor touches a real repository. No automatic escalation to unrestricted access is permitted.
 
 `node tools/run_luna_acceptance.cjs --case RUST-CLI --model MODEL --execute`
