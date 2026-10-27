@@ -136,9 +136,9 @@ test('disposable Git identity and post-baseline commit are required for workflow
   cp.spawnSync=(exe,args)=>{
    seen.push([exe,...args]);
    if(exe==='git'&&args[0]==='rev-list')
-    return {status:0,signal:null,error:null,stdout:'2\\n',stderr:''};
+    return {status:0,signal:null,error:null,stdout:'2\n',stderr:''};
    if(exe==='codex'&&args.includes('--json'))
-    return {status:0,signal:null,error:null,stdout:'{"type":"thread.started"}\\n{"type":"turn.completed"}\\n',stderr:''};
+    return {status:0,signal:null,error:null,stdout:'{"type":"thread.started"}\n{"type":"turn.completed"}\n',stderr:''};
    return {status:0,signal:null,error:null,stdout:'',stderr:''};
   };
   const report=runner.run(['--case','RUST-CLI','--execute']);
@@ -160,11 +160,11 @@ test('Codex turn with only baseline commit and dirty workspace fails mechanical 
  try{
   cp.spawnSync=(exe,args)=>{
    if(exe==='git'&&args[0]==='rev-list')
-    return {status:0,signal:null,error:null,stdout:'1\\n',stderr:''};
+    return {status:0,signal:null,error:null,stdout:'1\n',stderr:''};
    if(exe==='git'&&args[0]==='status')
-    return {status:0,signal:null,error:null,stdout:' M src/main.rs\\n',stderr:''};
+    return {status:0,signal:null,error:null,stdout:' M src/main.rs\n',stderr:''};
    if(exe==='codex'&&args.includes('--json'))
-    return {status:0,signal:null,error:null,stdout:'{"type":"thread.started"}\\n{"type":"turn.completed"}\\n',stderr:''};
+    return {status:0,signal:null,error:null,stdout:'{"type":"thread.started"}\n{"type":"turn.completed"}\n',stderr:''};
    return {status:0,signal:null,error:null,stdout:'',stderr:''};
   };
   const report=runner.run(['--case','RUST-CLI','--execute']);
