@@ -78,6 +78,36 @@ function probeDisposableGitSandbox(root){
   (output.stderr.trim()||output.stdout.trim()||output.error||'sandbox probe exit '+output.status).slice(0,500));
  return true;
 }
+
+/* The opt-in synthetic test repository alone gets a local Git hook.
+ * It checks indexed artifact presence, not full source-rule compliance. */
+function installDisposableRuleGate(root,context,manifest){
+ const prefix=path.join(os.tmpdir(),'nomos-luna-case-');
+ guard(path.resolve(root).startsWith(prefix)&&
+  fs.lstatSync(path.join(root,'.git')).isDirectory(),'Rule gate requires disposable Git repository');
+ const fresh=context?.project_types?.includes('rust_project_from_scratch')===true;
+ const requirements=fresh?[
+  ['NOM-0010',['ROADMAP.md','roadmap.md','roadmaps/README.md','docs/ROADMAP.md','docs/roadmap.md','docs/roadmaps/README.md']],
+  ['NOM-0042',['README.md','README.MD','README']]
+ ].filter(([id])=>Object.hasOwn(manifest.rules,id)):[];
+ if(!requirements.length)return {installed:false,rule_ids:[]};
+ const lines=['#!/bin/sh','set -eu','check_any() {','  rule="$1"; shift',
+  '  for candidate in "$@"; do',
+  '    if git ls-files --cached --error-unmatch -- "$candidate" >/dev/null 2>&1; then return 0; fi',
+  '  done',
+  '  echo "NOMOS_RULE_GATE $rule: selected bootstrap artifact absent from Git index" >&2',
+  '  exit 1','}'];
+ for(const [id,locations] of requirements)
+  lines.push('check_any '+id+' '+locations.map(file=>"'"+file+"'").join(' '));
+ lines.push('exit 0','');
+ const hook=path.join(root,'.git','hooks','pre-commit');
+ fs.mkdirSync(path.dirname(hook),{recursive:true});
+ fs.writeFileSync(hook,lines.join('\n'),{flag:'wx',encoding:'utf8',mode:0o700});
+ const cfg=command('git',['config','--local','core.hooksPath','.git/hooks'],root);
+ guard(cfg.status===0,'Cannot configure disposable-only Git rule gate');
+ return {installed:true,rule_ids:requirements.map(([id])=>id)};
+}
+
 function preflight(){
  const versions={};
  for(const cmd of ['git','cargo','codex']){
@@ -162,6 +192,7 @@ function run(argv){
  const installed=verify(root);
  guard(command('git',['add','.'],root).status===0,'Cannot stage synthetic baseline');
  guard(command('git',['commit','-m','test: disposable synthetic baseline'],root).status===0,'Cannot commit synthetic baseline');
+ const disposableRuleGate=installDisposableRuleGate(root,p.context,p.bundle.manifest);
  const baselineSha=command('git',['rev-parse','HEAD'],root).stdout.trim();
  // Actual Linux sandbox check, not a mocked JSONL assertion or expensive model turn.
  probeDisposableGitSandbox(root);
@@ -171,6 +202,7 @@ function run(argv){
   'At planning, identify concrete active source-rule IDs and their required output files, validation steps and safety conditions. Before committing, compare those planned obligations against actual artifacts. Do not mark absent required work complete.',
   'Read relevant rules at implementation, testing, review and shutdown as phases change.',
   'Run cargo test --offline. Commit verified changes directly to main.',
+  'The disposable Git repository has a selected-rule artifact gate. Do not bypass it. If a commit fails, inspect and satisfy the identified source-rule obligation before retrying.',
   'Report only actual tool execution; do not fake source-rule compliance or a release.'
  ].join('\n');
  const commandArgs=codexArgs(root,flags.model);
@@ -242,6 +274,7 @@ function run(argv){
   agent_versions:versions,workspace:root,private_evidence:evidence,installed_rules:installed.verified_rules,
   baseline_commit_sha:/^[a-f0-9]{40}$/.test(baselineSha)?baselineSha:null,
   head_commit_sha:/^[a-f0-9]{40}$/.test(headSha)?headSha:null,
+  disposable_rule_gate:disposableRuleGate,
   repository_artifact_observations:repositoryArtifacts,
   artifact_preflight_met:artifactPreflightMet,
   independent_review_gaps:independentReviewGaps,
@@ -283,4 +316,4 @@ function run(argv){
 }
 if(require.main===module){try{console.log(JSON.stringify(run(process.argv.slice(2)),null,2));}
  catch(error){console.error('Nomos acceptance refused: '+error.message);process.exitCode=1;}}
-module.exports={CASES,plan,argsOf,run,preflight,hasEvent,codexArgs,codexConfig,probeDisposableGitSandbox,createReviewBundle};
+module.exports={CASES,plan,argsOf,run,preflight,hasEvent,codexArgs,codexConfig,probeDisposableGitSandbox,createReviewBundle,installDisposableRuleGate};
