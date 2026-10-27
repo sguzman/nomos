@@ -29,7 +29,7 @@
 
 ## Measured progress
 
-**Implementation:** **65/69 verified checkpoints = 94.2%**. **Previous:** 92.8%. **Current:** 94.2%. **Delta:** +1.4 percentage points. Newly accepted `EVAL-09`: the third real persistence scenario has an independently reviewed, checksum-verified Rust implementation, safe refusal on unrecognized headers/invalid UTF-8, malformed-record salvage, 4 unit and 6 process integration tests, two commits, five distinct phase reads, release-readiness documentation and an accurate final handoff. The [public-safe accepted 89-rule review](../audits/agent-consumption-rust-persist-ad52a07-accepted-review.json) records **44 satisfied, 45 not applicable and no violations**. This is the **second distinct independently accepted agent scenario** after `RUST-CLI`; original failed runs remain rejected. No production profile activation or release is authorized.
+**Implementation:** **68/69 evidence-backed checkpoints = 98.6%**. **Previous:** 97.1%. **Current:** 98.6%. **Delta:** +1.5 percentage points. Three distinct independently accepted real-agent scenarios are now supported by [Rust CLI](../audits/agent-consumption-rust-cli-110018b-accepted-review.json), [Rust persistence](../audits/agent-consumption-rust-persist-ad52a07-accepted-review.json), and [mixed generic Markdown](../audits/agent-consumption-rust-mixed-ebdcfdb-accepted-review.json) 89-rule audits, all with zero unresolved mandatory violations. The mixed scenario explicitly read the generic `AGENTS.md` through Codex and emitted 11 verified phase receipts, without implying generic agents auto-discover instructions. `RUN-08`, `EVAL-11` and `EVAL-12` are now complete; see the [scoped PASS decision and production-authorization limits](agent-consumption-production-decision.md). Only `REL-08` remains until final evidence-link and milestone consistency closure. No profile activation, real-repository installation, or unattended production deployment is authorized.
 
 `completion_percent = 100 × done_checkpoints / 69`; phase progress uses its own exact denominator. Use unrounded fractions as the source for arithmetic, display one decimal place, and compare only the same roadmap revision and acceptance denominator. A changed denominator must be disclosed and prior/current percentages marked non-comparable until rebased. Every change to `done` needs a concrete evidence link (file, commit, CI run, test fixture, or witnessed agent run); moving `done` back to `planned` is valid when evidence fails.
 
@@ -39,10 +39,10 @@
 | 🧬 PRJ | Projection ontology and resolver | 11 | 11 | 100.0% | ARC |
 | 📦 PKG | Deterministic agent-package compiler | 10 | 10 | 100.0% | PRJ |
 | 🗣️ BLD | Guided website rule builder | 12 | 12 | 100.0% | PRJ, PKG |
-| 🔌 RUN | Agent integration and contextual retrieval | 8 | 7 | 87.5% | PKG |
-| 🧪 EVAL | Behavioral evaluation and production gates | 12 | 10 | 83.3% | BLD, RUN |
+| 🔌 RUN | Agent integration and contextual retrieval | 8 | 8 | 100.0% | PKG |
+| 🧪 EVAL | Behavioral evaluation and production gates | 12 | 12 | 100.0% | BLD, RUN |
 | 🚀 REL | Delivery, documentation and maintenance | 8 | 7 | 87.5% | BLD, RUN, EVAL |
-| **Total** | **All gates must pass** | **69** | **65** | **94.2%** | |
+| **Total** | **All gates must pass** | **69** | **68** | **98.6%** | |
 
 ## 🧭 ARC · Consumption architecture and governance
 
@@ -126,7 +126,7 @@
 - [x] **RUN-05 — Missing or inaccessible module policy.** Fail clearly, request authorized recovery or restrict the affected action rather than improvise instructions.
 - [x] **RUN-06 — Existing repository coexistence.** Do not clobber preexisting project instructions; surface actual scope or hierarchy conflicts for review.
 - [x] **RUN-07 — Version pinning and updates.** Make upgrades explicit and produce inspectable old-versus-new module and rule diffs.
-- [ ] **RUN-08 — Target compatibility probes.** Test the supported Codex configuration and a generic fallback against observable file-loading traces.
+- [x] **RUN-08 — Target compatibility probes.** Test the supported Codex configuration and a generic fallback against observable file-loading traces.
 
 ## 🧪 EVAL · Behavioral evaluation and production gates
 
@@ -144,8 +144,8 @@
 - [x] **EVAL-08 — Rust task end-to-end case.** Run a new Rust implementation with builds, automated tests, CI configuration, commits and verifiable handoff.
 - [x] **EVAL-09 — Alternate lifecycle case.** Run a different Rust workflow that exercises persistence or GUI, regression recovery and release preparation.
 - [x] **EVAL-10 — Independent conformance review.** Score actual repo diffs and execution traces against expected source-rule obligations.
-- [ ] **EVAL-11 — Repeated Luna evaluation.** Perform at least three recorded runs across distinct scopes with no uncorrected mandatory violations and disclose variance.
-- [ ] **EVAL-12 — Production acceptance decision.** Publish evidence-backed pass/fail, residual limits, re-test after fixes and explicit readiness classification.
+- [x] **EVAL-11 — Repeated Luna evaluation.** Perform at least three recorded runs across distinct scopes with no uncorrected mandatory violations and disclose variance.
+- [x] **EVAL-12 — Production acceptance decision.** Publish evidence-backed pass/fail, residual limits, re-test after fixes and explicit readiness classification.
 
 ## 🚀 REL · Delivery, documentation and maintenance
 
@@ -211,6 +211,12 @@ The historical automated smoke's `durable_hex_records` failure was a format-spec
 The third distinct-from-CLI `RUST-PERSIST` attempt produces a versioned UTF-8 journal, safe rejection of damaged headers and invalid UTF-8 without rewriting the original, valid-record salvage for malformed rows, atomic same-directory replacement, **4 unit + 6 executable integration tests**, two Git commits and independently witnessed phase-reader execution. The original smoke's invalid-UTF-8 salvage requirement conflicted with the authorized *preserve valid data or refuse without modifying it* contract. A separate presentation heuristic incorrectly missed the agent's explicit 'requested implementation scope' overall report. The runner corrections have regression tests, and the independent [89-rule audit](../audits/agent-consumption-rust-persist-ad52a07-accepted-review.json) records **44 supported, 45 out of scope and zero mandatory violations**.
 
 `EVAL-09` is now **done** and the overall ledger advances to **65/69 = 94.2%** (previous 64/69 = 92.8%; **+1.4 points**). **Two of three distinct agent scenarios are accepted.** Four checkpoints remain: `RUN-08`, `EVAL-11`, `EVAL-12`, `REL-08`. Mixed-scope and generic fallback evidence, production acceptance and final closure are still unverified. No real draft profile has been finalized or exported to a production repository.
+
+## Current three-scenario acceptance (2026-10-27)
+
+Three real, distinct Rust scenarios now have published, privacy-safe independent 89-rule reviews with zero unresolved mandatory violations. The CLI and persistence cases used the Codex-targeted package, and the mixed project used **explicitly supplied generic Markdown**, with direct `AGENTS.md` and matching phase-module reads observed through Codex CLI. The mixed run's original generic-target observer failure and its falsely flagged 75%-complete verification phase were mechanical false positives, corrected by regression tests without changing source rules. All prior failed trials remain rejected rather than being retroactively counted.
+
+The [decision report](agent-consumption-production-decision.md) marks scoped engineering acceptance **PASS**, while profile activation, public export, installation on a live user project and unattended deployment remain **NOT AUTHORIZED**. This distinction is an approval boundary, not an invented extra engineering task. Final checkpoint `REL-08` awaits a complete link/status/milestone evidence audit.
 
 ## Approval and ownership boundary
 
