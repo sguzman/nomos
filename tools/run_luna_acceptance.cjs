@@ -223,6 +223,17 @@ function roadmapCommitStatusPreflight(markdown,{agent_created_commits,worktree_c
  return {inspected:true,stale_commit_milestone_lines:stale};
 }
 
+function observeGenericEntrypointRead(jsonl){
+ return String(jsonl||'').split(/\r?\n/).some(line=>{
+  let event;try{event=JSON.parse(line);}catch{return false;}
+  const item=event.item||{};
+  return event.type==='item.completed'&&item.type==='command_execution'&&
+   item.exit_code===0&&/\bcat\s+AGENTS\.md\b/.test(item.command||'')&&
+   /# Generated Nomos agent contract/.test(item.aggregated_output||'')&&
+   /Agent target: generic/.test(item.aggregated_output||'');
+ });
+}
+
 function argsOf(argv){
  const args={case_id:null,model:null,target:'codex',execute:false,probe_sandbox:false};
  for(let i=0;i<argv.length;i++){
@@ -369,15 +380,7 @@ function run(argv){
   privateFile(evidence,'machine-observation.json',JSON.stringify(observation,null,2)+'\n');
  }catch(error){observationError=error.message;}
 
- const genericFallbackRead=flags.target==='generic'?
-  result.stdout.split(/\r?\n/).some(line=>{
-   let event;try{event=JSON.parse(line);}catch{return false;}
-   const item=event.item||{};
-   return event.type==='item.completed'&&item.type==='command_execution'&&
-    item.exit_code===0&&/\bcat\s+AGENTS\.md\b/.test(item.command||'')&&
-    /# Generated Nomos agent contract/.test(item.aggregated_output||'')&&
-    /Agent target: generic/.test(item.aggregated_output||'');
-  }):null;
+ const genericFallbackRead=flags.target==='generic'?observeGenericEntrypointRead(result.stdout):null;
  const sessionStarted=hasEvent(result.stdout,'thread.started');
  const turnCompleted=hasEvent(result.stdout,'turn.completed');
  const turnFailed=hasEvent(result.stdout,'turn.failed');
@@ -470,4 +473,4 @@ function run(argv){
 }
 if(require.main===module){try{console.log(JSON.stringify(run(process.argv.slice(2)),null,2));}
  catch(error){console.error('Nomos acceptance refused: '+error.message);process.exitCode=1;}}
-module.exports={CASES,plan,argsOf,run,preflight,hasEvent,codexArgs,codexConfig,probeDisposableGitSandbox,createReviewBundle,installDisposableRuleGate,handoffProgressPreflight,roadmapCommitStatusPreflight,progressBarPairMismatches,completedItemProgressGaps};
+module.exports={CASES,plan,argsOf,run,preflight,hasEvent,codexArgs,codexConfig,probeDisposableGitSandbox,createReviewBundle,installDisposableRuleGate,handoffProgressPreflight,roadmapCommitStatusPreflight,progressBarPairMismatches,completedItemProgressGaps,observeGenericEntrypointRead};
