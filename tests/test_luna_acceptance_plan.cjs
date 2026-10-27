@@ -535,3 +535,45 @@ test('persistence acceptance task requires a genuine alternate lifecycle without
  assert.equal(scope.context.features.gui,'no');
  assert.equal(scope.snapshot.production_export_authorized,false);
 });
+
+
+test('independent persistence smoke exercises public CLI boundary and malformed recovery',()=>{
+ const fs=require('node:fs'),os=require('node:os'),path=require('node:path');
+ const root=fs.mkdtempSync(path.join(os.tmpdir(),'nomos-luna-case-'));
+ const binary=path.join(root,'fixture-cli');
+ const fake=String.raw`#!/usr/bin/env node
+'use strict';
+const fs=require('node:fs'),path=require('node:path');
+const args=process.argv.slice(2);
+const [verb,file,entry]=args;
+const decode=data=>data.toString('utf8').split('\n').filter(Boolean).flatMap(line=>{
+ if(!/^(?:[0-9a-f]{2})+$/i.test(line))return [];
+ try{return [Buffer.from(line,'hex').toString('utf8')];}catch{return [];}
+});
+if(verb==='list'&&args.length===2){
+ if(!fs.existsSync(file))process.exit(0);
+ for(const line of decode(fs.readFileSync(file)))console.log(line);
+}else if(verb==='append'&&args.length===3){
+ if(!fs.existsSync(path.dirname(file)))process.exit(2);
+ const items=fs.existsSync(file)?decode(fs.readFileSync(file)):[];
+ items.push(entry);
+ const temp=file+'.temporary';
+ fs.writeFileSync(temp,items.map(x=>Buffer.from(x).toString('hex')).join('\n')+'\n');
+ fs.renameSync(temp,file);
+}else{console.error('usage');process.exit(2);}
+`;
+ try{
+  fs.writeFileSync(binary,fake,{mode:0o700});
+  const {verifyPersistenceCli}=require('../tools/verify_persistence_cli.cjs');
+  const success=verifyPersistenceCli(root,{binaryPath:binary,skipBuild:true});
+  assert.equal(success.ok,true,JSON.stringify(success));
+  assert.equal(success.command_count,10);
+  assert.equal(Object.keys(success.checks).length,10);
+  // Broken public list CLI must fail independent smoke regardless of unit test claims.
+  fs.writeFileSync(binary,"#!/usr/bin/env node\nif(process.argv[2]==='list'){console.log('broken')}\n");
+  const bad=verifyPersistenceCli(root,{binaryPath:binary,skipBuild:true});
+  assert.equal(bad.ok,false);
+  assert.ok(bad.failed.includes('missing_journal_lists_empty'));
+  assert.ok(bad.failed.includes('list_public_cli_output'));
+ }finally{fs.rmSync(root,{recursive:true,force:true});}
+});
