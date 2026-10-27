@@ -227,8 +227,10 @@ function observeGenericEntrypointRead(jsonl){
  return String(jsonl||'').split(/\r?\n/).some(line=>{
   let event;try{event=JSON.parse(line);}catch{return false;}
   const item=event.item||{};
+  const actualCommand=String(item.command||'')
+   .replace(/^.*\s-lc\s+['"]/, '').replace(/['"]$/, '').trim();
   return event.type==='item.completed'&&item.type==='command_execution'&&
-   item.exit_code===0&&/\bcat\s+AGENTS\.md\b/.test(item.command||'')&&
+   item.exit_code===0&&/^cat\s+AGENTS\.md$/.test(actualCommand)&&
    /# Generated Nomos agent contract/.test(item.aggregated_output||'')&&
    /Agent target: generic/.test(item.aggregated_output||'');
  });
