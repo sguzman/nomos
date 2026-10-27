@@ -468,8 +468,8 @@ test('final progress preflight distinguishes missing visuals from a scoped quant
   'Overall project progress: 50% █████░░░░░; phase one: 100% ██████████'),manifest);
  assert.deepEqual(complete,{inspected:true,selected_rules:[
   'NOM-0068','NOM-0069','NOM-0070','NOM-0071'],
-  percentage_present:true,visual_bar_present:true,overall_progress_present:true,
-  quantifiability:'reported_quantification',
+  percentage_present:true,visual_bar_present:true,mismatched_visual_progress_lines:[],
+  overall_progress_present:true,quantifiability:'reported_quantification',
   item_coverage:'requires_independent_review',
   first_completion:'requires_independent_review'});
  const numberOnly=runner.handoffProgressPreflight(lines('Overall project progress: 50%. Phase A: unknown.'),manifest);
@@ -502,4 +502,20 @@ test('NOM-0043 post-commit preflight catches only evidenced stale Git milestone 
  assert.deepEqual(runner.roadmapCommitStatusPreflight(
   '# Roadmap\n- 🚀 **Milestone: Deploy to cloud** — Status: in progress.\n',args),{
    inspected:true,stale_commit_milestone_lines:[]});
+});
+
+
+test('visual progress bars are checked only when quantified and recognizably paired',()=>{
+ const f=runner.progressBarPairMismatches;
+ assert.deepEqual(f('Overall project progress: 50% █████░░░░░'),[]);
+ assert.deepEqual(f('Feature A: 33% ███░░░░░░░'),[]);
+ assert.deepEqual(f('Feature B: 80% ██░░░░░░░░'),[1]);
+ assert.deepEqual(f('Work A: unknown progress; tests passed.'),[]);
+ assert.deepEqual(f('Overall project progress: unavailable (CI not observed)'),[]);
+ const manifest={rules:{'NOM-0069':{},'NOM-0070':{}}};
+ const jsonl=JSON.stringify({type:'item.completed',
+  item:{type:'agent_message',text:'Overall project progress: 80% ██░░░░░░░░'}});
+ const checked=runner.handoffProgressPreflight(jsonl,manifest);
+ assert.deepEqual(checked.mismatched_visual_progress_lines,[1]);
+ assert.equal(checked.quantifiability,'reported_quantification');
 });
