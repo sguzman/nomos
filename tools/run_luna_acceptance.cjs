@@ -221,8 +221,20 @@ function run(argv){
  const completed=sessionStarted&&turnCompleted&&!turnFailed&&result.status===0;
  const codeTestCommitGateMet=completed&&cargoTest.status===0&&agentCreatedCommits!==null
   &&agentCreatedCommits>0&&worktreeClean===true;
+ const independentReviewGaps=[
+  ...(!repositoryArtifacts.readme_present?['missing_readme']:[]),
+  ...(!repositoryArtifacts.roadmap_present?['missing_roadmap']:[]),
+  ...(!repositoryArtifacts.ci_workflow_present?['missing_ci_workflow']:[]),
+  ...(cargoFmt.status!==0?['cargo_fmt_not_verified']:[]),
+  ...(cargoClippy.status!==0?['cargo_clippy_not_verified']:[])
+ ];
+ // This is a mechanical artifact preflight, NOT a source-rule or production verdict.
+ // A successful Cargo test + Git commit must not disguise an obviously missing
+ // new-project obligation (e.g. a required roadmap).
+ const artifactPreflightMet=independentReviewGaps.length===0;
  const report={...p.snapshot,status:!sessionStarted?'launch_failed':
-  !completed?'agent_turn_failed':codeTestCommitGateMet?'awaiting_independent_review':'agent_workflow_incomplete',
+  !completed?'agent_turn_failed':!codeTestCommitGateMet?'agent_workflow_incomplete':
+  !artifactPreflightMet?'requires_artifact_remediation':'awaiting_independent_review',
   invocation_attempted:true,session_started:sessionStarted,agent_invoked:sessionStarted,
   agent_turn_completed:completed,agent_created_commit_count:agentCreatedCommits,
   worktree_clean:worktreeClean,code_test_commit_gate_met:codeTestCommitGateMet,
@@ -230,13 +242,8 @@ function run(argv){
   baseline_commit_sha:/^[a-f0-9]{40}$/.test(baselineSha)?baselineSha:null,
   head_commit_sha:/^[a-f0-9]{40}$/.test(headSha)?headSha:null,
   repository_artifact_observations:repositoryArtifacts,
-  independent_review_gaps:[
-   ...(!repositoryArtifacts.readme_present?['missing_readme']:[]),
-   ...(!repositoryArtifacts.roadmap_present?['missing_roadmap']:[]),
-   ...(!repositoryArtifacts.ci_workflow_present?['missing_ci_workflow']:[]),
-   ...(cargoFmt.status!==0?['cargo_fmt_not_verified']:[]),
-   ...(cargoClippy.status!==0?['cargo_clippy_not_verified']:[])
-  ],
+  artifact_preflight_met:artifactPreflightMet,
+  independent_review_gaps:independentReviewGaps,
   evidence_summary:{codex:status(result),cargo_test:status(cargoTest),cargo_fmt:status(cargoFmt),
    cargo_clippy:status(cargoClippy),cargo_metadata:status(metadata),
    git_log:status(gitLog),git_status:status(gitStatus),git_commit_count:status(gitCommitCount),
