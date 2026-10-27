@@ -139,6 +139,7 @@ test('opt-in disposable evaluation disables sccache only inside child process',(
    assert.match(invocation.input,/NOM-0068 through NOM-0072/);
    assert.match(invocation.input,/matching visual progress bar/);
    assert.match(invocation.input,/every touched roadmap phase, milestone, feature AND subtask separately/);
+   assert.match(invocation.input,/100% AND a matching visual progress bar on the item's OWN line/);
   }finally{fs.rmSync(report.workspace,{recursive:true,force:true});fs.rmSync(report.private_evidence,{recursive:true,force:true});}
  }finally{cp.spawnSync=original;}
 });
@@ -470,6 +471,7 @@ test('final progress preflight distinguishes missing visuals from a scoped quant
  assert.deepEqual(complete,{inspected:true,selected_rules:[
   'NOM-0068','NOM-0069','NOM-0070','NOM-0071'],
   percentage_present:true,visual_bar_present:true,mismatched_visual_progress_lines:[],
+  completed_item_progress_gaps:[],
   overall_progress_present:true,quantifiability:'reported_quantification',
   item_coverage:'requires_independent_review',
   first_completion:'requires_independent_review'});
@@ -611,6 +613,16 @@ if(verb==='list'&&args.length===2){
  }finally{fs.rmSync(root,{recursive:true,force:true});}
 });
 
+
+test('source NOM-0069 requires each completed item to pair its own percent and bar',()=>{
+ const {completedItemProgressGaps}=runner;
+ const shared='Each below 100% ██████████\n1. 🧭 **Phase** — Complete\n2. 🧪 **Tests** — Complete';
+ assert.deepEqual(completedItemProgressGaps(shared).map(x=>x.line),[2,3]);
+ const paired='1. 🧭 Phase — Complete: 100% ██████████\n2. 🧪 Tests — Complete: 100% ██████████';
+ assert.deepEqual(completedItemProgressGaps(paired),[]);
+ const pending='- ☁️ Hosted CI — Not run; percentage cannot be verified';
+ assert.deepEqual(completedItemProgressGaps(pending),[]);
+});
 
 test('persistence smoke follows the current Cargo executable after package rename',()=>{
  const path=require('node:path'),os=require('node:os');
