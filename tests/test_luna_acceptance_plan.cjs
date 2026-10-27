@@ -594,3 +594,24 @@ if(verb==='list'&&args.length===2){
   assert.ok(bad.failed.includes('list_public_cli_output'));
  }finally{fs.rmSync(root,{recursive:true,force:true});}
 });
+
+
+test('persistence smoke follows the current Cargo executable after package rename',()=>{
+ const path=require('node:path'),os=require('node:os');
+ const {binaryFromCargoMetadata}=require('../tools/verify_persistence_cli.cjs');
+ const root=path.join(os.tmpdir(),'nomos-luna-case-renamed-cargo');
+ const metadata={
+  packages:[{name:'local-journal',manifest_path:path.join(root,'Cargo.toml'),
+   targets:[{kind:['bin'],name:'local-journal'}]}],
+  target_directory:path.join(root,'target')
+ };
+ const target=binaryFromCargoMetadata(JSON.stringify(metadata),root);
+ assert.equal(target.name,'local-journal');
+ assert.equal(target.path,path.join(root,'target','debug','local-journal'));
+ assert.notEqual(target.path,path.join(root,'target','debug','nomos_acceptance'));
+ assert.throws(()=>binaryFromCargoMetadata(JSON.stringify({
+  ...metadata,packages:[{...metadata.packages[0],targets:[
+    {kind:['bin'],name:'old'},{kind:['bin'],name:'new'}]}]},root),/exactly one/);
+ assert.throws(()=>binaryFromCargoMetadata(JSON.stringify({
+  ...metadata,packages:[{...metadata.packages[0],manifest_path:'/unrelated/Cargo.toml'}]},root),/exactly one/);
+});
