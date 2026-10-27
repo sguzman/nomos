@@ -353,10 +353,11 @@ test('private review archive preserves evidence and project source but excludes 
   assert.equal(fs.statSync(archive.path).mode&0o777,0o600);
   const listing=cp.spawnSync('tar',['-tzf',archive.path],{encoding:'utf8'});
   assert.equal(listing.status,0);
-  assert.match(listing.stdout,/src\\/main\\.rs/);
-  assert.match(listing.stdout,/agent-events\\.jsonl/);
-  assert.match(listing.stdout,/agent-commit\\.patch/);
-  assert.doesNotMatch(listing.stdout,/\\.git\\/secret|target\\/debug/);
+  assert.ok(listing.stdout.includes('src/main.rs'));
+  assert.ok(listing.stdout.includes('agent-events.jsonl'));
+  assert.ok(listing.stdout.includes('agent-commit.patch'));
+  assert.ok(!listing.stdout.includes('.git/secret'));
+  assert.ok(!listing.stdout.includes('target/debug'));
  }finally{fs.rmSync(base,{recursive:true,force:true});}
 });
 test('review archive requires a private report and warning before packaging',()=>{
