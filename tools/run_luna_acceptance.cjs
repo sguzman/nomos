@@ -126,13 +126,13 @@ function run(argv){
  const turnCompleted=hasEvent(result.stdout,'turn.completed');
  const turnFailed=hasEvent(result.stdout,'turn.failed');
  const completed=sessionStarted&&turnCompleted&&!turnFailed&&result.status===0;
- const workflowVerified=completed&&cargoTest.status===0&&agentCreatedCommits!==null
+ const codeTestCommitGateMet=completed&&cargoTest.status===0&&agentCreatedCommits!==null
   &&agentCreatedCommits>0&&worktreeClean===true;
  const report={...p.snapshot,status:!sessionStarted?'launch_failed':
-  !completed?'agent_turn_failed':workflowVerified?'awaiting_independent_review':'agent_workflow_incomplete',
+  !completed?'agent_turn_failed':codeTestCommitGateMet?'awaiting_independent_review':'agent_workflow_incomplete',
   invocation_attempted:true,session_started:sessionStarted,agent_invoked:sessionStarted,
   agent_turn_completed:completed,agent_created_commit_count:agentCreatedCommits,
-  worktree_clean:worktreeClean,agent_workflow_requirements_met:workflowVerified,
+  worktree_clean:worktreeClean,code_test_commit_gate_met:codeTestCommitGateMet,
   agent_versions:versions,workspace:root,private_evidence:evidence,installed_rules:installed.verified_rules,
   evidence_summary:{codex:status(result),cargo_test:status(cargoTest),cargo_metadata:status(metadata),
    git_log:status(gitLog),git_status:status(gitStatus),git_commit_count:status(gitCommitCount)},
