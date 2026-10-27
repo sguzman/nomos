@@ -168,6 +168,7 @@ function run(argv){
  const prompt=[
   'Implement this disposable Rust acceptance exercise:',p.task,
   'Before changing code, execute node .nomos/read-phase.cjs planning.',
+  'At planning, identify concrete active source-rule IDs and their required output files, validation steps and safety conditions. Before committing, compare those planned obligations against actual artifacts. Do not mark absent required work complete.',
   'Read relevant rules at implementation, testing, review and shutdown as phases change.',
   'Run cargo test --offline. Commit verified changes directly to main.',
   'Report only actual tool execution; do not fake source-rule compliance or a release.'
