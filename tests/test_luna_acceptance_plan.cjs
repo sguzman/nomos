@@ -138,6 +138,7 @@ test('opt-in disposable evaluation disables sccache only inside child process',(
    assert.match(invocation.input,/reconcile ROADMAP.md status text against the actual committed HEAD/);
    assert.match(invocation.input,/NOM-0068 through NOM-0072/);
    assert.match(invocation.input,/matching visual progress bar/);
+   assert.match(invocation.input,/every touched roadmap phase, milestone, feature AND subtask separately/);
   }finally{fs.rmSync(report.workspace,{recursive:true,force:true});fs.rmSync(report.private_evidence,{recursive:true,force:true});}
  }finally{cp.spawnSync=original;}
 });
@@ -525,7 +526,9 @@ test('persistence acceptance task requires a genuine alternate lifecycle without
  const task=runner.CASES['RUST-PERSIST'].task;
  assert.match(task,/atomic-rename persistence/);
  assert.match(task,/recovery from malformed input without losing valid prior entries/);
- assert.match(task,/write\/list\/reload round trips/);
+ assert.match(task,/executable process-level CLI integration tests/);
+ assert.match(task,/stdout and exit codes/);
+ assert.match(task,/missing journal, invalid commands/);
  assert.match(task,/regression test for malformed journal data/);
  assert.match(task,/GitHub Actions workflow/);
  assert.match(task,/release-readiness checklist/);
