@@ -120,7 +120,7 @@ test('opt-in disposable evaluation disables sccache only inside child process',(
  const fs=require('node:fs'),original=cp.spawnSync,commands=[];
  try{
   cp.spawnSync=(exe,args,options)=>{
-   commands.push({exe,args,env:options.env});
+   commands.push({exe,args,env:options.env,input:options.input});
    if(exe==='git'&&args[0]==='rev-list')return {status:0,stdout:'2\n',stderr:''};
    if(exe==='codex'&&args.includes('--json'))return {status:0,stdout:'{"type":"thread.started"}\n{"type":"turn.completed"}\n',stderr:''};
    return {status:0,stdout:'',stderr:''};
@@ -131,6 +131,10 @@ test('opt-in disposable evaluation disables sccache only inside child process',(
     assert.equal(result.env.RUSTC_WRAPPER,'');
    }
    assert.equal(report.code_test_commit_gate_met,true);
+   const invocation=commands.find(x=>x.exe==='codex'&&x.args.includes('--json'));
+   assert.match(invocation.input,/new project being created from scratch/);
+   assert.match(invocation.input,/temporary cargo-init scaffolding/);
+   assert.match(invocation.input,/\.nomos\/projection\.json/);
   }finally{fs.rmSync(report.workspace,{recursive:true,force:true});fs.rmSync(report.private_evidence,{recursive:true,force:true});}
  }finally{cp.spawnSync=original;}
 });
