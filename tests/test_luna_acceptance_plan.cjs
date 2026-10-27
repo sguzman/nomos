@@ -486,6 +486,9 @@ test('final progress preflight distinguishes missing visuals from a scoped quant
  assert.equal(unknownDenominator.overall_progress_present,true);
  const outOfScope=runner.handoffProgressPreflight(lines('Implemented CLI.'),{rules:{}});
  assert.equal(outOfScope.inspected,false);
+ const scopePhrase=runner.handoffProgressPreflight(lines(
+  'The requested implementation scope is complete: 100% [##########]. Hosted CI remains unrun.'),manifest);
+ assert.equal(scopePhrase.overall_progress_present,true);
  const unknown=runner.handoffProgressPreflight('{"type":"turn.completed"}',manifest);
  assert.equal(unknown.inspected,false);
 });
@@ -590,6 +593,17 @@ if(verb==='list'&&args.length===2){
   const alternate=verifyPersistenceCli(root,{binaryPath:binary,skipBuild:true});
   assert.equal(alternate.ok,true,JSON.stringify(alternate));
   assert.equal(alternate.checks.durable_on_disk_roundtrip,true);
+  // A CLI may reject invalid bytes without touching the original file.
+  // Refusal is safe and is not a failure of malformed-input preservation.
+  const strict=fake.replace(
+   "if(!/^(?:[0-9a-f]{2})+$/i.test(line))return [];",
+   "if(!/^(?:[0-9a-f]{2})+$/i.test(line))throw new Error('malformed journal record');");
+  assert.notEqual(strict,fake);
+  fs.writeFileSync(binary,strict,{mode:0o700});
+  const refusing=verifyPersistenceCli(root,{binaryPath:binary,skipBuild:true});
+  assert.equal(refusing.ok,true,JSON.stringify(refusing));
+  assert.equal(refusing.checks.malformed_records_read_recovery,true);
+  assert.equal(refusing.checks.append_after_malformed_preserves_valid_records,true);
   // A format-header implementation that treats a damaged header as an
   // empty journal and overwrites its entries must fail, even though its
   // ordinary append/list tests pass.
