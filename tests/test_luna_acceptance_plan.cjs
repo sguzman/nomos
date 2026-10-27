@@ -11,7 +11,9 @@ test('all three Rust acceptance scenarios produce inert full-profile synthetic p
   assert.equal(p.profile_finalized,false);
   assert.equal(p.production_export_authorized,false);
   assert.equal(p.synthetic_ad_hoc_selection,true);
-  assert.equal(p.selected_rules,90);
+  const sourceProfile=require('../docs/catalog.json').profiles.find(x=>x.id==='PROFILE-0004');
+  assert.ok(sourceProfile?.selected_rule_ids?.length>0);
+  assert.equal(p.selected_rules,sourceProfile.selected_rule_ids.length);
   assert.match(p.projection_sha256,/^[0-9a-f]{64}$/);
   assert.equal(p.agent_invoked,false);
   assert.equal(p.status,'planning_only');
