@@ -329,3 +329,44 @@ test('Codex turn with only baseline commit and dirty workspace fails mechanical 
   }finally{fs.rmSync(report.workspace,{recursive:true,force:true});fs.rmSync(report.private_evidence,{recursive:true,force:true});}
  }finally{cp.spawnSync=original;}
 });
+
+
+test('private review archive preserves evidence and project source but excludes Git internals and build output',()=>{
+ const fs=require('node:fs'),os=require('node:os'),path=require('node:path');
+ const cp=require('node:child_process');
+ const base=fs.mkdtempSync(path.join(os.tmpdir(),'nomos-review-archive-test-'));
+ const root=path.join(base,'project'),evidence=path.join(base,'evidence');
+ try{
+  fs.mkdirSync(root);fs.mkdirSync(evidence,{mode:0o700});
+  fs.mkdirSync(path.join(root,'.git'));fs.mkdirSync(path.join(root,'target'));
+  fs.mkdirSync(path.join(root,'src'));
+  fs.writeFileSync(path.join(root,'.git','secret'),'private git data');
+  fs.writeFileSync(path.join(root,'target','debug'),'build binary');
+  fs.writeFileSync(path.join(root,'src','main.rs'),'fn main() {}\\n');
+  fs.writeFileSync(path.join(evidence,'README-review.txt'),'Private: inspect before sharing\\n');
+  fs.writeFileSync(path.join(evidence,'report.json'),'{"synthetic":true}\\n');
+  fs.writeFileSync(path.join(evidence,'agent-events.jsonl'),'{"type":"thread.started"}\\n');
+  fs.writeFileSync(path.join(evidence,'agent-commit.patch'),'diff --git a/src/main.rs b/src/main.rs\\n');
+  const archive=runner.createReviewBundle(root,evidence);
+  assert.ok(archive.sha256.match(/^[a-f0-9]{64}$/));
+  assert.ok(archive.bytes>0);
+  assert.equal(fs.statSync(archive.path).mode&0o777,0o600);
+  const listing=cp.spawnSync('tar',['-tzf',archive.path],{encoding:'utf8'});
+  assert.equal(listing.status,0);
+  assert.match(listing.stdout,/src\\/main\\.rs/);
+  assert.match(listing.stdout,/agent-events\\.jsonl/);
+  assert.match(listing.stdout,/agent-commit\\.patch/);
+  assert.doesNotMatch(listing.stdout,/\\.git\\/secret|target\\/debug/);
+ }finally{fs.rmSync(base,{recursive:true,force:true});}
+});
+test('review archive requires a private report and warning before packaging',()=>{
+ const fs=require('node:fs'),os=require('node:os'),path=require('node:path');
+ const base=fs.mkdtempSync(path.join(os.tmpdir(),'nomos-review-archive-deny-'));
+ const root=path.join(base,'project'),evidence=path.join(base,'evidence');
+ try{
+  fs.mkdirSync(root);fs.mkdirSync(evidence);
+  fs.writeFileSync(path.join(evidence,'report.json'),'{}');
+  assert.throws(()=>runner.createReviewBundle(root,evidence),/privacy notice/);
+  assert.equal(fs.existsSync(path.join(evidence,'review-bundle.tar.gz')),false);
+ }finally{fs.rmSync(base,{recursive:true,force:true});}
+});
