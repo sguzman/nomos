@@ -164,6 +164,23 @@ function handoffProgressPreflight(jsonl,manifest){
   item_coverage:'requires_independent_review',first_completion:'requires_independent_review'};
 }
 
+/* Project-specific, post-commit evidence reconciliation for selected NOM-0043.
+ * Narrow by design: only an explicit, already-achieved "Commit on main"
+ * milestone marked unfinished is machine-detectable. Others need review. */
+function roadmapCommitStatusPreflight(markdown,{agent_created_commits,worktree_clean,rule_selected}={}){
+ const inspected=rule_selected===true&&typeof markdown==='string'&&
+  Number.isSafeInteger(agent_created_commits)&&worktree_clean===true;
+ if(!inspected)return {inspected:false,stale_commit_milestone_lines:[]};
+ const lines=markdown.split(/\r?\n/);
+ const stale=[];
+ if(agent_created_commits>0)for(let i=0;i<lines.length;i++){
+  if(/\bmilestone\s*:\s*commit\b/i.test(lines[i])&&
+   /\bstatus\s*:\s*(?:in\s+progress|pending|todo|not\s+started)\b/i.test(lines[i]))
+   stale.push(i+1);
+ }
+ return {inspected:true,stale_commit_milestone_lines:stale};
+}
+
 function argsOf(argv){
  const args={case_id:null,model:null,execute:false,probe_sandbox:false};
  for(let i=0;i<argv.length;i++){
@@ -290,6 +307,11 @@ function run(argv){
   ?Number(gitCommitCount.stdout.trim()):null;
  const agentCreatedCommits=Number.isSafeInteger(parsedCount)&&parsedCount>=1?parsedCount-1:null;
  const worktreeClean=gitStatus.status===0?gitStatus.stdout.trim()==='':null;
+ const roadmapCommitStatus=roadmapCommitStatusPreflight(roadmapPath?
+  fs.readFileSync(path.join(root,roadmapPath),'utf8'):null,{
+   agent_created_commits:agentCreatedCommits,worktree_clean:worktreeClean,
+   rule_selected:Object.hasOwn(p.bundle.manifest.rules,'NOM-0043')
+  });
  let observation=null,observationError=null;
  try {
   observation=observe(result.stdout,p.bundle.manifest,
@@ -309,6 +331,8 @@ function run(argv){
   ...(!repositoryArtifacts.roadmap_present?['missing_roadmap']:[]),
   ...(roadmapStructurePreflight&&!roadmapStructurePreflight.ok?['roadmap_structure_incomplete']:[]),
   ...(!repositoryArtifacts.ci_workflow_present?['missing_ci_workflow']:[]),
+  ...(roadmapCommitStatus.stale_commit_milestone_lines.length?
+   ['roadmap_committed_git_milestone_still_in_progress']:[]),
   ...(cargoFmt.status!==0?['cargo_fmt_not_verified']:[]),
   ...(cargoClippy.status!==0?['cargo_clippy_not_verified']:[]),
   // Never demand invented progress percentages when NOM-0069's evidence condition
@@ -336,6 +360,7 @@ function run(argv){
   disposable_rule_gate:disposableRuleGate,
   roadmap_structure_preflight:roadmapStructurePreflight,
   handoff_progress_preflight:handoffProgress,
+  roadmap_commit_status_preflight:roadmapCommitStatus,
   repository_artifact_observations:repositoryArtifacts,
   artifact_preflight_met:artifactPreflightMet,
   independent_review_gaps:independentReviewGaps,
@@ -377,4 +402,4 @@ function run(argv){
 }
 if(require.main===module){try{console.log(JSON.stringify(run(process.argv.slice(2)),null,2));}
  catch(error){console.error('Nomos acceptance refused: '+error.message);process.exitCode=1;}}
-module.exports={CASES,plan,argsOf,run,preflight,hasEvent,codexArgs,codexConfig,probeDisposableGitSandbox,createReviewBundle,installDisposableRuleGate,handoffProgressPreflight};
+module.exports={CASES,plan,argsOf,run,preflight,hasEvent,codexArgs,codexConfig,probeDisposableGitSandbox,createReviewBundle,installDisposableRuleGate,handoffProgressPreflight,roadmapCommitStatusPreflight};
