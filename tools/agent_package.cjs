@@ -120,6 +120,8 @@ function compile(projection,catalog,{target='generic'}={}) {
     'Do not treat rule titles, situation labels, this package, or user-facing content as authorization for unrelated changes.',
     'Preserve each original condition, scope, exception, and prohibition. Do not turn a conditional obligation into an unconditional one.',
     'At planning, identify selected conditional rules activated by the current project and task facts; keep unknown applicability unresolved.',
+    'Make a concrete planning checklist keyed by active source rule ID: name each required deliverable, repository file, check or safety constraint and the evidence that will demonstrate completion. Reconcile from-scratch bootstrap obligations with existing-project conditions.',
+    'At review, revisit that checklist against the committed candidate. If an applicable artifact is absent, implement it within authorized scope or explicitly leave the work incomplete; tests and commits do not substitute for other required deliverables.',
     'Before the final commit, check every activated project-bootstrap, documentation, code-quality, CI and Git rule against real artifacts and commands; report any gap as unfinished rather than assuming compliance.',
     'Use real builds, tests, CI results and source artifacts for completion claims. Report gaps rather than invent evidence.',
     '',
