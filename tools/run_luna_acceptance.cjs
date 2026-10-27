@@ -5,6 +5,7 @@ const os=require('node:os');
 const path=require('node:path');
 const cp=require('node:child_process');
 const crypto=require('node:crypto');
+const {validateRoadmap}=require('./check_roadmap_structure.cjs');
 const catalog=require('../docs/catalog.json');
 const hierarchy=require('../taxonomy/project-types.json');
 const {decide}=require('./projections.cjs');
@@ -96,7 +97,12 @@ function installDisposableRuleGate(root,context,manifest){
  if(!requirements.length)return {installed:false,rule_ids:[]};
  const lines=['#!/bin/sh','set -eu','check_any() {','  rule="$1"; shift',
   '  for candidate in "$@"; do',
-  '    if git ls-files --cached --error-unmatch -- "$candidate" >/dev/null 2>&1; then return 0; fi',
+  '    if git ls-files --cached --error-unmatch -- "$candidate" >/dev/null 2>&1; then',
+  '      if [ "$rule" = "NOM-0010" ]; then',
+  '        git show ":$candidate" | node .git/hooks/nomos-check-roadmap.cjs || exit 1',
+  '      fi',
+  '      return 0',
+  '    fi',
   '  done',
   '  echo "NOMOS_RULE_GATE $rule: selected bootstrap artifact absent from Git index" >&2',
   '  exit 1','}'];
@@ -106,6 +112,10 @@ function installDisposableRuleGate(root,context,manifest){
  const hook=path.join(root,'.git','hooks','pre-commit');
  fs.mkdirSync(path.dirname(hook),{recursive:true});
  fs.writeFileSync(hook,lines.join('\n'),{flag:'wx',encoding:'utf8',mode:0o700});
+ if(requirements.some(([id])=>id==='NOM-0010'))
+  fs.writeFileSync(path.join(root,'.git','hooks','nomos-check-roadmap.cjs'),
+   fs.readFileSync(path.join(__dirname,'check_roadmap_structure.cjs'),'utf8'),
+   {flag:'wx',encoding:'utf8',mode:0o600});
  const cfg=command('git',['config','--local','core.hooksPath','.git/hooks'],root);
  guard(cfg.status===0,'Cannot configure disposable-only Git rule gate');
  return {installed:true,rule_ids:requirements.map(([id])=>id)};
@@ -232,6 +242,13 @@ function run(argv){
    fs.readdirSync(path.join(root,'.github/workflows'),{withFileTypes:true})
     .some(entry=>entry.isFile()&&/\.ya?ml$/.test(entry.name))
  };
+ const roadmapRequired=p.context?.project_types?.includes('rust_project_from_scratch')===true &&
+  Object.hasOwn(p.bundle.manifest.rules,'NOM-0010');
+ const roadmapLocations=['ROADMAP.md','roadmap.md','roadmaps/README.md','docs/ROADMAP.md',
+  'docs/roadmap.md','docs/roadmaps/README.md'];
+ const roadmapPath=roadmapRequired?roadmapLocations.find(name=>fs.existsSync(path.join(root,name))):null;
+ const roadmapStructurePreflight=roadmapPath?
+  validateRoadmap(fs.readFileSync(path.join(root,roadmapPath),'utf8')):null;
  const gitLog=command('git',['log','--format=%H %s','-4'],root);
  const gitStatus=command('git',['status','--porcelain=v1'],root);
  // HEAD has one synthetic baseline commit before Codex starts.
@@ -261,6 +278,7 @@ function run(argv){
  const independentReviewGaps=[
   ...(!repositoryArtifacts.readme_present?['missing_readme']:[]),
   ...(!repositoryArtifacts.roadmap_present?['missing_roadmap']:[]),
+  ...(roadmapStructurePreflight&&!roadmapStructurePreflight.ok?['roadmap_structure_incomplete']:[]),
   ...(!repositoryArtifacts.ci_workflow_present?['missing_ci_workflow']:[]),
   ...(cargoFmt.status!==0?['cargo_fmt_not_verified']:[]),
   ...(cargoClippy.status!==0?['cargo_clippy_not_verified']:[])
@@ -279,6 +297,7 @@ function run(argv){
   baseline_commit_sha:/^[a-f0-9]{40}$/.test(baselineSha)?baselineSha:null,
   head_commit_sha:/^[a-f0-9]{40}$/.test(headSha)?headSha:null,
   disposable_rule_gate:disposableRuleGate,
+  roadmap_structure_preflight:roadmapStructurePreflight,
   repository_artifact_observations:repositoryArtifacts,
   artifact_preflight_met:artifactPreflightMet,
   independent_review_gaps:independentReviewGaps,
