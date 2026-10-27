@@ -219,8 +219,19 @@ test('real headless browser: guided Rust interview, source-backed veto, keyboard
     }
   }finally{
     if(ws)ws.close();
-    if(chrome && chrome.exitCode===null)chrome.kill('SIGTERM');
+    if(chrome && chrome.exitCode===null){
+      const exited=new Promise(resolve=>chrome.once('exit',resolve));
+      chrome.kill('SIGTERM');
+      await Promise.race([exited,sleep(1600)]);
+      if(chrome.exitCode===null){
+        const forced=new Promise(resolve=>chrome.once('exit',resolve));
+        chrome.kill('SIGKILL');
+        await Promise.race([forced,sleep(1600)]);
+      }
+    }
     await new Promise(resolve=>server.close(resolve));
-    fs.rmSync(dir,{recursive:true,force:true});
+    // Chromium may finish updating profile files after its parent process exits.
+    // Bound retries; never mistake a teardown race for a product QA failure.
+    fs.rmSync(dir,{recursive:true,force:true,maxRetries:8,retryDelay:125});
   }
 });
