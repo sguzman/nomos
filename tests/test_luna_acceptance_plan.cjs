@@ -67,10 +67,15 @@ test('mocked execution proves disposable workspace and private evidence artifact
    assert.ok(fs.existsSync(require('node:path').join(report.private_evidence,'report.json')));
    const codex=seen.find(c=>c[0]==='codex'&&c.includes('--json'));
    assert.ok(codex,'Expected subprocess-shaped evaluation call');
-   assert.deepEqual(codex.slice(1,4),['--ask-for-approval','never','exec']);
-   assert.ok(codex.includes('workspace-write'));
+   assert.deepEqual(codex.slice(1,3),['--ask-for-approval','never']);
+   assert.ok(codex.includes('exec'));
+   assert.ok(codex.includes('default_permissions="nomos_disposable_git"'));
+   assert.ok(codex.includes('permissions.nomos_disposable_git.extends=":workspace"'));
+   assert.ok(codex.includes('permissions.nomos_disposable_git.filesystem.":workspace_roots"={".git"="write"}'));
+   assert.ok(codex.includes('permissions.nomos_disposable_git.network.enabled=false'));
    assert.ok(codex.includes('--ephemeral'));
    assert.ok(!codex.includes('--yolo'));
+   assert.ok(!codex.includes('danger-full-access'));
   }finally{
    fs.rmSync(report.workspace,{recursive:true,force:true});
    fs.rmSync(report.private_evidence,{recursive:true,force:true});
@@ -78,6 +83,41 @@ test('mocked execution proves disposable workspace and private evidence artifact
  }finally{cp.spawnSync=original;}
 });
 
+test('temporary Git permission profile stays in Codex invocation only',()=>{
+ const argv=runner.codexArgs('/tmp/nomos-luna-case-example','gpt-6-luna');
+ assert.deepEqual(argv.slice(0,2),['--ask-for-approval','never']);
+ assert.ok(argv.includes('default_permissions="nomos_disposable_git"'));
+ assert.ok(argv.includes('permissions.nomos_disposable_git.extends=":workspace"'));
+ assert.ok(argv.includes('permissions.nomos_disposable_git.filesystem.":workspace_roots"={".git"="write"}'));
+ assert.ok(argv.includes('permissions.nomos_disposable_git.network.enabled=false'));
+ assert.ok(argv.includes('--cd'));
+ assert.ok(argv.includes('/tmp/nomos-luna-case-example'));
+ assert.ok(argv.includes('gpt-6-luna'));
+ assert.ok(!argv.includes('--sandbox'));
+ assert.ok(!argv.includes('danger-full-access'));
+ assert.ok(!argv.includes('--yolo'));
+ const help=runner.codexArgs('/tmp/nomos-luna-case-example',null,true);
+ assert.equal(help.at(-1),'--help');
+ assert.ok(!help.includes('--json'));
+});
+test('opt-in disposable evaluation disables sccache only inside child process',()=>{
+ const fs=require('node:fs'),original=cp.spawnSync,commands=[];
+ try{
+  cp.spawnSync=(exe,args,options)=>{
+   commands.push({exe,args,env:options.env});
+   if(exe==='git'&&args[0]==='rev-list')return {status:0,stdout:'2\\n',stderr:''};
+   if(exe==='codex'&&args.includes('--json'))return {status:0,stdout:'{"type":"thread.started"}\\n{"type":"turn.completed"}\\n',stderr:''};
+   return {status:0,stdout:'',stderr:''};
+  };
+  const report=runner.run(['--case','RUST-CLI','--execute']);
+  try{
+   for(const result of commands.filter(x=>x.exe==='codex'&&x.args.includes('--json')||x.exe==='cargo'&&x.args[0]==='test')){
+    assert.equal(result.env.RUSTC_WRAPPER,'');
+   }
+   assert.equal(report.code_test_commit_gate_met,true);
+  }finally{fs.rmSync(report.workspace,{recursive:true,force:true});fs.rmSync(report.private_evidence,{recursive:true,force:true});}
+ }finally{cp.spawnSync=original;}
+});
 test('parser failure is launch_failed and cannot claim a live or accepted agent',()=>{
  const fs=require('node:fs'),path=require('node:path'),original=cp.spawnSync,seen=[];
  try{
@@ -97,7 +137,8 @@ test('parser failure is launch_failed and cannot claim a live or accepted agent'
    assert.equal(report.production_accepted,false);
    assert.equal(report.observed_phase_reads,0);
    const codex=seen.find(c=>c[0]==='codex'&&c.includes('--json'));
-   assert.deepEqual(codex.slice(1,4),['--ask-for-approval','never','exec']);
+   assert.deepEqual(codex.slice(1,3),['--ask-for-approval','never']);
+   assert.ok(codex.includes('default_permissions="nomos_disposable_git"'));
    assert.equal(fs.readFileSync(path.join(report.private_evidence,'agent-events.jsonl'),'utf8'),'');
   }finally{fs.rmSync(report.workspace,{recursive:true,force:true});fs.rmSync(report.private_evidence,{recursive:true,force:true});}
  }finally{cp.spawnSync=original;}
@@ -110,7 +151,7 @@ test('incompatible CLI parser fails before any temporary workspace is created',(
    if(exe==='codex'&&args[0]==='--ask-for-approval')return {status:2,signal:null,error:null,stdout:'',stderr:'unsupported approval option'};
    return {status:0,signal:null,error:null,stdout:'tool 1.0',stderr:''};};
   assert.throws(()=>runner.run(['--case','RUST-CLI','--execute']),/Codex CLI is incompatible.*unsupported approval option/);
-  assert.ok(seen.some(c=>c[0]==='codex'&&c.slice(1).join(' ')==='--ask-for-approval never exec --help'));
+  assert.ok(seen.some(c=>c[0]==='codex'&&c.includes('--help')&&c.includes('default_permissions="nomos_disposable_git"')));
   assert.ok(!seen.some(c=>c[0]==='git'&&c.includes('init')));
  }finally{cp.spawnSync=original;}
 });
