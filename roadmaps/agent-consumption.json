@@ -7,11 +7,11 @@
   "updated_on": "2026-10-27",
   "scope": "Project-context projections, guided website rule builder, deterministic agent packages, context-aware reference loading, end-to-end agent acceptance and release.",
   "baseline": {
-    "completed": 67,
+    "completed": 68,
     "total": 69,
-    "progress_percent": 97.1,
-    "previous_percent": 94.2,
-    "delta_percentage_points": 2.9,
+    "progress_percent": 98.6,
+    "previous_percent": 97.1,
+    "delta_percentage_points": 1.5,
     "measurement": "Equal-weight completed checkpoints divided by total checkpoints. A checkpoint becomes done only after its acceptance and evidence are verified."
   },
   "governance": {
@@ -968,9 +968,12 @@
       "phase": "EVAL",
       "title": "Production acceptance decision",
       "acceptance": "Publish evidence-backed pass/fail, residual limits, re-test after fixes and explicit readiness classification.",
-      "status": "blocked",
+      "status": "done",
       "evidence": [
-        "docs/agent-consumption-release-status.md"
+        "docs/agent-consumption-production-decision.md",
+        "audits/agent-consumption-rust-cli-110018b-accepted-review.json",
+        "audits/agent-consumption-rust-persist-ad52a07-accepted-review.json",
+        "audits/agent-consumption-rust-mixed-ebdcfdb-accepted-review.json"
       ]
     },
     {
