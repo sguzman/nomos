@@ -52,7 +52,7 @@ function codexConfig(){
  return [
   'default_permissions="nomos_disposable_git"',
   'permissions.nomos_disposable_git.extends=":workspace"',
-  'permissions.nomos_disposable_git.filesystem.":workspace_roots"={".git"="write"}',
+  'permissions.nomos_disposable_git.filesystem={":workspace_roots"={".git"="write"}}',
   'permissions.nomos_disposable_git.network.enabled=false'
  ];
 }
