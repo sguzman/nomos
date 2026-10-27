@@ -68,12 +68,13 @@ function codexArgs(root,model=null,help=false){
 }
 function probeDisposableGitSandbox(root){
  guard(process.platform==='linux','The disposable Codex Git-write sandbox probe currently requires Linux');
- const args=['sandbox','linux','--cd',root,'--permission-profile','nomos_disposable_git'];
+ const args=[];
  for(const value of codexConfig())args.push('-c',value);
- args.push('--','/bin/sh','-c',
+ args.push('sandbox','--permission-profile','nomos_disposable_git','--cd',root,
+  '--','/bin/sh','-c',
   'f=.git/nomos-write-permission-probe; (umask 077; : > "$f") && rm -- "$f"');
  const output=command('codex',args,root,{timeout:15000});
- guard(output.status===0,'Disposable Git metadata still not writable by Codex sandbox; no model launched. '+
+ guard(output.status===0,'Disposable Codex sandbox permission probe failed; no model launched (Git writability unverified). '+
   (output.stderr.trim()||output.stdout.trim()||output.error||'sandbox probe exit '+output.status).slice(0,500));
  return true;
 }
