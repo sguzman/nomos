@@ -169,6 +169,11 @@ function completedItemProgressGaps(text){
  const gaps=[];
  for(const [i,line] of String(text||'').split(/\r?\n/).entries()){
   if(!/^\s*(?:\d+[.)]|[-*+])\s+/.test(line)||!/(?:\bcomplete\b|\bcompleted\b|\bdone\b)/i.test(line))continue;
+  // A quantified in-progress item (e.g. 75%) may accurately say that its
+  // local subtasks are complete while external CI remains pending. That prose
+  // is not a first-100%-completion announcement for the parent item.
+  const explicit=/(?:^|[^\d])(\d{1,3}(?:\.\d+)?)\s*%/.exec(line);
+  if(explicit&&Number(explicit[1])<100)continue;
   const percent=/\b100(?:\.0+)?\s*%/.test(line);
   const bar=/[█▰▮]{2,}|\[[#=]{2,}[-. ]*\]/u.test(line);
   if(!percent||!bar)gaps.push({line:i+1,percent_present:percent,bar_present:bar});
