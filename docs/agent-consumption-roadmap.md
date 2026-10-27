@@ -172,9 +172,9 @@ Report a short progress table or bars for affected phases and the whole initiati
 
 ## Empirical gate status (2026-10-26)
 
-**62/69 = 89.9%** remains unchanged. Seven checkpoints are still open, and none is eligible for acceptance without additional evidence. `RUN-08`, `EVAL-08`, `EVAL-09`, and `EVAL-10` are **implementing**: a safe, disposable three-scenario runner and a JSONL phase-read observer now exist, but have only been exercised with synthetic/mock events and plan-only CI. `EVAL-11`, `EVAL-12`, and `REL-08` are **blocked** pending actual Codex/Luna execution, independent behavioral review, and all milestone gates.
+**62/69 = 89.9%** remains unchanged. Seven checkpoints are still open. `RUN-08`, `EVAL-08`, `EVAL-09`, and `EVAL-10` are **implementing**. One genuine, user-executed Codex 0.163.0 `RUST-CLI` turn completed, recorded five phase-reader receipts, produced Rust CLI code and a successful Cargo test, but **did not evidence the required Git commit and clean worktree**. The evidence record still classifies all 89 installed rules unobserved for independent rule-by-rule compliance. `EVAL-11`, `EVAL-12`, and `REL-08` remain **blocked** pending accepted independent runs and the original gates.
 
-Do **not** record a synthetic fixture, mocked Codex invocation, file-hash check, generated Skills, or successful Pages deployment as a genuine autonomous Rust implementation run. No completed live Luna acceptance case has been witnessed through the available tools. The acceptance runner is opt-in, keeps evidence private, and never finalizes the underlying provisional profile. See [the runner protocol](agent-luna-acceptance-runner.md) and [current evidence status](agent-consumption-release-status.md).
+Do **not** record a synthetic fixture, mocked invocation, file-hash check, generated Skills, successful Pages deployment, or this incomplete live trial as an accepted autonomous Rust implementation. The opt-in runner keeps private evidence outside the public repo and never finalizes the provisional source profile. Its new Git/Cargo gate separates completed agent turns from completed coding workflows. See [the runner protocol](agent-luna-acceptance-runner.md) and [current evidence status](agent-consumption-release-status.md).
 
 ## Approval and ownership boundary
 
