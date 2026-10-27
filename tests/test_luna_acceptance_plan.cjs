@@ -71,7 +71,7 @@ test('mocked execution proves disposable workspace and private evidence artifact
    assert.ok(codex.includes('exec'));
    assert.ok(codex.includes('default_permissions="nomos_disposable_git"'));
    assert.ok(codex.includes('permissions.nomos_disposable_git.extends=":workspace"'));
-   assert.ok(codex.includes('permissions.nomos_disposable_git.filesystem.":workspace_roots"={".git"="write"}'));
+   assert.ok(codex.includes('permissions.nomos_disposable_git.filesystem={":workspace_roots"={".git"="write"}}'));
    assert.ok(codex.includes('permissions.nomos_disposable_git.network.enabled=false'));
    assert.ok(codex.includes('--ephemeral'));
    assert.ok(!codex.includes('--yolo'));
@@ -103,12 +103,13 @@ test('temporary Git permission profile stays in Codex invocation only',()=>{
  assert.deepEqual(argv.slice(0,2),['--ask-for-approval','never']);
  assert.ok(argv.includes('default_permissions="nomos_disposable_git"'));
  assert.ok(argv.includes('permissions.nomos_disposable_git.extends=":workspace"'));
- assert.ok(argv.includes('permissions.nomos_disposable_git.filesystem.":workspace_roots"={".git"="write"}'));
+ assert.ok(argv.includes('permissions.nomos_disposable_git.filesystem={":workspace_roots"={".git"="write"}}'));
  assert.ok(argv.includes('permissions.nomos_disposable_git.network.enabled=false'));
  assert.ok(argv.includes('--cd'));
  assert.ok(argv.includes('/tmp/nomos-luna-case-example'));
  assert.ok(argv.includes('gpt-6-luna'));
  assert.ok(!argv.includes('--sandbox'));
+ assert.ok(!argv.some(value=>value.includes('filesystem.":workspace_roots"')),'No incorrectly quoted CLI dotted-path');
  assert.ok(!argv.includes('danger-full-access'));
  assert.ok(!argv.includes('--yolo'));
  const help=runner.codexArgs('/tmp/nomos-luna-case-example',null,true);
