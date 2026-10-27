@@ -77,13 +77,21 @@ function verifyPersistenceCli(root,options={}){
   // Invalid UTF-8 is synthetic corruption for this text-journal exercise.
   // Reviewers still judge documented corruption semantics independently.
   fs.appendFileSync(journal,Buffer.from([0xff,0xfe,0x0a]));
+  const malformedBefore=fs.readFileSync(journal);
   const malformed=call(binary,['list',journal]);
-  check('malformed_records_read_recovery',malformed.ok&&malformed.stdout===listing.stdout);
+  // Invalid bytes can be safely refused without rewriting the journal;
+  // salvage is allowed only if the original valid entries remain visible.
+  check('malformed_records_read_recovery',
+   (malformed.ok?malformed.stdout===listing.stdout:
+    !malformed.ok&&malformed.stdout==='')&&
+   fs.readFileSync(journal).equals(malformedBefore));
   const recovery=call(binary,['append',journal,'after recovery']);
   const recovered=call(binary,['list',journal]);
+  const afterRecovery=fs.readFileSync(journal);
   check('append_after_malformed_preserves_valid_records',
-   recovery.ok&&recovered.ok&&
-   recovered.stdout===listing.stdout+'after recovery\n');
+   recovery.ok?
+    recovered.ok&&recovered.stdout===listing.stdout+'after recovery\n':
+    !recovery.ok&&afterRecovery.equals(malformedBefore));
   // A corrupted prefix/version marker must never make append silently erase
   // valid later entries. On an unrecognizable file the implementation may
   // refuse to append and leave bytes untouched, or recover valid records.
