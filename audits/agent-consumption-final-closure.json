@@ -1,0 +1,858 @@
+{
+  "schema_version": 1,
+  "kind": "nomos_agent_consumption_final_closure_evidence_audit",
+  "audit_date": "2026-10-27",
+  "validated_repo_head_before_audit": "6273bad31a66788fb042bcd495266792391e5680",
+  "assessment": "pre_close_all_preconditions_verified_except_self_referential_REL_08",
+  "scope": "69 engineering acceptance checkpoints; no runtime profile approval or production deployment authorization",
+  "preclosure": {
+    "total_checkpoints": 69,
+    "completed_checkpoints": 68,
+    "remaining_checkpoint": "REL-08",
+    "all_existing_checkpoint_evidence_paths_resolved": true,
+    "duplicate_checkpoint_ids": 0,
+    "empty_evidence_lists": 0,
+    "missing_public_evidence_paths": 0,
+    "phase_checkpoints": {
+      "ARC": {
+        "total": 8,
+        "accepted": 8
+      },
+      "PRJ": {
+        "total": 11,
+        "accepted": 11
+      },
+      "PKG": {
+        "total": 10,
+        "accepted": 10
+      },
+      "BLD": {
+        "total": 12,
+        "accepted": 12
+      },
+      "RUN": {
+        "total": 8,
+        "accepted": 8
+      },
+      "EVAL": {
+        "total": 12,
+        "accepted": 12
+      },
+      "REL": {
+        "total": 8,
+        "accepted": 7
+      }
+    }
+  },
+  "concrete_acceptance_evidence": {
+    "three_distinct_audits": [
+      "audits/agent-consumption-rust-cli-110018b-accepted-review.json",
+      "audits/agent-consumption-rust-persist-ad52a07-accepted-review.json",
+      "audits/agent-consumption-rust-mixed-ebdcfdb-accepted-review.json"
+    ],
+    "accepted_rule_dispositions": [
+      {
+        "case_id": "RUST-CLI",
+        "satisfied": 43,
+        "not_applicable": 46,
+        "violated": 0
+      },
+      {
+        "case_id": "RUST-PERSIST",
+        "satisfied": 44,
+        "not_applicable": 45,
+        "violated": 0
+      },
+      {
+        "case_id": "RUST-MIXED",
+        "satisfied": 43,
+        "not_applicable": 46,
+        "violated": 0
+      }
+    ],
+    "generic_explicit_entrypoint_verified": true,
+    "generic_manifest_verified_read_receipts": 11,
+    "unprompted_generic_autodiscovery_verified": false,
+    "canonical_rules_tree": "ad0a7cda160b92363d03070a7653b5cb08015b8b",
+    "canonical_rules_unchanged_since_baseline": "1b5535059c14309367fdcd9595a951709696465f",
+    "docs_readiness_decision": "docs/agent-consumption-production-decision.md",
+    "verified_nomOS_ci_run": "https://github.com/sguzman/nomos/actions/runs/40592705688",
+    "target_hosted_ci_run_claim": "not_executed_in_disposable_projects",
+    "owner_profile_selection_or_install_authorized": false
+  },
+  "postclosure_procedure": [
+    "Commit this public-safe evidence audit and link it in REL-08.",
+    "Mark REL-08 done only after all 69 checkpoint evidence references exist.",
+    "Synchronize machine ledger and readable roadmap to 69/69 and preserve owner-approval restrictions.",
+    "Verify the resulting GitHub CI and repo paths before reporting engineering 100 percent."
+  ],
+  "bounded_readiness": "scoped_engineering_acceptance_pass; deployment/profile_activation_not_authorized",
+  "checkpoint_evidence": [
+    {
+      "id": "ARC-01",
+      "phase": "ARC",
+      "preclosure_status": "done",
+      "evidence": [
+        "docs/agent-consumption-contract.md",
+        "https://github.com/sguzman/nomos/commit/68c3764661e760d962ae98da897417c96c8887e1",
+        "https://github.com/sguzman/nomos/actions/runs/40390836598"
+      ]
+    },
+    {
+      "id": "ARC-02",
+      "phase": "ARC",
+      "preclosure_status": "done",
+      "evidence": [
+        "docs/agent-consumption-contract.md",
+        "https://github.com/sguzman/nomos/commit/68c3764661e760d962ae98da897417c96c8887e1",
+        "https://github.com/sguzman/nomos/actions/runs/40390836598"
+      ]
+    },
+    {
+      "id": "ARC-03",
+      "phase": "ARC",
+      "preclosure_status": "done",
+      "evidence": [
+        "docs/agent-consumption-contract.md",
+        "https://github.com/sguzman/nomos/commit/68c3764661e760d962ae98da897417c96c8887e1",
+        "https://github.com/sguzman/nomos/actions/runs/40390836598"
+      ]
+    },
+    {
+      "id": "ARC-04",
+      "phase": "ARC",
+      "preclosure_status": "done",
+      "evidence": [
+        "docs/agent-consumption-contract.md",
+        "https://github.com/sguzman/nomos/commit/68c3764661e760d962ae98da897417c96c8887e1",
+        "https://github.com/sguzman/nomos/actions/runs/40390836598"
+      ]
+    },
+    {
+      "id": "ARC-05",
+      "phase": "ARC",
+      "preclosure_status": "done",
+      "evidence": [
+        "docs/agent-consumption-contract.md",
+        "https://github.com/sguzman/nomos/commit/68c3764661e760d962ae98da897417c96c8887e1",
+        "https://github.com/sguzman/nomos/actions/runs/40390836598"
+      ]
+    },
+    {
+      "id": "ARC-06",
+      "phase": "ARC",
+      "preclosure_status": "done",
+      "evidence": [
+        "docs/agent-consumption-contract.md",
+        "https://github.com/sguzman/nomos/commit/68c3764661e760d962ae98da897417c96c8887e1",
+        "https://github.com/sguzman/nomos/actions/runs/40390836598"
+      ]
+    },
+    {
+      "id": "ARC-07",
+      "phase": "ARC",
+      "preclosure_status": "done",
+      "evidence": [
+        "docs/agent-consumption-contract.md",
+        "https://github.com/sguzman/nomos/commit/68c3764661e760d962ae98da897417c96c8887e1",
+        "https://github.com/sguzman/nomos/actions/runs/40390836598"
+      ]
+    },
+    {
+      "id": "ARC-08",
+      "phase": "ARC",
+      "preclosure_status": "done",
+      "evidence": [
+        "docs/agent-consumption-contract.md",
+        "https://github.com/sguzman/nomos/commit/68c3764661e760d962ae98da897417c96c8887e1",
+        "https://github.com/sguzman/nomos/actions/runs/40390836598"
+      ]
+    },
+    {
+      "id": "PRJ-01",
+      "phase": "PRJ",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
+    },
+    {
+      "id": "PRJ-02",
+      "phase": "PRJ",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
+    },
+    {
+      "id": "PRJ-03",
+      "phase": "PRJ",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
+    },
+    {
+      "id": "PRJ-04",
+      "phase": "PRJ",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
+    },
+    {
+      "id": "PRJ-05",
+      "phase": "PRJ",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
+    },
+    {
+      "id": "PRJ-06",
+      "phase": "PRJ",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
+    },
+    {
+      "id": "PRJ-07",
+      "phase": "PRJ",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
+    },
+    {
+      "id": "PRJ-08",
+      "phase": "PRJ",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
+    },
+    {
+      "id": "PRJ-09",
+      "phase": "PRJ",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
+    },
+    {
+      "id": "PRJ-10",
+      "phase": "PRJ",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
+    },
+    {
+      "id": "PRJ-11",
+      "phase": "PRJ",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
+    },
+    {
+      "id": "PKG-01",
+      "phase": "PKG",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
+    },
+    {
+      "id": "PKG-02",
+      "phase": "PKG",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
+    },
+    {
+      "id": "PKG-03",
+      "phase": "PKG",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
+    },
+    {
+      "id": "PKG-04",
+      "phase": "PKG",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
+    },
+    {
+      "id": "PKG-05",
+      "phase": "PKG",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
+    },
+    {
+      "id": "PKG-06",
+      "phase": "PKG",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
+    },
+    {
+      "id": "PKG-07",
+      "phase": "PKG",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
+    },
+    {
+      "id": "PKG-08",
+      "phase": "PKG",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
+    },
+    {
+      "id": "PKG-09",
+      "phase": "PKG",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40393615140",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_projections.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
+    },
+    {
+      "id": "PKG-10",
+      "phase": "PKG",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40395325292",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs"
+      ]
+    },
+    {
+      "id": "BLD-01",
+      "phase": "BLD",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/commit/4fe03e66b301206fd31d766967402b4d6bc84bc8",
+        "https://github.com/sguzman/nomos/actions/runs/40394820808",
+        "https://github.com/sguzman/nomos/blob/main/docs/rule-builder.html",
+        "https://github.com/sguzman/nomos/blob/main/docs/builder-logic.js",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_rule_builder.cjs"
+      ]
+    },
+    {
+      "id": "BLD-02",
+      "phase": "BLD",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/commit/4fe03e66b301206fd31d766967402b4d6bc84bc8",
+        "https://github.com/sguzman/nomos/actions/runs/40394820808",
+        "https://github.com/sguzman/nomos/blob/main/docs/rule-builder.html",
+        "https://github.com/sguzman/nomos/blob/main/docs/builder-logic.js",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_rule_builder.cjs"
+      ]
+    },
+    {
+      "id": "BLD-03",
+      "phase": "BLD",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/commit/4fe03e66b301206fd31d766967402b4d6bc84bc8",
+        "https://github.com/sguzman/nomos/actions/runs/40394820808",
+        "https://github.com/sguzman/nomos/blob/main/docs/rule-builder.html",
+        "https://github.com/sguzman/nomos/blob/main/docs/builder-logic.js",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_rule_builder.cjs"
+      ]
+    },
+    {
+      "id": "BLD-04",
+      "phase": "BLD",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40395356843",
+        "https://github.com/sguzman/nomos/blob/main/docs/builder-logic.js",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_rule_builder.cjs"
+      ]
+    },
+    {
+      "id": "BLD-05",
+      "phase": "BLD",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/commit/4fe03e66b301206fd31d766967402b4d6bc84bc8",
+        "https://github.com/sguzman/nomos/actions/runs/40394820808",
+        "https://github.com/sguzman/nomos/blob/main/docs/rule-builder.html",
+        "https://github.com/sguzman/nomos/blob/main/docs/builder-logic.js",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_rule_builder.cjs"
+      ]
+    },
+    {
+      "id": "BLD-06",
+      "phase": "BLD",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/commit/4fe03e66b301206fd31d766967402b4d6bc84bc8",
+        "https://github.com/sguzman/nomos/actions/runs/40394820808",
+        "https://github.com/sguzman/nomos/blob/main/docs/rule-builder.html",
+        "https://github.com/sguzman/nomos/blob/main/docs/builder-logic.js",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_rule_builder.cjs"
+      ]
+    },
+    {
+      "id": "BLD-07",
+      "phase": "BLD",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/commit/4fe03e66b301206fd31d766967402b4d6bc84bc8",
+        "https://github.com/sguzman/nomos/actions/runs/40394820808",
+        "https://github.com/sguzman/nomos/blob/main/docs/rule-builder.html",
+        "https://github.com/sguzman/nomos/blob/main/docs/builder-logic.js",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_rule_builder.cjs"
+      ]
+    },
+    {
+      "id": "BLD-08",
+      "phase": "BLD",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/blob/main/docs/builder-logic.js",
+        "https://github.com/sguzman/nomos/blob/main/docs/rule-builder.js",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_rule_builder.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40399342237"
+      ]
+    },
+    {
+      "id": "BLD-09",
+      "phase": "BLD",
+      "preclosure_status": "done",
+      "evidence": [
+        "docs/builder-logic.js",
+        "docs/rule-builder.js",
+        "tests/test_rule_builder.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40399342237"
+      ]
+    },
+    {
+      "id": "BLD-10",
+      "phase": "BLD",
+      "preclosure_status": "done",
+      "evidence": [
+        "docs/builder-logic.js",
+        "docs/rule-builder.js",
+        "tests/test_rule_builder.cjs",
+        "tests/test_rule_builder_browser.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40403137785"
+      ]
+    },
+    {
+      "id": "BLD-11",
+      "phase": "BLD",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/blob/main/docs/rule-builder.css",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_rule_builder_browser.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40399342237"
+      ]
+    },
+    {
+      "id": "BLD-12",
+      "phase": "BLD",
+      "preclosure_status": "done",
+      "evidence": [
+        "tests/test_rule_builder_browser.cjs",
+        "tests/test_agent_package.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40401360614"
+      ]
+    },
+    {
+      "id": "RUN-01",
+      "phase": "RUN",
+      "preclosure_status": "done",
+      "evidence": [
+        "docs/agent-target-loading.md",
+        "docs/agent-consumption-contract.md",
+        "tools/agent_phase_reader.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40402245897"
+      ]
+    },
+    {
+      "id": "RUN-02",
+      "phase": "RUN",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40398607871"
+      ]
+    },
+    {
+      "id": "RUN-03",
+      "phase": "RUN",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/actions/runs/40395325292",
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package.cjs"
+      ]
+    },
+    {
+      "id": "RUN-04",
+      "phase": "RUN",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package_verify.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40398607871"
+      ]
+    },
+    {
+      "id": "RUN-05",
+      "phase": "RUN",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package_verify.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40398607871"
+      ]
+    },
+    {
+      "id": "RUN-06",
+      "phase": "RUN",
+      "preclosure_status": "done",
+      "evidence": [
+        "tools/agent_package.cjs",
+        "tests/test_agent_package.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40401165989"
+      ]
+    },
+    {
+      "id": "RUN-07",
+      "phase": "RUN",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package_diff.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package_diff.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40398607871"
+      ]
+    },
+    {
+      "id": "RUN-08",
+      "phase": "RUN",
+      "preclosure_status": "done",
+      "evidence": [
+        "audits/agent-consumption-rust-cli-110018b-accepted-review.json",
+        "audits/agent-consumption-rust-persist-ad52a07-accepted-review.json",
+        "audits/agent-consumption-rust-mixed-ebdcfdb-accepted-review.json",
+        "tools/codex_trace_observer.cjs",
+        "tests/test_codex_trace_observer.cjs",
+        "docs/agent-target-loading.md"
+      ]
+    },
+    {
+      "id": "EVAL-01",
+      "phase": "EVAL",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/blob/main/docs/agent-consumption-evaluation.md",
+        "https://github.com/sguzman/nomos/actions/runs/40398607871"
+      ]
+    },
+    {
+      "id": "EVAL-02",
+      "phase": "EVAL",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/blob/main/tests/fixtures/agent-consumption-cases.json",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_consumption_cases.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40398607871"
+      ]
+    },
+    {
+      "id": "EVAL-03",
+      "phase": "EVAL",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_adversarial.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tools/projections.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40398607871"
+      ]
+    },
+    {
+      "id": "EVAL-04",
+      "phase": "EVAL",
+      "preclosure_status": "done",
+      "evidence": [
+        ".github/workflows/pages.yml",
+        "tests/test_agent_run_evidence.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40401360614"
+      ]
+    },
+    {
+      "id": "EVAL-05",
+      "phase": "EVAL",
+      "preclosure_status": "done",
+      "evidence": [
+        "tests/test_rule_builder_browser.cjs",
+        "tests/test_rule_builder.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40403137785"
+      ]
+    },
+    {
+      "id": "EVAL-06",
+      "phase": "EVAL",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/blob/main/tools/agent_package_verify.cjs",
+        "https://github.com/sguzman/nomos/blob/main/tests/test_agent_package.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40398607871"
+      ]
+    },
+    {
+      "id": "EVAL-07",
+      "phase": "EVAL",
+      "preclosure_status": "done",
+      "evidence": [
+        "tools/agent_phase_reader.cjs",
+        "tools/validate_agent_run_evidence.cjs",
+        "schema/agent-run-evidence.schema.json",
+        "https://github.com/sguzman/nomos/actions/runs/40401360614"
+      ]
+    },
+    {
+      "id": "EVAL-08",
+      "phase": "EVAL",
+      "preclosure_status": "done",
+      "evidence": [
+        "audits/agent-consumption-rust-cli-110018b-accepted-review.json",
+        "tools/run_luna_acceptance.cjs",
+        "tests/test_luna_acceptance_plan.cjs",
+        "https://github.com/sguzman/nomos/commit/324ef4e82695200230102ea7d711721b3a3b4dfe"
+      ]
+    },
+    {
+      "id": "EVAL-09",
+      "phase": "EVAL",
+      "preclosure_status": "done",
+      "evidence": [
+        "audits/agent-consumption-rust-persist-ad52a07-accepted-review.json",
+        "tools/run_luna_acceptance.cjs",
+        "tools/verify_persistence_cli.cjs",
+        "tests/test_luna_acceptance_plan.cjs"
+      ]
+    },
+    {
+      "id": "EVAL-10",
+      "phase": "EVAL",
+      "preclosure_status": "done",
+      "evidence": [
+        "audits/agent-consumption-rust-cli-2026-10-27-review.json",
+        "docs/agent-consumption-release-status.md",
+        "https://github.com/sguzman/nomos/commit/aa2e70e186d6d9615e4d942a6d7461e6ad2a7a33"
+      ]
+    },
+    {
+      "id": "EVAL-11",
+      "phase": "EVAL",
+      "preclosure_status": "done",
+      "evidence": [
+        "audits/agent-consumption-rust-cli-110018b-accepted-review.json",
+        "audits/agent-consumption-rust-persist-ad52a07-accepted-review.json",
+        "audits/agent-consumption-rust-mixed-ebdcfdb-accepted-review.json",
+        "tools/codex_trace_observer.cjs",
+        "tests/test_codex_trace_observer.cjs",
+        "docs/agent-target-loading.md"
+      ]
+    },
+    {
+      "id": "EVAL-12",
+      "phase": "EVAL",
+      "preclosure_status": "done",
+      "evidence": [
+        "docs/agent-consumption-production-decision.md",
+        "audits/agent-consumption-rust-cli-110018b-accepted-review.json",
+        "audits/agent-consumption-rust-persist-ad52a07-accepted-review.json",
+        "audits/agent-consumption-rust-mixed-ebdcfdb-accepted-review.json"
+      ]
+    },
+    {
+      "id": "REL-01",
+      "phase": "REL",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/blob/main/docs/agent-consumption-quickstart.md",
+        "https://github.com/sguzman/nomos/actions/runs/40398607871"
+      ]
+    },
+    {
+      "id": "REL-02",
+      "phase": "REL",
+      "preclosure_status": "done",
+      "evidence": [
+        "https://github.com/sguzman/nomos/blob/main/docs/agent-consumption-contract.md",
+        "https://github.com/sguzman/nomos/blob/main/docs/agent-consumption-evaluation.md",
+        "https://github.com/sguzman/nomos/blob/main/docs/agent-consumption-quickstart.md",
+        "https://github.com/sguzman/nomos/actions/runs/40398607871"
+      ]
+    },
+    {
+      "id": "REL-03",
+      "phase": "REL",
+      "preclosure_status": "done",
+      "evidence": [
+        ".github/workflows/pages.yml",
+        "tests/test_agent_workflow.cjs",
+        "tests/test_rule_builder_browser.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40403137785"
+      ]
+    },
+    {
+      "id": "REL-04",
+      "phase": "REL",
+      "preclosure_status": "done",
+      "evidence": [
+        ".github/workflows/pages.yml",
+        "tests/test_agent_workflow.cjs",
+        "tests/test_agent_run_evidence.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40403137785"
+      ]
+    },
+    {
+      "id": "REL-05",
+      "phase": "REL",
+      "preclosure_status": "done",
+      "evidence": [
+        "docs/agent-package-compatibility.md",
+        "tools/agent_package_verify.cjs",
+        "tests/test_agent_package.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40401165989"
+      ]
+    },
+    {
+      "id": "REL-06",
+      "phase": "REL",
+      "preclosure_status": "done",
+      "evidence": [
+        "tools/agent_package_diff.cjs",
+        "docs/agent-package-compatibility.md",
+        "tests/test_agent_package_diff.cjs",
+        "https://github.com/sguzman/nomos/actions/runs/40401165989"
+      ]
+    },
+    {
+      "id": "REL-07",
+      "phase": "REL",
+      "preclosure_status": "done",
+      "evidence": [
+        "docs/agent-consumption-release-status.md",
+        "docs/agent-consumption-quickstart.md",
+        "https://github.com/sguzman/nomos/actions/runs/40403137785"
+      ]
+    },
+    {
+      "id": "REL-08",
+      "phase": "REL",
+      "preclosure_status": "blocked",
+      "evidence": [
+        "audits/agent-consumption-final-closure.json",
+        "docs/agent-consumption-production-decision.md",
+        "https://github.com/sguzman/nomos/actions/runs/40592705688"
+      ]
+    }
+  ],
+  "limitations": [
+    "No arbitrary generic-agent automatic discovery",
+    "No hosted CI inside generated disposable projects",
+    "No explicit real project installation or activation",
+    "No cross-model, cross-OS or long-horizon reliability claim",
+    "Engineering completion percentage is evidence-checkpoint coverage, not an empirical success probability"
+  ],
+  "privacy": "Only public repository file paths, synthetic audit references and public CI links are included."
+}
