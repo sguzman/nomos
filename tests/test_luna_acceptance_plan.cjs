@@ -208,7 +208,7 @@ test('review artifact detection observes populated disposable project without gr
    if(exe==='codex'&&args.includes('--json')){
     const root=args[args.indexOf('--cd')+1];
     fs.writeFileSync(path.join(root,'README.md'),'# Synthetic test\n');
-    fs.writeFileSync(path.join(root,'ROADMAP.md'),'# Test roadmap\n');
+    fs.writeFileSync(path.join(root,'ROADMAP.md'),"# Roadmap\\n## 🧭 Phase 1 — Core\\n### 🏁 Milestone 1 — CLI\\n#### 🧩 Features\\n- 📝 Normalize input — ✅ done\\n#### 🔧 Subtasks\\n- 🧪 Write unit tests — ✅ done\\n- 🔎 Check integration — ✅ done\\n");
     fs.mkdirSync(path.join(root,'.github','workflows'),{recursive:true});
     fs.writeFileSync(path.join(root,'.github','workflows','rust.yml'),'name: CI\n');
     return {status:0,stdout:'{"type":"thread.started"}\n{"type":"turn.completed"}\n',stderr:''};
@@ -404,7 +404,7 @@ test('disposable Git rule gate rejects missing staged roadmap without touching u
   assert.notEqual(refused.status,0);
   assert.match(refused.stderr,/NOMOS_RULE_GATE NOM-0010/);
   assert.equal(git('rev-list','--count','HEAD').status,128);
-  fs.writeFileSync(path.join(root,'ROADMAP.md'),'# Synthetic test roadmap\n');
+  fs.writeFileSync(path.join(root,'ROADMAP.md'),"# Roadmap\\n## 🧭 Phase 1 — Core\\n### 🏁 Milestone 1 — CLI\\n#### 🧩 Features\\n- 📝 Normalize input — ✅ done\\n#### 🔧 Subtasks\\n- 🧪 Write unit tests — ✅ done\\n- 🔎 Check integration — ✅ done\\n");
   assert.equal(git('add','ROADMAP.md').status,0);
   const accepted=git('commit','-m','synthetic test');
   assert.equal(accepted.status,0,accepted.stderr);
@@ -422,4 +422,20 @@ test('disposable rule gate is inert without the applicable selected source rule'
   assert.equal(gate.installed,false);
   assert.equal(fs.existsSync(path.join(root,'.git','hooks','pre-commit')),false);
  }finally{fs.rmSync(root,{recursive:true,force:true});}
+});
+
+
+test('selected NOM-0010 roadmap structure requires phases, milestones, subtasks, features and unique item identities',()=>{
+ const {validateRoadmap}=require('../tools/check_roadmap_structure.cjs');
+ const weak='# Roadmap\n\n## 🧭 Initial CLI\n\n- ✅ Normalize text\n- ✅ Run tests\n';
+ const bad=validateRoadmap(weak);
+ assert.equal(bad.ok,false);
+ assert.ok(bad.gaps.includes('missing_milestones'));
+ assert.ok(bad.gaps.includes('missing_subtasks'));
+ assert.ok(bad.gaps.some(x=>x.startsWith('missing_stable_item_emoji')));
+ const valid=validateRoadmap("# Roadmap\\n## 🧭 Phase 1 — Core\\n### 🏁 Milestone 1 — CLI\\n#### 🧩 Features\\n- 📝 Normalize input — ✅ done\\n#### 🔧 Subtasks\\n- 🧪 Write unit tests — ✅ done\\n- 🔎 Check integration — ✅ done\\n");
+ assert.equal(valid.ok,true,valid.gaps.join(','));
+ const duplicated=validateRoadmap("# Roadmap\\n## 🧭 Phase 1 — Core\\n### 🏁 Milestone 1 — CLI\\n#### 🧩 Features\\n- 📝 Normalize input — ✅ done\\n#### 🔧 Subtasks\\n- 🧪 Write unit tests — ✅ done\\n- 🔎 Check integration — ✅ done\\n".replace('🔎 Check integration','🧪 Check integration'));
+ assert.equal(duplicated.ok,false);
+ assert.ok(duplicated.gaps.some(x=>x.startsWith('duplicate_emoji_identity')));
 });
