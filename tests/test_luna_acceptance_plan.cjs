@@ -525,6 +525,7 @@ test('persistence acceptance task requires a genuine alternate lifecycle without
  const task=runner.CASES['RUST-PERSIST'].task;
  assert.match(task,/atomic-rename persistence/);
  assert.match(task,/recovery from malformed input without losing valid prior entries/);
+ assert.match(task,/write\/list\/reload round trips/);
  assert.match(task,/regression test for malformed journal data/);
  assert.match(task,/GitHub Actions workflow/);
  assert.match(task,/release-readiness checklist/);
