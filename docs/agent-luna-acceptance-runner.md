@@ -14,7 +14,7 @@ The default command is a harmless planning preflight:
 
 It computes the pinned projection/package and prints a public-safe plan. It does not call Codex, Cargo, Git, an external API, or any live project. CI tests this planning behavior without agent authentication.
 
-Actual unattended execution is **separately opt-in**, with an already installed and authenticated Codex CLI. Before allocating either temporary directory, the runner checks the local parser with the same per-invocation restricted Git-write profile and `exec --help`. If this configuration is incompatible with the installed CLI, the run must fail clearly. No automatic escalation to unrestricted access is permitted.
+Actual unattended execution is **separately opt-in**, with an already installed and authenticated Codex CLI. First the runner checks the local CLI parser with the restricted Git-write profile and `exec --help`. After creating its disposable baseline but **before any model invocation**, it calls `codex sandbox linux --permission-profile nomos_disposable_git` with the same scoped configuration to create and remove one temporary `.git` probe file. A failed permission probe stops before contacting a model. This test runs on Linux; it neither pushes commits nor touches a real repository. No automatic escalation to unrestricted access is permitted.
 
 `node tools/run_luna_acceptance.cjs --case RUST-CLI --model MODEL --execute`
 
