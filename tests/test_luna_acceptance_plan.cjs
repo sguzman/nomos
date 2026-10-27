@@ -461,11 +461,26 @@ test('final progress preflight distinguishes missing visuals from a scoped quant
  assert.equal(incomplete.percentage_present,false);
  assert.equal(incomplete.visual_bar_present,false);
  assert.equal(incomplete.overall_progress_present,false);
+ assert.equal(incomplete.quantifiability,'requires_independent_review');
+ assert.equal(incomplete.item_coverage,'requires_independent_review');
+ assert.equal(incomplete.first_completion,'requires_independent_review');
  const complete=runner.handoffProgressPreflight(lines(
   'Overall project progress: 50% █████░░░░░; phase one: 100% ██████████'),manifest);
  assert.deepEqual(complete,{inspected:true,selected_rules:[
   'NOM-0068','NOM-0069','NOM-0070','NOM-0071'],
-  percentage_present:true,visual_bar_present:true,overall_progress_present:true});
+  percentage_present:true,visual_bar_present:true,overall_progress_present:true,
+  quantifiability:'reported_quantification',
+  item_coverage:'requires_independent_review',
+  first_completion:'requires_independent_review'});
+ const numberOnly=runner.handoffProgressPreflight(lines('Overall project progress: 50%. Phase A: unknown.'),manifest);
+ assert.equal(numberOnly.quantifiability,'reported_quantification');
+ assert.equal(numberOnly.visual_bar_present,false);
+ const unknownDenominator=runner.handoffProgressPreflight(lines(
+  'Overall project progress is not objectively quantifiable. We verified Rust tests and a commit; remaining external validation is unobserved.'),manifest);
+ assert.equal(unknownDenominator.quantifiability,'requires_independent_review');
+ assert.equal(unknownDenominator.percentage_present,false);
+ assert.equal(unknownDenominator.visual_bar_present,false);
+ assert.equal(unknownDenominator.overall_progress_present,true);
  const outOfScope=runner.handoffProgressPreflight(lines('Implemented CLI.'),{rules:{}});
  assert.equal(outOfScope.inspected,false);
  const unknown=runner.handoffProgressPreflight('{"type":"turn.completed"}',manifest);
