@@ -376,3 +376,46 @@ test('review archive requires a private report and warning before packaging',()=
   assert.equal(fs.existsSync(path.join(evidence,'review-bundle.tar.gz')),false);
  }finally{fs.rmSync(base,{recursive:true,force:true});}
 });
+
+
+test('disposable Git rule gate rejects missing staged roadmap without touching user repositories',()=>{
+ const fs=require('node:fs'),os=require('node:os'),path=require('node:path');
+ const originalGit=require('node:child_process').spawnSync;
+ const root=fs.mkdtempSync(path.join(os.tmpdir(),'nomos-luna-case-'));
+ const git=(...args)=>originalGit('git',args,{cwd:root,encoding:'utf8'});
+ try{
+  assert.equal(git('init','-b','main').status,0);
+  assert.equal(git('config','--local','user.name','Synthetic Test').status,0);
+  assert.equal(git('config','--local','user.email','synthetic@example.invalid').status,0);
+  const gate=runner.installDisposableRuleGate(root,
+   {project_types:['rust_project_from_scratch']},
+   {rules:{'NOM-0010':{},'NOM-0042':{}}});
+  assert.equal(gate.installed,true);
+  assert.deepEqual(gate.rule_ids,['NOM-0010','NOM-0042']);
+  const hook=path.join(root,'.git','hooks','pre-commit');
+  assert.ok(fs.statSync(hook).mode&0o100);
+  fs.writeFileSync(path.join(root,'README.md'),'# Synthetic test\n');
+  assert.equal(git('add','README.md').status,0);
+  const refused=git('commit','-m','synthetic test');
+  assert.notEqual(refused.status,0);
+  assert.match(refused.stderr,/NOMOS_RULE_GATE NOM-0010/);
+  assert.equal(git('rev-list','--count','HEAD').status,128);
+  fs.writeFileSync(path.join(root,'ROADMAP.md'),'# Synthetic test roadmap\n');
+  assert.equal(git('add','ROADMAP.md').status,0);
+  const accepted=git('commit','-m','synthetic test');
+  assert.equal(accepted.status,0,accepted.stderr);
+  assert.equal(git('status','--porcelain').stdout.trim(),'');
+ }finally{fs.rmSync(root,{recursive:true,force:true});}
+});
+test('disposable rule gate is inert without the applicable selected source rule',()=>{
+ const fs=require('node:fs'),os=require('node:os'),path=require('node:path');
+ const cp=require('node:child_process');
+ const root=fs.mkdtempSync(path.join(os.tmpdir(),'nomos-luna-case-'));
+ try{
+  assert.equal(cp.spawnSync('git',['init','-b','main'],{cwd:root,encoding:'utf8'}).status,0);
+  const gate=runner.installDisposableRuleGate(root,
+   {project_types:['rust_project']},{rules:{'NOM-0010':{}}});
+  assert.equal(gate.installed,false);
+  assert.equal(fs.existsSync(path.join(root,'.git','hooks','pre-commit')),false);
+ }finally{fs.rmSync(root,{recursive:true,force:true});}
+});
