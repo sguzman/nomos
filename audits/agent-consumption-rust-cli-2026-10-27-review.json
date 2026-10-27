@@ -1,0 +1,421 @@
+{
+  "schema_version": 1,
+  "kind": "nomos_public_safe_independent_rule_dispositions",
+  "case_id": "RUST-CLI",
+  "review_date": "2026-10-27",
+  "agent_commit_sha": "2d8bc684af667a33cd9c8aad6318739e3d54f61a",
+  "agent": "Codex CLI 0.163.0",
+  "synthetic_inert_profile": true,
+  "independent_review_accepted": false,
+  "production_accepted": false,
+  "source_profile_id": "PROFILE-0004",
+  "tested_target": "Linux Rust CLI; disposable sandbox",
+  "counts": {
+    "satisfied": 34,
+    "violated": 4,
+    "not_applicable": 46,
+    "unobserved": 5
+  },
+  "per_rule": [
+    {
+      "rule_id": "NOM-0001",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0003",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0004",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0008",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0010",
+      "status": "violated"
+    },
+    {
+      "rule_id": "NOM-0012",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0014",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0015",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0016",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0017",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0018",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0019",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0020",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0021",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0022",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0023",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0024",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0025",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0026",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0027",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0028",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0029",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0030",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0031",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0032",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0033",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0034",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0035",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0036",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0037",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0038",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0039",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0040",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0041",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0042",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0043",
+      "status": "violated"
+    },
+    {
+      "rule_id": "NOM-0044",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0045",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0046",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0047",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0048",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0049",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0050",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0051",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0052",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0053",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0054",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0055",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0056",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0057",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0058",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0059",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0060",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0061",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0062",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0063",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0064",
+      "status": "violated"
+    },
+    {
+      "rule_id": "NOM-0065",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0066",
+      "status": "violated"
+    },
+    {
+      "rule_id": "NOM-0067",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0068",
+      "status": "unobserved"
+    },
+    {
+      "rule_id": "NOM-0069",
+      "status": "unobserved"
+    },
+    {
+      "rule_id": "NOM-0070",
+      "status": "unobserved"
+    },
+    {
+      "rule_id": "NOM-0071",
+      "status": "unobserved"
+    },
+    {
+      "rule_id": "NOM-0072",
+      "status": "unobserved"
+    },
+    {
+      "rule_id": "NOM-0073",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0087",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0088",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0089",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0090",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0091",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0092",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0093",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0094",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0095",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0096",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0097",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0098",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0099",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0100",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0101",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0102",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0103",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0104",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0105",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0106",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0107",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0108",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0109",
+      "status": "not_applicable"
+    }
+  ],
+  "critical_issues": [
+    {
+      "rule_id": "NOM-0010",
+      "evidence": "Committed ROADMAP.md lacks milestone, feature, subtask hierarchy and stable per-item emoji identities separate from status symbols."
+    },
+    {
+      "rule_id": "NOM-0043",
+      "evidence": "Roadmap marks CI execution complete although the GitHub-hosted workflow has not executed for the disposable project."
+    },
+    {
+      "rule_id": "NOM-0064",
+      "evidence": "Agent reviewed file presence, but did not detect missing rule-required roadmap structure during acceptance comparison."
+    },
+    {
+      "rule_id": "NOM-0066",
+      "evidence": "Final agent handoff omitted the outstanding roadmap compliance problem despite reporting the commit and passed local checks."
+    }
+  ],
+  "mechanical_evidence": {
+    "package_file_hashes_verified": 24,
+    "installed_rule_refs_verified": 89,
+    "phase_read_receipts": [
+      "planning",
+      "implementation",
+      "testing",
+      "review",
+      "shutdown"
+    ],
+    "rust_unit_tests_passed": 3,
+    "rust_integration_tests_passed": 3,
+    "rust_fmt_passed": true,
+    "rust_clippy_passed": true,
+    "cargo_check_passed": true,
+    "git_commit_count_agent_created": 1,
+    "worktree_clean": true,
+    "ci_configured": true,
+    "ci_executed": false
+  },
+  "limitations": [
+    "Five conditional statuses remain unobserved rather than assumed satisfied.",
+    "No direct GitHub Actions execution took place within the disposable Rust CLI repository.",
+    "This summary intentionally omits raw agent traces, local paths, user data and private source materials.",
+    "This rejected review satisfies only the act of independent scoring, not the broader accepted-agent-run gate."
+  ]
+}
