@@ -95,9 +95,10 @@ function hasEvent(stdout,type){
  });
 }
 function argsOf(argv){
- const args={case_id:null,model:null,execute:false};
+ const args={case_id:null,model:null,execute:false,probe_sandbox:false};
  for(let i=0;i<argv.length;i++){
   if(argv[i]==='--execute'){args.execute=true;continue;}
+  if(argv[i]==='--probe-sandbox'){args.probe_sandbox=true;continue;}
   if(argv[i]==='--case'||argv[i]==='--model'){
    const key=argv[i]==='--case'?'case_id':'model';
    guard(argv[i+1]&&!argv[i+1].startsWith('--'),'Missing value for '+argv[i]);
@@ -105,14 +106,28 @@ function argsOf(argv){
   }throw new Error('Unknown argument '+argv[i]);
  }
  guard(args.case_id,'Required: --case RUST-CLI|RUST-PERSIST|RUST-MIXED');
+ guard(!(args.execute&&args.probe_sandbox),'--probe-sandbox cannot combine with --execute');
  return args;
 }
 function privateFile(dir,name,content){fs.writeFileSync(path.join(dir,name),content,{mode:0o600,flag:'wx'});}
 function run(argv){
  const flags=argsOf(argv),p=plan(flags.case_id,flags.model);
- if(!flags.execute)return {...p.snapshot,status:'planning_only',agent_invoked:false,
+ if(!flags.execute&&!flags.probe_sandbox)return {...p.snapshot,status:'planning_only',agent_invoked:false,
   note:'No user project, paid model, or authentication was touched. Execute only after explicit authorization.'};
  const versions=preflight();
+ if(flags.probe_sandbox){
+  const probeRoot=fs.mkdtempSync(path.join(os.tmpdir(),'nomos-luna-git-probe-'));
+  fs.chmodSync(probeRoot,0o700);
+  try{
+   guard(command('git',['init','-b','main'],probeRoot).status===0,'Cannot create temporary Git permission probe');
+   probeDisposableGitSandbox(probeRoot);
+   return {...p.snapshot,status:'disposable_git_sandbox_probe_passed',
+    agent_invoked:false,agent_turn_completed:false,production_accepted:false,
+    agent_versions:versions,network_enabled:false,
+    note:'A model-free sandbox checked .git writability in a temporary Git directory; no agent was launched.'};
+  }finally{fs.rmSync(probeRoot,{recursive:true,force:true});}
+ }
+
  const root=fs.mkdtempSync(path.join(os.tmpdir(),'nomos-luna-case-'));
  const evidence=fs.mkdtempSync(path.join(os.tmpdir(),'nomos-luna-evidence-'));
  fs.chmodSync(root,0o700);fs.chmodSync(evidence,0o700);
