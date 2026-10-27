@@ -625,9 +625,10 @@ test('persistence smoke follows the current Cargo executable after package renam
  assert.equal(target.name,'local-journal');
  assert.equal(target.path,path.join(root,'target','debug','local-journal'));
  assert.notEqual(target.path,path.join(root,'target','debug','nomos_acceptance'));
- assert.throws(()=>binaryFromCargoMetadata(JSON.stringify({
-  ...metadata,packages:[{...metadata.packages[0],targets:[
-    {kind:['bin'],name:'old'},{kind:['bin'],name:'new'}]}]},root),/exactly one/);
- assert.throws(()=>binaryFromCargoMetadata(JSON.stringify({
-  ...metadata,packages:[{...metadata.packages[0],manifest_path:'/unrelated/Cargo.toml'}]},root),/exactly one/);
+ const multiple={...metadata,packages:[{...metadata.packages[0],
+  targets:[{kind:['bin'],name:'one'},{kind:['bin'],name:'two'}]}]};
+ assert.throws(()=>binaryFromCargoMetadata(JSON.stringify(multiple),root),/exactly one/);
+ const foreign={...metadata,packages:[{...metadata.packages[0],
+  manifest_path:'/unrelated/Cargo.toml'}]};
+ assert.throws(()=>binaryFromCargoMetadata(JSON.stringify(foreign),root),/exactly one/);
 });
