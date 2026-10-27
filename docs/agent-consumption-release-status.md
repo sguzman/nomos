@@ -1,7 +1,7 @@
 # Agent consumption v1: evidence and readiness record
 
 **Recorded:** 2026-10-27  
-**Current classification:** **Engineering preview; not production-accepted for autonomous Luna/Codex use.**  
+**Current classification:** **Scoped agent-consumption v1 engineering acceptance PASS; production deployment and profile activation NOT AUTHORIZED.**  
 **Scope:** projection resolver, guided website intake, deterministic package compilation, contextual rule references, and evaluation evidence. This is a project-status document, not authorization to finalize a profile or deploy an agent.
 
 ## Capability matrix
@@ -10,19 +10,19 @@
 | --- | --- | --- | --- |
 | Canonical source / projection | `tools/projections.cjs`, pinned registry and rule fingerprints, JSON Schemas | Automated deterministic and adversarial tests | Approval provenance still requires a distinct owner action |
 | Guided interview | `docs/rule-builder.html`, `docs/builder-logic.js` | Node unit tests and real headless Chromium interaction | Browser exports an **unapproved** draft, not installable instructions |
-| Target instruction package | `tools/agent_package.cjs`, `AGENTS.md`, local source modules, `.nomos/manifest.json` | Byte-integrity tests and eight observed Codex CLI attempts, six mechanically complete | One independently accepted Rust CLI trial; generic-agent target remains unverified live |
-| Contextual reading | `tools/agent_phase_reader.cjs`, bundled `.nomos/read-phase.cjs` | Synthetic CLI tests plus six phase-reader receipts in the mechanically complete Rust probe | Verified reading is not proof of obeying the selected rules; generic fallback not observed |
-| Model compatibility | Codex-targeted optional Skills plus a generic Markdown fallback | Generated files and phase-routing validated with Node integration tests | Skill discovery / model understanding / autonomous project behavior not empirically established |
-| Evaluation | `tools/validate_agent_run_evidence.cjs`, disposable Rust runner, conformance rubric | Eight Rust CLI trials (one accepted); three persistence trials (third independently accepted after source review and harness false-positive correction) | **2 of 3 distinct accepted scenarios** |
+| Target instruction package | `tools/agent_package.cjs`, `AGENTS.md`, local source modules, `.nomos/manifest.json` | Three independently accepted real-agent trials, manifest integrity and exact rule-level reviews | No approval to install on an actual user repository |
+| Contextual reading | `tools/agent_phase_reader.cjs`, bundled `.nomos/read-phase.cjs` | Verified phase receipts across all three accepted scenarios; 11 matching generic-package receipts in the mixed run | A receipt proves file consumption, not semantic compliance |
+| Model compatibility | Codex-targeted optional Skills plus a generic Markdown fallback | Genuine generic `AGENTS.md` read and verified manifest-matching phase receipts through Codex CLI 0.163.0 | Unprompted discovery by other generic agents and automatic Skills selection remain unverified |
+| Evaluation | `tools/validate_agent_run_evidence.cjs`, disposable Rust runner, conformance rubric | Eight CLI attempts, three persistence attempts and one mixed attempt; three distinct source/trace audits accepted with zero unresolved mandatory violations | **3 of 3 distinct accepted scenarios; broader reliability not established** |
 | Public website | GitHub Pages with site/catalog smoke checks and interactive Chromium workflow | CI evidence as linked in roadmap; deploy status must be checked per revision | Static-site usability is not evidence of agent reliability |
 
 ## Actual evidence versus required production evidence
 
-**Available:** source hashes; selected-rule manifests; deterministic generation checks; opt-in export refusal tests; filesystem/symlink checks; browser clicks, keyboard and responsive behavior in CI; local CLI module read receipts; coverage validation for synthetic Rust profiles; and **one independently accepted, real Codex Rust CLI build/test/commit/handoff trial** with 89 scoped rule dispositions.
+**Available:** source hashes, selected-rule manifests, deterministic generation, permission/refusal testing, deployed browser smoke tests, plus **three distinct independently accepted agent executions** with real Cargo and Git traces, verified module receipts and public-safe disposition of all 89 installed source rules for each accepted scenario.
 
-**Missing:** one independently accepted distinct mixed-scope agent trial, confirmed generic fallback target behavior, the complete three-distinct-run reliability evidence, and production/release closure. An actual hosted GitHub Actions execution was not part of the disposable Rust CLI run; CI was configured and local equivalents ran.
+**Still unverified outside the acceptance scope:** generic-agent automatic bootstrap, Codex automatic Skill selection, other models/OSes, unsupervised long-running operations, live user-repository behavior, and hosted GitHub Actions execution inside disposable generated targets. All profile finalization, selection and installation remain subject to separate owner approval.
 
-The existing acceptance requirement is **three independently recorded, distinct real-agent runs**, zero unresolved critical/major rule violations, supported tool/read traces, and verified target behavior. A textual description, hypothetical transcript, synthetic fixture or green Nomos Pages build must not count as a live run. **One Rust CLI scenario has been independently accepted; two other distinct accepted scenarios are still required.**
+The existing acceptance requirement is **three independently recorded, distinct real-agent runs**, zero unresolved critical/major rule violations, supported tool/read traces, and verified target behavior. A textual description, hypothetical transcript, synthetic fixture or green Nomos Pages build must not count as a live run. **All three required distinct scenarios are independently accepted within their recorded conditions; this is not authorization for unattended production deployment.**
 
 ## First observed live Rust CLI probe (2026-10-26, not accepted)
 
@@ -120,7 +120,7 @@ The owner uploaded the third disposable `RUST-PERSIST` trial, created by Codex C
 
 The [public-safe, per-rule independent review](../audits/agent-consumption-rust-persist-ad52a07-accepted-review.json) records **44 satisfied, 45 not applicable, zero violated, zero unobserved**, with the original mechanical preflight limitations disclosed. `EVAL-09` is complete, so the ledger advances from **64/69 (92.8%) to 65/69 (94.2%)**, delta **+1.4 percentage points**. The Rust CLI and Rust persistence trials are now **two distinct independently accepted scenarios**. Remaining gates: `RUN-08` (real generic fallback loading evidence), `EVAL-11` (three accepted distinct scenarios), `EVAL-12` (production evidence review), and `REL-08` (final closure). No profile was approved, selected for production, or finalized.
 
-## First mixed-scope generic Markdown fallback trial: pending independent review (2026-10-27)
+## Historical mixed-scope generic trial: initially pending, subsequently accepted (2026-10-27)
 
 The owner submitted the prescribed `RUST-MIXED --target generic` experiment through a validated local Execarium schema-2 Jobflick job. Jobflick's two steps (fast-forward pull and disposable Codex invocation) completed successfully, and the acceptance runner recorded a real Codex CLI 0.163.0 agent turn, two locally created Git commits, a clean worktree, green offline Cargo tests, formatting and Clippy, configured but unexecuted hosted CI, and a 23-item stable-emoji roadmap. The generic `AGENTS.md` was explicitly read through an observed successful command, and the generated package contained **no Codex-only Skill wrappers**. The final disposable commit was `ebdcfdb6ed485f299c20291b67ace64dd1c51fc4`; the private archive checksum reported by the runner is `e517a7e6a3b545effa4e22a2d3810beb5f5255f34b182d48f1e8160a5f97747d`.
 
@@ -128,22 +128,23 @@ The owner submitted the prescribed `RUST-MIXED --target generic` experiment thro
 
 **Progress stays at 65/69 = 94.2%, delta +0.0 percentage points.** Two distinct trials are independently accepted. `RUN-08`, `EVAL-11`, `EVAL-12` and `REL-08` remain open pending trace review, third-run source-rule acceptance, production-readiness assessment and final closure. The canonical rules and inert profile state remain unchanged.
 
+## Current scoped acceptance decision (2026-10-27)
+
+**Third scenario accepted.** The [independent mixed generic-package review](../audits/agent-consumption-rust-mixed-ebdcfdb-accepted-review.json) confirms SHA-256-pinned private evidence, 89/89 installed rules, 14/14 verified package files, a direct successful `cat AGENTS.md` showing the generic target, 11 correct module-read receipts across five work phases, six passing Rust tests, actual manual CLI error-path checks and two clean Git commits. The final handoff covers all 23 roadmap items. The original mechanical warning about a completed item was **false**: it classified a genuinely unfinished **75%** phase as 100%-complete because the text said that its *local verification* was complete. The visual bar is within the runner's documented nearest-segment tolerance. The Codex-only observer refusal of a generic target was also corrected with regression tests. The historical machine output and previous failed trials have not been rewritten.
+
+Three independent source-rule reviews now pass across different scopes: [Rust CLI](../audits/agent-consumption-rust-cli-110018b-accepted-review.json), [Rust persistence](../audits/agent-consumption-rust-persist-ad52a07-accepted-review.json), and [Rust mixed generic Markdown](../audits/agent-consumption-rust-mixed-ebdcfdb-accepted-review.json). All three have zero unresolved mandatory violations **within the checked conditions**, notwithstanding historical rejected attempts. The explicitly supplied generic fallback was tested through Codex CLI 0.163.0, not a separately implemented arbitrary agent.
+
+**Production decision:** [scoped engineering acceptance PASS, live activation NOT AUTHORIZED](agent-consumption-production-decision.md). The evidence gate for `RUN-08`, `EVAL-11` and the documented acceptance decision `EVAL-12` is satisfied. The remaining gate is the final evidence-link and milestone consistency audit (`REL-08`); do not represent an active or production-selected profile before explicit owner action.
+
 ## Profile and deployment controls
 
 All 12 preexisting rule profiles remain draft/unconfirmed and inert. The New Rust Project Lite/Full configurations are useful reference selections, but their 45/106 source rules do **not** automatically confer project-level instructions or user permission. The guided website stops at a reviewable JSON draft, with exact rule IDs, candidate omissions/additions, unknown answers and potential conflicts.
 
 The opt-in compiler requires a separately reviewed and approved source selection and projection; the installer inspects the explicit destination, refuses existing files and symbolic-link collisions, and never silently overwrites an `AGENTS.md`. The package contains a self-checking reader that refuses stale manifests and source modules. None of those mechanics prove the receiving agent's compliance.
 
-## Next acceptance gates
+## Boundaries after scoped engineering acceptance
 
-1. Verify the current GitHub Pages revision via the automated deployed-site Chromium walkthrough, not merely local HTML assets.
-2. Witness and record target-specific entrypoint / phase-reader behavior for the actual supported Luna/Codex build, including the generic fallback.
-3. Run the three planned distinct Rust coding scenarios with reproducible source/target versions, offline module-read receipts and real build/test outputs.
-4. Have an independent evaluator inspect actual tool traces and repository diffs for every applicable rule; fail any missing or contradictory mandatory behavior.
-5. Publish the measured pass/fail verdict and limitations, reconcile the 69-checkpoint ledger, and only then declare a scoped production release.
-
-These are explicit conditions, not a request that the owner manually QA hundreds of rules. They must be automated and evidenced by the executing agent or a separate reviewer. There is currently no justified 100% or production-readiness claim.
-
+Nomos's evaluated engineering workflow is accepted for the **three tested synthetic Rust scenarios only**. A generated package remains inert until owner-approved selection, finalization, explicit export and explicit installation. Other agent versions, unsolicited discovery of generic instructions, real user projects, hosted execution inside generated repositories and unattended release behavior remain outside the tested envelope. These are **limitations**, not silently completed features or newly authorized projects.
 ## References
 
 - [Agent consumption roadmap](agent-consumption-roadmap.md)
