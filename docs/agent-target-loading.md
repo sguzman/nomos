@@ -24,7 +24,7 @@ If Node or the phase reader is unavailable, the agent must instead check the man
 
 ## Target-specific uncertainty
 
-- The project does not yet possess an observed GPT-6 Luna/Codex CLI execution trace from the user's actual setup. Do not treat a successful GitHub Actions Node test, headless browser test, synthetic project, or generated Skill directory as a live Luna evaluation.
+- A user-executed Codex CLI 0.163.0 trial produced tool-trace-backed phase reads and one actual agent-created disposable Git commit. Its limited independent review found substantive omissions, so **no live run is accepted**. This evidence does not establish compliance for other Codex versions, automatic Skill selection, generic agents, or production deployments.
 - Skills may not self-activate; for high-priority requirements the always-on entrypoint plus a verified phase-reader invocation is safer than relying on model-selected Skill discovery.
 - The generic adapter intentionally makes no claims about automatic AGENTS.md discovery. The host/invoker owns that bootstrap.
 - If a Codex version changes its discovery behavior, inspect the actual installed target, record the version and observed read paths, and update the compatibility matrix only after evidence.
