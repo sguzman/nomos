@@ -78,6 +78,251 @@ function probeDisposableGitSandbox(root){
   (output.stderr.trim()||output.stdout.trim()||output.error||'sandbox probe exit '+output.status).slice(0,500));
  return true;
 }
+
+/* Opt-in disposable-test-only Git guard. Derived from specifically selected source
+ * rules and an explicitly pinned from-scratch project context. It is deliberately
+ * NOT installed by Nomos packages into real user repositories. A passing guard
+ * proves artifact presence in Git's index, never roadmap quality or rule compliance. */
+function installDisposableRuleGate(root,context,manifest){
+ const prefix=path.join(os.tmpdir(),'nomos-luna-case-');
+ guard(path.resolve(root).startsWith(prefix)&&fs.lstatSync(path.join(root,'.git')).isDirectory(),
+  'Refusing Git rule gate outside the disposable acceptance repository');
+ const fromScratch=Array.isArray(context?.project_types)&&
+  context.project_types.includes('rust_project_from_scratch');
+ const required=fromScratch?[
+  ['NOM-0010',['ROADMAP.md','roadmap.md','roadmaps/README.md','docs/ROADMAP.md',
+    'docs/roadmap.md','docs/roadmaps/README.md']],
+  ['NOM-0042',['README.md','README.MD','README']]
+ ].filter(([id])=>Object.hasOwn(manifest.rules,id)):[];
+ if(!required.length)return {installed:false,rule_ids:[]};
+ const lines=['#!/bin/sh','set -eu'];
+ for(const [id,locations] of required){
+  const key='found_'+id.replace(/-/g,'_');
+  lines.push(key+'=0','for file in '+locations.map(x=>"'"+x+"'").join(' ')+'; do',
+   '  if git ls-files --cached --error-unmatch -- "$file" >/dev/null 2>&1; then',
+   '    '+key+'=1','    break','  fi','done',
+   'if [ "
+ const versions={};
+ for(const cmd of ['git','cargo','codex']){
+  const r=command(cmd,['--version'],process.cwd());
+  guard(r.status===0,'Missing executable: '+cmd);versions[cmd]=r.stdout.trim()||r.stderr.trim();
+ }
+ const parser=command('codex',codexArgs(process.cwd(),null,true),process.cwd());
+ guard(parser.status===0,'Codex CLI is incompatible with temporary Git-write permissions: parser preflight failed'+
+  (parser.stderr.trim()?': '+parser.stderr.trim().slice(0,500):' (exit '+parser.status+')'));
+ return versions;
+}
+function hasEvent(stdout,type){
+ return stdout.split(/\r?\n/).some(line=>{
+  if(!line.trim())return false;
+  try{const event=JSON.parse(line);return event.type===type;}catch{return false;}
+ });
+}
+function argsOf(argv){
+ const args={case_id:null,model:null,execute:false,probe_sandbox:false};
+ for(let i=0;i<argv.length;i++){
+  if(argv[i]==='--execute'){args.execute=true;continue;}
+  if(argv[i]==='--probe-sandbox'){args.probe_sandbox=true;continue;}
+  if(argv[i]==='--case'||argv[i]==='--model'){
+   const key=argv[i]==='--case'?'case_id':'model';
+   guard(argv[i+1]&&!argv[i+1].startsWith('--'),'Missing value for '+argv[i]);
+   args[key]=argv[++i];continue;
+  }throw new Error('Unknown argument '+argv[i]);
+ }
+ guard(args.case_id,'Required: --case RUST-CLI|RUST-PERSIST|RUST-MIXED');
+ guard(!(args.execute&&args.probe_sandbox),'--probe-sandbox cannot combine with --execute');
+ return args;
+}
+function privateFile(dir,name,content){fs.writeFileSync(path.join(dir,name),content,{mode:0o600,flag:'wx'});}
+/* Private local-only review handoff. No upload and no public repository mutation.
+ * Raw agent traces can contain machine paths or unexpected text: the owner must
+ * inspect this archive before deliberately sharing it with an independent reviewer. */
+function createReviewBundle(root,evidence,out=path.join(evidence,'review-bundle.tar.gz')){
+ const names=['README-review.txt','report.json','machine-observation.json',
+  'agent-events.jsonl','agent-stderr.txt','agent-commit.patch',
+  'cargo-test.stdout','cargo-test.stderr','cargo-fmt.stdout','cargo-fmt.stderr',
+  'cargo-clippy.stdout','cargo-clippy.stderr'];
+ const included=names.filter(item=>fs.existsSync(path.join(evidence,item)));
+ guard(included.includes('report.json')&&included.includes('README-review.txt'),
+  'Review bundle requires a run report and privacy notice');
+ const fd=fs.openSync(out,'wx',0o600);fs.closeSync(fd);
+ const archived=command('tar',['-czf',out,'--exclude=.git','--exclude=target',
+  '-C',root,'.','-C',evidence,...included],root,{timeout:120000});
+ if(archived.status!==0||!fs.existsSync(out)||fs.statSync(out).size===0){
+  fs.rmSync(out,{force:true});
+  throw new Error('Private review archive failed: '+(archived.stderr||archived.error||archived.status).toString().slice(0,350));
+ }
+ return {path:out,sha256:crypto.createHash('sha256').update(fs.readFileSync(out)).digest('hex'),
+  bytes:fs.statSync(out).size};
+}
+function run(argv){
+ const flags=argsOf(argv),p=plan(flags.case_id,flags.model);
+ if(!flags.execute&&!flags.probe_sandbox)return {...p.snapshot,status:'planning_only',agent_invoked:false,
+  note:'No user project, paid model, or authentication was touched. Execute only after explicit authorization.'};
+ const versions=preflight();
+ if(flags.probe_sandbox){
+  const probeRoot=fs.mkdtempSync(path.join(os.tmpdir(),'nomos-luna-git-probe-'));
+  fs.chmodSync(probeRoot,0o700);
+  try{
+   guard(command('git',['init','-b','main'],probeRoot).status===0,'Cannot create temporary Git permission probe');
+   probeDisposableGitSandbox(probeRoot);
+   return {...p.snapshot,status:'disposable_git_sandbox_probe_passed',
+    agent_invoked:false,agent_turn_completed:false,production_accepted:false,
+    agent_versions:versions,network_enabled:false,
+    note:'A model-free sandbox checked .git writability in a temporary Git directory; no agent was launched.'};
+  }finally{fs.rmSync(probeRoot,{recursive:true,force:true});}
+ }
+
+ const root=fs.mkdtempSync(path.join(os.tmpdir(),'nomos-luna-case-'));
+ const evidence=fs.mkdtempSync(path.join(os.tmpdir(),'nomos-luna-evidence-'));
+ fs.chmodSync(root,0o700);fs.chmodSync(evidence,0o700);
+ guard(command('git',['init','-b','main'],root).status===0,'Cannot initialize disposable Git');
+ // Identity is scoped to this temporary repository; never touch the owner's global Git config.
+ guard(command('git',['config','--local','user.name','Nomos QA'],root).status===0,'Cannot configure disposable Git author');
+ guard(command('git',['config','--local','user.email','nomos-qa@example.invalid'],root).status===0,'Cannot configure disposable Git email');
+ guard(command('cargo',['init','--bin','--name','nomos_acceptance','--vcs','none','.'],root).status===0,'Cannot initialize Cargo');
+ install(p.bundle,root,{write:true,confirmedExport:true});
+ const installed=verify(root);
+ guard(command('git',['add','.'],root).status===0,'Cannot stage synthetic baseline');
+ guard(command('git',['commit','-m','test: disposable synthetic baseline'],root).status===0,'Cannot commit synthetic baseline');
+ const disposableRuleGate=installDisposableRuleGate(root,p.context,p.bundle.manifest);
+ const baselineSha=command('git',['rev-parse','HEAD'],root).stdout.trim();
+ // Actual Linux sandbox check, not a mocked JSONL assertion or expensive model turn.
+ probeDisposableGitSandbox(root);
+ const prompt=[
+  'Implement this disposable Rust acceptance exercise:',p.task,
+  'Before changing code, execute node .nomos/read-phase.cjs planning.',
+  'At planning, identify concrete active source-rule IDs and their required output files, validation steps and safety conditions. Before committing, compare those planned obligations against actual artifacts. Do not mark absent required work complete.',
+  'Read relevant rules at implementation, testing, review and shutdown as phases change.',
+  'Run cargo test --offline. Commit verified changes directly to main.',
+  'The disposable repository has a rule-scoped pre-commit artifact gate. Do not bypass it. On a failed commit, read the identified selected source rule, finish the missing scoped requirement, and retry normally.',
+  'Report only actual tool execution; do not fake source-rule compliance or a release.'
+ ].join('\n');
+ const commandArgs=codexArgs(root,flags.model);
+ // User's system sccache wrapper can be inaccessible inside the Codex sandbox.
+ // Override only the child process tree; do not modify the user's shell or config.
+ const rustEnv={...process.env,RUSTC_WRAPPER:''};
+ const result=command('codex',commandArgs,root,{input:prompt,timeout:15*60*1000,env:rustEnv});
+ privateFile(evidence,'agent-events.jsonl',result.stdout);
+ privateFile(evidence,'agent-stderr.txt',result.stderr);
+ const cargoTest=command('cargo',['test','--offline'],root,{timeout:120000,env:rustEnv});
+ const cargoFmt=command('cargo',['fmt','--all','--','--check'],root,{timeout:120000,env:rustEnv});
+ const cargoClippy=command('cargo',['clippy','--offline','--all-targets','--','-D','warnings'],root,{timeout:120000,env:rustEnv});
+ const metadata=command('cargo',['metadata','--no-deps','--offline','--format-version','1'],root,{env:rustEnv});
+ for(const [file,resultToRecord] of [['cargo-test',cargoTest],['cargo-fmt',cargoFmt],['cargo-clippy',cargoClippy]]){
+  privateFile(evidence,file+'.stdout',resultToRecord.stdout);
+  privateFile(evidence,file+'.stderr',resultToRecord.stderr);
+ }
+ const repositoryArtifacts={
+  readme_present:['README.md','README.MD','README'].some(name=>fs.existsSync(path.join(root,name))),
+  roadmap_present:['ROADMAP.md','roadmap.md','roadmaps/README.md','docs/ROADMAP.md',
+   'docs/roadmap.md','docs/roadmaps/README.md'].some(name=>fs.existsSync(path.join(root,name))),
+  ci_workflow_present:fs.existsSync(path.join(root,'.github/workflows'))&&
+   fs.readdirSync(path.join(root,'.github/workflows'),{withFileTypes:true})
+    .some(entry=>entry.isFile()&&/\.ya?ml$/.test(entry.name))
+ };
+ const gitLog=command('git',['log','--format=%H %s','-4'],root);
+ const gitStatus=command('git',['status','--porcelain=v1'],root);
+ // HEAD has one synthetic baseline commit before Codex starts.
+ const gitCommitCount=command('git',['rev-list','--count','HEAD'],root);
+ const headSha=command('git',['rev-parse','HEAD'],root).stdout.trim();
+ const agentDiff=/^[a-f0-9]{40}$/.test(baselineSha)
+  ?command('git',['diff','--binary',baselineSha,'HEAD'],root,{timeout:120000})
+  :{status:null,error:'Missing baseline commit SHA',stdout:'',stderr:''};
+ privateFile(evidence,'agent-commit.patch',agentDiff.stdout);
+ const parsedCount=gitCommitCount.status===0&&/^\d+\s*$/.test(gitCommitCount.stdout)
+  ?Number(gitCommitCount.stdout.trim()):null;
+ const agentCreatedCommits=Number.isSafeInteger(parsedCount)&&parsedCount>=1?parsedCount-1:null;
+ const worktreeClean=gitStatus.status===0?gitStatus.stdout.trim()==='':null;
+ let observation=null,observationError=null;
+ try {
+  observation=observe(result.stdout,p.bundle.manifest,
+   ['planning','implementation','testing','shutdown']);
+  privateFile(evidence,'machine-observation.json',JSON.stringify(observation,null,2)+'\n');
+ }catch(error){observationError=error.message;}
+
+ const sessionStarted=hasEvent(result.stdout,'thread.started');
+ const turnCompleted=hasEvent(result.stdout,'turn.completed');
+ const turnFailed=hasEvent(result.stdout,'turn.failed');
+ const completed=sessionStarted&&turnCompleted&&!turnFailed&&result.status===0;
+ const codeTestCommitGateMet=completed&&cargoTest.status===0&&agentCreatedCommits!==null
+  &&agentCreatedCommits>0&&worktreeClean===true;
+ const independentReviewGaps=[
+  ...(!repositoryArtifacts.readme_present?['missing_readme']:[]),
+  ...(!repositoryArtifacts.roadmap_present?['missing_roadmap']:[]),
+  ...(!repositoryArtifacts.ci_workflow_present?['missing_ci_workflow']:[]),
+  ...(cargoFmt.status!==0?['cargo_fmt_not_verified']:[]),
+  ...(cargoClippy.status!==0?['cargo_clippy_not_verified']:[])
+ ];
+ // This is a mechanical artifact preflight, NOT a source-rule or production verdict.
+ // A successful Cargo test + Git commit must not disguise an obviously missing
+ // new-project obligation (e.g. a required roadmap).
+ const artifactPreflightMet=independentReviewGaps.length===0;
+ const report={...p.snapshot,status:!sessionStarted?'launch_failed':
+  !completed?'agent_turn_failed':!codeTestCommitGateMet?'agent_workflow_incomplete':
+  !artifactPreflightMet?'requires_artifact_remediation':'awaiting_independent_review',
+  invocation_attempted:true,session_started:sessionStarted,agent_invoked:sessionStarted,
+  agent_turn_completed:completed,agent_created_commit_count:agentCreatedCommits,
+  worktree_clean:worktreeClean,code_test_commit_gate_met:codeTestCommitGateMet,
+  agent_versions:versions,workspace:root,private_evidence:evidence,installed_rules:installed.verified_rules,
+  baseline_commit_sha:/^[a-f0-9]{40}$/.test(baselineSha)?baselineSha:null,
+  head_commit_sha:/^[a-f0-9]{40}$/.test(headSha)?headSha:null,
+  disposable_rule_gate:disposableRuleGate,
+  repository_artifact_observations:repositoryArtifacts,
+  artifact_preflight_met:artifactPreflightMet,
+  independent_review_gaps:independentReviewGaps,
+  evidence_summary:{codex:status(result),cargo_test:status(cargoTest),cargo_fmt:status(cargoFmt),
+   cargo_clippy:status(cargoClippy),cargo_metadata:status(metadata),
+   git_log:status(gitLog),git_status:status(gitStatus),git_commit_count:status(gitCommitCount),
+   agent_commit_diff:status(agentDiff)},
+  observed_phase_reads:observation?.parser_summary?.observed_module_reads||0,
+  observed_phases:[...new Set((observation?.report?.events||[])
+   .filter(event=>event.kind==='module_read').map(event=>event.receipt.phase))],
+  observation_status:observation?.review?.status||'invalid_or_missing_trace',
+  observation_error:observationError,
+  phase_tool_reads_independently_verified:false,rule_assessments_complete:false,
+  independent_reviewer_accepted:false,production_accepted:false};
+ privateFile(evidence,'report.json',JSON.stringify(report,null,2)+'\n');
+ privateFile(evidence,'README-review.txt',[
+  'Nomos disposable synthetic Rust acceptance review (PRIVATE)',
+  'Contains generated project source, local command transcripts and Codex tool events.',
+  'Raw traces may include machine paths or accidental sensitive content.',
+  'Inspect locally before sharing; NEVER commit this archive or its raw logs to public GitHub.',
+  'A test/build/commit success is NOT independent rules conformance.',
+  'Repository source is at archive root; evidence files are at the archive root as named.',
+  'The .git and target directories are intentionally excluded.'
+ ].join('\n')+'\n');
+ try{
+  const downloads=path.join(os.homedir(),'Downloads');
+  const destination=fs.existsSync(downloads)&&fs.statSync(downloads).isDirectory()
+   ?path.join(downloads,'nomos-'+flags.case_id.toLowerCase()+'-'+process.pid+'-'+Date.now()+'-review.tar.gz')
+   :path.join(evidence,'review-bundle.tar.gz');
+  const bundle=createReviewBundle(root,evidence,destination);
+  report.private_review_bundle=bundle.path;
+  report.private_review_bundle_sha256=bundle.sha256;
+  report.private_review_bundle_bytes=bundle.bytes;
+ }catch(error){
+  report.private_review_bundle=null;
+  report.review_bundle_error=error.message;
+ }
+ return report;
+}
+if(require.main===module){try{console.log(JSON.stringify(run(process.argv.slice(2)),null,2));}
+ catch(error){console.error('Nomos acceptance refused: '+error.message);process.exitCode=1;}}
+module.exports={CASES,plan,argsOf,run,preflight,hasEvent,codexArgs,codexConfig,probeDisposableGitSandbox,createReviewBundle,installDisposableRuleGate};
++key+'" -ne 1 ]; then',
+   '  echo "NOMOS_RULE_GATE '+id+': required artifact absent from staged Git index; review the selected source rule and project conditions." >&2',
+   '  exit 1','fi');
+ }
+ lines.push('exit 0','');
+ const hook=path.join(root,'.git','hooks','pre-commit');
+ fs.mkdirSync(path.dirname(hook),{recursive:true});
+ fs.writeFileSync(hook,lines.join('\n'),{encoding:'utf8',mode:0o700,flag:'wx'});
+ const configured=command('git',['config','--local','core.hooksPath','.git/hooks'],root);
+ guard(configured.status===0,'Cannot configure disposable-only Git rule gate');
+ return {installed:true,rule_ids:required.map(([id])=>id)};
+}
+
 function preflight(){
  const versions={};
  for(const cmd of ['git','cargo','codex']){
