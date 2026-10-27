@@ -150,11 +150,18 @@ function handoffProgressPreflight(jsonl,manifest){
   if(event.type==='item.completed'&&event.item?.type==='agent_message'&&
    typeof event.item.text==='string')finalText=event.item.text;
  }
- if(!selected.length||finalText===null)return {inspected:false,selected_rules:selected};
+ if(!selected.length||finalText===null)return {inspected:false,selected_rules:selected,
+  quantifiability:'unobserved',item_coverage:'unobserved',first_completion:'unobserved'};
+ const percentagePresent=/\b(?:100|\d{1,2})(?:\.\d+)?\s*%/.test(finalText);
+ const visualBarPresent=/[█▓▒░▰▱▮▯]|\[[#=]+[-. ]*\]/u.test(finalText);
+ // NOM-0069 is conditional on quantifiable work. A missing percentage and bar
+ // cannot itself establish a violation; inventing precision is prohibited.
  return {inspected:true,selected_rules:selected,
-  percentage_present:/\b(?:100|\d{1,2})(?:\.\d+)?\s*%/.test(finalText),
-  visual_bar_present:/[█▓▒░▰▱▮▯]|\[[#=]+[-. ]*\]/u.test(finalText),
-  overall_progress_present:/\b(?:overall|project progress|total progress)\b/i.test(finalText)};
+  percentage_present:percentagePresent,
+  visual_bar_present:visualBarPresent,
+  overall_progress_present:/\b(?:overall|project progress|total progress)\b/i.test(finalText),
+  quantifiability:percentagePresent||visualBarPresent?'reported_quantification':'requires_independent_review',
+  item_coverage:'requires_independent_review',first_completion:'requires_independent_review'};
 }
 
 function argsOf(argv){
@@ -304,9 +311,14 @@ function run(argv){
   ...(!repositoryArtifacts.ci_workflow_present?['missing_ci_workflow']:[]),
   ...(cargoFmt.status!==0?['cargo_fmt_not_verified']:[]),
   ...(cargoClippy.status!==0?['cargo_clippy_not_verified']:[]),
-  ...(handoffProgress.inspected&&!handoffProgress.percentage_present?['handoff_missing_progress_percent']:[]),
-  ...(handoffProgress.inspected&&!handoffProgress.visual_bar_present?['handoff_missing_progress_bar']:[]),
-  ...(handoffProgress.inspected&&!handoffProgress.overall_progress_present?['handoff_missing_overall_progress']:[])
+  // Never demand invented progress percentages when NOM-0069's evidence condition
+  // is unresolved. Only flag an explicitly quantified report missing its paired bar.
+  ...(handoffProgress.inspected&&handoffProgress.percentage_present&&
+      !handoffProgress.visual_bar_present?['handoff_quantified_progress_missing_bar']:[]),
+  ...(handoffProgress.inspected&&handoffProgress.visual_bar_present&&
+      !handoffProgress.percentage_present?['handoff_progress_bar_missing_percent']:[]),
+  ...(handoffProgress.inspected&&handoffProgress.selected_rules.includes('NOM-0070')&&
+      !handoffProgress.overall_progress_present?['handoff_missing_overall_progress']:[])
  ];
  // This is a mechanical artifact preflight, NOT a source-rule or production verdict.
  // A successful Cargo test + Git commit must not disguise an obviously missing
