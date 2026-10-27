@@ -170,7 +170,7 @@
 
 Report a short progress table or bars for affected phases and the whole initiative: **previous verified % → current verified % (signed delta in percentage points)**, exact completed/total counts, new evidence links, failed/blocked gates, changed denominator if any, and genuine owner decisions required to proceed. Status labels distinguish **planned, authored, committed, statically validated, CI-verified, browser-verified, live-agent-verified and accepted**; only evidence-backed accepted checkpoints count as done. Do not inflate progress for discussion, activity, or repeated reporting.
 
-## Empirical gate status (2026-10-26)
+## Historical snapshot: earlier rejected trial (2026-10-26; superseded)
 
 **62/69 = 89.9%** remains unchanged (Δ **+0.0 percentage points**). Seven checkpoints remain open. Three genuine, user-executed Codex CLI 0.163.0 `RUST-CLI` turns have been observed: the first two produced working Rust code but could not commit because default sandbox protections blocked writes to `.git`; the third, under a tested, narrowly scoped disposable Git-write profile, completed a commit, left a clean worktree, passed its recorded Cargo tests and showed six phase reads across all five required phases.
 
@@ -178,7 +178,7 @@ Report a short progress table or bars for affected phases and the whole initiati
 
 `RUN-08`, `EVAL-08`, `EVAL-09`, and `EVAL-10` remain **implementing**. `EVAL-11`, `EVAL-12`, and `REL-08` remain **blocked** on independently acceptable runs and original milestone gates. Mechanical coding success, green CI or verified module reads are not independent source-rule conformance. The opt-in disposable runner captures post-run formatting, lint and repository-artifact checks without claiming that presence alone proves compliance. Raw user traces and temporary workspace contents are not committed publicly. See [the runner protocol](agent-luna-acceptance-runner.md) and [the current readiness record](agent-consumption-release-status.md).
 
-## Empirical gate status (2026-10-27)
+## Historical snapshot: sixth rejected trial (2026-10-27; superseded)
 
 **63/69 = 91.3%**, previously 62/69 = 89.9% (**+1.4 percentage points**). `EVAL-10` is done because the sixth witnessed Rust CLI trial's actual source diff, five verifiable phase reads, and tool logs were independently scored against all 89 installed source-rule obligations. The [privacy-safe 89-rule disposition ledger](../audits/agent-consumption-rust-cli-2026-10-27-review.json) reports **34 satisfied, 4 violated, 46 not applicable and 5 unobserved**. Detailed private review evidence is not placed in public GitHub.
 
