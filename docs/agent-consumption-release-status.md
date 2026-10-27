@@ -56,6 +56,12 @@ A subsequent local Codex CLI 0.163.0 run produced a fresh agent-created commit a
 
 This trial shows why observed module reads, commits, passing Cargo checks and a functioning CI definition cannot substitute for source-rule conformance. The generated agent contract and disposable runner were subsequently strengthened to require an explicit active-rule deliverable checklist and to classify known missing artifacts as `requires_artifact_remediation` rather than presenting the run as merely awaiting review. The changes do not retroactively accept this failed run, guarantee future Codex compliance, or authorize any profile activation. The production completion ledger remains **62/69 (89.9%)**. No private raw transcript, private review archive, machine pathname, or full user data is published here.
 
+## Fifth Rust CLI probe: artifact remediation still required (2026-10-27)
+
+A later user-executed Codex CLI 0.163.0 run used the strengthened generated checklist but still omitted the source-required project roadmap. The user-provided runner JSON reported one agent-created commit, clean worktree, offline Cargo tests, format and Clippy passing, README and CI files present, six phase-read receipts (including CI), and **`requires_artifact_remediation`** with `missing_roadmap`. The runner did **not** claim independent acceptance. Its generated private archive was not supplied with this initial result, so exact source quality, the raw command trace, and a full rule-by-rule verdict have not been independently reviewed for this fifth trial.
+
+The repeat omission prompted a narrower mechanical safeguard: the *disposable acceptance repository only* now receives a selected-source-rule Git pre-commit check for staged project-bootstrap artifacts. This is explicitly test-specific and never installs a hook into real projects or the user's global Git settings. It guards against another successful commit silently lacking the selected roadmap, but the hook cannot determine roadmap quality or prove general agent behavior. The engineering ledger remains **62/69 (89.9%)** pending real passing conformance evidence.
+
 ## Profile and deployment controls
 
 All 12 preexisting rule profiles remain draft/unconfirmed and inert. The New Rust Project Lite/Full configurations are useful reference selections, but their 45/106 source rules do **not** automatically confer project-level instructions or user permission. The guided website stops at a reviewable JSON draft, with exact rule IDs, candidate omissions/additions, unknown answers and potential conflicts.
