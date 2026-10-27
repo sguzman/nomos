@@ -12,7 +12,7 @@ const {compile,install}=require('./agent_package.cjs');
 const {verify}=require('./agent_package_verify.cjs');
 const {observe}=require('./codex_trace_observer.cjs');
 const CASES=Object.freeze({
- 'RUST-CLI':{types:['rust_project_from_scratch'],features:{gui:'no',persistence:'no',external_input:'yes'},task:'Implement a dependency-free Rust CLI which normalizes Unicode input (trim and collapse repeated ASCII spaces), validates empty input, reports errors correctly, and has meaningful unit and integration tests.'},
+ 'RUST-CLI':{types:['rust_project_from_scratch'],features:{gui:'no',persistence:'no',external_input:'yes'},task:'Implement a dependency-free Rust CLI which normalizes Unicode input (trim and collapse repeated ASCII spaces), validates empty input, reports errors correctly, and has meaningful unit and integration tests. Include a GitHub Actions CI workflow for Rust formatting, compilation, Clippy linting and offline tests; do not claim CI ran or passed without observed evidence.'},
  'RUST-PERSIST':{types:['rust_project_from_scratch'],features:{gui:'no',persistence:'yes',external_input:'yes'},task:'Implement a dependency-free Rust local journal CLI supporting append and list, an explicitly provided file path, temp-file and atomic-rename persistence, recovery from invalid input, and automated tests.'},
  'RUST-MIXED':{types:['rust_project_from_scratch','tarium_project'],features:{gui:'no',persistence:'no',external_input:'yes',ci:'yes'},task:'Implement a dependency-free Rust CLI that parses bounded key=value lines, rejects malformed and untrusted inputs, includes tests and a GitHub Actions workflow, and documents safe usage.'}
 });
