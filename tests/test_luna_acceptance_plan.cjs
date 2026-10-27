@@ -147,7 +147,7 @@ test('disposable Git identity and post-baseline commit are required for workflow
    assert.ok(seen.some(c=>c[0]==='git'&&c.slice(1,4).join(' ')==='config --local user.email'));
    assert.equal(report.agent_created_commit_count,1);
    assert.equal(report.worktree_clean,true);
-   assert.equal(report.agent_workflow_requirements_met,true);
+   assert.equal(report.code_test_commit_gate_met,true);
    assert.equal(report.status,'awaiting_independent_review');
    assert.equal(report.independent_reviewer_accepted,false);
    assert.equal(report.production_accepted,false);
@@ -172,7 +172,7 @@ test('Codex turn with only baseline commit and dirty workspace fails mechanical 
    assert.equal(report.agent_turn_completed,true);
    assert.equal(report.agent_created_commit_count,0);
    assert.equal(report.worktree_clean,false);
-   assert.equal(report.agent_workflow_requirements_met,false);
+   assert.equal(report.code_test_commit_gate_met,false);
    assert.equal(report.status,'agent_workflow_incomplete');
    assert.equal(report.independent_reviewer_accepted,false);
   }finally{fs.rmSync(report.workspace,{recursive:true,force:true});fs.rmSync(report.private_evidence,{recursive:true,force:true});}
