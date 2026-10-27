@@ -111,6 +111,28 @@ function argsOf(argv){
  return args;
 }
 function privateFile(dir,name,content){fs.writeFileSync(path.join(dir,name),content,{mode:0o600,flag:'wx'});}
+/* Private local-only review handoff. No upload and no public repository mutation.
+ * Raw agent traces can contain machine paths or unexpected text: the owner must
+ * inspect this archive before deliberately sharing it with an independent reviewer. */
+function createReviewBundle(root,evidence){
+ const name='review-bundle.tar.gz',out=path.join(evidence,name);
+ const names=['README-review.txt','report.json','machine-observation.json',
+  'agent-events.jsonl','agent-stderr.txt','agent-commit.patch',
+  'cargo-test.stdout','cargo-test.stderr','cargo-fmt.stdout','cargo-fmt.stderr',
+  'cargo-clippy.stdout','cargo-clippy.stderr'];
+ const included=names.filter(item=>fs.existsSync(path.join(evidence,item)));
+ guard(included.includes('report.json')&&included.includes('README-review.txt'),
+  'Review bundle requires a run report and privacy notice');
+ const fd=fs.openSync(out,'wx',0o600);fs.closeSync(fd);
+ const archived=command('tar',['-czf',out,'--exclude=.git','--exclude=target',
+  '-C',root,'.','-C',evidence,...included],root,{timeout:120000});
+ if(archived.status!==0||!fs.existsSync(out)||fs.statSync(out).size===0){
+  fs.rmSync(out,{force:true});
+  throw new Error('Private review archive failed: '+(archived.stderr||archived.error||archived.status).toString().slice(0,350));
+ }
+ return {path:out,sha256:crypto.createHash('sha256').update(fs.readFileSync(out)).digest('hex'),
+  bytes:fs.statSync(out).size};
+}
 function run(argv){
  const flags=argsOf(argv),p=plan(flags.case_id,flags.model);
  if(!flags.execute&&!flags.probe_sandbox)return {...p.snapshot,status:'planning_only',agent_invoked:false,
@@ -141,6 +163,7 @@ function run(argv){
  const installed=verify(root);
  guard(command('git',['add','.'],root).status===0,'Cannot stage synthetic baseline');
  guard(command('git',['commit','-m','test: disposable synthetic baseline'],root).status===0,'Cannot commit synthetic baseline');
+ const baselineSha=command('git',['rev-parse','HEAD'],root).stdout.trim();
  // Actual Linux sandbox check, not a mocked JSONL assertion or expensive model turn.
  probeDisposableGitSandbox(root);
  const prompt=[
@@ -161,6 +184,10 @@ function run(argv){
  const cargoFmt=command('cargo',['fmt','--all','--','--check'],root,{timeout:120000,env:rustEnv});
  const cargoClippy=command('cargo',['clippy','--offline','--all-targets','--','-D','warnings'],root,{timeout:120000,env:rustEnv});
  const metadata=command('cargo',['metadata','--no-deps','--offline','--format-version','1'],root,{env:rustEnv});
+ for(const [file,resultToRecord] of [['cargo-test',cargoTest],['cargo-fmt',cargoFmt],['cargo-clippy',cargoClippy]]){
+  privateFile(evidence,file+'.stdout',resultToRecord.stdout);
+  privateFile(evidence,file+'.stderr',resultToRecord.stderr);
+ }
  const repositoryArtifacts={
   readme_present:['README.md','README.MD','README'].some(name=>fs.existsSync(path.join(root,name))),
   roadmap_present:['ROADMAP.md','roadmap.md','roadmaps/README.md','docs/ROADMAP.md',
@@ -173,6 +200,11 @@ function run(argv){
  const gitStatus=command('git',['status','--porcelain=v1'],root);
  // HEAD has one synthetic baseline commit before Codex starts.
  const gitCommitCount=command('git',['rev-list','--count','HEAD'],root);
+ const headSha=command('git',['rev-parse','HEAD'],root).stdout.trim();
+ const agentDiff=/^[a-f0-9]{40}$/.test(baselineSha)
+  ?command('git',['diff','--binary',baselineSha,'HEAD'],root,{timeout:120000})
+  :{status:null,error:'Missing baseline commit SHA',stdout:'',stderr:''};
+ privateFile(evidence,'agent-commit.patch',agentDiff.stdout);
  const parsedCount=gitCommitCount.status===0&&/^\d+\s*$/.test(gitCommitCount.stdout)
   ?Number(gitCommitCount.stdout.trim()):null;
  const agentCreatedCommits=Number.isSafeInteger(parsedCount)&&parsedCount>=1?parsedCount-1:null;
@@ -196,6 +228,8 @@ function run(argv){
   agent_turn_completed:completed,agent_created_commit_count:agentCreatedCommits,
   worktree_clean:worktreeClean,code_test_commit_gate_met:codeTestCommitGateMet,
   agent_versions:versions,workspace:root,private_evidence:evidence,installed_rules:installed.verified_rules,
+  baseline_commit_sha:/^[a-f0-9]{40}$/.test(baselineSha)?baselineSha:null,
+  head_commit_sha:/^[a-f0-9]{40}$/.test(headSha)?headSha:null,
   repository_artifact_observations:repositoryArtifacts,
   independent_review_gaps:[
    ...(!repositoryArtifacts.readme_present?['missing_readme']:[]),
@@ -206,7 +240,8 @@ function run(argv){
   ],
   evidence_summary:{codex:status(result),cargo_test:status(cargoTest),cargo_fmt:status(cargoFmt),
    cargo_clippy:status(cargoClippy),cargo_metadata:status(metadata),
-   git_log:status(gitLog),git_status:status(gitStatus),git_commit_count:status(gitCommitCount)},
+   git_log:status(gitLog),git_status:status(gitStatus),git_commit_count:status(gitCommitCount),
+   agent_commit_diff:status(agentDiff)},
   observed_phase_reads:observation?.parser_summary?.observed_module_reads||0,
   observed_phases:[...new Set((observation?.report?.events||[])
    .filter(event=>event.kind==='module_read').map(event=>event.receipt.phase))],
@@ -215,8 +250,26 @@ function run(argv){
   phase_tool_reads_independently_verified:false,rule_assessments_complete:false,
   independent_reviewer_accepted:false,production_accepted:false};
  privateFile(evidence,'report.json',JSON.stringify(report,null,2)+'\n');
+ privateFile(evidence,'README-review.txt',[
+  'Nomos disposable synthetic Rust acceptance review (PRIVATE)',
+  'Contains generated project source, local command transcripts and Codex tool events.',
+  'Raw traces may include machine paths or accidental sensitive content.',
+  'Inspect locally before sharing; NEVER commit this archive or its raw logs to public GitHub.',
+  'A test/build/commit success is NOT independent rules conformance.',
+  'Repository source is at archive root; evidence files are at the archive root as named.',
+  'The .git and target directories are intentionally excluded.'
+ ].join('\n')+'\n');
+ try{
+  const bundle=createReviewBundle(root,evidence);
+  report.private_review_bundle=bundle.path;
+  report.private_review_bundle_sha256=bundle.sha256;
+  report.private_review_bundle_bytes=bundle.bytes;
+ }catch(error){
+  report.private_review_bundle=null;
+  report.review_bundle_error=error.message;
+ }
  return report;
 }
 if(require.main===module){try{console.log(JSON.stringify(run(process.argv.slice(2)),null,2));}
  catch(error){console.error('Nomos acceptance refused: '+error.message);process.exitCode=1;}}
-module.exports={CASES,plan,argsOf,run,preflight,hasEvent,codexArgs,codexConfig,probeDisposableGitSandbox};
+module.exports={CASES,plan,argsOf,run,preflight,hasEvent,codexArgs,codexConfig,probeDisposableGitSandbox,createReviewBundle};
