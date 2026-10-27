@@ -10,10 +10,10 @@
 | --- | --- | --- | --- |
 | Canonical source / projection | `tools/projections.cjs`, pinned registry and rule fingerprints, JSON Schemas | Automated deterministic and adversarial tests | Approval provenance still requires a distinct owner action |
 | Guided interview | `docs/rule-builder.html`, `docs/builder-logic.js` | Node unit tests and real headless Chromium interaction | Browser exports an **unapproved** draft, not installable instructions |
-| Target instruction package | `tools/agent_package.cjs`, `AGENTS.md`, local source modules, `.nomos/manifest.json` | Byte-integrity tests and three local Codex CLI attempts, one mechanically complete | No independently accepted Codex run; generic-agent target remains unverified live |
+| Target instruction package | `tools/agent_package.cjs`, `AGENTS.md`, local source modules, `.nomos/manifest.json` | Byte-integrity tests and four local Codex CLI attempts, two mechanically complete | No independently accepted Codex run; generic-agent target remains unverified live |
 | Contextual reading | `tools/agent_phase_reader.cjs`, bundled `.nomos/read-phase.cjs` | Synthetic CLI tests plus six phase-reader receipts in the mechanically complete Rust probe | Verified reading is not proof of obeying the selected rules; generic fallback not observed |
 | Model compatibility | Codex-targeted optional Skills plus a generic Markdown fallback | Generated files and phase-routing validated with Node integration tests | Skill discovery / model understanding / autonomous project behavior not empirically established |
-| Evaluation | `tools/validate_agent_run_evidence.cjs`, disposable Rust runner, conformance rubric | Three genuine `RUST-CLI` attempts; first two lacked commits; third passed the code/test/commit gate but limited independent review found violations | **0 independently accepted end-to-end runs** |
+| Evaluation | `tools/validate_agent_run_evidence.cjs`, disposable Rust runner, conformance rubric | Four genuine `RUST-CLI` attempts; first two lacked commits; later two passed the code/test/commit gate but independent reviews found violations | **0 independently accepted end-to-end runs** |
 | Public website | GitHub Pages with site/catalog smoke checks and interactive Chromium workflow | CI evidence as linked in roadmap; deploy status must be checked per revision | Static-site usability is not evidence of agent reliability |
 
 ## Actual evidence versus required production evidence
