@@ -192,6 +192,12 @@ The remaining six open checkpoints are `RUN-08`, `EVAL-08`, `EVAL-09`, `EVAL-11`
 
 **`EVAL-08` is independently accepted, not production approval.** The remaining five checkpoints are `RUN-08`, `EVAL-09`, `EVAL-11`, `EVAL-12`, and `REL-08`. The next distinct Rust persistence/GUI and mixed-scope agent workflows, generic target fallback verification and three distinct accepted-run release gate remain necessary. Previous failed Rust CLI trials remain historically rejected; never retroactively mark them accepted. No source profile was activated or finalized.
 
+## Persistence acceptance gate (2026-10-27; first live trial rejected)
+
+One real `RUST-PERSIST` Codex run produced a functioning local journal CLI, two passing Rust unit tests, a complete file-based roadmap/README, a configured GitHub Actions workflow, a clean commit and five verified phase-reader receipts. The independently reviewed [89-rule disposition report](../audits/agent-consumption-rust-persist-33e7555-rejected-review.json) records **40 satisfied, 45 not applicable, and four violated**. The open items are executable append/list integration and failure-path coverage (`NOM-0028`, `NOM-0030`) and complete per-subtask reporting/first-completion announcements (`NOM-0068`, `NOM-0071`). The next disposable persistence run is strengthened with model-free public-CLI smoke tests and explicit agent-authored test/report instructions. These are targeted acceptance fixes, not new product scope.
+
+**Still 64/69 = 92.8%**, delta **+0.0 percentage points**. One of the three required distinct agent scenarios is independently accepted (`RUST-CLI`); `EVAL-09` remains open, along with `RUN-08`, `EVAL-11`, `EVAL-12`, and `REL-08`. No profile finalization, deployment or release is authorized by this roadmap.
+
 ## Approval and ownership boundary
 
 This is a public, source-neutral design roadmap authorized for planning. The existing four stores (`queues/specimens`, `processing/specimens`, `queues/tasks`, `processing/tasks`) and the profile opt-in lifecycle remain separate. Roadmap publication is not task-queue enrollment and cannot be used by an agent to grant itself additional authority. No existing profile is approved, finalized, selected, exported or applied by this roadmap.
