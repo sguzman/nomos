@@ -187,6 +187,8 @@ test('post-run reviewer facts distinguish documentation, CI and lint gaps from a
     'missing_readme','missing_roadmap','missing_ci_workflow',
     'cargo_fmt_not_verified','cargo_clippy_not_verified'
    ]);
+   assert.equal(report.artifact_preflight_met,false);
+   assert.equal(report.status,'requires_artifact_remediation');
    assert.equal(report.evidence_summary.cargo_fmt.exit_code,1);
    assert.equal(report.evidence_summary.cargo_clippy.exit_code,1);
    assert.equal(report.independent_reviewer_accepted,false);
@@ -215,6 +217,8 @@ test('review artifact detection observes populated disposable project without gr
     readme_present:true,roadmap_present:true,ci_workflow_present:true
    });
    assert.deepEqual(report.independent_review_gaps,[]);
+    assert.equal(report.artifact_preflight_met,true);
+    assert.equal(report.status,'awaiting_independent_review');
    assert.equal(report.independent_reviewer_accepted,false);
    assert.equal(report.production_accepted,false);
   }finally{fs.rmSync(report.workspace,{recursive:true,force:true});fs.rmSync(report.private_evidence,{recursive:true,force:true});}
@@ -299,7 +303,8 @@ test('disposable Git identity and post-baseline commit are required for workflow
    assert.equal(report.agent_created_commit_count,1);
    assert.equal(report.worktree_clean,true);
    assert.equal(report.code_test_commit_gate_met,true);
-   assert.equal(report.status,'awaiting_independent_review');
+   assert.equal(report.artifact_preflight_met,false);
+    assert.equal(report.status,'requires_artifact_remediation');
    assert.equal(report.independent_reviewer_accepted,false);
    assert.equal(report.production_accepted,false);
   }finally{fs.rmSync(report.workspace,{recursive:true,force:true});fs.rmSync(report.private_evidence,{recursive:true,force:true});}
