@@ -114,8 +114,7 @@ function privateFile(dir,name,content){fs.writeFileSync(path.join(dir,name),cont
 /* Private local-only review handoff. No upload and no public repository mutation.
  * Raw agent traces can contain machine paths or unexpected text: the owner must
  * inspect this archive before deliberately sharing it with an independent reviewer. */
-function createReviewBundle(root,evidence){
- const name='review-bundle.tar.gz',out=path.join(evidence,name);
+function createReviewBundle(root,evidence,out=path.join(evidence,'review-bundle.tar.gz')){
  const names=['README-review.txt','report.json','machine-observation.json',
   'agent-events.jsonl','agent-stderr.txt','agent-commit.patch',
   'cargo-test.stdout','cargo-test.stderr','cargo-fmt.stdout','cargo-fmt.stderr',
@@ -260,7 +259,11 @@ function run(argv){
   'The .git and target directories are intentionally excluded.'
  ].join('\n')+'\n');
  try{
-  const bundle=createReviewBundle(root,evidence);
+  const downloads=path.join(os.homedir(),'Downloads');
+  const destination=fs.existsSync(downloads)&&fs.statSync(downloads).isDirectory()
+   ?path.join(downloads,'nomos-'+flags.case_id.toLowerCase()+'-'+process.pid+'-'+Date.now()+'-review.tar.gz')
+   :path.join(evidence,'review-bundle.tar.gz');
+  const bundle=createReviewBundle(root,evidence,destination);
   report.private_review_bundle=bundle.path;
   report.private_review_bundle_sha256=bundle.sha256;
   report.private_review_bundle_bytes=bundle.bytes;
