@@ -30,7 +30,10 @@
     "rust_clippy_passed": true,
     "roadmap_item_count": 23,
     "roadmap_distinct_emoji_items": 23,
-    "actual_hosted_ci_run": false
+    "actual_hosted_ci_run": false,
+    "completed_roadmap_items": 19,
+    "in_progress_roadmap_items": 3,
+    "pending_unquantified_roadmap_items": 1
   },
   "original_report_status": "requires_artifact_remediation",
   "prior_runner_gaps": [
@@ -619,7 +622,7 @@
     {
       "rule_id": "NOM-0071",
       "status": "satisfied",
-      "basis": "The only final completion handoff announces each of the 20 newly 100% completed scoped roadmap items in its own 100% item line, with no previous user-visible completed status to reannounce.",
+      "basis": "The only final completion handoff announces each of the 19 newly 100% completed scoped roadmap items in its own 100% item line, with no previous user-visible completed status to reannounce.",
       "evidence_artifacts": [
         "agent-events.jsonl",
         "ROADMAP.md",
