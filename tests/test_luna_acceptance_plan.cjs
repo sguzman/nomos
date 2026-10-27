@@ -447,3 +447,27 @@ test('selected NOM-0010 roadmap structure requires phases, milestones, subtasks,
  assert.equal(duplicated.ok,false);
  assert.ok(duplicated.gaps.some(x=>x.startsWith('duplicate_emoji_identity')));
 });
+
+
+test('final progress preflight distinguishes missing visuals from a scoped quantified report',()=>{
+ const manifest={rules:{'NOM-0068':{},'NOM-0069':{},'NOM-0070':{},'NOM-0071':{}}};
+ const lines=text=>[
+  JSON.stringify({type:'thread.started'}),
+  JSON.stringify({type:'item.completed',item:{type:'agent_message',text}}),
+  JSON.stringify({type:'turn.completed'})
+ ].join('\n');
+ const incomplete=runner.handoffProgressPreflight(lines('Implemented CLI, tests and docs.'),manifest);
+ assert.equal(incomplete.inspected,true);
+ assert.equal(incomplete.percentage_present,false);
+ assert.equal(incomplete.visual_bar_present,false);
+ assert.equal(incomplete.overall_progress_present,false);
+ const complete=runner.handoffProgressPreflight(lines(
+  'Overall project progress: 50% █████░░░░░; phase one: 100% ██████████'),manifest);
+ assert.deepEqual(complete,{inspected:true,selected_rules:[
+  'NOM-0068','NOM-0069','NOM-0070','NOM-0071'],
+  percentage_present:true,visual_bar_present:true,overall_progress_present:true});
+ const outOfScope=runner.handoffProgressPreflight(lines('Implemented CLI.'),{rules:{}});
+ assert.equal(outOfScope.inspected,false);
+ const unknown=runner.handoffProgressPreflight('{"type":"turn.completed"}',manifest);
+ assert.equal(unknown.inspected,false);
+});
