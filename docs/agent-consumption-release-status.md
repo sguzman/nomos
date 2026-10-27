@@ -48,6 +48,14 @@ A separate limited per-rule review of this archive classified **15 source obliga
 
 
 
+## Fourth Rust CLI probe: successful mechanics, independent conformance rejected (2026-10-27)
+
+A subsequent local Codex CLI 0.163.0 run produced a fresh agent-created commit and a clean disposable worktree. The private review package contained the actual source patch, a recorded JSONL command trace, post-run Cargo output, and a pinned package manifest. The reviewer independently verified the archive hash, all 24 installed package-file digests, all 89 selected rule references, and five phase-read receipts for planning, implementation, testing, review, and shutdown. The generated Rust project passed three unit and three integration tests; offline formatting and Clippy checks succeeded; the new README and offline GitHub Actions CI workflow were present. The CI workflow was **configured, not observed running on GitHub**.
+
+**Independent verdict: not accepted.** The selected `NOM-0010` source rule applies explicitly when creating a project from scratch. The planning-phase command demonstrably loaded it, but the committed project still contained no source-required roadmap with phases, milestones, subtasks, features and stable emoji identities. The reviewer also found incomplete conformance review and handoff under `NOM-0064`, `NOM-0066`, and `NOM-0067`, because the agent finalized without identifying the missing obligation. An independent file-by-file and trace review classified the 89 installed rules as **35 satisfied, 4 violated, 46 not applicable, 4 unobserved** for this bounded exercise. These are **reviewer classifications**, not the machine observer's independent automated pass; conditional applicability remains uncertain for the unobserved set. No generic-target run is evidenced.
+
+This trial shows why observed module reads, commits, passing Cargo checks and a functioning CI definition cannot substitute for source-rule conformance. The generated agent contract and disposable runner were subsequently strengthened to require an explicit active-rule deliverable checklist and to classify known missing artifacts as `requires_artifact_remediation` rather than presenting the run as merely awaiting review. The changes do not retroactively accept this failed run, guarantee future Codex compliance, or authorize any profile activation. The production completion ledger remains **62/69 (89.9%)**. No private raw transcript, private review archive, machine pathname, or full user data is published here.
+
 ## Profile and deployment controls
 
 All 12 preexisting rule profiles remain draft/unconfirmed and inert. The New Rust Project Lite/Full configurations are useful reference selections, but their 45/106 source rules do **not** automatically confer project-level instructions or user permission. The guided website stops at a reviewable JSON draft, with exact rule IDs, candidate omissions/additions, unknown answers and potential conflicts.
