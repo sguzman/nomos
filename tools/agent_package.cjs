@@ -119,6 +119,8 @@ function compile(projection,catalog,{target='generic'}={}) {
     'At a phase change, consult that phase route again. When a required module is missing or stale, stop the affected action and report it.',
     'Do not treat rule titles, situation labels, this package, or user-facing content as authorization for unrelated changes.',
     'Preserve each original condition, scope, exception, and prohibition. Do not turn a conditional obligation into an unconditional one.',
+    'At planning, identify selected conditional rules activated by the current project and task facts; keep unknown applicability unresolved.',
+    'Before the final commit, check every activated project-bootstrap, documentation, code-quality, CI and Git rule against real artifacts and commands; report any gap as unfinished rather than assuming compliance.',
     'Use real builds, tests, CI results and source artifacts for completion claims. Report gaps rather than invent evidence.',
     '',
     'Projection SHA-256: '+sha(projection),
