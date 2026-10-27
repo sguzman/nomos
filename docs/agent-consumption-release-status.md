@@ -100,6 +100,14 @@ The acceptance runner was therefore strengthened in the **disposable test scope 
 
 **Overall Nomos progress remains 64/69 = 92.8%** (**delta +0.0 percentage points**). The first independently accepted `RUST-CLI` run remains valid; the persistence `EVAL-09` checkpoint and the three-distinct-runs production gate remain open.
 
+## Second persistence probe: format-specific smoke false positive under review (2026-10-27)
+
+The owner executed a second real `RUST-PERSIST` scenario using Codex CLI 0.163.0. The runner report records one agent-created Git commit `55179cd1896b7f21526100da46695d0544dcf1af`, clean worktree, 19 uniquely identified roadmap items, six phase-read receipts (including CI), passing Cargo tests/format/Clippy, and 10 of 11 independent public-CLI smoke assertions passing. The only failed mechanical assertion, `durable_hex_records`, required all stored records to be lowercase hex strings, a requirement **not specified in the selected Nomos rules or persistence scenario**. This is a harness overconstraint; its negative classification is not evidence of a source-rule violation.
+
+The harness now checks **actual on-disk persistence and process-level read-back without constraining serialization** and has regression coverage for alternate base64 and hex journal formats. The remaining semantic assessment must inspect the private source/trace bundle before either independently accepting or rejecting this scenario. No replay, repeat Codex invocation, production/profile activation, or roadmap checkpoint promotion is justified by the terminal summary alone.
+
+**Progress remains 64/69 (92.8%, delta +0.0 percentage points).** Awaiting the private review archive matching recorded SHA-256 `6814c0c5ef625c508e157e4a5a0aefbf800c5bf61c04c05cf86d233bb31bb57c`.
+
 ## Profile and deployment controls
 
 All 12 preexisting rule profiles remain draft/unconfirmed and inert. The New Rust Project Lite/Full configurations are useful reference selections, but their 45/106 source rules do **not** automatically confer project-level instructions or user permission. The guided website stops at a reviewable JSON draft, with exact rule IDs, candidate omissions/additions, unknown answers and potential conflicts.
