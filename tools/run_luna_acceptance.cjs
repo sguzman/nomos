@@ -201,6 +201,7 @@ function run(argv){
  probeDisposableGitSandbox(root);
  const prompt=[
   'Implement this disposable Rust acceptance exercise:',p.task,
+  'Pinned project fact: this is a new project being created from scratch. The Cargo.toml and src/main.rs files at startup are temporary cargo-init scaffolding supplied by the acceptance harness, not evidence of an existing mature project. Evaluate source-rule conditions using the pinned project context in .nomos/projection.json.',
   'Before changing code, execute node .nomos/read-phase.cjs planning.',
   'At planning, identify concrete active source-rule IDs and their required output files, validation steps and safety conditions. Before committing, compare those planned obligations against actual artifacts. Do not mark absent required work complete.',
   'Read relevant rules at implementation, testing, review and shutdown as phases change.',
