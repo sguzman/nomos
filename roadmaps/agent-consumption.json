@@ -4,14 +4,14 @@
   "id": "nomos-agent-consumption-v1",
   "title": "Guided Agent Consumption and Rule Projections",
   "created_on": "2026-10-26",
-  "updated_on": "2026-10-26",
+  "updated_on": "2026-10-27",
   "scope": "Project-context projections, guided website rule builder, deterministic agent packages, context-aware reference loading, end-to-end agent acceptance and release.",
   "baseline": {
-    "completed": 62,
+    "completed": 63,
     "total": 69,
-    "progress_percent": 89.9,
-    "previous_percent": 81.2,
-    "delta_percentage_points": 8.7,
+    "progress_percent": 91.3,
+    "previous_percent": 89.9,
+    "delta_percentage_points": 1.4,
     "measurement": "Equal-weight completed checkpoints divided by total checkpoints. A checkpoint becomes done only after its acceptance and evidence are verified."
   },
   "governance": {
@@ -937,11 +937,11 @@
       "phase": "EVAL",
       "title": "Independent conformance review",
       "acceptance": "Score actual repo diffs and execution traces against expected source-rule obligations.",
-      "status": "implementing",
+      "status": "done",
       "evidence": [
-        "tools/validate_agent_run_evidence.cjs",
-        "tools/codex_trace_observer.cjs",
-        "tests/test_codex_trace_observer.cjs"
+        "audits/agent-consumption-rust-cli-2026-10-27-review.json",
+        "docs/agent-consumption-release-status.md",
+        "https://github.com/sguzman/nomos/commit/aa2e70e186d6d9615e4d942a6d7461e6ad2a7a33"
       ]
     },
     {
