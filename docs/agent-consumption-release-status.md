@@ -134,7 +134,13 @@ The owner submitted the prescribed `RUST-MIXED --target generic` experiment thro
 
 Three independent source-rule reviews now pass across different scopes: [Rust CLI](../audits/agent-consumption-rust-cli-110018b-accepted-review.json), [Rust persistence](../audits/agent-consumption-rust-persist-ad52a07-accepted-review.json), and [Rust mixed generic Markdown](../audits/agent-consumption-rust-mixed-ebdcfdb-accepted-review.json). All three have zero unresolved mandatory violations **within the checked conditions**, notwithstanding historical rejected attempts. The explicitly supplied generic fallback was tested through Codex CLI 0.163.0, not a separately implemented arbitrary agent.
 
-**Production decision:** [scoped engineering acceptance PASS, live activation NOT AUTHORIZED](agent-consumption-production-decision.md). The evidence gate for `RUN-08`, `EVAL-11` and the documented acceptance decision `EVAL-12` is satisfied. The remaining gate is the final evidence-link and milestone consistency audit (`REL-08`); do not represent an active or production-selected profile before explicit owner action.
+**Production decision:** [scoped engineering acceptance PASS, live activation NOT AUTHORIZED](agent-consumption-production-decision.md). The evidence gate for `RUN-08`, `EVAL-11` and the documented acceptance decision `EVAL-12` is satisfied. The final checkpoint `REL-08` is now closed on the [69-checkpoint evidence audit](../audits/agent-consumption-final-closure.json). **All 69 engineering checkpoints are evidence-backed and done.** The separate owner-approval boundary remains; do not represent an active or production-selected profile before explicit owner action.
+
+## Engineering-roadmap closure: 69/69 (2026-10-27)
+
+The [machine-readable ledger](../roadmaps/agent-consumption.json) and readable roadmap now agree on **69/69 done = 100.0%**. The [public-safe final closure audit](../audits/agent-consumption-final-closure.json) checked every preceding evidence reference, independent source-rule verdicts, target-entrypoint behavior, canonical source-rule integrity and required approval boundaries, then supplied the evidence for final `REL-08` completion. Historical rejected attempts remain rejected. The final accepted mixed-scope generic-Markdown experiment does not imply generic agents discover these instructions automatically.
+
+**Formal classification:** the specified synthetic Rust agent-consumption engineering acceptance protocol is completed (**PASS**). **No automatic operational deployment is approved**: existing profile drafts remain inert, and any real-world installation, finalization, export or autonomous use requires explicit separate owner authorization. The 100.0% denominator measures documented engineering checkpoints, **not** a 100% empirical success rate or universal agent-compliance guarantee.
 
 ## Profile and deployment controls
 
