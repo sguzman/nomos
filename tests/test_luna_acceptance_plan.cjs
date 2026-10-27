@@ -105,8 +105,8 @@ test('opt-in disposable evaluation disables sccache only inside child process',(
  try{
   cp.spawnSync=(exe,args,options)=>{
    commands.push({exe,args,env:options.env});
-   if(exe==='git'&&args[0]==='rev-list')return {status:0,stdout:'2\\n',stderr:''};
-   if(exe==='codex'&&args.includes('--json'))return {status:0,stdout:'{"type":"thread.started"}\\n{"type":"turn.completed"}\\n',stderr:''};
+   if(exe==='git'&&args[0]==='rev-list')return {status:0,stdout:'2\n',stderr:''};
+   if(exe==='codex'&&args.includes('--json'))return {status:0,stdout:'{"type":"thread.started"}\n{"type":"turn.completed"}\n',stderr:''};
    return {status:0,stdout:'',stderr:''};
   };
   const report=runner.run(['--case','RUST-CLI','--execute']);
