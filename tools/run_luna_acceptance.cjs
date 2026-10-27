@@ -166,7 +166,7 @@ function run(argv){
   roadmap_present:['ROADMAP.md','roadmap.md','roadmaps/README.md'].some(name=>fs.existsSync(path.join(root,name))),
   ci_workflow_present:fs.existsSync(path.join(root,'.github/workflows'))&&
    fs.readdirSync(path.join(root,'.github/workflows'),{withFileTypes:true})
-    .some(entry=>entry.isFile()&&/\\.ya?ml$/.test(entry.name))
+    .some(entry=>entry.isFile()&&/\.ya?ml$/.test(entry.name))
  };
  const gitLog=command('git',['log','--format=%H %s','-4'],root);
  const gitStatus=command('git',['status','--porcelain=v1'],root);
