@@ -84,6 +84,24 @@ function verifyPersistenceCli(root,options={}){
   check('append_after_malformed_preserves_valid_records',
    recovery.ok&&recovered.ok&&
    recovered.stdout===listing.stdout+'after recovery\n');
+  // A corrupted prefix/version marker must never make append silently erase
+  // valid later entries. On an unrecognizable file the implementation may
+  // refuse to append and leave bytes untouched, or recover valid records.
+  const intact=fs.readFileSync(journal);
+  const damaged=Buffer.from(intact);
+  if(damaged.length)damaged[0]^=0x80;
+  fs.writeFileSync(journal,damaged);
+  const corruptedAppend=call(binary,['append',journal,'after corruption']);
+  const afterCorruption=fs.readFileSync(journal);
+  let protectedData=!corruptedAppend.ok&&afterCorruption.equals(damaged);
+  if(corruptedAppend.ok){
+   const restored=call(binary,['list',journal]);
+   protectedData=restored.ok&&
+    restored.stdout.includes('snowman ☃\n')&&
+    restored.stdout.includes('line one\nline two\n')&&
+    restored.stdout.includes('after corruption\n');
+  }
+  check('corrupted_prefix_preserves_valid_entries_or_refuses',protectedData);
   const syntax=call(binary,['bogus',journal]);
   check('invalid_command_rejected',!syntax.ok);
   const noParent=call(binary,['append',path.join(smokeRoot,'missing-parent','blocked.log'),'do not write']);
