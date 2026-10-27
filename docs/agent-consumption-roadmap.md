@@ -29,7 +29,7 @@
 
 ## Measured progress
 
-**Implementation:** **62/69 verified checkpoints = 89.9%**. **Previous:** 81.2%. **Current:** 89.9%. **Delta:** +8.7 percentage points. Six additional checkpoint gates are documented by the successful [deployed Chrome + Pages run 40403137785](https://github.com/sguzman/nomos/actions/runs/40403137785), which includes interactive hosted-site QA, approval-stage inspection, release validation and documented readiness limits. Four Codex CLI 0.163.0 Rust CLI runs passed the mechanical code/test/commit gate, but all were rejected for substantive source-rule compliance. The latest run created a roadmap but omitted mandatory per-item stable emoji identities and structure. Zero runs are independently accepted.
+**Implementation:** **63/69 verified checkpoints = 91.3%**. **Previous:** 89.9%. **Current:** 91.3%. **Delta:** +1.4 percentage points. The only newly completed checkpoint is `EVAL-10`, the independent scoring of actual Git and Codex traces against all 89 selected rule IDs, evidenced by the [public-safe audit](../audits/agent-consumption-rust-cli-2026-10-27-review.json) and the private complete rule-level record. Six Codex CLI 0.163.0 Rust CLI attempts were recorded; four passed the mechanical code/test/commit gate, but none passed source-rule conformance. The latest run created a roadmap but omitted mandatory per-item stable emoji identities and milestone/subtask/feature structure. **Zero real-agent runs are independently accepted**, and the behavioral phase's three-run gate remains blocked.
 
 `completion_percent = 100 × done_checkpoints / 69`; phase progress uses its own exact denominator. Use unrounded fractions as the source for arithmetic, display one decimal place, and compare only the same roadmap revision and acceptance denominator. A changed denominator must be disclosed and prior/current percentages marked non-comparable until rebased. Every change to `done` needs a concrete evidence link (file, commit, CI run, test fixture, or witnessed agent run); moving `done` back to `planned` is valid when evidence fails.
 
@@ -40,9 +40,9 @@
 | 📦 PKG | Deterministic agent-package compiler | 10 | 10 | 100.0% | PRJ |
 | 🗣️ BLD | Guided website rule builder | 12 | 12 | 100.0% | PRJ, PKG |
 | 🔌 RUN | Agent integration and contextual retrieval | 8 | 7 | 87.5% | PKG |
-| 🧪 EVAL | Behavioral evaluation and production gates | 12 | 7 | 58.3% | BLD, RUN |
+| 🧪 EVAL | Behavioral evaluation and production gates | 12 | 8 | 66.7% | BLD, RUN |
 | 🚀 REL | Delivery, documentation and maintenance | 8 | 7 | 87.5% | BLD, RUN, EVAL |
-| **Total** | **All gates must pass** | **69** | **62** | **89.9%** | |
+| **Total** | **All gates must pass** | **69** | **63** | **91.3%** | |
 
 ## 🧭 ARC · Consumption architecture and governance
 
@@ -143,7 +143,7 @@
 - [x] **EVAL-07 — Agent-read evidence harness.** Capture module reads, applicable trigger fulfillment and tool outputs without treating text claims as evidence.
 - [ ] **EVAL-08 — Rust task end-to-end case.** Run a new Rust implementation with builds, automated tests, CI configuration, commits and verifiable handoff.
 - [ ] **EVAL-09 — Alternate lifecycle case.** Run a different Rust workflow that exercises persistence or GUI, regression recovery and release preparation.
-- [ ] **EVAL-10 — Independent conformance review.** Score actual repo diffs and execution traces against expected source-rule obligations.
+- [x] **EVAL-10 — Independent conformance review.** Score actual repo diffs and execution traces against expected source-rule obligations.
 - [ ] **EVAL-11 — Repeated Luna evaluation.** Perform at least three recorded runs across distinct scopes with no uncorrected mandatory violations and disclose variance.
 - [ ] **EVAL-12 — Production acceptance decision.** Publish evidence-backed pass/fail, residual limits, re-test after fixes and explicit readiness classification.
 
@@ -177,6 +177,14 @@ Report a short progress table or bars for affected phases and the whole initiati
 **Independent result: not accepted.** The third run's packaged code has three unit and four CLI integration tests, with verified Nomos manifest integrity (24 files, 89 installed rules). However, a limited independent review of the user-provided source archive found missing **new-project roadmap** (`NOM-0010`) and **README** (`NOM-0042`) obligations. Rust formatting and Clippy execution have not been independently verified. The original `RUST-CLI` scenario also omitted the CI workflow that the `EVAL-08` checkpoint requires; that harness scope defect is now corrected for future trials. The original machine-generated evidence still marks all 89 source-rule assessments unobserved; a partial artifact review does not equal a completed independent event-by-event audit.
 
 `RUN-08`, `EVAL-08`, `EVAL-09`, and `EVAL-10` remain **implementing**. `EVAL-11`, `EVAL-12`, and `REL-08` remain **blocked** on independently acceptable runs and original milestone gates. Mechanical coding success, green CI or verified module reads are not independent source-rule conformance. The opt-in disposable runner captures post-run formatting, lint and repository-artifact checks without claiming that presence alone proves compliance. Raw user traces and temporary workspace contents are not committed publicly. See [the runner protocol](agent-luna-acceptance-runner.md) and [the current readiness record](agent-consumption-release-status.md).
+
+## Empirical gate status (2026-10-27)
+
+**63/69 = 91.3%**, previously 62/69 = 89.9% (**+1.4 percentage points**). `EVAL-10` is done because the sixth witnessed Rust CLI trial's actual source diff, five verifiable phase reads, and tool logs were independently scored against all 89 installed source-rule obligations. The [privacy-safe 89-rule disposition ledger](../audits/agent-consumption-rust-cli-2026-10-27-review.json) reports **34 satisfied, 4 violated, 46 not applicable and 5 unobserved**. Detailed private review evidence is not placed in public GitHub.
+
+**The sixth real-agent trial is explicitly rejected.** Its roadmap is present but does not satisfy `NOM-0010` (missing stable identifying emoji for each roadmap item and required phase/milestone/subtask/feature structure); `NOM-0043`, `NOM-0064`, and `NOM-0066` also have outstanding findings. The disposable acceptance runner now includes a selected-rule structural preflight and pre-commit guard. Successful mechanical checks and independent *scoring* are distinct from an independently *accepted* run.
+
+The remaining six open checkpoints are `RUN-08`, `EVAL-08`, `EVAL-09`, `EVAL-11`, `EVAL-12`, and `REL-08`. None may be marked done without satisfying its own acceptance test. In particular, three distinct accepted behavioral runs and the final closure audit remain outstanding; profiles and publication permissions remain inert.
 
 ## Approval and ownership boundary
 
