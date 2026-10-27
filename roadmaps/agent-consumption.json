@@ -7,11 +7,11 @@
   "updated_on": "2026-10-27",
   "scope": "Project-context projections, guided website rule builder, deterministic agent packages, context-aware reference loading, end-to-end agent acceptance and release.",
   "baseline": {
-    "completed": 65,
+    "completed": 67,
     "total": 69,
-    "progress_percent": 94.2,
-    "previous_percent": 92.8,
-    "delta_percentage_points": 1.4,
+    "progress_percent": 97.1,
+    "previous_percent": 94.2,
+    "delta_percentage_points": 2.9,
     "measurement": "Equal-weight completed checkpoints divided by total checkpoints. A checkpoint becomes done only after its acceptance and evidence are verified."
   },
   "governance": {
@@ -816,12 +816,14 @@
       "phase": "RUN",
       "title": "Target compatibility probes",
       "acceptance": "Test the supported Codex configuration and a generic fallback against observable file-loading traces.",
-      "status": "implementing",
+      "status": "done",
       "evidence": [
-        "tools/agent_phase_reader.cjs",
+        "audits/agent-consumption-rust-cli-110018b-accepted-review.json",
+        "audits/agent-consumption-rust-persist-ad52a07-accepted-review.json",
+        "audits/agent-consumption-rust-mixed-ebdcfdb-accepted-review.json",
         "tools/codex_trace_observer.cjs",
-        "tools/run_luna_acceptance.cjs",
-        "tests/test_codex_trace_observer.cjs"
+        "tests/test_codex_trace_observer.cjs",
+        "docs/agent-target-loading.md"
       ]
     },
     {
@@ -951,9 +953,14 @@
       "phase": "EVAL",
       "title": "Repeated Luna evaluation",
       "acceptance": "Perform at least three recorded runs across distinct scopes with no uncorrected mandatory violations and disclose variance.",
-      "status": "blocked",
+      "status": "done",
       "evidence": [
-        "docs/agent-consumption-release-status.md"
+        "audits/agent-consumption-rust-cli-110018b-accepted-review.json",
+        "audits/agent-consumption-rust-persist-ad52a07-accepted-review.json",
+        "audits/agent-consumption-rust-mixed-ebdcfdb-accepted-review.json",
+        "tools/codex_trace_observer.cjs",
+        "tests/test_codex_trace_observer.cjs",
+        "docs/agent-target-loading.md"
       ]
     },
     {
