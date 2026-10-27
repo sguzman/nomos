@@ -6,6 +6,7 @@ const path=require('node:path');
 const cp=require('node:child_process');
 const crypto=require('node:crypto');
 const {validateRoadmap}=require('./check_roadmap_structure.cjs');
+const {verifyPersistenceCli}=require('./verify_persistence_cli.cjs');
 const catalog=require('../docs/catalog.json');
 const hierarchy=require('../taxonomy/project-types.json');
 const {decide}=require('./projections.cjs');
@@ -227,7 +228,7 @@ function createReviewBundle(root,evidence,out=path.join(evidence,'review-bundle.
  const names=['README-review.txt','report.json','machine-observation.json',
   'agent-events.jsonl','agent-stderr.txt','agent-commit.patch',
   'cargo-test.stdout','cargo-test.stderr','cargo-fmt.stdout','cargo-fmt.stderr',
-  'cargo-clippy.stdout','cargo-clippy.stderr'];
+  'cargo-clippy.stdout','cargo-clippy.stderr','persistence-cli-smoke.json'];
  const included=names.filter(item=>fs.existsSync(path.join(evidence,item)));
  guard(included.includes('report.json')&&included.includes('README-review.txt'),
   'Review bundle requires a run report and privacy notice');
@@ -298,6 +299,10 @@ function run(argv){
  const cargoFmt=command('cargo',['fmt','--all','--','--check'],root,{timeout:120000,env:rustEnv});
  const cargoClippy=command('cargo',['clippy','--offline','--all-targets','--','-D','warnings'],root,{timeout:120000,env:rustEnv});
  const metadata=command('cargo',['metadata','--no-deps','--offline','--format-version','1'],root,{env:rustEnv});
+ const persistenceSmoke=flags.case_id==='RUST-PERSIST'?
+  verifyPersistenceCli(root):{inspected:false,reason:'not_persistence_case'};
+ if(persistenceSmoke.inspected)privateFile(evidence,'persistence-cli-smoke.json',
+  JSON.stringify(persistenceSmoke,null,2)+'\n');
  for(const [file,resultToRecord] of [['cargo-test',cargoTest],['cargo-fmt',cargoFmt],['cargo-clippy',cargoClippy]]){
   privateFile(evidence,file+'.stdout',resultToRecord.stdout);
   privateFile(evidence,file+'.stderr',resultToRecord.stderr);
@@ -356,6 +361,7 @@ function run(argv){
   ...(!repositoryArtifacts.ci_workflow_present?['missing_ci_workflow']:[]),
   ...(roadmapCommitStatus.stale_commit_milestone_lines.length?
    ['roadmap_committed_git_milestone_still_in_progress']:[]),
+  ...(persistenceSmoke.inspected&&!persistenceSmoke.ok?['persistence_cli_smoke_failed']:[]),
   ...(cargoFmt.status!==0?['cargo_fmt_not_verified']:[]),
   ...(cargoClippy.status!==0?['cargo_clippy_not_verified']:[]),
   // Never demand invented progress percentages when NOM-0069's evidence condition
@@ -386,6 +392,7 @@ function run(argv){
   roadmap_structure_preflight:roadmapStructurePreflight,
   handoff_progress_preflight:handoffProgress,
   roadmap_commit_status_preflight:roadmapCommitStatus,
+  persistence_cli_smoke:persistenceSmoke,
   repository_artifact_observations:repositoryArtifacts,
   artifact_preflight_met:artifactPreflightMet,
   independent_review_gaps:independentReviewGaps,
