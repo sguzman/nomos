@@ -158,7 +158,16 @@ function run(argv){
  privateFile(evidence,'agent-events.jsonl',result.stdout);
  privateFile(evidence,'agent-stderr.txt',result.stderr);
  const cargoTest=command('cargo',['test','--offline'],root,{timeout:120000,env:rustEnv});
+ const cargoFmt=command('cargo',['fmt','--all','--','--check'],root,{timeout:120000,env:rustEnv});
+ const cargoClippy=command('cargo',['clippy','--offline','--all-targets','--','-D','warnings'],root,{timeout:120000,env:rustEnv});
  const metadata=command('cargo',['metadata','--no-deps','--offline','--format-version','1'],root,{env:rustEnv});
+ const repositoryArtifacts={
+  readme_present:['README.md','README.MD','README'].some(name=>fs.existsSync(path.join(root,name))),
+  roadmap_present:['ROADMAP.md','roadmap.md','roadmaps/README.md'].some(name=>fs.existsSync(path.join(root,name))),
+  ci_workflow_present:fs.existsSync(path.join(root,'.github/workflows'))&&
+   fs.readdirSync(path.join(root,'.github/workflows'),{withFileTypes:true})
+    .some(entry=>entry.isFile()&&/\\.ya?ml$/.test(entry.name))
+ };
  const gitLog=command('git',['log','--format=%H %s','-4'],root);
  const gitStatus=command('git',['status','--porcelain=v1'],root);
  // HEAD has one synthetic baseline commit before Codex starts.
@@ -186,7 +195,16 @@ function run(argv){
   agent_turn_completed:completed,agent_created_commit_count:agentCreatedCommits,
   worktree_clean:worktreeClean,code_test_commit_gate_met:codeTestCommitGateMet,
   agent_versions:versions,workspace:root,private_evidence:evidence,installed_rules:installed.verified_rules,
-  evidence_summary:{codex:status(result),cargo_test:status(cargoTest),cargo_metadata:status(metadata),
+  repository_artifact_observations:repositoryArtifacts,
+  independent_review_gaps:[
+   ...(!repositoryArtifacts.readme_present?['missing_readme']:[]),
+   ...(!repositoryArtifacts.roadmap_present?['missing_roadmap']:[]),
+   ...(!repositoryArtifacts.ci_workflow_present?['missing_ci_workflow']:[]),
+   ...(cargoFmt.status!==0?['cargo_fmt_not_verified']:[]),
+   ...(cargoClippy.status!==0?['cargo_clippy_not_verified']:[])
+  ],
+  evidence_summary:{codex:status(result),cargo_test:status(cargoTest),cargo_fmt:status(cargoFmt),
+   cargo_clippy:status(cargoClippy),cargo_metadata:status(metadata),
    git_log:status(gitLog),git_status:status(gitStatus),git_commit_count:status(gitCommitCount)},
   observed_phase_reads:observation?.parser_summary?.observed_module_reads||0,
   observed_phases:[...new Set((observation?.report?.events||[])
