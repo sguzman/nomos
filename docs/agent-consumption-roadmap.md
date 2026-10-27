@@ -198,6 +198,14 @@ One real `RUST-PERSIST` Codex run produced a functioning local journal CLI, two 
 
 **Still 64/69 = 92.8%**, delta **+0.0 percentage points**. One of the three required distinct agent scenarios is independently accepted (`RUST-CLI`); `EVAL-09` remains open, along with `RUN-08`, `EVAL-11`, `EVAL-12`, and `REL-08`. No profile finalization, deployment or release is authorized by this roadmap.
 
+## Persistence retest: second live attempt rejected after independent review (2026-10-27)
+
+The newer `RUST-PERSIST` experiment fixed the previous unit/integration coverage and subtask-reporting omissions. Its source has three passing Rust unit tests and four passing process-level tests, six phase-reader receipts and one verified Git commit. However, the [independent 89-rule audit](../audits/agent-consumption-rust-persist-55179cd-rejected-review.json) records **41 satisfied, 45 not applicable and 3 violated**. A damaged or incompatible file header causes `load_entries()` to treat the journal as empty and `append` to replace existing recoverable records (`NOM-0030`, `NOM-0053`); the final report's shared 100% bar does not give each completed roadmap item its own numeric-and-visual pairing (`NOM-0069`).
+
+The historical automated smoke's `durable_hex_records` failure was a format-specific **false positive**, and its other checks were not trusted as final-binary evidence because the program changed its Cargo target name. Target discovery and a format-neutral non-destructive-prefix corruption smoke are now verified with regression tests. The follow-up prompt explicitly requires preservation/refusal on unknown versions and per-item bars. The canonical source rules were not changed.
+
+**No checkpoint advanced:** 64/69 = 92.8%, delta +0.0 points. `EVAL-09`, `RUN-08`, `EVAL-11`, `EVAL-12`, and `REL-08` remain open. The accepted `RUST-CLI` result is unchanged; all profiles remain unapproved and inert.
+
 ## Approval and ownership boundary
 
 This is a public, source-neutral design roadmap authorized for planning. The existing four stores (`queues/specimens`, `processing/specimens`, `queues/tasks`, `processing/tasks`) and the profile opt-in lifecycle remain separate. Roadmap publication is not task-queue enrollment and cannot be used by an agent to grant itself additional authority. No existing profile is approved, finalized, selected, exported or applied by this roadmap.
