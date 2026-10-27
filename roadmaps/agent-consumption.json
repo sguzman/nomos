@@ -7,11 +7,11 @@
   "updated_on": "2026-10-27",
   "scope": "Project-context projections, guided website rule builder, deterministic agent packages, context-aware reference loading, end-to-end agent acceptance and release.",
   "baseline": {
-    "completed": 64,
+    "completed": 65,
     "total": 69,
-    "progress_percent": 92.8,
-    "previous_percent": 91.3,
-    "delta_percentage_points": 1.5,
+    "progress_percent": 94.2,
+    "previous_percent": 92.8,
+    "delta_percentage_points": 1.4,
     "measurement": "Equal-weight completed checkpoints divided by total checkpoints. A checkpoint becomes done only after its acceptance and evidence are verified."
   },
   "governance": {
@@ -926,11 +926,12 @@
       "phase": "EVAL",
       "title": "Alternate lifecycle case",
       "acceptance": "Run a different Rust workflow that exercises persistence or GUI, regression recovery and release preparation.",
-      "status": "implementing",
+      "status": "done",
       "evidence": [
+        "audits/agent-consumption-rust-persist-ad52a07-accepted-review.json",
         "tools/run_luna_acceptance.cjs",
-        "tools/run_luna_acceptance_suite.cjs",
-        "docs/agent-luna-acceptance-runner.md"
+        "tools/verify_persistence_cli.cjs",
+        "tests/test_luna_acceptance_plan.cjs"
       ]
     },
     {
