@@ -1,6 +1,6 @@
 # Nomos agent-consumption conformance evaluation
 
-**Status:** Specification and reproducible acceptance harness only. No observed Luna run is claimed. This document is nonnormative evaluation methodology; it does not activate a profile, approve a projection, or instruct an agent to act in another repository.
+**Status:** Specification and reproducible acceptance harness, plus one user-executed, **incomplete and unaccepted** Codex CLI Rust experiment (2026-10-26). No passing independent live-agent run is claimed. This document is nonnormative evaluation methodology; it does not activate a profile, approve a projection, or instruct an agent to act in another repository.
 
 ## Evidence hierarchy
 
