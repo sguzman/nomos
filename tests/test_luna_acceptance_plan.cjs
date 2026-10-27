@@ -35,6 +35,22 @@ test('isolated Codex agent execution requires explicit opt in',()=>{
  assert.throws(()=>runner.run(['--case','RUST-CLI','--model','../../bad']),/model selector/);
  assert.throws(()=>runner.run(['--case','RUST-CLI','--yolo']),/Unknown argument/);
 });
+test('generic entrypoint evidence requires an actual successful file-tool read',()=>{
+ const check=runner.observeGenericEntrypointRead;
+ const entry={type:'item.completed',item:{type:'command_execution',exit_code:0,
+  command:"/usr/bin/bash -lc 'cat AGENTS.md'",
+  aggregated_output:"# Generated Nomos agent contract\nAgent target: generic\n"}};
+ const text=JSON.stringify(entry);
+ assert.equal(check(text),true);
+ assert.equal(check(JSON.stringify({...entry,item:{...entry.item,exit_code:1}})),false);
+ assert.equal(check(JSON.stringify({...entry,item:{...entry.item,
+  aggregated_output:'# Generated Nomos agent contract\nAgent target: codex\n'}})),false);
+ assert.equal(check(JSON.stringify({...entry,item:{...entry.item,command:"echo 'cat AGENTS.md'"}})),false);
+ assert.equal(check(JSON.stringify({type:'item.completed',item:{type:'agent_message',
+  text:'I read AGENTS.md and followed the generic rules.'}})),false);
+ assert.equal(check('broken-jsonl\n'),false);
+});
+
 test('mixed-scope generic fallback generates an explicit Markdown-only package',()=>{
  const p=runner.plan('RUST-MIXED',null,'generic');
  assert.equal(p.bundle.manifest.agent_target,'generic');
