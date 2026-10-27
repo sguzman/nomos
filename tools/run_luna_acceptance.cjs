@@ -83,12 +83,14 @@ function run(argv){
  const evidence=fs.mkdtempSync(path.join(os.tmpdir(),'nomos-luna-evidence-'));
  fs.chmodSync(root,0o700);fs.chmodSync(evidence,0o700);
  guard(command('git',['init','-b','main'],root).status===0,'Cannot initialize disposable Git');
+ // Identity is scoped to this temporary repository; never touch the owner's global Git config.
+ guard(command('git',['config','--local','user.name','Nomos QA'],root).status===0,'Cannot configure disposable Git author');
+ guard(command('git',['config','--local','user.email','nomos-qa@example.invalid'],root).status===0,'Cannot configure disposable Git email');
  guard(command('cargo',['init','--bin','--name','nomos_acceptance','--vcs','none','.'],root).status===0,'Cannot initialize Cargo');
  install(p.bundle,root,{write:true,confirmedExport:true});
  const installed=verify(root);
  guard(command('git',['add','.'],root).status===0,'Cannot stage synthetic baseline');
- guard(command('git',['-c','user.name=Nomos QA','-c','user.email=nomos-qa@example.invalid',
-  'commit','-m','test: disposable synthetic baseline'],root).status===0,'Cannot commit synthetic baseline');
+ guard(command('git',['commit','-m','test: disposable synthetic baseline'],root).status===0,'Cannot commit synthetic baseline');
  const prompt=[
   'Implement this disposable Rust acceptance exercise:',p.task,
   'Before changing code, execute node .nomos/read-phase.cjs planning.',
@@ -107,6 +109,12 @@ function run(argv){
  const metadata=command('cargo',['metadata','--no-deps','--offline','--format-version','1'],root);
  const gitLog=command('git',['log','--format=%H %s','-4'],root);
  const gitStatus=command('git',['status','--porcelain=v1'],root);
+ // HEAD has one synthetic baseline commit before Codex starts.
+ const gitCommitCount=command('git',['rev-list','--count','HEAD'],root);
+ const parsedCount=gitCommitCount.status===0&&/^\\d+\\s*$/.test(gitCommitCount.stdout)
+  ?Number(gitCommitCount.stdout.trim()):null;
+ const agentCreatedCommits=Number.isSafeInteger(parsedCount)&&parsedCount>=1?parsedCount-1:null;
+ const worktreeClean=gitStatus.status===0?gitStatus.stdout.trim()==='':null;
  let observation=null,observationError=null;
  try {
   observation=observe(result.stdout,p.bundle.manifest,
@@ -118,14 +126,19 @@ function run(argv){
  const turnCompleted=hasEvent(result.stdout,'turn.completed');
  const turnFailed=hasEvent(result.stdout,'turn.failed');
  const completed=sessionStarted&&turnCompleted&&!turnFailed&&result.status===0;
+ const workflowVerified=completed&&cargoTest.status===0&&agentCreatedCommits!==null
+  &&agentCreatedCommits>0&&worktreeClean===true;
  const report={...p.snapshot,status:!sessionStarted?'launch_failed':
-  completed?'awaiting_independent_review':'agent_turn_failed',
+  !completed?'agent_turn_failed':workflowVerified?'awaiting_independent_review':'agent_workflow_incomplete',
   invocation_attempted:true,session_started:sessionStarted,agent_invoked:sessionStarted,
-  agent_turn_completed:completed,
+  agent_turn_completed:completed,agent_created_commit_count:agentCreatedCommits,
+  worktree_clean:worktreeClean,agent_workflow_requirements_met:workflowVerified,
   agent_versions:versions,workspace:root,private_evidence:evidence,installed_rules:installed.verified_rules,
   evidence_summary:{codex:status(result),cargo_test:status(cargoTest),cargo_metadata:status(metadata),
-   git_log:status(gitLog),git_status:status(gitStatus)},
+   git_log:status(gitLog),git_status:status(gitStatus),git_commit_count:status(gitCommitCount)},
   observed_phase_reads:observation?.parser_summary?.observed_module_reads||0,
+  observed_phases:[...new Set((observation?.report?.events||[])
+   .filter(event=>event.kind==='module_read').map(event=>event.receipt.phase))],
   observation_status:observation?.review?.status||'invalid_or_missing_trace',
   observation_error:observationError,
   phase_tool_reads_independently_verified:false,rule_assessments_complete:false,
