@@ -118,6 +118,33 @@ test('opt-in disposable evaluation disables sccache only inside child process',(
   }finally{fs.rmSync(report.workspace,{recursive:true,force:true});fs.rmSync(report.private_evidence,{recursive:true,force:true});}
  }finally{cp.spawnSync=original;}
 });
+test('Linux sandbox Git-write probe is model-free, narrow and stops on denial',()=>{
+ const fs=require('node:fs'),os=require('node:os'),path=require('node:path');
+ const root=fs.mkdtempSync(path.join(os.tmpdir(),'nomos-sandbox-probe-test-'));
+ const original=cp.spawnSync,seen=[];
+ try{
+  fs.mkdirSync(path.join(root,'.git'));
+  cp.spawnSync=(exe,args)=>{
+   seen.push({exe,args});
+   return {status:0,stdout:'',stderr:''};
+  };
+  assert.equal(runner.probeDisposableGitSandbox(root),true);
+  assert.equal(seen.length,1);
+  const args=seen[0].args;
+  assert.equal(seen[0].exe,'codex');
+  assert.deepEqual(args.slice(0,2),['sandbox','linux']);
+  assert.ok(args.includes('--permission-profile'));
+  assert.ok(args.includes('nomos_disposable_git'));
+  assert.ok(args.includes('permissions.nomos_disposable_git.network.enabled=false'));
+  assert.ok(args.includes('/bin/sh'));
+  assert.ok(args.includes('nomos-write-permission-probe')===false);
+  assert.ok(args.at(-1).includes('nomos-write-permission-probe'));
+  assert.ok(!args.includes('--json'));
+  assert.ok(!args.includes('--yolo'));
+  cp.spawnSync=()=>({status:1,stdout:'',stderr:'Read-only file system'});
+  assert.throws(()=>runner.probeDisposableGitSandbox(root),/no model launched.*Read-only file system/);
+ }finally{cp.spawnSync=original;fs.rmSync(root,{recursive:true,force:true});}
+});
 test('parser failure is launch_failed and cannot claim a live or accepted agent',()=>{
  const fs=require('node:fs'),path=require('node:path'),original=cp.spawnSync,seen=[];
  try{
