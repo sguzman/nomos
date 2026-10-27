@@ -29,7 +29,7 @@
 
 ## Measured progress
 
-**Implementation:** **64/69 verified checkpoints = 92.8%**. **Previous:** 91.3%. **Current:** 92.8%. **Delta:** +1.5 percentage points. The newly accepted checkpoint is `EVAL-08`: real Rust CLI end-to-end implementation, offline build/format/Clippy and seven tests, configured CI, two scoped Git commits, clean tree, five phase-reader receipts and independent [89-rule review](../audits/agent-consumption-rust-cli-110018b-accepted-review.json). Eight Codex CLI 0.163.0 Rust CLI experiments were recorded; six mechanically completed and **one CLI scenario is independently accepted**. Earlier rejected trials remain rejected. **One of three distinct accepted scenarios** is now verified; generic fallback and persistence/mixed-scope behavior are not yet accepted. The preview remains nonproduction and all profiles remain draft.
+**Implementation:** **65/69 verified checkpoints = 94.2%**. **Previous:** 92.8%. **Current:** 94.2%. **Delta:** +1.4 percentage points. Newly accepted `EVAL-09`: the third real persistence scenario has an independently reviewed, checksum-verified Rust implementation, safe refusal on unrecognized headers/invalid UTF-8, malformed-record salvage, 4 unit and 6 process integration tests, two commits, five distinct phase reads, release-readiness documentation and an accurate final handoff. The [public-safe accepted 89-rule review](../audits/agent-consumption-rust-persist-ad52a07-accepted-review.json) records **44 satisfied, 45 not applicable and no violations**. This is the **second distinct independently accepted agent scenario** after `RUST-CLI`; original failed runs remain rejected. No production profile activation or release is authorized.
 
 `completion_percent = 100 × done_checkpoints / 69`; phase progress uses its own exact denominator. Use unrounded fractions as the source for arithmetic, display one decimal place, and compare only the same roadmap revision and acceptance denominator. A changed denominator must be disclosed and prior/current percentages marked non-comparable until rebased. Every change to `done` needs a concrete evidence link (file, commit, CI run, test fixture, or witnessed agent run); moving `done` back to `planned` is valid when evidence fails.
 
@@ -40,9 +40,9 @@
 | 📦 PKG | Deterministic agent-package compiler | 10 | 10 | 100.0% | PRJ |
 | 🗣️ BLD | Guided website rule builder | 12 | 12 | 100.0% | PRJ, PKG |
 | 🔌 RUN | Agent integration and contextual retrieval | 8 | 7 | 87.5% | PKG |
-| 🧪 EVAL | Behavioral evaluation and production gates | 12 | 9 | 75.0% | BLD, RUN |
+| 🧪 EVAL | Behavioral evaluation and production gates | 12 | 10 | 83.3% | BLD, RUN |
 | 🚀 REL | Delivery, documentation and maintenance | 8 | 7 | 87.5% | BLD, RUN, EVAL |
-| **Total** | **All gates must pass** | **69** | **64** | **92.8%** | |
+| **Total** | **All gates must pass** | **69** | **65** | **94.2%** | |
 
 ## 🧭 ARC · Consumption architecture and governance
 
@@ -142,7 +142,7 @@
 - [x] **EVAL-06 — Offline installation and round trip.** Export the package to a disposable target and prove it remains usable without the Nomos website.
 - [x] **EVAL-07 — Agent-read evidence harness.** Capture module reads, applicable trigger fulfillment and tool outputs without treating text claims as evidence.
 - [x] **EVAL-08 — Rust task end-to-end case.** Run a new Rust implementation with builds, automated tests, CI configuration, commits and verifiable handoff.
-- [ ] **EVAL-09 — Alternate lifecycle case.** Run a different Rust workflow that exercises persistence or GUI, regression recovery and release preparation.
+- [x] **EVAL-09 — Alternate lifecycle case.** Run a different Rust workflow that exercises persistence or GUI, regression recovery and release preparation.
 - [x] **EVAL-10 — Independent conformance review.** Score actual repo diffs and execution traces against expected source-rule obligations.
 - [ ] **EVAL-11 — Repeated Luna evaluation.** Perform at least three recorded runs across distinct scopes with no uncorrected mandatory violations and disclose variance.
 - [ ] **EVAL-12 — Production acceptance decision.** Publish evidence-backed pass/fail, residual limits, re-test after fixes and explicit readiness classification.
@@ -205,6 +205,12 @@ The newer `RUST-PERSIST` experiment fixed the previous unit/integration coverage
 The historical automated smoke's `durable_hex_records` failure was a format-specific **false positive**, and its other checks were not trusted as final-binary evidence because the program changed its Cargo target name. Target discovery and a format-neutral non-destructive-prefix corruption smoke are now verified with regression tests. The follow-up prompt explicitly requires preservation/refusal on unknown versions and per-item bars. The canonical source rules were not changed.
 
 **No checkpoint advanced:** 64/69 = 92.8%, delta +0.0 points. `EVAL-09`, `RUN-08`, `EVAL-11`, `EVAL-12`, and `REL-08` remain open. The accepted `RUST-CLI` result is unchanged; all profiles remain unapproved and inert.
+
+## Third persistence run: accepted, alternate lifecycle checkpoint closed (2026-10-27)
+
+The third distinct-from-CLI `RUST-PERSIST` attempt produces a versioned UTF-8 journal, safe rejection of damaged headers and invalid UTF-8 without rewriting the original, valid-record salvage for malformed rows, atomic same-directory replacement, **4 unit + 6 executable integration tests**, two Git commits and independently witnessed phase-reader execution. The original smoke's invalid-UTF-8 salvage requirement conflicted with the authorized *preserve valid data or refuse without modifying it* contract. A separate presentation heuristic incorrectly missed the agent's explicit 'requested implementation scope' overall report. The runner corrections have regression tests, and the independent [89-rule audit](../audits/agent-consumption-rust-persist-ad52a07-accepted-review.json) records **44 supported, 45 out of scope and zero mandatory violations**.
+
+`EVAL-09` is now **done** and the overall ledger advances to **65/69 = 94.2%** (previous 64/69 = 92.8%; **+1.4 points**). **Two of three distinct agent scenarios are accepted.** Four checkpoints remain: `RUN-08`, `EVAL-11`, `EVAL-12`, `REL-08`. Mixed-scope and generic fallback evidence, production acceptance and final closure are still unverified. No real draft profile has been finalized or exported to a production repository.
 
 ## Approval and ownership boundary
 
