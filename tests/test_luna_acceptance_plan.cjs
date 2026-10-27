@@ -404,6 +404,11 @@ test('disposable Git rule gate rejects missing staged roadmap without touching u
   assert.notEqual(refused.status,0);
   assert.match(refused.stderr,/NOMOS_RULE_GATE NOM-0010/);
   assert.equal(git('rev-list','--count','HEAD').status,128);
+  fs.writeFileSync(path.join(root,'ROADMAP.md'),'# Roadmap\n## 🧭 Initial CLI\n- ✅ one item\n');
+  assert.equal(git('add','ROADMAP.md').status,0);
+  const shallow=git('commit','-m','shallow-roadmap');
+  assert.notEqual(shallow.status,0);
+  assert.match(shallow.stderr,/NOMOS_RULE_GATE NOM-0010: roadmap structure incomplete/);
   fs.writeFileSync(path.join(root,'ROADMAP.md'),"# Roadmap\n## 🧭 Phase 1 — Core\n### 🏁 Milestone 1 — CLI\n#### 🧩 Features\n- 📝 Normalize input — ✅ done\n#### 🔧 Subtasks\n- 🧪 Write unit tests — ✅ done\n- 🔎 Check integration — ✅ done\n");
   assert.equal(git('add','ROADMAP.md').status,0);
   const accepted=git('commit','-m','synthetic test');
