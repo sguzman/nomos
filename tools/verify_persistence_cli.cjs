@@ -7,10 +7,22 @@ const path=require('node:path');
 const os=require('node:os');
 const cp=require('node:child_process');
 
+function binaryFromCargoMetadata(text,root){
+ const metadata=JSON.parse(text);
+ const manifest=path.join(path.resolve(root),'Cargo.toml');
+ const pkg=metadata.packages?.find(p=>path.resolve(p.manifest_path)===manifest);
+ const bins=pkg?.targets?.filter(target=>target.kind?.includes('bin'))||[];
+ if(bins.length!==1||!bins[0].name||!metadata.target_directory)
+  throw new Error('Expected exactly one current Cargo binary target');
+ const name=bins[0].name;
+ return {name,path:path.join(metadata.target_directory,'debug',name+(process.platform==='win32'?'.exe':''))};
+}
+
 function verifyPersistenceCli(root,options={}){
  const prefix=path.join(os.tmpdir(),'nomos-luna-case-');
  if(!path.resolve(root).startsWith(prefix))throw new Error('Persistence smoke requires disposable case root');
- const binary=options.binaryPath||path.join(root,'target','debug','nomos_acceptance');
+ let binary=options.binaryPath||null;
+ let cargoTarget=options.binaryPath?'explicit_test_fixture':null;
  const skipBuild=options.skipBuild===true;
  const commands=[];
  const call=(exe,args)=>{
@@ -23,12 +35,21 @@ function verifyPersistenceCli(root,options={}){
  const check=(name,pass)=>{checks[name]=Boolean(pass);if(!pass)failed.push(name);};
  let smokeRoot=null;
  try{
+  if(!binary){
+   const metadata=call('cargo',['metadata','--no-deps','--offline','--format-version','1']);
+   if(!metadata.ok)return {inspected:true,ok:false,failed:['cargo_target_metadata_failed'],
+    checks,command_count:commands.length,error:metadata.error||metadata.stderr.slice(0,250)};
+   const target=binaryFromCargoMetadata(metadata.stdout,root);
+   binary=target.path;
+   cargoTarget=target.name;
+  }
   if(!skipBuild){
-   const build=call('cargo',['build','--offline','--quiet']);
+   const build=call('cargo',['build','--offline','--quiet','--bin',cargoTarget]);
    check('rust_binary_build',build.ok);
    if(!build.ok)return {inspected:true,ok:false,failed,checks,command_count:commands.length,error:'cargo_build_failed'};
   }
-  if(!fs.existsSync(binary))return {inspected:true,ok:false,failed:['missing_binary'],checks,command_count:commands.length};
+  if(!fs.existsSync(binary))return {inspected:true,ok:false,failed:['missing_binary'],
+   checks,command_count:commands.length,binary_target:cargoTarget};
   smokeRoot=fs.mkdtempSync(path.join(os.tmpdir(),'nomos-persist-smoke-'));
   fs.chmodSync(smokeRoot,0o700);
   const journal=path.join(smokeRoot,'entries.log');
@@ -69,15 +90,15 @@ function verifyPersistenceCli(root,options={}){
   check('missing_parent_write_rejected',!noParent.ok&&
    !fs.existsSync(path.join(smokeRoot,'missing-parent')));
   return {inspected:true,ok:failed.length===0,checks,failed,
-   command_count:commands.length};
+   command_count:commands.length,binary_target:cargoTarget};
  }catch(error){
   return {inspected:true,ok:false,checks,failed:[...failed,'smoke_execution_error'],
-   command_count:commands.length,error:String(error?.message||error).slice(0,350)};
+   command_count:commands.length,binary_target:cargoTarget,error:String(error?.message||error).slice(0,350)};
  }finally{
   if(smokeRoot)fs.rmSync(smokeRoot,{recursive:true,force:true,maxRetries:3,retryDelay:100});
  }
 }
-module.exports={verifyPersistenceCli};
+module.exports={verifyPersistenceCli,binaryFromCargoMetadata};
 if(require.main===module){
  const root=process.argv[2];
  if(!root){console.error('Required: disposable case directory');process.exitCode=2;}
