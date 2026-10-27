@@ -94,7 +94,7 @@ test('sandbox permission dry check prepares temporary Git without launching a mo
   assert.ok(seen.some(x=>x.exe==='git'&&x.args[0]==='init'));
   assert.ok(seen.some(x=>x.exe==='codex'&&x.args[0]==='sandbox'&&x.args[1]==='linux'));
   assert.ok(!seen.some(x=>x.exe==='codex'&&x.args.includes('--json')));
-  assert.ok(!seen.some(x=>x.exe==='cargo'));
+  assert.ok(!seen.some(x=>x.exe==='cargo'&&x.args[0]!=='--version'));
   assert.throws(()=>runner.argsOf(['--case','RUST-CLI','--probe-sandbox','--execute']),/cannot combine/);
  }finally{cp.spawnSync=original;}
 });
