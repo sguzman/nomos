@@ -92,7 +92,7 @@ test('sandbox permission dry check prepares temporary Git without launching a mo
   assert.equal(result.agent_invoked,false);
   assert.equal(result.production_accepted,false);
   assert.ok(seen.some(x=>x.exe==='git'&&x.args[0]==='init'));
-  assert.ok(seen.some(x=>x.exe==='codex'&&x.args[0]==='sandbox'&&x.args[1]==='linux'));
+  assert.ok(seen.some(x=>x.exe==='codex'&&x.args.includes('sandbox')&&x.args.includes('--permission-profile')));
   assert.ok(!seen.some(x=>x.exe==='codex'&&x.args.includes('--json')));
   assert.ok(!seen.some(x=>x.exe==='cargo'&&x.args[0]!=='--version'));
   assert.throws(()=>runner.argsOf(['--case','RUST-CLI','--probe-sandbox','--execute']),/cannot combine/);
@@ -147,7 +147,12 @@ test('Linux sandbox Git-write probe is model-free, narrow and stops on denial',(
   assert.equal(seen.length,1);
   const args=seen[0].args;
   assert.equal(seen[0].exe,'codex');
-  assert.deepEqual(args.slice(0,2),['sandbox','linux']);
+  assert.equal(args[0],'-c');
+  assert.equal(args.filter(x=>x==='sandbox').length,1);
+  assert.ok(!args.includes('linux'));
+  assert.ok(args.indexOf('sandbox')<args.indexOf('--permission-profile'));
+  assert.ok(args.indexOf('--')>args.indexOf('--cd'));
+  assert.equal(args[args.indexOf('--')+1],'/bin/sh');
   assert.ok(args.includes('--permission-profile'));
   assert.ok(args.includes('nomos_disposable_git'));
   assert.ok(args.includes('permissions.nomos_disposable_git.network.enabled=false'));
