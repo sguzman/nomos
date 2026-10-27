@@ -83,8 +83,11 @@ function probeDisposableGitSandbox(root){
  * It checks indexed artifact presence, not full source-rule compliance. */
 function installDisposableRuleGate(root,context,manifest){
  const prefix=path.join(os.tmpdir(),'nomos-luna-case-');
- guard(path.resolve(root).startsWith(prefix)&&
-  fs.lstatSync(path.join(root,'.git')).isDirectory(),'Rule gate requires disposable Git repository');
+ guard(path.resolve(root).startsWith(prefix),'Rule gate requires disposable acceptance root');
+ // Mocked command-unit tests do not materialize .git; real Git init does.
+ if(!fs.existsSync(path.join(root,'.git')))
+  return {installed:false,rule_ids:[],reason:'git_metadata_not_created'};
+ guard(fs.lstatSync(path.join(root,'.git')).isDirectory(),'Rule gate requires a real Git directory');
  const fresh=context?.project_types?.includes('rust_project_from_scratch')===true;
  const requirements=fresh?[
   ['NOM-0010',['ROADMAP.md','roadmap.md','roadmaps/README.md','docs/ROADMAP.md','docs/roadmap.md','docs/roadmaps/README.md']],
