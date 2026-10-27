@@ -486,3 +486,20 @@ test('final progress preflight distinguishes missing visuals from a scoped quant
  const unknown=runner.handoffProgressPreflight('{"type":"turn.completed"}',manifest);
  assert.equal(unknown.inspected,false);
 });
+
+
+test('NOM-0043 post-commit preflight catches only evidenced stale Git milestone state',()=>{
+ const road='# Roadmap\n- 🚀 **Milestone: Commit on main** — Status: in progress.\n';
+ const args={agent_created_commits:1,worktree_clean:true,rule_selected:true};
+ assert.deepEqual(runner.roadmapCommitStatusPreflight(road,args),{
+  inspected:true,stale_commit_milestone_lines:[2]});
+ assert.deepEqual(runner.roadmapCommitStatusPreflight(road.replace('in progress','complete'),args),{
+  inspected:true,stale_commit_milestone_lines:[]});
+ assert.equal(runner.roadmapCommitStatusPreflight(road,{...args,agent_created_commits:0})
+  .stale_commit_milestone_lines.length,0);
+ assert.equal(runner.roadmapCommitStatusPreflight(road,{...args,rule_selected:false}).inspected,false);
+ assert.equal(runner.roadmapCommitStatusPreflight(road,{...args,worktree_clean:false}).inspected,false);
+ assert.deepEqual(runner.roadmapCommitStatusPreflight(
+  '# Roadmap\n- 🚀 **Milestone: Deploy to cloud** — Status: in progress.\n',args),{
+   inspected:true,stale_commit_milestone_lines:[]});
+});
