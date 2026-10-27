@@ -111,7 +111,7 @@ function run(argv){
  const gitStatus=command('git',['status','--porcelain=v1'],root);
  // HEAD has one synthetic baseline commit before Codex starts.
  const gitCommitCount=command('git',['rev-list','--count','HEAD'],root);
- const parsedCount=gitCommitCount.status===0&&/^\\d+\\s*$/.test(gitCommitCount.stdout)
+ const parsedCount=gitCommitCount.status===0&&/^\d+\s*$/.test(gitCommitCount.stdout)
   ?Number(gitCommitCount.stdout.trim()):null;
  const agentCreatedCommits=Number.isSafeInteger(parsedCount)&&parsedCount>=1?parsedCount-1:null;
  const worktreeClean=gitStatus.status===0?gitStatus.stdout.trim()==='':null;
