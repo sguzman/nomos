@@ -135,6 +135,9 @@ test('opt-in disposable evaluation disables sccache only inside child process',(
    assert.match(invocation.input,/new project being created from scratch/);
    assert.match(invocation.input,/temporary cargo-init scaffolding/);
    assert.match(invocation.input,/\.nomos\/projection\.json/);
+   assert.match(invocation.input,/reconcile ROADMAP.md status text against the actual committed HEAD/);
+   assert.match(invocation.input,/NOM-0068 through NOM-0072/);
+   assert.match(invocation.input,/matching visual progress bar/);
   }finally{fs.rmSync(report.workspace,{recursive:true,force:true});fs.rmSync(report.private_evidence,{recursive:true,force:true});}
  }finally{cp.spawnSync=original;}
 });
