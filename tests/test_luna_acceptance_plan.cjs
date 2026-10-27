@@ -28,13 +28,27 @@ test('planning is offline and never launches a model, cargo or git',()=>{
  }finally{cp.spawnSync=original;}
 });
 test('isolated Codex agent execution requires explicit opt in',()=>{
- assert.deepEqual(runner.argsOf(['--case','RUST-CLI']),{case_id:'RUST-CLI',model:null,execute:false,probe_sandbox:false});
+ assert.deepEqual(runner.argsOf(['--case','RUST-CLI']),{case_id:'RUST-CLI',model:null,target:'codex',execute:false,probe_sandbox:false});
  assert.deepEqual(runner.argsOf(['--case','RUST-CLI','--execute']).execute,true);
  assert.throws(()=>runner.run([]),/Required/);
  assert.throws(()=>runner.run(['--case','fake']),/Unknown synthetic/);
  assert.throws(()=>runner.run(['--case','RUST-CLI','--model','../../bad']),/model selector/);
  assert.throws(()=>runner.run(['--case','RUST-CLI','--yolo']),/Unknown argument/);
 });
+test('mixed-scope generic fallback generates an explicit Markdown-only package',()=>{
+ const p=runner.plan('RUST-MIXED',null,'generic');
+ assert.equal(p.bundle.manifest.agent_target,'generic');
+ assert.equal(p.snapshot.agent_target,'generic');
+ assert.ok(p.bundle.files.has('AGENTS.md'));
+ assert.ok(p.bundle.files.has('.nomos/read-phase.cjs'));
+ assert.equal([...p.bundle.files.keys()].some(x=>x.startsWith('.agents/skills/')),false);
+ assert.match(p.bundle.files.get('AGENTS.md'),/Agent target: generic/);
+ assert.equal(runner.argsOf(['--case','RUST-MIXED','--target','generic']).target,'generic');
+ assert.throws(()=>runner.argsOf(['--case','RUST-MIXED','--target','unknown']),/Invalid agent package target/);
+ assert.throws(()=>runner.plan('RUST-MIXED',null,'unknown'),/Unsupported synthetic agent package target/);
+ assert.equal(runner.run(['--case','RUST-MIXED','--target','generic']).status,'planning_only');
+});
+
 test('synthetic plans never mutate actual public draft profile',()=>{
  const catalog=require('../docs/catalog.json'),p=catalog.profiles.find(x=>x.id==='PROFILE-0004');
  const before=JSON.stringify(p);
