@@ -129,3 +129,52 @@ test('started session without turn.completed is not a completed agent turn',()=>
   }finally{fs.rmSync(report.workspace,{recursive:true,force:true});fs.rmSync(report.private_evidence,{recursive:true,force:true});}
  }finally{cp.spawnSync=original;}
 });
+
+test('disposable Git identity and post-baseline commit are required for workflow evidence',()=>{
+ const fs=require('node:fs'),cp=require('node:child_process'),original=cp.spawnSync,seen=[];
+ try{
+  cp.spawnSync=(exe,args)=>{
+   seen.push([exe,...args]);
+   if(exe==='git'&&args[0]==='rev-list')
+    return {status:0,signal:null,error:null,stdout:'2\\n',stderr:''};
+   if(exe==='codex'&&args.includes('--json'))
+    return {status:0,signal:null,error:null,stdout:'{"type":"thread.started"}\\n{"type":"turn.completed"}\\n',stderr:''};
+   return {status:0,signal:null,error:null,stdout:'',stderr:''};
+  };
+  const report=runner.run(['--case','RUST-CLI','--execute']);
+  try{
+   assert.ok(seen.some(c=>c[0]==='git'&&c.slice(1,5).join(' ')==='config --local user.name Nomos QA'));
+   assert.ok(seen.some(c=>c[0]==='git'&&c.slice(1,4).join(' ')==='config --local user.email'));
+   assert.equal(report.agent_created_commit_count,1);
+   assert.equal(report.worktree_clean,true);
+   assert.equal(report.agent_workflow_requirements_met,true);
+   assert.equal(report.status,'awaiting_independent_review');
+   assert.equal(report.independent_reviewer_accepted,false);
+   assert.equal(report.production_accepted,false);
+  }finally{fs.rmSync(report.workspace,{recursive:true,force:true});fs.rmSync(report.private_evidence,{recursive:true,force:true});}
+ }finally{cp.spawnSync=original;}
+});
+
+test('Codex turn with only baseline commit and dirty workspace fails mechanical workflow gate',()=>{
+ const fs=require('node:fs'),cp=require('node:child_process'),original=cp.spawnSync;
+ try{
+  cp.spawnSync=(exe,args)=>{
+   if(exe==='git'&&args[0]==='rev-list')
+    return {status:0,signal:null,error:null,stdout:'1\\n',stderr:''};
+   if(exe==='git'&&args[0]==='status')
+    return {status:0,signal:null,error:null,stdout:' M src/main.rs\\n',stderr:''};
+   if(exe==='codex'&&args.includes('--json'))
+    return {status:0,signal:null,error:null,stdout:'{"type":"thread.started"}\\n{"type":"turn.completed"}\\n',stderr:''};
+   return {status:0,signal:null,error:null,stdout:'',stderr:''};
+  };
+  const report=runner.run(['--case','RUST-CLI','--execute']);
+  try{
+   assert.equal(report.agent_turn_completed,true);
+   assert.equal(report.agent_created_commit_count,0);
+   assert.equal(report.worktree_clean,false);
+   assert.equal(report.agent_workflow_requirements_met,false);
+   assert.equal(report.status,'agent_workflow_incomplete');
+   assert.equal(report.independent_reviewer_accepted,false);
+  }finally{fs.rmSync(report.workspace,{recursive:true,force:true});fs.rmSync(report.private_evidence,{recursive:true,force:true});}
+ }finally{cp.spawnSync=original;}
+});
