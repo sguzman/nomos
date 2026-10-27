@@ -1,0 +1,766 @@
+{
+  "schema_version": 1,
+  "kind": "nomos_public_safe_independent_rule_review",
+  "case_id": "RUST-MIXED",
+  "agent_target": "generic",
+  "trace_transport": "Codex CLI 0.163.0 JSONL",
+  "review_date": "2026-10-27",
+  "synthetic_profile_id": "PROFILE-0004",
+  "profile_finalized": false,
+  "production_export_authorized": false,
+  "agent_head_sha": "ebdcfdb6ed485f299c20291b67ace64dd1c51fc4",
+  "private_archive_sha256": "e517a7e6a3b545effa4e22a2d3810beb5f5255f34b182d48f1e8160a5f97747d",
+  "mechanical_evidence": {
+    "installed_source_rules": 89,
+    "installed_package_files": 14,
+    "verified_phase_read_receipts": 11,
+    "distinct_phase_reads": [
+      "planning",
+      "implementation",
+      "testing",
+      "review",
+      "shutdown"
+    ],
+    "generic_entrypoint_read_observed": true,
+    "codex_skill_wrappers_present": false,
+    "agent_git_commits": 2,
+    "worktree_clean": true,
+    "rust_unit_tests_passed": 6,
+    "rust_fmt_passed": true,
+    "rust_clippy_passed": true,
+    "roadmap_item_count": 23,
+    "roadmap_distinct_emoji_items": 23,
+    "actual_hosted_ci_run": false
+  },
+  "original_report_status": "requires_artifact_remediation",
+  "prior_runner_gaps": [
+    "handoff_completed_items_missing_individual_progress_bars",
+    "machine_observer_rejected_generic_target"
+  ],
+  "review_of_gaps": {
+    "progress": "false-positive completed-item matcher counted prose about completed local work on a separately quantified 75%-complete parent. Every completed 100%-quantified roadmap item reports its own matching bar. 75% is represented by the nearest ten-cell bar within documented tolerance.",
+    "phase_observer": "false-positive Codex-only manifest assumption despite authentic Codex command JSONL; generic package's receipt hashes and actual AGENTS.md read were verified independently."
+  },
+  "counts": {
+    "satisfied": 43,
+    "violated": 0,
+    "not_applicable": 46,
+    "unobserved": 0
+  },
+  "per_rule": [
+    {
+      "rule_id": "NOM-0001",
+      "status": "satisfied",
+      "basis": "The isolated generic-Markdown acceptance project uses synthetic key=value strings and no private user material. The recorded Git diff is limited to Rust source, its Cargo metadata, CI, docs, and roadmap; no profile was activated.",
+      "evidence_artifacts": [
+        "agent-commit.patch",
+        "agent-events.jsonl",
+        ".nomos/manifest.json"
+      ]
+    },
+    {
+      "rule_id": "NOM-0003",
+      "status": "satisfied",
+      "basis": "The isolated generic-Markdown acceptance project uses synthetic key=value strings and no private user material. The recorded Git diff is limited to Rust source, its Cargo metadata, CI, docs, and roadmap; no profile was activated.",
+      "evidence_artifacts": [
+        "agent-commit.patch",
+        "agent-events.jsonl",
+        ".nomos/manifest.json"
+      ]
+    },
+    {
+      "rule_id": "NOM-0004",
+      "status": "satisfied",
+      "basis": "The isolated generic-Markdown acceptance project uses synthetic key=value strings and no private user material. The recorded Git diff is limited to Rust source, its Cargo metadata, CI, docs, and roadmap; no profile was activated.",
+      "evidence_artifacts": [
+        "agent-commit.patch",
+        "agent-events.jsonl",
+        ".nomos/manifest.json"
+      ]
+    },
+    {
+      "rule_id": "NOM-0008",
+      "status": "satisfied",
+      "basis": "A dependency-free edition-2024 Rust CLI performs bounded key=value validation with separate parsing, key registration, bounded line reads and explicit failure outcomes.",
+      "evidence_artifacts": [
+        "src/main.rs",
+        "Cargo.toml",
+        "Cargo.lock",
+        "agent-commit.patch",
+        "agent-events.jsonl"
+      ]
+    },
+    {
+      "rule_id": "NOM-0010",
+      "status": "satisfied",
+      "basis": "ROADMAP.md contains 23 uniquely emoji-identified items across three phases, milestones, features and subtasks. The two commits accurately reconcile completed implementation and local checks with the hosted GitHub Actions execution still outstanding.",
+      "evidence_artifacts": [
+        "ROADMAP.md",
+        "agent-commit.patch",
+        "agent-events.jsonl"
+      ]
+    },
+    {
+      "rule_id": "NOM-0012",
+      "status": "satisfied",
+      "basis": "The from-scratch project has a dependency-free Rust 2024 CLI with explicit 4096-byte line and 128-unique-key bounds, case-sensitive duplicate-key tracking, invalid UTF-8 and unsafe-character rejection, scoped Git operations and two witnessed commits leaving a clean tree.",
+      "evidence_artifacts": [
+        "src/main.rs",
+        "Cargo.toml",
+        "Cargo.lock",
+        "agent-commit.patch",
+        "agent-events.jsonl"
+      ]
+    },
+    {
+      "rule_id": "NOM-0014",
+      "status": "satisfied",
+      "basis": "The from-scratch project has a dependency-free Rust 2024 CLI with explicit 4096-byte line and 128-unique-key bounds, case-sensitive duplicate-key tracking, invalid UTF-8 and unsafe-character rejection, scoped Git operations and two witnessed commits leaving a clean tree.",
+      "evidence_artifacts": [
+        "src/main.rs",
+        "Cargo.toml",
+        "Cargo.lock",
+        "agent-commit.patch",
+        "agent-events.jsonl"
+      ]
+    },
+    {
+      "rule_id": "NOM-0015",
+      "status": "satisfied",
+      "basis": "The from-scratch project has a dependency-free Rust 2024 CLI with explicit 4096-byte line and 128-unique-key bounds, case-sensitive duplicate-key tracking, invalid UTF-8 and unsafe-character rejection, scoped Git operations and two witnessed commits leaving a clean tree.",
+      "evidence_artifacts": [
+        "src/main.rs",
+        "Cargo.toml",
+        "Cargo.lock",
+        "agent-commit.patch",
+        "agent-events.jsonl"
+      ]
+    },
+    {
+      "rule_id": "NOM-0016",
+      "status": "satisfied",
+      "basis": "The from-scratch project has a dependency-free Rust 2024 CLI with explicit 4096-byte line and 128-unique-key bounds, case-sensitive duplicate-key tracking, invalid UTF-8 and unsafe-character rejection, scoped Git operations and two witnessed commits leaving a clean tree.",
+      "evidence_artifacts": [
+        "src/main.rs",
+        "Cargo.toml",
+        "Cargo.lock",
+        "agent-commit.patch",
+        "agent-events.jsonl"
+      ]
+    },
+    {
+      "rule_id": "NOM-0017",
+      "status": "satisfied",
+      "basis": "The from-scratch project has a dependency-free Rust 2024 CLI with explicit 4096-byte line and 128-unique-key bounds, case-sensitive duplicate-key tracking, invalid UTF-8 and unsafe-character rejection, scoped Git operations and two witnessed commits leaving a clean tree.",
+      "evidence_artifacts": [
+        "src/main.rs",
+        "Cargo.toml",
+        "Cargo.lock",
+        "agent-commit.patch",
+        "agent-events.jsonl"
+      ]
+    },
+    {
+      "rule_id": "NOM-0018",
+      "status": "satisfied",
+      "basis": "The from-scratch project has a dependency-free Rust 2024 CLI with explicit 4096-byte line and 128-unique-key bounds, case-sensitive duplicate-key tracking, invalid UTF-8 and unsafe-character rejection, scoped Git operations and two witnessed commits leaving a clean tree.",
+      "evidence_artifacts": [
+        "src/main.rs",
+        "Cargo.toml",
+        "Cargo.lock",
+        "agent-commit.patch",
+        "agent-events.jsonl"
+      ]
+    },
+    {
+      "rule_id": "NOM-0019",
+      "status": "not_applicable",
+      "basis": "No change to licensing was requested or authorized for this synthetic acceptance scenario."
+    },
+    {
+      "rule_id": "NOM-0020",
+      "status": "satisfied",
+      "basis": "The from-scratch project has a dependency-free Rust 2024 CLI with explicit 4096-byte line and 128-unique-key bounds, case-sensitive duplicate-key tracking, invalid UTF-8 and unsafe-character rejection, scoped Git operations and two witnessed commits leaving a clean tree.",
+      "evidence_artifacts": [
+        "src/main.rs",
+        "Cargo.toml",
+        "Cargo.lock",
+        "agent-commit.patch",
+        "agent-events.jsonl"
+      ]
+    },
+    {
+      "rule_id": "NOM-0021",
+      "status": "not_applicable",
+      "basis": "No scoped request to remove obsolete scaffolding or unrelated templates; Cargo initializer is intentional harness scaffolding."
+    },
+    {
+      "rule_id": "NOM-0022",
+      "status": "satisfied",
+      "basis": "The from-scratch project has a dependency-free Rust 2024 CLI with explicit 4096-byte line and 128-unique-key bounds, case-sensitive duplicate-key tracking, invalid UTF-8 and unsafe-character rejection, scoped Git operations and two witnessed commits leaving a clean tree.",
+      "evidence_artifacts": [
+        "src/main.rs",
+        "Cargo.toml",
+        "Cargo.lock",
+        "agent-commit.patch",
+        "agent-events.jsonl"
+      ]
+    },
+    {
+      "rule_id": "NOM-0023",
+      "status": "satisfied",
+      "basis": "The from-scratch project has a dependency-free Rust 2024 CLI with explicit 4096-byte line and 128-unique-key bounds, case-sensitive duplicate-key tracking, invalid UTF-8 and unsafe-character rejection, scoped Git operations and two witnessed commits leaving a clean tree.",
+      "evidence_artifacts": [
+        "src/main.rs",
+        "Cargo.toml",
+        "Cargo.lock",
+        "agent-commit.patch",
+        "agent-events.jsonl"
+      ]
+    },
+    {
+      "rule_id": "NOM-0024",
+      "status": "satisfied",
+      "basis": "Six recorded Rust unit tests pass for valid key/value parsing, malformed or dangerous input, duplicate keys, entry and line limits, EOF and empty input. The real CLI was additionally invoked with valid CRLF and duplicate-key/shell-like invalid cases and verified by exit codes. Offline fmt/Clippy/Cargo tests pass.",
+      "evidence_artifacts": [
+        "src/main.rs",
+        "cargo-test.stdout",
+        "cargo-fmt.stdout",
+        "cargo-clippy.stderr",
+        "agent-events.jsonl"
+      ]
+    },
+    {
+      "rule_id": "NOM-0025",
+      "status": "satisfied",
+      "basis": "Six recorded Rust unit tests pass for valid key/value parsing, malformed or dangerous input, duplicate keys, entry and line limits, EOF and empty input. The real CLI was additionally invoked with valid CRLF and duplicate-key/shell-like invalid cases and verified by exit codes. Offline fmt/Clippy/Cargo tests pass.",
+      "evidence_artifacts": [
+        "src/main.rs",
+        "cargo-test.stdout",
+        "cargo-fmt.stdout",
+        "cargo-clippy.stderr",
+        "agent-events.jsonl"
+      ]
+    },
+    {
+      "rule_id": "NOM-0026",
+      "status": "satisfied",
+      "basis": "Six recorded Rust unit tests pass for valid key/value parsing, malformed or dangerous input, duplicate keys, entry and line limits, EOF and empty input. The real CLI was additionally invoked with valid CRLF and duplicate-key/shell-like invalid cases and verified by exit codes. Offline fmt/Clippy/Cargo tests pass.",
+      "evidence_artifacts": [
+        "src/main.rs",
+        "cargo-test.stdout",
+        "cargo-fmt.stdout",
+        "cargo-clippy.stderr",
+        "agent-events.jsonl"
+      ]
+    },
+    {
+      "rule_id": "NOM-0027",
+      "status": "satisfied",
+      "basis": "Six focused source-controlled unit tests validate valid records, malformed separators, unsafe character classes, duplicate keys, 128-entry cap, 4096-byte line cap, EOF and empty input. All six are recorded passing.",
+      "evidence_artifacts": [
+        "src/main.rs",
+        "cargo-test.stdout",
+        "cargo-fmt.stdout",
+        "cargo-clippy.stderr",
+        "agent-events.jsonl"
+      ]
+    },
+    {
+      "rule_id": "NOM-0028",
+      "status": "satisfied",
+      "basis": "The CLI's stdin/stdout integration boundary was exercised with actual cargo run commands for CRLF-valid input and invalid duplicate/shell-like input; tests also exercise parsing, reading, and duplicate-key registration in combination. There is no claim of a separate dedicated integration test binary.",
+      "evidence_artifacts": [
+        "src/main.rs",
+        "cargo-test.stdout",
+        "cargo-fmt.stdout",
+        "cargo-clippy.stderr",
+        "agent-events.jsonl"
+      ]
+    },
+    {
+      "rule_id": "NOM-0029",
+      "status": "not_applicable",
+      "basis": "No previously reported reproducible defect in a maintained product is being repaired."
+    },
+    {
+      "rule_id": "NOM-0030",
+      "status": "satisfied",
+      "basis": "Actual error and edge-case coverage includes invalid UTF-8 handling in implementation, invalid separator/key/value tests, shell-like input refusal, duplicate and excess entry tests, overlong line rejection, EOF and empty-input tests. Agent manually verified CLI error status 2.",
+      "evidence_artifacts": [
+        "src/main.rs",
+        "cargo-test.stdout",
+        "cargo-fmt.stdout",
+        "cargo-clippy.stderr",
+        "agent-events.jsonl"
+      ]
+    },
+    {
+      "rule_id": "NOM-0031",
+      "status": "satisfied",
+      "basis": "Six recorded Rust unit tests pass for valid key/value parsing, malformed or dangerous input, duplicate keys, entry and line limits, EOF and empty input. The real CLI was additionally invoked with valid CRLF and duplicate-key/shell-like invalid cases and verified by exit codes. Offline fmt/Clippy/Cargo tests pass.",
+      "evidence_artifacts": [
+        "src/main.rs",
+        "cargo-test.stdout",
+        "cargo-fmt.stdout",
+        "cargo-clippy.stderr",
+        "agent-events.jsonl"
+      ]
+    },
+    {
+      "rule_id": "NOM-0032",
+      "status": "satisfied",
+      "basis": "Six recorded Rust unit tests pass for valid key/value parsing, malformed or dangerous input, duplicate keys, entry and line limits, EOF and empty input. The real CLI was additionally invoked with valid CRLF and duplicate-key/shell-like invalid cases and verified by exit codes. Offline fmt/Clippy/Cargo tests pass.",
+      "evidence_artifacts": [
+        "src/main.rs",
+        "cargo-test.stdout",
+        "cargo-fmt.stdout",
+        "cargo-clippy.stderr",
+        "agent-events.jsonl"
+      ]
+    },
+    {
+      "rule_id": "NOM-0033",
+      "status": "not_applicable",
+      "basis": "No selectable features, multiple target triples or multi-variant build surface was declared."
+    },
+    {
+      "rule_id": "NOM-0034",
+      "status": "satisfied",
+      "basis": "GitHub Actions configuration covers push and pull_request with read-only permissions, Rust stable fmt, lint and Cargo tests. The agent ran matching local checks but did not claim hosted GitHub CI executed in the disposable repo.",
+      "evidence_artifacts": [
+        ".github/workflows/ci.yml",
+        "README.md",
+        "ROADMAP.md",
+        "agent-events.jsonl"
+      ]
+    },
+    {
+      "rule_id": "NOM-0035",
+      "status": "satisfied",
+      "basis": "GitHub Actions configuration covers push and pull_request with read-only permissions, Rust stable fmt, lint and Cargo tests. The agent ran matching local checks but did not claim hosted GitHub CI executed in the disposable repo.",
+      "evidence_artifacts": [
+        ".github/workflows/ci.yml",
+        "README.md",
+        "ROADMAP.md",
+        "agent-events.jsonl"
+      ]
+    },
+    {
+      "rule_id": "NOM-0036",
+      "status": "satisfied",
+      "basis": "GitHub Actions configuration covers push and pull_request with read-only permissions, Rust stable fmt, lint and Cargo tests. The agent ran matching local checks but did not claim hosted GitHub CI executed in the disposable repo.",
+      "evidence_artifacts": [
+        ".github/workflows/ci.yml",
+        "README.md",
+        "ROADMAP.md",
+        "agent-events.jsonl"
+      ]
+    },
+    {
+      "rule_id": "NOM-0037",
+      "status": "not_applicable",
+      "basis": "No multiple platform support was advertised."
+    },
+    {
+      "rule_id": "NOM-0038",
+      "status": "not_applicable",
+      "basis": "No authorized deployment target exists for this disposable project."
+    },
+    {
+      "rule_id": "NOM-0039",
+      "status": "not_applicable",
+      "basis": "No hosted CI run failed; there was only an observed initial local pre-commit rejection, subsequently corrected."
+    },
+    {
+      "rule_id": "NOM-0040",
+      "status": "satisfied",
+      "basis": "GitHub Actions configuration covers push and pull_request with read-only permissions, Rust stable fmt, lint and Cargo tests. The agent ran matching local checks but did not claim hosted GitHub CI executed in the disposable repo.",
+      "evidence_artifacts": [
+        ".github/workflows/ci.yml",
+        "README.md",
+        "ROADMAP.md",
+        "agent-events.jsonl"
+      ]
+    },
+    {
+      "rule_id": "NOM-0041",
+      "status": "satisfied",
+      "basis": "GitHub Actions configuration covers push and pull_request with read-only permissions, Rust stable fmt, lint and Cargo tests. The agent ran matching local checks but did not claim hosted GitHub CI executed in the disposable repo.",
+      "evidence_artifacts": [
+        ".github/workflows/ci.yml",
+        "README.md",
+        "ROADMAP.md",
+        "agent-events.jsonl"
+      ]
+    },
+    {
+      "rule_id": "NOM-0042",
+      "status": "satisfied",
+      "basis": "README matches actual stdin-based CLI, --help, permitted ASCII key/value classes, explicit bounds, line-numbered failures, exit code 2, untrusted-input warning, and real local check commands.",
+      "evidence_artifacts": [
+        "README.md",
+        "src/main.rs",
+        "agent-events.jsonl"
+      ]
+    },
+    {
+      "rule_id": "NOM-0043",
+      "status": "satisfied",
+      "basis": "ROADMAP.md contains 23 uniquely emoji-identified items across three phases, milestones, features and subtasks. The two commits accurately reconcile completed implementation and local checks with the hosted GitHub Actions execution still outstanding.",
+      "evidence_artifacts": [
+        "ROADMAP.md",
+        "agent-commit.patch",
+        "agent-events.jsonl"
+      ]
+    },
+    {
+      "rule_id": "NOM-0044",
+      "status": "not_applicable",
+      "basis": "Minimal CLI has no consequential architecture or data model warranting an ADR."
+    },
+    {
+      "rule_id": "NOM-0045",
+      "status": "not_applicable",
+      "basis": "No application configuration keys or env-based settings were introduced."
+    },
+    {
+      "rule_id": "NOM-0046",
+      "status": "satisfied",
+      "basis": "README matches actual stdin-based CLI, --help, permitted ASCII key/value classes, explicit bounds, line-numbered failures, exit code 2, untrusted-input warning, and real local check commands.",
+      "evidence_artifacts": [
+        "README.md",
+        "src/main.rs",
+        "agent-events.jsonl"
+      ]
+    },
+    {
+      "rule_id": "NOM-0047",
+      "status": "not_applicable",
+      "basis": "No established changelog or authorized release exists."
+    },
+    {
+      "rule_id": "NOM-0048",
+      "status": "satisfied",
+      "basis": "README matches actual stdin-based CLI, --help, permitted ASCII key/value classes, explicit bounds, line-numbered failures, exit code 2, untrusted-input warning, and real local check commands.",
+      "evidence_artifacts": [
+        "README.md",
+        "src/main.rs",
+        "agent-events.jsonl"
+      ]
+    },
+    {
+      "rule_id": "NOM-0049",
+      "status": "not_applicable",
+      "basis": "No imported nonproject material with attribution or licensing requirements is incorporated."
+    },
+    {
+      "rule_id": "NOM-0050",
+      "status": "satisfied",
+      "basis": "The isolated generic-Markdown acceptance project uses synthetic key=value strings and no private user material. The recorded Git diff is limited to Rust source, its Cargo metadata, CI, docs, and roadmap; no profile was activated.",
+      "evidence_artifacts": [
+        "agent-commit.patch",
+        "agent-events.jsonl",
+        ".nomos/manifest.json"
+      ]
+    },
+    {
+      "rule_id": "NOM-0051",
+      "status": "satisfied",
+      "basis": "The isolated generic-Markdown acceptance project uses synthetic key=value strings and no private user material. The recorded Git diff is limited to Rust source, its Cargo metadata, CI, docs, and roadmap; no profile was activated.",
+      "evidence_artifacts": [
+        "agent-commit.patch",
+        "agent-events.jsonl",
+        ".nomos/manifest.json"
+      ]
+    },
+    {
+      "rule_id": "NOM-0052",
+      "status": "satisfied",
+      "basis": "The isolated generic-Markdown acceptance project uses synthetic key=value strings and no private user material. The recorded Git diff is limited to Rust source, its Cargo metadata, CI, docs, and roadmap; no profile was activated.",
+      "evidence_artifacts": [
+        "agent-commit.patch",
+        "agent-events.jsonl",
+        ".nomos/manifest.json"
+      ]
+    },
+    {
+      "rule_id": "NOM-0053",
+      "status": "not_applicable",
+      "basis": "No round-trip import/export, migration or valuable persistent data transformation is in scope."
+    },
+    {
+      "rule_id": "NOM-0054",
+      "status": "not_applicable",
+      "basis": "New CLI lacks established externally consumed compatibility contract."
+    },
+    {
+      "rule_id": "NOM-0055",
+      "status": "not_applicable",
+      "basis": "No authorized versioned release, published artifact or release process was undertaken in this disposable task."
+    },
+    {
+      "rule_id": "NOM-0056",
+      "status": "not_applicable",
+      "basis": "No authorized versioned release, published artifact or release process was undertaken in this disposable task."
+    },
+    {
+      "rule_id": "NOM-0057",
+      "status": "not_applicable",
+      "basis": "No authorized versioned release, published artifact or release process was undertaken in this disposable task."
+    },
+    {
+      "rule_id": "NOM-0058",
+      "status": "not_applicable",
+      "basis": "No authorized versioned release, published artifact or release process was undertaken in this disposable task."
+    },
+    {
+      "rule_id": "NOM-0059",
+      "status": "not_applicable",
+      "basis": "No authorized versioned release, published artifact or release process was undertaken in this disposable task."
+    },
+    {
+      "rule_id": "NOM-0060",
+      "status": "not_applicable",
+      "basis": "No authorized versioned release, published artifact or release process was undertaken in this disposable task."
+    },
+    {
+      "rule_id": "NOM-0061",
+      "status": "not_applicable",
+      "basis": "No authorized versioned release, published artifact or release process was undertaken in this disposable task."
+    },
+    {
+      "rule_id": "NOM-0062",
+      "status": "satisfied",
+      "basis": "Six recorded Rust unit tests pass for valid key/value parsing, malformed or dangerous input, duplicate keys, entry and line limits, EOF and empty input. The real CLI was additionally invoked with valid CRLF and duplicate-key/shell-like invalid cases and verified by exit codes. Offline fmt/Clippy/Cargo tests pass.",
+      "evidence_artifacts": [
+        "src/main.rs",
+        "cargo-test.stdout",
+        "cargo-fmt.stdout",
+        "cargo-clippy.stderr",
+        "agent-events.jsonl"
+      ]
+    },
+    {
+      "rule_id": "NOM-0063",
+      "status": "not_applicable",
+      "basis": "No GUI or browser interface is part of the project."
+    },
+    {
+      "rule_id": "NOM-0064",
+      "status": "satisfied",
+      "basis": "Agent inspected staged code/roadmap/diff, addressed test-coverage gaps identified during review and compared authorized tasks to artifacts before final commits; the final handoff explicitly discloses unrun hosted CI.",
+      "evidence_artifacts": [
+        "agent-events.jsonl",
+        "ROADMAP.md",
+        "report.json"
+      ]
+    },
+    {
+      "rule_id": "NOM-0065",
+      "status": "satisfied",
+      "basis": "Final Codex handoff lists all 23 roadmap items individually with percentage and bar for 22 quantifiable items; one unexecuted hosted CI item is correctly pending. Quantified 75-percent parent items have rounded seven-of-ten visual bars, within the documented bar-segment tolerance, and distinguish finished local verification from outstanding hosted CI.",
+      "evidence_artifacts": [
+        "agent-events.jsonl",
+        "ROADMAP.md",
+        "report.json"
+      ]
+    },
+    {
+      "rule_id": "NOM-0066",
+      "status": "satisfied",
+      "basis": "The actual final handoff names both real Git commits, clean tree, six passing Cargo unit tests, formatting and offline Clippy, manual CLI checks and the outstanding hosted CI result.",
+      "evidence_artifacts": [
+        "agent-events.jsonl",
+        "ROADMAP.md",
+        "report.json"
+      ]
+    },
+    {
+      "rule_id": "NOM-0067",
+      "status": "satisfied",
+      "basis": "The final roadmap and handoff keep hosted CI and public release uncompleted; the 75% verification phase is not marked 100%.",
+      "evidence_artifacts": [
+        "agent-events.jsonl",
+        "ROADMAP.md",
+        "report.json"
+      ]
+    },
+    {
+      "rule_id": "NOM-0068",
+      "status": "satisfied",
+      "basis": "All 23 distinct roadmap phases, milestones, features and subtasks are individually listed in final handoff. Twenty-two quantified items each have percentage/bar and one hosted CI result remains explicitly pending.",
+      "evidence_artifacts": [
+        "agent-events.jsonl",
+        "ROADMAP.md",
+        "report.json"
+      ]
+    },
+    {
+      "rule_id": "NOM-0069",
+      "status": "satisfied",
+      "basis": "Every quantified completed phase, feature, milestone or task reports 100% with ten filled segments. Three 75% parent items use 7/10 bars within Nomos's documented nearest-segment rounding tolerance; no falsely quantified hosted CI result. The prior mechanical gap on line 25 mistakenly treated an unfinished 75% parent as complete because local verification was described as complete.",
+      "evidence_artifacts": [
+        "agent-events.jsonl",
+        "ROADMAP.md",
+        "report.json"
+      ]
+    },
+    {
+      "rule_id": "NOM-0070",
+      "status": "satisfied",
+      "basis": "The final handoff has an 'Overall project progress' heading, summarizes completed requested implementation separately from hosted-CI/verification still in progress, and itemizes every layer without double-counting nested items.",
+      "evidence_artifacts": [
+        "agent-events.jsonl",
+        "ROADMAP.md",
+        "report.json"
+      ]
+    },
+    {
+      "rule_id": "NOM-0071",
+      "status": "satisfied",
+      "basis": "The only final completion handoff announces each of the 20 newly 100% completed scoped roadmap items in its own 100% item line, with no previous user-visible completed status to reannounce.",
+      "evidence_artifacts": [
+        "agent-events.jsonl",
+        "ROADMAP.md",
+        "report.json"
+      ]
+    },
+    {
+      "rule_id": "NOM-0072",
+      "status": "not_applicable",
+      "basis": "No later routine progress report after a previous 100-percent announcement appears in the bounded trace."
+    },
+    {
+      "rule_id": "NOM-0073",
+      "status": "not_applicable",
+      "basis": "No assigned project identity color exists; no README color requirement is activated."
+    },
+    {
+      "rule_id": "NOM-0087",
+      "status": "not_applicable",
+      "basis": "MVP graduation, inauguration or post-MVP governance was not authorized or undertaken in this acceptance scenario."
+    },
+    {
+      "rule_id": "NOM-0088",
+      "status": "not_applicable",
+      "basis": "MVP graduation, inauguration or post-MVP governance was not authorized or undertaken in this acceptance scenario."
+    },
+    {
+      "rule_id": "NOM-0089",
+      "status": "not_applicable",
+      "basis": "MVP graduation, inauguration or post-MVP governance was not authorized or undertaken in this acceptance scenario."
+    },
+    {
+      "rule_id": "NOM-0090",
+      "status": "not_applicable",
+      "basis": "MVP graduation, inauguration or post-MVP governance was not authorized or undertaken in this acceptance scenario."
+    },
+    {
+      "rule_id": "NOM-0091",
+      "status": "not_applicable",
+      "basis": "MVP graduation, inauguration or post-MVP governance was not authorized or undertaken in this acceptance scenario."
+    },
+    {
+      "rule_id": "NOM-0092",
+      "status": "not_applicable",
+      "basis": "MVP graduation, inauguration or post-MVP governance was not authorized or undertaken in this acceptance scenario."
+    },
+    {
+      "rule_id": "NOM-0093",
+      "status": "not_applicable",
+      "basis": "MVP graduation, inauguration or post-MVP governance was not authorized or undertaken in this acceptance scenario."
+    },
+    {
+      "rule_id": "NOM-0094",
+      "status": "not_applicable",
+      "basis": "MVP graduation, inauguration or post-MVP governance was not authorized or undertaken in this acceptance scenario."
+    },
+    {
+      "rule_id": "NOM-0095",
+      "status": "not_applicable",
+      "basis": "MVP graduation, inauguration or post-MVP governance was not authorized or undertaken in this acceptance scenario."
+    },
+    {
+      "rule_id": "NOM-0096",
+      "status": "not_applicable",
+      "basis": "MVP graduation, inauguration or post-MVP governance was not authorized or undertaken in this acceptance scenario."
+    },
+    {
+      "rule_id": "NOM-0097",
+      "status": "not_applicable",
+      "basis": "MVP graduation, inauguration or post-MVP governance was not authorized or undertaken in this acceptance scenario."
+    },
+    {
+      "rule_id": "NOM-0098",
+      "status": "not_applicable",
+      "basis": "MVP graduation, inauguration or post-MVP governance was not authorized or undertaken in this acceptance scenario."
+    },
+    {
+      "rule_id": "NOM-0099",
+      "status": "not_applicable",
+      "basis": "MVP graduation, inauguration or post-MVP governance was not authorized or undertaken in this acceptance scenario."
+    },
+    {
+      "rule_id": "NOM-0100",
+      "status": "not_applicable",
+      "basis": "MVP graduation, inauguration or post-MVP governance was not authorized or undertaken in this acceptance scenario."
+    },
+    {
+      "rule_id": "NOM-0101",
+      "status": "not_applicable",
+      "basis": "MVP graduation, inauguration or post-MVP governance was not authorized or undertaken in this acceptance scenario."
+    },
+    {
+      "rule_id": "NOM-0102",
+      "status": "not_applicable",
+      "basis": "MVP graduation, inauguration or post-MVP governance was not authorized or undertaken in this acceptance scenario."
+    },
+    {
+      "rule_id": "NOM-0103",
+      "status": "not_applicable",
+      "basis": "MVP graduation, inauguration or post-MVP governance was not authorized or undertaken in this acceptance scenario."
+    },
+    {
+      "rule_id": "NOM-0104",
+      "status": "not_applicable",
+      "basis": "MVP graduation, inauguration or post-MVP governance was not authorized or undertaken in this acceptance scenario."
+    },
+    {
+      "rule_id": "NOM-0105",
+      "status": "not_applicable",
+      "basis": "MVP graduation, inauguration or post-MVP governance was not authorized or undertaken in this acceptance scenario."
+    },
+    {
+      "rule_id": "NOM-0106",
+      "status": "not_applicable",
+      "basis": "MVP graduation, inauguration or post-MVP governance was not authorized or undertaken in this acceptance scenario."
+    },
+    {
+      "rule_id": "NOM-0107",
+      "status": "not_applicable",
+      "basis": "MVP graduation, inauguration or post-MVP governance was not authorized or undertaken in this acceptance scenario."
+    },
+    {
+      "rule_id": "NOM-0108",
+      "status": "not_applicable",
+      "basis": "MVP graduation, inauguration or post-MVP governance was not authorized or undertaken in this acceptance scenario."
+    },
+    {
+      "rule_id": "NOM-0109",
+      "status": "not_applicable",
+      "basis": "MVP graduation, inauguration or post-MVP governance was not authorized or undertaken in this acceptance scenario."
+    }
+  ],
+  "independent_reviewer_accepted": true,
+  "production_accepted": false,
+  "acceptance_scope": "One distinct disposable mixed project-context Rust key=value CLI using explicitly supplied generic Markdown AGENTS.md via Codex executor. This is not generic-agent automatic discovery.",
+  "limits": [
+    "The generic entrypoint was explicitly furnished; this does not prove an arbitrary generic agent auto-discovers AGENTS.md.",
+    "Recorded six unit tests and manual process-level CLI invocations, but there is no separately committed Rust integration test file.",
+    "No hosted CI occurred in the disposable target repository; a workflow was configured and local checks passed.",
+    "The review container did not have a Rust toolchain, so Rust test and CI outcomes are grounded in independently inspected agent command events, recorded Cargo output hashes and generated code.",
+    "Passing this one scenario does not prove universal source-rule compliance, automatic Skill discovery or production deployment readiness.",
+    "Private command traces and local machine paths are intentionally excluded from this public-safe audit."
+  ]
+}
