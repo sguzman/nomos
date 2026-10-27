@@ -29,7 +29,7 @@
 
 ## Measured progress
 
-**Implementation:** **68/69 evidence-backed checkpoints = 98.6%**. **Previous:** 97.1%. **Current:** 98.6%. **Delta:** +1.5 percentage points. Three distinct independently accepted real-agent scenarios are now supported by [Rust CLI](../audits/agent-consumption-rust-cli-110018b-accepted-review.json), [Rust persistence](../audits/agent-consumption-rust-persist-ad52a07-accepted-review.json), and [mixed generic Markdown](../audits/agent-consumption-rust-mixed-ebdcfdb-accepted-review.json) 89-rule audits, all with zero unresolved mandatory violations. The mixed scenario explicitly read the generic `AGENTS.md` through Codex and emitted 11 verified phase receipts, without implying generic agents auto-discover instructions. `RUN-08`, `EVAL-11` and `EVAL-12` are now complete; see the [scoped PASS decision and production-authorization limits](agent-consumption-production-decision.md). Only `REL-08` remains until final evidence-link and milestone consistency closure. No profile activation, real-repository installation, or unattended production deployment is authorized.
+**Engineering acceptance:** **69/69 evidence-backed checkpoints = 100.0%**. **Previous:** 98.6%. **Current:** 100.0%. **Delta:** +1.4 percentage points. All recorded milestone gates are independently evidenced, including the three different real-agent Rust scenarios, verified generic Markdown entrypoint and manifest-matching phase reads, the [scoped acceptance decision](agent-consumption-production-decision.md), and the [final checkpoint/evidence-link audit](../audits/agent-consumption-final-closure.json). **This 100% is completion of the defined engineering roadmap, not a general AI reliability percentage, user-profile finalization, production deployment or approval for unattended live-repository changes.** All optional profile selections remain inert and owner-controlled.
 
 `completion_percent = 100 × done_checkpoints / 69`; phase progress uses its own exact denominator. Use unrounded fractions as the source for arithmetic, display one decimal place, and compare only the same roadmap revision and acceptance denominator. A changed denominator must be disclosed and prior/current percentages marked non-comparable until rebased. Every change to `done` needs a concrete evidence link (file, commit, CI run, test fixture, or witnessed agent run); moving `done` back to `planned` is valid when evidence fails.
 
@@ -41,8 +41,8 @@
 | 🗣️ BLD | Guided website rule builder | 12 | 12 | 100.0% | PRJ, PKG |
 | 🔌 RUN | Agent integration and contextual retrieval | 8 | 8 | 100.0% | PKG |
 | 🧪 EVAL | Behavioral evaluation and production gates | 12 | 12 | 100.0% | BLD, RUN |
-| 🚀 REL | Delivery, documentation and maintenance | 8 | 7 | 87.5% | BLD, RUN, EVAL |
-| **Total** | **All gates must pass** | **69** | **68** | **98.6%** | |
+| 🚀 REL | Delivery, documentation and maintenance | 8 | 8 | 100.0% | BLD, RUN, EVAL |
+| **Total** | **All gates must pass** | **69** | **69** | **100.0%** | |
 
 ## 🧭 ARC · Consumption architecture and governance
 
@@ -160,7 +160,7 @@
 - [x] **REL-05 — Backward-compatibility policy.** Specify projection/package schema versioning, migration and safe refusal for unsupported versions.
 - [x] **REL-06 — Change and rollback documentation.** Preserve generated package identity, update diffs, rollback steps and reproducible source snapshots.
 - [x] **REL-07 — Release notes and evidence ledger.** Publish tests, supported agent variants, known limitations and real-run evidence without overstating QA.
-- [ ] **REL-08 — Final 100-percent closure audit.** Confirm every checkpoint has linked evidence and all milestone gates hold; correct any unjustified completion claims.
+- [x] **REL-08 — Final 100-percent closure audit.** Confirm every checkpoint has linked evidence and all milestone gates hold; correct any unjustified completion claims.
 
 ## Dependency and acceptance sequence
 
@@ -217,6 +217,12 @@ The third distinct-from-CLI `RUST-PERSIST` attempt produces a versioned UTF-8 jo
 Three real, distinct Rust scenarios now have published, privacy-safe independent 89-rule reviews with zero unresolved mandatory violations. The CLI and persistence cases used the Codex-targeted package, and the mixed project used **explicitly supplied generic Markdown**, with direct `AGENTS.md` and matching phase-module reads observed through Codex CLI. The mixed run's original generic-target observer failure and its falsely flagged 75%-complete verification phase were mechanical false positives, corrected by regression tests without changing source rules. All prior failed trials remain rejected rather than being retroactively counted.
 
 The [decision report](agent-consumption-production-decision.md) marks scoped engineering acceptance **PASS**, while profile activation, public export, installation on a live user project and unattended deployment remain **NOT AUTHORIZED**. This distinction is an approval boundary, not an invented extra engineering task. Final checkpoint `REL-08` awaits a complete link/status/milestone evidence audit.
+
+## Final closure: all engineering checkpoints accepted (2026-10-27)
+
+The [final closure evidence audit](../audits/agent-consumption-final-closure.json) verified unique identities, explicit evidence references for every previously accepted checkpoint, the unchanged canonical rules tree, and the completed independent three-scenario source-rule reviews. The self-referential final audit record was committed, linked to `REL-08`, and all **69 checkpoint statuses** are now evidence-backed `done` in the machine ledger. A successful Nomos CI/deployed-site check must still accompany the last reconciled documentation revision before external claims are finalized.
+
+**Readiness classification:** Scoped engineering acceptance **PASS**. **Live profile activation, installation on an external user repository, unsupervised production deployment and blanket reliability claims remain NOT AUTHORIZED.** These owner-approval boundaries were always outside the engineering checkpoint denominator and are not silently treated as accomplished.
 
 ## Approval and ownership boundary
 
