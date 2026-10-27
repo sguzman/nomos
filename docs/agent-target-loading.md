@@ -24,7 +24,7 @@ If Node or the phase reader is unavailable, the agent must instead check the man
 
 ## Target-specific uncertainty
 
-- Two user-executed Codex CLI 0.163.0 trials produced tool-trace-backed phase reads and actual agent-created disposable Git commits. Independent reviews found substantive omissions, so **no live run is accepted**. This evidence does not establish compliance for other Codex versions, automatic Skill selection, generic agents, or production deployments.
+- In the observed Codex CLI 0.163.0 evaluations, one new Rust CLI and one separate persisted-journal CLI scenario have now been **independently accepted** after full rule-level review. These tests show package file/phase loading and scoped application behavior for those specific scenarios. They do **not** establish universal Codex reliability, automatic Skill selection, cross-model compatibility, generic-agent bootstrap discovery, or production acceptance.
 - Skills may not self-activate; for high-priority requirements the always-on entrypoint plus a verified phase-reader invocation is safer than relying on model-selected Skill discovery.
 - The generic adapter intentionally makes no claims about automatic AGENTS.md discovery. The host/invoker owns that bootstrap.
 - If a Codex version changes its discovery behavior, inspect the actual installed target, record the version and observed read paths, and update the compatibility matrix only after evidence.
