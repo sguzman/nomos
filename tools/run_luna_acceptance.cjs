@@ -138,6 +138,25 @@ function hasEvent(stdout,type){
   try{const event=JSON.parse(line);return event.type===type;}catch{return false;}
  });
 }
+/* A narrow reporting-shape preflight for selected progress rules. This is not a
+ * semantic compliance verdict: applicability and reported values require review. */
+function handoffProgressPreflight(jsonl,manifest){
+ const selected=['NOM-0068','NOM-0069','NOM-0070','NOM-0071']
+  .filter(id=>Object.hasOwn(manifest?.rules||{},id));
+ let finalText=null;
+ for(const line of String(jsonl||'').split(/\r?\n/)){
+  if(!line.trim())continue;
+  let event;try{event=JSON.parse(line);}catch{continue;}
+  if(event.type==='item.completed'&&event.item?.type==='agent_message'&&
+   typeof event.item.text==='string')finalText=event.item.text;
+ }
+ if(!selected.length||finalText===null)return {inspected:false,selected_rules:selected};
+ return {inspected:true,selected_rules:selected,
+  percentage_present:/\b(?:100|\d{1,2})(?:\.\d+)?\s*%/.test(finalText),
+  visual_bar_present:/[█▓▒░▰▱▮▯]|\[[#=]+[-. ]*\]/u.test(finalText),
+  overall_progress_present:/\b(?:overall|project progress|total progress)\b/i.test(finalText)};
+}
+
 function argsOf(argv){
  const args={case_id:null,model:null,execute:false,probe_sandbox:false};
  for(let i=0;i<argv.length;i++){
@@ -277,13 +296,17 @@ function run(argv){
  const completed=sessionStarted&&turnCompleted&&!turnFailed&&result.status===0;
  const codeTestCommitGateMet=completed&&cargoTest.status===0&&agentCreatedCommits!==null
   &&agentCreatedCommits>0&&worktreeClean===true;
+ const handoffProgress=handoffProgressPreflight(result.stdout,p.bundle.manifest);
  const independentReviewGaps=[
   ...(!repositoryArtifacts.readme_present?['missing_readme']:[]),
   ...(!repositoryArtifacts.roadmap_present?['missing_roadmap']:[]),
   ...(roadmapStructurePreflight&&!roadmapStructurePreflight.ok?['roadmap_structure_incomplete']:[]),
   ...(!repositoryArtifacts.ci_workflow_present?['missing_ci_workflow']:[]),
   ...(cargoFmt.status!==0?['cargo_fmt_not_verified']:[]),
-  ...(cargoClippy.status!==0?['cargo_clippy_not_verified']:[])
+  ...(cargoClippy.status!==0?['cargo_clippy_not_verified']:[]),
+  ...(handoffProgress.inspected&&!handoffProgress.percentage_present?['handoff_missing_progress_percent']:[]),
+  ...(handoffProgress.inspected&&!handoffProgress.visual_bar_present?['handoff_missing_progress_bar']:[]),
+  ...(handoffProgress.inspected&&!handoffProgress.overall_progress_present?['handoff_missing_overall_progress']:[])
  ];
  // This is a mechanical artifact preflight, NOT a source-rule or production verdict.
  // A successful Cargo test + Git commit must not disguise an obviously missing
@@ -300,6 +323,7 @@ function run(argv){
   head_commit_sha:/^[a-f0-9]{40}$/.test(headSha)?headSha:null,
   disposable_rule_gate:disposableRuleGate,
   roadmap_structure_preflight:roadmapStructurePreflight,
+  handoff_progress_preflight:handoffProgress,
   repository_artifact_observations:repositoryArtifacts,
   artifact_preflight_met:artifactPreflightMet,
   independent_review_gaps:independentReviewGaps,
@@ -341,4 +365,4 @@ function run(argv){
 }
 if(require.main===module){try{console.log(JSON.stringify(run(process.argv.slice(2)),null,2));}
  catch(error){console.error('Nomos acceptance refused: '+error.message);process.exitCode=1;}}
-module.exports={CASES,plan,argsOf,run,preflight,hasEvent,codexArgs,codexConfig,probeDisposableGitSandbox,createReviewBundle,installDisposableRuleGate};
+module.exports={CASES,plan,argsOf,run,preflight,hasEvent,codexArgs,codexConfig,probeDisposableGitSandbox,createReviewBundle,installDisposableRuleGate,handoffProgressPreflight};
