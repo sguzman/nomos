@@ -38,19 +38,40 @@ function plan(caseId,model=null){
     registry_revision_sha256:bundle.manifest.registry_revision_sha256}};
 }
 function command(exe,args,cwd,options={}){
- const r=cp.spawnSync(exe,args,{cwd,encoding:'utf8',input:options.input,timeout:options.timeout||45000,maxBuffer:8*1024*1024});
+ const r=cp.spawnSync(exe,args,{cwd,encoding:'utf8',input:options.input,
+  env:options.env||process.env,timeout:options.timeout||45000,maxBuffer:8*1024*1024});
  return {status:r.status,signal:r.signal||null,error:r.error?.message||null,stdout:r.stdout||'',stderr:r.stderr||''};
 }
 function status(result){return {exit_code:result.status,error:result.error||null,
  stdout_sha256:hash(result.stdout),stderr_sha256:hash(result.stderr),stdout_bytes:Buffer.byteLength(result.stdout),stderr_bytes:Buffer.byteLength(result.stderr)};}
+/* For disposable acceptance workspaces only. Custom permissions retain the
+ * standard workspace sandbox, reopening Git metadata within this test root.
+ * No global Codex configuration, host Git configuration or other repo is changed.
+ * Never substitute danger-full-access/yolo when this profile is unsupported. */
+function codexArgs(root,model=null,help=false){
+ const config=[
+  'default_permissions="nomos_disposable_git"',
+  'permissions.nomos_disposable_git.extends=":workspace"',
+  'permissions.nomos_disposable_git.filesystem.":workspace_roots"={".git"="write"}',
+  'permissions.nomos_disposable_git.network.enabled=false'
+ ];
+ const args=['--ask-for-approval','never'];
+ for(const value of config)args.push('-c',value);
+ args.push('exec');
+ if(help){args.push('--help');return args;}
+ args.push('--ephemeral','--json','--cd',root);
+ if(model)args.push('--model',model);
+ args.push('-');
+ return args;
+}
 function preflight(){
  const versions={};
  for(const cmd of ['git','cargo','codex']){
   const r=command(cmd,['--version'],process.cwd());
   guard(r.status===0,'Missing executable: '+cmd);versions[cmd]=r.stdout.trim()||r.stderr.trim();
  }
- const parser=command('codex',['--ask-for-approval','never','exec','--help'],process.cwd());
- guard(parser.status===0,'Codex CLI is incompatible: `codex --ask-for-approval never exec --help` failed'+
+ const parser=command('codex',codexArgs(process.cwd(),null,true),process.cwd());
+ guard(parser.status===0,'Codex CLI is incompatible with temporary Git-write permissions: parser preflight failed'+
   (parser.stderr.trim()?': '+parser.stderr.trim().slice(0,500):' (exit '+parser.status+')'));
  return versions;
 }
@@ -98,15 +119,15 @@ function run(argv){
   'Run cargo test --offline. Commit verified changes directly to main.',
   'Report only actual tool execution; do not fake source-rule compliance or a release.'
  ].join('\n');
- const commandArgs=['--ask-for-approval','never','exec','--sandbox','workspace-write',
-  '--ephemeral','--json','--cd',root];
- if(flags.model)commandArgs.push('--model',flags.model);
- commandArgs.push('-');
- const result=command('codex',commandArgs,root,{input:prompt,timeout:15*60*1000});
+ const commandArgs=codexArgs(root,flags.model);
+ // User's system sccache wrapper can be inaccessible inside the Codex sandbox.
+ // Override only the child process tree; do not modify the user's shell or config.
+ const rustEnv={...process.env,RUSTC_WRAPPER:''};
+ const result=command('codex',commandArgs,root,{input:prompt,timeout:15*60*1000,env:rustEnv});
  privateFile(evidence,'agent-events.jsonl',result.stdout);
  privateFile(evidence,'agent-stderr.txt',result.stderr);
- const cargoTest=command('cargo',['test','--offline'],root,{timeout:120000});
- const metadata=command('cargo',['metadata','--no-deps','--offline','--format-version','1'],root);
+ const cargoTest=command('cargo',['test','--offline'],root,{timeout:120000,env:rustEnv});
+ const metadata=command('cargo',['metadata','--no-deps','--offline','--format-version','1'],root,{env:rustEnv});
  const gitLog=command('git',['log','--format=%H %s','-4'],root);
  const gitStatus=command('git',['status','--porcelain=v1'],root);
  // HEAD has one synthetic baseline commit before Codex starts.
@@ -148,4 +169,4 @@ function run(argv){
 }
 if(require.main===module){try{console.log(JSON.stringify(run(process.argv.slice(2)),null,2));}
  catch(error){console.error('Nomos acceptance refused: '+error.message);process.exitCode=1;}}
-module.exports={CASES,plan,argsOf,run,preflight,hasEvent};
+module.exports={CASES,plan,argsOf,run,preflight,hasEvent,codexArgs};
