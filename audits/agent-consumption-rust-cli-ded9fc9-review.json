@@ -1,0 +1,408 @@
+{
+  "schema_version": 1,
+  "kind": "nomos_public_safe_independent_rule_dispositions",
+  "case_id": "RUST-CLI",
+  "review_date": "2026-10-27",
+  "agent": "Codex CLI 0.163.0",
+  "agent_commit_sha": "ded9fc9242252d43b607e6bb4ba15b19dee0f4f5",
+  "source_profile_id": "PROFILE-0004",
+  "profile_finalized": false,
+  "production_accepted": false,
+  "independent_review_accepted": false,
+  "archive_sha256": "9b263fd5157faf4dfdee2cda5256a562664a000624b0ea48511b7f9cad1535ef",
+  "mechanical_evidence": {
+    "package_files_verified": 24,
+    "selected_rules_verified": 89,
+    "observed_phase_reads": [
+      "planning",
+      "implementation",
+      "testing",
+      "review",
+      "shutdown"
+    ],
+    "unit_tests_passed": 3,
+    "integration_tests_passed": 3,
+    "cargo_fmt_passed": true,
+    "cargo_clippy_passed": true,
+    "clean_worktree": true,
+    "agent_created_commits": 1,
+    "roadmap_structure_items": 15,
+    "identifying_emoji_count": 15,
+    "hosted_ci_observed": false
+  },
+  "counts": {
+    "satisfied": 38,
+    "violated": 5,
+    "not_applicable": 46,
+    "unobserved": 0
+  },
+  "per_rule": [
+    {
+      "rule_id": "NOM-0001",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0003",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0004",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0008",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0010",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0012",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0014",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0015",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0016",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0017",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0018",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0019",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0020",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0021",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0022",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0023",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0024",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0025",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0026",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0027",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0028",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0029",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0030",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0031",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0032",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0033",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0034",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0035",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0036",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0037",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0038",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0039",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0040",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0041",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0042",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0043",
+      "status": "violated",
+      "finding": "Committed roadmap leaves the commit milestone and parent phase marked in progress although the test Git commit is complete; post-commit status reconciliation remains outstanding."
+    },
+    {
+      "rule_id": "NOM-0044",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0045",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0046",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0047",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0048",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0049",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0050",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0051",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0052",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0053",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0054",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0055",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0056",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0057",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0058",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0059",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0060",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0061",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0062",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0063",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0064",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0065",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0066",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0067",
+      "status": "satisfied"
+    },
+    {
+      "rule_id": "NOM-0068",
+      "status": "violated",
+      "finding": "Final project-work report omits item-level progress for the touched roadmap phases, milestones, features and subtasks."
+    },
+    {
+      "rule_id": "NOM-0069",
+      "status": "violated",
+      "finding": "A numerically complete first phase and completed milestones have no percentage paired with a visual progress bar in the final development report."
+    },
+    {
+      "rule_id": "NOM-0070",
+      "status": "violated",
+      "finding": "Final development report lacks overall project progress alongside the reported work."
+    },
+    {
+      "rule_id": "NOM-0071",
+      "status": "violated",
+      "finding": "First reporting of the completed first phase and milestones lacks a 100% completion announcement."
+    },
+    {
+      "rule_id": "NOM-0072",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0073",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0087",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0088",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0089",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0090",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0091",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0092",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0093",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0094",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0095",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0096",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0097",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0098",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0099",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0100",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0101",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0102",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0103",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0104",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0105",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0106",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0107",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0108",
+      "status": "not_applicable"
+    },
+    {
+      "rule_id": "NOM-0109",
+      "status": "not_applicable"
+    }
+  ],
+  "limitations": [
+    "Source-rule dispositions are bounded independent judgments, not mechanical observer acceptance.",
+    "Hosted GitHub Actions is configured but was not executed for the test project.",
+    "No other scenario, fallback target or MVP release scope was evidenced.",
+    "Raw traces, temporary paths and private project materials are not published."
+  ]
+}
