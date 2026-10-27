@@ -44,5 +44,28 @@ test('mismatched or altered receipt is rejected rather than silently accepted',(
 });
 test('unrecognized stream and unsafe format inputs fail closed',()=>{
  assert.throws(()=>observe('{not-json}',manifest,['testing']),/Invalid Codex JSONL/);
- assert.throws(()=>observe('',{...manifest,agent_target:'unknown'},['testing']),/Codex-targeted/);
+ assert.throws(()=>observe('',{...manifest,agent_target:'unknown'},['testing']),/supported Codex-traced package/);
+});
+
+test('authentic Codex JSONL can verify a generic Markdown package without claiming autonomous discovery',()=>{
+ const generic={...manifest,agent_target:'generic'};
+ const genericReceipt={...receipt,agent_target:'generic'};
+ const stream=event('cat AGENTS.md','# Generated Nomos agent contract\nAgent target: generic\n')+'\n'+
+  event('node .nomos/read-phase.cjs testing','NOMOS_PHASE_READ '+JSON.stringify(genericReceipt)+'\n')+'\n'+
+  event('cargo test --offline','all tests passed',0);
+ const result=observe(stream,generic,['testing']);
+ assert.equal(result.report.agent_target,'generic');
+ assert.equal(result.parser_summary.observed_module_reads,1);
+ assert.equal(result.report.events.find(e=>e.kind==='module_read').receipt.agent_target,'generic');
+ assert.equal(result.review.status,'incomplete');
+ assert.equal(result.review.agent_compliance_proven,false);
+ assert.equal(result.parser_summary.independent_reviewer_accepted,false);
+});
+test('generic trace must not accept a Codex-only receipt for a generic manifest',()=>{
+ const generic={...manifest,agent_target:'generic'};
+ const stream=event('node .nomos/read-phase.cjs testing','NOMOS_PHASE_READ '+JSON.stringify(receipt));
+ assert.throws(()=>observe(stream,generic,['testing']),/Module read receipt source mismatch/);
+});
+test('generic observer rejects unsupported package targets without fabricating evidence',()=>{
+ assert.throws(()=>observe('',{...manifest,agent_target:'unknown'},['testing']),/supported Codex-traced package/);
 });
