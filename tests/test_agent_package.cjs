@@ -26,6 +26,8 @@ test('approved projections compile into compact entrypoint plus scoped rule modu
  const entrypoint=bundle.files.get('AGENTS.md');
  assert.ok(entrypoint.length<10000);
  assert.match(entrypoint,/identify selected conditional rules activated/);
+ assert.match(entrypoint,/planning checklist keyed by active source rule ID/);
+ assert.match(entrypoint,/revisit that checklist against the committed candidate/);
  assert.match(entrypoint,/check every activated project-bootstrap, documentation, code-quality, CI and Git rule/);
  assert.match(entrypoint,/report any gap as unfinished/);
  assert.equal(verifyPackage({...bundle,projection}),true);
