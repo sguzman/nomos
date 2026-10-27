@@ -28,7 +28,7 @@ test('planning is offline and never launches a model, cargo or git',()=>{
  }finally{cp.spawnSync=original;}
 });
 test('isolated Codex agent execution requires explicit opt in',()=>{
- assert.deepEqual(runner.argsOf(['--case','RUST-CLI']),{case_id:'RUST-CLI',model:null,execute:false});
+ assert.deepEqual(runner.argsOf(['--case','RUST-CLI']),{case_id:'RUST-CLI',model:null,execute:false,probe_sandbox:false});
  assert.deepEqual(runner.argsOf(['--case','RUST-CLI','--execute']).execute,true);
  assert.throws(()=>runner.run([]),/Required/);
  assert.throws(()=>runner.run(['--case','fake']),/Unknown synthetic/);
@@ -83,6 +83,21 @@ test('mocked execution proves disposable workspace and private evidence artifact
  }finally{cp.spawnSync=original;}
 });
 
+test('sandbox permission dry check prepares temporary Git without launching a model',()=>{
+ const cp=require('node:child_process'),original=cp.spawnSync,seen=[];
+ try{
+  cp.spawnSync=(exe,args)=>{seen.push({exe,args});return {status:0,stdout:'',stderr:''};};
+  const result=runner.run(['--case','RUST-CLI','--probe-sandbox']);
+  assert.equal(result.status,'disposable_git_sandbox_probe_passed');
+  assert.equal(result.agent_invoked,false);
+  assert.equal(result.production_accepted,false);
+  assert.ok(seen.some(x=>x.exe==='git'&&x.args[0]==='init'));
+  assert.ok(seen.some(x=>x.exe==='codex'&&x.args[0]==='sandbox'&&x.args[1]==='linux'));
+  assert.ok(!seen.some(x=>x.exe==='codex'&&x.args.includes('--json')));
+  assert.ok(!seen.some(x=>x.exe==='cargo'));
+  assert.throws(()=>runner.argsOf(['--case','RUST-CLI','--probe-sandbox','--execute']),/cannot combine/);
+ }finally{cp.spawnSync=original;}
+});
 test('temporary Git permission profile stays in Codex invocation only',()=>{
  const argv=runner.codexArgs('/tmp/nomos-luna-case-example','gpt-6-luna');
  assert.deepEqual(argv.slice(0,2),['--ask-for-approval','never']);
