@@ -1,6 +1,6 @@
 # End-consumer prompt profiles — initial roadmap
 
-**Status:** V0 imported and verified; ten V1 semantic drafts ready for owner review. Evaluation and rewrite stages have not begun.  
+**Status:** V0 imported and verified; ten proposed V1 semantic models and ten preliminary text assessments published for owner review. Formal owner-approved evaluation and rewriting have not begun. Versioned website/export tooling is implemented and browser-verified, but no owner-approved replacement prompt exists.  
 **Scope:** New, explicitly authorized **public** Nomos feature. Separate from the completed 69/69 agent-consumption engineering roadmap.  
 **Product:** The **prompt itself** is the end result. Meta-intent, atomic intents, situations, rules, conditions and evaluation evidence are the tools used to improve that prompt, not its substitute.
 
@@ -18,7 +18,7 @@
 
 **Next real gate:** The owner examines each V1 meta-intent and asks for a satisfaction assessment of a specific V0 prompt. Do not preemptively mark every original prompt satisfactory or replace text; analyze gaps and generate revisions only when requested.
 
-**Website/export implementation underway:** The public profile page has an explicit browser-side version selector and selected-keyset exporter, backed by a publication manifest that currently contains **zero owner-approved successor versions**. All ten default to original V0; no candidate is silently made selectable. Original exact-byte V0 download remains available. The added logic requires an owner approval reference for a future published alternate and checks SHA-256 before enabling selection. This is preparatory implementation for milestone 5, not a new verified gate; owner-reviewed prompt decisions and version comparison against an actual approved alternative are still outstanding.
+**Website/export implementation verified:** The [live end-consumer profile](end-consumer-profiles.html) loads the immutable V0 originals and an explicit [published-version manifest](data/project-stewardship-published-versions.json) containing **zero owner-approved successor versions**. The user can inspect and copy individual prompts, select from actually published variants, compare a selected alternative against V0, and copy/download the selected ten-slot Trievium keyset without changing repository state. The original byte-identical V0 download remains available. [Pure serializer and governance tests](../tests/test_end_consumer_versioned_export.cjs) reject unapproved/unknown versions, preserve source identity and validate export shape. [Real Chromium tests](../tests/test_end_consumer_browser.cjs) exercise exact original export, synthetic approved-version selection/revert/download, unapproved publication rejection, and the deployed V0 page. Browser SHA-256 checks fail closed on mismatch; temporary download Blob URLs are released after download initiation. Full CI, deployment and deployed Chromium verification [passed](https://github.com/sguzman/nomos/actions/runs/40617012131) at commit `40a1481a`. **The website milestone gate is not yet complete**, because comparing an actual owner-approved successor version is pending review, and owner-approved evaluations are still 0/10. Completion accounting remains 2/5 gates = 40.0%, delta +0.0 percentage points.
 
 ## 1. 📥 V0 — faithful public ingestion
 - [x] Create a minimal **end-consumer profile** and ten prompt categories/slots with stable identities.
@@ -50,10 +50,11 @@
 **Done when:** The owner can keep any satisfactory current version or review a newly synthesized version with traceable reasons for every meaningful change.
 
 ## 5. 🌐 Public website and Trievium export
-- [ ] Expose profile → categories/slots → prompt versions on the Nomos website, beginning with **V0 browsing** and expanding to V1 meta-intents, linked rules/situations/intents, gaps, evaluations and version comparison.
-- [ ] Allow explicit selection, copy and download of the current prompt version. Public visibility **does not** automatically invoke a prompt, select a rule profile, or authorize repository changes.
-- [ ] Export the selected slots to the **existing Trievium JSON structure**: `{"version":1,"entries":[{"label":"…","text":"…","key":"J"}]}`. Preserve key/label/text exactly, validate uniqueness and round-trip fidelity.
-- [ ] Add automated schema/link checks, site/browser checks and exporter tests before marking the feature done.
+- [x] Expose the profile, ten prompt slots, original V0 prompts, proposed V1 meta-intents/relationships/gaps, and individual provisional text-assessment links on the public site.
+- [x] Support per-slot selection from **published, owner-approved** prompt versions with copy and preview controls. Currently only V0 is eligible; publication manifest contains no alternate versions.
+- [x] Serialize the chosen slots to the existing Trievium JSON structure: `{"version":1,"entries":[{"label":"…","text":"…","key":"J"}]}`. Validate keys, order, checksum and round-trip semantics; retain the exact-byte original V0 download.
+- [x] Verify synthetic approved-alternative comparison/selection/reversion, unapproved-variant rejection and downloaded keysets in local Chromium; smoke-test the deployed public page.
+- [ ] Demonstrate full version comparison and export using an **actual owner-approved** successor (not a synthetic fixture) after a separate prompt-specific review and selection. Never publish a candidate solely to satisfy this checkbox.
 
 **Done when:** A visitor can inspect each prompt and its reasoning on the public website, while the owner can download a valid Trievium keyset of explicitly selected versions without altering the canonical Nomos source objects.
 
