@@ -121,6 +121,7 @@ jobs:
           node --test tests/test_end_consumer_text_reviews.cjs
           node --check docs/end-consumer-profile-model.js
           node --test tests/test_end_consumer_versioned_export.cjs
+          node --test tests/test_end_consumer_browser.cjs
           node --check docs/end-consumer-profiles.js
           node --check tools/projections.cjs
           node --test tests/test_projections.cjs
@@ -188,3 +189,4 @@ jobs:
           set -euo pipefail
           test -n "$NOMOS_SITE_URL"
           node --test tests/test_rule_builder_browser.cjs
+          node --test tests/test_end_consumer_browser.cjs
