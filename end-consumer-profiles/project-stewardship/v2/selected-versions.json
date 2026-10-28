@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "kind": "end_consumer_selected_prompt_versions",
+  "profile_id": "EC-PROFILE-0001",
+  "owner_decision_date": "2026-10-28",
+  "owner_decision_summary": "Approve all three proposed L/H/F revisions, retaining the other seven originals as recommended.",
+  "selected_keyset_path": "docs/exports/project-stewardship-approved-trievium.json",
+  "original_keyset_path": "end-consumer-profiles/project-stewardship/v0/trievium.json",
+  "source_version": "0",
+  "selected_slots": [
+    {
+      "prompt_id": "EC-PROMPT-0001",
+      "key": "J",
+      "label": "▶️ Continue",
+      "source_version": "0",
+      "source_text_sha256": "e256ee8e7aff6957a781d8328f0f68e26996564c81fa458da59fbca2305138ad",
+      "selected_version": "0",
+      "selected_text_sha256": "e256ee8e7aff6957a781d8328f0f68e26996564c81fa458da59fbca2305138ad",
+      "decision": "retain_original",
+      "approval_reference": "owner-confirmed-keep-other-seven-v0"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0002",
+      "key": "L",
+      "label": "🔁 Chat broke",
+      "source_version": "0",
+      "source_text_sha256": "def45cc96462b83f5245de7824f43856145b5651035ec00ec075efdd8954a28c",
+      "selected_version": "1",
+      "selected_text_sha256": "5f8125f4f0d496eb39ae64b04168011bd01b9f54d821174c2528ea0de56afcbe",
+      "decision": "approved_successor",
+      "approval_reference": "owner-chat-2026-10-28-approve-all-three"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0003",
+      "key": "S",
+      "label": "🔄 Restore context",
+      "source_version": "0",
+      "source_text_sha256": "f5c6dbfc8e750c73c6e553909aa2f41994dd3921bd198ecf2db6d576c6ba945f",
+      "selected_version": "0",
+      "selected_text_sha256": "f5c6dbfc8e750c73c6e553909aa2f41994dd3921bd198ecf2db6d576c6ba945f",
+      "decision": "retain_original",
+      "approval_reference": "owner-confirmed-keep-other-seven-v0"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0004",
+      "key": "H",
+      "label": "❓ What happened?",
+      "source_version": "0",
+      "source_text_sha256": "90194f96257d3f7832846b4b1f3873f7239f545dcf37e538d6a912d4caab6f1f",
+      "selected_version": "1",
+      "selected_text_sha256": "e2eb6f6af65ec29bd5a43045ed2304c621635c033dc4d7fc893398a81e6db0e8",
+      "decision": "approved_successor",
+      "approval_reference": "owner-chat-2026-10-28-approve-all-three"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0005",
+      "key": "D",
+      "label": "🚀 Project init",
+      "source_version": "0",
+      "source_text_sha256": "af75908c39fdfa4698a033f511c978e6845d6df4abd3ca302bae117f82a0c58f",
+      "selected_version": "0",
+      "selected_text_sha256": "af75908c39fdfa4698a033f511c978e6845d6df4abd3ca302bae117f82a0c58f",
+      "decision": "retain_original",
+      "approval_reference": "owner-confirmed-keep-other-seven-v0"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0006",
+      "key": "K",
+      "label": "📊 Status",
+      "source_version": "0",
+      "source_text_sha256": "9c08766af433bca0f1508269098f92cd7213c55cb2a201375e92b433c83e78a9",
+      "selected_version": "0",
+      "selected_text_sha256": "9c08766af433bca0f1508269098f92cd7213c55cb2a201375e92b433c83e78a9",
+      "decision": "retain_original",
+      "approval_reference": "owner-confirmed-keep-other-seven-v0"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0007",
+      "key": "A",
+      "label": "🧩 Project adopt",
+      "source_version": "0",
+      "source_text_sha256": "233541ebcbc8d946eaca242590c09d2cfdd6d92f5a84ba3b59d7feb00839c7d8",
+      "selected_version": "0",
+      "selected_text_sha256": "233541ebcbc8d946eaca242590c09d2cfdd6d92f5a84ba3b59d7feb00839c7d8",
+      "decision": "retain_original",
+      "approval_reference": "owner-confirmed-keep-other-seven-v0"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0008",
+      "key": "F",
+      "label": "🛠️ Fix issue",
+      "source_version": "0",
+      "source_text_sha256": "c71ba1084bbca9d907e3d9cec812e4e2223ccabd2c507d559e43dc7ec1b7eec6",
+      "selected_version": "1",
+      "selected_text_sha256": "accc058adb864509e45570389b73031c08fb512fea7b418d3f863d6b18bc3626",
+      "decision": "approved_successor",
+      "approval_reference": "owner-chat-2026-10-28-approve-all-three"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0009",
+      "key": "G",
+      "label": "🔎 Gap audit",
+      "source_version": "0",
+      "source_text_sha256": "f8873b794f0e05bb4dbf224de8476c85ae5d99251e3b477f4bcf2296de5fbc2e",
+      "selected_version": "0",
+      "selected_text_sha256": "f8873b794f0e05bb4dbf224de8476c85ae5d99251e3b477f4bcf2296de5fbc2e",
+      "decision": "retain_original",
+      "approval_reference": "owner-confirmed-keep-other-seven-v0"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0010",
+      "key": "U",
+      "label": "🧪 Verify work",
+      "source_version": "0",
+      "source_text_sha256": "9f1f7108de5b6fb26b52186e752886a7c6a042bc913c5501424e46e17492c9d9",
+      "selected_version": "0",
+      "selected_text_sha256": "9f1f7108de5b6fb26b52186e752886a7c6a042bc913c5501424e46e17492c9d9",
+      "decision": "retain_original",
+      "approval_reference": "owner-confirmed-keep-other-seven-v0"
+    }
+  ],
+  "evidence_scope": {
+    "meta_intents": "10 owner-approved",
+    "published_revisions": "L,H,F text approved",
+    "unchanged_originals": "J,S,D,K,A,G,U retained",
+    "scenario_evidence": "17 text-based checks; no independent model-execution reliability claims"
+  },
+  "status": "owner_approved_selection_published"
+}
