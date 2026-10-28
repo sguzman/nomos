@@ -83,6 +83,11 @@ Engineering processing and website publication are complete. Empirical prompt ef
 The [full emoji-milestone roadmap](docs/agent-consumption-roadmap.md) defines 69 auditable checkpoints across 7 milestones for projection semantics, a compact `AGENTS.md` + contextual rule-module exporter, an adaptive website questionnaire, contextual agent consumption, independent behavioral evaluation, and supported release workflows.
 
 - [x] Record a complete, evidence-addressable implementation roadmap with baseline metrics.
-- [ ] Complete the source-linked consumption system and independently verify an actual agent run before claiming production readiness.
+- [x] Complete the source-linked consumption system and independently verify actual agent runs under the bounded engineering acceptance protocol.
 
-**Verified implementation:** 62/69 checkpoints (89.9%; previous 81.2%; delta +8.7 pp). The [JSON ledger](roadmaps/agent-consumption.json) is the machine-readable checkpoint source; updating a roadmap is not permission to execute tasks, select profiles or export rules. Existing draft profiles remain unapproved and inert.
+**Verified engineering completion:** 69/69 checkpoints (100.0%) for the [separate agent-consumption roadmap](docs/agent-consumption-roadmap.md). This does **not** authorize a production deployment or activate any user profile. The [JSON ledger](roadmaps/agent-consumption.json) remains the source of truth; a roadmap entry is not permission to execute unrelated tasks.
+
+
+## Public end-consumer prompt profiles (new scope; roadmap only, 2026-10-27)
+
+The [end-consumer prompt-profile roadmap](docs/end-consumer-prompt-profiles-roadmap.md) covers exact V0 preservation of ten existing Trievium prompt entries, V1 meta-intent/atomic-intent/situation/rule analysis, owner-reviewed satisfaction decisions and targeted prompt synthesis, public website inspection, and Trievium JSON keyset export. **The prompt is the product.** No ingestion, ontology publication, prompt rewriting or consumer-profile activation has begun under this planning step. This new feature does not revise the completed 69/69 engineering ledger.
