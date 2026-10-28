@@ -78,8 +78,8 @@ test('Public review site exposes ten distinct V1 meta-intents and read-only V0 i
   }
   assert.match(html,/end-consumer-profiles\.js/);
   assert.match(html,/exports\/project-stewardship-v0\.json/);
-  assert.match(script,/pre\.textContent=entry\.text/);
+  assert.match(script,/preview\.mount\(pre,entry\.text\)/);
   assert.match(script,/navigator\.clipboard\.writeText\(selected\.text\)/);
   assert.match(script,/selections\[slot\.id\]/);
-  assert.match(script,/pre\.textContent=entry\.text/);
+  assert.match(script,/preview\.mount\(pre,entry\.text\)/);
 });
