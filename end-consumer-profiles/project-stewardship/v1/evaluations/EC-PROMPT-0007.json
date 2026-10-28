@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "kind": "end_consumer_prompt_text_assessment",
+  "profile_id": "EC-PROFILE-0001",
+  "prompt_id": "EC-PROMPT-0007",
+  "source_version": "0",
+  "source_key": "A",
+  "source_text_sha256": "233541ebcbc8d946eaca242590c09d2cfdd6d92f5a84ba3b59d7feb00839c7d8",
+  "analyzed_semantic_version": "1",
+  "meta_intent": "Adopt an existing partially completed project, reconstruct and preserve its history, reconcile its roadmap, and finish only genuine remaining work.",
+  "review_status": "provisional_pending_owner_review",
+  "owner_meta_intent_approved": false,
+  "owner_assessment_approved": false,
+  "question": "Does the V0 prompt satisfactorily fulfill its proposed meta-intent in its intended context?",
+  "proposed_verdict": "yes",
+  "interpretation": "The V0 adoption-specific protocol instructs inspecting past work, preserving decisions, reconciling an existing roadmap and completion baseline, implementing only legitimate remaining work, and stopping when done. The identified absence of a dedicated canonical adoption situation concerns linked ontology coverage, not the instructions in V0.",
+  "atomic_intent_coverage": [
+    {
+      "local_id": "A01",
+      "assessment": "explicit_in_source"
+    },
+    {
+      "local_id": "A02",
+      "assessment": "explicit_in_source"
+    },
+    {
+      "local_id": "A03",
+      "assessment": "explicit_in_source"
+    },
+    {
+      "local_id": "A04",
+      "assessment": "explicit_in_source"
+    },
+    {
+      "local_id": "A05",
+      "assessment": "explicit_in_source"
+    }
+  ],
+  "applicable_preconditions": [
+    "The specified project already exists and has partial progress or established decisions.",
+    "Available project history and tests can be inspected, with missing evidence disclosed.",
+    "Stewardship authorization and repository permissions are known."
+  ],
+  "failure_conditions": [
+    "Never reset valid prior progress or replace an adequate existing roadmap.",
+    "Never invent unrelated tasks or widen the original project objective.",
+    "If complete, stop instead of beginning a new round.",
+    "If history is missing, report uncertainty rather than inventing reconstruction."
+  ],
+  "source_text_evidence": [
+    "This is not a new project.",
+    "## 1. 🔍 Audit and Reconstruct",
+    "## 2. 🗺️ Reconcile the Roadmap",
+    "Never reset progress to zero merely because stewardship is beginning.",
+    "Continue only if legitimate unfinished work remains. If the project is already verified complete, stop."
+  ],
+  "evaluation_basis": "textual_semantics_only",
+  "behavioral_test_status": "not_tested",
+  "effectiveness_claim": "none",
+  "disposition": "retain_v0_provisionally_no_rewrite",
+  "selected_prompt_version": "0",
+  "generated_prompt_version": null,
+  "owner_decision": null
+}

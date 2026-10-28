@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "kind": "end_consumer_prompt_text_assessment",
+  "profile_id": "EC-PROFILE-0001",
+  "prompt_id": "EC-PROMPT-0006",
+  "source_version": "0",
+  "source_key": "K",
+  "source_text_sha256": "9c08766af433bca0f1508269098f92cd7213c55cb2a201375e92b433c83e78a9",
+  "analyzed_semantic_version": "1",
+  "meta_intent": "Provide a concise, measurable, evidence-backed project progress report without implying further development authorization.",
+  "review_status": "provisional_pending_owner_review",
+  "owner_meta_intent_approved": false,
+  "owner_assessment_approved": false,
+  "question": "Does the V0 prompt satisfactorily fulfill its proposed meta-intent in its intended context?",
+  "proposed_verdict": "yes",
+  "interpretation": "The original text 'progress?' is only sufficient when prior context supplies the project identity, progress accounting, evidence hierarchy, and output format. It asks for status, not permission to implement. The five proposed atomic intents are satisfied through established project instructions rather than literal wording.",
+  "atomic_intent_coverage": [
+    {
+      "local_id": "A01",
+      "assessment": "inherited_from_established_project_protocol_not_literal_v0_text"
+    },
+    {
+      "local_id": "A02",
+      "assessment": "inherited_from_established_project_protocol_not_literal_v0_text"
+    },
+    {
+      "local_id": "A03",
+      "assessment": "inherited_from_established_project_protocol_not_literal_v0_text"
+    },
+    {
+      "local_id": "A04",
+      "assessment": "inherited_from_established_project_protocol_not_literal_v0_text"
+    },
+    {
+      "local_id": "A05",
+      "assessment": "inherited_from_established_project_protocol_not_literal_v0_text"
+    }
+  ],
+  "applicable_preconditions": [
+    "There is an identifiable active project and its accepted status-reporting instructions.",
+    "Repository or roadmap evidence supports reported percentages and deltas.",
+    "The question is interpreted in read-only inspection/reporting mode."
+  ],
+  "failure_conditions": [
+    "Without project context, do not invent a project or numerical status.",
+    "Missing evidence or completion denominators must be disclosed as unknown.",
+    "A status request cannot silently initiate implementation, commits or expanded scope."
+  ],
+  "source_text_evidence": [
+    "progress?"
+  ],
+  "evaluation_basis": "textual_semantics_only",
+  "behavioral_test_status": "not_tested",
+  "effectiveness_claim": "none",
+  "disposition": "retain_v0_provisionally_no_rewrite",
+  "selected_prompt_version": "0",
+  "generated_prompt_version": null,
+  "owner_decision": null
+}
