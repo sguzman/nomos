@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "kind": "end_consumer_targeted_revision_candidates",
+  "profile_id": "EC-PROFILE-0001",
+  "status": "draft_not_selected",
+  "source_version": "0",
+  "semantic_version": "1",
+  "owner_approval_of_candidates": false,
+  "export_selected_version": "0",
+  "observed_agent_test_runs": 0,
+  "candidates": [
+    {
+      "prompt_id": "EC-PROMPT-0002",
+      "key": "L",
+      "source_version": "0",
+      "source_text_sha256": "def45cc96462b83f5245de7824f43856145b5651035ec00ec075efdd8954a28c",
+      "meta_intent": "Recover after a broken conversation or execution, reconcile the last verified project state, then continue only warranted unfinished work.",
+      "status": "proposed_unselected_not_published",
+      "candidate_generation": "1",
+      "candidate_text": "Chat broke. Recover the previous project context and last verified state from available records. Continue only if authorized unfinished work remains. If the project is complete or its state cannot be recovered reliably, report that and stop without inventing work.",
+      "change_reason": "Explicit conditional continuation and stop-if-complete"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0004",
+      "key": "H",
+      "source_version": "0",
+      "source_text_sha256": "90194f96257d3f7832846b4b1f3873f7239f545dcf37e538d6a912d4caab6f1f",
+      "meta_intent": "Explain what interrupted the work and provide the verified current project state, without automatically resuming development.",
+      "status": "proposed_unselected_not_published",
+      "candidate_generation": "1",
+      "candidate_text": "Chat broke. Investigate what happened using available evidence, distinguish confirmed facts from unknowns, and report the current verified project state and blockers. Do not resume development or modify files unless I separately request it.",
+      "change_reason": "Explicit inspection-only handling and uncertainty"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0008",
+      "key": "F",
+      "source_version": "0",
+      "source_text_sha256": "c71ba1084bbca9d907e3d9cec812e4e2223ccabd2c507d559e43dc7ec1b7eec6",
+      "meta_intent": "Diagnose and repair a specifically reported defect through reproducible evidence, a scoped root-cause fix, and verified non-regression.",
+      "status": "proposed_unselected_not_published",
+      "candidate_generation": "1",
+      "candidate_text": "Investigate and resolve the issue I've reported or demonstrated.\n\nTake ownership of the debugging process. Inspect the relevant implementation, trace the root cause, reproduce the failure where practical, implement a reliable fix, and verify the result.\n\nPrioritize fixing the underlying cause rather than masking symptoms. Preserve existing working functionality and follow all established project constraints.\n\nWhere practical, run or add a focused regression test for the reported defect and check relevant previously working behavior. If reproduction, regression checks, or runtime QA cannot be performed, report exactly what remains unverified; do not claim non-regression without evidence.\n\nCommit and push verified changes when authorized. Report what was broken, why, what you changed, and what evidence demonstrates the fix.\n\nDo not introduce unrelated refactors, features, or unnecessary work. If the issue is already resolved, make no changes.",
+      "change_reason": "Explicit focused regression coverage and evidence limits"
+    }
+  ]
+}
