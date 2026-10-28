@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "kind": "end_consumer_prompt_text_assessment",
+  "profile_id": "EC-PROFILE-0001",
+  "prompt_id": "EC-PROMPT-0004",
+  "source_version": "0",
+  "source_key": "H",
+  "source_text_sha256": "90194f96257d3f7832846b4b1f3873f7239f545dcf37e538d6a912d4caab6f1f",
+  "analyzed_semantic_version": "1",
+  "meta_intent": "Explain what interrupted the work and provide the verified current project state, without automatically resuming development.",
+  "review_status": "provisional_pending_owner_review",
+  "owner_meta_intent_approved": false,
+  "owner_assessment_approved": false,
+  "question": "Does the V0 prompt satisfactorily fulfill its proposed meta-intent in its intended context?",
+  "proposed_verdict": "yes",
+  "interpretation": "The original asks what happened and for the current state; it does not command execution. In the established workflow, that is adequate for an inspection-and-reporting response. Strict read-only behavior is inferred from the interrogative rather than stated as an explicit prohibition.",
+  "atomic_intent_coverage": [
+    {
+      "local_id": "A01",
+      "assessment": "explicit_in_source"
+    },
+    {
+      "local_id": "A02",
+      "assessment": "contextually_implied"
+    },
+    {
+      "local_id": "A03",
+      "assessment": "inherited_from_established_project_protocol_not_literal_v0_text"
+    },
+    {
+      "local_id": "A04",
+      "assessment": "contextually_implied"
+    }
+  ],
+  "applicable_preconditions": [
+    "A particular interrupted project or conversation is identifiable.",
+    "Evidence is available to distinguish observed causes and state from uncertain explanations.",
+    "A question about status is not treated as a fresh implementation instruction."
+  ],
+  "failure_conditions": [
+    "When the cause of interruption is unknown, report it as unknown rather than inventing a root cause.",
+    "If source artifacts cannot be read, do not fabricate a verified project state.",
+    "A diagnosis-only question must not silently trigger code edits, commits, or resumed development."
+  ],
+  "source_text_evidence": [
+    "chat broke.",
+    "what happened?",
+    "what's the current state?"
+  ],
+  "evaluation_basis": "textual_semantics_only",
+  "behavioral_test_status": "not_tested",
+  "effectiveness_claim": "none",
+  "disposition": "retain_v0_provisionally_no_rewrite",
+  "selected_prompt_version": "0",
+  "generated_prompt_version": null,
+  "owner_decision": null
+}

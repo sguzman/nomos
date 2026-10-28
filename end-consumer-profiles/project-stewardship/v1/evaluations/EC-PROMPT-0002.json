@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "kind": "end_consumer_prompt_text_assessment",
+  "profile_id": "EC-PROFILE-0001",
+  "prompt_id": "EC-PROMPT-0002",
+  "source_version": "0",
+  "source_key": "L",
+  "source_text_sha256": "def45cc96462b83f5245de7824f43856145b5651035ec00ec075efdd8954a28c",
+  "analyzed_semantic_version": "1",
+  "meta_intent": "Recover after a broken conversation or execution, reconcile the last verified project state, then continue only warranted unfinished work.",
+  "review_status": "provisional_pending_owner_review",
+  "owner_meta_intent_approved": false,
+  "owner_assessment_approved": false,
+  "question": "Does the V0 prompt satisfactorily fulfill its proposed meta-intent in its intended context?",
+  "proposed_verdict": "yes",
+  "interpretation": "The source explicitly asks to recover context and continue. It is a suitable shortcut for a known ongoing project, but it does not independently specify the evidence hierarchy, restored scope, or the stop-if-complete condition. Those constraints must be available from established project stewardship instructions.",
+  "atomic_intent_coverage": [
+    {
+      "local_id": "A01",
+      "assessment": "explicit_in_source"
+    },
+    {
+      "local_id": "A02",
+      "assessment": "inherited_from_established_project_protocol_not_literal_v0_text"
+    },
+    {
+      "local_id": "A03",
+      "assessment": "inherited_from_established_project_protocol_not_literal_v0_text"
+    },
+    {
+      "local_id": "A04",
+      "assessment": "explicit_in_source_with_scope_inherited"
+    },
+    {
+      "local_id": "A05",
+      "assessment": "inherited_from_established_project_protocol_not_literal_v0_text"
+    }
+  ],
+  "applicable_preconditions": [
+    "A concrete project and earlier authorization are known or recoverable.",
+    "The interrupted conversation or project artifacts provide a defensible last verified state.",
+    "The previously established stewardship protocol, including its stop-if-complete and no-invented-work rules, governs continuation."
+  ],
+  "failure_conditions": [
+    "If relevant context cannot be recovered, the phrase cannot identify a safe next development step on its own.",
+    "A completed project must not be reopened merely because the shortcut contains the word 'continue'.",
+    "The shortcut is not standalone permission to expand project scope or fabricate continuity evidence."
+  ],
+  "source_text_evidence": [
+    "chat broke.",
+    "recover context",
+    "and continue"
+  ],
+  "evaluation_basis": "textual_semantics_only",
+  "behavioral_test_status": "not_tested",
+  "effectiveness_claim": "none",
+  "disposition": "retain_v0_provisionally_no_rewrite",
+  "selected_prompt_version": "0",
+  "generated_prompt_version": null,
+  "owner_decision": null
+}

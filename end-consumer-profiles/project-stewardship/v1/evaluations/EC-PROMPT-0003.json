@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "kind": "end_consumer_prompt_text_assessment",
+  "profile_id": "EC-PROFILE-0001",
+  "prompt_id": "EC-PROMPT-0003",
+  "source_version": "0",
+  "source_key": "S",
+  "source_text_sha256": "f5c6dbfc8e750c73c6e553909aa2f41994dd3921bd198ecf2db6d576c6ba945f",
+  "analyzed_semantic_version": "1",
+  "meta_intent": "Reestablish project stewardship across conversations, preserve decisions and verified progress, and resume authorized development without artificial work.",
+  "review_status": "provisional_pending_owner_review",
+  "owner_meta_intent_approved": false,
+  "owner_assessment_approved": false,
+  "question": "Does the V0 prompt satisfactorily fulfill its proposed meta-intent in its intended context?",
+  "proposed_verdict": "yes",
+  "interpretation": "The full Project Stewardship Protocol explicitly requires project identification, repository-based recovery, preservation of completed work and verified progress, actual implementation when warranted, and evidence-backed reporting. Its scope and definition-of-done protections collectively cover stopping rather than inventing work, though it is less explicit about conditional continuation than the distinct Project init variant.",
+  "atomic_intent_coverage": [
+    {
+      "local_id": "A01",
+      "assessment": "explicit_in_source"
+    },
+    {
+      "local_id": "A02",
+      "assessment": "explicit_in_source"
+    },
+    {
+      "local_id": "A03",
+      "assessment": "explicit_in_source"
+    },
+    {
+      "local_id": "A04",
+      "assessment": "explicit_in_source"
+    },
+    {
+      "local_id": "A05",
+      "assessment": "explicit_in_source"
+    },
+    {
+      "local_id": "A06",
+      "assessment": "explicit_via_definition_of_done_and_no_invented_work"
+    }
+  ],
+  "applicable_preconditions": [
+    "The project is identified through supplied context or available repository evidence.",
+    "The agent has access to enough records to establish what is verified and unfinished, or clearly marks unknowns.",
+    "Repository writes remain limited to authorized scope and available permissions."
+  ],
+  "failure_conditions": [
+    "A repository that cannot be accessed does not justify invented progress, commits, or successful builds.",
+    "The protocol's 'continue' instruction must not produce arbitrary cleanup after the original objective is met.",
+    "Comparing this text with Project init is worthwhile if actual failures show ambiguity, but wording differences alone do not prove the prompt is inadequate."
+  ],
+  "source_text_evidence": [
+    "## 12. Chat Recovery and Session Handoff",
+    "Do not reset project progress to 0%.",
+    "Do not invent missing historical context or progress.",
+    "After reconstructing the state,",
+    "Do not declare 100% merely because all currently visible tasks"
+  ],
+  "evaluation_basis": "textual_semantics_only",
+  "behavioral_test_status": "not_tested",
+  "effectiveness_claim": "none",
+  "disposition": "retain_v0_provisionally_no_rewrite",
+  "selected_prompt_version": "0",
+  "generated_prompt_version": null,
+  "owner_decision": null
+}
