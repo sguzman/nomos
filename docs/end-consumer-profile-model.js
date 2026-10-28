@@ -35,6 +35,14 @@
       check(!slot.versions.some(v=>v.version===pub.version),'Duplicate version per slot');
       slot.versions.push({version:pub.version,label:'V'+pub.version+' · approved',text:pub.text,sha256:pub.sha256,origin:'owner_approved',approvalReference:pub.approval_reference});
     }
+    const selected=manifest.selected_versions??{};
+    check(selected&&typeof selected==='object'&&!Array.isArray(selected),'Invalid selected version mapping');
+    for(const [id,version] of Object.entries(selected)){
+      const slot=byId.get(id);
+      check(slot&&typeof version==='string'&&slot.versions.some(v=>v.version===version&&v.origin==='owner_approved'),
+        'Selected version is not an approved publication: '+id);
+      slot.defaultVersion=version;
+    }
     for(const slot of all)slot.versions.sort((a,b)=>Number(a.version)-Number(b.version));
     return all;
   }

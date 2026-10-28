@@ -33,13 +33,13 @@
   const selections=Object.create(null);
   const status=()=>{
     const alternatives=catalog.filter(x=>x.versions.length>1).length;
-    const changes=catalog.filter(x=>(selections[x.id]||'0')!=='0').length;
+    const changes=catalog.filter(x=>(selections[x.id]||x.defaultVersion)!=='0').length;
     output.textContent=catalog.length+' slots · '+changes+' non-original selected · '+
       alternatives+' slots with approved alternatives';
   };
   for(let i=0;i<catalog.length;i++){
     const slot=catalog[i],entry=source.entries[i];
-    selections[slot.id]='0';
+    selections[slot.id]=slot.defaultVersion;
     const wrap=document.createElement('section');
     const h=document.createElement('h3');h.textContent='Published prompt version';
     const label=document.createElement('label');
@@ -51,7 +51,7 @@
       option.value=v.version;option.textContent=v.label;
       select.append(option);
     });
-    select.value='0';
+    select.value=slot.defaultVersion;
     label.append(select);
     const pre=document.createElement('pre');
     pre.style.whiteSpace='pre-wrap';pre.style.overflowWrap='anywhere';
