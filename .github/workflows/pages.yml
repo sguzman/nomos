@@ -117,6 +117,7 @@ jobs:
           node tools/validate_agent_consumption_roadmap.cjs
           node --test tests/test_agent_consumption_roadmap.cjs
           node --test tests/test_end_consumer_profiles.cjs
+          node --test tests/test_end_consumer_v1.cjs
           node --check docs/end-consumer-profiles.js
           node --check tools/projections.cjs
           node --test tests/test_projections.cjs
