@@ -172,7 +172,7 @@ test('real browser: V0 integrity, selected Trievium download, approved alternate
       const holder=document.createElement('div');holder.id='markdown-safety-probe';document.body.append(holder);
       globalThis.NomosPromptPreview.mount(holder,
         '# Heading\\n\\n| Key | Value |\\n| --- | --- |\\n| A | B |\\n\\n- [x] done\\n\\n' +
-        '\\`\\`\\`js\\nconst a = 1;\\n\\`\\`\\`\\n\\n' +
+        '~~~js\\nconst a = 1;\\n~~~\\n\\n' +
         '<script>globalThis.__nomosXss=1</script><img src=x onerror="globalThis.__nomosXss=2">' +
         '[bad](javascript:alert(1))');
       const rendered=holder.querySelector('.profile-rendered-markdown');
