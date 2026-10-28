@@ -11,11 +11,12 @@
     './exports/project-stewardship-v0.json',
     './data/project-stewardship-v1-analysis.json',
     './catalog.json',
-    './data/project-stewardship-meta-intent-approval.json'
+    './data/project-stewardship-meta-intent-approval.json',
+    './data/project-stewardship-published-versions.json'
   ];
   const replies=await Promise.all(urls.map(path=>fetch(path)));
   if(replies.some(r=>!r.ok))throw Error('Public profile or Nomos catalog unavailable');
-  const [profile,source,analysis,catalog,approved]=await Promise.all(replies.map(r=>r.json()));
+  const [profile,source,analysis,catalog,approved,manifest]=await Promise.all(replies.map(r=>r.json()));
   if(approved?.status!=='approved_meta_intents_only'||approved.profile_id!==profile.id||approved.entries?.length!==10)throw Error('Meta-intent approval record invalid');
   for(let i=0;i<10;i++){
     const row=approved.entries[i],ref=analysis.prompts[i];
@@ -26,11 +27,21 @@
   const api=globalThis.NomosProfileExplorer;
   if(!api)throw Error('Explorer model missing');
   const prompts=api.build(profile,source,analysis,catalog);
+  const versionApi=globalThis.NomosEndConsumer;
+  if(!versionApi)throw Error('Published version model unavailable');
+  const versionCatalog=versionApi.makeCatalog(profile,source,manifest);
+  const publishedById=new Map(versionCatalog.map(slot=>[slot.id,slot]));
   if(!globalThis.crypto?.subtle)throw Error('SHA-256 integrity check unavailable');
   for(const p of prompts){
     const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(p.text));
     const hex=[...new Uint8Array(digest)].map(x=>x.toString(16).padStart(2,'0')).join('');
     if(hex!==p.source_sha256)throw Error('Original text integrity mismatch: '+p.key);
+  }
+  for(const slot of versionCatalog){
+    const selected=slot.versions.find(v=>v.version===slot.defaultVersion);
+    const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(selected.text));
+    const hex=[...new Uint8Array(digest)].map(x=>x.toString(16).padStart(2,'0')).join('');
+    if(hex!==selected.sha256)throw Error('Selected prompt checksum mismatch: '+slot.key);
   }
   const elt=(name,cls,value)=>{
     const node=document.createElement(name);
@@ -91,9 +102,11 @@
   }
   function show(p){
     reader.replaceChildren();
+    const published=publishedById.get(p.id);
+    const selected=published.versions.find(x=>x.version===published.defaultVersion);
     const heading=elt('div','profile-reader-heading');
     const title=elt('h2','',p.label);
-    const eyebrow=elt('span','profile-eyebrow','PROMPT '+p.key+' · ORIGINAL V0 · GOAL APPROVED / LINKS PROPOSED');
+    const eyebrow=elt('span','profile-eyebrow','PROMPT '+p.key+' · SELECTED V'+selected.version+' · META-INTENT APPROVED / LINKS PROPOSED');
     const meta=elt('p','profile-muted',
       p.atomics.length+' atomic objectives · '+p.situations.length+' situations · '+
       p.rules.length+' rule candidates · '+p.conditions.length+' execution conditions');
@@ -101,13 +114,20 @@
     const contents=elt('nav','profile-contents');
     contents.setAttribute('aria-label','Selected prompt sections');
     for(const [id,label] of [
-      ['profile-original','Prompt text'],['profile-meta','Meta-intent'],
+      ...(selected.version==='0'?[]:[['profile-selected','Approved V1']]),
+      ['profile-original','Original V0'],['profile-meta','Meta-intent'],
       ['profile-intents','Intents'],['profile-situations','Situations'],
       ['profile-rules','Rules'],['profile-conditions','Conditions'],
       ['profile-gaps','Gaps']]){
       const a=elt('a','',label);a.href='#'+id;contents.append(a);
     }
     reader.append(contents);
+    if(selected.version!=='0'){
+      const current=section('Current approved prompt · V'+selected.version,'profile-selected');
+      const selectedPre=elt('pre','profile-original-text',selected.text);
+      current.append(selectedPre);
+      current.append(elt('p','profile-muted','Owner-selected prompt wording. Original V0 is retained below for comparison.'));
+    }
     const original=section('Original prompt · V0','profile-original');
     const pre=elt('pre','profile-original-text',p.text);original.append(pre);
     const metaBlock=section('Owner-approved meta-intent · V1','profile-meta');
@@ -144,7 +164,7 @@
       plainField(card,'Proposed response',g.proposal);
       gaps.append(card);
     }
-    gaps.append(elt('p','profile-muted','Formal satisfaction evaluation: not started. All revision requests go through the ChatGPT conversation.'));
+    gaps.append(elt('p','profile-muted','Owner-selected wording is published. Linked concept coverage and earlier text assessments remain explanatory; no independent agent-behavior reliability has been measured. Submit any future revisions in the ChatGPT conversation.'));
     for(const btn of nav.querySelectorAll('button')){
       const active=btn.dataset.promptKey===p.key;
       btn.setAttribute('aria-current',active?'true':'false');

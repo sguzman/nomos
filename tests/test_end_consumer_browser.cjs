@@ -144,11 +144,15 @@ test('real browser: V0 integrity, selected Trievium download, approved alternate
     assert.equal(await evalJs("document.querySelector('#profile-reader').textContent.includes('NOM-0014')"),true);
     await evalJs("document.querySelector('[data-prompt-key=F]').click();true");
     assert.equal(await evalJs("document.querySelector('#profile-reader').textContent.includes('Fix issue')"),true);
+    assert.equal(await evalJs("document.querySelector('#profile-selected h3').textContent.includes('approved prompt')"),true);
+    assert.equal(await evalJs("document.querySelector('#profile-selected pre').textContent.includes('focused regression test')"),true);
+    assert.equal(await evalJs("document.querySelector('#profile-original pre').textContent.includes('focused regression test')"),false);
     assert.equal(await evalJs("document.querySelector('#profile-reader').textContent.includes('regression')"),true);
     assert.equal(await evalJs("document.querySelector('#profile-reader').textContent.includes('Applicable rule candidates')"),true);
     assert.equal(await evalJs("document.querySelector('#profile-reader').textContent.includes('Execution conditions')"),true);
     assert.equal(await evalJs("document.querySelector('[data-prompt-key=F]').getAttribute('aria-current')"),'true');
     await evalJs("document.querySelector('[data-prompt-key=J]').click();true");
+    assert.equal(await evalJs("document.querySelector('#profile-selected')===null"),true);
 
     async function clickAndRead(){
       // Each click is independent; Chrome may otherwise overwrite a reused name.
