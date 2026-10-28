@@ -70,7 +70,7 @@ test('All V1 semantic links resolve to published canonical objects, never invent
 test('Public review site exposes ten distinct V1 meta-intents and read-only V0 inspection',()=>{
   const html=fs.readFileSync(path.join(root,'docs','end-consumer-profiles.html'),'utf8');
   const script=fs.readFileSync(path.join(root,'docs','end-consumer-profiles.js'),'utf8');
-  assert.equal((html.match(/<details(?:\s[^>]*)?>/g)||[]).length,10);
+  assert.equal((html.match(/<details>/g)||[]).length,10);
   for(const p of draft.prompts){
     assert.ok(html.includes(p.meta_intent.statement),'Meta-intent not public: '+p.prompt_id);
     assert.ok(html.includes(p.source.label),'Missing original identity: '+p.prompt_id);

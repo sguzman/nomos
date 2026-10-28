@@ -125,9 +125,6 @@ jobs:
           node --test tests/test_end_consumer_versioned_export.cjs
           node --test tests/test_end_consumer_browser.cjs
           node --check docs/end-consumer-profiles.js
-          node --check docs/end-consumer-review-model.js
-          node --check docs/end-consumer-review.js
-          node --test tests/test_end_consumer_owner_review.cjs
           node --check tools/projections.cjs
           node --test tests/test_projections.cjs
           node --check tools/agent_package.cjs

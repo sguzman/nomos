@@ -14,9 +14,7 @@ const allowed=new Set(['end-consumer-profiles.html','end-consumer-profiles.js',
   'end-consumer-profile-model.js','styles.css',
   'exports/project-stewardship-v0.json',
   'data/project-stewardship-v0-profile.json',
-  'data/project-stewardship-published-versions.json',
-  'end-consumer-review-model.js','end-consumer-review.js',
-  'data/project-stewardship-review-candidates.json']);
+  'data/project-stewardship-published-versions.json']);
 const sha=text=>createHash('sha256').update(text).digest('hex');
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 function locateChrome(){
@@ -133,27 +131,6 @@ test('real browser: V0 integrity, selected Trievium download, approved alternate
     const approvedSlots=new Set(published.published_versions.map(v=>v.prompt_id)).size;
     assert.equal(await evalJs("document.querySelector('#trievium-selection-status').textContent.includes("+JSON.stringify(approvedSlots+' slots with approved alternatives')+")"),true);
     assert.equal(await evalJs("Boolean(globalThis.crypto?.subtle)"),true);
-    await until(()=>evalJs("document.querySelectorAll('#owner-review-list details').length===10"),
-      {timeout:16000,label:'Review worksheet did not render all ten draft slots'});
-    assert.equal(await evalJs("document.querySelector('#owner-review-download').disabled"),true);
-    await evalJs("(()=>{const s=document.querySelector('#owner-review-list select');s.value='agree';s.dispatchEvent(new Event('change',{bubbles:true}));return true})()");
-    assert.equal(await evalJs("document.querySelector('#owner-review-download').disabled"),false);
-    await evalJs("document.querySelector('#owner-review-download').click();true");
-    const reviewFile=await until(()=>{
-      const name=fs.readdirSync(downloads).find(x=>x==='project-stewardship-review-draft.json');
-      return name?path.join(downloads,name):null;
-    },{timeout:12000,label:'Local review draft was not downloaded'});
-    const draft=JSON.parse(fs.readFileSync(reviewFile,'utf8'));
-    assert.equal(draft.kind,'end_consumer_owner_review_draft');
-    assert.equal(draft.status,'local_unsubmitted');
-    assert.equal(draft.owner_authenticated,false);
-    assert.equal(draft.approval_granted,false);
-    assert.equal(draft.prompt_publication_authorized,false);
-    assert.equal(draft.decisions.length,1);
-    assert.equal(draft.decisions[0].key,'J');
-    await evalJs("document.querySelector('#owner-review-reset').click();true");
-    assert.equal(await evalJs("document.querySelector('#owner-review-download').disabled"),true);
-    assert.equal(requests.some(x=>x.method!=='GET'),false,'Review worksheet made an unexpected write request');
 
     async function clickAndRead(){
       // Each click is independent; Chrome may otherwise overwrite a reused name.

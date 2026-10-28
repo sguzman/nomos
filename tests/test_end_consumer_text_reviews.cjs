@@ -46,7 +46,7 @@ test('Public profile exposes J draft evaluation without presenting it as approve
   assert.match(html,/Formal satisfaction evaluation:<\/strong> not started/);
   assert.match(html,/Owner decision:<\/strong> pending/);
   assert.match(html,/EC-PROMPT-0001\.json/);
-  assert.equal((html.match(/<details(?:\s[^>]*)?>/g)||[]).length,10);
+  assert.equal((html.match(/<details>/g)||[]).length,10);
 });
 
 test('L, S and H provisional reviews preserve original source, scope and owner decision boundaries',()=>{
@@ -98,7 +98,7 @@ test('Recovery-family reviews appear individually on the public website as unapp
     assert.ok(html.includes(id+'.json'));
   }
   assert.equal((html.match(/Formal satisfaction evaluation:<\/strong> not started/g)||[]).length,10);
-  assert.equal((html.match(/<details(?:\s[^>]*)?>/g)||[]).length,10);
+  assert.equal((html.match(/<details>/g)||[]).length,10);
 });
 
 test('D K A assessments remain exact-source-linked, provisional and visible',()=>{
@@ -141,7 +141,7 @@ test('D K A assessments remain exact-source-linked, provisional and visible',()=
   }
   assert.equal(profile.current_version,'0');
   assert.deepEqual(profile.governance.selected_replacement_versions,[]);
-  assert.equal((html.match(/<details(?:\s[^>]*)?>/g)||[]).length,10);
+  assert.equal((html.match(/<details>/g)||[]).length,10);
 });
 
 test('all ten provisional review records preserve source and owner-control boundaries',()=>{
@@ -179,7 +179,7 @@ test('all ten provisional review records preserve source and owner-control bound
   }
   assert.equal(profile.current_version,'0');
   assert.deepEqual(profile.governance.selected_replacement_versions,[]);
-  assert.equal((html.match(/<details(?:\s[^>]*)?>/g)||[]).length,10);
+  assert.equal((html.match(/<details>/g)||[]).length,10);
 });
 
 test('F coverage gap remains a candidate without rewriting V0',()=>{
