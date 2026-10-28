@@ -119,6 +119,8 @@ jobs:
           node --test tests/test_end_consumer_profiles.cjs
           node --test tests/test_end_consumer_v1.cjs
           node --test tests/test_end_consumer_text_reviews.cjs
+          node --check docs/end-consumer-profile-model.js
+          node --test tests/test_end_consumer_versioned_export.cjs
           node --check docs/end-consumer-profiles.js
           node --check tools/projections.cjs
           node --test tests/test_projections.cjs

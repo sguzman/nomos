@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "profile_id": "EC-PROFILE-0001",
+  "source_version": "0",
+  "published_versions": [],
+  "note": "Only immutable V0 prompts are currently published for selection. Proposed V1 semantic annotations and text assessments are not prompt versions; successors require an explicit owner approval reference."
+}
