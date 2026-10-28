@@ -54,7 +54,7 @@
       need(p&&p.source.key===entry.key&&p.source.label===entry.label&&
         p.source.text_sha256===slot.text_sha256&&p.source.version==='0',
         'V1 proposal does not match original prompt identity');
-      need(p.meta_intent.owner_confirmed===false&&p.meta_intent.review_status==='proposed','Unapproved V1 expected');
+      need(p.meta_intent.owner_confirmed===true&&p.meta_intent.review_status==='owner_approved','Unapproved V1 expected');
       const atomics=p.atomic_intents.map(a=>({
         local_id:a.local_id,statement:a.statement,review_status:a.review_status,
         linked_intents:refs(a.existing_intent_ids,'intent')

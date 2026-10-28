@@ -25,8 +25,8 @@ test('V1 enriches exactly ten immutable V0 prompt IDs without selecting or rewri
     assert.equal(p.source.key,v0.key);
     assert.equal(p.source.label,v0.label);
     assert.equal(p.source.text_sha256,sha(v0.text));
-    assert.equal(p.meta_intent.review_status,'proposed');
-    assert.equal(p.meta_intent.owner_confirmed,false);
+    assert.equal(p.meta_intent.review_status,'owner_approved');
+    assert.equal(p.meta_intent.owner_confirmed,true);
     assert.ok(p.meta_intent.statement.length>20);
     assert.equal(p.selection.selected_prompt_version,'0');
     assert.equal(p.selection.generated_prompt_version,null);

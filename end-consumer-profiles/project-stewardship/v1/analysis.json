@@ -26,8 +26,8 @@
       },
       "meta_intent": {
         "statement": "Continue legitimate unfinished development autonomously from the established project state, and stop when further work is unwarranted.",
-        "review_status": "proposed",
-        "owner_confirmed": false
+        "review_status": "owner_approved",
+        "owner_confirmed": true
       },
       "atomic_intents": [
         {
@@ -119,8 +119,8 @@
       },
       "meta_intent": {
         "statement": "Recover after a broken conversation or execution, reconcile the last verified project state, then continue only warranted unfinished work.",
-        "review_status": "proposed",
-        "owner_confirmed": false
+        "review_status": "owner_approved",
+        "owner_confirmed": true
       },
       "atomic_intents": [
         {
@@ -212,8 +212,8 @@
       },
       "meta_intent": {
         "statement": "Reestablish project stewardship across conversations, preserve decisions and verified progress, and resume authorized development without artificial work.",
-        "review_status": "proposed",
-        "owner_confirmed": false
+        "review_status": "owner_approved",
+        "owner_confirmed": true
       },
       "atomic_intents": [
         {
@@ -331,8 +331,8 @@
       },
       "meta_intent": {
         "statement": "Explain what interrupted the work and provide the verified current project state, without automatically resuming development.",
-        "review_status": "proposed",
-        "owner_confirmed": false
+        "review_status": "owner_approved",
+        "owner_confirmed": true
       },
       "atomic_intents": [
         {
@@ -411,8 +411,8 @@
       },
       "meta_intent": {
         "statement": "Establish responsible engineering stewardship for a new or specified project, build an evidence-backed roadmap and autonomously complete only authorized scope.",
-        "review_status": "proposed",
-        "owner_confirmed": false
+        "review_status": "owner_approved",
+        "owner_confirmed": true
       },
       "atomic_intents": [
         {
@@ -531,8 +531,8 @@
       },
       "meta_intent": {
         "statement": "Provide a concise, measurable, evidence-backed project progress report without implying further development authorization.",
-        "review_status": "proposed",
-        "owner_confirmed": false
+        "review_status": "owner_approved",
+        "owner_confirmed": true
       },
       "atomic_intents": [
         {
@@ -629,8 +629,8 @@
       },
       "meta_intent": {
         "statement": "Adopt an existing partially completed project, reconstruct and preserve its history, reconcile its roadmap, and finish only genuine remaining work.",
-        "review_status": "proposed",
-        "owner_confirmed": false
+        "review_status": "owner_approved",
+        "owner_confirmed": true
       },
       "atomic_intents": [
         {
@@ -733,8 +733,8 @@
       },
       "meta_intent": {
         "statement": "Diagnose and repair a specifically reported defect through reproducible evidence, a scoped root-cause fix, and verified non-regression.",
-        "review_status": "proposed",
-        "owner_confirmed": false
+        "review_status": "owner_approved",
+        "owner_confirmed": true
       },
       "atomic_intents": [
         {
@@ -838,8 +838,8 @@
       },
       "meta_intent": {
         "statement": "Audit an existing project against its original objective, identify legitimate gaps, correct unsupported progress claims, and advance remediation only when warranted.",
-        "review_status": "proposed",
-        "owner_confirmed": false
+        "review_status": "owner_approved",
+        "owner_confirmed": true
       },
       "atomic_intents": [
         {
@@ -936,8 +936,8 @@
       },
       "meta_intent": {
         "statement": "Independently check the assistant's latest project claims against inspectable evidence, correct unsupported claims, and avoid unnecessary code changes.",
-        "review_status": "proposed",
-        "owner_confirmed": false
+        "review_status": "owner_approved",
+        "owner_confirmed": true
       },
       "atomic_intents": [
         {
