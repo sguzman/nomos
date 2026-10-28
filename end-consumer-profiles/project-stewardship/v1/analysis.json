@@ -1,0 +1,1024 @@
+{
+  "schema_version": 1,
+  "kind": "nomos_end_consumer_prompt_semantic_draft",
+  "profile_id": "EC-PROFILE-0001",
+  "version": "1",
+  "status": "proposed_for_owner_review",
+  "derived_from": {
+    "original_trievium_path": "end-consumer-profiles/project-stewardship/v0/trievium.json",
+    "profile_path": "end-consumer-profiles/project-stewardship/profile.json"
+  },
+  "method": "Source text and existing published Nomos objects read first. Individual atomic objectives are draft local decompositions, linked to published intent concepts by ID; they are not silently added to canonical intent registry.",
+  "limits": [
+    "Linked Nomos rules and concepts remain inert; mappings are non-normative analysis.",
+    "No canonical rule, situation, intent, family or prompt version was created or altered.",
+    "Not a behavioral effectiveness evaluation, satisfaction verdict or replacement prompt.",
+    "Owner has not confirmed any inferred meta-intent or newly suggested ontology object."
+  ],
+  "prompts": [
+    {
+      "prompt_id": "EC-PROMPT-0001",
+      "source": {
+        "version": "0",
+        "key": "J",
+        "label": "▶️ Continue",
+        "text_sha256": "e256ee8e7aff6957a781d8328f0f68e26996564c81fa458da59fbca2305138ad"
+      },
+      "meta_intent": {
+        "statement": "Continue legitimate unfinished development autonomously from the established project state, and stop when further work is unwarranted.",
+        "review_status": "proposed",
+        "owner_confirmed": false
+      },
+      "atomic_intents": [
+        {
+          "local_id": "A01",
+          "statement": "Resume previously authorized work",
+          "existing_intent_ids": [
+            "INTENT-0002"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A02",
+          "statement": "Verify whether unfinished tasks really exist",
+          "existing_intent_ids": [
+            "INTENT-0007",
+            "INTENT-0009"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A03",
+          "statement": "Respect the established scope",
+          "existing_intent_ids": [
+            "INTENT-0012"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A04",
+          "statement": "Advance verified implementation",
+          "existing_intent_ids": [
+            "INTENT-0010"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A05",
+          "statement": "Stop or hand off when appropriate",
+          "existing_intent_ids": [
+            "INTENT-0018",
+            "INTENT-0019"
+          ],
+          "review_status": "proposed"
+        }
+      ],
+      "situation_ids": [
+        "SITU-0001",
+        "SITU-0005",
+        "SITU-0007"
+      ],
+      "rule_ids": [
+        "NOM-0014",
+        "NOM-0016",
+        "NOM-0043",
+        "NOM-0064",
+        "NOM-0065",
+        "NOM-0067"
+      ],
+      "condition_ids": [
+        "CONDITION-0005",
+        "CONDITION-0006",
+        "CONDITION-0007"
+      ],
+      "applicability": {
+        "trigger": "Explicit user invocation of the ▶️ Continue prompt during relevant project work",
+        "authorization": "No new repositories, file edits, rules, profiles or task scopes are authorized merely by this public mapping"
+      },
+      "conflicts_and_gaps": [
+        {
+          "kind": "implicit-context",
+          "finding": "The eight-character command contains no standalone scope, stop gate, or evidence standard; it only works reliably when earlier project stewardship instructions are recovered.",
+          "proposal": "Treat inherited instructions and an evidence-backed completion check as prerequisites, not an automatic instruction expansion."
+        }
+      ],
+      "selection": {
+        "selected_prompt_version": "0",
+        "generated_prompt_version": null,
+        "evaluation": "not_started",
+        "semantic_selection_owner_approved": false
+      }
+    },
+    {
+      "prompt_id": "EC-PROMPT-0002",
+      "source": {
+        "version": "0",
+        "key": "L",
+        "label": "🔁 Chat broke",
+        "text_sha256": "def45cc96462b83f5245de7824f43856145b5651035ec00ec075efdd8954a28c"
+      },
+      "meta_intent": {
+        "statement": "Recover after a broken conversation or execution, reconcile the last verified project state, then continue only warranted unfinished work.",
+        "review_status": "proposed",
+        "owner_confirmed": false
+      },
+      "atomic_intents": [
+        {
+          "local_id": "A01",
+          "statement": "Recover the prior context and accepted decisions",
+          "existing_intent_ids": [
+            "INTENT-0005"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A02",
+          "statement": "Separate completed from interrupted work",
+          "existing_intent_ids": [
+            "INTENT-0006",
+            "INTENT-0011"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A03",
+          "statement": "Ground recovery in available artifacts",
+          "existing_intent_ids": [
+            "INTENT-0007"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A04",
+          "statement": "Resume authorized work without new scope",
+          "existing_intent_ids": [
+            "INTENT-0002",
+            "INTENT-0012"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A05",
+          "statement": "Apply verified stopping conditions",
+          "existing_intent_ids": [
+            "INTENT-0018"
+          ],
+          "review_status": "proposed"
+        }
+      ],
+      "situation_ids": [
+        "SITU-0002",
+        "SITU-0003",
+        "SITU-0008",
+        "SITU-0005"
+      ],
+      "rule_ids": [
+        "NOM-0014",
+        "NOM-0016",
+        "NOM-0043",
+        "NOM-0065",
+        "NOM-0066",
+        "NOM-0067"
+      ],
+      "condition_ids": [
+        "CONDITION-0005",
+        "CONDITION-0006"
+      ],
+      "applicability": {
+        "trigger": "Explicit user invocation of the 🔁 Chat broke prompt during relevant project work",
+        "authorization": "No new repositories, file edits, rules, profiles or task scopes are authorized merely by this public mapping"
+      },
+      "conflicts_and_gaps": [
+        {
+          "kind": "conditional-stop",
+          "finding": "The phrase 'recover context and continue' does not itself state 'continue only if genuine work remains.'",
+          "proposal": "Future version should make conditional execution explicit rather than assuming the agent will inherit it."
+        }
+      ],
+      "selection": {
+        "selected_prompt_version": "0",
+        "generated_prompt_version": null,
+        "evaluation": "not_started",
+        "semantic_selection_owner_approved": false
+      }
+    },
+    {
+      "prompt_id": "EC-PROMPT-0003",
+      "source": {
+        "version": "0",
+        "key": "S",
+        "label": "🔄 Restore context",
+        "text_sha256": "f5c6dbfc8e750c73c6e553909aa2f41994dd3921bd198ecf2db6d576c6ba945f"
+      },
+      "meta_intent": {
+        "statement": "Reestablish project stewardship across conversations, preserve decisions and verified progress, and resume authorized development without artificial work.",
+        "review_status": "proposed",
+        "owner_confirmed": false
+      },
+      "atomic_intents": [
+        {
+          "local_id": "A01",
+          "statement": "Identify project and retrieve durable context",
+          "existing_intent_ids": [
+            "INTENT-0005"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A02",
+          "statement": "Inspect repository and reconcile verified progress",
+          "existing_intent_ids": [
+            "INTENT-0007",
+            "INTENT-0014"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A03",
+          "statement": "Preserve existing project scope and decisions",
+          "existing_intent_ids": [
+            "INTENT-0011",
+            "INTENT-0012"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A04",
+          "statement": "Select and execute necessary unfinished work",
+          "existing_intent_ids": [
+            "INTENT-0009",
+            "INTENT-0010"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A05",
+          "statement": "Report quantified evidence-backed progress",
+          "existing_intent_ids": [
+            "INTENT-0016",
+            "INTENT-0019"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A06",
+          "statement": "Stop after verified completion or genuine blocker",
+          "existing_intent_ids": [
+            "INTENT-0018"
+          ],
+          "review_status": "proposed"
+        }
+      ],
+      "situation_ids": [
+        "SITU-0003",
+        "SITU-0008",
+        "SITU-0005",
+        "SITU-0028",
+        "SITU-0029"
+      ],
+      "rule_ids": [
+        "NOM-0010",
+        "NOM-0014",
+        "NOM-0016",
+        "NOM-0017",
+        "NOM-0023",
+        "NOM-0043",
+        "NOM-0064",
+        "NOM-0065",
+        "NOM-0066",
+        "NOM-0067",
+        "NOM-0068",
+        "NOM-0069",
+        "NOM-0070",
+        "NOM-0071",
+        "NOM-0137"
+      ],
+      "condition_ids": [
+        "CONDITION-0003",
+        "CONDITION-0004",
+        "CONDITION-0005",
+        "CONDITION-0006"
+      ],
+      "applicability": {
+        "trigger": "Explicit user invocation of the 🔄 Restore context prompt during relevant project work",
+        "authorization": "No new repositories, file edits, rules, profiles or task scopes are authorized merely by this public mapping"
+      },
+      "conflicts_and_gaps": [
+        {
+          "kind": "cross-prompt-drift",
+          "finding": "The Restore context long-form protocol says to resume development but lacks the ten explicit conditional-continuation rules present in Project init.",
+          "proposal": "Compare against Project init's stop contract at evaluation; do not edit either V0 source."
+        },
+        {
+          "kind": "authorization",
+          "finding": "Repository write/commit direction depends on established tool access and actual user authorization.",
+          "proposal": "Confirm actual task authorization before interpreting recovery as permission to modify unrelated projects."
+        }
+      ],
+      "selection": {
+        "selected_prompt_version": "0",
+        "generated_prompt_version": null,
+        "evaluation": "not_started",
+        "semantic_selection_owner_approved": false
+      }
+    },
+    {
+      "prompt_id": "EC-PROMPT-0004",
+      "source": {
+        "version": "0",
+        "key": "H",
+        "label": "❓ What happened?",
+        "text_sha256": "90194f96257d3f7832846b4b1f3873f7239f545dcf37e538d6a912d4caab6f1f"
+      },
+      "meta_intent": {
+        "statement": "Explain what interrupted the work and provide the verified current project state, without automatically resuming development.",
+        "review_status": "proposed",
+        "owner_confirmed": false
+      },
+      "atomic_intents": [
+        {
+          "local_id": "A01",
+          "statement": "Diagnose the interruption",
+          "existing_intent_ids": [
+            "INTENT-0008"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A02",
+          "statement": "Reconstruct the last known project context",
+          "existing_intent_ids": [
+            "INTENT-0005"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A03",
+          "statement": "Separate observed status from inference",
+          "existing_intent_ids": [
+            "INTENT-0007",
+            "INTENT-0014"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A04",
+          "statement": "Report blockers and remaining uncertainty",
+          "existing_intent_ids": [
+            "INTENT-0019"
+          ],
+          "review_status": "proposed"
+        }
+      ],
+      "situation_ids": [
+        "SITU-0004",
+        "SITU-0003",
+        "SITU-0006"
+      ],
+      "rule_ids": [
+        "NOM-0014",
+        "NOM-0043",
+        "NOM-0065",
+        "NOM-0066",
+        "NOM-0067"
+      ],
+      "condition_ids": [
+        "CONDITION-0002"
+      ],
+      "applicability": {
+        "trigger": "Explicit user invocation of the ❓ What happened? prompt during relevant project work",
+        "authorization": "No new repositories, file edits, rules, profiles or task scopes are authorized merely by this public mapping"
+      },
+      "conflicts_and_gaps": [
+        {
+          "kind": "execution-mode",
+          "finding": "The source asks 'what happened?' but never explicitly forbids implementation changes; diagnosis-only is an inferred intention from the question.",
+          "proposal": "Check whether the intended response is strictly read-only before synthesizing a successor."
+        }
+      ],
+      "selection": {
+        "selected_prompt_version": "0",
+        "generated_prompt_version": null,
+        "evaluation": "not_started",
+        "semantic_selection_owner_approved": false
+      }
+    },
+    {
+      "prompt_id": "EC-PROMPT-0005",
+      "source": {
+        "version": "0",
+        "key": "D",
+        "label": "🚀 Project init",
+        "text_sha256": "af75908c39fdfa4698a033f511c978e6845d6df4abd3ca302bae117f82a0c58f"
+      },
+      "meta_intent": {
+        "statement": "Establish responsible engineering stewardship for a new or specified project, build an evidence-backed roadmap and autonomously complete only authorized scope.",
+        "review_status": "proposed",
+        "owner_confirmed": false
+      },
+      "atomic_intents": [
+        {
+          "local_id": "A01",
+          "statement": "Inspect the project before acting",
+          "existing_intent_ids": [
+            "INTENT-0007"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A02",
+          "statement": "Establish objectively testable milestones",
+          "existing_intent_ids": [
+            "INTENT-0026"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A03",
+          "statement": "Implement and independently verify authorized deliverables",
+          "existing_intent_ids": [
+            "INTENT-0010",
+            "INTENT-0033"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A04",
+          "statement": "Protect original goals and prevent invented tasks",
+          "existing_intent_ids": [
+            "INTENT-0004",
+            "INTENT-0012",
+            "INTENT-0013"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A05",
+          "statement": "Track truthful progress and preserve Git evidence",
+          "existing_intent_ids": [
+            "INTENT-0016",
+            "INTENT-0028"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A06",
+          "statement": "Stop when all accepted criteria are met",
+          "existing_intent_ids": [
+            "INTENT-0018"
+          ],
+          "review_status": "proposed"
+        }
+      ],
+      "situation_ids": [
+        "SITU-0014",
+        "SITU-0015",
+        "SITU-0018",
+        "SITU-0028",
+        "SITU-0005"
+      ],
+      "rule_ids": [
+        "NOM-0010",
+        "NOM-0014",
+        "NOM-0016",
+        "NOM-0017",
+        "NOM-0023",
+        "NOM-0027",
+        "NOM-0029",
+        "NOM-0030",
+        "NOM-0034",
+        "NOM-0043",
+        "NOM-0064",
+        "NOM-0065",
+        "NOM-0066",
+        "NOM-0067",
+        "NOM-0068",
+        "NOM-0069",
+        "NOM-0070",
+        "NOM-0071",
+        "NOM-0137"
+      ],
+      "condition_ids": [
+        "CONDITION-0003",
+        "CONDITION-0004",
+        "CONDITION-0005",
+        "CONDITION-0006",
+        "CONDITION-0007"
+      ],
+      "applicability": {
+        "trigger": "Explicit user invocation of the 🚀 Project init prompt during relevant project work",
+        "authorization": "No new repositories, file edits, rules, profiles or task scopes are authorized merely by this public mapping"
+      },
+      "conflicts_and_gaps": [
+        {
+          "kind": "invocation-scope",
+          "finding": "Long form is reused for new or already-existing projects; an initialized project and an adopted project have different roadmap baselines.",
+          "proposal": "Preserve their distinct prompt identities and audit the case-specific trigger before combining shared wording."
+        }
+      ],
+      "selection": {
+        "selected_prompt_version": "0",
+        "generated_prompt_version": null,
+        "evaluation": "not_started",
+        "semantic_selection_owner_approved": false
+      }
+    },
+    {
+      "prompt_id": "EC-PROMPT-0006",
+      "source": {
+        "version": "0",
+        "key": "K",
+        "label": "📊 Status",
+        "text_sha256": "9c08766af433bca0f1508269098f92cd7213c55cb2a201375e92b433c83e78a9"
+      },
+      "meta_intent": {
+        "statement": "Provide a concise, measurable, evidence-backed project progress report without implying further development authorization.",
+        "review_status": "proposed",
+        "owner_confirmed": false
+      },
+      "atomic_intents": [
+        {
+          "local_id": "A01",
+          "statement": "Retrieve verified status",
+          "existing_intent_ids": [
+            "INTENT-0007"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A02",
+          "statement": "Audit reported progress against evidence",
+          "existing_intent_ids": [
+            "INTENT-0014"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A03",
+          "statement": "Quantify only supported progress and change",
+          "existing_intent_ids": [
+            "INTENT-0016"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A04",
+          "statement": "Report remaining blockers and next warranted work",
+          "existing_intent_ids": [
+            "INTENT-0019"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A05",
+          "statement": "Avoid repeating already completed status",
+          "existing_intent_ids": [
+            "INTENT-0043"
+          ],
+          "review_status": "proposed"
+        }
+      ],
+      "situation_ids": [
+        "SITU-0028",
+        "SITU-0006",
+        "SITU-0030"
+      ],
+      "rule_ids": [
+        "NOM-0043",
+        "NOM-0065",
+        "NOM-0066",
+        "NOM-0068",
+        "NOM-0069",
+        "NOM-0070",
+        "NOM-0071",
+        "NOM-0072",
+        "NOM-0137"
+      ],
+      "condition_ids": [
+        "CONDITION-0002",
+        "CONDITION-0005"
+      ],
+      "applicability": {
+        "trigger": "Explicit user invocation of the 📊 Status prompt during relevant project work",
+        "authorization": "No new repositories, file edits, rules, profiles or task scopes are authorized merely by this public mapping"
+      },
+      "conflicts_and_gaps": [
+        {
+          "kind": "implicit-context",
+          "finding": "The literal 'progress?' specifies neither project, evidence source, baseline, nor reporting format.",
+          "proposal": "Rely on selected project context and render unknown denominators as unknown instead of inventing numbers."
+        },
+        {
+          "kind": "read-only-boundary",
+          "finding": "A status request should not itself trigger implementation or commits.",
+          "proposal": "Model inspection-only behavior as an explicit response mode in a later reviewed prompt."
+        }
+      ],
+      "selection": {
+        "selected_prompt_version": "0",
+        "generated_prompt_version": null,
+        "evaluation": "not_started",
+        "semantic_selection_owner_approved": false
+      }
+    },
+    {
+      "prompt_id": "EC-PROMPT-0007",
+      "source": {
+        "version": "0",
+        "key": "A",
+        "label": "🧩 Project adopt",
+        "text_sha256": "233541ebcbc8d946eaca242590c09d2cfdd6d92f5a84ba3b59d7feb00839c7d8"
+      },
+      "meta_intent": {
+        "statement": "Adopt an existing partially completed project, reconstruct and preserve its history, reconcile its roadmap, and finish only genuine remaining work.",
+        "review_status": "proposed",
+        "owner_confirmed": false
+      },
+      "atomic_intents": [
+        {
+          "local_id": "A01",
+          "statement": "Audit existing repository and accepted decisions",
+          "existing_intent_ids": [
+            "INTENT-0007",
+            "INTENT-0005"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A02",
+          "statement": "Retain completed work and scope",
+          "existing_intent_ids": [
+            "INTENT-0011",
+            "INTENT-0012"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A03",
+          "statement": "Reconcile roadmap from evidence rather than resetting it",
+          "existing_intent_ids": [
+            "INTENT-0026",
+            "INTENT-0014"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A04",
+          "statement": "Implement verified remaining work",
+          "existing_intent_ids": [
+            "INTENT-0009",
+            "INTENT-0010"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A05",
+          "statement": "Track real progress and apply completion gate",
+          "existing_intent_ids": [
+            "INTENT-0016",
+            "INTENT-0018"
+          ],
+          "review_status": "proposed"
+        }
+      ],
+      "situation_ids": [
+        "SITU-0015",
+        "SITU-0018",
+        "SITU-0005",
+        "SITU-0028"
+      ],
+      "rule_ids": [
+        "NOM-0014",
+        "NOM-0016",
+        "NOM-0017",
+        "NOM-0023",
+        "NOM-0043",
+        "NOM-0064",
+        "NOM-0065",
+        "NOM-0066",
+        "NOM-0067",
+        "NOM-0068",
+        "NOM-0069",
+        "NOM-0070",
+        "NOM-0137"
+      ],
+      "condition_ids": [
+        "CONDITION-0003",
+        "CONDITION-0004",
+        "CONDITION-0005"
+      ],
+      "applicability": {
+        "trigger": "Explicit user invocation of the 🧩 Project adopt prompt during relevant project work",
+        "authorization": "No new repositories, file edits, rules, profiles or task scopes are authorized merely by this public mapping"
+      },
+      "conflicts_and_gaps": [
+        {
+          "kind": "ontology-trigger",
+          "finding": "The catalog situation for project inception (SITU-0014) is not equivalent to adopting an existing partially completed project; there is no selected canonical adoption-specific trigger.",
+          "proposal": "Propose a narrowly defined existing-project-adoption situation after reviewing the current 97-situation catalog; do not relabel SITU-0014."
+        }
+      ],
+      "selection": {
+        "selected_prompt_version": "0",
+        "generated_prompt_version": null,
+        "evaluation": "not_started",
+        "semantic_selection_owner_approved": false
+      }
+    },
+    {
+      "prompt_id": "EC-PROMPT-0008",
+      "source": {
+        "version": "0",
+        "key": "F",
+        "label": "🛠️ Fix issue",
+        "text_sha256": "c71ba1084bbca9d907e3d9cec812e4e2223ccabd2c507d559e43dc7ec1b7eec6"
+      },
+      "meta_intent": {
+        "statement": "Diagnose and repair a specifically reported defect through reproducible evidence, a scoped root-cause fix, and verified non-regression.",
+        "review_status": "proposed",
+        "owner_confirmed": false
+      },
+      "atomic_intents": [
+        {
+          "local_id": "A01",
+          "statement": "Reproduce the reported failure where practical",
+          "existing_intent_ids": [
+            "INTENT-0033",
+            "INTENT-0034"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A02",
+          "statement": "Identify the root cause from actual implementation",
+          "existing_intent_ids": [
+            "INTENT-0007"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A03",
+          "statement": "Apply a scoped reliable correction",
+          "existing_intent_ids": [
+            "INTENT-0010",
+            "INTENT-0012"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A04",
+          "statement": "Test failure and regression paths",
+          "existing_intent_ids": [
+            "INTENT-0034"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A05",
+          "statement": "Verify and report the fix without unrelated work",
+          "existing_intent_ids": [
+            "INTENT-0019",
+            "INTENT-0028"
+          ],
+          "review_status": "proposed"
+        }
+      ],
+      "situation_ids": [
+        "SITU-0018",
+        "SITU-0020",
+        "SITU-0027",
+        "SITU-0015"
+      ],
+      "rule_ids": [
+        "NOM-0014",
+        "NOM-0016",
+        "NOM-0017",
+        "NOM-0023",
+        "NOM-0027",
+        "NOM-0028",
+        "NOM-0029",
+        "NOM-0030",
+        "NOM-0039",
+        "NOM-0041",
+        "NOM-0064",
+        "NOM-0065",
+        "NOM-0066"
+      ],
+      "condition_ids": [
+        "CONDITION-0006"
+      ],
+      "applicability": {
+        "trigger": "Explicit user invocation of the 🛠️ Fix issue prompt during relevant project work",
+        "authorization": "No new repositories, file edits, rules, profiles or task scopes are authorized merely by this public mapping"
+      },
+      "conflicts_and_gaps": [
+        {
+          "kind": "ontology-trigger",
+          "finding": "Selected existing situations cover implementation changes and CI failures but not the general trigger 'user reported reproducible software defect.'",
+          "proposal": "Review remaining situations; propose a defect-report trigger if no exact published situation exists."
+        },
+        {
+          "kind": "environment",
+          "finding": "A live reproduction may be impossible without local runtime, hardware or private input.",
+          "proposal": "Distinguish independently verified tests from owner-only runtime QA, without claiming unsighted results."
+        }
+      ],
+      "selection": {
+        "selected_prompt_version": "0",
+        "generated_prompt_version": null,
+        "evaluation": "not_started",
+        "semantic_selection_owner_approved": false
+      }
+    },
+    {
+      "prompt_id": "EC-PROMPT-0009",
+      "source": {
+        "version": "0",
+        "key": "G",
+        "label": "🔎 Gap audit",
+        "text_sha256": "f8873b794f0e05bb4dbf224de8476c85ae5d99251e3b477f4bcf2296de5fbc2e"
+      },
+      "meta_intent": {
+        "statement": "Audit an existing project against its original objective, identify legitimate gaps, correct unsupported progress claims, and advance remediation only when warranted.",
+        "review_status": "proposed",
+        "owner_confirmed": false
+      },
+      "atomic_intents": [
+        {
+          "local_id": "A01",
+          "statement": "Inspect implementation, tests, roadmap and historical objective",
+          "existing_intent_ids": [
+            "INTENT-0007",
+            "INTENT-0026"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A02",
+          "statement": "Compare claimed outcomes to evidence",
+          "existing_intent_ids": [
+            "INTENT-0014"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A03",
+          "statement": "Find unmet obligations without scope expansion",
+          "existing_intent_ids": [
+            "INTENT-0012",
+            "INTENT-0009"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A04",
+          "statement": "Reconcile misleading completion claims",
+          "existing_intent_ids": [
+            "INTENT-0015",
+            "INTENT-0016"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A05",
+          "statement": "Remediate real gaps but stop when complete",
+          "existing_intent_ids": [
+            "INTENT-0010",
+            "INTENT-0018"
+          ],
+          "review_status": "proposed"
+        }
+      ],
+      "situation_ids": [
+        "SITU-0006",
+        "SITU-0007",
+        "SITU-0005",
+        "SITU-0028"
+      ],
+      "rule_ids": [
+        "NOM-0014",
+        "NOM-0016",
+        "NOM-0043",
+        "NOM-0064",
+        "NOM-0065",
+        "NOM-0066",
+        "NOM-0067",
+        "NOM-0068",
+        "NOM-0070"
+      ],
+      "condition_ids": [
+        "CONDITION-0005",
+        "CONDITION-0006"
+      ],
+      "applicability": {
+        "trigger": "Explicit user invocation of the 🔎 Gap audit prompt during relevant project work",
+        "authorization": "No new repositories, file edits, rules, profiles or task scopes are authorized merely by this public mapping"
+      },
+      "conflicts_and_gaps": [
+        {
+          "kind": "execution-mode",
+          "finding": "This is an active audit-and-remediation command, unlike verification-only U or status-only K.",
+          "proposal": "Make conditional remediation authority explicit and avoid conflating audit findings with permission to add new features."
+        }
+      ],
+      "selection": {
+        "selected_prompt_version": "0",
+        "generated_prompt_version": null,
+        "evaluation": "not_started",
+        "semantic_selection_owner_approved": false
+      }
+    },
+    {
+      "prompt_id": "EC-PROMPT-0010",
+      "source": {
+        "version": "0",
+        "key": "U",
+        "label": "🧪 Verify work",
+        "text_sha256": "9f1f7108de5b6fb26b52186e752886a7c6a042bc913c5501424e46e17492c9d9"
+      },
+      "meta_intent": {
+        "statement": "Independently check the assistant's latest project claims against inspectable evidence, correct unsupported claims, and avoid unnecessary code changes.",
+        "review_status": "proposed",
+        "owner_confirmed": false
+      },
+      "atomic_intents": [
+        {
+          "local_id": "A01",
+          "statement": "Read latest claims and available project evidence",
+          "existing_intent_ids": [
+            "INTENT-0007"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A02",
+          "statement": "Verify test and commit assertions",
+          "existing_intent_ids": [
+            "INTENT-0014",
+            "INTENT-0028"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A03",
+          "statement": "Separate demonstrated from unverified milestones",
+          "existing_intent_ids": [
+            "INTENT-0016"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A04",
+          "statement": "Correct inaccurate status reporting",
+          "existing_intent_ids": [
+            "INTENT-0015"
+          ],
+          "review_status": "proposed"
+        },
+        {
+          "local_id": "A05",
+          "statement": "Report remaining uncertainty without unjustified changes",
+          "existing_intent_ids": [
+            "INTENT-0019"
+          ],
+          "review_status": "proposed"
+        }
+      ],
+      "situation_ids": [
+        "SITU-0006",
+        "SITU-0028",
+        "SITU-0020"
+      ],
+      "rule_ids": [
+        "NOM-0014",
+        "NOM-0023",
+        "NOM-0041",
+        "NOM-0043",
+        "NOM-0064",
+        "NOM-0065",
+        "NOM-0066",
+        "NOM-0067"
+      ],
+      "condition_ids": [
+        "CONDITION-0002"
+      ],
+      "applicability": {
+        "trigger": "Explicit user invocation of the 🧪 Verify work prompt during relevant project work",
+        "authorization": "No new repositories, file edits, rules, profiles or task scopes are authorized merely by this public mapping"
+      },
+      "conflicts_and_gaps": [
+        {
+          "kind": "evidence-scope",
+          "finding": "The short command is strongest as a read-only verification request; 'correct claims' should not be mistaken for authorization to rewrite implementation.",
+          "proposal": "Preserve explicit no-unnecessary-changes policy and distinguish claims verification from project repair."
+        }
+      ],
+      "selection": {
+        "selected_prompt_version": "0",
+        "generated_prompt_version": null,
+        "evaluation": "not_started",
+        "semantic_selection_owner_approved": false
+      }
+    }
+  ]
+}
