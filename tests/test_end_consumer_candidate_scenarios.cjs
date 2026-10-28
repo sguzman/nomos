@@ -33,8 +33,8 @@ test('F revision consists of one targeted insertion without rewriting V0 sentenc
  const added='Where practical, run or add a focused regression test for the reported defect and check relevant previously working behavior. If reproduction, regression checks, or runtime QA cannot be performed, report exactly what remains unverified; do not claim non-regression without evidence.\n\n';
  assert.equal(revised.replace(added,''),old);
 });
-test('16 synthetic scenarios are text-contract probes, not observed agent runs',()=>{
- assert.equal(scenarios.cases.length,16);
+test('17 synthetic scenarios are text-contract probes, not observed agent runs',()=>{
+ assert.equal(scenarios.cases.length,17);
  assert.equal(scenarios.status,'textual_evidence_only');
  const observed=new Set();
  for(const scenario of scenarios.cases){
