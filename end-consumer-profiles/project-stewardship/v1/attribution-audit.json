@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "kind": "end_consumer_attribution_audit",
+  "profile_id": "EC-PROFILE-0001",
+  "semantic_version": "1",
+  "status": "agent_audited_not_owner_confirmed",
+  "reviewed_at_utc": "2026-10-28",
+  "scope": "Contextual relevance review of the 23 currently linked rules, 16 linked situations, 21 linked intent concepts, and six linked execution conditions. No claim of exhaustive coverage outside linked set.",
+  "remove_rule_links": [
+    {
+      "key": "S",
+      "id": "NOM-0010",
+      "reason": "New-project roadmap creation rule does not generally govern recovery of an already established project."
+    },
+    {
+      "key": "H",
+      "id": "NOM-0014",
+      "reason": "Before-mutation repository inspection rule is not generally applicable to a read-only interruption diagnosis request."
+    },
+    {
+      "key": "U",
+      "id": "NOM-0014",
+      "reason": "Before-mutation rule should not apply to read-only verification of assistant claims."
+    }
+  ],
+  "pending_ontology_questions": [
+    {
+      "key": "A",
+      "kind": "adoption_trigger",
+      "finding": "Existing selected situations do not directly model adoption of a partially completed project; keep conditional general links until separately reviewed."
+    },
+    {
+      "key": "F",
+      "kind": "reported_defect_trigger",
+      "finding": "Existing selected situations cover implementation change and testing, not a general defect report; keep conditional links until separately reviewed."
+    }
+  ],
+  "unchanged_keys": [
+    "J",
+    "L",
+    "D",
+    "K",
+    "A",
+    "F",
+    "G"
+  ],
+  "restrictions": {
+    "canonical_ontology_created": false,
+    "original_prompts_changed": false,
+    "replacement_selected": false,
+    "satisfaction_decisions_approved": false
+  }
+}

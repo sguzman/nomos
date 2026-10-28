@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "kind": "end_consumer_meta_intent_owner_review",
+  "profile_id": "EC-PROFILE-0001",
+  "semantic_version": "1",
+  "reviewed_at_utc": "2026-10-28",
+  "status": "approved_meta_intents_only",
+  "source": "explicit owner affirmation in project conversation",
+  "approval_scope": "Ten meta-intent statements, not linked rules or situations, satisfaction verdicts, revised prompt text, or selected versions",
+  "entries": [
+    {
+      "prompt_id": "EC-PROMPT-0001",
+      "key": "J",
+      "source_text_sha256": "e256ee8e7aff6957a781d8328f0f68e26996564c81fa458da59fbca2305138ad",
+      "statement": "Continue legitimate unfinished development autonomously from the established project state, and stop when further work is unwarranted.",
+      "owner_approved": true
+    },
+    {
+      "prompt_id": "EC-PROMPT-0002",
+      "key": "L",
+      "source_text_sha256": "def45cc96462b83f5245de7824f43856145b5651035ec00ec075efdd8954a28c",
+      "statement": "Recover after a broken conversation or execution, reconcile the last verified project state, then continue only warranted unfinished work.",
+      "owner_approved": true
+    },
+    {
+      "prompt_id": "EC-PROMPT-0003",
+      "key": "S",
+      "source_text_sha256": "f5c6dbfc8e750c73c6e553909aa2f41994dd3921bd198ecf2db6d576c6ba945f",
+      "statement": "Reestablish project stewardship across conversations, preserve decisions and verified progress, and resume authorized development without artificial work.",
+      "owner_approved": true
+    },
+    {
+      "prompt_id": "EC-PROMPT-0004",
+      "key": "H",
+      "source_text_sha256": "90194f96257d3f7832846b4b1f3873f7239f545dcf37e538d6a912d4caab6f1f",
+      "statement": "Explain what interrupted the work and provide the verified current project state, without automatically resuming development.",
+      "owner_approved": true
+    },
+    {
+      "prompt_id": "EC-PROMPT-0005",
+      "key": "D",
+      "source_text_sha256": "af75908c39fdfa4698a033f511c978e6845d6df4abd3ca302bae117f82a0c58f",
+      "statement": "Establish responsible engineering stewardship for a new or specified project, build an evidence-backed roadmap and autonomously complete only authorized scope.",
+      "owner_approved": true
+    },
+    {
+      "prompt_id": "EC-PROMPT-0006",
+      "key": "K",
+      "source_text_sha256": "9c08766af433bca0f1508269098f92cd7213c55cb2a201375e92b433c83e78a9",
+      "statement": "Provide a concise, measurable, evidence-backed project progress report without implying further development authorization.",
+      "owner_approved": true
+    },
+    {
+      "prompt_id": "EC-PROMPT-0007",
+      "key": "A",
+      "source_text_sha256": "233541ebcbc8d946eaca242590c09d2cfdd6d92f5a84ba3b59d7feb00839c7d8",
+      "statement": "Adopt an existing partially completed project, reconstruct and preserve its history, reconcile its roadmap, and finish only genuine remaining work.",
+      "owner_approved": true
+    },
+    {
+      "prompt_id": "EC-PROMPT-0008",
+      "key": "F",
+      "source_text_sha256": "c71ba1084bbca9d907e3d9cec812e4e2223ccabd2c507d559e43dc7ec1b7eec6",
+      "statement": "Diagnose and repair a specifically reported defect through reproducible evidence, a scoped root-cause fix, and verified non-regression.",
+      "owner_approved": true
+    },
+    {
+      "prompt_id": "EC-PROMPT-0009",
+      "key": "G",
+      "source_text_sha256": "f8873b794f0e05bb4dbf224de8476c85ae5d99251e3b477f4bcf2296de5fbc2e",
+      "statement": "Audit an existing project against its original objective, identify legitimate gaps, correct unsupported progress claims, and advance remediation only when warranted.",
+      "owner_approved": true
+    },
+    {
+      "prompt_id": "EC-PROMPT-0010",
+      "key": "U",
+      "source_text_sha256": "9f1f7108de5b6fb26b52186e752886a7c6a042bc913c5501424e46e17492c9d9",
+      "statement": "Independently check the assistant's latest project claims against inspectable evidence, correct unsupported claims, and avoid unnecessary code changes.",
+      "owner_approved": true
+    }
+  ]
+}
