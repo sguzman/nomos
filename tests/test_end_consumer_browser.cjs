@@ -14,7 +14,10 @@ const allowed=new Set(['end-consumer-profiles.html','end-consumer-profiles.js',
   'end-consumer-profile-model.js','styles.css',
   'exports/project-stewardship-v0.json',
   'data/project-stewardship-v0-profile.json',
-  'data/project-stewardship-published-versions.json']);
+  'data/project-stewardship-published-versions.json',
+  'data/project-stewardship-v1-analysis.json',
+  'end-consumer-profile-explorer-model.js','end-consumer-profile-explorer.js',
+  'end-consumer-profile-explorer.css','catalog.json']);
 const sha=text=>createHash('sha256').update(text).digest('hex');
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 function locateChrome(){
@@ -131,6 +134,17 @@ test('real browser: V0 integrity, selected Trievium download, approved alternate
     const approvedSlots=new Set(published.published_versions.map(v=>v.prompt_id)).size;
     assert.equal(await evalJs("document.querySelector('#trievium-selection-status').textContent.includes("+JSON.stringify(approvedSlots+' slots with approved alternatives')+")"),true);
     assert.equal(await evalJs("Boolean(globalThis.crypto?.subtle)"),true);
+    await until(()=>evalJs("document.querySelectorAll('.profile-prompt-choice').length===10"),
+      {timeout:20000,label:'Profile explorer did not display ten prompts'});
+    assert.equal(await evalJs("document.querySelector('#profile-reader').textContent.includes('Atomic objectives and linked intents')"),true);
+    assert.equal(await evalJs("document.querySelector('#profile-reader').textContent.includes('NOM-0014')"),true);
+    await evalJs("document.querySelector('[data-prompt-key=F]').click();true");
+    assert.equal(await evalJs("document.querySelector('#profile-reader').textContent.includes('Fix issue')"),true);
+    assert.equal(await evalJs("document.querySelector('#profile-reader').textContent.includes('regression')"),true);
+    assert.equal(await evalJs("document.querySelector('#profile-reader').textContent.includes('Applicable rule candidates')"),true);
+    assert.equal(await evalJs("document.querySelector('#profile-reader').textContent.includes('Execution conditions')"),true);
+    assert.equal(await evalJs("document.querySelector('[data-prompt-key=F]').getAttribute('aria-current')"),'true');
+    await evalJs("document.querySelector('[data-prompt-key=J]').click();true");
 
     async function clickAndRead(){
       // Each click is independent; Chrome may otherwise overwrite a reused name.

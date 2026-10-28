@@ -34,6 +34,8 @@
 
 **Done when:** All ten prompts have individually reviewable semantic coverage and clearly identified uncertainties. Semantic enrichment alone does not require generating replacement wording.
 
+**Read-only profile browsing:** The website has a ten-prompt navigator, a selected original V0 text view, and directly readable V1 meta-intent, atomic objectives, linked published intent concepts, situations, rule statements and scope, execution conditions, and coverage gaps. Links resolve against the existing published Nomos site catalog, not a new normative registry; no mapping selects or activates a rule. Revisions and approvals are discussed directly in ChatGPT. This improves browseability without changing owner approval status or adding a new acceptance gate. Overall stays **3/5 = 60.0% (+0.0 pp)**.
+
 ## 3. ⚖️ Evaluate each prompt against its meta-intent
 - [ ] Answer **yes/no** (or explicitly **insufficient evidence**) to: *Does the current prompt satisfactorily fulfill the agreed meta-intent?*
 - [ ] Explain coverage, missing cases, contradictions and failure modes. Distinguish text-level semantic review from observed results in actual agent runs.
