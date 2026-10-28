@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="color-scheme" content="light dark"><title>Nomos · Project Stewardship Prompt Profile</title><link rel="stylesheet" href="./styles.css"><link rel="stylesheet" href="./end-consumer-profile-explorer.css"><script src="./end-consumer-profile-model.js" defer></script><script src="./end-consumer-profiles.js" defer></script><script src="./end-consumer-profile-explorer-model.js" defer></script><script src="./end-consumer-profile-explorer.js" defer></script></head>
+<meta name="color-scheme" content="light dark"><title>Nomos · Project Stewardship Prompt Profile</title><link rel="stylesheet" href="./styles.css"><link rel="stylesheet" href="./end-consumer-profile-explorer.css"><script src="./vendor/showdown-2.1.0.min.js" defer></script><script src="./vendor/dompurify-3.4.15.min.js" defer></script><script src="./end-consumer-markdown.js" defer></script><script src="./end-consumer-profile-model.js" defer></script><script src="./end-consumer-profiles.js" defer></script><script src="./end-consumer-profile-explorer-model.js" defer></script><script src="./end-consumer-profile-explorer.js" defer></script></head>
 <body><main class="shell">
 <p><a href="./">Nomos home</a></p>
 <h1>Project Stewardship · End Consumer Profile</h1>
@@ -10,7 +10,7 @@
 <section class="profile-explorer" id="profile-browser" aria-label="Project Stewardship read-only profile explorer">
 <h2>Browse the Project Stewardship profile</h2>
 <p class="profile-explorer-intro">Select one of ten prompts. Explore its unchanged original text, proposed meta-intent, atomic objectives, linked published situations, rules, and execution conditions without leaving the page. Tell ChatGPT directly what you would like changed.</p>
-<p id="profile-browser-status" role="status">Loading linked Nomos concepts…</p>
+<label class="profile-format-toggle" for="profile-markdown-toggle"><input id="profile-markdown-toggle" type="checkbox"> Render Markdown</label><p class="profile-format-note">Preview formatting only. Copy and Trievium downloads always use the original prompt text.</p><p id="profile-browser-status" role="status">Loading linked Nomos concepts…</p>
 <div class="profile-explorer-layout"><nav id="profile-prompt-nav" class="profile-prompt-nav" aria-label="Profile prompts"><h3>Ten prompts</h3></nav><div id="profile-reader" class="profile-reader" aria-label="Selected prompt and related concepts"></div></div>
 </section>
 <section id="trievium-version-export" aria-label="Version selection and Trievium export"><h2>Published versions &amp; Trievium export</h2><p>Only owner-approved prompt wording is selectable. V1 semantic analyses and provisional satisfaction assessments are not replacement prompt versions. Approved revisions L, H and F are selected by default. The other seven remain V0; you can choose an original version for any slot before downloading.</p><p><strong>Current selection:</strong> <output id="trievium-selection-status">Loading published version catalog…</output></p><p><button id="download-selected-trievium" type="button" disabled>Download selected Trievium JSON</button> <button id="copy-selected-trievium" type="button" disabled>Copy selected Trievium JSON</button></p><p id="trievium-export-feedback" role="status"></p></section>

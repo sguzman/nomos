@@ -80,5 +80,6 @@ test('public site has explicit user-triggered export, version controls and no ac
   assert.match(browser,/sha256\(version\.text\)/);
   assert.match(browser,/serializeTrievium\(catalog,selections\)/);
   assert.match(browser,/URL\.createObjectURL/);
-  assert.match(browser,/pre\.textContent=entry\.text/);
+  assert.match(browser,/preview\.mount\(pre,entry\.text\)/);
+  assert.match(browser,/preview\.setText\(pre,selected\.text\)/);
 });

@@ -128,6 +128,7 @@ jobs:
           node --test tests/test_end_consumer_versioned_export.cjs
           node --test tests/test_end_consumer_browser.cjs
           node --check docs/end-consumer-profiles.js
+          node --check docs/end-consumer-markdown.js
           node --check docs/end-consumer-profile-explorer-model.js
           node --check docs/end-consumer-profile-explorer.js
           node --test tests/test_end_consumer_profile_explorer.cjs

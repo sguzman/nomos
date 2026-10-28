@@ -15,6 +15,8 @@
   if(responses.some(r=>!r.ok))throw new Error('Published prompt sources unavailable');
   const [source,profile,manifest]=await Promise.all(responses.map(r=>r.json()));
   const api=globalThis.NomosEndConsumer;
+  const preview=globalThis.NomosPromptPreview;
+  if(!preview)throw new Error('Markdown preview support unavailable');
   if(!api)throw new Error('Prompt-version library unavailable');
   const catalog=api.makeCatalog(profile,source,manifest);
   if(catalog.length!==10||details.length!==catalog.length)throw new Error('Visible prompt count mismatch');
@@ -53,9 +55,9 @@
     });
     select.value=slot.defaultVersion;
     label.append(select);
-    const pre=document.createElement('pre');
-    pre.style.whiteSpace='pre-wrap';pre.style.overflowWrap='anywhere';
-    pre.textContent=entry.text;
+    const pre=document.createElement('div');
+    pre.className='profile-prompt-view';
+    preview.mount(pre,entry.text);
     const copy=document.createElement('button');
     copy.type='button';copy.textContent='Copy selected prompt';
     copy.addEventListener('click',async()=>{
@@ -67,13 +69,13 @@
     const comparisonHeading=document.createElement('h4');
     comparisonHeading.textContent='Compare with original V0';
     const comparisonNote=document.createElement('p');
-    const comparePre=document.createElement('pre');
-    comparePre.style.whiteSpace='pre-wrap';comparePre.style.overflowWrap='anywhere';
-    comparePre.textContent=entry.text;
+    const comparePre=document.createElement('div');
+    comparePre.className='profile-prompt-view';
+    preview.mount(comparePre,entry.text);
     comparison.append(comparisonHeading,comparisonNote,comparePre);
     const redraw=()=>{
       const selected=slot.versions.find(v=>v.version===selections[slot.id]);
-      pre.textContent=selected.text;copy.textContent='Copy selected prompt';
+      preview.setText(pre,selected.text);copy.textContent='Copy selected prompt';
       comparison.hidden=selected.version==='0';
       if(!comparison.hidden)comparisonNote.textContent='Original V0 below; selected V'+selected.version+' above. Both are published immutable snapshots.';
       status();

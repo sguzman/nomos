@@ -41,3 +41,31 @@
 #profile-browser-status{font-size:12px;color:var(--muted)}
 @media(max-width:770px){.profile-explorer-layout{grid-template-columns:minmax(0,1fr)}.profile-prompt-nav{position:static;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.profile-prompt-nav>h3{grid-column:1/-1}.profile-prompt-choice{min-width:0}.profile-prompt-choice span{overflow-wrap:anywhere}.profile-reader{padding:16px}}
 @media(max-width:420px){.profile-prompt-nav{grid-template-columns:1fr}.profile-original-text{max-height:280px}}
+
+/* Source / Markdown preview: this checkbox only changes the reading surface. */
+.profile-format-toggle{display:inline-flex;align-items:center;gap:9px;cursor:pointer;font-weight:650;padding:9px 12px;border-radius:8px;background:var(--surface2);border:1px solid var(--line);font-size:13px}
+.profile-format-toggle input{width:17px;height:17px;margin:0;accent-color:var(--accent);cursor:pointer}
+.profile-format-note{font-size:12px;color:var(--muted);margin:8px 0 14px}
+.profile-prompt-view{min-width:0}
+.profile-rendered-markdown{padding:17px;border:1px solid var(--line);background:var(--surface2);border-radius:9px;overflow-wrap:anywhere;font-size:14px;line-height:1.65;max-height:520px;overflow:auto}
+.profile-rendered-markdown>:first-child{margin-top:0}
+.profile-rendered-markdown>:last-child{margin-bottom:0}
+.profile-rendered-markdown :is(h1,h2,h3,h4,h5,h6){line-height:1.35;margin:1.25em 0 .5em;font-weight:700;color:var(--ink)}
+.profile-rendered-markdown h1{font-size:1.7em;border-bottom:1px solid var(--line);padding-bottom:.32em}
+.profile-rendered-markdown h2{font-size:1.4em;border-bottom:1px solid var(--line);padding-bottom:.25em}
+.profile-rendered-markdown h3{font-size:1.2em}
+.profile-rendered-markdown :is(h4,h5,h6){font-size:1em}
+.profile-rendered-markdown :is(p,ul,ol,blockquote,pre,table,hr){margin:.8em 0}
+.profile-rendered-markdown :is(ul,ol){padding-left:1.8em}
+.profile-rendered-markdown li+li{margin-top:.2em}
+.profile-rendered-markdown li>p{margin:.3em 0}
+.profile-rendered-markdown blockquote{padding:2px 13px;border-left:3px solid var(--accent2);color:var(--muted);margin-left:0}
+.profile-rendered-markdown pre{overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px;font-size:12px;line-height:1.5}
+.profile-rendered-markdown :not(pre)>code{font-size:.91em;padding:2px 4px;border:1px solid var(--line);border-radius:4px;background:var(--surface)}
+.profile-rendered-markdown pre code{font:inherit;white-space:pre}
+.profile-rendered-markdown table{display:block;max-width:100%;overflow:auto;border-collapse:collapse;font-size:13px}
+.profile-rendered-markdown :is(th,td){border:1px solid var(--line);padding:7px 11px;text-align:left}
+.profile-rendered-markdown th{background:var(--surface);font-weight:700}
+.profile-rendered-markdown img{max-width:100%;height:auto}
+.profile-rendered-markdown input[type=checkbox]{margin-right:7px}
+.profile-rendered-markdown a{text-decoration:underline;text-underline-offset:2px}

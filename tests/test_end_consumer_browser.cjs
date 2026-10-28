@@ -12,6 +12,7 @@ const {createHash}=require('node:crypto');
 const DOCS=path.resolve(__dirname,'..','docs');
 const allowed=new Set(['end-consumer-profiles.html','end-consumer-profiles.js',
   'end-consumer-profile-model.js','styles.css',
+  'end-consumer-markdown.js','vendor/showdown-2.1.0.min.js','vendor/dompurify-3.4.15.min.js',
   'exports/project-stewardship-v0.json',
   'exports/project-stewardship-approved-trievium.json',
   'data/project-stewardship-v0-profile.json',
@@ -153,6 +154,45 @@ test('real browser: V0 integrity, selected Trievium download, approved alternate
     assert.equal(await evalJs("document.querySelector('[data-prompt-key=F]').getAttribute('aria-current')"),'true');
     await evalJs("document.querySelector('[data-prompt-key=J]').click();true");
     assert.equal(await evalJs("document.querySelector('#profile-selected')===null"),true);
+    // Markdown is opt-in, global for source, approved and versioned previews.
+    assert.equal(await evalJs("document.querySelector('#profile-markdown-toggle').checked"),false);
+    assert.equal(await evalJs("document.querySelector('#profile-original pre').textContent"),'continue');
+    await evalJs("document.querySelector('#profile-markdown-toggle').click();true");
+    assert.equal(await evalJs("document.querySelector('#profile-markdown-toggle').checked"),true);
+    await evalJs("document.querySelector('[data-prompt-key=D]').click();true");
+    assert.equal(await evalJs("Boolean(document.querySelector('#profile-original .profile-rendered-markdown h1'))"),true);
+    assert.equal(await evalJs("Boolean(document.querySelector('#profile-original .profile-rendered-markdown ul'))"),true);
+    assert.equal(await evalJs("document.querySelector('#profile-original pre.profile-original-text')===null"),true);
+    await evalJs("document.querySelector('[data-prompt-key=F]').click();true");
+    assert.equal(await evalJs("document.querySelector('#profile-selected .profile-rendered-markdown').textContent.includes('focused regression test')"),true);
+    assert.equal(await evalJs("document.querySelector('#profile-original .profile-rendered-markdown').textContent.includes('focused regression test')"),false);
+    assert.equal(await evalJs("Boolean(document.querySelector('section[aria-label=\"Prompt-specific semantic reviews\"] .profile-rendered-markdown'))"),true);
+    // Synthetic Markdown exercises GFM headings, tables, tasklists, code and sanitization.
+    const safety=await evalJs(`(()=>{
+      const holder=document.createElement('div');holder.id='markdown-safety-probe';document.body.append(holder);
+      globalThis.NomosPromptPreview.mount(holder,
+        '# Heading\\n\\n| Key | Value |\\n| --- | --- |\\n| A | B |\\n\\n- [x] done\\n\\n' +
+        '\\`\\`\\`js\\nconst a = 1;\\n\\`\\`\\`\\n\\n' +
+        '<script>globalThis.__nomosXss=1</script><img src=x onerror="globalThis.__nomosXss=2">' +
+        '[bad](javascript:alert(1))');
+      const rendered=holder.querySelector('.profile-rendered-markdown');
+      return {
+        heading:Boolean(rendered.querySelector('h1')),
+        table:Boolean(rendered.querySelector('table')),
+        code:Boolean(rendered.querySelector('pre code')),
+        task:Boolean(rendered.querySelector('input[type=checkbox]:disabled')),
+        maliciousScript:Boolean(rendered.querySelector('script')),
+        maliciousHandler:Boolean(rendered.querySelector('[onerror]')),
+        unsafeLink:Boolean(rendered.querySelector('a[href^="javascript:"]')),
+        ran:globalThis.__nomosXss===1||globalThis.__nomosXss===2
+      };
+    })()`);
+    assert.deepEqual(safety,{heading:true,table:true,code:true,task:true,
+      maliciousScript:false,maliciousHandler:false,unsafeLink:false,ran:false});
+    await evalJs("document.querySelector('#profile-markdown-toggle').click();true");
+    assert.equal(await evalJs("document.querySelector('#profile-markdown-toggle').checked"),false);
+    assert.equal(await evalJs("document.querySelector('#profile-selected pre.profile-original-text').textContent.includes('focused regression test')"),true);
+    assert.equal(await evalJs("document.querySelector('#markdown-safety-probe pre.profile-original-text').textContent.startsWith('# Heading')"),true);
 
     async function clickAndRead(){
       // Each click is independent; Chrome may otherwise overwrite a reused name.

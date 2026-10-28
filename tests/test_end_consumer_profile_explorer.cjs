@@ -44,6 +44,9 @@ test('public profile has prompt-browser controls but no on-page edit or feedback
  const script=fs.readFileSync(path.join(root,'docs/end-consumer-profile-explorer.js'),'utf8');
  assert.match(html,/id="profile-prompt-nav"/);
  assert.match(html,/id="profile-reader"/);
+ assert.match(html,/id="profile-markdown-toggle"/);
+ assert.match(html,/vendor\\/showdown-2\\.1\\.0\\.min\\.js/);
+ assert.match(html,/vendor\\/dompurify-3\\.4\\.15\\.min\\.js/);
  assert.match(html,/Show original source-linked semantic review/);
  assert.doesNotMatch(html,/owner-review-worksheet|owner-review-download/);
  assert.match(script,/reader\.replaceChildren\(\)/);

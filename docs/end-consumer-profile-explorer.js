@@ -6,6 +6,8 @@
   const nav=host.querySelector('#profile-prompt-nav');
   const reader=host.querySelector('#profile-reader');
   const status=host.querySelector('#profile-browser-status');
+  const preview=globalThis.NomosPromptPreview;
+  if(!preview)throw Error('Markdown preview support unavailable');
   const urls=[
     './data/project-stewardship-v0-profile.json',
     './exports/project-stewardship-v0.json',
@@ -124,12 +126,13 @@
     reader.append(contents);
     if(selected.version!=='0'){
       const current=section('Current approved prompt · V'+selected.version,'profile-selected');
-      const selectedPre=elt('pre','profile-original-text',selected.text);
-      current.append(selectedPre);
+      const selectedView=elt('div','profile-prompt-view');
+      current.append(preview.mount(selectedView,selected.text));
       current.append(elt('p','profile-muted','Owner-selected prompt wording. Original V0 is retained below for comparison.'));
     }
     const original=section('Original prompt · V0','profile-original');
-    const pre=elt('pre','profile-original-text',p.text);original.append(pre);
+    const originalView=elt('div','profile-prompt-view');
+    original.append(preview.mount(originalView,p.text));
     const metaBlock=section('Owner-approved meta-intent · V1','profile-meta');
     metaBlock.append(elt('p','profile-intent-headline',p.meta_intent));
     metaBlock.append(elt('p','profile-muted','Owner-approved goal. Linked concepts, their applicability and text-level assessments remain proposals; not part of original V0.'));
