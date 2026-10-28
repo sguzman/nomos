@@ -39,7 +39,12 @@
         return record;
       });
     }
-    const proposed=index(analysis.prompts);
+    const proposed=new Map();
+    for(const item of analysis.prompts){
+      need(typeof item.prompt_id==='string'&&!proposed.has(item.prompt_id),
+        'Missing or duplicate proposed prompt ID');
+      proposed.set(item.prompt_id,item);
+    }
     const seen=new Set();
     return profile.slots.map((slot,i)=>{
       const entry=source.entries[i],p=proposed.get(slot.id);
