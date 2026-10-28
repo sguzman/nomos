@@ -120,6 +120,8 @@ jobs:
           node --test tests/test_end_consumer_v1.cjs
           node --test tests/test_end_consumer_text_reviews.cjs
           node --check docs/end-consumer-profile-model.js
+          node tools/validate_end_consumer_publications.cjs
+          node --test tests/test_end_consumer_publications.cjs
           node --test tests/test_end_consumer_versioned_export.cjs
           node --test tests/test_end_consumer_browser.cjs
           node --check docs/end-consumer-profiles.js

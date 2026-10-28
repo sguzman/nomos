@@ -12,11 +12,11 @@ const source=json('end-consumer-profiles/project-stewardship/v0/trievium.json');
 const manifest=json('docs/data/project-stewardship-published-versions.json');
 const sha=x=>createHash('sha256').update(x).digest('hex');
 
-test('only the ten original versions are published, and original export keys/text survive unchanged',()=>{
+test('original V0 remains the default even when legitimate approved variants are added',()=>{
   const catalog=model.makeCatalog(profile,source,manifest);
   assert.equal(catalog.length,10);
-  assert.deepEqual(manifest.published_versions,[]);
-  assert.ok(catalog.every(x=>x.versions.length===1&&x.versions[0].version==='0'));
+  assert.ok(catalog.every(x=>x.defaultVersion==='0'&&x.versions[0].version==='0'));
+  assert.equal(catalog.reduce((sum,x)=>sum+x.versions.length-1,0),manifest.published_versions.length);
   assert.deepEqual(model.makeTrievium(catalog),{
     version:1,entries:source.entries.map(x=>({label:x.label,text:x.text,key:x.key}))
   });
@@ -36,6 +36,8 @@ test('explicit approved successor can be preview-selected and exported without c
     publication_state:'approved_public_prompt_version',owner_approved:true,
     approval_reference:'synthetic-test-only',text:candidate,sha256:sha(candidate)
   }]};
+  // Isolate fixture from future real approvals (which could also use V1).
+  approved.published_versions=approved.published_versions.slice(-1);
   const catalog=model.makeCatalog(profile,source,approved);
   const selected=model.makeTrievium(catalog,{[key.id]:'1'});
   assert.equal(selected.entries[0].text,candidate);
@@ -59,7 +61,7 @@ test('unapproved, unknown, inconsistent, duplicated and fabricated versions are 
     {...candidate,prompt_id:'EC-PROMPT-9999'}
   ])assert.throws(()=>model.makeCatalog(profile,source,manifestWith([invalid])));
   assert.throws(()=>model.makeCatalog(profile,source,manifestWith([candidate,candidate])));
-  assert.throws(()=>model.makeTrievium(model.makeCatalog(profile,source,manifest),{[key.id]:'1'}));
+  assert.throws(()=>model.makeTrievium(model.makeCatalog(profile,source,manifestWith([])),{[key.id]:'1'}));
   assert.throws(()=>model.makeCatalog(profile,{...source,entries:[...source.entries,source.entries[0]]},manifest));
 });
 

@@ -74,13 +74,15 @@ test('real browser: V0 integrity, selected Trievium download, approved alternate
     let data=fs.readFileSync(path.join(DOCS,name));
     if(name==='data/project-stewardship-published-versions.json'&&mode!=='original'){
       const manifest=JSON.parse(data.toString('utf8'));
+      // Test alternate is isolated from any genuine future approved variants.
+      manifest.published_versions=[];
       const profile=JSON.parse(fs.readFileSync(path.join(DOCS,'data/project-stewardship-v0-profile.json'),'utf8'));
       const slot=profile.slots[0];
       manifest.published_versions=[{
         prompt_id:slot.id,key:slot.key,label:slot.label,version:'1',
         publication_state:'approved_public_prompt_version',
-        owner_approved:mode==='approved',approval_reference:'synthetic-browser-test',
-        text:alternate,sha256:sha(alternate)
+        owner_approved:mode!=='unapproved',approval_reference:'synthetic-browser-test',
+        text:alternate,sha256:mode==='tampered'?sha('different text'):sha(alternate)
       }];
       data=Buffer.from(JSON.stringify(manifest));
     }
@@ -125,7 +127,9 @@ test('real browser: V0 integrity, selected Trievium download, approved alternate
     assert.equal(await evalJs("document.querySelectorAll('section[aria-label=\"Prompt-specific semantic reviews\"] details').length"),10);
     assert.equal(await evalJs("document.querySelectorAll('section[aria-label=\"Prompt-specific semantic reviews\"] select').length"),10);
     assert.equal(await evalJs("document.querySelector('#trievium-selection-status').textContent.includes('0 non-original selected')"),true);
-    assert.equal(await evalJs("document.querySelector('#trievium-selection-status').textContent.includes('0 slots with approved alternatives')"),true);
+    const published=JSON.parse(fs.readFileSync(path.join(DOCS,'data/project-stewardship-published-versions.json'),'utf8'));
+    const approvedSlots=new Set(published.published_versions.map(v=>v.prompt_id)).size;
+    assert.equal(await evalJs("document.querySelector('#trievium-selection-status').textContent.includes("+JSON.stringify(approvedSlots+' slots with approved alternatives')+")"),true);
     assert.equal(await evalJs("Boolean(globalThis.crypto?.subtle)"),true);
 
     async function clickAndRead(){
@@ -161,6 +165,10 @@ test('real browser: V0 integrity, selected Trievium download, approved alternate
       assert.equal(reverted.entries[0].text,originals.entries[0].text);
       mode='unapproved';await navigate();
       await until(()=>evalJs("document.querySelector('#trievium-version-export [role=alert]')!==null"),{timeout:20000,label:'Unapproved publication did not fail closed'});
+      assert.equal(await evalJs("document.querySelector('#download-selected-trievium').disabled"),true);
+      mode='tampered';await navigate();
+      await until(()=>evalJs("document.querySelector('#trievium-version-export [role=alert]')?.textContent.includes('checksum mismatch')"),
+        {timeout:20000,label:'Tampered approved-version text did not fail closed'});
       assert.equal(await evalJs("document.querySelector('#download-selected-trievium').disabled"),true);
     }
     assert.equal(requests.some(x=>x.method!=='GET'),false,'Unexpected repository mutation request');
