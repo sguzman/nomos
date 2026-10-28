@@ -1,0 +1,48 @@
+'use strict';
+const {test}=require('node:test'),assert=require('node:assert/strict');
+const fs=require('node:fs'),path=require('node:path'),{createHash}=require('node:crypto');
+const root=path.resolve(__dirname,'..');
+const json=p=>JSON.parse(fs.readFileSync(path.join(root,p),'utf8'));
+const v0=json('end-consumer-profiles/project-stewardship/v0/trievium.json');
+const profile=json('end-consumer-profiles/project-stewardship/profile.json');
+const meta=json('end-consumer-profiles/project-stewardship/v1/meta-intent-approval.json');
+const candidates=json('end-consumer-profiles/project-stewardship/v2/review-candidates.json');
+const scenarios=json('end-consumer-profiles/project-stewardship/v2/scenario-specification.json');
+const sha=s=>createHash('sha256').update(s).digest('hex');
+test('three independent candidates have exact-source provenance and never replace V0',()=>{
+ assert.deepEqual(candidates.candidates.map(c=>c.key),['L','H','F']);
+ assert.equal(candidates.owner_approval_of_candidates,false);
+ assert.equal(candidates.export_selected_version,'0');
+ assert.equal(candidates.observed_agent_test_runs,0);
+ for(const c of candidates.candidates){
+  const i=v0.entries.findIndex(e=>e.key===c.key);
+  assert.ok(i>=0);
+  assert.equal(c.prompt_id,profile.slots[i].id);
+  assert.equal(c.source_text_sha256,sha(v0.entries[i].text));
+  assert.equal(c.meta_intent,meta.entries[i].statement);
+  assert.equal(meta.entries[i].owner_approved,true);
+  assert.equal(c.status,'proposed_unselected_not_published');
+  assert.notEqual(c.candidate_text,v0.entries[i].text);
+ }
+ assert.deepEqual(profile.governance.selected_replacement_versions,[]);
+ assert.deepEqual(json('docs/data/project-stewardship-published-versions.json').published_versions,[]);
+});
+test('F revision consists of one targeted insertion without rewriting V0 sentences',()=>{
+ const old=v0.entries.find(e=>e.key==='F').text;
+ const revised=candidates.candidates.find(e=>e.key==='F').candidate_text;
+ const added='Where practical, run or add a focused regression test for the reported defect and check relevant previously working behavior. If reproduction, regression checks, or runtime QA cannot be performed, report exactly what remains unverified; do not claim non-regression without evidence.\n\n';
+ assert.equal(revised.replace(added,''),old);
+});
+test('16 synthetic scenarios are text-contract probes, not observed agent runs',()=>{
+ assert.equal(scenarios.cases.length,16);
+ assert.equal(scenarios.status,'textual_evidence_only');
+ const observed=new Set();
+ for(const scenario of scenarios.cases){
+  assert.ok(!observed.has(scenario.id));observed.add(scenario.id);
+  const c=candidates.candidates.find(x=>x.key===scenario.key);
+  assert.ok(c);
+  assert.equal(scenario.observed_agent_result,null);
+  assert.equal(scenario.evidence,'static_text_contract_only');
+  assert.ok(c.candidate_text.toLowerCase().includes(scenario.required_text.toLowerCase()),scenario.id);
+ }
+});

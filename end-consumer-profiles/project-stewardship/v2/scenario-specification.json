@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "kind": "end_consumer_candidate_scenario_specification",
+  "profile_id": "EC-PROFILE-0001",
+  "tested_corpus": "synthetic_conditions_no_live_agent_executions",
+  "status": "textual_evidence_only",
+  "cases": [
+    {
+      "id": "l-unfinished_after_interruption",
+      "key": "L",
+      "scenario": "Recover evidence then resume authorized work",
+      "expected_behavior": "Recover evidence then resume authorized work",
+      "required_text": "Continue only if authorized unfinished work remains",
+      "evidence": "static_text_contract_only",
+      "observed_agent_result": null
+    },
+    {
+      "id": "l-project_already_complete",
+      "key": "L",
+      "scenario": "Stop and report completion",
+      "expected_behavior": "Stop and report completion",
+      "required_text": "project is complete",
+      "evidence": "static_text_contract_only",
+      "observed_agent_result": null
+    },
+    {
+      "id": "l-no_recoverable_state",
+      "key": "L",
+      "scenario": "Report blocked rather than invent history",
+      "expected_behavior": "Report blocked rather than invent history",
+      "required_text": "cannot be recovered reliably",
+      "evidence": "static_text_contract_only",
+      "observed_agent_result": null
+    },
+    {
+      "id": "l-records_available",
+      "key": "L",
+      "scenario": "Use durable records to reconstruct current state",
+      "expected_behavior": "Use durable records to reconstruct current state",
+      "required_text": "from available records",
+      "evidence": "static_text_contract_only",
+      "observed_agent_result": null
+    },
+    {
+      "id": "l-scope_expansion",
+      "key": "L",
+      "scenario": "Avoid unrelated work during recovery",
+      "expected_behavior": "Avoid unrelated work during recovery",
+      "required_text": "authorized unfinished work",
+      "evidence": "static_text_contract_only",
+      "observed_agent_result": null
+    },
+    {
+      "id": "h-unknown_failure_cause",
+      "key": "H",
+      "scenario": "Separate verified facts from unknown explanations",
+      "expected_behavior": "Separate verified facts from unknown explanations",
+      "required_text": "confirmed facts from unknowns",
+      "evidence": "static_text_contract_only",
+      "observed_agent_result": null
+    },
+    {
+      "id": "h-observed_crash",
+      "key": "H",
+      "scenario": "Use available evidence to diagnose interruption",
+      "expected_behavior": "Use available evidence to diagnose interruption",
+      "required_text": "using available evidence",
+      "evidence": "static_text_contract_only",
+      "observed_agent_result": null
+    },
+    {
+      "id": "h-unfinished_work_exists",
+      "key": "H",
+      "scenario": "Report status without automatically resuming",
+      "expected_behavior": "Report status without automatically resuming",
+      "required_text": "Do not resume development",
+      "evidence": "static_text_contract_only",
+      "observed_agent_result": null
+    },
+    {
+      "id": "h-easy_unrequested_edit",
+      "key": "H",
+      "scenario": "Do not edit files without a distinct request",
+      "expected_behavior": "Do not edit files without a distinct request",
+      "required_text": "modify files unless I separately request it",
+      "evidence": "static_text_contract_only",
+      "observed_agent_result": null
+    },
+    {
+      "id": "h-unverified_progress",
+      "key": "H",
+      "scenario": "Report verified current state",
+      "expected_behavior": "Report verified current state",
+      "required_text": "verified project state",
+      "evidence": "static_text_contract_only",
+      "observed_agent_result": null
+    },
+    {
+      "id": "f-reproducible_bug",
+      "key": "F",
+      "scenario": "Require focused defect regression coverage where practical",
+      "expected_behavior": "Require focused defect regression coverage where practical",
+      "required_text": "focused regression test",
+      "evidence": "static_text_contract_only",
+      "observed_agent_result": null
+    },
+    {
+      "id": "f-previous_working_behavior",
+      "key": "F",
+      "scenario": "Check scoped nonregression",
+      "expected_behavior": "Check scoped nonregression",
+      "required_text": "previously working behavior",
+      "evidence": "static_text_contract_only",
+      "observed_agent_result": null
+    },
+    {
+      "id": "f-unavailable_runtime",
+      "key": "F",
+      "scenario": "Disclose runtime QA limits",
+      "expected_behavior": "Disclose runtime QA limits",
+      "required_text": "runtime QA cannot be performed",
+      "evidence": "static_text_contract_only",
+      "observed_agent_result": null
+    },
+    {
+      "id": "f-unavailable_reproduction",
+      "key": "F",
+      "scenario": "Do not overstate reproducibility",
+      "expected_behavior": "Do not overstate reproducibility",
+      "required_text": "If reproduction",
+      "evidence": "static_text_contract_only",
+      "observed_agent_result": null
+    },
+    {
+      "id": "f-unavailable_regression",
+      "key": "F",
+      "scenario": "Do not overstate regression verification",
+      "expected_behavior": "Do not overstate regression verification",
+      "required_text": "do not claim non-regression without evidence",
+      "evidence": "static_text_contract_only",
+      "observed_agent_result": null
+    },
+    {
+      "id": "f-already_fixed",
+      "key": "F",
+      "scenario": "No unnecessary edits if defect already resolved",
+      "expected_behavior": "No unnecessary edits if defect already resolved",
+      "required_text": "issue is already resolved, make no changes",
+      "evidence": "static_text_contract_only",
+      "observed_agent_result": null
+    },
+    {
+      "id": "f-scope_drift",
+      "key": "F",
+      "scenario": "No unrelated refactoring",
+      "expected_behavior": "No unrelated refactoring",
+      "required_text": "Do not introduce unrelated refactors",
+      "evidence": "static_text_contract_only",
+      "observed_agent_result": null
+    }
+  ]
+}
