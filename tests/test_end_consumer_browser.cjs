@@ -149,7 +149,7 @@ test('real browser: V0 integrity, selected Trievium download, approved alternate
       assert.equal(await evalJs("document.querySelector('section[aria-label=\"Prompt-specific semantic reviews\"] select').options.length"),2);
       await evalJs("(()=>{const s=document.querySelector('section[aria-label=\"Prompt-specific semantic reviews\"] select');s.value='1';s.dispatchEvent(new Event('change',{bubbles:true}));return true})()");
       assert.equal(await evalJs("document.querySelector('#trievium-selection-status').textContent.includes('1 non-original selected')"),true);
-      assert.equal(await evalJs("document.querySelector('section[aria-label=\"Prompt-specific semantic reviews\"] details section section[hidden]')===null"),true);
+      assert.equal(await evalJs("(()=>{const first=document.querySelector('section[aria-label=\\\"Prompt-specific semantic reviews\\\"] details');const comparison=first.lastElementChild.querySelector('section');return comparison.hidden===false})()"),true);
       const changed=await clickAndRead();
       assert.equal(changed.entries[0].text,alternate);
       assert.deepEqual(changed.entries.slice(1),originals.entries.slice(1).map(x=>({label:x.label,text:x.text,key:x.key})));
