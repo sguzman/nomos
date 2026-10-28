@@ -12,12 +12,14 @@ const source=json('end-consumer-profiles/project-stewardship/v0/trievium.json');
 const manifest=json('docs/data/project-stewardship-published-versions.json');
 const sha=x=>createHash('sha256').update(x).digest('hex');
 
-test('original V0 remains the default even when legitimate approved variants are added',()=>{
+test('V0 remains available and approved successors are selected when explicitly authorized',()=>{
   const catalog=model.makeCatalog(profile,source,manifest);
   assert.equal(catalog.length,10);
-  assert.ok(catalog.every(x=>x.defaultVersion==='0'&&x.versions[0].version==='0'));
+  assert.ok(catalog.every(x=>x.versions[0].version==='0'));
+  assert.deepEqual(catalog.filter(x=>x.defaultVersion!=='0').map(x=>x.key),['L','H','F']);
   assert.equal(catalog.reduce((sum,x)=>sum+x.versions.length-1,0),manifest.published_versions.length);
-  assert.deepEqual(model.makeTrievium(catalog),{
+  const originalOnly=Object.fromEntries(profile.slots.map(x=>[x.id,'0']));
+  assert.deepEqual(model.makeTrievium(catalog,originalOnly),{
     version:1,entries:source.entries.map(x=>({label:x.label,text:x.text,key:x.key}))
   });
   for(let i=0;i<catalog.length;i++){
@@ -31,7 +33,7 @@ test('original V0 remains the default even when legitimate approved variants are
 test('explicit approved successor can be preview-selected and exported without changing the original',()=>{
   const key=profile.slots[0],original=source.entries[0];
   const candidate='An explicitly owner-approved synthetic test continuation.';
-  const approved={...manifest,published_versions:[{
+  const approved={...manifest,selected_versions:{},published_versions:[{
     prompt_id:key.id,key:key.key,label:key.label,version:'1',
     publication_state:'approved_public_prompt_version',owner_approved:true,
     approval_reference:'synthetic-test-only',text:candidate,sha256:sha(candidate)
@@ -51,7 +53,7 @@ test('unapproved, unknown, inconsistent, duplicated and fabricated versions are 
   const candidate={prompt_id:key.id,key:key.key,label:key.label,version:'1',
     publication_state:'approved_public_prompt_version',owner_approved:true,
     approval_reference:'synthetic-test-only',text,sha256:sha(text)};
-  const manifestWith=versions=>({...manifest,published_versions:versions});
+  const manifestWith=versions=>({...manifest,selected_versions:{},published_versions:versions});
   for(const invalid of [
     {...candidate,owner_approved:false},
     {...candidate,approval_reference:''},

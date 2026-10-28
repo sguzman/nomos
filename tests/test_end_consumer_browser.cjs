@@ -80,6 +80,7 @@ test('real browser: V0 integrity, selected Trievium download, approved alternate
       const manifest=JSON.parse(data.toString('utf8'));
       // Test alternate is isolated from any genuine future approved variants.
       manifest.published_versions=[];
+      manifest.selected_versions={};
       const profile=JSON.parse(fs.readFileSync(path.join(DOCS,'data/project-stewardship-v0-profile.json'),'utf8'));
       const slot=profile.slots[0];
       manifest.published_versions=[{
@@ -130,7 +131,7 @@ test('real browser: V0 integrity, selected Trievium download, approved alternate
     await navigate();await ready();
     assert.equal(await evalJs("document.querySelectorAll('section[aria-label=\"Prompt-specific semantic reviews\"] details').length"),10);
     assert.equal(await evalJs("document.querySelectorAll('section[aria-label=\"Prompt-specific semantic reviews\"] select').length"),10);
-    assert.equal(await evalJs("document.querySelector('#trievium-selection-status').textContent.includes('0 non-original selected')"),true);
+    assert.equal(await evalJs("document.querySelector('#trievium-selection-status').textContent.includes('3 non-original selected')"),true);
     const published=JSON.parse(fs.readFileSync(path.join(DOCS,'data/project-stewardship-published-versions.json'),'utf8'));
     const approvedSlots=new Set(published.published_versions.map(v=>v.prompt_id)).size;
     assert.equal(await evalJs("document.querySelector('#trievium-selection-status').textContent.includes("+JSON.stringify(approvedSlots+' slots with approved alternatives')+")"),true);
@@ -163,7 +164,13 @@ test('real browser: V0 integrity, selected Trievium download, approved alternate
     }
     const originals=JSON.parse(fs.readFileSync(path.join(DOCS,'exports/project-stewardship-v0.json'),'utf8'));
     const selected=await clickAndRead();
-    assert.deepEqual(selected,{version:1,entries:originals.entries.map(x=>({label:x.label,text:x.text,key:x.key}))});
+    const approvedVersions=published.published_versions;
+    const expected={version:1,entries:originals.entries.map(x=>{
+      const alternate=approvedVersions.find(v=>v.key===x.key);
+      return {label:x.label,text:alternate?alternate.text:x.text,key:x.key};
+    })};
+    assert.deepEqual(selected,expected);
+    assert.deepEqual(selected.entries.filter((x,i)=>x.text!==originals.entries[i].text).map(x=>x.key),['L','H','F']);
     // Against the deployed site we cannot inject a synthetic candidate.
     if(!remote){
       mode='approved';await navigate();await ready();

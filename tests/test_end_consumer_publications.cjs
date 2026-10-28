@@ -22,7 +22,7 @@ test('Two distinct approved synthetic successors can be selected without changin
   const f=profile.slots[0],g=profile.slots[1];
   const approvals=[{prompt_id:f.id,key:f.key,label:f.label,version:'1',text:'Sample version one',owner_approved:true,approval_reference:'owner-review-1',publication_state:'approved_public_prompt_version'},
     {prompt_id:g.id,key:g.key,label:g.label,version:'2',text:'Sample version two',owner_approved:true,approval_reference:'owner-review-2',publication_state:'approved_public_prompt_version'}].map(x=>({...x,sha256:sha(x.text)}));
-  const catalog=model.makeCatalog(profile,original,{...manifest,published_versions:approvals});
+  const catalog=model.makeCatalog(profile,original,{...manifest,selected_versions:{},published_versions:approvals});
   const selected=model.makeTrievium(catalog,{[f.id]:'1',[g.id]:'2'});
   assert.equal(selected.entries[0].text,'Sample version one');
   assert.equal(selected.entries[1].text,'Sample version two');
