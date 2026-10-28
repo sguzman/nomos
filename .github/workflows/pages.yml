@@ -9,6 +9,7 @@ on:
       - "rules/**"
       - "groups/**"
       - "profiles/**"
+      - "end-consumer-profiles/**"
       - "situational-prompts/**"
       - "ontology/**"
       - "queues/rule-situation-intent/**"
@@ -115,6 +116,8 @@ jobs:
           node --check tools/validate_agent_consumption_roadmap.cjs
           node tools/validate_agent_consumption_roadmap.cjs
           node --test tests/test_agent_consumption_roadmap.cjs
+          node --test tests/test_end_consumer_profiles.cjs
+          node --check docs/end-consumer-profiles.js
           node --check tools/projections.cjs
           node --test tests/test_projections.cjs
           node --check tools/agent_package.cjs
