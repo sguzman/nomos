@@ -9,7 +9,7 @@ const meta=json('end-consumer-profiles/project-stewardship/v1/meta-intent-approv
 const candidates=json('end-consumer-profiles/project-stewardship/v2/review-candidates.json');
 const scenarios=json('end-consumer-profiles/project-stewardship/v2/scenario-specification.json');
 const sha=s=>createHash('sha256').update(s).digest('hex');
-test('three independent candidates have exact-source provenance and never replace V0',()=>{
+test('three original reviewed candidates are source-linked and V0 remains immutable',()=>{
  assert.deepEqual(candidates.candidates.map(c=>c.key),['L','H','F']);
  assert.equal(candidates.owner_approval_of_candidates,false);
  assert.equal(candidates.export_selected_version,'0');
@@ -25,7 +25,10 @@ test('three independent candidates have exact-source provenance and never replac
   assert.notEqual(c.candidate_text,v0.entries[i].text);
  }
  assert.deepEqual(profile.governance.selected_replacement_versions,[]);
- assert.deepEqual(json('docs/data/project-stewardship-published-versions.json').published_versions,[]);
+ const selected=json('docs/data/project-stewardship-published-versions.json');
+ assert.equal(selected.published_versions.length,3);
+ assert.deepEqual(selected.published_versions.map(x=>x.key),['L','H','F']);
+ assert.deepEqual(Object.keys(selected.selected_versions),['EC-PROMPT-0002','EC-PROMPT-0004','EC-PROMPT-0008']);
 });
 test('F revision consists of one targeted insertion without rewriting V0 sentences',()=>{
  const old=v0.entries.find(e=>e.key==='F').text;

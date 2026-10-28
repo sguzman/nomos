@@ -27,7 +27,7 @@ test('owner approval record, V0 source and both semantic projections agree',()=>
   assert.equal(prompt.meta_intent.review_status,'owner_approved');
  }
 });
-test('meta-intent approval never grants assessment approval, write authorization or version selection',()=>{
+test('meta-intent approval is distinct from later independent candidate authorization',()=>{
  for(let i=0;i<10;i++){
   const slot=profile.slots[i];
   const r=json('end-consumer-profiles/project-stewardship/v1/evaluations/'+slot.id+'.json');
@@ -41,6 +41,9 @@ test('meta-intent approval never grants assessment approval, write authorization
   assert.equal(analysis.prompts[i].selection.semantic_selection_owner_approved,false);
  }
  assert.deepEqual(profile.governance.selected_replacement_versions,[]);
- assert.deepEqual(json('docs/data/project-stewardship-published-versions.json').published_versions,[]);
+ const selected=json('docs/data/project-stewardship-published-versions.json');
+ assert.equal(selected.published_versions.length,3);
+ assert.deepEqual(selected.published_versions.map(x=>x.key),['L','H','F']);
+ assert.deepEqual(Object.keys(selected.selected_versions),['EC-PROMPT-0002','EC-PROMPT-0004','EC-PROMPT-0008']);
  assert.equal(json('end-consumer-profiles/project-stewardship/v2/review-candidates.json').owner_approval_of_candidates,false);
 });
