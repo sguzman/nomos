@@ -34,6 +34,8 @@
 
 **Done when:** All ten prompts have individually reviewable semantic coverage and clearly identified uncertainties. Semantic enrichment alone does not require generating replacement wording.
 
+**Review facilitation:** The public page now includes a *local, unsubmitted review worksheet* for the ten proposed meta-intents and draft satisfaction assessments. It supports per-prompt feedback, suggested intent wording, optional notes, and explicit download of draft JSON. It cannot authenticate the owner, register approvals, replace V0, publish a successor, or write to the repository. The two owner-controlled milestones remain unfinished; overall **60.0%, delta +0.0 pp**.
+
 ## 3. ⚖️ Evaluate each prompt against its meta-intent
 - [ ] Answer **yes/no** (or explicitly **insufficient evidence**) to: *Does the current prompt satisfactorily fulfill the agreed meta-intent?*
 - [ ] Explain coverage, missing cases, contradictions and failure modes. Distinguish text-level semantic review from observed results in actual agent runs.
