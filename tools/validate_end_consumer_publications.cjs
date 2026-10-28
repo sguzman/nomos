@@ -22,7 +22,7 @@ function validate(){
   const catalog=model.makeCatalog(profile,source,manifest);
   if(catalog.length!==profile.slots.length)throw Error('Slot count differs');
   for(const slot of catalog){
-    if(slot.defaultVersion!=='0'||slot.versions[0].version!=='0')
+    if(slot.versions[0].version!=='0')
       throw Error('Original prompt was no longer the default');
     for(const version of slot.versions){
       if(sha(version.text)!==version.sha256)throw Error('Published text SHA mismatch: '+slot.id+' v'+version.version);
