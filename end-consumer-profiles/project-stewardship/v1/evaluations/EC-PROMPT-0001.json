@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "kind": "end_consumer_prompt_text_assessment",
+  "profile_id": "EC-PROFILE-0001",
+  "prompt_id": "EC-PROMPT-0001",
+  "source_version": "0",
+  "source_key": "J",
+  "source_text_sha256": "e256ee8e7aff6957a781d8328f0f68e26996564c81fa458da59fbca2305138ad",
+  "analyzed_semantic_version": "1",
+  "meta_intent": "Continue legitimate unfinished development autonomously from the established project state, and stop when further work is unwarranted.",
+  "review_status": "provisional_pending_owner_review",
+  "owner_meta_intent_approved": false,
+  "owner_assessment_approved": false,
+  "question": "Does the V0 prompt satisfactorily fulfill its proposed meta-intent in its intended context?",
+  "proposed_verdict": "yes",
+  "interpretation": "The literal 'continue' is an invocation shorthand, not a self-contained project policy. It is sufficient to request continuation only when the active conversation or recoverable project record already establishes the authorized scope and Project Stewardship Protocol.",
+  "atomic_intent_coverage": [
+    {
+      "local_id": "A01",
+      "assessment": "inherited_from_established_project_protocol_not_literal_v0_text"
+    },
+    {
+      "local_id": "A02",
+      "assessment": "inherited_from_established_project_protocol_not_literal_v0_text"
+    },
+    {
+      "local_id": "A03",
+      "assessment": "inherited_from_established_project_protocol_not_literal_v0_text"
+    },
+    {
+      "local_id": "A04",
+      "assessment": "inherited_from_established_project_protocol_not_literal_v0_text"
+    },
+    {
+      "local_id": "A05",
+      "assessment": "inherited_from_established_project_protocol_not_literal_v0_text"
+    }
+  ],
+  "applicable_preconditions": [
+    "The user has already specified a project and authorized its ongoing stewardship.",
+    "The relevant previously established rules and project state are available or can be recovered.",
+    "The agent verifies whether unfinished authorized work remains before taking action."
+  ],
+  "failure_conditions": [
+    "If earlier instructions are inaccessible, 'continue' does not itself specify a project, roadmap, scope, or evidence standard.",
+    "If the project is already complete, the correct continuation is to stop rather than invent work.",
+    "The command by itself does not independently authorize unrelated repository writes, scope expansion, or activation of other Nomos objects."
+  ],
+  "evaluation_basis": "textual_semantics_only",
+  "behavioral_test_status": "not_tested",
+  "effectiveness_claim": "none",
+  "disposition": "retain_v0_provisionally_no_rewrite",
+  "selected_prompt_version": "0",
+  "generated_prompt_version": null,
+  "owner_decision": null
+}

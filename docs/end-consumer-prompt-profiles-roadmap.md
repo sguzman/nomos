@@ -14,6 +14,8 @@
 
 **V1 evidence:** [ten prompt-specific semantic reviews](../end-consumer-profiles/project-stewardship/v1/analysis.json) with 51 proposed local atomic objectives, links to 21 published intent concepts, 16 published situations, 23 published rules and six existing conditions. [Cross-reference integrity and public review tests](../tests/test_end_consumer_v1.cjs) reject missing IDs, inaccurate source links and unauthorized prompt selection. [Public browser](end-consumer-profiles.html) exposes each draft's meta-intent, objectives, concepts, coverage gaps, and unchanged V0 wording on demand. No catalog entries were newly created or silently selected.
 
+**Preliminary review in progress:** A [text-only provisional assessment of J — Continue](../end-consumer-profiles/project-stewardship/v1/evaluations/EC-PROMPT-0001.json) records a context-conditional **yes**, identifies prerequisites and failure conditions, and recommends retaining V0. This is **not** an owner-confirmed meta-intent, an accepted satisfaction evaluation, or evidence from real agent runs. No version selection or prompt text has changed. The five-gate completion count remains **2/5 = 40.0%**, with **+0.0 percentage points** from this preliminary work.
+
 **Next real gate:** The owner examines each V1 meta-intent and asks for a satisfaction assessment of a specific V0 prompt. Do not preemptively mark every original prompt satisfactory or replace text; analyze gaps and generate revisions only when requested.
 
 ## 1. 📥 V0 — faithful public ingestion

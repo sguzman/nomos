@@ -1,0 +1,50 @@
+'use strict';
+const {test}=require('node:test');
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const {createHash}=require('node:crypto');
+const root=path.resolve(__dirname,'..');
+const json=p=>JSON.parse(fs.readFileSync(path.join(root,p),'utf8'));
+const source=json('end-consumer-profiles/project-stewardship/v0/trievium.json');
+const profile=json('end-consumer-profiles/project-stewardship/profile.json');
+const analysis=json('end-consumer-profiles/project-stewardship/v1/analysis.json');
+const review=json('end-consumer-profiles/project-stewardship/v1/evaluations/EC-PROMPT-0001.json');
+const digest=v=>createHash('sha256').update(v).digest('hex');
+
+test('J provisional assessment is anchored to exact unchanged V0 and proposed V1 semantics',()=>{
+  const entry=source.entries.find(e=>e.key==='J');
+  const slot=profile.slots.find(e=>e.key==='J');
+  const model=analysis.prompts.find(e=>e.source.key==='J');
+  assert.equal(entry.text,'continue');
+  assert.equal(digest(entry.text),slot.text_sha256);
+  assert.equal(review.source_text_sha256,slot.text_sha256);
+  assert.equal(review.prompt_id,slot.id);
+  assert.equal(review.meta_intent,model.meta_intent.statement);
+  assert.equal(review.proposed_verdict,'yes');
+  assert.equal(review.evaluation_basis,'textual_semantics_only');
+  assert.equal(review.behavioral_test_status,'not_tested');
+  assert.equal(review.review_status,'provisional_pending_owner_review');
+  assert.equal(review.owner_meta_intent_approved,false);
+  assert.equal(review.owner_assessment_approved,false);
+  assert.equal(review.owner_decision,null);
+  assert.equal(review.disposition,'retain_v0_provisionally_no_rewrite');
+  assert.equal(review.selected_prompt_version,'0');
+  assert.equal(review.generated_prompt_version,null);
+  assert.deepEqual(review.atomic_intent_coverage.map(x=>x.local_id),model.atomic_intents.map(x=>x.local_id));
+  assert.ok(review.applicable_preconditions.length>=3);
+  assert.ok(review.failure_conditions.length>=3);
+  assert.equal(model.selection.evaluation,'not_started');
+  assert.equal(model.meta_intent.owner_confirmed,false);
+  assert.equal(profile.current_version,'0');
+  assert.equal(profile.governance.semantic_enrichment_authorized,false);
+});
+
+test('Public profile exposes J draft evaluation without presenting it as approved',()=>{
+  const html=fs.readFileSync(path.join(root,'docs/end-consumer-profiles.html'),'utf8');
+  assert.match(html,/Provisional text assessment · J/);
+  assert.match(html,/Formal satisfaction evaluation:<\/strong> not started/);
+  assert.match(html,/Owner decision:<\/strong> pending/);
+  assert.match(html,/EC-PROMPT-0001\.json/);
+  assert.equal((html.match(/<details>/g)||[]).length,10);
+});
