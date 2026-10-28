@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "kind": "end_consumer_prompt_text_assessment",
+  "profile_id": "EC-PROFILE-0001",
+  "prompt_id": "EC-PROMPT-0010",
+  "source_version": "0",
+  "source_key": "U",
+  "source_text_sha256": "9f1f7108de5b6fb26b52186e752886a7c6a042bc913c5501424e46e17492c9d9",
+  "analyzed_semantic_version": "1",
+  "meta_intent": "Independently check the assistant's latest project claims against inspectable evidence, correct unsupported claims, and avoid unnecessary code changes.",
+  "review_status": "provisional_pending_owner_review",
+  "owner_meta_intent_approved": false,
+  "owner_assessment_approved": false,
+  "question": "Does the V0 prompt satisfactorily fulfill its proposed meta-intent in its intended context?",
+  "proposed_verdict": "yes",
+  "interpretation": "The V0 text directs evidence-backed verification of recent project claims, differentiation of actual implementation, tests, commits and remaining uncertainty, correction of unsupported claims, and avoidance of unnecessary modifications. The question is a verification action, not renewed implementation authority; that distinction is explicit enough for the proposed meta-intent in a known project.",
+  "atomic_intent_coverage": [
+    {
+      "local_id": "A01",
+      "assessment": "explicit_in_source"
+    },
+    {
+      "local_id": "A02",
+      "assessment": "explicit_in_source"
+    },
+    {
+      "local_id": "A03",
+      "assessment": "explicit_in_source"
+    },
+    {
+      "local_id": "A04",
+      "assessment": "explicit_in_source"
+    },
+    {
+      "local_id": "A05",
+      "assessment": "explicit_in_source"
+    }
+  ],
+  "applicable_preconditions": [
+    "There are identifiable recent claims and corresponding repository evidence.",
+    "Checks or commits can be inspected, or unavailable evidence is reported as unavailable.",
+    "No new implementation authorization is inferred from a verification-only request."
+  ],
+  "failure_conditions": [
+    "Do not claim a passed build or commit if no inspectable evidence exists.",
+    "Do not silently turn claim correction into code changes or new scope.",
+    "Do not fabricate missing prior claims or infer completion from a missing test result."
+  ],
+  "coverage_gaps": [],
+  "source_text_evidence": [
+    "Verify your latest claims against actual repository evidence.",
+    "Show what was implemented, which tests passed, which commits exist, and what remains unverified.",
+    "Correct any unsupported progress claims.",
+    "Do not make unnecessary changes."
+  ],
+  "evaluation_basis": "textual_semantics_only",
+  "behavioral_test_status": "not_tested",
+  "effectiveness_claim": "none",
+  "disposition": "retain_v0_provisionally_no_rewrite",
+  "selected_prompt_version": "0",
+  "generated_prompt_version": null,
+  "owner_decision": null
+}

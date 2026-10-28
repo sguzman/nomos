@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "kind": "end_consumer_prompt_text_assessment",
+  "profile_id": "EC-PROFILE-0001",
+  "prompt_id": "EC-PROMPT-0008",
+  "source_version": "0",
+  "source_key": "F",
+  "source_text_sha256": "c71ba1084bbca9d907e3d9cec812e4e2223ccabd2c507d559e43dc7ec1b7eec6",
+  "analyzed_semantic_version": "1",
+  "meta_intent": "Diagnose and repair a specifically reported defect through reproducible evidence, a scoped root-cause fix, and verified non-regression.",
+  "review_status": "provisional_pending_owner_review",
+  "owner_meta_intent_approved": false,
+  "owner_assessment_approved": false,
+  "question": "Does the V0 prompt satisfactorily fulfill its proposed meta-intent in its intended context?",
+  "proposed_verdict": "no",
+  "interpretation": "The source covers investigation, reproduction where practical, root-cause repair, and reporting. It instructs preservation of existing functionality but does not explicitly require regression-path tests or classify cases where full reproduction is impossible. Against the V1 meta-intent's explicit 'verified non-regression' objective, that is a material text-level coverage gap. No observed failure evidence exists, and the verdict requires owner review before any proposed revision.",
+  "atomic_intent_coverage": [
+    {
+      "local_id": "A01",
+      "assessment": "explicit_in_source"
+    },
+    {
+      "local_id": "A02",
+      "assessment": "explicit_in_source"
+    },
+    {
+      "local_id": "A03",
+      "assessment": "explicit_in_source"
+    },
+    {
+      "local_id": "A04",
+      "assessment": "partially_implicit_no_explicit_regression_path_test"
+    },
+    {
+      "local_id": "A05",
+      "assessment": "explicit_in_source"
+    }
+  ],
+  "applicable_preconditions": [
+    "A reported or demonstrated issue and the corresponding project are identifiable.",
+    "Relevant code and runtime or test evidence are accessible, with limits reported.",
+    "The existing project scope and commit permissions remain binding."
+  ],
+  "failure_conditions": [
+    "Do not claim that previously working behavior is regression-free based only on reproducing the reported failure.",
+    "Do not invent a live reproduction when the device, environment or private input is unavailable.",
+    "Do not introduce unrelated refactors to mask or compensate for the defect.",
+    "If already fixed, do not create fresh changes to justify the invocation."
+  ],
+  "coverage_gaps": [
+    {
+      "kind": "regression_evidence",
+      "finding": "The V0 text asks to verify the result and preserve existing functionality but never explicitly directs running or adding regression tests against prior working behavior.",
+      "targeted_refinement": "Require a narrowly scoped regression check where feasible, and distinguish unavailable test environments from verified non-regression. Do not create new prompt wording unless authorized."
+    }
+  ],
+  "source_text_evidence": [
+    "reproduce the failure where practical",
+    "implement a reliable fix, and verify the result",
+    "Preserve existing working functionality",
+    "Do not introduce unrelated refactors, features, or unnecessary work"
+  ],
+  "evaluation_basis": "textual_semantics_only",
+  "behavioral_test_status": "not_tested",
+  "effectiveness_claim": "none",
+  "disposition": "targeted_refinement_candidate_pending_owner_review",
+  "selected_prompt_version": "0",
+  "generated_prompt_version": null,
+  "owner_decision": null
+}

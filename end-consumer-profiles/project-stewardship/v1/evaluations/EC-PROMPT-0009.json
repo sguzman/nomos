@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "kind": "end_consumer_prompt_text_assessment",
+  "profile_id": "EC-PROFILE-0001",
+  "prompt_id": "EC-PROMPT-0009",
+  "source_version": "0",
+  "source_key": "G",
+  "source_text_sha256": "f8873b794f0e05bb4dbf224de8476c85ae5d99251e3b477f4bcf2296de5fbc2e",
+  "analyzed_semantic_version": "1",
+  "meta_intent": "Audit an existing project against its original objective, identify legitimate gaps, correct unsupported progress claims, and advance remediation only when warranted.",
+  "review_status": "provisional_pending_owner_review",
+  "owner_meta_intent_approved": false,
+  "owner_assessment_approved": false,
+  "question": "Does the V0 prompt satisfactorily fulfill its proposed meta-intent in its intended context?",
+  "proposed_verdict": "yes",
+  "interpretation": "The V0 source clearly directs a project objective versus implementation audit, review of evidence and roadmap claims, reconciliation without scope inflation, conditional remediation only where genuine gaps remain, and no change when complete. This matches the V1 meta-intent; the existing proposed V1 execution-mode note is a distinction from status-only prompts, not a defect in the wording.",
+  "atomic_intent_coverage": [
+    {
+      "local_id": "A01",
+      "assessment": "explicit_in_source"
+    },
+    {
+      "local_id": "A02",
+      "assessment": "explicit_in_source"
+    },
+    {
+      "local_id": "A03",
+      "assessment": "explicit_in_source"
+    },
+    {
+      "local_id": "A04",
+      "assessment": "explicit_in_source"
+    },
+    {
+      "local_id": "A05",
+      "assessment": "explicit_in_source"
+    }
+  ],
+  "applicable_preconditions": [
+    "The original objective and definition of done are available or recoverable.",
+    "Repository, tests and progress evidence can be inspected or shortcomings disclosed.",
+    "The established Project Stewardship Protocol authorizes remediation of discovered in-scope work."
+  ],
+  "failure_conditions": [
+    "The existence of a gap must not be treated as authorization for unrelated new features.",
+    "Unverified claims must not be marked verified simply because the roadmap lists them as complete.",
+    "If project acceptance criteria already hold, stop rather than manufacture a new milestone."
+  ],
+  "coverage_gaps": [],
+  "source_text_evidence": [
+    "Perform a comprehensive, evidence-based gap audit",
+    "Identify missing functionality, incomplete integrations, unverified claims, regressions",
+    "Do not invent new requirements or move the finish line arbitrarily.",
+    "If genuine unfinished work exists, prioritize it",
+    "If the objective is already verified complete, report that conclusion"
+  ],
+  "evaluation_basis": "textual_semantics_only",
+  "behavioral_test_status": "not_tested",
+  "effectiveness_claim": "none",
+  "disposition": "retain_v0_provisionally_no_rewrite",
+  "selected_prompt_version": "0",
+  "generated_prompt_version": null,
+  "owner_decision": null
+}
