@@ -32,9 +32,12 @@ function validate(){
   }
   const total=catalog.reduce((n,slot)=>n+slot.versions.length-1,0);
   if(total!==manifest.published_versions.length)throw Error('Published version count mismatch');
-  const original=model.makeTrievium(catalog);
+  const original=model.makeTrievium(catalog,Object.fromEntries(profile.slots.map(slot=>[slot.id,'0'])));
   if(JSON.stringify(original)!==JSON.stringify({version:1,entries:source.entries.map(e=>({label:e.label,text:e.text,key:e.key}))}))
     throw Error('Default selected keyset is no longer V0');
+  const curated=json('docs/exports/project-stewardship-approved-trievium.json');
+  if(JSON.stringify(model.makeTrievium(catalog))!==JSON.stringify(curated))
+    throw Error('Curated approved export differs from selected publication');
   return {slots:catalog.length,approvedSuccessors:total,sourceSha256:sha(raw)};
 }
 if(require.main===module){
