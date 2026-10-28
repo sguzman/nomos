@@ -1,15 +1,23 @@
 # End-consumer prompt profiles — initial roadmap
 
-**Status:** Planned (roadmap only; no prompts imported yet).  
+**Status:** Implementation in progress. V0 is imported, public, and source-verified; V1 semantic enrichment has not begun.  
 **Scope:** New, explicitly authorized **public** Nomos feature. Separate from the completed 69/69 agent-consumption engineering roadmap.  
 **Product:** The **prompt itself** is the end result. Meta-intent, atomic intents, situations, rules, conditions and evaluation evidence are the tools used to improve that prompt, not its substitute.
 
 **First profile:** Project Stewardship, sourced from the owner's existing Trievium keyset with **10 independent prompt slots**: `J` Continue; `L` Chat broke; `S` Restore context; `H` What happened?; `D` Project init; `K` Status; `A` Project adopt; `F` Fix issue; `G` Gap audit; `U` Verify work. Keep stable prompt identities distinct from movable keyboard shortcuts.
 
+## Measured progress (2026-10-27)
+
+**Overall: 1/5 milestone gates verified = 20.0%** (previous 0.0%; **delta +20.0 percentage points**). Five milestones are equal-weight *acceptance gates*, not a count of lines of code. V0 is 100% complete on its three original acceptance items; website and export were started ahead of the later full feature gate but are **not** treated as a completed fifth milestone.
+
+**Evidence:** [exact owner-authorized source](../end-consumer-profiles/project-stewardship/v0/trievium.json), [stable V0 profile](../end-consumer-profiles/project-stewardship/profile.json), [schema](../schema/end-consumer-profile-v0.schema.json), [ten-slot checksum and byte-equality tests](../tests/test_end_consumer_profiles.cjs), [public website directory](end-consumer-profiles.html), [downloadable Trievium export](exports/project-stewardship-v0.json), and [successful initial V0 CI](https://github.com/sguzman/nomos/actions/runs/40611001145). Source and downloadable export have the identical Git blob SHA-1 `11c1545fa0ac05b9f49bce83ab0ad3f3f539051b`. The profile text was screened for obvious token, email and absolute-user-path patterns before publication. No semantics were inferred, no text was rewritten, and no prompt was invoked.
+
+**Next real gate:** V1 semantic enrichment of the ten existing prompt products. Source prompt identity must not be conflated with its mutable Trievium key binding. Existing Nomos ontology comes first; missing semantic objects require separate review rather than silent rule publication.
+
 ## 1. 📥 V0 — faithful public ingestion
-- [ ] Create a minimal **end-consumer profile** and ten prompt categories/slots with stable identities.
-- [ ] Import each source **key, name/label, and complete prompt text exactly as provided**. Preserve emoji, whitespace and wording; do not rewrite, normalize or silently merge prompts.
-- [ ] Validate ten unique keys, source-to-import fidelity and original version snapshots. Publish the approved prompt content only after screening the input for secrets or unrelated nonpublic material.
+- [x] Create a minimal **end-consumer profile** and ten prompt categories/slots with stable identities.
+- [x] Import each source **key, name/label, and complete prompt text exactly as provided**. Preserve emoji, whitespace and wording; do not rewrite, normalize or silently merge prompts.
+- [x] Validate ten unique keys, source-to-import fidelity and original version snapshots. Publish the approved prompt content only after screening the input for secrets or unrelated nonpublic material.
 
 **Done when:** V0 can be reconstructed byte-for-byte (including the original Trievium fields) and every imported prompt can be inspected individually. No ontology analysis is required for V0.
 
