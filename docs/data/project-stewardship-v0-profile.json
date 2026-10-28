@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "kind": "end_consumer_prompt_profile",
+  "id": "EC-PROFILE-0001",
+  "name": "Project Stewardship",
+  "visibility": "public",
+  "lifecycle": "draft_v0",
+  "created_on": "2026-10-27",
+  "current_version": "0",
+  "versions": [
+    {
+      "version": "0",
+      "source_format": "trievium",
+      "source_path": "v0/trievium.json",
+      "source_sha256": "451c306ad46a461c3d061b58d13ed0bd4f3bcd199e0bb2215f3c44764ea04efd",
+      "source_git_blob_sha1": "11c1545fa0ac05b9f49bce83ab0ad3f3f539051b",
+      "source_trievium_version": 1
+    }
+  ],
+  "slots": [
+    {
+      "id": "EC-PROMPT-0001",
+      "ordinal": 0,
+      "key": "J",
+      "label": "▶️ Continue",
+      "text_sha256": "e256ee8e7aff6957a781d8328f0f68e26996564c81fa458da59fbca2305138ad",
+      "version": "0",
+      "semantic_status": "not_analyzed"
+    },
+    {
+      "id": "EC-PROMPT-0002",
+      "ordinal": 1,
+      "key": "L",
+      "label": "🔁 Chat broke",
+      "text_sha256": "def45cc96462b83f5245de7824f43856145b5651035ec00ec075efdd8954a28c",
+      "version": "0",
+      "semantic_status": "not_analyzed"
+    },
+    {
+      "id": "EC-PROMPT-0003",
+      "ordinal": 2,
+      "key": "S",
+      "label": "🔄 Restore context",
+      "text_sha256": "f5c6dbfc8e750c73c6e553909aa2f41994dd3921bd198ecf2db6d576c6ba945f",
+      "version": "0",
+      "semantic_status": "not_analyzed"
+    },
+    {
+      "id": "EC-PROMPT-0004",
+      "ordinal": 3,
+      "key": "H",
+      "label": "❓ What happened?",
+      "text_sha256": "90194f96257d3f7832846b4b1f3873f7239f545dcf37e538d6a912d4caab6f1f",
+      "version": "0",
+      "semantic_status": "not_analyzed"
+    },
+    {
+      "id": "EC-PROMPT-0005",
+      "ordinal": 4,
+      "key": "D",
+      "label": "🚀 Project init",
+      "text_sha256": "af75908c39fdfa4698a033f511c978e6845d6df4abd3ca302bae117f82a0c58f",
+      "version": "0",
+      "semantic_status": "not_analyzed"
+    },
+    {
+      "id": "EC-PROMPT-0006",
+      "ordinal": 5,
+      "key": "K",
+      "label": "📊 Status",
+      "text_sha256": "9c08766af433bca0f1508269098f92cd7213c55cb2a201375e92b433c83e78a9",
+      "version": "0",
+      "semantic_status": "not_analyzed"
+    },
+    {
+      "id": "EC-PROMPT-0007",
+      "ordinal": 6,
+      "key": "A",
+      "label": "🧩 Project adopt",
+      "text_sha256": "233541ebcbc8d946eaca242590c09d2cfdd6d92f5a84ba3b59d7feb00839c7d8",
+      "version": "0",
+      "semantic_status": "not_analyzed"
+    },
+    {
+      "id": "EC-PROMPT-0008",
+      "ordinal": 7,
+      "key": "F",
+      "label": "🛠️ Fix issue",
+      "text_sha256": "c71ba1084bbca9d907e3d9cec812e4e2223ccabd2c507d559e43dc7ec1b7eec6",
+      "version": "0",
+      "semantic_status": "not_analyzed"
+    },
+    {
+      "id": "EC-PROMPT-0009",
+      "ordinal": 8,
+      "key": "G",
+      "label": "🔎 Gap audit",
+      "text_sha256": "f8873b794f0e05bb4dbf224de8476c85ae5d99251e3b477f4bcf2296de5fbc2e",
+      "version": "0",
+      "semantic_status": "not_analyzed"
+    },
+    {
+      "id": "EC-PROMPT-0010",
+      "ordinal": 9,
+      "key": "U",
+      "label": "🧪 Verify work",
+      "text_sha256": "9f1f7108de5b6fb26b52186e752886a7c6a042bc913c5501424e46e17492c9d9",
+      "version": "0",
+      "semantic_status": "not_analyzed"
+    }
+  ],
+  "governance": {
+    "source_import_authorized": true,
+    "semantic_enrichment_authorized": false,
+    "copy_requires_user_action": true,
+    "export_requires_user_action": true,
+    "selected_replacement_versions": [],
+    "note": "V0 only: preserve exact owner-provided key, label and text. Semantic revisions are separate; publishing a profile does not invoke a prompt."
+  }
+}
