@@ -16,6 +16,7 @@ const allowed=new Set(['end-consumer-profiles.html','end-consumer-profiles.js',
   'data/project-stewardship-v0-profile.json',
   'data/project-stewardship-published-versions.json',
   'data/project-stewardship-v1-analysis.json',
+  'data/project-stewardship-meta-intent-approval.json',
   'end-consumer-profile-explorer-model.js','end-consumer-profile-explorer.js',
   'end-consumer-profile-explorer.css','catalog.json']);
 const sha=text=>createHash('sha256').update(text).digest('hex');
@@ -137,6 +138,7 @@ test('real browser: V0 integrity, selected Trievium download, approved alternate
     await until(()=>evalJs("document.querySelectorAll('.profile-prompt-choice').length===10"),
       {timeout:20000,label:'Profile explorer did not display ten prompts'});
     assert.equal(await evalJs("document.querySelector('#profile-reader').textContent.includes('Atomic objectives and linked intents')"),true);
+    assert.equal(await evalJs("document.querySelector('#profile-reader').textContent.includes('Owner-approved meta-intent')"),true);
     assert.equal(await evalJs("document.querySelector('#profile-reader').textContent.includes('NOM-0014')"),true);
     await evalJs("document.querySelector('[data-prompt-key=F]').click();true");
     assert.equal(await evalJs("document.querySelector('#profile-reader').textContent.includes('Fix issue')"),true);

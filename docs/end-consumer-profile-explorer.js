@@ -10,11 +10,19 @@
     './data/project-stewardship-v0-profile.json',
     './exports/project-stewardship-v0.json',
     './data/project-stewardship-v1-analysis.json',
-    './catalog.json'
+    './catalog.json',
+    './data/project-stewardship-meta-intent-approval.json'
   ];
   const replies=await Promise.all(urls.map(path=>fetch(path)));
   if(replies.some(r=>!r.ok))throw Error('Public profile or Nomos catalog unavailable');
-  const [profile,source,analysis,catalog]=await Promise.all(replies.map(r=>r.json()));
+  const [profile,source,analysis,catalog,approved]=await Promise.all(replies.map(r=>r.json()));
+  if(approved?.status!=='approved_meta_intents_only'||approved.profile_id!==profile.id||approved.entries?.length!==10)throw Error('Meta-intent approval record invalid');
+  for(let i=0;i<10;i++){
+    const row=approved.entries[i],ref=analysis.prompts[i];
+    if(row.owner_approved!==true||row.prompt_id!==ref.prompt_id||row.key!==ref.source.key||
+      row.statement!==ref.meta_intent.statement||row.source_text_sha256!==ref.source.text_sha256)
+      throw Error('Meta-intent approval mismatch: '+ref.source.key);
+  }
   const api=globalThis.NomosProfileExplorer;
   if(!api)throw Error('Explorer model missing');
   const prompts=api.build(profile,source,analysis,catalog);
@@ -85,7 +93,7 @@
     reader.replaceChildren();
     const heading=elt('div','profile-reader-heading');
     const title=elt('h2','',p.label);
-    const eyebrow=elt('span','profile-eyebrow','PROMPT '+p.key+' · ORIGINAL V0 · V1 SEMANTICS PROPOSED');
+    const eyebrow=elt('span','profile-eyebrow','PROMPT '+p.key+' · ORIGINAL V0 · GOAL APPROVED / LINKS PROPOSED');
     const meta=elt('p','profile-muted',
       p.atomics.length+' atomic objectives · '+p.situations.length+' situations · '+
       p.rules.length+' rule candidates · '+p.conditions.length+' execution conditions');
@@ -102,9 +110,9 @@
     reader.append(contents);
     const original=section('Original prompt · V0','profile-original');
     const pre=elt('pre','profile-original-text',p.text);original.append(pre);
-    const metaBlock=section('Proposed meta-intent · V1','profile-meta');
+    const metaBlock=section('Owner-approved meta-intent · V1','profile-meta');
     metaBlock.append(elt('p','profile-intent-headline',p.meta_intent));
-    metaBlock.append(elt('p','profile-muted','Draft interpretation, not owner-confirmed or part of the original prompt.'));
+    metaBlock.append(elt('p','profile-muted','Owner-approved goal. Linked concepts, their applicability and text-level assessments remain proposals; not part of original V0.'));
     plainField(metaBlock,'Invocation',p.trigger);
     plainField(metaBlock,'Authorization boundary',p.authorization);
     const atomic=section('Atomic objectives and linked intents','profile-intents',p.atomics.length);
@@ -141,7 +149,7 @@
       const active=btn.dataset.promptKey===p.key;
       btn.setAttribute('aria-current',active?'true':'false');
     }
-    status.textContent='Viewing '+p.label+'; all mappings proposed and read-only.';
+    status.textContent='Viewing '+p.label+'; goal approved, linked mappings proposed and read-only.';
   }
   for(const p of prompts){
     const btn=elt('button','profile-prompt-choice');
