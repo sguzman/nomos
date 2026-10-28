@@ -13,7 +13,19 @@ Nomos initially had five independently identified catalog kinds. A separately au
 9. **Execution condition:** a reusable condition such as one blocked task, overall completion, or exhausted runtime.
 10. **Evaluation dimension / observation:** a formal target for evidence-backed measurement. Evaluation dimensions exist; observed effectiveness results require actual evidence and are not fabricated.
 
+11. **End-consumer prompt profile:** a user-authorized, public, versioned assembly of prompt **products**. Each stable prompt identity carries an independent high-level meta-intent and reviewable downstream semantic analysis; key bindings, labels and selected prompt text are export properties rather than new authority over canonical rules.
+
 Relationships between rules are metadata references, not additional standalone ontological kinds. Temporary compositions, use-case discussion, proposed selections, tasks, and specimens remain operational concepts; they are not automatically catalog objects.
+
+## Public end-consumer prompt-profile contract (new feature)
+
+The opt-in first profile, [Project Stewardship](end-consumer-profiles/project-stewardship/profile.json), is a **different kind** from the existing optional `rule_profile` (preset of published rule IDs) and from independent `SIT-*` situational prompts. This new object starts with a **version 0 exact-source Trievium keyset**: keys, labels and complete prompt text remain intact in [the immutable source snapshot](end-consumer-profiles/project-stewardship/v0/trievium.json). Changing the keyboard binding in a future approved version never changes the prompt's stable `EC-PROMPT-*` identity.
+
+The [version 1 proposed semantic review](end-consumer-profiles/project-stewardship/v1/analysis.json) treats **each prompt as the end product**. It records a proposed meta-intent, smaller local atomic-intent hypotheses, links to published canonical intents/situations/rules/conditions, and coverage gaps for the owner to inspect. Such links **do not add** canonical rules, select a rule profile, change the source text, confirm intent interpretation or constitute measured prompt effectiveness. Canonical gaps become separate proposals for review, not silently published ontology records.
+
+A later explicit assessment may deem the current prompt satisfactory, in which case no rewrite is required; otherwise a new immutable generated version can be synthesized **downstream from refined semantics** and separately evaluated. No new generation automatically replaces version 0, and owner review controls the selected version. Website browsing and Trievium JSON downloads remain inert: neither publishing nor copying invokes a prompt or grants new repository permissions. The owner has specifically authorized this collection's source texts and key labels for public publication; this opt-in does not grant general authorization to publish private conversations or secrets.
+
+See [the bounded feature roadmap](docs/end-consumer-prompt-profiles-roadmap.md) for stage acceptance criteria.
 
 ## Situational-prompt contract
 
