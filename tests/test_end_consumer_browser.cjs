@@ -13,6 +13,7 @@ const DOCS=path.resolve(__dirname,'..','docs');
 const allowed=new Set(['end-consumer-profiles.html','end-consumer-profiles.js',
   'end-consumer-profile-model.js','styles.css',
   'exports/project-stewardship-v0.json',
+  'exports/project-stewardship-approved-trievium.json',
   'data/project-stewardship-v0-profile.json',
   'data/project-stewardship-published-versions.json',
   'data/project-stewardship-v1-analysis.json',
@@ -170,6 +171,8 @@ test('real browser: V0 integrity, selected Trievium download, approved alternate
       return {label:x.label,text:alternate?alternate.text:x.text,key:x.key};
     })};
     assert.deepEqual(selected,expected);
+    const approvedStatic=await evalJs("fetch('./exports/project-stewardship-approved-trievium.json').then(r=>r.json())");
+    assert.deepEqual(approvedStatic,selected);
     assert.deepEqual(selected.entries.filter((x,i)=>x.text!==originals.entries[i].text).map(x=>x.key),['L','H','F']);
     // Against the deployed site we cannot inject a synthetic candidate.
     if(!remote){
