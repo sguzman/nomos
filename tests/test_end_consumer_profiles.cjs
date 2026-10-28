@@ -34,3 +34,15 @@ test('all ten stable slots preserve key, label and text checksum without enrichm
   });
   assert.equal(profile.governance.semantic_enrichment_authorized,false);
 });
+
+test('V0 is browsable from the public Nomos homepage',()=>{
+  const home=fs.readFileSync(path.join(root,'docs','index.html'),'utf8');
+  const page=fs.readFileSync(path.join(root,'docs','end-consumer-profiles.html'),'utf8');
+  const source=JSON.parse(fs.readFileSync(path.join(base,'v0','trievium.json'),'utf8'));
+  assert.match(home,/end-consumer-profiles\.html/);
+  assert.match(page,/exports\/project-stewardship-v0\.json/);
+  for(const item of source.entries) {
+    assert.ok(page.includes(item.label), 'Missing original label '+item.key);
+    assert.ok(page.includes('key '+item.key), 'Missing original key '+item.key);
+  }
+});
