@@ -25,7 +25,7 @@ test('J provisional assessment is anchored to exact unchanged V0 and proposed V1
   assert.equal(review.evaluation_basis,'textual_semantics_only');
   assert.equal(review.behavioral_test_status,'not_tested');
   assert.equal(review.review_status,'provisional_pending_owner_review');
-  assert.equal(review.owner_meta_intent_approved,false);
+  assert.equal(review.owner_meta_intent_approved,true);
   assert.equal(review.owner_assessment_approved,false);
   assert.equal(review.owner_decision,null);
   assert.equal(review.disposition,'retain_v0_provisionally_no_rewrite');
@@ -35,7 +35,7 @@ test('J provisional assessment is anchored to exact unchanged V0 and proposed V1
   assert.ok(review.applicable_preconditions.length>=3);
   assert.ok(review.failure_conditions.length>=3);
   assert.equal(model.selection.evaluation,'not_started');
-  assert.equal(model.meta_intent.owner_confirmed,false);
+  assert.equal(model.meta_intent.owner_confirmed,true);
   assert.equal(profile.current_version,'0');
   assert.equal(profile.governance.semantic_enrichment_authorized,false);
 });
@@ -68,7 +68,7 @@ test('L, S and H provisional reviews preserve original source, scope and owner d
     assert.equal(review.analyzed_semantic_version,'1');
     assert.equal(review.review_status,'provisional_pending_owner_review');
     assert.equal(review.proposed_verdict,'yes');
-    assert.equal(review.owner_meta_intent_approved,false);
+    assert.equal(review.owner_meta_intent_approved,true);
     assert.equal(review.owner_assessment_approved,false);
     assert.equal(review.owner_decision,null);
     assert.equal(review.evaluation_basis,'textual_semantics_only');
@@ -82,7 +82,7 @@ test('L, S and H provisional reviews preserve original source, scope and owner d
     assert.ok(review.applicable_preconditions.length>=3);
     assert.ok(review.failure_conditions.length>=3);
     assert.ok(review.source_text_evidence.every(x=>entry.text.includes(x)));
-    assert.equal(model.meta_intent.owner_confirmed,false);
+    assert.equal(model.meta_intent.owner_confirmed,true);
     assert.equal(model.selection.evaluation,'not_started');
     assert.equal(model.selection.generated_prompt_version,null);
   }
@@ -120,7 +120,7 @@ test('D K A assessments remain exact-source-linked, provisional and visible',()=
     assert.equal(review.analyzed_semantic_version,'1');
     assert.equal(review.review_status,'provisional_pending_owner_review');
     assert.equal(review.proposed_verdict,'yes');
-    assert.equal(review.owner_meta_intent_approved,false);
+    assert.equal(review.owner_meta_intent_approved,true);
     assert.equal(review.owner_assessment_approved,false);
     assert.equal(review.owner_decision,null);
     assert.equal(review.evaluation_basis,'textual_semantics_only');
@@ -136,7 +136,7 @@ test('D K A assessments remain exact-source-linked, provisional and visible',()=
     assert.ok(review.source_text_evidence.every(x=>entry.text.includes(x)));
     assert.ok(html.includes('Provisional text assessment · '+key));
     assert.ok(html.includes(slot.id+'.json'));
-    assert.equal(model.meta_intent.owner_confirmed,false);
+    assert.equal(model.meta_intent.owner_confirmed,true);
     assert.equal(model.selection.evaluation,'not_started');
   }
   assert.equal(profile.current_version,'0');
@@ -160,7 +160,7 @@ test('all ten provisional review records preserve source and owner-control bound
     assert.equal(review.source_text_sha256,model.source.text_sha256);
     assert.equal(review.meta_intent,model.meta_intent.statement);
     assert.equal(review.review_status,'provisional_pending_owner_review');
-    assert.equal(review.owner_meta_intent_approved,false);
+    assert.equal(review.owner_meta_intent_approved,true);
     assert.equal(review.owner_assessment_approved,false);
     assert.equal(review.owner_decision,null);
     assert.equal(review.evaluation_basis,'textual_semantics_only');
@@ -174,7 +174,7 @@ test('all ten provisional review records preserve source and owner-control bound
     assert.ok(review.failure_conditions.length>=3);
     assert.ok(html.includes('Provisional text assessment · '+entry.key));
     assert.ok(html.includes(slot.id+'.json'));
-    assert.equal(model.meta_intent.owner_confirmed,false);
+    assert.equal(model.meta_intent.owner_confirmed,true);
     assert.equal(model.selection.evaluation,'not_started');
   }
   assert.equal(profile.current_version,'0');

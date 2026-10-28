@@ -118,6 +118,7 @@ jobs:
           node --test tests/test_agent_consumption_roadmap.cjs
           node --test tests/test_end_consumer_profiles.cjs
           node --test tests/test_end_consumer_v1.cjs
+          node --test tests/test_end_consumer_meta_approval.cjs
           node --test tests/test_end_consumer_text_reviews.cjs
           node --test tests/test_end_consumer_candidate_scenarios.cjs
           node --check docs/end-consumer-profile-model.js
