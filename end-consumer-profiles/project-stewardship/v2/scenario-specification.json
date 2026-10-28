@@ -12,7 +12,11 @@
       "expected_behavior": "Recover evidence then resume authorized work",
       "required_text": "Continue only if authorized unfinished work remains",
       "evidence": "static_text_contract_only",
-      "observed_agent_result": null
+      "observed_agent_result": null,
+      "original_coverage": "contextual",
+      "original_coverage_rationale": "Recovery and continuation are explicit, but the conditional stopping gate is inherited.",
+      "original_evidence_phrase": "recover context and continue",
+      "candidate_coverage": "explicit_text_contract"
     },
     {
       "id": "l-project_already_complete",
@@ -21,7 +25,11 @@
       "expected_behavior": "Stop and report completion",
       "required_text": "project is complete",
       "evidence": "static_text_contract_only",
-      "observed_agent_result": null
+      "observed_agent_result": null,
+      "original_coverage": "not_explicit",
+      "original_coverage_rationale": "No explicit stop-if-complete condition.",
+      "original_evidence_phrase": null,
+      "candidate_coverage": "explicit_text_contract"
     },
     {
       "id": "l-no_recoverable_state",
@@ -30,7 +38,11 @@
       "expected_behavior": "Report blocked rather than invent history",
       "required_text": "cannot be recovered reliably",
       "evidence": "static_text_contract_only",
-      "observed_agent_result": null
+      "observed_agent_result": null,
+      "original_coverage": "not_explicit",
+      "original_coverage_rationale": "No instruction for genuinely unrecoverable context.",
+      "original_evidence_phrase": null,
+      "candidate_coverage": "explicit_text_contract"
     },
     {
       "id": "l-records_available",
@@ -39,7 +51,11 @@
       "expected_behavior": "Use durable records to reconstruct current state",
       "required_text": "from available records",
       "evidence": "static_text_contract_only",
-      "observed_agent_result": null
+      "observed_agent_result": null,
+      "original_coverage": "contextual",
+      "original_coverage_rationale": "Recover context is requested without naming a source of evidence.",
+      "original_evidence_phrase": "recover context",
+      "candidate_coverage": "explicit_text_contract"
     },
     {
       "id": "l-scope_expansion",
@@ -48,7 +64,11 @@
       "expected_behavior": "Avoid unrelated work during recovery",
       "required_text": "authorized unfinished work",
       "evidence": "static_text_contract_only",
-      "observed_agent_result": null
+      "observed_agent_result": null,
+      "original_coverage": "contextual",
+      "original_coverage_rationale": "Existing authorization must be inherited from prior project context.",
+      "original_evidence_phrase": null,
+      "candidate_coverage": "explicit_text_contract"
     },
     {
       "id": "h-unknown_failure_cause",
@@ -57,7 +77,11 @@
       "expected_behavior": "Separate verified facts from unknown explanations",
       "required_text": "confirmed facts from unknowns",
       "evidence": "static_text_contract_only",
-      "observed_agent_result": null
+      "observed_agent_result": null,
+      "original_coverage": "not_explicit",
+      "original_coverage_rationale": "No explicit evidence/uncertainty distinction.",
+      "original_evidence_phrase": null,
+      "candidate_coverage": "explicit_text_contract"
     },
     {
       "id": "h-observed_crash",
@@ -66,7 +90,11 @@
       "expected_behavior": "Use available evidence to diagnose interruption",
       "required_text": "using available evidence",
       "evidence": "static_text_contract_only",
-      "observed_agent_result": null
+      "observed_agent_result": null,
+      "original_coverage": "contextual",
+      "original_coverage_rationale": "Asks what happened without explaining the evidence standard.",
+      "original_evidence_phrase": "what happened?",
+      "candidate_coverage": "explicit_text_contract"
     },
     {
       "id": "h-unfinished_work_exists",
@@ -75,7 +103,11 @@
       "expected_behavior": "Report status without automatically resuming",
       "required_text": "Do not resume development",
       "evidence": "static_text_contract_only",
-      "observed_agent_result": null
+      "observed_agent_result": null,
+      "original_coverage": "contextual",
+      "original_coverage_rationale": "Asks current status; inspection-only is implied, not explicit.",
+      "original_evidence_phrase": "current state",
+      "candidate_coverage": "explicit_text_contract"
     },
     {
       "id": "h-easy_unrequested_edit",
@@ -84,7 +116,11 @@
       "expected_behavior": "Do not edit files without a distinct request",
       "required_text": "modify files unless I separately request it",
       "evidence": "static_text_contract_only",
-      "observed_agent_result": null
+      "observed_agent_result": null,
+      "original_coverage": "contextual",
+      "original_coverage_rationale": "No edit is requested but a read-only prohibition is not stated.",
+      "original_evidence_phrase": null,
+      "candidate_coverage": "explicit_text_contract"
     },
     {
       "id": "h-unverified_progress",
@@ -93,7 +129,11 @@
       "expected_behavior": "Report verified current state",
       "required_text": "verified project state",
       "evidence": "static_text_contract_only",
-      "observed_agent_result": null
+      "observed_agent_result": null,
+      "original_coverage": "contextual",
+      "original_coverage_rationale": "Asks current state but does not explicitly require verification.",
+      "original_evidence_phrase": "current state",
+      "candidate_coverage": "explicit_text_contract"
     },
     {
       "id": "f-reproducible_bug",
@@ -102,7 +142,11 @@
       "expected_behavior": "Require focused defect regression coverage where practical",
       "required_text": "focused regression test",
       "evidence": "static_text_contract_only",
-      "observed_agent_result": null
+      "observed_agent_result": null,
+      "original_coverage": "contextual",
+      "original_coverage_rationale": "Reproduction and verification requested; adding a retained regression test is not.",
+      "original_evidence_phrase": "reproduce the failure where practical",
+      "candidate_coverage": "explicit_text_contract"
     },
     {
       "id": "f-previous_working_behavior",
@@ -111,7 +155,11 @@
       "expected_behavior": "Check scoped nonregression",
       "required_text": "previously working behavior",
       "evidence": "static_text_contract_only",
-      "observed_agent_result": null
+      "observed_agent_result": null,
+      "original_coverage": "contextual",
+      "original_coverage_rationale": "Preserve working behavior requested, but checking it explicitly is not.",
+      "original_evidence_phrase": "Preserve existing working functionality",
+      "candidate_coverage": "explicit_text_contract"
     },
     {
       "id": "f-unavailable_runtime",
@@ -120,7 +168,11 @@
       "expected_behavior": "Disclose runtime QA limits",
       "required_text": "runtime QA cannot be performed",
       "evidence": "static_text_contract_only",
-      "observed_agent_result": null
+      "observed_agent_result": null,
+      "original_coverage": "contextual",
+      "original_coverage_rationale": "Reproduction is qualified 'where practical'; disclosure of runtime limits is not required.",
+      "original_evidence_phrase": "where practical",
+      "candidate_coverage": "explicit_text_contract"
     },
     {
       "id": "f-unavailable_reproduction",
@@ -129,7 +181,11 @@
       "expected_behavior": "Do not overstate reproducibility",
       "required_text": "If reproduction",
       "evidence": "static_text_contract_only",
-      "observed_agent_result": null
+      "observed_agent_result": null,
+      "original_coverage": "contextual",
+      "original_coverage_rationale": "Reproduction is conditional without explicit uncertainty reporting.",
+      "original_evidence_phrase": "reproduce the failure where practical",
+      "candidate_coverage": "explicit_text_contract"
     },
     {
       "id": "f-unavailable_regression",
@@ -138,7 +194,11 @@
       "expected_behavior": "Do not overstate regression verification",
       "required_text": "do not claim non-regression without evidence",
       "evidence": "static_text_contract_only",
-      "observed_agent_result": null
+      "observed_agent_result": null,
+      "original_coverage": "not_explicit",
+      "original_coverage_rationale": "No explicit restriction on claiming non-regression without evidence.",
+      "original_evidence_phrase": null,
+      "candidate_coverage": "explicit_text_contract"
     },
     {
       "id": "f-already_fixed",
@@ -147,7 +207,11 @@
       "expected_behavior": "No unnecessary edits if defect already resolved",
       "required_text": "issue is already resolved, make no changes",
       "evidence": "static_text_contract_only",
-      "observed_agent_result": null
+      "observed_agent_result": null,
+      "original_coverage": "explicit",
+      "original_coverage_rationale": "Source explicitly instructs making no changes after verified resolution.",
+      "original_evidence_phrase": "If the issue is already resolved, make no changes.",
+      "candidate_coverage": "explicit_text_contract"
     },
     {
       "id": "f-scope_drift",
@@ -156,7 +220,17 @@
       "expected_behavior": "No unrelated refactoring",
       "required_text": "Do not introduce unrelated refactors",
       "evidence": "static_text_contract_only",
-      "observed_agent_result": null
+      "observed_agent_result": null,
+      "original_coverage": "explicit",
+      "original_coverage_rationale": "Source expressly excludes unrelated refactors and features.",
+      "original_evidence_phrase": "Do not introduce unrelated refactors",
+      "candidate_coverage": "explicit_text_contract"
     }
-  ]
+  ],
+  "review_method": "Conservative manual source-versus-candidate text coverage with original evidence excerpts and 17 candidate substring assertions. This is not independent agent execution or empirical reliability testing.",
+  "original_coverage_summary": {
+    "explicit": 2,
+    "contextual": 11,
+    "not_explicit": 4
+  }
 }

@@ -43,6 +43,21 @@ test('17 synthetic scenarios are text-contract probes, not observed agent runs',
   assert.ok(c);
   assert.equal(scenario.observed_agent_result,null);
   assert.equal(scenario.evidence,'static_text_contract_only');
+  assert.ok(['explicit','contextual','not_explicit'].includes(scenario.original_coverage));
+  assert.equal(scenario.candidate_coverage,'explicit_text_contract');
+  assert.ok(scenario.original_coverage_rationale.length>=15);
+  const original=v0.entries.find(x=>x.key===scenario.key)?.text;
+  assert.ok(original,'Scenario must reference a real V0 prompt');
+  if(scenario.original_evidence_phrase)assert.ok(original.includes(scenario.original_evidence_phrase),scenario.id);
+
   assert.ok(c.candidate_text.toLowerCase().includes(scenario.required_text.toLowerCase()),scenario.id);
  }
+});
+
+test('textual coverage counts are reproducible, not empirical agent outcomes',()=>{
+ const coverage={explicit:0,contextual:0,not_explicit:0};
+ for(const s of scenarios.cases)coverage[s.original_coverage]++;
+ assert.deepEqual(coverage,scenarios.original_coverage_summary);
+ assert.equal(candidates.observed_agent_test_runs,0);
+ assert.match(scenarios.review_method,/not independent agent execution/);
 });

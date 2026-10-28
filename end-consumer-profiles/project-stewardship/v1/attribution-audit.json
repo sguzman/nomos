@@ -5,7 +5,7 @@
   "semantic_version": "1",
   "status": "agent_audited_not_owner_confirmed",
   "reviewed_at_utc": "2026-10-28",
-  "scope": "Contextual relevance review of the 23 currently linked rules, 16 linked situations, 21 linked intent concepts, and six linked execution conditions. No claim of exhaustive coverage outside linked set.",
+  "scope": "Contextual audit of the 23 linked rules, 16 linked situations, 21 linked intent concepts and six linked conditions; additionally reviewed all 97 published situation definitions for missing adoption/defect triggers. No claim of exhausting unrelated rule or intent catalogs.",
   "remove_rule_links": [
     {
       "key": "S",
@@ -49,5 +49,11 @@
     "original_prompts_changed": false,
     "replacement_selected": false,
     "satisfaction_decisions_approved": false
+  },
+  "full_published_situation_review": {
+    "reviewed_count": 97,
+    "source": "ontology/situations/SITU-0001.json through SITU-0097.json",
+    "finding": "No published generic existing-project-adoption or user-reported-software-defect trigger exists in the 97 situation definitions.",
+    "action": "Keep relevant conditional links. Canonical ontology publication is a separate authorization decision."
   }
 }
