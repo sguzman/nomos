@@ -129,7 +129,9 @@ test('real browser: V0 integrity, selected Trievium download, approved alternate
     assert.equal(await evalJs("Boolean(globalThis.crypto?.subtle)"),true);
 
     async function clickAndRead(){
-      const prior=fs.readdirSync(downloads).filter(x=>x.endsWith('.json')).length;
+      // Each click is independent; Chrome may otherwise overwrite a reused name.
+      for(const name of fs.readdirSync(downloads))if(name.endsWith('.json'))fs.rmSync(path.join(downloads,name));
+      const prior=0;
       await evalJs("document.querySelector('#download-selected-trievium').click();true");
       const file=await until(()=>{
         const names=fs.readdirSync(downloads).filter(x=>x.endsWith('.json'));

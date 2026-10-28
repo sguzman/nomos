@@ -104,7 +104,8 @@
     const url=URL.createObjectURL(blob),a=document.createElement('a');
     a.href=url;a.download='project-stewardship-selected-trievium.json';
     a.style.display='none';document.body.append(a);a.click();a.remove();
-    URL.revokeObjectURL(url);
+    // Give Chromium time to consume the object URL before reclaiming it.
+    setTimeout(()=>URL.revokeObjectURL(url),3000);
     exportFeedback.textContent='Selected Trievium keyset downloaded. Repository selection unchanged.';
   });
 })().catch(error=>{
