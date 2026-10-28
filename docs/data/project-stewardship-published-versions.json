@@ -2,6 +2,45 @@
   "schema_version": 1,
   "profile_id": "EC-PROFILE-0001",
   "source_version": "0",
-  "published_versions": [],
-  "note": "Only immutable V0 prompts are currently published for selection. Proposed V1 semantic annotations and text assessments are not prompt versions; successors require an explicit owner approval reference."
+  "published_versions": [
+    {
+      "prompt_id": "EC-PROMPT-0002",
+      "key": "L",
+      "label": "🔁 Chat broke",
+      "version": "1",
+      "publication_state": "approved_public_prompt_version",
+      "owner_approved": true,
+      "approval_reference": "owner-chat-2026-10-28-approve-all-three",
+      "text": "Chat broke. Recover the previous project context and last verified state from available records. Continue only if authorized unfinished work remains. If the project is complete or its state cannot be recovered reliably, report that and stop without inventing work.",
+      "sha256": "5f8125f4f0d496eb39ae64b04168011bd01b9f54d821174c2528ea0de56afcbe"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0004",
+      "key": "H",
+      "label": "❓ What happened?",
+      "version": "1",
+      "publication_state": "approved_public_prompt_version",
+      "owner_approved": true,
+      "approval_reference": "owner-chat-2026-10-28-approve-all-three",
+      "text": "Chat broke. Investigate what happened using available evidence, distinguish confirmed facts from unknowns, and report the current verified project state and blockers. Do not resume development or modify files unless I separately request it.",
+      "sha256": "e2eb6f6af65ec29bd5a43045ed2304c621635c033dc4d7fc893398a81e6db0e8"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0008",
+      "key": "F",
+      "label": "🛠️ Fix issue",
+      "version": "1",
+      "publication_state": "approved_public_prompt_version",
+      "owner_approved": true,
+      "approval_reference": "owner-chat-2026-10-28-approve-all-three",
+      "text": "Investigate and resolve the issue I've reported or demonstrated.\n\nTake ownership of the debugging process. Inspect the relevant implementation, trace the root cause, reproduce the failure where practical, implement a reliable fix, and verify the result.\n\nPrioritize fixing the underlying cause rather than masking symptoms. Preserve existing working functionality and follow all established project constraints.\n\nWhere practical, run or add a focused regression test for the reported defect and check relevant previously working behavior. If reproduction, regression checks, or runtime QA cannot be performed, report exactly what remains unverified; do not claim non-regression without evidence.\n\nCommit and push verified changes when authorized. Report what was broken, why, what you changed, and what evidence demonstrates the fix.\n\nDo not introduce unrelated refactors, features, or unnecessary work. If the issue is already resolved, make no changes.",
+      "sha256": "accc058adb864509e45570389b73031c08fb512fea7b418d3f863d6b18bc3626"
+    }
+  ],
+  "note": "Approved successors L H F are published and selected. Unchanged seven use V0. Original download preserved; publication does not execute prompts.",
+  "selected_versions": {
+    "EC-PROMPT-0002": "1",
+    "EC-PROMPT-0004": "1",
+    "EC-PROMPT-0008": "1"
+  }
 }
