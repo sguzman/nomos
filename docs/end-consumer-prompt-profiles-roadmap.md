@@ -1,6 +1,6 @@
 # End-consumer prompt profiles — initial roadmap
 
-**Status:** Implementation in progress. V0 is imported, public, and source-verified; V1 semantic enrichment has not begun.  
+**Status:** V0 imported and verified; ten V1 semantic drafts ready for owner review. Evaluation and rewrite stages have not begun.  
 **Scope:** New, explicitly authorized **public** Nomos feature. Separate from the completed 69/69 agent-consumption engineering roadmap.  
 **Product:** The **prompt itself** is the end result. Meta-intent, atomic intents, situations, rules, conditions and evaluation evidence are the tools used to improve that prompt, not its substitute.
 
@@ -8,11 +8,13 @@
 
 ## Measured progress (2026-10-27)
 
-**Overall: 1/5 milestone gates verified = 20.0%** (previous 0.0%; **delta +20.0 percentage points**). Five milestones are equal-weight *acceptance gates*, not a count of lines of code. V0 is 100% complete on its three original acceptance items; website and export were started ahead of the later full feature gate but are **not** treated as a completed fifth milestone.
+**Overall: 2/5 milestone gates verified = 40.0%** (previous 20.0%; **delta +20.0 percentage points**). Five milestones are equal-weight *acceptance gates*, not a count of lines of code. V0 and draft V1 semantic enrichment are complete; **none of the inferred meta-intents has been approved by the owner, no prompt satisfaction evaluation has started, and no V0 text has been changed**. Website browsing and keyset export are in progress, not complete.
 
 **Evidence:** [exact owner-authorized source](../end-consumer-profiles/project-stewardship/v0/trievium.json), [stable V0 profile](../end-consumer-profiles/project-stewardship/profile.json), [schema](../schema/end-consumer-profile-v0.schema.json), [ten-slot checksum and byte-equality tests](../tests/test_end_consumer_profiles.cjs), [public website directory](end-consumer-profiles.html), [downloadable Trievium export](exports/project-stewardship-v0.json), and [successful initial V0 CI](https://github.com/sguzman/nomos/actions/runs/40611001145). Source and downloadable export have the identical Git blob SHA-1 `11c1545fa0ac05b9f49bce83ab0ad3f3f539051b`. The profile text was screened for obvious token, email and absolute-user-path patterns before publication. No semantics were inferred, no text was rewritten, and no prompt was invoked.
 
-**Next real gate:** V1 semantic enrichment of the ten existing prompt products. Source prompt identity must not be conflated with its mutable Trievium key binding. Existing Nomos ontology comes first; missing semantic objects require separate review rather than silent rule publication.
+**V1 evidence:** [ten prompt-specific semantic reviews](../end-consumer-profiles/project-stewardship/v1/analysis.json) with 51 proposed local atomic objectives, links to 21 published intent concepts, 16 published situations, 23 published rules and seven existing conditions. [Cross-reference integrity and public review tests](../tests/test_end_consumer_v1.cjs) reject missing IDs, inaccurate source links and unauthorized prompt selection. [Public browser](end-consumer-profiles.html) exposes each draft's meta-intent, objectives, concepts, coverage gaps, and unchanged V0 wording on demand. No catalog entries were newly created or silently selected.
+
+**Next real gate:** The owner examines each V1 meta-intent and asks for a satisfaction assessment of a specific V0 prompt. Do not preemptively mark every original prompt satisfactory or replace text; analyze gaps and generate revisions only when requested.
 
 ## 1. 📥 V0 — faithful public ingestion
 - [x] Create a minimal **end-consumer profile** and ten prompt categories/slots with stable identities.
@@ -22,9 +24,9 @@
 **Done when:** V0 can be reconstructed byte-for-byte (including the original Trievium fields) and every imported prompt can be inspected individually. No ontology analysis is required for V0.
 
 ## 2. 🧠 V1 — semantic enrichment, prompt by prompt
-- [ ] For each prompt identify its **meta-intent** (the user's high-level desired outcome) and decompose it into typed **atomic intents**, **situations**, **rules**, prerequisites, exceptions and stopping conditions.
-- [ ] Cross-reference existing Nomos objects before proposing missing concepts. Record traceable links, coverage, conflicts and gaps; do **not** silently publish or alter canonical rules/ontology to make a prompt look complete.
-- [ ] Preserve the V0 prompt unchanged while presenting the V1 semantic model for owner inspection and editing.
+- [x] For each prompt identify its **meta-intent** (the user's high-level desired outcome) and decompose it into typed **atomic intents**, **situations**, **rules**, prerequisites, exceptions and stopping conditions.
+- [x] Cross-reference existing Nomos objects before proposing missing concepts. Record traceable links, coverage, conflicts and gaps; do **not** silently publish or alter canonical rules/ontology to make a prompt look complete.
+- [x] Preserve the V0 prompt unchanged while presenting the V1 semantic model for owner inspection and editing.
 
 **Done when:** All ten prompts have individually reviewable semantic coverage and clearly identified uncertainties. Semantic enrichment alone does not require generating replacement wording.
 
