@@ -12,8 +12,8 @@
       "version": "0",
       "source_format": "trievium",
       "source_path": "v0/trievium.json",
-      "source_sha256": "000000000000000000000000000000007d7485306cba35cc92ebcd62b4c010f8",
-      "source_git_blob_sha1": "2ce43234dbbd2cc80516d3b276d67f8c10e67178",
+      "source_sha256": "952d78e067b2f4521f9c20ba9176b2d2b1376f0244c6933eb39aecd2e5a8b0a3",
+      "source_git_blob_sha1": "ffeb2151f84521d7a221acef18480226cf0bac22",
       "source_trievium_version": 1
     }
   ],
@@ -23,7 +23,7 @@
       "ordinal": 0,
       "key": "1",
       "label": "🦀 Init New Rust Project",
-      "text_sha256": "00000000000000000000000000000000f7c0dcb46bb24450271c32f1e3f440c0",
+      "text_sha256": "a524f2aeea59aebeda96f118962dd5448356e26afbc6f0fd890f7f724dbc8a28",
       "version": "0",
       "semantic_status": "not_analyzed"
     },
@@ -31,8 +31,8 @@
       "id": "EC-PROMPT-0012",
       "ordinal": 1,
       "key": "!",
-      "label": "🦀 Adopt New Rust Project",
-      "text_sha256": "00000000000000000000000000000000fc2be94d3c4a61694ac650a3f65f0bb7",
+      "label": "🦀 Adopt Rust Project",
+      "text_sha256": "1f838448649e2fcac537af3389f91222f15082d08f85edf8f83a611658c1b4bd",
       "version": "0",
       "semantic_status": "not_analyzed"
     },
@@ -41,7 +41,7 @@
       "ordinal": 2,
       "key": "2",
       "label": "🔁 Init Rust Port (Any Source Language)",
-      "text_sha256": "00000000000000000000000000000000cacb7347de63824e7ad7accfc1b77438",
+      "text_sha256": "77231e31c98a762d012c5a99a7a7bd59477d459ba4b16f5dd05950190ce56f2a",
       "version": "0",
       "semantic_status": "not_analyzed"
     },
@@ -50,7 +50,7 @@
       "ordinal": 3,
       "key": "@",
       "label": "🔁 Adopt Rust Port (Any Source Language)",
-      "text_sha256": "00000000000000000000000000000000a9342686cb2b25ef3f0134afc5e12149",
+      "text_sha256": "759ff73505e0b1d4506fc11c33d6f67f965e085a8b7a7abd5ade7b7dd3dd8736",
       "version": "0",
       "semantic_status": "not_analyzed"
     },
@@ -59,7 +59,7 @@
       "ordinal": 4,
       "key": "3",
       "label": "🏛️ Init Independent Public Tarium Project",
-      "text_sha256": "000000000000000000000000000000009361997116b9a7ac65f1219b66a4f377",
+      "text_sha256": "2ca164157afd9b6f9433d17116a6eaa963e6e3f2e3f2252d7fb5bb622465ebf8",
       "version": "0",
       "semantic_status": "not_analyzed"
     },
@@ -68,7 +68,7 @@
       "ordinal": 5,
       "key": "#",
       "label": "🏛️ Adopt Independent Public Tarium Project",
-      "text_sha256": "0000000000000000000000000000000094a2943c3e4b4ac335d1ebf0c08fdc52",
+      "text_sha256": "b666beed835efb7b2cec09b9cfa3467b7500ed756a3debd60045562fd0e21ce6",
       "version": "0",
       "semantic_status": "not_analyzed"
     },
@@ -77,7 +77,7 @@
       "ordinal": 6,
       "key": "4",
       "label": "🌿 Init Rust Fork Maintenance",
-      "text_sha256": "00000000000000000000000000000000f2f6d08ecef6ed1b1eb97ea1fc9e2200",
+      "text_sha256": "d2727996dae70486e3846cab85be5dce97110268d6db072f36ac666d14d85924",
       "version": "0",
       "semantic_status": "not_analyzed"
     },
@@ -86,7 +86,7 @@
       "ordinal": 7,
       "key": "$",
       "label": "🌿 Adopt Rust Fork Maintenance",
-      "text_sha256": "00000000000000000000000000000000d77e4b53840bd5e1742833670f5a789a",
+      "text_sha256": "7386f38153d4e8ab112b5bbdce7b53e0dd7a7ad3667c49c94503b27af0649d9b",
       "version": "0",
       "semantic_status": "not_analyzed"
     },
@@ -95,7 +95,7 @@
       "ordinal": 8,
       "key": "5",
       "label": "🧱 Init C → Rust Port",
-      "text_sha256": "00000000000000000000000000000000b5397951c5248adcfff09d6495cb09b7",
+      "text_sha256": "7183d3169f13f3e89c01a9876ff4567c1ef79fd65632116c467bc3c7b4c1ba12",
       "version": "0",
       "semantic_status": "not_analyzed"
     },
@@ -104,7 +104,7 @@
       "ordinal": 9,
       "key": "%",
       "label": "🧱 Adopt C → Rust Port",
-      "text_sha256": "00000000000000000000000000000000341253eebe65071759e9a70d7f1fddf3",
+      "text_sha256": "f9984fcf4b7ee26270ca734bc2ae0869d7cc7ecb88ba5a2ac4f545526d832ba8",
       "version": "0",
       "semantic_status": "not_analyzed"
     },
@@ -113,7 +113,7 @@
       "ordinal": 10,
       "key": "6",
       "label": "🧩 Init C++ → Rust Port",
-      "text_sha256": "00000000000000000000000000000000eff94b0c0ca6344ca6076bc78942314a",
+      "text_sha256": "fb1108b34888ef497d06bc058d1ff52c871442ad5b276fd2389aab5b66f19c81",
       "version": "0",
       "semantic_status": "not_analyzed"
     },
@@ -122,7 +122,7 @@
       "ordinal": 11,
       "key": "^",
       "label": "🧩 Adopt C++ → Rust Port",
-      "text_sha256": "000000000000000000000000000000007bdf9917ac661ed8ab4d047e549d317f",
+      "text_sha256": "e7990b76df3e043c5f1e9d1b7e3b7313a67fd72da17311ca8119828ac653d844",
       "version": "0",
       "semantic_status": "not_analyzed"
     },
@@ -131,7 +131,7 @@
       "ordinal": 12,
       "key": "7",
       "label": "🐍 Init Python → Rust Port",
-      "text_sha256": "00000000000000000000000000000000fd4f99b31176d42be63507c3da3d953e",
+      "text_sha256": "6afdf76ca64696bebf5881ddb46a2af6691c9f1a804f72766b22ef8cc1a93563",
       "version": "0",
       "semantic_status": "not_analyzed"
     },
@@ -140,7 +140,7 @@
       "ordinal": 13,
       "key": "&",
       "label": "🐍 Adopt Python → Rust Port",
-      "text_sha256": "00000000000000000000000000000000e8a5d84c830469d448b5ae7b175bb400",
+      "text_sha256": "ba476a4b83e4c5c29d12c3ada0100598254dba50ab2d712c6b90140d45bef105",
       "version": "0",
       "semantic_status": "not_analyzed"
     }

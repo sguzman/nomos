@@ -13,7 +13,7 @@ for(let i=0;i<spec.families.length;i++){
  const f=spec.families[i],specific=f.includesPort?[...port.instructions,...f.instructions]:f.instructions;
  for(const mode of ["init","adopt"]){
   const key=mode==="init"?f.number:f.shifted;
-  const title=mode==="init"?"Initialize "+f.name:"Adopt Existing "+f.name;
+  const title=mode==="init"?"Initialize "+f.name:"Adopt Existing "+(f.adopt_name||f.name);
   const intro=[
 "# "+f.icon+" "+title,
 "",
@@ -40,7 +40,7 @@ mode==="adopt"?adopted.trimEnd():"",
 ""
   ];
   const text=intro.filter((line,i)=>!(i>0&&line===""&&intro[i-1]==="")).join("\n").trim()+"\n";
-  result.push({label:f.icon+" "+(mode==="init"?"Init ":"Adopt ")+f.name,text,key});
+  result.push({label:f.icon+" "+(mode==="init"?"Init ":"Adopt ")+(mode==="adopt"?(f.adopt_name||f.name):f.name),text,key});
  }
 }
 return {version:1,entries:result};

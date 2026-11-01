@@ -57,5 +57,5 @@ test('public site exposes only explicit non-destructive downloads',()=>{
  assert.match(page,/project-initializers-trievium\.json/);
  assert.match(page,/project-stewardship-with-initializers-trievium\.json/);
  assert.match(page,/Java → Rust \(reserved; not published\)/);
- assert.match(page,/Do not overwrite/);
+ assert.match(page,/Downloading does not merge them into or overwrite/);
 });

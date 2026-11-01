@@ -39,7 +39,8 @@
         "Choose the currently supported stable Rust edition and minimum supported toolchain according to project policy. Prefer standard library and well-maintained Rust crates; document nontrivial dependencies and MIT-first licensing decisions.",
         "Track implementation, unit/integration/edge-case tests, cargo fmt, Clippy, CI, runtime validation on target platforms, packaging, documentation, and release readiness as appropriate. Evaluate actual user-facing operation, not merely compilation.",
         "Build on main by default unless a project-specific branch rule applies. Keep scope fixed to authorized features and report evidence-backed progress."
-      ]
+      ],
+      "adopt_name": "Rust Project"
     },
     {
       "number": "2",
