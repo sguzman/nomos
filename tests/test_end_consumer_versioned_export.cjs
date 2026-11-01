@@ -16,7 +16,7 @@ test('V0 remains available and approved successors are selected when explicitly 
   const catalog=model.makeCatalog(profile,source,manifest);
   assert.equal(catalog.length,10);
   assert.ok(catalog.every(x=>x.versions[0].version==='0'));
-  assert.deepEqual(catalog.filter(x=>x.defaultVersion!=='0').map(x=>x.key),['L','S','H','D','F']);
+  assert.deepEqual(catalog.filter(x=>x.defaultVersion!=='0').map(x=>x.key),['L','S','H','D','A','F','G']);
   assert.equal(catalog.reduce((sum,x)=>sum+x.versions.length-1,0),manifest.published_versions.length);
   const originalOnly=Object.fromEntries(profile.slots.map(x=>[x.id,'0']));
   assert.deepEqual(model.makeTrievium(catalog,originalOnly),{
