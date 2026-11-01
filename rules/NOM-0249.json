@@ -1,0 +1,117 @@
+{
+  "id": "NOM-0249",
+  "version": "1.0.0",
+  "title": "Assign OKLab identity colors when establishing new project branding",
+  "summary": "New projects should receive a stable OKLab/OKLCH identity color, documented accessibly, without gratuitously replacing established branding.",
+  "statement": "When initializing a new project whose owner has not already assigned an identity color, generate a stable, distinctive color using OKLab or its polar form OKLCH; assess perceptual distinction, readable day/night contrast and non-color identifiers. Record the project's chosen color and rationale in its README or established branding records and apply it consistently to project graphics and optional UI tokens. Preserve existing assigned colors during project adoption and normal maintenance unless the owner authorizes rebranding. For user interfaces, independently comply with light, dark and system-default appearance requirements; a project identity color does not replace the theme selector or accessible contrast checks.",
+  "rationale": "New projects should receive a stable OKLab/OKLCH identity color, documented accessibly, without gratuitously replacing established branding. Builds on existing published Nomos constraints without rewriting historical rules.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "enforce",
+      "object": "oklab_new_project_identity_color",
+      "target": "project_workflow"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "A new project is being established or an explicitly authorized project branding decision is required."
+    ],
+    "exceptions": [
+      "Do not impose a new identity color on an existing project with established colors without rebranding authorization.",
+      "Do not falsely claim mathematically validated color separation without checking the comparison set."
+    ],
+    "bounds": {
+      "quantifier": "all",
+      "interpretation": "universal",
+      "frequency": "always",
+      "minimum": null,
+      "maximum": null,
+      "unit": "entities",
+      "window": "each applicable project decision",
+      "cue": "When starting, maintaining or executing work in the applicable project",
+      "basis": "explicit_text"
+    }
+  },
+  "categories": {
+    "domains": [
+      "software_development",
+      "governance",
+      "agent_instructions"
+    ],
+    "topics": [
+      "license_compliance",
+      "source_provenance"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "project_types": [
+      "project"
+    ],
+    "preconditions": [
+      "A new project is being established or an explicitly authorized project branding decision is required."
+    ],
+    "exclusions": [
+      "Do not impose a new identity color on an existing project with established colors without rebranding authorization.",
+      "Do not falsely claim mathematically validated color separation without checking the comparison set."
+    ]
+  },
+  "authority": {
+    "source": "Explicit owner-approved generalized MIT-first preference with informed dependency concessions; opt-in guidance",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [
+      "NOM-0009",
+      "NOM-0073",
+      "NOM-0005"
+    ],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "Owner-approved project stewardship preferences, 2026-11-01",
+    "license": "MIT",
+    "notes": "Public-safe generalized rule, not a disclosure of private conversations; does not authorize changing unrelated repositories."
+  },
+  "governance": {
+    "created_on": "2026-11-01",
+    "updated_on": "2026-11-01",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ],
+  "semantic": {
+    "concept": "oklab_new_project_identity_color",
+    "aliases": [
+      "oklab-new-project-identity-color"
+    ]
+  }
+}

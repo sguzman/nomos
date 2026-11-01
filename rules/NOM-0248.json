@@ -1,0 +1,116 @@
+{
+  "id": "NOM-0248",
+  "version": "1.0.0",
+  "title": "Avoid npm for project tooling and prefer native established alternatives",
+  "summary": "Do not invoke or recommend npm; use Cargo, Lua, existing Rust/native tools, or an approved alternative appropriate to the project.",
+  "statement": "Do not use or instruct the project owner to use npm for installation, development, building, testing or release workflows. Prefer Rust/Cargo for application implementations, Lua for scripting, and existing native tools or maintained preinstalled dependencies. For Arch-based operating-system package management prefer the owner's established yay workflow rather than imposing another manager. Respect existing project toolchains and external dependencies where feasible, but if a required upstream workflow specifically depends on npm, report the concrete need and constraints and request explicit authorization for an alternative strategy; do not silently run npm, rewrite unrelated build systems, or pretend npm-dependent work was verified.",
+  "rationale": "Do not invoke or recommend npm; use Cargo, Lua, existing Rust/native tools, or an approved alternative appropriate to the project. Builds on existing published Nomos constraints without rewriting historical rules.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "enforce",
+      "object": "no_npm_prefer_cargo_lua_existing_native_tools",
+      "target": "project_workflow"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "Work involves selecting, invoking, documenting or requesting developer-facing package/build tools."
+    ],
+    "exceptions": [
+      "Project-specific constraints override generic tool preferences only when explicitly authorized; never invoke npm without the owner's change of instruction.",
+      "Do not unnecessarily replace or disrupt existing project build systems outside authorized scope."
+    ],
+    "bounds": {
+      "quantifier": "all",
+      "interpretation": "universal",
+      "frequency": "always",
+      "minimum": null,
+      "maximum": null,
+      "unit": "entities",
+      "window": "each applicable project decision",
+      "cue": "When starting, maintaining or executing work in the applicable project",
+      "basis": "explicit_text"
+    }
+  },
+  "categories": {
+    "domains": [
+      "software_development",
+      "governance",
+      "agent_instructions"
+    ],
+    "topics": [
+      "license_compliance",
+      "source_provenance"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "project_types": [
+      "project"
+    ],
+    "preconditions": [
+      "Work involves selecting, invoking, documenting or requesting developer-facing package/build tools."
+    ],
+    "exclusions": [
+      "Project-specific constraints override generic tool preferences only when explicitly authorized; never invoke npm without the owner's change of instruction.",
+      "Do not unnecessarily replace or disrupt existing project build systems outside authorized scope."
+    ]
+  },
+  "authority": {
+    "source": "Explicit owner-approved generalized MIT-first preference with informed dependency concessions; opt-in guidance",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [
+      "NOM-0008",
+      "NOM-0016"
+    ],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "Owner-approved project stewardship preferences, 2026-11-01",
+    "license": "MIT",
+    "notes": "Public-safe generalized rule, not a disclosure of private conversations; does not authorize changing unrelated repositories."
+  },
+  "governance": {
+    "created_on": "2026-11-01",
+    "updated_on": "2026-11-01",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ],
+  "semantic": {
+    "concept": "no_npm_prefer_cargo_lua_existing_native_tools",
+    "aliases": [
+      "no-npm-prefer-cargo-lua-existing-native-tools"
+    ]
+  }
+}
