@@ -1,0 +1,33 @@
+'use strict';
+const {test}=require('node:test'),assert=require('node:assert/strict');
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
+const root=path.resolve(__dirname,'..'),json=p=>JSON.parse(fs.readFileSync(path.join(root,p),'utf8'));
+const sha=s=>crypto.createHash('sha256').update(s).digest('hex');
+const source=json('end-consumer-profiles/project-initializers/v0/trievium.json');
+const selected=json('end-consumer-profiles/project-initializers/v1/trievium.json');
+const spec=json('end-consumer-profiles/project-initializers/v1/specifications.json');
+const pub=json('end-consumer-profiles/project-initializers/v1/publication.json');
+const exported=json('docs/exports/project-initializers-trievium.json');
+const combined=json('docs/exports/project-stewardship-with-initializers-trievium.json');
+const generic=json('docs/exports/project-stewardship-approved-trievium.json');
+test('Mexican Spanish Latin American paired bindings and 14 unique key identities',()=>{
+ const expected=['1','!','2','"','3','#','4','$','5','%','6','&','7','/'];
+ assert.deepEqual(selected.entries.map(e=>e.key),expected);
+ assert.equal(new Set(expected).size,14);
+ assert.equal(spec.mode_keys,'XKB-latam-basic-number-and-shifted-glyph');
+ assert.equal(spec.reserved[0].shifted,'(');
+ assert.deepEqual(exported,selected);
+ assert.deepEqual(combined.entries,[...generic.entries,...selected.entries]);
+ assert.equal(new Set(combined.entries.map(e=>e.key)).size,24);
+ assert.equal(pub.selected_sha256,sha(fs.readFileSync(path.join(root,'end-consumer-profiles/project-initializers/v1/trievium.json'))));
+});
+test('Immutable previous source and all prompt texts are preserved',()=>{
+ assert.deepEqual(selected.entries.map(e=>e.text),source.entries.map(e=>e.text));
+ assert.deepEqual(selected.entries.map(e=>e.label),source.entries.map(e=>e.label));
+ assert.equal(source.entries[3].key,'@');
+ assert.equal(source.entries[11].key,'^');
+ assert.equal(source.entries[13].key,'&');
+ assert.equal(selected.entries[3].key,'"');
+ assert.equal(selected.entries[11].key,'&');
+ assert.equal(selected.entries[13].key,'/');
+});

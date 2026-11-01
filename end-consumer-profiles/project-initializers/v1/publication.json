@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "kind": "keyboard_layout_specific_publication",
+  "profile_id": "EC-PROFILE-0002",
+  "selected_version": "1",
+  "previous_version": "0",
+  "owner_approval": "owner-2026-11-01-mexican-spanish-layout",
+  "created_on": "2026-11-01",
+  "keyboard_layout": "XKB latam basic",
+  "text_content_unchanged": true,
+  "previous_source": "end-consumer-profiles/project-initializers/v0/trievium.json",
+  "selected_source": "end-consumer-profiles/project-initializers/v1/trievium.json",
+  "selected_sha256": "16b2b08c9d46d35df0b9cbfe55b2ee58ef6b7e3d137adb0a2fdffb456148f598",
+  "changed_bindings": [
+    {
+      "prompt_id": "EC-PROMPT-0012",
+      "old_key": "!",
+      "new_key": "!"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0014",
+      "old_key": "@",
+      "new_key": "\""
+    },
+    {
+      "prompt_id": "EC-PROMPT-0016",
+      "old_key": "#",
+      "new_key": "#"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0018",
+      "old_key": "$",
+      "new_key": "$"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0020",
+      "old_key": "%",
+      "new_key": "%"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0022",
+      "old_key": "^",
+      "new_key": "&"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0024",
+      "old_key": "&",
+      "new_key": "/"
+    }
+  ],
+  "notes": "V0 historical US bindings preserved without modification. Exact emitted Shift symbol depends on active keyboard layout and variant; this mapping follows the standard Latin American XKB keyboard."
+}

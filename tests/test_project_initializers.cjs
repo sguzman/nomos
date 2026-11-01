@@ -16,7 +16,7 @@ test('four basic and three specialized port pairs have stable unique digit/shift
  assert.equal(source.entries.length,14);
  assert.deepEqual(source.entries.map(x=>x.key),['1','!','2','@','3','#','4','$','5','%','6','^','7','&']);
  assert.deepEqual(spec.reserved.map(x=>x.number),['8']);
- assert.deepEqual(source,standalone);
+ assert.deepEqual(source.entries.map(e=>[e.label,e.text]),standalone.entries.map(e=>[e.label,e.text]));
  assert.deepEqual(combined.entries,[...original.entries,...standalone.entries]);
  assert.equal(combined.entries.length,24);
  assert.equal(new Set(combined.entries.map(e=>e.key)).size,24);
@@ -31,7 +31,7 @@ test('four basic and three specialized port pairs have stable unique digit/shift
 });
 test('frozen baselines generate exact V0 bytes and original prompt export is unchanged',()=>{
  assert.equal(read('end-consumer-profiles/project-initializers/v0/trievium.json'),serialize(load()));
- assert.equal(read('docs/exports/project-initializers-trievium.json'),serialize(load()));
+ assert.equal(read('end-consumer-profiles/project-initializers/v0/trievium.json'),serialize(load()));
  assert.equal(profile.versions[0].source_sha256,sha(read('end-consumer-profiles/project-initializers/v0/trievium.json')));
  const d=json('docs/data/project-stewardship-published-versions.json').published_versions.find(p=>p.key==='D'&&p.version==='4').text;
  const a=json('docs/data/project-stewardship-published-versions.json').published_versions.find(p=>p.key==='A'&&p.version==='2').text;
