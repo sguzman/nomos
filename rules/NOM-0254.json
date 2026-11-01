@@ -1,0 +1,113 @@
+{
+  "id": "NOM-0254",
+  "version": "1.0.0",
+  "title": "Prefer Lexica Ultralegible for legibility-critical interface copy",
+  "summary": "Use Lexica Ultralegible as the first-choice suggestion for legibility-critical interface copy; permit justified alternatives.",
+  "statement": "When selecting typography for legibility-critical interface copy, recommend Lexica Ultralegible first and normally use it as the default if it suits the actual project. Candidate uses include instruction text, forms, error guidance, dense interactive instructions and character-sensitive labels. This is a defeasible preference, not a mandatory typeface, exclusive whitelist or permission to redesign an existing artifact. Evaluate suitability in context, including reading comfort, hierarchy, accessible contrast, letterforms and glyph discrimination, available font weights, language and symbol coverage, licensing/redistribution, platform availability, layout performance and design cohesion. Preserve established project typography unless changing it is within authorized scope. If another face is materially better, unavailable fonts make the default impractical, or the owner prefers a different choice, select a suitable alternative or fallback and briefly record the reason where material; do not invent a new feature or redesign merely to satisfy this preference.",
+  "rationale": "A role-aware, defeasible default reduces arbitrary font selection while preserving situational visual judgment and accessibility.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "consider_and_prefer",
+      "object": "typography_accessibility_font_default",
+      "target": "accessibility_typography_selection"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "A font decision is authorized and the surface has an elevated legibility or character-discrimination requirement.",
+      "No higher-priority owner/project requirement has already decided the typeface for this role."
+    ],
+    "exceptions": [
+      "An established project style, explicit owner direction, genuine accessibility need, unavailable glyph coverage, font-license restriction, platform limitation, performance/layout concern, or a demonstrably better contextual fit can justify an alternative.",
+      "Never construe the preferred font as mandatory, exclusive, or a requirement to alter otherwise satisfactory existing typography."
+    ],
+    "bounds": {
+      "quantifier": "all",
+      "interpretation": "universal",
+      "frequency": "always",
+      "minimum": null,
+      "maximum": null,
+      "unit": "entities",
+      "window": "each applicable authorized font-selection decision",
+      "cue": "When selecting typography",
+      "basis": "explicit_text"
+    }
+  },
+  "categories": {
+    "domains": [
+      "user_interfaces",
+      "visual_identity"
+    ],
+    "topics": [
+      "typography_accessibility"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "project_types": [
+      "project"
+    ],
+    "preconditions": [
+      "A font decision is authorized and the surface has an elevated legibility or character-discrimination requirement.",
+      "No higher-priority owner/project requirement has already decided the typeface for this role."
+    ],
+    "exclusions": [
+      "An established project style, explicit owner direction, genuine accessibility need, unavailable glyph coverage, font-license restriction, platform limitation, performance/layout concern, or a demonstrably better contextual fit can justify an alternative.",
+      "Never construe the preferred font as mandatory, exclusive, or a requirement to alter otherwise satisfactory existing typography."
+    ]
+  },
+  "authority": {
+    "source": "Owner-approved contextual typography defaults; opt-in selection guidance",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "Owner-approved role-based typography defaults, 2026-11-01",
+    "license": "MIT",
+    "notes": "Public-safe font-role preference, not a compulsory font assignment. This rule is inert until selected for a consumer."
+  },
+  "governance": {
+    "created_on": "2026-11-01",
+    "updated_on": "2026-11-01",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ],
+  "semantic": {
+    "concept": "typography_accessibility_preference",
+    "aliases": [
+      "font_default_accessibility"
+    ]
+  }
+}
