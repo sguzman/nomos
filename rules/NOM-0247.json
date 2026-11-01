@@ -1,0 +1,122 @@
+{
+  "id": "NOM-0247",
+  "version": "1.0.0",
+  "title": "Prefer MIT for original projects while honoring chosen dependency licenses",
+  "summary": "Prefer MIT for new original projects, but accept GPL, AGPL, LGPL or other license concessions for worthwhile dependencies after evaluating actual obligations.",
+  "statement": "When selecting the license for newly owned original project code at an authorized bootstrap, prefer MIT unless the owner chooses otherwise or relevant third-party terms require another arrangement. Preserve an existing project's license unless a change is justified and authorized. Judge useful libraries and source code on their merits as well as their actual licensing obligations; do not automatically reject or reimplement worthwhile code just to retain MIT. Concessions to GPL, AGPL, LGPL or other licenses are acceptable when the owner chooses those dependencies and the intended integration, use and distribution can honor their terms. Verify the actual license, copyright and notice obligations, distribution and network-use conditions, and whether incorporation, copying or linking imposes reciprocal obligations on the resulting combined work. Neither assume all copyleft dependencies force unrelated code to be relicensed nor claim MIT compatibility without checking the specific circumstances. Preserve required notices and provenance, record significant trade-offs, and seek owner authorization before changing an existing repository's overall license. Where legally material terms remain uncertain, disclose the uncertainty and obtain appropriate review rather than inventing legal conclusions.",
+  "rationale": "NOM-0019 preserves licenses and authorizes suitable bootstrap licensing without identifying MIT as preferred. NOM-0049 handles external-source attribution, not licensing policy. This independently reusable rule adds a defeasible MIT preference and explicit acceptance of verified third-party licensing trade-offs without silent relicensing.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "prefer_and_evaluate",
+      "object": "MIT_default_with_informed_dependency_license_concessions",
+      "target": "project_license_decision"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "A new project or original work is being licensed, or code dependencies present a licensing decision.",
+      "The project owner has authorized the relevant project or dependency decision."
+    ],
+    "exceptions": [
+      "The owner expressly chooses a different license or must comply with third-party license terms.",
+      "Existing project licenses cannot be changed without applicable owner approval.",
+      "MIT preference never overrides real license obligations or licenses that require a different arrangement."
+    ],
+    "bounds": {
+      "quantifier": "all",
+      "interpretation": "universal",
+      "frequency": "always",
+      "minimum": null,
+      "maximum": null,
+      "unit": "entities",
+      "window": "each owner-authorized licensing decision",
+      "cue": "When licensing original project code or evaluating dependencies",
+      "basis": "explicit_text"
+    }
+  },
+  "categories": {
+    "domains": [
+      "software_development",
+      "governance",
+      "agent_instructions"
+    ],
+    "topics": [
+      "license_compliance",
+      "source_provenance"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "project_types": [
+      "project"
+    ],
+    "preconditions": [
+      "An authorized project bootstrap, source incorporation, or project license decision."
+    ],
+    "exclusions": [
+      "Do not silently relicense existing projects.",
+      "Do not presume that every copyleft dependency imposes the same obligations on all uses.",
+      "Not a substitute for legal review where material license implications are uncertain."
+    ]
+  },
+  "authority": {
+    "source": "Explicit owner-approved generalized MIT-first preference with informed dependency concessions; opt-in guidance",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [
+      "NOM-0019"
+    ],
+    "depends_on": [
+      "NOM-0049"
+    ]
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "Owner-approved MIT-first licensing preference and dependency concessions, 2026-11-01",
+    "license": "MIT",
+    "notes": "Generalized public-safe instruction; no private discussion text preserved. Publishing does not relicense any separate repository."
+  },
+  "governance": {
+    "created_on": "2026-11-01",
+    "updated_on": "2026-11-01",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ],
+  "semantic": {
+    "concept": "mit_first_with_informed_dependency_license_concessions",
+    "aliases": [
+      "mit_default_not_mandatory",
+      "copyleft_dependency_tradeoff",
+      "existing_license_preservation"
+    ]
+  }
+}

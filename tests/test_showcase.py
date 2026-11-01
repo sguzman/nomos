@@ -14,9 +14,9 @@ class SiteCatalogTests(unittest.TestCase):
 
     def test_distinct_public_entries(self):
         rules = self.data["rules"]
-        self.assertEqual(len(rules), 246)
+        self.assertEqual(len(rules), 247)
         self.assertEqual({r["id"] for r in rules},
-                         {"NOM-" + str(i).zfill(4) for i in range(1, 247)})
+                         {"NOM-" + str(i).zfill(4) for i in range(1, 248)})
 
     def test_candidates_cannot_be_mislabeled_published(self):
         candidates = [r for r in self.data["rules"] if r["registry"] == "candidate"]
@@ -25,7 +25,7 @@ class SiteCatalogTests(unittest.TestCase):
 
     def test_existing_catalog_keeps_original_statuses(self):
         catalog = [r for r in self.data["rules"] if r["registry"] == "catalog"]
-        self.assertEqual(len(catalog), 246)
+        self.assertEqual(len(catalog), 247)
         self.assertEqual({(r["id"], r["status"]) for r in catalog if r["id"] in {"NOM-0001", "NOM-0002"}},
                          {("NOM-0001", "published"), ("NOM-0002", "draft")})
 
@@ -61,7 +61,7 @@ class SiteCatalogTests(unittest.TestCase):
         self.assertEqual(len(self.data["rule_situation_intent_links"]),243)
         self.assertEqual(sum(1 for x in self.data["rule_situation_intent_links"] if x["status"]=="reviewed_draft_source"),1)
         self.assertEqual(len([x for x in self.data["rules"] if x.get("situational_analysis", {}).get("situation_ids")]),243)
-        for new_rule in ("NOM-0244", "NOM-0245", "NOM-0246"):
+        for new_rule in ("NOM-0244", "NOM-0245", "NOM-0246", "NOM-0247"):
             self.assertNotIn("situational_analysis", next(x for x in self.data["rules"] if x["id"]==new_rule))
         self.assertEqual(len(self.data["intents"]), 139)
         self.assertEqual(len(self.data["intent_families"]), 8)
