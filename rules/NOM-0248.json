@@ -110,7 +110,7 @@
   "semantic": {
     "concept": "no_npm_prefer_cargo_lua_existing_native_tools",
     "aliases": [
-      "no-npm-prefer-cargo-lua-existing-native-tools"
+      "avoid_npm_package_tooling"
     ]
   }
 }
