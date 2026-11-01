@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "kind": "end_consumer_niceties_revisions",
+  "profile_id": "EC-PROFILE-0001",
+  "approved_on": "2026-11-01",
+  "approval_reference": "owner-2026-11-01-project-niceties-prompt-integration",
+  "selected_keys": [
+    "S",
+    "D",
+    "A"
+  ],
+  "revisions": [
+    {
+      "prompt_id": "EC-PROMPT-0003",
+      "key": "S",
+      "prior_version": "4",
+      "selected_version": "5",
+      "prior_sha256": "e3a32a8463dc6f5421d4d6cb1d83f4ffcba17acbcaefe460d60f0d97d0dd8a5f",
+      "selected_sha256": "165e9740ffb8258af7592c37ccf77d77c5d621504258c2d7f593c9bdb3b8c6d4",
+      "insertion": "## 8C. Established Developer Preferences and Applicable Nomos Rules 🛠️\n\n- **Technology and tools:** favor Rust for application code, Lua for scripts, and existing native tooling (NOM-0008). Do not invoke or recommend npm (NOM-0248). Prefer Cargo and existing tooling; on the owner's Arch machines, use the established yay workflow. If upstream requires npm, disclose the conflict and seek an authorized alternative, not an unverified workaround.\n- **Graphical interfaces:** when the project has a website or GUI, offer an immediately effective Light, Dark and System appearance selector, initially System (NOM-0005). Verify relevant graphical paths rather than assuming a build validates them (NOM-0063).\n- **Identity:** for a new project, assign a deterministic distinguishable OKLab/OKLCH identity color, keep readable labels, document the color in README, and apply it consistently (NOM-0009, NOM-0073, NOM-0249). Preserve an existing project's identity unless rebranding is expressly authorized.\n- **Naming:** never propose new project names ending in `-arium` (NOM-0077).\n- **Progress:** report only currently touched work items plus total project progress. Pair each numeric percent with a visual bar, include previous/current overall percentages and the session's percentage-point delta; announce reaching 100% once and suppress completed items from later routine reports unless genuinely reopened (NOM-0068 through NOM-0072).\n- **Branching:** use main by default, except where the repository's explicit policy specifies another branch (NOM-0015). Respect established repository-specific constraints and do not override them for convenience.\n- **Profile applicability:** inspect relevant Nomos Lite/Full profile candidates and actual repository rules when available. Apply only legitimate rules for the project's actual type and preconditions; resolve conflicts and exclusions, preserve source provenance, and do not represent provisional unconfirmed profile selections as formally approved instructions.\n\n",
+      "anchor": "## 9. User Interaction Rules 🤝"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0005",
+      "key": "D",
+      "prior_version": "4",
+      "selected_version": "5",
+      "prior_sha256": "46cad70ac19ba2ab48a0245d134d82a101e08e3466b2cf344a240f142ec96640",
+      "selected_sha256": "815a7f525b2de0b41d1ae731e82232cb2d27858b0965d73a98976d9172c4b0ec",
+      "insertion": "## 8C. Established Developer Preferences and Applicable Nomos Rules 🛠️\n\n- **Technology and tools:** favor Rust for application code, Lua for scripts, and existing native tooling (NOM-0008). Do not invoke or recommend npm (NOM-0248). Prefer Cargo and existing tooling; on the owner's Arch machines, use the established yay workflow. If upstream requires npm, disclose the conflict and seek an authorized alternative, not an unverified workaround.\n- **Graphical interfaces:** when the project has a website or GUI, offer an immediately effective Light, Dark and System appearance selector, initially System (NOM-0005). Verify relevant graphical paths rather than assuming a build validates them (NOM-0063).\n- **Identity:** for a new project, assign a deterministic distinguishable OKLab/OKLCH identity color, keep readable labels, document the color in README, and apply it consistently (NOM-0009, NOM-0073, NOM-0249). Preserve an existing project's identity unless rebranding is expressly authorized.\n- **Naming:** never propose new project names ending in `-arium` (NOM-0077).\n- **Progress:** report only currently touched work items plus total project progress. Pair each numeric percent with a visual bar, include previous/current overall percentages and the session's percentage-point delta; announce reaching 100% once and suppress completed items from later routine reports unless genuinely reopened (NOM-0068 through NOM-0072).\n- **Branching:** use main by default, except where the repository's explicit policy specifies another branch (NOM-0015). Respect established repository-specific constraints and do not override them for convenience.\n- **Profile applicability:** inspect relevant Nomos Lite/Full profile candidates and actual repository rules when available. Apply only legitimate rules for the project's actual type and preconditions; resolve conflicts and exclusions, preserve source provenance, and do not represent provisional unconfirmed profile selections as formally approved instructions.\n\n",
+      "anchor": "## 9. User Interaction Rules 🤝"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0007",
+      "key": "A",
+      "prior_version": "2",
+      "selected_version": "3",
+      "prior_sha256": "5234f875782ab7a0f4d5c97551dbaf302948ded297d634868d07dd6fed709616",
+      "selected_sha256": "51c3bfd5b94641eccc6e8340f1ba64fe1171d010deaaa14d210c72a91e629e62",
+      "insertion": "- Preserve the existing project's toolchain, license, project identity color, and architecture unless a change is authorized; prefer Rust/Lua, avoid npm, and apply System-default Light/Dark/System controls when it has a GUI (NOM-0005, NOM-0008, NOM-0009, NOM-0248, NOM-0249).\n- Inspect the relevant existing Nomos Full profile and established project-specific requirements; filter by actual scope and preconditions, and do not claim provisional selections are finalized.\n- Routine progress reports include overall and touched items with bars, numeric percentages, per-session delta and suppression of previously completed work (NOM-0068 through NOM-0072). Do not introduce names ending in `-arium` (NOM-0077).\n\n",
+      "anchor": "## 4. ▶️ Continuation and Completion"
+    }
+  ],
+  "unchanged_keys": [
+    "J",
+    "L",
+    "H",
+    "K",
+    "F",
+    "G",
+    "U"
+  ],
+  "new_rules": [
+    "NOM-0248",
+    "NOM-0249"
+  ],
+  "existing_rules": [
+    "NOM-0005",
+    "NOM-0008",
+    "NOM-0009",
+    "NOM-0068",
+    "NOM-0069",
+    "NOM-0070",
+    "NOM-0071",
+    "NOM-0072",
+    "NOM-0073",
+    "NOM-0077"
+  ],
+  "limitations": [
+    "Provisional Full profile selections remain subject to applicability review; these are not automatically finalized."
+  ]
+}

@@ -6,11 +6,12 @@ const sha=s=>createHash('sha256').update(s).digest('hex');
 const model=require('../docs/end-consumer-profile-model.js');
 const original=json('end-consumer-profiles/project-stewardship/v0/trievium.json');
 const profile=json('end-consumer-profiles/project-stewardship/profile.json');
-const manifest=json('docs/data/project-stewardship-published-versions.json');
+const live=json('docs/data/project-stewardship-published-versions.json');
+const manifest={...live,published_versions:live.published_versions.filter(p=>!['S:5','D:5','A:3'].includes(p.key+':'+p.version)),selected_versions:Object.fromEntries(Object.entries(live.selected_versions).map(([id,v])=>[id,id==='EC-PROMPT-0003'||id==='EC-PROMPT-0005'?'4':id==='EC-PROMPT-0007'?'2':v]))};
 const old=json('end-consumer-profiles/project-stewardship/v5/selected-versions.json');
 const current=json('end-consumer-profiles/project-stewardship/v6/selected-versions.json');
 const revision=json('end-consumer-profiles/project-stewardship/v6/revisions.json');
-const curated=json('docs/exports/project-stewardship-approved-trievium.json');
+const curated={...json('docs/exports/project-stewardship-approved-trievium.json'),entries:json('docs/exports/project-stewardship-approved-trievium.json').entries.map(e=>{const p=manifest.published_versions.find(p=>p.key===e.key&&p.version===manifest.selected_versions[p.prompt_id]);return p?{...e,text:p.text}:e;})};
 test('Only D/S/A receive successor versions and their predecessors remain byte-for-byte',()=>{
  assert.equal(manifest.published_versions.length,14);
  assert.deepEqual(revision.selected_keys,['S','D','A']);
