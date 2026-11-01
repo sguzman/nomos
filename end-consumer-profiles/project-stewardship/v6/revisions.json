@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "kind": "end_consumer_mit_first_licensing_revisions",
+  "profile_id": "EC-PROFILE-0001",
+  "approved_on": "2026-11-01",
+  "approval_reference": "owner-2026-11-01-mit-first-licensing-d-s-a",
+  "canonical_rule_id": "NOM-0247",
+  "selected_keys": [
+    "S",
+    "D",
+    "A"
+  ],
+  "revisions": [
+    {
+      "prompt_id": "EC-PROMPT-0003",
+      "key": "S",
+      "prior_version": "3",
+      "selected_version": "4",
+      "prior_sha256": "3520c0e0444f3f6f25ae3a7fbfc5fdf8d751ab5dbeaec7dc4071cec0d26b853b",
+      "selected_sha256": "e3a32a8463dc6f5421d4d6cb1d83f4ffcba17acbcaefe460d60f0d97d0dd8a5f",
+      "insertion": "## 8B. MIT-First Licensing and Dependency Concessions ⚖️\n\n- Prefer MIT for new original code when licensing is authorized, except when the owner specifies otherwise or actual third-party terms require another choice. Preserve existing project licenses unless change is justified and authorized.\n- Evaluate useful libraries and code on merit as well as their actual licenses. GPL, AGPL, LGPL, or other concessions are acceptable when the associated obligations can be met; do not needlessly reinvent code just to retain MIT.\n- Examine relevant copying, linking, modification, distribution, network-service, source-availability, and notice requirements. A copyleft dependency does not automatically relicense every unrelated part of a project; verify the conditions applicable to the integrated work.\n- Preserve required notices and provenance, document significant licensing trade-offs, and seek owner authorization before changing an existing repository's overall license. Do not assume or claim unverified legal compatibility.\n\n",
+      "anchor": "## 9. User Interaction Rules 🤝",
+      "change_type": "single_source_preserving_insertion"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0005",
+      "key": "D",
+      "prior_version": "3",
+      "selected_version": "4",
+      "prior_sha256": "2e2109b33d1a8bfbcd7fd378c9f41af91f75fa9a0141e9302c5c11873dd966f9",
+      "selected_sha256": "46cad70ac19ba2ab48a0245d134d82a101e08e3466b2cf344a240f142ec96640",
+      "insertion": "## 8B. MIT-First Licensing and Dependency Concessions ⚖️\n\n- Prefer MIT for new original code when licensing is authorized, except when the owner specifies otherwise or actual third-party terms require another choice. Preserve existing project licenses unless change is justified and authorized.\n- Evaluate useful libraries and code on merit as well as their actual licenses. GPL, AGPL, LGPL, or other concessions are acceptable when the associated obligations can be met; do not needlessly reinvent code just to retain MIT.\n- Examine relevant copying, linking, modification, distribution, network-service, source-availability, and notice requirements. A copyleft dependency does not automatically relicense every unrelated part of a project; verify the conditions applicable to the integrated work.\n- Preserve required notices and provenance, document significant licensing trade-offs, and seek owner authorization before changing an existing repository's overall license. Do not assume or claim unverified legal compatibility.\n\n",
+      "anchor": "## 9. User Interaction Rules 🤝",
+      "change_type": "single_source_preserving_insertion"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0007",
+      "key": "A",
+      "prior_version": "1",
+      "selected_version": "2",
+      "prior_sha256": "4b076a53dd7da51094d4a5a974bc048cbda3807dc5d41b3b2e220ce1ad768cf2",
+      "selected_sha256": "5234f875782ab7a0f4d5c97551dbaf302948ded297d634868d07dd6fed709616",
+      "insertion": "\n- Preserve the existing repository license; prefer MIT for independently owned additions only when legally compatible. Do not relicense a pre-existing project merely to satisfy the preference.\n- Accept worthwhile GPL, AGPL, LGPL or differently licensed dependencies when the actual integration and distribution terms can be met. Check obligations and attribution, document important trade-offs, and seek owner approval before changing the project's overall license rather than unnecessarily reimplementing a library.\n",
+      "anchor": "- Follow all established project constraints and engineering rules.",
+      "change_type": "single_source_preserving_insertion"
+    }
+  ],
+  "preservation": {
+    "unchanged_keys": [
+      "J",
+      "L",
+      "H",
+      "K",
+      "F",
+      "G",
+      "U"
+    ],
+    "all_prior_versions_preserved": true,
+    "original_v0_untouched": true
+  },
+  "limitations": [
+    "Real licensing obligations require project-specific examination, not an assumption that all AGPL/GPL code forces relicensing.",
+    "Static text-contract verification, not observed agent execution.",
+    "Publication never modifies the user's local Trievium entries."
+  ]
+}
