@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "kind": "end_consumer_typography_preference_revisions",
+  "profile_id": "EC-PROFILE-0001",
+  "approved_on": "2026-11-01",
+  "approval_reference": "owner-2026-11-01-role-based-typography-defaults",
+  "selected_keys": [
+    "S",
+    "D",
+    "A"
+  ],
+  "revisions": [
+    {
+      "prompt_id": "EC-PROMPT-0003",
+      "key": "S",
+      "prior_version": "5",
+      "selected_version": "6",
+      "prior_sha256": "165e9740ffb8258af7592c37ccf77d77c5d621504258c2d7f593c9bdb3b8c6d4",
+      "selected_sha256": "e96dcaa404a937d4d64de9e3eb60461a8542d04589dd1e201b4d3d4b7496d986",
+      "insertion": "## 8D. Preferred Role-Based Fonts ✒️\n\nFor authorized typography decisions only, prefer these defaults, **never require them**:\n- UI controls: prefer Atkinson Hyperlegible Next Bold (NOM-0250).\n- reading text: prefer Lexend (NOM-0251).\n- technical monospace: prefer Monaspace Krypton Nerd Font Bold (NOM-0252).\n- general headings: prefer Luciole Bold (NOM-0253).\n- accessibility-critical labels: prefer Lexica Ultralegible (NOM-0254).\n- condensed editorial titles: prefer League Gothic (NOM-0255).\n\nThe functional role, readability, accessibility, glyph coverage, licensing, installation, language, rendering, layout, established project identity and contextual aesthetic may justify a different font. Do not impose these as a whitelist, invent a redesign task, or change an existing accepted design without authorization.\n\n",
+      "anchor": "## 9. User Interaction Rules 🤝"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0005",
+      "key": "D",
+      "prior_version": "5",
+      "selected_version": "6",
+      "prior_sha256": "815a7f525b2de0b41d1ae731e82232cb2d27858b0965d73a98976d9172c4b0ec",
+      "selected_sha256": "48e189e68fe24e6af7c0f23cb1faa9a193436e0558f525a74cef825b2e3ccef2",
+      "insertion": "## 8D. Preferred Role-Based Fonts ✒️\n\nFor authorized typography decisions only, prefer these defaults, **never require them**:\n- UI controls: prefer Atkinson Hyperlegible Next Bold (NOM-0250).\n- reading text: prefer Lexend (NOM-0251).\n- technical monospace: prefer Monaspace Krypton Nerd Font Bold (NOM-0252).\n- general headings: prefer Luciole Bold (NOM-0253).\n- accessibility-critical labels: prefer Lexica Ultralegible (NOM-0254).\n- condensed editorial titles: prefer League Gothic (NOM-0255).\n\nThe functional role, readability, accessibility, glyph coverage, licensing, installation, language, rendering, layout, established project identity and contextual aesthetic may justify a different font. Do not impose these as a whitelist, invent a redesign task, or change an existing accepted design without authorization.\n\n",
+      "anchor": "## 9. User Interaction Rules 🤝"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0007",
+      "key": "A",
+      "prior_version": "3",
+      "selected_version": "4",
+      "prior_sha256": "51c3bfd5b94641eccc6e8340f1ba64fe1171d010deaaa14d210c72a91e629e62",
+      "selected_sha256": "972ddfdf2b73412938c030f914a6e4775017936851afd30efdc4caf5f99c0a18",
+      "insertion": "- **Typography:** For authorized font choices, prefer Atkinson Hyperlegible Next Bold for UI controls (NOM-0250); Lexend for reading text (NOM-0251); Monaspace Krypton Nerd Font Bold for technical monospace (NOM-0252); Luciole Bold for general headings (NOM-0253); Lexica Ultralegible for accessibility-critical labels (NOM-0254); League Gothic for condensed editorial titles (NOM-0255). These are **nonmandatory, overridable defaults**. Respect established project typography and justify alternatives based on accessibility, licensing, glyph coverage, platform availability or design fit.\n\n",
+      "anchor": "## 4. ▶️ Continuation and Completion"
+    }
+  ],
+  "unchanged_keys": [
+    "J",
+    "L",
+    "H",
+    "K",
+    "F",
+    "G",
+    "U"
+  ],
+  "new_rules": [
+    "NOM-0250",
+    "NOM-0251",
+    "NOM-0252",
+    "NOM-0253",
+    "NOM-0254",
+    "NOM-0255"
+  ],
+  "limitations": [
+    "Fonts are suggested, not mandatory."
+  ]
+}
