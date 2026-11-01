@@ -17,6 +17,7 @@ Browse [situational prompts](https://sguzman.github.io/nomos/situational-prompts
 - **Ontology proposal intake:** [Six processed proposals](queues/situational-ontology/README.md) for formal situations, intentions, compositions, prompt versions and evaluations.
 - **Formal situational ontology:** 97 situations, 139 role-classified intent records, 8 compositions, 7 conditions, and 7 evaluation dimensions.
 - **Immutable prompt generations:** 24 independently addressable prompts (v1/v2/v3 for eight families), each copyable by explicit selection; v1 remains the default.
+- **Codex rules ZIP:** [download a modular Markdown package](https://sguzman.github.io/nomos/exports/nomos-codex.zip) containing `AGENTS.md`, `.nomos/INDEX.md`, canonical rule modules, and the currently selected prompt keyset for reference. The package is generated during each published site build; existing repositories do not self-update. Merge with any existing `AGENTS.md` rather than overwriting it.
 - **Auditable stages:** separate queues, processing histories and published catalog entries.
 
 ## Documentation

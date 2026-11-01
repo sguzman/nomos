@@ -62,6 +62,7 @@ jobs:
           python3 tools/build_site_catalog.py
           node tools/build_project_initializers_v3.cjs
           node tools/build_project_initializers_v4.cjs
+          node tools/build_codex_zip.cjs
       - name: Run checks
         run: |
           python3 tools/validate.py
@@ -130,6 +131,9 @@ jobs:
           node --test tests/test_project_initializers_layout_v2.cjs
           node --test tests/test_project_initializers_layout_v3.cjs
           node --test tests/test_typography_prompts.cjs
+          node --check tools/build_codex_zip.cjs
+          node tools/build_codex_zip.cjs --check
+          node --test tests/test_codex_zip.cjs
           node --test tests/test_end_consumer_v1.cjs
           node --test tests/test_end_consumer_meta_approval.cjs
           node --test tests/test_end_consumer_text_reviews.cjs
@@ -172,6 +176,11 @@ jobs:
           node --check docs/rule-builder.js
           node --test tests/test_rule_builder.cjs
           node --test tests/test_rule_builder_browser.cjs
+      - name: Verify Codex ZIP extraction
+        run: |
+          unzip -t docs/exports/nomos-codex.zip
+          unzip -Z1 docs/exports/nomos-codex.zip | grep -qx AGENTS.md
+          unzip -Z1 docs/exports/nomos-codex.zip | grep -qx .nomos/INDEX.md
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload showcase
