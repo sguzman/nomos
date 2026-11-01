@@ -1,0 +1,119 @@
+{
+  "id": "NOM-0245",
+  "version": "1.0.0",
+  "title": "Version only independently affected artifacts",
+  "summary": "Assign successor versions only to independently versioned artifacts whose own content, semantics, behavior, scope, or governing version contract changes; preserve unaffected versions while keeping shared references consistent.",
+  "statement": "When revising a collection of independently versioned rules, prompts, profiles, or other artifacts, create a successor version only for each member whose own content, normative meaning, behavior, applicability, or explicit version contract changes. Preserve the stable identity, published version, and unchanged content of every unaffected member; do not increment neighboring or dependent artifact versions merely because they share a registry, keyset, export, manifest, or workflow. Update affected shared indexes, selected-version records, references, exports, documentation, and tests as necessary and when authorized, without misrepresenting those consistency updates as new versions of unchanged members. Preserve historical versions and record which artifacts changed. Honor an artifact's explicit mandatory version-bump rules, including any-change versioning policies, and separately authorized coordinated release policies. Do not silently select, activate, or publish a new version without the required authorization.",
+  "rationale": "This independently applicable principle narrows unnecessary version churn when revising one member of a versioned collection. It complements scoped changes (NOM-0016), semantic version policies (NOM-0055), and version-reference consistency (NOM-0056) without contradicting special cases such as userscript and extension version increments (NOM-0085 and NOM-0086).",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "restrict",
+      "object": "successor_version_creation_to_independently_affected_artifacts",
+      "target": "versioned_artifact_collection"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "A change affects one or more members of a collection of independently versioned artifacts.",
+      "Scope of an artifact-level version change must be established from the artifact's own changed content or contract."
+    ],
+    "exceptions": [
+      "Artifact-specific policies may require a version increment for any change to that artifact.",
+      "An explicitly authorized coordinated release may require broader coordinated version changes.",
+      "Shared manifest, export, reference, test, or index edits required for consistency are permitted, but do not by themselves require new versions of unaffected members."
+    ],
+    "bounds": {
+      "quantifier": "all",
+      "interpretation": "universal",
+      "frequency": "always",
+      "minimum": null,
+      "maximum": null,
+      "unit": "entities",
+      "window": "each authorized versioned-artifact modification",
+      "cue": "When revising a collection of independently versioned rules, prompts, profiles, or other artifacts",
+      "basis": "explicit_text"
+    }
+  },
+  "categories": {
+    "domains": [
+      "agent_instructions",
+      "governance",
+      "software_development"
+    ],
+    "topics": [
+      "version_consistency",
+      "change_scope"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "project_types": [
+      "project"
+    ],
+    "preconditions": [
+      "The affected resources have independent version identities and the proposed change is authorized."
+    ],
+    "exclusions": [
+      "Special mandatory version-increment rules for a modified artifact remain effective.",
+      "Coordinated version updates remain permitted when explicitly authorized.",
+      "This rule never automatically selects or activates a prompt or profile."
+    ]
+  },
+  "authority": {
+    "source": "Explicitly owner-approved public-safe generalized versioning instruction; opt-in guidance",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [
+      "NOM-0016"
+    ],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "Explicit owner approval of the minimal-impact versioning principle, 2026-11-01",
+    "license": "MIT",
+    "notes": "Reusable, public-safe generalized rule; no private conversation text retained; publication never auto-selects or activates a rule or prompt."
+  },
+  "governance": {
+    "created_on": "2026-11-01",
+    "updated_on": "2026-11-01",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ],
+  "semantic": {
+    "concept": "minimal_impact_artifact_versioning",
+    "aliases": [
+      "version_only_affected_artifacts",
+      "selective_prompt_rule_version_bumping"
+    ]
+  }
+}
