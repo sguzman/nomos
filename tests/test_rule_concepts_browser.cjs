@@ -7,9 +7,11 @@ const path=require('node:path');
 const browser=require('../docs/rule-concepts.js');
 const catalog=require('../docs/catalog.json');
 
-test('all rules have coherent situation and intent links',()=>{
+test('all analyzed rules have coherent situation and intent links',()=>{
   const list=browser.linkedRules(catalog),lookup=browser.indexes(catalog);
   assert.equal(list.length,243);
+  assert.equal(catalog.rules.filter(x=>x.registry==='catalog').length,244);
+  assert.equal(list.some(x=>x.rule.id==='NOM-0244'),false);
   assert.equal(lookup.situations.size,97);
   assert.equal(lookup.intents.size,139);
   assert.equal(list.filter(x=>x.rule.status==='draft').length,1);
