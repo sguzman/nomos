@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "kind": "end_consumer_prompt_profile",
+  "id": "EC-PROFILE-0002",
+  "name": "Project Initializers and Adoption Variants",
+  "visibility": "public",
+  "lifecycle": "draft_v0",
+  "created_on": "2026-11-01",
+  "current_version": "0",
+  "versions": [
+    {
+      "version": "0",
+      "source_format": "trievium",
+      "source_path": "v0/trievium.json",
+      "source_sha256": "000000000000000000000000000000007d7485306cba35cc92ebcd62b4c010f8",
+      "source_git_blob_sha1": "2ce43234dbbd2cc80516d3b276d67f8c10e67178",
+      "source_trievium_version": 1
+    }
+  ],
+  "slots": [
+    {
+      "id": "EC-PROMPT-0011",
+      "ordinal": 0,
+      "key": "1",
+      "label": "🦀 Init New Rust Project",
+      "text_sha256": "00000000000000000000000000000000f7c0dcb46bb24450271c32f1e3f440c0",
+      "version": "0",
+      "semantic_status": "not_analyzed"
+    },
+    {
+      "id": "EC-PROMPT-0012",
+      "ordinal": 1,
+      "key": "!",
+      "label": "🦀 Adopt New Rust Project",
+      "text_sha256": "00000000000000000000000000000000fc2be94d3c4a61694ac650a3f65f0bb7",
+      "version": "0",
+      "semantic_status": "not_analyzed"
+    },
+    {
+      "id": "EC-PROMPT-0013",
+      "ordinal": 2,
+      "key": "2",
+      "label": "🔁 Init Rust Port (Any Source Language)",
+      "text_sha256": "00000000000000000000000000000000cacb7347de63824e7ad7accfc1b77438",
+      "version": "0",
+      "semantic_status": "not_analyzed"
+    },
+    {
+      "id": "EC-PROMPT-0014",
+      "ordinal": 3,
+      "key": "@",
+      "label": "🔁 Adopt Rust Port (Any Source Language)",
+      "text_sha256": "00000000000000000000000000000000a9342686cb2b25ef3f0134afc5e12149",
+      "version": "0",
+      "semantic_status": "not_analyzed"
+    },
+    {
+      "id": "EC-PROMPT-0015",
+      "ordinal": 4,
+      "key": "3",
+      "label": "🏛️ Init Independent Public Tarium Project",
+      "text_sha256": "000000000000000000000000000000009361997116b9a7ac65f1219b66a4f377",
+      "version": "0",
+      "semantic_status": "not_analyzed"
+    },
+    {
+      "id": "EC-PROMPT-0016",
+      "ordinal": 5,
+      "key": "#",
+      "label": "🏛️ Adopt Independent Public Tarium Project",
+      "text_sha256": "0000000000000000000000000000000094a2943c3e4b4ac335d1ebf0c08fdc52",
+      "version": "0",
+      "semantic_status": "not_analyzed"
+    },
+    {
+      "id": "EC-PROMPT-0017",
+      "ordinal": 6,
+      "key": "4",
+      "label": "🌿 Init Rust Fork Maintenance",
+      "text_sha256": "00000000000000000000000000000000f2f6d08ecef6ed1b1eb97ea1fc9e2200",
+      "version": "0",
+      "semantic_status": "not_analyzed"
+    },
+    {
+      "id": "EC-PROMPT-0018",
+      "ordinal": 7,
+      "key": "$",
+      "label": "🌿 Adopt Rust Fork Maintenance",
+      "text_sha256": "00000000000000000000000000000000d77e4b53840bd5e1742833670f5a789a",
+      "version": "0",
+      "semantic_status": "not_analyzed"
+    },
+    {
+      "id": "EC-PROMPT-0019",
+      "ordinal": 8,
+      "key": "5",
+      "label": "🧱 Init C → Rust Port",
+      "text_sha256": "00000000000000000000000000000000b5397951c5248adcfff09d6495cb09b7",
+      "version": "0",
+      "semantic_status": "not_analyzed"
+    },
+    {
+      "id": "EC-PROMPT-0020",
+      "ordinal": 9,
+      "key": "%",
+      "label": "🧱 Adopt C → Rust Port",
+      "text_sha256": "00000000000000000000000000000000341253eebe65071759e9a70d7f1fddf3",
+      "version": "0",
+      "semantic_status": "not_analyzed"
+    },
+    {
+      "id": "EC-PROMPT-0021",
+      "ordinal": 10,
+      "key": "6",
+      "label": "🧩 Init C++ → Rust Port",
+      "text_sha256": "00000000000000000000000000000000eff94b0c0ca6344ca6076bc78942314a",
+      "version": "0",
+      "semantic_status": "not_analyzed"
+    },
+    {
+      "id": "EC-PROMPT-0022",
+      "ordinal": 11,
+      "key": "^",
+      "label": "🧩 Adopt C++ → Rust Port",
+      "text_sha256": "000000000000000000000000000000007bdf9917ac661ed8ab4d047e549d317f",
+      "version": "0",
+      "semantic_status": "not_analyzed"
+    },
+    {
+      "id": "EC-PROMPT-0023",
+      "ordinal": 12,
+      "key": "7",
+      "label": "🐍 Init Python → Rust Port",
+      "text_sha256": "00000000000000000000000000000000fd4f99b31176d42be63507c3da3d953e",
+      "version": "0",
+      "semantic_status": "not_analyzed"
+    },
+    {
+      "id": "EC-PROMPT-0024",
+      "ordinal": 13,
+      "key": "&",
+      "label": "🐍 Adopt Python → Rust Port",
+      "text_sha256": "00000000000000000000000000000000e8a5d84c830469d448b5ae7b175bb400",
+      "version": "0",
+      "semantic_status": "not_analyzed"
+    }
+  ],
+  "governance": {
+    "source_import_authorized": true,
+    "semantic_enrichment_authorized": false,
+    "copy_requires_user_action": true,
+    "export_requires_user_action": true,
+    "selected_replacement_versions": [],
+    "note": "Owner-approved specialized init/adopt variants are new independent prompt identities. Their self-contained v0 texts compose fixed approved D V4 and A V2 plus public project-type constraints; any future base changes require distinct reviewed successor versions. Profile references are provisional, not auto-applied rule selections."
+  }
+}

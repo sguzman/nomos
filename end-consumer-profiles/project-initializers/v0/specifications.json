@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "kind": "project_initializer_families",
+  "profile_id": "EC-PROFILE-0002",
+  "created_on": "2026-11-01",
+  "approved_source": "owner-authorized-specialized-initializers-2026-11-01",
+  "baseline": {
+    "init": {
+      "prompt_id": "EC-PROMPT-0005",
+      "version": "4"
+    },
+    "adopt": {
+      "prompt_id": "EC-PROMPT-0007",
+      "version": "2"
+    }
+  },
+  "mode_keys": "US-number-row-number-and-shifted-glyph",
+  "reserved": [
+    {
+      "number": "8",
+      "shifted": "*",
+      "candidate": "Java → Rust",
+      "reason": "User marked Java tentative; no approved full Java port contract yet"
+    }
+  ],
+  "families": [
+    {
+      "number": "1",
+      "shifted": "!",
+      "slug": "new-rust",
+      "icon": "🦀",
+      "name": "New Rust Project",
+      "profiles": [
+        "PROFILE-0003",
+        "PROFILE-0004"
+      ],
+      "instructions": [
+        "Start an original Rust application, service, library, or tool. Determine its concrete intended workflows and interfaces before choosing binary, library, workspace or multi-crate layout; do not scaffold unnecessary crates.",
+        "Choose the currently supported stable Rust edition and minimum supported toolchain according to project policy. Prefer standard library and well-maintained Rust crates; document nontrivial dependencies and MIT-first licensing decisions.",
+        "Track implementation, unit/integration/edge-case tests, cargo fmt, Clippy, CI, runtime validation on target platforms, packaging, documentation, and release readiness as appropriate. Evaluate actual user-facing operation, not merely compilation.",
+        "Build on main by default unless a project-specific branch rule applies. Keep scope fixed to authorized features and report evidence-backed progress."
+      ]
+    },
+    {
+      "number": "2",
+      "shifted": "@",
+      "slug": "rust-port",
+      "icon": "🔁",
+      "name": "Rust Port (Any Source Language)",
+      "profiles": [],
+      "instructions": [
+        "Treat the upstream application's specified baseline as the behavioral specification. Identify the exact upstream repository, version/commit, supported platforms, executable/library entrypoints, APIs, CLI options, formats, persistent data, external integrations, and error behavior.",
+        "Create a traceable upstream capability inventory and full parity matrix with explicit supported, missing, blocked, and verified states. Make user-visible parity and independently runnable replacement capability the default MVP acceptance criteria, not architectural resemblance or code-volume parity.",
+        "Use differential or golden tests against a reference implementation when available, plus real target-environment checks. Preserve compatibility and document justified deviations; do not add speculative improvements before parity.",
+        "Investigate source-license and dependency obligations before importing code; MIT is preferred only when compatible. Count integration and hard-to-port edge cases in the original progress baseline."
+      ]
+    },
+    {
+      "number": "3",
+      "shifted": "#",
+      "slug": "tarium",
+      "icon": "🏛️",
+      "name": "Independent Public Tarium Project",
+      "profiles": [
+        "PROFILE-0005",
+        "PROFILE-0006"
+      ],
+      "instructions": [
+        "Build a self-sufficient, independently published public Tarium project in its own repository. The central Tarium repository is a registry/governance hub, never a monorepo hosting member implementation or datasets.",
+        "Establish a coherent domain ontology in human-readable docs and machine-readable form. Develop an accessible public showcase/gallery, machine-readable gallery index, source/provenance and validation, with functioning Day/Night/System appearance controls.",
+        "Treat privacy and public provenance as release blockers: do not migrate or reveal private Taria materials, private conversations, credentials, research inputs, or unpublished work. Independently reconstruct public-safe specimens and citations as needed.",
+        "Do not enroll this repository in public Tarium or modify the hub without separate explicit named-project authorization. Plan website, ontology integrity, gallery references, licensing, packaging and deployment from the beginning."
+      ]
+    },
+    {
+      "number": "4",
+      "shifted": "$",
+      "slug": "rust-fork",
+      "icon": "🌿",
+      "name": "Rust Fork Maintenance",
+      "profiles": [
+        "PROFILE-0007",
+        "PROFILE-0008"
+      ],
+      "instructions": [
+        "Identify upstream repository, current upstream revision, the selected fork baseline, compatible APIs, and the reason for maintaining the fork. Preserve the existing fork identity and changes.",
+        "Inventory and label fork-owned patches, upstream fixes, local deviations, synchronization decisions and compatibility commitments. Track divergence with concrete upstream commits and assess conflicts before integration.",
+        "Choose upstream imports only when in scope, preserve intentional fork behavior, and verify affected behavior, public APIs, build targets, regression tests, CI, and actual downstream use.",
+        "Do not silently replace fork-specific code, force-push history or upgrade dependencies without authorization. Maintain clear provenance and release compatibility records."
+      ]
+    },
+    {
+      "number": "5",
+      "shifted": "%",
+      "slug": "c-rust",
+      "icon": "🧱",
+      "name": "C → Rust Port",
+      "profiles": [
+        "PROFILE-0001",
+        "PROFILE-0002"
+      ],
+      "includesPort": true,
+      "instructions": [
+        "Record compiler dialect/options, platform ABIs, binary boundaries, preprocessor conditions, pointer aliasing, manual allocation, structures/unions, integer/overflow behavior, concurrency and undefined-behavior hazards.",
+        "Map each upstream C component to a verified Rust replacement, maintaining byte-level/behavioral compatibility where required. Keep unsafe Rust and FFI tightly scoped, justified, and tested.",
+        "Run differential C/Rust tests and real operating-system checks for file formats, CLI, API, resource handling and failure paths. Do not equate compiling with parity."
+      ]
+    },
+    {
+      "number": "6",
+      "shifted": "^",
+      "slug": "cpp-rust",
+      "icon": "🧩",
+      "name": "C++ → Rust Port",
+      "profiles": [
+        "PROFILE-0009",
+        "PROFILE-0010"
+      ],
+      "includesPort": true,
+      "instructions": [
+        "Inventory the upstream C++ standard, templates, class hierarchies, virtual dispatch, ownership and lifetime contracts, STL container behavior, exceptions, RTTI, threads, ABI/FFI interfaces, macros, and build flags as applicable.",
+        "Specify equivalent Rust representations without accidentally changing observable behavior or serialized formats. Make compatibility decisions and any justified non-parity explicit.",
+        "Use differential behavior and fixture tests, edge/error-path coverage, platform builds, integration and downstream consumer checks; verify actual replacement capability before declaring parity."
+      ]
+    },
+    {
+      "number": "7",
+      "shifted": "&",
+      "slug": "python-rust",
+      "icon": "🐍",
+      "name": "Python → Rust Port",
+      "profiles": [
+        "PROFILE-0011",
+        "PROFILE-0012"
+      ],
+      "includesPort": true,
+      "instructions": [
+        "Identify upstream Python version, interpreter-specific behavior, package/runtime entrypoints, exceptions, iteration and truthiness semantics, dynamic types, serialization, async scheduling and dependency behavior that affect outputs.",
+        "Inventory every in-scope module, CLI/API surface, plugin/extension compatibility, network/file behaviors and error cases. Implement idiomatic Rust while retaining agreed user-visible parity, not Python internals as an end in themselves.",
+        "Compare Rust and reference Python behavior with reproducible fixtures and differential tests, including malformed inputs and integration endpoints. Mark unsupported or intentionally changed behavior explicitly."
+      ]
+    }
+  ]
+}
