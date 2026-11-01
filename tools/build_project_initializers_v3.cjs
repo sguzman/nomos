@@ -8,9 +8,10 @@ const pretty=x=>JSON.stringify(x,null,2)+'\n';
 const spec=data('end-consumer-profiles/project-initializers/v3/specifications.json');
 const manifest=data('docs/data/project-stewardship-published-versions.json');
 const prev=data('end-consumer-profiles/project-initializers/v2/trievium.json');
-const generic=data('docs/exports/project-stewardship-approved-trievium.json');
+const currentGeneric=data('docs/exports/project-stewardship-approved-trievium.json');
 const baseline=(key,version)=>{const p=manifest.published_versions.find(p=>p.key===key&&p.version===version);if(!p||!p.owner_approved||sha(p.text)!==p.sha256)throw Error('Invalid approved '+key+version);return p.text};
 const init=baseline('D',spec.baseline.init.version),adopt=baseline('A',spec.baseline.adopt.version);
+const generic={...currentGeneric,entries:currentGeneric.entries.map(e=>['S','D','A'].includes(e.key)?{...e,text:baseline(e.key,{S:'5',D:'5',A:'3'}[e.key])}:e)};
 const prof=id=>{const p=data('profiles/'+id+'.json');if(p.status!=='draft'||p.review.selection_confirmed||p.review.finalization_confirmed)throw Error('Expected draft profile '+id);return p};
 const portFull=['PROFILE-0002','PROFILE-0010','PROFILE-0012'].map(prof);
 const portShared=portFull[0].selected_rule_ids.filter(id=>portFull.every(p=>p.selected_rule_ids.includes(id)));
@@ -54,8 +55,6 @@ const report={schema_version:1,kind:'project_initializer_v3_rule_coverage',profi
 if(report.source_sha256!==spec.expected_source_sha256)throw Error('Approved V3 source hash drift: publish a reviewed successor instead of mutating V3');
 const files=[
  ['end-consumer-profiles/project-initializers/v3/trievium.json',pretty(selected)],
- ['docs/exports/project-initializers-trievium.json',pretty(selected)],
- ['docs/exports/project-stewardship-with-initializers-trievium.json',pretty(combined)],
  ['docs/exports/project-initializers-v3-manifest.json',pretty(report)]
 ];
 function publish(check=false){for(const [p,content] of files){if(check){if(read(p)!==content)throw Error('Generated content drift '+p)}else{fs.mkdirSync(path.dirname(path.join(root,p)),{recursive:true});fs.writeFileSync(path.join(root,p),content)}}return report}

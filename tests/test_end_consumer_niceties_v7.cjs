@@ -1,8 +1,8 @@
 'use strict';
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const root=path.resolve(__dirname,'..'),j=p=>JSON.parse(fs.readFileSync(path.join(root,p),'utf8')),hash=s=>crypto.createHash('sha256').update(s).digest('hex');
-const manifest=j('docs/data/project-stewardship-published-versions.json'),old=j('end-consumer-profiles/project-stewardship/v6/selected-versions.json'),current=j('end-consumer-profiles/project-stewardship/v7/selected-versions.json'),r=j('end-consumer-profiles/project-stewardship/v7/revisions.json');
-const original=j('end-consumer-profiles/project-stewardship/v0/trievium.json'),profile=j('end-consumer-profiles/project-stewardship/profile.json'),exported=j('docs/exports/project-stewardship-approved-trievium.json'),model=require('../docs/end-consumer-profile-model.js');
+const live=j('docs/data/project-stewardship-published-versions.json'),manifest={...live,published_versions:live.published_versions.filter(p=>!['S:6','D:6','A:4'].includes(p.key+':'+p.version)),selected_versions:{...live.selected_versions,'EC-PROMPT-0003':'5','EC-PROMPT-0005':'5','EC-PROMPT-0007':'3'}},old=j('end-consumer-profiles/project-stewardship/v6/selected-versions.json'),current=j('end-consumer-profiles/project-stewardship/v7/selected-versions.json'),r=j('end-consumer-profiles/project-stewardship/v7/revisions.json');
+const original=j('end-consumer-profiles/project-stewardship/v0/trievium.json'),profile=j('end-consumer-profiles/project-stewardship/profile.json'),model=require('../docs/end-consumer-profile-model.js'),exported=model.makeTrievium(model.makeCatalog(profile,original,manifest));
 test('Only D/S/A versions change and every historical version is recoverable',()=>{
  assert.equal(manifest.published_versions.length,17);
  assert.deepEqual(manifest.published_versions.slice(-3).map(p=>p.key+':'+p.version),['S:5','D:5','A:3']);

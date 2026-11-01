@@ -7,7 +7,7 @@ const model=require('../docs/end-consumer-profile-model.js');
 const original=json('end-consumer-profiles/project-stewardship/v0/trievium.json');
 const profile=json('end-consumer-profiles/project-stewardship/profile.json');
 const live=json('docs/data/project-stewardship-published-versions.json');
-const manifest={...live,published_versions:live.published_versions.filter(p=>!['S:5','D:5','A:3'].includes(p.key+':'+p.version)),selected_versions:Object.fromEntries(Object.entries(live.selected_versions).map(([id,v])=>[id,id==='EC-PROMPT-0003'||id==='EC-PROMPT-0005'?'4':id==='EC-PROMPT-0007'?'2':v]))};
+const manifest={...live,published_versions:live.published_versions.filter(p=>!['S:5','D:5','A:3','S:6','D:6','A:4'].includes(p.key+':'+p.version)),selected_versions:Object.fromEntries(Object.entries(live.selected_versions).map(([id,v])=>[id,id==='EC-PROMPT-0003'||id==='EC-PROMPT-0005'?'4':id==='EC-PROMPT-0007'?'2':v]))};
 const old=json('end-consumer-profiles/project-stewardship/v5/selected-versions.json');
 const current=json('end-consumer-profiles/project-stewardship/v6/selected-versions.json');
 const revision=json('end-consumer-profiles/project-stewardship/v6/revisions.json');
