@@ -42,8 +42,8 @@ test('meta-intent approval is distinct from later independent candidate authoriz
  }
  assert.deepEqual(profile.governance.selected_replacement_versions,[]);
  const selected=json('docs/data/project-stewardship-published-versions.json');
- assert.equal(selected.published_versions.length,3);
- assert.deepEqual(selected.published_versions.map(x=>x.key),['L','H','F']);
- assert.deepEqual(Object.keys(selected.selected_versions),['EC-PROMPT-0002','EC-PROMPT-0004','EC-PROMPT-0008']);
+ assert.equal(selected.published_versions.length,5);
+ assert.deepEqual(selected.published_versions.map(x=>x.key),['L','H','F','S','D']);
+ assert.deepEqual(Object.keys(selected.selected_versions),['EC-PROMPT-0002','EC-PROMPT-0004','EC-PROMPT-0008','EC-PROMPT-0003','EC-PROMPT-0005']);
  assert.equal(json('end-consumer-profiles/project-stewardship/v2/review-candidates.json').owner_approval_of_candidates,false);
 });

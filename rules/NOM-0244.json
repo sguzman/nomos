@@ -1,0 +1,115 @@
+{
+  "id": "NOM-0244",
+  "version": "1.0.0",
+  "title": "Conserve conversational context during agent development",
+  "summary": "Use bounded, targeted retrieval and concise durable checkpoints to minimize avoidable context-window exhaustion while preserving full engineering correctness and productive work.",
+  "statement": "During ongoing agent-assisted project development, treat conversational context and tool-result size as finite resources. Retrieve only the relevant files, lines, commit diffs and diagnostics needed for the current decision; expand scope when necessary. Filter or summarize excessive results before returning them to the conversation, and avoid redundant full-file, log, history, roadmap or instruction dumps. Maintain a concise, recoverable project checkpoint covering the objective, accepted decisions, verified progress, current commit, blockers and next actionable work, updating it when project state materially changes. Proactively preserve a handoff when context exhaustion becomes a credible risk where feasible. Do not claim to know an exact remaining context budget or assume automatic compaction. Never omit necessary evidence, testing, requirements or truthful reporting, and do not end useful authorized work merely to minimize tokens.",
+  "rationale": "A bounded-context operational rule complements repository inspection and durable progress rules. It prevents unproductive session restarts caused by unnecessary tool output while explicitly protecting verification, scope, and substantive continuation.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "conserve",
+      "object": "conversation_context_through_targeted_retrieval_and_durable_checkpoints",
+      "target": "agent_development_workflow"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "During owner-authorized agent-assisted project work with a finite conversation context.",
+      "Apply targeted retrieval and bounded output whenever it remains sufficient for sound engineering decisions."
+    ],
+    "exceptions": [
+      "Expand retrieval and include necessary output when correctness, debugging, verification or recovery requires it.",
+      "Do not invent context measurements or prematurely stop legitimate work as a token-saving measure."
+    ],
+    "bounds": {
+      "quantifier": "all",
+      "interpretation": "universal",
+      "frequency": "always",
+      "minimum": null,
+      "maximum": null,
+      "unit": "entities",
+      "window": "during each applicable agent development session",
+      "cue": "During ongoing agent-assisted project development",
+      "basis": "explicit_text"
+    }
+  },
+  "categories": {
+    "domains": [
+      "agent_instructions",
+      "software_development",
+      "project_management"
+    ],
+    "topics": [
+      "development_hygiene",
+      "unfinished_work_state"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "chat"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "instructions"
+      ],
+      "actor": [
+        "ai_agent"
+      ]
+    },
+    "project_types": [
+      "project"
+    ],
+    "preconditions": [
+      "Owner-authorized ongoing agent-assisted development and finite conversation context."
+    ],
+    "exclusions": [
+      "Necessary broad retrieval, diagnostic evidence, and QA remain allowed.",
+      "No arbitrary work-duration or task-count limit is imposed."
+    ]
+  },
+  "authority": {
+    "source": "Explicit owner-approved public-safe generalized instruction, opt-in guidance",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "owner-approved context-window efficiency rule and D/S revisions, 2026-10-31",
+    "license": "MIT",
+    "notes": "Generalized rule text only; no private discussion or identifiers are published. Does not activate in unrelated conversations or repos."
+  },
+  "governance": {
+    "created_on": "2026-10-31",
+    "updated_on": "2026-10-31",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ],
+  "semantic": {
+    "concept": "context_window_efficiency",
+    "aliases": [
+      "bounded_agent_tool_output",
+      "durable_context_checkpoint"
+    ]
+  }
+}

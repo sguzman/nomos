@@ -217,7 +217,7 @@ test('real browser: V0 integrity, selected Trievium download, approved alternate
     assert.deepEqual(selected,expected);
     const approvedStatic=await evalJs("fetch('./exports/project-stewardship-approved-trievium.json').then(r=>r.json())");
     assert.deepEqual(approvedStatic,selected);
-    assert.deepEqual(selected.entries.filter((x,i)=>x.text!==originals.entries[i].text).map(x=>x.key),['L','H','F']);
+    assert.deepEqual(selected.entries.filter((x,i)=>x.text!==originals.entries[i].text).map(x=>x.key),['L','S','H','D','F']);
     // Against the deployed site we cannot inject a synthetic candidate.
     if(!remote){
       mode='approved';await navigate();await ready();

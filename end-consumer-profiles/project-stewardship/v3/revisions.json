@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "kind": "end_consumer_context_efficiency_revisions",
+  "profile_id": "EC-PROFILE-0001",
+  "approval_reference": "owner-2026-10-31-context-window-efficiency-d-s",
+  "approved_on": "2026-10-31",
+  "rule_id": "NOM-0244",
+  "origin": "V0",
+  "generation": "1",
+  "change_type": "single_section_insertion",
+  "insertion": "## 6A. Context-Window Efficiency 🧠\n\nTreat conversation context and tool results as finite engineering resources. Maximize verified progress per context window without shortening useful work.\n\n- Inspect the smallest relevant files, line ranges, commit diffs, and diagnostics first; widen the search only when evidence requires it.\n- Filter or summarize large tool results before bringing them into the conversation. Avoid full logs, repeated searches, duplicated histories, and unnecessary reprinting of long files or instructions.\n- Keep a concise, durable project checkpoint with the objective, decisions, verified progress, current commit, blockers, and next action; update it when the state materially changes, not on every turn.\n- Prefer short references to existing repository artifacts over repeatedly pasting their entire contents. Recover from checkpoints when a new conversation begins.\n- When a context-limit risk becomes apparent, preserve an accurate handoff proactively where possible. Do not claim knowledge of exact remaining tokens or rely on invisible automatic compaction.\n- Never trade away correctness, essential context, verification, transparency, or legitimate continuation merely to save tokens. Continue substantive authorized work as long as the available tools allow.",
+  "selected_keys": [
+    "S",
+    "D"
+  ],
+  "revisions": [
+    {
+      "prompt_id": "EC-PROMPT-0003",
+      "key": "S",
+      "prior_version": "0",
+      "selected_version": "1",
+      "prior_sha256": "f5c6dbfc8e750c73c6e553909aa2f41994dd3921bd198ecf2db6d576c6ba945f",
+      "selected_sha256": "1ce9a4729d7ab139c39a22fc64914f40654661146c3d9e5b15b5f5c7e22ecdac",
+      "source_of_selected_text": "docs/data/project-stewardship-published-versions.json"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0005",
+      "key": "D",
+      "prior_version": "0",
+      "selected_version": "1",
+      "prior_sha256": "af75908c39fdfa4698a033f511c978e6845d6df4abd3ca302bae117f82a0c58f",
+      "selected_sha256": "3e5d7ea19961b3c3137e6c0f2a0b5d4af1ad4876ec3237b8b30ff39895cbe236",
+      "source_of_selected_text": "docs/data/project-stewardship-published-versions.json"
+    }
+  ],
+  "limitations": [
+    "Static text and source-preservation checks only; no measured context-longevity benefit is claimed.",
+    "Other eight prompt selections remain unchanged."
+  ]
+}
