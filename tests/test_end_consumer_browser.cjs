@@ -211,7 +211,7 @@ test('real browser: V0 integrity, selected Trievium download, approved alternate
     const selected=await clickAndRead();
     const approvedVersions=published.published_versions;
     const expected={version:1,entries:originals.entries.map(x=>{
-      const alternate=approvedVersions.find(v=>v.key===x.key);
+      const alternate=approvedVersions.find(v=>v.key===x.key && v.version===published.selected_versions[v.prompt_id]);
       return {label:x.label,text:alternate?alternate.text:x.text,key:x.key};
     })};
     assert.deepEqual(selected,expected);

@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "kind": "end_consumer_documentation_hygiene_revisions",
+  "profile_id": "EC-PROFILE-0001",
+  "approved_on": "2026-10-31",
+  "approval_reference": "owner-2026-10-31-approve-nom-0136-d-s-v2",
+  "canonical_rule_id": "NOM-0136",
+  "source_generation": "1",
+  "generation": "2",
+  "change_type": "source_preserving_single_section_insertion",
+  "insertion": "## 8A. README, Documentation, and Changelog Discipline 📚\n\n- Keep `README.md` a professional, approachable overview of the project's purpose, value, setup, usage, and links to deeper documentation. Keep it accurate as the project evolves.\n- Put extensive technical explanations, architecture and design notes, implementation details, and long-form guides under `docs/` (or the repository's explicitly established documentation directory).\n- Maintain chronological user-facing change history in the repository's established changelog, normally `CHANGELOG.md`, when a change history is used. Never turn the README into an accumulating changelog, internal progress log, or implementation-detail dump.\n- Brief release highlights are appropriate in a README when genuinely helpful; keep the detailed history separate. Update documentation links and version references consistently when necessary.",
+  "insertion_anchor": "## 9. User Interaction Rules 🤝",
+  "selected_keys": [
+    "S",
+    "D"
+  ],
+  "revisions": [
+    {
+      "prompt_id": "EC-PROMPT-0003",
+      "key": "S",
+      "prior_version": "1",
+      "selected_version": "2",
+      "prior_sha256": "1ce9a4729d7ab139c39a22fc64914f40654661146c3d9e5b15b5f5c7e22ecdac",
+      "selected_sha256": "57c0a25615ac3f938f43d3a6c491de84167fb97bf1bceb64eac047bfd26effbd"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0005",
+      "key": "D",
+      "prior_version": "1",
+      "selected_version": "2",
+      "prior_sha256": "3e5d7ea19961b3c3137e6c0f2a0b5d4af1ad4876ec3237b8b30ff39895cbe236",
+      "selected_sha256": "b5f4327c25a9cc3745ee17519ab2e67fe898e5be1c696e879bf7a0b3cc18715b"
+    }
+  ],
+  "preservation": {
+    "prior_versions_untouched": true,
+    "unchanged_keys": [
+      "J",
+      "L",
+      "H",
+      "K",
+      "A",
+      "F",
+      "G",
+      "U"
+    ],
+    "new_atomic_rule_created": false
+  },
+  "limitations": [
+    "Text-contract integrity is tested; no unobserved agent behavior is claimed.",
+    "Historical V0 and V1 artifacts are preserved and selectable."
+  ]
+}
