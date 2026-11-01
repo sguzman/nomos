@@ -214,7 +214,22 @@ jobs:
           assert len(data['profiles'])>=12
           assert len(data['rules'])>=243
           PY
-          echo "Deployed Pages guided builder and catalog passed HTTP smoke check."
+          for file in nomos-codex.zip nomos-codex-manifest.json; do
+            curl --fail --location --silent --show-error --retry 5 --retry-delay 3 --retry-all-errors \
+              "$SITE_BASE/exports/$file?revision=$GITHUB_SHA" --output "$TMP/$file"
+            test -s "$TMP/$file"
+          done
+          unzip -tq "$TMP/nomos-codex.zip"
+          node - "$TMP/nomos-codex.zip" "$TMP/nomos-codex-manifest.json" <<'NODE'
+          const fs=require('node:fs'),crypto=require('node:crypto');
+          const zip=fs.readFileSync(process.argv[2]);
+          const manifest=JSON.parse(fs.readFileSync(process.argv[3],'utf8'));
+          const digest=crypto.createHash('sha256').update(zip).digest('hex');
+          if(digest!==manifest.zip_sha256||zip.length!==manifest.zip_bytes)throw Error('Deployed Codex ZIP does not match selected-source manifest');
+          if(!manifest.archive_paths.includes('AGENTS.md')||!manifest.archive_paths.includes('.nomos/INDEX.md'))throw Error('Missing Codex package entrypoint');
+          console.log('Deployed Codex ZIP verified:',manifest.published_rule_count,'published rules');
+          NODE
+          echo "Deployed Pages guided builder, catalog, and Codex ZIP passed HTTP smoke check."
       - name: Run deployed Chromium guided-builder walk-through
         env:
           NOMOS_SITE_URL: ${{ steps.deployment.outputs.page_url }}
