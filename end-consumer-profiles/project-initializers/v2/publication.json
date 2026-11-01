@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "kind": "keyboard_layout_specific_publication",
+  "profile_id": "EC-PROFILE-0002",
+  "selected_version": "2",
+  "previous_version": "1",
+  "owner_approval": "owner-2026-11-01-shift3-centered-dot-correction",
+  "created_on": "2026-11-01",
+  "keyboard_layout": "Owner-observed Shift+3 = · (consistent with XKB es; complete active map unverified)",
+  "text_content_unchanged": true,
+  "previous_source": "end-consumer-profiles/project-initializers/v1/trievium.json",
+  "selected_source": "end-consumer-profiles/project-initializers/v2/trievium.json",
+  "selected_sha256": "6941a5c616d2d2666610fb3697d48bfeecca9cb61dc1420692e08a282f7ba6e9",
+  "changed_bindings": [
+    {
+      "prompt_id": "EC-PROMPT-0016",
+      "old_key": "#",
+      "new_key": "·"
+    }
+  ],
+  "notes": "V0 and V1 are preserved. Only the user-reported shifted number-3 binding changed; other shift combinations follow the prior V1 assumptions pending local verification. Trievium requires Unicode middle-dot pin support."
+}

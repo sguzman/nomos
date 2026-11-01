@@ -1,0 +1,38 @@
+'use strict';
+const {test}=require('node:test'),assert=require('node:assert/strict');
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
+const root=path.resolve(__dirname,'..'),json=p=>JSON.parse(fs.readFileSync(path.join(root,p),'utf8'));
+const sha=s=>crypto.createHash('sha256').update(s).digest('hex');
+const {build,serialize}=require('../tools/build_project_initializers.cjs');
+const approved=json('docs/data/project-stewardship-published-versions.json');
+const v1=json('end-consumer-profiles/project-initializers/v1/trievium.json');
+const v2=json('end-consumer-profiles/project-initializers/v2/trievium.json');
+const spec2=json('end-consumer-profiles/project-initializers/v2/specifications.json');
+const pub1=json('end-consumer-profiles/project-initializers/v1/publication.json');
+const pub2=json('end-consumer-profiles/project-initializers/v2/publication.json');
+const exported=json('docs/exports/project-initializers-trievium.json');
+const combined=json('docs/exports/project-stewardship-with-initializers-trievium.json');
+const general=json('docs/exports/project-stewardship-approved-trievium.json');
+test('only shift+3 changes to the user-confirmed centered dot',()=>{
+ assert.equal(v1.entries[5].key,'#');
+ assert.equal(v2.entries[5].key,'·');
+ assert.deepEqual(v2.entries.map(e=>e.key),['1','!','2','"','3','·','4','$','5','%','6','&','7','/']);
+ assert.deepEqual(v2.entries.map(e=>e.text),v1.entries.map(e=>e.text));
+ assert.deepEqual(v2.entries.map(e=>e.label),v1.entries.map(e=>e.label));
+ assert.deepEqual(v1.entries.map(e=>e.key).filter((_,i)=>i!==5),v2.entries.map(e=>e.key).filter((_,i)=>i!==5));
+ assert.equal(pub2.previous_version,'1');
+ assert.equal(pub2.changed_bindings.length,1);
+ assert.equal(pub2.changed_bindings[0].old_key,'#');
+ assert.equal(pub2.changed_bindings[0].new_key,'·');
+ assert.equal(pub1.selected_sha256,sha(fs.readFileSync(path.join(root,'end-consumer-profiles/project-initializers/v1/trievium.json'))));
+ assert.equal(pub2.selected_sha256,sha(fs.readFileSync(path.join(root,'end-consumer-profiles/project-initializers/v2/trievium.json'))));
+});
+test('V2 is generated from locked approved texts; combined keyset is non-destructive',()=>{
+ assert.equal(serialize(build(spec2,approved)),fs.readFileSync(path.join(root,'end-consumer-profiles/project-initializers/v2/trievium.json'),'utf8'));
+ assert.deepEqual(exported,v2);
+ assert.deepEqual(combined.entries,[...general.entries,...v2.entries]);
+ assert.equal(new Set(combined.entries.map(e=>e.key)).size,24);
+ const page=fs.readFileSync(path.join(root,'docs/end-consumer-profiles.html'),'utf8');
+ assert.match(page,/<td><code>3<\/code><\/td><td><code>·<\/code><\/td>/);
+ assert.match(page,/L \(broken-chat recovery\), and S \(new-chat context restoration\)/);
+});

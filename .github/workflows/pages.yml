@@ -121,6 +121,7 @@ jobs:
           node tools/build_project_initializers.cjs --check
           node --test tests/test_project_initializers.cjs
           node --test tests/test_project_initializers_layout_v1.cjs
+          node --test tests/test_project_initializers_layout_v2.cjs
           node --test tests/test_end_consumer_v1.cjs
           node --test tests/test_end_consumer_meta_approval.cjs
           node --test tests/test_end_consumer_text_reviews.cjs
