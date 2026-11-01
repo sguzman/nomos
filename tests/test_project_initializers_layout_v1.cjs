@@ -5,6 +5,8 @@ const root=path.resolve(__dirname,'..'),json=p=>JSON.parse(fs.readFileSync(path.
 const sha=s=>crypto.createHash('sha256').update(s).digest('hex');
 const source=json('end-consumer-profiles/project-initializers/v0/trievium.json');
 const selected=json('end-consumer-profiles/project-initializers/v1/trievium.json');
+const {build,serialize}=require('../tools/build_project_initializers.cjs');
+const approved=json('docs/data/project-stewardship-published-versions.json');
 const spec=json('end-consumer-profiles/project-initializers/v1/specifications.json');
 const pub=json('end-consumer-profiles/project-initializers/v1/publication.json');
 const exported=json('docs/exports/project-initializers-trievium.json');
@@ -17,6 +19,7 @@ test('Mexican Spanish Latin American paired bindings and 14 unique key identitie
  assert.equal(spec.mode_keys,'XKB-latam-basic-number-and-shifted-glyph');
  assert.equal(spec.reserved[0].shifted,'(');
  assert.deepEqual(exported,selected);
+ assert.equal(serialize(build(spec,approved)),fs.readFileSync(path.join(root,'end-consumer-profiles/project-initializers/v1/trievium.json'),'utf8'));
  assert.deepEqual(combined.entries,[...generic.entries,...selected.entries]);
  assert.equal(new Set(combined.entries.map(e=>e.key)).size,24);
  assert.equal(pub.selected_sha256,sha(fs.readFileSync(path.join(root,'end-consumer-profiles/project-initializers/v1/trievium.json'))));
