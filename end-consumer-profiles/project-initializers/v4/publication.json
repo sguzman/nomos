@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "kind": "project_initializer_approved_source_contract",
+  "profile_id": "EC-PROFILE-0002",
+  "version": "4",
+  "approval_reference": "owner-2026-11-01-role-based-typography-defaults",
+  "published_on": "2026-11-01",
+  "previous_version": "3",
+  "generated_at_build": true,
+  "source_generator": "tools/build_project_initializers_v4.cjs",
+  "source_spec": "end-consumer-profiles/project-initializers/v4/specifications.json",
+  "selected_trievium_path": "docs/exports/project-initializers-trievium.json",
+  "combined_trievium_path": "docs/exports/project-stewardship-with-initializers-trievium.json",
+  "immutable_predecessors": [
+    "0",
+    "1",
+    "2",
+    "3"
+  ],
+  "baseline_versions": {
+    "D": "6",
+    "A": "4"
+  },
+  "all_full_profile_selected_rule_ids_embedded": true,
+  "rule_scope_gating_required": true,
+  "source_profile_finalization_not_implied": true,
+  "notes": "Archived V3 source and font-rule Git blob hashes are pinned; current V4 is generated in CI, without changing past publications. Fonts are suggestions, not required."
+}
