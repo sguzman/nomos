@@ -153,5 +153,6 @@
   },
   "new_publication_version": "3",
   "parent_source_version": "2",
-  "rule_source_mode": "embedded_full_profile_rule_statements_conditional_applicability"
+  "rule_source_mode": "embedded_full_profile_rule_statements_conditional_applicability",
+  "expected_source_sha256": "7cf51c9f4b5ac175a2533997b5c16416ae637c8de8ceca6d7ffa5a7d1c1850fa"
 }

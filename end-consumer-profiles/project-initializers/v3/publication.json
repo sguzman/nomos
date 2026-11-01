@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "kind": "project_initializer_approved_source_contract",
+  "profile_id": "EC-PROFILE-0002",
+  "version": "3",
+  "approval_reference": "owner-2026-11-01-all-applicable-profile-rule-integration",
+  "published_on": "2026-11-01",
+  "previous_version": "2",
+  "generated_at_build": true,
+  "source_generator": "tools/build_project_initializers_v3.cjs",
+  "source_spec": "end-consumer-profiles/project-initializers/v3/specifications.json",
+  "selected_trievium_path": "docs/exports/project-initializers-trievium.json",
+  "combined_trievium_path": "docs/exports/project-stewardship-with-initializers-trievium.json",
+  "expected_source_sha256": "7cf51c9f4b5ac175a2533997b5c16416ae637c8de8ceca6d7ffa5a7d1c1850fa",
+  "immutable_predecessors": [
+    "0",
+    "1",
+    "2"
+  ],
+  "baseline_versions": {
+    "D": "5",
+    "A": "3"
+  },
+  "all_full_profile_selected_rule_ids_embedded": true,
+  "rule_scope_gating_required": true,
+  "source_profile_finalization_not_implied": true,
+  "notes": "V3 statements and rule manifests are generated deterministically in the Pages build from repository-local published canonical rules. A hash lock rejects silent V3 text changes; new source changes require a successor version. No local Trievium import performed."
+}

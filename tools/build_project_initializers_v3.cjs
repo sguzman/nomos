@@ -51,6 +51,7 @@ for(const [i,f] of spec.families.entries()){
 const selected={version:1,entries},combined={version:1,entries:[...generic.entries,...entries]};
 if(entries.length!==14||new Set(combined.entries.map(e=>e.key)).size!==24)throw Error('Key collision');
 const report={schema_version:1,kind:'project_initializer_v3_rule_coverage',profile_id:'EC-PROFILE-0002',source_version:'3',approved_baseline:{D:'5',A:'3'},provisional_full_profile_selection:true,rule_statements_embedded:true,entries:metadata,source_sha256:sha(pretty(selected)),combined_sha256:sha(pretty(combined)),historical_versions_preserved:true};
+if(report.source_sha256!==spec.expected_source_sha256)throw Error('Approved V3 source hash drift: publish a reviewed successor instead of mutating V3');
 const files=[
  ['end-consumer-profiles/project-initializers/v3/trievium.json',pretty(selected)],
  ['docs/exports/project-initializers-trievium.json',pretty(selected)],
