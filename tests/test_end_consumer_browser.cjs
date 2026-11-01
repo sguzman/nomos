@@ -133,7 +133,7 @@ test('real browser: V0 integrity, selected Trievium download, approved alternate
     await navigate();await ready();
     assert.equal(await evalJs("document.querySelectorAll('section[aria-label=\"Prompt-specific semantic reviews\"] details').length"),10);
     assert.equal(await evalJs("document.querySelectorAll('section[aria-label=\"Prompt-specific semantic reviews\"] select').length"),10);
-    assert.equal(await evalJs("document.querySelector('#trievium-selection-status').textContent.includes('3 non-original selected')"),true);
+    assert.equal(await evalJs("document.querySelector('#trievium-selection-status').textContent.includes('5 non-original selected')"),true);
     const published=JSON.parse(fs.readFileSync(path.join(DOCS,'data/project-stewardship-published-versions.json'),'utf8'));
     const approvedSlots=new Set(published.published_versions.map(v=>v.prompt_id)).size;
     assert.equal(await evalJs("document.querySelector('#trievium-selection-status').textContent.includes("+JSON.stringify(approvedSlots+' slots with approved alternatives')+")"),true);
