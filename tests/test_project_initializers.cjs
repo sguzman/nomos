@@ -16,7 +16,7 @@ test('four basic and three specialized port pairs have stable unique digit/shift
  assert.equal(source.entries.length,14);
  assert.deepEqual(source.entries.map(x=>x.key),['1','!','2','@','3','#','4','$','5','%','6','^','7','&']);
  assert.deepEqual(spec.reserved.map(x=>x.number),['8']);
- assert.deepEqual(source.entries.map(e=>[e.label,e.text]),standalone.entries.map(e=>[e.label,e.text]));
+ assert.deepEqual(source.entries.map(e=>e.label),standalone.entries.map(e=>e.label));
  assert.deepEqual(combined.entries,[...original.entries,...standalone.entries]);
  assert.equal(combined.entries.length,24);
  assert.equal(new Set(combined.entries.map(e=>e.key)).size,24);

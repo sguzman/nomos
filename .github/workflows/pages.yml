@@ -58,7 +58,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build public catalog snapshot
-        run: python3 tools/build_site_catalog.py
+        run: |
+          python3 tools/build_site_catalog.py
+          node tools/build_project_initializers_v3.cjs
       - name: Run checks
         run: |
           python3 tools/validate.py
@@ -118,10 +120,13 @@ jobs:
           node --test tests/test_agent_consumption_roadmap.cjs
           node --test tests/test_end_consumer_profiles.cjs
           node --check tools/build_project_initializers.cjs
+          node --check tools/build_project_initializers_v3.cjs
+          node tools/build_project_initializers_v3.cjs --check
           node tools/build_project_initializers.cjs --check
           node --test tests/test_project_initializers.cjs
           node --test tests/test_project_initializers_layout_v1.cjs
           node --test tests/test_project_initializers_layout_v2.cjs
+          node --test tests/test_project_initializers_layout_v3.cjs
           node --test tests/test_end_consumer_v1.cjs
           node --test tests/test_end_consumer_meta_approval.cjs
           node --test tests/test_end_consumer_text_reviews.cjs
