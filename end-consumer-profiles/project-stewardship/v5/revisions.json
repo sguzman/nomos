@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "kind": "end_consumer_full_lifecycle_progress_calibration_revisions",
+  "profile_id": "EC-PROFILE-0001",
+  "approved_on": "2026-10-31",
+  "approval_reference": "owner-2026-10-31-full-lifecycle-effort-calibration",
+  "canonical_rule_id": "NOM-0246",
+  "selected_keys": [
+    "S",
+    "D",
+    "A",
+    "G"
+  ],
+  "revisions": [
+    {
+      "prompt_id": "EC-PROMPT-0003",
+      "key": "S",
+      "prior_version": "2",
+      "selected_version": "3",
+      "prior_sha256": "57c0a25615ac3f938f43d3a6c491de84167fb97bf1bceb64eac047bfd26effbd",
+      "selected_sha256": "3520c0e0444f3f6f25ae3a7fbfc5fdf8d751ab5dbeaec7dc4071cec0d26b853b",
+      "insertion": "## 3A. Full-Lifecycle Progress Calibration ⚖️\n\n- Identify all necessary work for the authorized objective, including complex integration, regression/runtime QA, migration, documentation, packaging, deployment, and release acceptance. Do not conceal foreseeable completion work in an unexplained final 10%.\n- Weight roadmap items according to defensible estimated remaining effort, dependencies, complexity, and risks—not merely how many easy tasks have been checked off. Include difficult work and its verification criteria from the beginning.\n- Reassess the baseline at material milestones, especially before declaring 80% or 90%. A 90% claim must be supported by evidence that all remaining necessary work plausibly represents only around 10% of the comparable weighted baseline.\n- If necessary original-scope work was omitted or underestimated, record the discovery, preserve verified accomplishments, and transparently correct estimates and any noncomparable progress percentages. Never hide work, drop acceptance criteria, or manufacture tasks to force 100%.\n- The final 10% may legitimately take longer than expected: explain blockers, remaining effort, uncertainty, and completion evidence. Do not require artificially smooth progress.",
+      "insertion_anchor": "## 4. Execution Protocol ⚙️",
+      "change_type": "source_preserving_single_insertion"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0005",
+      "key": "D",
+      "prior_version": "2",
+      "selected_version": "3",
+      "prior_sha256": "b5f4327c25a9cc3745ee17519ab2e67fe898e5be1c696e879bf7a0b3cc18715b",
+      "selected_sha256": "2e2109b33d1a8bfbcd7fd378c9f41af91f75fa9a0141e9302c5c11873dd966f9",
+      "insertion": "## 3A. Full-Lifecycle Progress Calibration ⚖️\n\n- Identify all necessary work for the authorized objective, including complex integration, regression/runtime QA, migration, documentation, packaging, deployment, and release acceptance. Do not conceal foreseeable completion work in an unexplained final 10%.\n- Weight roadmap items according to defensible estimated remaining effort, dependencies, complexity, and risks—not merely how many easy tasks have been checked off. Include difficult work and its verification criteria from the beginning.\n- Reassess the baseline at material milestones, especially before declaring 80% or 90%. A 90% claim must be supported by evidence that all remaining necessary work plausibly represents only around 10% of the comparable weighted baseline.\n- If necessary original-scope work was omitted or underestimated, record the discovery, preserve verified accomplishments, and transparently correct estimates and any noncomparable progress percentages. Never hide work, drop acceptance criteria, or manufacture tasks to force 100%.\n- The final 10% may legitimately take longer than expected: explain blockers, remaining effort, uncertainty, and completion evidence. Do not require artificially smooth progress.",
+      "insertion_anchor": "## 4. Execution Protocol ⚙️",
+      "change_type": "source_preserving_single_insertion"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0007",
+      "key": "A",
+      "prior_version": "0",
+      "selected_version": "1",
+      "prior_sha256": "233541ebcbc8d946eaca242590c09d2cfdd6d92f5a84ba3b59d7feb00839c7d8",
+      "selected_sha256": "4b076a53dd7da51094d4a5a974bc048cbda3807dc5d41b3b2e220ce1ad768cf2",
+      "insertion": "- Recalibrate the inherited completion estimate against the full original objective and the actual remaining effort for integration, QA, migrations, release, and other required work; reject any unsupported 90% baseline that hides hard tasks in the last 10%.\n- If the prior roadmap omitted or underweighted required work, document an evidence-backed rebaseline without discarding verified work or inventing unrelated scope.\n",
+      "insertion_anchor": "- Establish an evidence-based overall completion percentage reflecting work already accomplished.\n",
+      "change_type": "source_preserving_single_insertion"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0009",
+      "key": "G",
+      "prior_version": "0",
+      "selected_version": "1",
+      "prior_sha256": "f8873b794f0e05bb4dbf224de8476c85ae5d99251e3b477f4bcf2296de5fbc2e",
+      "selected_sha256": "6b7155eb0910b697f79fc20df739874d8a016e2829b884b6e7f934de82f1241a",
+      "insertion": "Check whether high completion claims, particularly near 90%, are supported by the weighted effort of all original-scope acceptance criteria still unfinished. Surface difficult integration, runtime QA, packaging, deployment, and release work omitted from prior estimates; correct understated remaining effort with a transparent rebaseline. Do not invent tasks or artificially smooth the progress curve.\n\n",
+      "insertion_anchor": "Identify missing functionality, incomplete integrations, unverified claims, regressions, and legitimate omissions from the existing roadmap.\n\n",
+      "change_type": "source_preserving_single_insertion"
+    }
+  ],
+  "preservation": {
+    "unchanged_keys": [
+      "J",
+      "L",
+      "H",
+      "K",
+      "F",
+      "U"
+    ],
+    "all_prior_versions_preserved": true,
+    "original_v0_untouched": true
+  },
+  "limitations": [
+    "Static text-contract integrity checks do not demonstrate observed agent performance.",
+    "Publishing does not activate local Trievium presets automatically."
+  ]
+}
