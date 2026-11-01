@@ -17,7 +17,7 @@ test('published rules each have one home; all six preferred fonts in gui/typogra
  assert.equal(allModules.length,rules.length);
  assert.equal(new Set(allModules).size,rules.length);
  for(let i=250;i<=255;i++){
-  const r=rules.find(r=>r.id==='NOM-'+i);
+  const r=rules.find(r=>r.id==='NOM-'+String(i).padStart(4,'0'));
   assert.ok(r);
   assert.equal(classify(r),'gui/typography.md');
   assert.match(bundle.files.get('.nomos/gui/typography.md'),new RegExp(r.id));
@@ -40,7 +40,7 @@ test('ZIP is self-contained, safe, reproducible and contains no runtime machiner
  const content=bundle.files.get('.nomos/prompts/current-trievium.json');
  assert.equal(JSON.parse(content).entries.length,24);
  assert.match(bundle.files.get('.nomos/INDEX.md'),/published canonical rules/i);
- assert.match(bundle.files.get('AGENTS.md'),/existing.*AGENTS.md/i);
+ assert.match(bundle.files.get('AGENTS.md'),/already has.*AGENTS.md/i);
  // Check each stored payload can be inflated, not just the ZIP filename.
  let o=0,n=0;
  while(archive.readUInt32LE(o)===0x04034b50){
