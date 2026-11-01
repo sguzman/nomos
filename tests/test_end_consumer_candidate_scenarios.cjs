@@ -26,8 +26,8 @@ test('three original reviewed candidates are source-linked and V0 remains immuta
  }
  assert.deepEqual(profile.governance.selected_replacement_versions,[]);
  const selected=json('docs/data/project-stewardship-published-versions.json');
- assert.equal(selected.published_versions.length,17);
- assert.deepEqual(selected.published_versions.map(x=>x.key+':'+x.version),['L:1','H:1','F:1','S:1','D:1','S:2','D:2','S:3','D:3','A:1','G:1','S:4','D:4','A:2','S:5','D:5','A:3']);
+ assert.equal(selected.published_versions.length,20);
+ assert.deepEqual(selected.published_versions.map(x=>x.key+':'+x.version),['L:1','H:1','F:1','S:1','D:1','S:2','D:2','S:3','D:3','A:1','G:1','S:4','D:4','A:2','S:5','D:5','A:3','S:6','D:6','A:4']);
  assert.deepEqual(Object.keys(selected.selected_versions),['EC-PROMPT-0002','EC-PROMPT-0004','EC-PROMPT-0008','EC-PROMPT-0003','EC-PROMPT-0005','EC-PROMPT-0007','EC-PROMPT-0009']);
 });
 test('F revision consists of one targeted insertion without rewriting V0 sentences',()=>{
