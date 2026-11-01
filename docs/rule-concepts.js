@@ -11,12 +11,13 @@ const NomosRuleConcepts=(()=>{
     return (catalog.rules||[]).filter(r=>r.registry==='catalog').map(rule=>{
       const analysis=rule.situational_analysis;
       const source=byId.get(rule.id);
-      if(!analysis||!source)throw Error('Missing reviewed rule relationship for '+rule.id);
+      if(!analysis&&!source)return null; // A new independent rule can await separate semantic review.
+      if(!analysis||!source)throw Error('Incomplete reviewed rule relationship for '+rule.id);
       if(analysis.situation_ids.join('|')!==source.situations.map(x=>x.id).join('|') ||
          analysis.intent_ids.join('|')!==source.intents.map(x=>x.id).join('|'))
         throw Error('Inconsistent rule relationship for '+rule.id);
       return {rule,analysis,source};
-    });
+    }).filter(Boolean);
   }
   function search(list,{text='',situation='',intent='',status=''}={},lookup){
     const query=text.trim().toLowerCase();
@@ -93,7 +94,7 @@ const NomosRuleConcepts=(()=>{
       if(!response.ok)throw Error('HTTP '+response.status);
       const catalog=await response.json();
       const data=linkedRules(catalog),lookup=indexes(catalog);
-      if(data.length!==catalog.rules.filter(x=>x.registry==='catalog').length)throw Error('Incomplete analyzed rules');
+      if(data.length!==(catalog.rule_situation_intent_links||[]).length)throw Error('Incomplete analyzed rules');
       const byCode=(a,b)=>a.id.localeCompare(b.id);
       fillSelect(document.getElementById('study-situation'),[...lookup.situations.values()].sort(byCode));
       fillSelect(document.getElementById('study-intent'),[...lookup.intents.values()].sort(byCode));
