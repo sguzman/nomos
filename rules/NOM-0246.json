@@ -1,0 +1,124 @@
+{
+  "id": "NOM-0246",
+  "version": "1.0.0",
+  "title": "Calibrate project completion against full-lifecycle remaining effort",
+  "summary": "Estimate and verify progress against all authorized work, including late-stage integration and QA, rather than racing to a misleading 90 percent and hiding underestimated work in the final ten percent.",
+  "statement": "When establishing or updating a percentage-based project roadmap, inventory the full authorized objective and its acceptance criteria, including foreseeable difficult integration, edge cases, regression and runtime verification, migration, documentation, packaging, deployment, and release work. Assign defensible weights or effort estimates that account for relative complexity, dependencies, uncertainty, and the real remaining delivery burden; do not equate numerous easy tasks with a nearly completed project. Reassess estimates at material milestones and before claiming high completion figures such as 80 or 90 percent: a 90 percent estimate must be supported by evidence that the still-required work represents approximately the remaining tenth of the tracked baseline, not merely that 90 percent of task labels have been closed. If necessary original-scope work was omitted or underestimated, expose it, record the evidence and changed weights, and transparently rebaseline progress; preserve completed work, clarify incomparable percentages, and never fabricate progress, suppress required work, or weaken acceptance criteria to reach 100 percent. A difficult final phase is permitted when genuinely justified; identify its scope, risks, blockers, and verification conditions rather than promising an artificially smooth progress curve or inventing extra work.",
+  "rationale": "Existing NOM-0043, NOM-0064 and NOM-0137 require accurate statuses, acceptance checks and comparable numeric reporting, but none expressly requires estimating full-lifecycle remaining effort to prevent inflated early percentages and unexplained 90-percent plateaus. This rule governs the denominator and weighting, not merely the display of a progress bar.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "calibrate",
+      "object": "project_completion_percentages_against_full_lifecycle_remaining_effort",
+      "target": "authorized_project_roadmap"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "An authorized project uses completion percentages or weighted milestone progress.",
+      "A roadmap is created, adopted, audited, or its progress estimate is materially updated."
+    ],
+    "exceptions": [
+      "When reliable effort estimates are unavailable, disclose uncertainty or unknown completion rather than inventing precise percentages.",
+      "A genuinely difficult final stage can last disproportionately long; the rule does not require linear or smooth progress.",
+      "Legitimate discoveries may require a transparent rebaseline, but do not authorize unrelated scope expansion."
+    ],
+    "bounds": {
+      "quantifier": "all",
+      "interpretation": "universal",
+      "frequency": "always",
+      "minimum": null,
+      "maximum": null,
+      "unit": "entities",
+      "window": "project baseline and material progress reviews",
+      "cue": "When establishing or updating a percentage-based project roadmap",
+      "basis": "explicit_text"
+    }
+  },
+  "categories": {
+    "domains": [
+      "project_management",
+      "agent_instructions",
+      "software_development"
+    ],
+    "topics": [
+      "roadmap_status",
+      "progress_reporting",
+      "acceptance_criteria"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "project_types": [
+      "project"
+    ],
+    "preconditions": [
+      "An authorized project has a measurable objective and reports percent completion or weighted progress."
+    ],
+    "exclusions": [
+      "No obligation to invent unsupported numerical baselines.",
+      "No guarantee of constant progress velocity or equal-duration percentage increments.",
+      "Never manufacture tasks, expand scope, or suppress newly discovered required work."
+    ]
+  },
+  "authority": {
+    "source": "Owner-directed public-safe general project-progress calibration guidance; opt-in application",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [
+      "NOM-0043",
+      "NOM-0137"
+    ],
+    "depends_on": [
+      "NOM-0064"
+    ]
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "Owner-directed full-lifecycle project progress calibration requirement, 2026-11-01",
+    "license": "MIT",
+    "notes": "Generalized public-safe guidance. Does not copy private conversation wording. Published rules are not auto-applied."
+  },
+  "governance": {
+    "created_on": "2026-11-01",
+    "updated_on": "2026-11-01",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ],
+  "semantic": {
+    "concept": "full_lifecycle_effort_based_progress_calibration",
+    "aliases": [
+      "avoid_false_ninety_percent_progress",
+      "calibrate_final_ten_percent_remaining_work",
+      "honest_weighted_completion"
+    ]
+  }
+}
