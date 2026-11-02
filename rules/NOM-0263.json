@@ -1,0 +1,109 @@
+{
+  "id": "NOM-0263",
+  "version": "1.0.0",
+  "title": "Preserve behavior when refactoring Rust modules",
+  "summary": "Verify structural refactoring against established behavior, public contracts and relevant port or fork compatibility.",
+  "statement": "When extracting or reorganizing Rust modules, preserve intended functionality, public APIs where required, persisted data formats, error behavior and established compatibility contracts. Run appropriate formatting, compilation, tests and focused behavioral checks where available. Report any checks that could not be executed or any unresolved regressions; do not silently turn structural cleanup into an unrelated redesign.",
+  "rationale": "Owner-approved, public-safe Rust source organization policy. Governs structural cohesion and active maintenance without any source-length threshold.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "obligation",
+    "predicate": {
+      "action": "verify",
+      "object": "behavior_preserving_refactoring",
+      "target": "rust_code_reorganization"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "An authorized Rust project is being created, implemented, debugged or maintained, and this rule has been explicitly selected for the consumer."
+    ],
+    "exceptions": [
+      "Do not change unrelated repositories, bypass higher-priority project restrictions, or treat publication of this rule as automatic activation.",
+      "Preserve correctness and established interfaces; sequence risky or conflicting refactors safely and report any block without declaring the debt resolved."
+    ],
+    "bounds": {
+      "quantifier": "all",
+      "interpretation": "universal",
+      "frequency": "always",
+      "minimum": null,
+      "maximum": null,
+      "unit": "entities",
+      "window": "each applicable authorized Rust development or assessment activity",
+      "cue": "During authorized Rust project work",
+      "basis": "explicit_text"
+    }
+  },
+  "categories": {
+    "domains": [
+      "project_architecture",
+      "rust_development",
+      "software_development"
+    ],
+    "topics": [
+      "rust_proactive_refactoring"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "project_types": [
+      "rust_project"
+    ],
+    "preconditions": [
+      "An authorized Rust project is being created, implemented, debugged or maintained, and this rule has been explicitly selected for the consumer."
+    ],
+    "exclusions": [
+      "Do not change unrelated repositories, bypass higher-priority project restrictions, or treat publication of this rule as automatic activation."
+    ]
+  },
+  "authority": {
+    "source": "Owner-approved Rust architecture and proactive refactoring policy; opt-in selection only",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "Owner-approved Rust modular architecture proposal, 2026-11-02",
+    "license": "MIT",
+    "notes": "Public-safe generalized architecture rule; historical unrelated rules and prompt generations are unchanged. The rule is inert until selected."
+  },
+  "governance": {
+    "created_on": "2026-11-02",
+    "updated_on": "2026-11-02",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ],
+  "semantic": {
+    "concept": "behavior_preserving_refactoring",
+    "aliases": []
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "id": "NOM-0266",
+  "version": "1.0.0",
+  "title": "Never trade modular architecture for a quicker edit",
+  "summary": "Do not append unrelated Rust code to an easy-to-edit file merely to minimize immediate implementation effort.",
+  "statement": "During authorized Rust project development, do not choose a shorter coding path that creates or perpetuates a god file: convenience, avoiding module integration, and minimizing touched files are not valid architectural justifications. Instead, integrate functionality into an appropriate cohesive module and refactor existing responsibility boundaries as needed, without introducing pointless abstraction.",
+  "rationale": "Owner-approved, public-safe Rust source organization policy. Governs structural cohesion and active maintenance without any source-length threshold.",
+  "language": "en",
+  "status": "published",
+  "norm": {
+    "kind": "prohibition",
+    "predicate": {
+      "action": "reject",
+      "object": "convenience_driven_monolith",
+      "target": "rust_implementation_decisions"
+    },
+    "permission_strength": "not_applicable",
+    "conditions": [
+      "An authorized Rust project is being created, implemented, debugged or maintained, and this rule has been explicitly selected for the consumer."
+    ],
+    "exceptions": [
+      "Do not change unrelated repositories, bypass higher-priority project restrictions, or treat publication of this rule as automatic activation.",
+      "Preserve correctness and established interfaces; sequence risky or conflicting refactors safely and report any block without declaring the debt resolved."
+    ],
+    "bounds": {
+      "quantifier": "all",
+      "interpretation": "universal",
+      "frequency": "always",
+      "minimum": null,
+      "maximum": null,
+      "unit": "entities",
+      "window": "each applicable authorized Rust development or assessment activity",
+      "cue": "During authorized Rust project work",
+      "basis": "explicit_text"
+    }
+  },
+  "categories": {
+    "domains": [
+      "project_architecture",
+      "rust_development",
+      "software_development"
+    ],
+    "topics": [
+      "rust_modular_architecture"
+    ],
+    "audiences": [
+      "ai_agents",
+      "human_authors",
+      "automations"
+    ]
+  },
+  "scope": {
+    "axes": {
+      "channel": [
+        "any"
+      ],
+      "visibility": [
+        "any"
+      ],
+      "artifact_kind": [
+        "any"
+      ],
+      "actor": [
+        "any"
+      ]
+    },
+    "project_types": [
+      "rust_project"
+    ],
+    "preconditions": [
+      "An authorized Rust project is being created, implemented, debugged or maintained, and this rule has been explicitly selected for the consumer."
+    ],
+    "exclusions": [
+      "Do not change unrelated repositories, bypass higher-priority project restrictions, or treat publication of this rule as automatic activation."
+    ]
+  },
+  "authority": {
+    "source": "Owner-approved Rust architecture and proactive refactoring policy; opt-in selection only",
+    "tier": "general_guidance",
+    "priority": 0,
+    "override_policy": "explicit_resolution"
+  },
+  "relations": {
+    "conflicts_with": [],
+    "exceptions_to": [],
+    "refines": [
+      "NOM-0256",
+      "NOM-0258"
+    ],
+    "depends_on": []
+  },
+  "provenance": {
+    "source_type": "authored",
+    "reference": "Owner-approved Rust modular architecture proposal, 2026-11-02",
+    "license": "MIT",
+    "notes": "Public-safe generalized architecture rule; historical unrelated rules and prompt generations are unchanged. The rule is inert until selected."
+  },
+  "governance": {
+    "created_on": "2026-11-02",
+    "updated_on": "2026-11-02",
+    "review_status": "approved"
+  },
+  "export_targets": [
+    "agents_md",
+    "chatgpt_custom_instructions",
+    "plain_text"
+  ],
+  "semantic": {
+    "concept": "convenience_driven_monolith",
+    "aliases": []
+  }
+}
