@@ -21,7 +21,7 @@ if(spec.previous_version!=='4'||spec.baseline_versions.D!=='7'||spec.baseline_ve
 const ids=spec.rule_ids;
 if(ids.length!==11||ids.some((id,i)=>id!=='NOM-'+String(256+i).padStart(4,'0')))throw Error('Rust architecture rule identity mismatch');
 const rules=ids.map(id=>{
- const raw=read('rules/'+id+'.json'),blob=crypto.createHash('sha1').update('blob '+Buffer.byteLength(raw)+'\\0'+raw).digest('hex');
+ const raw=read('rules/'+id+'.json'),blob=crypto.createHash('sha1').update('blob '+Buffer.byteLength(raw)+'\0'+raw).digest('hex');
  if(blob!==spec.rule_blob_sha1[id])throw Error('Rust architecture rule changed: '+id);
  const r=JSON.parse(raw);
  if(r.status!=='published'||r.id!==id||r.scope?.project_types?.includes('rust_project')!==true)throw Error('Rule scope drift: '+id);
