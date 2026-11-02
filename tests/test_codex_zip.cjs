@@ -58,9 +58,11 @@ test('ZIP is self-contained, safe, reproducible and contains no runtime machiner
 test('all selected general prompt versions are reflected in provenance',()=>{
  const {manifest}=generate();
  const versions=new Map(manifest.selected_general_prompts.map(x=>[x.key,x.version]));
- assert.equal(versions.get('S'),'6');
- assert.equal(versions.get('D'),'6');
- assert.equal(versions.get('A'),'4');
+ assert.equal(versions.get('S'),'7');
+ assert.equal(versions.get('D'),'7');
+ assert.equal(versions.get('A'),'5');
+ assert.equal(versions.get('F'),'2');
+ assert.equal(versions.get('G'),'2');
  assert.equal(manifest.selected_specialized_prompts.length,14);
- assert.ok(manifest.selected_specialized_prompts.every(x=>x.version==='4'));
+ assert.ok(manifest.selected_specialized_prompts.every(x=>x.version==='5'));
 });
