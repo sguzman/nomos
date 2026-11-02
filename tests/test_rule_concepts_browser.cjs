@@ -10,7 +10,9 @@ const catalog=require('../docs/catalog.json');
 test('all analyzed rules have coherent situation and intent links',()=>{
   const list=browser.linkedRules(catalog),lookup=browser.indexes(catalog);
   assert.equal(list.length,243);
-  assert.equal(catalog.rules.filter(x=>x.registry==='catalog').length,255);
+  const catalogRules=catalog.rules.filter(x=>x.registry==='catalog');
+  assert.ok(catalogRules.length>=266);
+  for(let id=256;id<=266;id++)assert.ok(catalogRules.some(r=>r.id==='NOM-'+String(id).padStart(4,'0')));
   assert.equal(list.some(x=>x.rule.id==='NOM-0244'),false);
   assert.equal(list.some(x=>x.rule.id==='NOM-0245'),false);
   assert.equal(list.some(x=>x.rule.id==='NOM-0246'),false);
