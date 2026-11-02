@@ -41,6 +41,6 @@ test('V5 specialized generation retains all fourteen keyboard bindings and embed
   assert.match(e.text,/only when the actual authorized project includes Rust/);
   assert.match(e.text,/without numerical file\/function line limits/);
  }
- for(const k of ['3','#'])assert.match(v5.selected.entries.find(e=>e.key===k).text,/Do not enroll/);
+ for(const k of ['3','·'])assert.match(v5.selected.entries.find(e=>e.key===k).text,/Do not enroll/);
  assert.deepEqual(v5.combined.entries.slice(0,10),read('docs/exports/project-stewardship-approved-trievium.json').entries);
 });
