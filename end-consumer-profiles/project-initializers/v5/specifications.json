@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "kind": "project_initializer_v5_rust_architecture",
+  "profile_id": "EC-PROFILE-0002",
+  "created_on": "2026-11-02",
+  "approval_reference": "owner-2026-11-02-rust-modular-architecture-approval",
+  "previous_version": "4",
+  "baseline_versions": {
+    "D": "7",
+    "A": "5"
+  },
+  "previous_baseline_versions": {
+    "D": "6",
+    "A": "4"
+  },
+  "rule_ids": [
+    "NOM-0256",
+    "NOM-0257",
+    "NOM-0258",
+    "NOM-0259",
+    "NOM-0260",
+    "NOM-0261",
+    "NOM-0262",
+    "NOM-0263",
+    "NOM-0264",
+    "NOM-0265",
+    "NOM-0266"
+  ],
+  "rule_blob_sha1": {
+    "NOM-0256": "ee6ddfed4d730215cf53c5331a241f8db6d1d1fa",
+    "NOM-0257": "ed566d0ea002949491d6ace72ba76d5afc66dd35",
+    "NOM-0258": "6db3ce2f215df61ee15b4ace043aed8240d86e17",
+    "NOM-0259": "8bc999a3f2c04dd7934b4edc0e6195be5ac2c4a2",
+    "NOM-0260": "fb6c245c4fd1edd9dc3dddb808fe1006227e9418",
+    "NOM-0261": "2056509d837059326d1985afcd218d57e97b0494",
+    "NOM-0262": "a9b997fe0fd82309b71c625574418e189fcefe83",
+    "NOM-0263": "55588460e5ec27fd1ab2a7d4654a1f2a9d9c8f19",
+    "NOM-0264": "d95ce60ec757c47f3d88acd8820b747ba4cb2be5",
+    "NOM-0265": "a9c5f41e9bbdd40a3b47dd4b8adc4075484c8f6e",
+    "NOM-0266": "06b593f0a7c2026b8639d7cc2d57bb070f55288e"
+  },
+  "project_type_gating": "Only when authorized project actually contains Rust code; Tarium membership alone is not a Rust mandate",
+  "historical_predecessor_preserved": true
+}

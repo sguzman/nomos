@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "kind": "project_initializer_approved_source_contract",
+  "profile_id": "EC-PROFILE-0002",
+  "version": "5",
+  "approval_reference": "owner-2026-11-02-rust-modular-architecture-approval",
+  "published_on": "2026-11-02",
+  "previous_version": "4",
+  "generated_at_build": true,
+  "source_generator": "tools/build_project_initializers_v5.cjs",
+  "source_spec": "end-consumer-profiles/project-initializers/v5/specifications.json",
+  "selected_trievium_path": "docs/exports/project-initializers-trievium.json",
+  "combined_trievium_path": "docs/exports/project-stewardship-with-initializers-trievium.json",
+  "immutable_predecessors": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4"
+  ],
+  "baseline_versions": {
+    "D": "7",
+    "A": "5"
+  },
+  "all_full_profile_selected_rule_ids_embedded": true,
+  "rule_scope_gating_required": true,
+  "source_profile_finalization_not_implied": true,
+  "notes": "V4 preserved in its independent generator archive; architecture rules are scoped to actual authorized Rust project work. No numerical line-count limits."
+}
