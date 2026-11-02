@@ -8,10 +8,13 @@ const v3spec=data('end-consumer-profiles/project-initializers/v3/specifications.
 const old=data('end-consumer-profiles/project-initializers/v3/trievium.json');
 const oldReport=data('docs/exports/project-initializers-v3-manifest.json');
 const published=data('docs/data/project-stewardship-published-versions.json');
-const generic=data('docs/exports/project-stewardship-approved-trievium.json');
+const currentGeneric=data('docs/exports/project-stewardship-approved-trievium.json');
 const ids=['NOM-0250','NOM-0251','NOM-0252','NOM-0253','NOM-0254','NOM-0255'];
 function baseline(key,version){const x=published.published_versions.find(p=>p.key===key&&p.version===version);if(!x||!x.owner_approved||sha(x.text)!==x.sha256)throw Error('Unapproved or corrupt '+key+version);return x.text;}
 const d5=baseline('D','5'),d6=baseline('D','6'),a3=baseline('A','3'),a4=baseline('A','4');
+// Preserve the V4 combined baseline even when later general prompt selections advance.
+const historicalGeneral={S:'6',D:'6',A:'4',F:'1',G:'1'};
+const generic={...currentGeneric,entries:currentGeneric.entries.map(e=>historicalGeneral[e.key]?{...e,text:baseline(e.key,historicalGeneral[e.key])}:e)};
 if(spec.previous_source_sha256!==v3spec.expected_source_sha256||sha(pretty(old))!==v3spec.expected_source_sha256||oldReport.source_sha256!==v3spec.expected_source_sha256)throw Error('V3 historical input drift');
 const rules=ids.map(id=>{
  const raw=read('rules/'+id+'.json');
@@ -38,9 +41,9 @@ if(entries.length!==14||new Set(combined.entries.map(e=>e.key)).size!==24)throw 
 const report={schema_version:1,kind:'project_initializer_v4_rule_coverage',profile_id:'EC-PROFILE-0002',source_version:'4',approved_baseline:{D:'6',A:'4'},provisional_full_profile_selection:true,rule_statements_embedded:true,entries:metadata,source_sha256:sha(pretty(selected)),combined_sha256:sha(pretty(combined)),historical_versions_preserved:true,typography_rules:ids};
 const files=[
  ['end-consumer-profiles/project-initializers/v4/trievium.json',pretty(selected)],
- ['docs/exports/project-initializers-trievium.json',pretty(selected)],
- ['docs/exports/project-stewardship-with-initializers-trievium.json',pretty(combined)],
- ['docs/exports/project-initializers-v4-manifest.json',pretty(report)]
+ ['end-consumer-profiles/project-initializers/v4/archived-selected-trievium.json',pretty(selected)],
+ ['end-consumer-profiles/project-initializers/v4/archived-combined-trievium.json',pretty(combined)],
+ ['end-consumer-profiles/project-initializers/v4/archived-manifest.json',pretty(report)]
 ];
 function publish(check=false){for(const [p,s] of files){if(check){if(read(p)!==s)throw Error('V4 generated output drift '+p)}else{fs.mkdirSync(path.dirname(path.join(root,p)),{recursive:true});fs.writeFileSync(path.join(root,p),s)}}return report;}
 if(require.main===module){const r=publish(process.argv.includes('--check'));process.stdout.write('V4 '+r.entries.length+' prompts, '+r.entries.reduce((n,e)=>n+e.rule_count,0)+' rule references, '+r.source_sha256+'\n');}

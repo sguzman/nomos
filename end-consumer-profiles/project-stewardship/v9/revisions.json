@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "kind": "end_consumer_rust_architecture_revisions",
+  "profile_id": "EC-PROFILE-0001",
+  "approved_on": "2026-11-02",
+  "approval_reference": "owner-2026-11-02-rust-modular-architecture-approval",
+  "selected_keys": [
+    "S",
+    "D",
+    "A",
+    "F",
+    "G"
+  ],
+  "revisions": [
+    {
+      "prompt_id": "EC-PROMPT-0003",
+      "key": "S",
+      "prior_version": "6",
+      "selected_version": "7",
+      "prior_sha256": "e96dcaa404a937d4d64de9e3eb60461a8542d04589dd1e201b4d3d4b7496d986",
+      "selected_sha256": "90c3e2e8ba5c21a9258be9b2dd064600d47e88a265d1e1ba5d04535fd7679397",
+      "insertion": "## 8E. Rust Module Architecture and Active Refactoring 🦀\n\nFor an authorized Rust project, recover and enforce NOM-0256 through NOM-0266 during resumed implementation, rather than silently restoring a monolithic source layout. Separate coherent responsibilities into modules and actively find/refactor pre-existing god files across the authorized project, not only files touched by the next task. **Never use arbitrary file/function line counts or size limits** as architecture policy. Judge coupling, cohesion, ownership, and clarity, and avoid mechanical fragmentation.\n\nRetain behavior and compatibility, verify structural changes, and record unresolved architectural debt or blockers. Apply the requirement only when Rust code is actually within project scope; do not use it as authority to alter unrelated repositories or create speculative features.\n\n",
+      "anchor": "## 9. User Interaction Rules 🤝"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0005",
+      "key": "D",
+      "prior_version": "6",
+      "selected_version": "7",
+      "prior_sha256": "48e189e68fe24e6af7c0f23cb1faa9a193436e0558f525a74cef825b2e3ccef2",
+      "selected_sha256": "10776cfd47719de6799f839de86e18e45406cca56a8649e79e618ba1c0b15419",
+      "insertion": "## 8E. Rust Module Architecture and Active Refactoring 🦀\n\nWhen the authorized project contains Rust, apply canonical Nomos rules NOM-0256 through NOM-0266 to **new and existing** source code. Organize implementation into cohesive responsibility- and feature-oriented modules with deliberate ownership and APIs. Keep crate/module entrypoints focused; prevent dumping-ground files and convenience-driven monoliths. **No file or function line-count targets, warnings, soft limits, or hard caps:** size alone neither proves nor disproves a god file. Avoid superficial line shuffling, needless wrappers, and gratuitous crate proliferation.\n\nInspect architecture across the **whole authorized Rust project**, not only newly edited files. Actively refactor existing god files and mixed-responsibility modules as part of normal project work, continuously and before claiming full completion. Preserve behavior, API compatibility, tests, and port/fork contracts; coordinate conflicting work safely and report blocked or unverified architectural debt rather than claiming it fixed. This rule applies only to authorized Rust projects and does not authorize changes to unrelated repositories or unrequested features.\n\n",
+      "anchor": "## 9. User Interaction Rules 🤝"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0007",
+      "key": "A",
+      "prior_version": "4",
+      "selected_version": "5",
+      "prior_sha256": "972ddfdf2b73412938c030f914a6e4775017936851afd30efdc4caf5f99c0a18",
+      "selected_sha256": "2c5415b95497e036e5a34b4aa38be5ee4b74966145c19cec5eca2287846f4a54",
+      "insertion": "## 3A. 🦀 Rust Architecture Adoption and Remediation\n\nIf the adopted project contains Rust, explicitly audit source-tree responsibilities and coupling throughout the **authorized project**, not merely files needed for the next feature. Apply NOM-0256 through NOM-0266: actively refactor existing god files and mixed-responsibility modules into coherent, feature-oriented structure. A large cohesive file can remain large; **no numerical source-file or function length limits** apply. Reject arbitrary splitting, shallow wrappers and convenient catch-all files. Preserve behavior, existing APIs, port/fork compatibility and tests, and document genuinely blocked work with evidence. Do not change unrelated repositories or invent features as a substitute for architectural maintenance.\n\n",
+      "anchor": "## 4. ▶️ Continuation and Completion"
+    },
+    {
+      "prompt_id": "EC-PROMPT-0008",
+      "key": "F",
+      "prior_version": "1",
+      "selected_version": "2",
+      "prior_sha256": "accc058adb864509e45570389b73031c08fb512fea7b418d3f863d6b18bc3626",
+      "selected_sha256": "aea0e7102fa44cf32a979325491b7627faaadfa4c8c7e4921ea0394870e0ab35",
+      "insertion": "\n\nFor an authorized Rust project, NOM-0256 through NOM-0266 also apply while debugging: inspect relevant module boundaries and the broader project architecture; actively remediate existing god files and mixed responsibilities rather than choosing a quick patch that entrenches them. These owner-approved structural responsibilities are not prohibited as \"unrelated refactors\" merely because the immediate symptom is narrower. Keep refactoring behavior-preserving and appropriately verified; never impose file or function line-count limits, add superficial modules, or alter unrelated repositories.",
+      "anchor": null
+    },
+    {
+      "prompt_id": "EC-PROMPT-0009",
+      "key": "G",
+      "prior_version": "1",
+      "selected_version": "2",
+      "prior_sha256": "6b7155eb0910b697f79fc20df739874d8a016e2829b884b6e7f934de82f1241a",
+      "selected_sha256": "12b669abe9453226cf1b5227209d26aaa3b23392daf554c1f47bd8d0a8873e64",
+      "insertion": "\n\nFor Rust projects, audit the **entire authorized project's** source organization for god files, mixed responsibilities, coupling, entrypoint bloat and shallow pseudo-modules under NOM-0256 through NOM-0266. Do not flag size alone or impose line-count limits. Incorporate verified structural debt into the project's legitimate remaining work and actively remediate it when this audit's execution authority covers development. Preserve behavior and report any deferred or blocked restructuring honestly; never expand into unrelated repositories.",
+      "anchor": null
+    }
+  ],
+  "unchanged_keys": [
+    "J",
+    "L",
+    "H",
+    "K",
+    "U"
+  ],
+  "new_rules": [
+    "NOM-0256",
+    "NOM-0257",
+    "NOM-0258",
+    "NOM-0259",
+    "NOM-0260",
+    "NOM-0261",
+    "NOM-0262",
+    "NOM-0263",
+    "NOM-0264",
+    "NOM-0265",
+    "NOM-0266"
+  ],
+  "limitations": [
+    "Apply only when authorized project contains Rust; no arbitrary line-length thresholds.",
+    "Active remediation stays within authorized Rust project and preserves behavior."
+  ]
+}
