@@ -8,7 +8,7 @@ const sha=s=>createHash('sha256').update(s).digest('hex');
 const original=json('end-consumer-profiles/project-stewardship/v0/trievium.json');
 const profile=json('end-consumer-profiles/project-stewardship/profile.json');
 const live=json('docs/data/project-stewardship-published-versions.json');
-const published={...live,published_versions:live.published_versions.filter(p=>!(['S:4','D:4','A:2','S:5','D:5','A:3','S:6','D:6','A:4'].includes(p.key+':'+p.version))),selected_versions:Object.fromEntries(Object.entries(live.selected_versions).map(([id,v])=>[id,id==='EC-PROMPT-0003'||id==='EC-PROMPT-0005'?'3':id==='EC-PROMPT-0007'?'1':v]))};
+const published={...live,published_versions:live.published_versions.filter(p=>!(['S:4','D:4','A:2','S:5','D:5','A:3','S:6','D:6','A:4','S:7','D:7','A:5','F:2','G:2'].includes(p.key+':'+p.version))),selected_versions:Object.fromEntries(Object.entries(live.selected_versions).map(([id,v])=>[id,id==='EC-PROMPT-0003'||id==='EC-PROMPT-0005'?'3':id==='EC-PROMPT-0007'?'1':id==='EC-PROMPT-0008'?'1':id==='EC-PROMPT-0009'?'1':v]))};
 const previous=json('end-consumer-profiles/project-stewardship/v4/selected-versions.json');
 const current=json('end-consumer-profiles/project-stewardship/v5/selected-versions.json');
 const revisions=json('end-consumer-profiles/project-stewardship/v5/revisions.json');
