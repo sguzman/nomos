@@ -5,7 +5,7 @@ const ids=Array.from({length:6},(_,i)=>'NOM-'+String(250+i).padStart(4,'0'));
 test('Six typography rules are optional contextual defaults, not font mandates',()=>{
  for(const id of ids){const r=read('rules/'+id+'.json');assert.equal(r.status,'published');assert.equal(r.norm.predicate.action,'consider_and_prefer');assert.match(r.statement,/not a mandatory typeface/);assert.match(r.statement,/alternative/);assert.ok(r.norm.conditions.length);assert.ok(r.norm.exceptions.length);}
 });
-test('D/S V6 and A V4 are SHA verified, reversible, and currently selected',()=>{
+test('Archived D/S V6 and A V4 remain SHA verified and reversible',()=>{
  const m=read('docs/data/project-stewardship-published-versions.json'),revs=read('end-consumer-profiles/project-stewardship/v8/revisions.json');
  for(const r of revs.revisions){const before=m.published_versions.find(x=>x.key===r.key&&x.version===r.prior_version),after=m.published_versions.find(x=>x.key===r.key&&x.version===r.selected_version);
   assert.equal(hash(before.text),r.prior_sha256);assert.equal(hash(after.text),r.selected_sha256);assert.equal(after.text.replace(r.insertion,''),before.text);assert.equal(m.selected_versions[r.prompt_id],{S:'7',D:'7',A:'5'}[r.key]); // V8 text retained; V9 successor selected
