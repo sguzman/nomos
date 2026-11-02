@@ -133,6 +133,7 @@ jobs:
           node --test tests/test_project_initializers_layout_v2.cjs
           node --test tests/test_project_initializers_layout_v3.cjs
           node --test tests/test_typography_prompts.cjs
+          node --test tests/test_rust_architecture_prompts.cjs
           node --check tools/build_codex_zip.cjs
           node tools/build_codex_zip.cjs --check
           node --test tests/test_codex_zip.cjs
